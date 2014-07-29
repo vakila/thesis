@@ -80,30 +80,35 @@
 % **************************************************
 % Information and Commands for Reuse
 % **************************************************
-\newcommand{\thesisTitle}{Super awesome thesis title}
-\newcommand{\thesisName}{Anjana Sofia Vakil}
+\newcommand{\thesisTitle}{Individualized feedback for lexical stress errors}
+\newcommand{\thesisSubtitle}{Towards a CAPT system for French learners of German}
+
+\newcommand{\authorName}{Anjana Sofia Vakil}
+\newcommand{\authorContact}{anjanav@coli.uni-saarland.de}
+
 \newcommand{\thesisSubject}{Thesis subject (whatever that means)}
 \newcommand{\thesisDate}{10 Never, 2014}
-\newcommand{\thesisVersion}{Thesis version (what is this?)}
+%\newcommand{\thesisVersion}{Thesis version (what is this?)}
 
-\newcommand{\thesisFirstReviewer}{Jane Doe}
-\newcommand{\thesisFirstReviewerUniversity}{\protect{Clean Thesis Style University}}
-\newcommand{\thesisFirstReviewerDepartment}{Department of Clean Thesis Style}
+%\newcommand{\thesisFirstReviewer}{Jane Doe}
+%\newcommand{\thesisFirstReviewerUniversity}{\protect{Clean Thesis Style University}}
+%\newcommand{\thesisFirstReviewerDepartment}{Department of Clean Thesis Style}
+%
+%\newcommand{\thesisSecondReviewer}{John Doe}
+%\newcommand{\thesisSecondReviewerUniversity}{\protect{Clean Thesis Style University}}
+%\newcommand{\thesisSecondReviewerDepartment}{Department of Clean Thesis Style}
 
-\newcommand{\thesisSecondReviewer}{John Doe}
-\newcommand{\thesisSecondReviewerUniversity}{\protect{Clean Thesis Style University}}
-\newcommand{\thesisSecondReviewerDepartment}{Department of Clean Thesis Style}
+\newcommand{\thesisFirstSupervisor}{Prof. Dr. Bernd M\"{o}bius}
+\newcommand{\thesisSecondSupervisor}{Dr. J\"{u}rgen Trouvain}
 
-\newcommand{\thesisFirstSupervisor}{Jane Doe}
-\newcommand{\thesisSecondSupervisor}{John Smith}
-
-\newcommand{\thesisUniversity}{\protect{Clean Thesis Style University}}
-\newcommand{\thesisUniversityDepartment}{Department of Clean Thesis Style}
-\newcommand{\thesisUniversityInstitute}{Institut for Clean Thesis Dev}
-\newcommand{\thesisUniversityGroup}{Clean Thesis Group (CTG)}
-\newcommand{\thesisUniversityCity}{City}
-\newcommand{\thesisUniversityStreetAddress}{Street address}
-\newcommand{\thesisUniversityPostalCode}{Postal Code}
+\newcommand{\thesisUniversity}{\protect{Saarland University}}
+\newcommand{\thesisUniversityDepartment}{Department of Computational Linguistics \& Phonetics}
+\newcommand{\thesisUniversityInstitute}{Fachrichtung 4.7 Allgemeine Linguistik
+}
+%\newcommand{\thesisUniversityGroup}{Clean Thesis Group (CTG)}
+\newcommand{\thesisUniversityCity}{Saarbr\"{u}cken}
+\newcommand{\thesisUniversityStreetAddress}{Postfach 15 11 50}
+\newcommand{\thesisUniversityPostalCode}{66041}
 
 % **************************************************
 % Load and Configure Packages
@@ -123,7 +128,7 @@
 \hypersetup{					% setup the hyperref-package options
 	pdftitle={\thesisTitle},	% 	- title (PDF meta)
 	pdfsubject={\thesisSubject},% 	- subject (PDF meta)
-	pdfauthor={\thesisName},	% 	- author (PDF meta)
+	pdfauthor={\authorName},	% 	- author (PDF meta)
 	plainpages=false,			% 	- 
 	colorlinks=false,			% 	- colorize links?
 	pdfborder={0 0 0},			% 	-
@@ -131,6 +136,11 @@
 	bookmarksnumbered=true,		%
 	bookmarksopen=true			%
 }
+
+%TODO reverse in final version
+\DeclareGraphicsExtensions{.png,.pdf}
+
+\addbibresource{thesis-refs.bib}
 
 % **************************************************
 % Document CONTENT

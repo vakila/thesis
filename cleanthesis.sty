@@ -281,6 +281,7 @@
 	footskip=2cm,					% 	- footer skip size
 ]{geometry}
 %
+%TODO remove this?
 \RequirePackage[					% advanced quotes
 	strict=true,					% 	- warning are errors now
 	style=german					% 	- german quotes
@@ -301,12 +302,13 @@
 	url=false,							% 	- don't show url tags
 	doi=false,						% 	- don't show doi tags
 	urldate=long,					% 	- display type for dates
-	maxnames=3,%
-	minnames=1,%
-	maxbibnames=25,%
-	minbibnames=3,%
+%TODO figure out what max/min-names declarations are really necessary
+%	maxnames=3,%				-- I think this is no longer necessary
+%	minnames=1,%				-- "
+	maxbibnames=100,%
+%	minbibnames=3,%			-- Unnecessary?
 	maxcitenames=2,%
-	mincitenames=1%
+%	mincitenames=1%			-- "
 ]{biblatex}
 %\bibliography{bib-refs}		% -changed to \addbibresource in main .tex
 %\DefineBibliographyStrings{ngerman}{%

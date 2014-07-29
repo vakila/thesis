@@ -282,10 +282,10 @@
 ]{geometry}
 %
 %TODO remove this?
-\RequirePackage[					% advanced quotes
-	strict=true,					% 	- warning are errors now
-	style=german					% 	- german quotes
-]{csquotes}
+%\RequirePackage[					% advanced quotes
+%	strict=true,					% 	- warning are errors now
+%	style=german					% 	- german quotes
+%]{csquotes}
 %
 
 % **************************************************
@@ -294,7 +294,7 @@
 \RequirePackage[							% use biblatex for bibliography
 	backend=\cthesis@bibsys,		% 	- use biber backend (bibtex replacement) or bibtex
 	bibencoding=utf8,			% 	- use auto file encode
-	style=alphabetic,				% 	- use alphabetic (or numeric) bib style
+	style=authoryear,				% 	- use alphabetic (or numeric) bib style
 	natbib=true,					% 	- allow natbib commands
 	hyperref=true,					% 	- activate hyperref support
 	backref=true,					% 	- activate backrefs
@@ -645,6 +645,10 @@
 % table of contents, list of figures and list of tables
 \RequirePackage{tocloft}
 % 
+\renewcommand{\cfttoctitlefont}{\usekomafont{chapter}}
+\renewcommand{\cftchapfont}{\tgherosfont\bfseries}
+\renewcommand{\cftloftitlefont}{\usekomafont{chapter}}
+\renewcommand{\cftlottitlefont}{\usekomafont{chapter}}
 % > adjusts the indention for figure and table entries (lof and lot)
 %   -- \cftsetindents{entry}{indent}{numwidth} sets the entry's indent to
 %      the length indent and its numwidth to the length numwidth

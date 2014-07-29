@@ -140,7 +140,7 @@
 %TODO reverse in final version
 \DeclareGraphicsExtensions{.png,.pdf}
 
-\addbibresource{thesis-refs.bib}
+\addbibresource{library.bib}
 
 % **************************************************
 % Document CONTENT
@@ -159,20 +159,32 @@
 % Front matter
 % --------------------------
 \pagenumbering{roman}			% roman page numbing (invisible for empty page style)
-\pagestyle{empty}				% no header or footers
-\input{content/titlepages}		% INCLUDE: all titlepages
+
+\pagestyle{empty}					% no header or footers
+\input{frontmatter/titlepages}	% INCLUDE: all titlepages
 \cleardoublepage
 
-\pagestyle{plain}				% display just page numbers
-\input{content/abstract}		% INCLUDE: the abstracts (english and german)
+\pagestyle{empty}					% no header or footers
+\input{frontmatter/declaration}	% INCLUDE: all titlepages
+\cleardoublepage
+
+\pagestyle{plain}						% display just page numbers
+\input{frontmatter/abstract}		% INCLUDE: the abstract
 \cleardoublepage
 %
-\input{content/acknowledgement} % INCLUDE: acknowledgement
+\input{frontmatter/acknowledgement} % INCLUDE: acknowledgement
 \cleardoublepage
 %
-\setcounter{tocdepth}{2}		% define depth of toc
-\tableofcontents				% display table of contents
+%\setcounter{tocdepth}{2}		% define depth of toc
+\tableofcontents					% display table of contents
 \cleardoublepage
+
+\listoffigures
+\cleardoublepage
+
+\listoftables
+\cleardoublepage
+
 
 % --------------------------
 % Body matter
@@ -181,11 +193,13 @@
 \setcounter{page}{1}			% set page counter
 \pagestyle{maincontentstyle} 	% fancy header and footer
 
-\input{content/chapter-introduction} % INCLUDE: introduction
-\input{content/chapter-related-work} % INCLUDE: related work
+\input{content/proposal}
+
+%\input{content/chapter-introduction} % INCLUDE: introduction
+%\input{content/chapter-related-work} % INCLUDE: related work
 \input{content/chapter-system}	% INCLUDE: system
-\input{content/chapter-concepts} % INCLUDE: concepts
-\input{content/chapter-conclusion} % INCLUDE: conclusion
+%\input{content/chapter-concepts} % INCLUDE: concepts
+%\input{content/chapter-conclusion} % INCLUDE: conclusion
 \cleardoublepage
 
 % --------------------------
@@ -196,22 +210,24 @@
 \renewcommand{\bibfont}{\normalfont\small}
 \setlength{\biblabelsep}{0pt}
 \setlength{\bibitemsep}{0.5\baselineskip plus 0.5\baselineskip}
-\nocite{*}
-\printbibliography[nottype=online]
-\printbibliography[heading=subbibliography,title={Webseiten},type=online,prefixnumbers={@}]
+%\nocite{*}
+\printbibliography%[title={References}]
+%\printbibliography[nottype=online]
+%\printbibliography[heading=subbibliography,title={Webseiten},type=online,prefixnumbers={@}]
 }
-\cleardoublepage
 
-\listoffigures
-\cleardoublepage
-
-\listoftables
-\cleardoublepage
-
-\input{content/colophon}
-\cleardoublepage
-
-\input{content/declaration}
+%\cleardoublepage
+%
+%\listoffigures
+%\cleardoublepage
+%
+%\listoftables
+%\cleardoublepage
+%
+%\input{content/colophon}
+%\cleardoublepage
+%
+%\input{content/declaration}
 \clearpage
 \newpage
 \mbox{}

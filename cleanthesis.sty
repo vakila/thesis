@@ -286,30 +286,34 @@
 	style=german					% 	- german quotes
 ]{csquotes}
 %
-\RequirePackage[					% use biblatex for bibliography
+
+% **************************************************
+% Biblatex Bibliography 
+% **************************************************
+\RequirePackage[							% use biblatex for bibliography
 	backend=\cthesis@bibsys,		% 	- use biber backend (bibtex replacement) or bibtex
-	bibencoding=utf8,				% 	- use auto file encode
+	bibencoding=utf8,			% 	- use auto file encode
 	style=alphabetic,				% 	- use alphabetic (or numeric) bib style
 	natbib=true,					% 	- allow natbib commands
 	hyperref=true,					% 	- activate hyperref support
 	backref=true,					% 	- activate backrefs
 	isbn=false,						% 	- don't show isbn tags
-	url=false,						% 	- don't show url tags
+	url=false,							% 	- don't show url tags
 	doi=false,						% 	- don't show doi tags
 	urldate=long,					% 	- display type for dates
 	maxnames=3,%
 	minnames=1,%
-	maxbibnames=5,%
+	maxbibnames=25,%
 	minbibnames=3,%
 	maxcitenames=2,%
 	mincitenames=1%
 ]{biblatex}
-\bibliography{bib-refs}
-\DefineBibliographyStrings{ngerman}{%
-	andothers = {{et\,al\adddot}}, % 'et al.' instead of 'u.a.'
-	backrefpage = {{zitiert auf Seite}},%
-	backrefpages = {{zitiert auf den Seiten}},%
-}
+%\bibliography{bib-refs}		% -changed to \addbibresource in main .tex
+%\DefineBibliographyStrings{ngerman}{%
+%	andothers = {{et\,al\adddot}}, % 'et al.' instead of 'u.a.'
+%	backrefpage = {{zitiert auf Seite}},%
+%	backrefpages = {{zitiert auf den Seiten}},%
+%}
 
 % **************************************************
 % Text Format
@@ -438,17 +442,18 @@
 \newcommand{\TODO}[1]{{\color{color_todo}\textbf{[TODO #1]}}}
 %
 %
+%TODO	CAN I REMOVE THESE?
 % ref commands, e.g. for images, tables and text labels
 % --------------------------------------------------
 % RESULT = (siehe Tab. 12.4)
-\newcommand{\tabref}[1]{(siehe Tab.~\ref{#1})}
+\newcommand{\tabref}[1]{(see Tab.~\ref{#1})}
 %
 % RESULT = (siehe Tab. 12.4)
-\newcommand{\tableref}[1]{(siehe Tab.~\ref{#1} Seite~\pageref{#1})}
+\newcommand{\tableref}[1]{(see Tab.~\ref{#1} Page~\pageref{#1})}
 %
 % --------------------------------------------------
 % RESULT = (siehe 3.4)
-\newcommand{\tref}[1]{(siehe \ref{#1})}
+\newcommand{\tref}[1]{(see \ref{#1})}
 %
 % RESULT = Abschnitt 3.4
 \newcommand{\treft}[1]{Abschnitt~\ref{#1}}
@@ -651,6 +656,7 @@
 % **************************************************
 %
 % Clean chapter quotations
+%TODO remove huge gray quotation mark?
 \newcommand{\hugequote}{%
 	{\book\fontsize{75}{80}\selectfont%
 	\hspace*{-.475em}\color{ctcolorgraylight}%

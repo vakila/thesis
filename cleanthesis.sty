@@ -297,7 +297,7 @@
 	style=authoryear,				% 	- use alphabetic (or numeric) bib style
 	natbib=true,					% 	- allow natbib commands
 	hyperref=true,					% 	- activate hyperref support
-	backref=true,					% 	- activate backrefs
+	backref=false,					% 	- activate backrefs		%TODO true in final
 	isbn=false,						% 	- don't show isbn tags
 	url=false,							% 	- don't show url tags
 	doi=false,						% 	- don't show doi tags
@@ -647,6 +647,7 @@
 % 
 \renewcommand{\cfttoctitlefont}{\usekomafont{chapter}}
 \renewcommand{\cftchapfont}{\tgherosfont\bfseries}
+%\renewcommand{\cftsubsubsecfont}{\itshape}		% shouldn't have subsub in ToC
 \renewcommand{\cftloftitlefont}{\usekomafont{chapter}}
 \renewcommand{\cftlottitlefont}{\usekomafont{chapter}}
 % > adjusts the indention for figure and table entries (lof and lot)

@@ -59,7 +59,7 @@
 % **************************************************
 \documentclass[%
 	paper=A4,					% paper size --> A4 is default in Germany
-	twoside=true,				% onesite or twoside printing
+	twoside=false,				% onesite or twoside printing 	%TODO true in final
 	openright,					% doublepage cleaning ends up right side
 	parskip=full,				% spacing value / method for paragraphs
 	chapterprefix=true,		% prefix for chapter marks
@@ -116,7 +116,7 @@
 \usepackage[utf8]{inputenc}		% defines file's character encoding
 \usepackage[english]{babel} % babel system, adjust the language of the content
 \usepackage[					% clean thesis style
-	figuresep=colon,%
+	figuresep=colon,%		%TODO change?
 	sansserif=false,%
 	hangfigurecaption=false,%
 	hangsection=true,%
@@ -125,16 +125,16 @@
 	colortheme=bluemagenta,%
 ]{cleanthesis}
 
-\hypersetup{					% setup the hyperref-package options
-	pdftitle={\thesisTitle},	% 	- title (PDF meta)
-	pdfsubject={\thesisSubject},% 	- subject (PDF meta)
-	pdfauthor={\authorName},	% 	- author (PDF meta)
-	plainpages=false,			% 	- 
-	colorlinks=false,			% 	- colorize links?
-	pdfborder={0 0 0},			% 	-
-	breaklinks=true,			% 	- allow line break inside links
+\hypersetup{								% setup the hyperref-package options
+	pdftitle={\thesisTitle},				% 	- title (PDF meta)
+	pdfsubject={\thesisSubject},	% 	- subject (PDF meta)
+	pdfauthor={\authorName},		% 	- author (PDF meta)
+	plainpages=false,					% 	- 
+	colorlinks=false,						% 	- colorize links?
+	pdfborder={0 0 0},					% 	-
+	breaklinks=true,						% 	- allow line break inside links
 	bookmarksnumbered=true,		%
-	bookmarksopen=true			%
+	bookmarksopen=true				%
 }
 
 %TODO reverse in final version
@@ -160,30 +160,39 @@
 % --------------------------
 \pagenumbering{roman}			% roman page numbing (invisible for empty page style)
 
-\pagestyle{empty}					% no header or footers
-\input{frontmatter/titlepages}	% INCLUDE: all titlepages
+%TODO replace real front matter in final
+
+\pagestyle{empty}
+\input{frontmatter/proposal-front}
 \cleardoublepage
 
-\pagestyle{empty}					% no header or footers
-\input{frontmatter/declaration}	% INCLUDE: all titlepages
-\cleardoublepage
-
-\pagestyle{plain}						% display just page numbers
-\input{frontmatter/abstract}		% INCLUDE: the abstract
-\cleardoublepage
+%\pagestyle{empty}					% no header or footers
+%\input{frontmatter/titlepages}	% INCLUDE: all titlepages
+%\cleardoublepage
 %
-\input{frontmatter/thanks} % INCLUDE: acknowledgement
-\cleardoublepage
+%\pagestyle{empty}					% no header or footers
+%\input{frontmatter/declaration}	% INCLUDE: all titlepages
+%\cleardoublepage
 %
-%\setcounter{tocdepth}{2}		% define depth of toc
-\tableofcontents					% display table of contents
-\cleardoublepage
-
-\listoffigures
-\cleardoublepage
-
-\listoftables
-\cleardoublepage
+%\pagestyle{plain}						% display just page numbers
+%\input{frontmatter/abstract}		% INCLUDE: the abstract
+%\cleardoublepage
+%%
+%\input{frontmatter/thanks} % INCLUDE: acknowledgement
+%\cleardoublepage
+%%
+%
+%\input{frontmatter/contents} % INCLUDE: ToC, LoF, LoT
+%%% MOVED the below to frontmatter/contents
+%%%\setcounter{tocdepth}{2}		% define depth of toc
+%%\tableofcontents					% display table of contents
+%%\cleardoublepage
+%%
+%%\listoffigures
+%%\cleardoublepage
+%%
+%%\listoftables
+%%\cleardoublepage
 
 
 % --------------------------
@@ -193,13 +202,13 @@
 \setcounter{page}{1}			% set page counter
 \pagestyle{maincontentstyle} 	% fancy header and footer
 
-\input{content/proposal}
 
-%\input{content/chapter-introduction} % INCLUDE: introduction
-%\input{content/chapter-related-work} % INCLUDE: related work
-%\input{content/chapter-system}	% INCLUDE: system
-%\input{content/chapter-concepts} % INCLUDE: concepts
-%\input{content/chapter-conclusion} % INCLUDE: conclusion
+\input{content/intro} 	% INCLUDE: introduction
+\input{content/background} 	% INCLUDE: background & related work
+\input{content/diagnosis}			% INCLUDE: diagnosis
+\input{content/feedback}			% INCLUDE: feedback
+%\input{content/future}				% INCLUDE: future work
+\input{content/conclusion} 		% INCLUDE: conclusion
 \cleardoublepage
 
 % --------------------------
@@ -217,17 +226,7 @@
 }
 
 \cleardoublepage
-%
-%\listoffigures
-%\cleardoublepage
-%
-%\listoftables
-%\cleardoublepage
-%
-%\input{content/colophon}
-%\cleardoublepage
-%
-%\input{content/declaration}
+
 
 %TODO put this back in? (instead of the \cleardoublepage after bib)
 %\clearpage

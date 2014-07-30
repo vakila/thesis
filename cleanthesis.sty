@@ -546,19 +546,30 @@
 % > formats: \part
 \titleclass{\part}{top} % <-- display: 
 \assignpagestyle{\part}{empty}	% <-- no page numbers/decorations
+%NEW PART STYLE
 \titleformat{\part}%
 	[display]%
-	{\usekomafont{part}}%
-	{\raggedleft{%
-		{\thesispartlabelfont%
-			\partname\ \thepart\ \quad}%
-		{\color{ctcolorpartline}%
-			\hspace*{-200pt}\rule[20pt]{600pt}{2pt}}
-		}%
-	}%
-	{0em}%
-	{\raggedleft}%
-	[\phantomsection]
+	{\thesispartlabelfont}%
+	{\raggedleft{\thepart}}%
+	{-60pt}%
+	{\raggedright \Huge \fontsize{30pt}{30pt}\selectfont}%
+	[{\color{ctcolorpartline}%
+			\hspace*{-200pt}\rule[20pt]{600pt}{2pt}}%
+	 \phantomsection]
+%ORIGINAL
+%\titleformat{\part}%
+%	[display]%
+%	{\usekomafont{part}}%
+%	{\raggedleft{%
+%		{\thesispartlabelfont%
+%			\partname\  \thepart\ \quad}%
+%		{\color{ctcolorpartline}%
+%			\hspace*{-200pt}\rule[20pt]{600pt}{2pt}}
+%		}%
+%	}%
+%	{0em}%
+%	{\raggedleft}%
+%	[\phantomsection]
 %
 % > formats: \chapter
 %
@@ -648,7 +659,7 @@
 \RequirePackage{tocloft}
 % 
 \renewcommand{\cfttoctitlefont}{\usekomafont{chapter}}
-\@cftpnumoff{part}
+%\@cftpnumoff{part}
 \renewcommand{\cftpartfont}{\large\color{ctcolormain}\tgherosfont\bfseries}
 \renewcommand{\cftpartpagefont}{\cftpartfont}
 \renewcommand{\cftchapfont}{\tgherosfont\bfseries}

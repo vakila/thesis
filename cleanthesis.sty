@@ -503,7 +503,9 @@
 \newcommand{\book}{\fontfamily{pbk}\fontseries{m}\fontsize{11}{13}\selectfont}
 \newcommand{\tgherosfont}{\fontfamily{qhv}\selectfont}
 
-\newcommand{\thesispartlabelfont}{\color{ctcolorpartnum}\book\fontsize{60}{60}\selectfont}
+\newcommand{\thesispartlabelfont}{\color{ctcolorpartnum}\book\fontsize{60}{60}%
+\tgherosfont%	% ADDED
+\selectfont}
 \newcommand{\thesispartfont}{\color{ctcolorparttext}\huge \tgherosfont\selectfont}
 \newcommand{\thesischapterfont}{\color{ctcolorblack}\huge \fontfamily{phv}\selectfont}
 %\newcommand{\thesissectionfont}{\color{ctcolormain}\LARGE\bfseries \tgherosfont}
@@ -646,8 +648,11 @@
 \RequirePackage{tocloft}
 % 
 \renewcommand{\cfttoctitlefont}{\usekomafont{chapter}}
+\@cftpnumoff{part}
+\renewcommand{\cftpartfont}{\large\color{ctcolormain}\tgherosfont\bfseries}
+\renewcommand{\cftpartpagefont}{\cftpartfont}
 \renewcommand{\cftchapfont}{\tgherosfont\bfseries}
-%\renewcommand{\cftsubsubsecfont}{\itshape}		% shouldn't have subsub in ToC
+%\renewcommand{\cftsubsubsecfont}{\itshape} % shouldn't have subsub in ToC
 \renewcommand{\cftloftitlefont}{\usekomafont{chapter}}
 \renewcommand{\cftlottitlefont}{\usekomafont{chapter}}
 % > adjusts the indention for figure and table entries (lof and lot)

@@ -1,0 +1,53 @@
+% !TEX root = ../thesis-example.tex
+%
+% ------------------------------------  --> cover title page
+\begin{titlepage}
+	\pdfbookmark[0]{Cover}{Cover}
+	\tgherosfont
+	\flushright
+	\hfill
+	\vfill
+	
+	{\color{ctcolormain}
+	{\LARGE\textbf{\thesisTitle}} \par
+	{\Large \thesisSubtitle} \par
+	} %end coloring
+	
+	\rule[5pt]{\textwidth}{.4pt} \par
+	
+	{\LARGE \authorName} \\[2mm]
+%TODO include email here?  		\texttt{\authorContact}
+
+	\vfill
+	
+	{\large
+	M.Sc. Thesis proposal \\[1mm]
+	Language Science and Technology \\
+	}	
+	
+%	\textit{A thesis submitted toward the degree of} \\[1mm]
+%	{\Large Master of Science} \\[1mm]
+%	{\large in Language Science and Technology} \\	
+%	
+	\vfill	
+	
+	\textit{Prepared under the supervision of} \\
+	\thesisFirstSupervisor \\
+	\thesisSecondSupervisor 
+	
+	\vfill
+	
+	
+	\includegraphics[width=6cm]{../img/uni_des_saarlandes} \\[2mm]
+	{\Large \thesisUniversity} \\[2mm]
+	{\large \thesisUniversityDepartment} \\
+	%{\large \thesisUniversityInstitute \\}
+	
+	\vfill
+	
+	\thesisDate \\
+	
+\end{titlepage}
+
+\setcounter{tocdepth}{3}		% define depth of toc
+\tableofcontents

@@ -10,7 +10,7 @@
 
 
 
-\section{Computer-Assisted Pronunciation Tutoring} %TODO Teaching,Training?
+\section{Computer-Assisted Pronunciation Training} %TODO Teaching,Training?
 
 In the field of second-language education, pronunciation has traditionally been given less attention than other areas such as grammar or vocabulary \parencite{Derwing2005}. One reason for this may be that pronunciation is best taught through one-on-one instruction, which is not often possible in the traditional classroom setting. Hence the attraction of Computer-Assisted Pronunciation Training (CAPT) systems, which have the potential to automatically provide highly individualized analysis of learner errors, and feedback on how to correct them and achieve more intelligible and native-like pronunciation in the target language \parencite{witt2012}. 
 
@@ -20,24 +20,39 @@ In the field of second-language education, pronunciation has traditionally been 
 	\subsection{Computer-based and intelligent tutoring systems} 
 	%TODO is this section necessary?
 	
-	\subsection{Survey of existing CAPT systems}
+	\subsection{Survey of existing CAPT systems?}
 	
 	
 
 \section{Towards CAPT for French learners of German}
 \label{sec:CAPT4FG}
+	
+% Alternative organization:
+%	\subsection{Targeting errors in CAPT}
+%	\subsection{Lexical stress in French and German}
+%	\subsection{Targeting lexical stress errors}
 
 	\subsection{Phonetic and phonological comparison}
 	\label{sec:CAPT4FG:comparison}
 		\subsubsection{Segments}
 		\subsubsection{Prosody}
+
+			\paragraph{Lexical stress}
+			
+			What is lexical stress \parencite{Cutler2008}
+			
+			Lexical stress in French vs. German 
+			\parencite{Cutler2008}		
+			\parencite{Peperkamp2002,Dupoux2001,Dupoux2008}
+		
 		\subsubsection{Other factors}
 		
 	\subsection{Targeting lexical stress errors}
 	\label{sec:CAPT4FG:targeting}
 	Learners of a foreign language typically make a wide variety of pronunciation errors, at both the segmental level (e.g. errors in producing certain individual phones of the target language) and the prosodic level (e.g. errors in the speaker's intonation contour or the duration of certain syllables or words). As it is not possible to address all of these in an automated system, one of the first aims of this work is to identify a single type of error which is well suited to being addressed via a CAPT system targeting French L1 learners of German as the L2. 
 	
-	To guide this selection, we propose a set of three criteria that such an error must meet. First, the error must be produced with a some degree of frequency by French L1 speakers in their production of L2 German, as it would be a misuse of resources to design a system which addresses an error that is seldom made by learners. Secondly, the given error must have a significant impact on the perceived intelligibility of the learner's speech; as the ultimate goal of the system is to help learners communicate more effectively in the L2, an error which is commonly made but nevertheless does not impede understanding of the learner's L2 speech, and thus does not hinder communication in the L2, is not an ideal target. Finally, in order for the CAPT system to provide any meaningful diagnosis of and feedback on the error, it must lend itself to reasonably accurate and reliable  detection through automatic processing. 
+	To guide this selection, we may consider %TODO wording
+a set of three criteria that such an error must meet. First, the error must be produced with a some degree of frequency by French L1 speakers in their production of L2 German, as it would be a misuse of resources to design a system which addresses an error that is seldom made by learners. Secondly, the given error must have a significant impact on the perceived intelligibility of the learner's speech; as the ultimate goal of the system is to help learners communicate more effectively in the L2, an error which is commonly made but nevertheless does not impede understanding of the learner's L2 speech, and thus does not hinder communication in the L2, is not an ideal target. Finally, in order for the CAPT system to provide any meaningful diagnosis of and feedback on the error, it must lend itself to reasonably accurate and reliable  detection through automatic processing. 
 	
 		%\begin{center}
 		\begin{figure}[htb]
@@ -59,11 +74,22 @@ In the field of second-language education, pronunciation has traditionally been 
 
 		
 		\subsubsection{Frequency of production}
+		\citep{Cutler2008}
+		
+		\citep{Peperkamp2002, Dupoux2001, Dupoux2008}
 		
 		\subsubsection{Impact on intelligibility}
-		\cite{Warren2009}, \cite{Magen1998}
+		\citep{Warren2009}
+		
+		\citep{Magen1998}
+		
+		Stress errors may affect perception of segmental errors; errors in stressed syllables are more noticeable \citep{Cutler2008}
 		
 		\subsubsection{Feasibility of automatic detection}
-		\cite{ISADEPT, delmonte2011}
+		\citep{ISADEPT, delmonte2011}
+		
+		\citep{Bonneau2011}
+		
+		\citep{Shahin2012a}
 		
 \section{Summary}

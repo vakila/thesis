@@ -140,6 +140,7 @@
 	\colorlet{ctcolorchapterline}{ctcolormain}
 	\colorlet{ctcolorsection}{ctcolormain}
 	\colorlet{ctcolorsubsection}{ctcolormain}
+	\colorlet{ctcolorsubsubsection}{ctcolormain}
 	\colorlet{ctcolorparagraph}{ctcolorblack}
 	% --> text colors
 	\colorlet{ctcolorfloatlabel}{ctcoloraccessory}
@@ -185,7 +186,7 @@
 
 % sets the blue-magenta color theme (blue/magenta)
 \def\cthesissetcolorbluemagenta{%
-	\cthesissetcolor{cmyk}{1, .50, .10, .01}{.18, .98, .18, 0}%
+	\cthesissetcolor{cmyk}{1, .50, .10, .01}{.18, .98, .18, 0}%  %TODO change blue?
 }
 
 % sets the blue-green color theme (blue/green)
@@ -511,6 +512,7 @@
 %\newcommand{\thesissectionfont}{\color{ctcolormain}\LARGE\bfseries \tgherosfont}
 \newcommand{\thesissectionfont}{\color{ctcolorsection}\LARGE \tgherosfont}
 \newcommand{\thesissubsectionfont}{\color{ctcolorsubsection}\Large \tgherosfont}
+\newcommand{\thesissubsubsectionfont}{\color{ctcolorsubsubsection}\tgherosfont\small\bfseries} %TODO change back to black?
 \newcommand{\thesisparagraphfont}{\color{ctcolorparagraph}\tgherosfont\small\bfseries}
 %
 % headings
@@ -518,7 +520,7 @@
 \setkomafont{chapter}{\thesischapterfont} % for chapter entries
 \setkomafont{section}{\thesissectionfont} % for section entries
 \setkomafont{subsection}{\thesissubsectionfont} % for section entries
-\addtokomafont{subsubsection}{\tgherosfont}
+\addtokomafont{subsubsection}{\thesissubsubsectionfont}
 %\addtokomafont{paragraph}{\tgherosfont}
 \setkomafont{paragraph}{\thesisparagraphfont}
 

@@ -8,8 +8,16 @@
 
 %\cleanchapterquote{You can’t do better design with a computer, but you can speed up your work enormously.}{Wim Crouwel}{(Graphic designer and typographer)}
 
-Introductory paragraph(s) here
+In the field of second-language education, pronunciation has traditionally been given less attention than other areas such as grammar or vocabulary \parencite{Derwing2005}. One reason for this may be that pronunciation is best taught through one-on-one instruction, which is not often possible in the traditional classroom setting. Hence the attraction of Computer-Assisted Pronunciation Training (CAPT) systems, which have the potential to automatically provide highly individualized analysis of learner errors, and feedback on how to correct them and achieve more intelligible and native-like pronunciation in the target language \parencite{witt2012}. 
 
+%Something about how there's not much CAPT for German?
+
+For students with French as their first language (L1) who are learning German as a second language (L2), the sound system of the L2 can pose a variety of difficulties, one of the most important and interesting of which is the way in which certain syllables in German words are accentuated more than others, a phenomenon referred to as lexical stress. Learning to navigate German lexical stress is especially challenging for L1 French speakers, because this phenomenon is realized differently, or perhaps does not occur at all, in the French language. 
+
+With these motivations in mind, this thesis project aims to advance the state of the art of German CAPT %TODO too intense? reword
+by creating a tool which will diagnose and offer feedback on lexical stress errors in the L2 German speech of L1 French speakers, in the hopes of helping these learners become more sensitive to the lexical stress patterns of German and develop the ability to accurately realize these patterns in their speech. 
+
+%TODO move Context to after Objectives?
 \section{Context: The IFCASL project}
 \label{sec:intro:ifcasl}
 
@@ -25,33 +33,54 @@ This thesis will focus exclusively on French L1 speakers learning German as L2. 
 \section{Objectives}
 \label{sec:intro:objectives}
 
+%		\begin{floatingfigure}[r]{.5\textwidth}
+%			\centering
+%			\vspace{-2em}
+%			\includegraphics[width=.35\textwidth]{../img/hourglass}
+%			\vspace{1em}
+%			\caption{Conceptual diagram of the prototype CAPT tool.}
+%			\label{fig:hourglass}
+%			%\vspace{1em}
+%		\end{floatingfigure}
+
 The main objective of this work is to investigate the automatic treatment of lexical stress errors in the context of a CAPT system for French learners of German. This includes, on the one hand, an examination of the ways in which lexical stress errors of the type made by French L1 speakers when speaking German as L2 can be reliably detected and measured %TODO reword
 automatically, and on the other, an exploration of the types of multimodal feedback on such errors that can be automatically delivered based on the aforementioned error detection. 
-The intented outcome of these investigations is a prototype CAPT tool, illustrated in \ref{fig:hourglass}, %TODO fix ref
+
+	\begin{figure}[htb]
+		\centering
+		\includegraphics[width=.9\textwidth]{../img/hourglass-ITS}
+		\caption{Conceptual diagram of the prototype lexical stress CAPT tool (demarcated by dotted line) and its possible function in the context of a more comprehensive Intelligent Tutoring System.}
+		\label{fig:hourglass-ITS}
+	\end{figure}
+
+The intented outcome of these investigations is a prototype CAPT tool, illustrated in \ref{fig:hourglass-ITS}, %TODO fix ref
 which can diagnose lexical stress errors in different ways and present learners with different types of feedback on these errors, such that researchers can use this modular system to study the impact of various assessment and feedback types on learner outcomes, user engagement, and other factors impacting the success of a CAPT system. 
 
-		\begin{figure}[htb]
-			\centering
-			\includegraphics[width=.3\textwidth]{../img/hourglass}
-			\caption{Conceptual diagram of the prototype CAPT tool.}
-			\label{fig:hourglass}
-		\end{figure}
-
+%
+%		\begin{figure}[htb]
+%			\centering
+%			\includegraphics[width=.3\textwidth]{../img/hourglass}
+%			\caption{Conceptual diagram of the prototype CAPT tool.}
+%			\label{fig:hourglass}
+%		\end{figure}
+%		
 Once more is known about which diagnosis/feedback types should be delivered to which learners in which situations, this tool could become a useful component to a fully-fledged CAPT system, in which learner models and other intelligent components automatically decide which modules of the tool to activate. %TODO figure(s)
+
+
 
 \section{Thesis overview}
 \label{sec:intro:overview}
 
-{\thesisparagraphfont Chapter 2} introduces Computer-Assisted Pronunciation Training in the context of pronunciation teaching in foreign-language education and computer-based and intelligent tutoring systems, and outlines the phonetic and phonological differences between French and German as well as the motivation for focusing on lexical stress errors in this work.
+{\thesisparagraphfont Chapter 2} introduces Computer-Assisted Pronunciation Training in the context of pronunciation teaching in foreign-language education and computer-based and intelligent tutoring systems, and outlines the differences in the lexical stress systems of French and German as well as the motivation for focusing on lexical stress errors in this work.
 
 %TODO flesh out
 %TODO future or present tense?
 
-{\thesisparagraphfont Chapter 3} will introduce the systems that have been developed, and the technology used to build them.
+{\thesisparagraphfont Chapter 3} will briefly introduce the tools that have been developed, and the technology used to build them.
 
-{\thesisparagraphfont Chapter 4} will detail the system for assessing learner speech in terms of lexical stress errors.
+{\thesisparagraphfont Chapter 4} will detail the system for assessing learner speech in terms of lexical stress errors. It will describe the methods used to automatically segment the learner's utterance, analyze the prosody of this utterance in terms of the relative pitch, duration, and intensity of the relevant syllables, and compare this analysis to one or more models of native pronunciation to produce a diagnosis.
 
-{\thesisparagraphfont Chapter 5} will describe the multimodal feedback options that the system can deliver.
+{\thesisparagraphfont Chapter 5} will describe the multimodal feedback options that the system can deliver, and how these feedback types are generated based on the analysis of the learner's speech described in the previous chapter. 
 
 {\thesisparagraphfont Chapter 6} will summarize the contributions of this work and outlines some interesting future directions to build on these contributions.
 

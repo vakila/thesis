@@ -248,8 +248,14 @@
 \RequirePackage{enumitem}			% for simple list modifications
 \RequirePackage{blindtext}		% package for blind text
 \RequirePackage{textcomp}			% different symbols
-\RequirePackage{hyperref} 			% interactive link inside the document
 \RequirePackage{floatflt}			% to wrap text around figures
+\RequirePackage{hyperref} 			% interactive link inside the document
+\RequirePackage[%
+							%capitalise,
+							nameinlink]{cleveref}		% prints reference name and # 
+\crefname{page}{p.}{pp.}
+\newcommand{\crefrangeconjunction}{--}
+							
 %
 \RequirePackage[					% modify figure and table captions
 	font={small}, 					% 	- small font size
@@ -447,51 +453,52 @@
 \definecolor{color_todo}{rgb}{.6,.8,.2}
 \newcommand{\TODO}[1]{{\color{color_todo}\textbf{[TODO #1]}}}
 %
+% Bold heading font for emphasis
+\newcommand{\myemph}[1]{{\thesisparagraphfont #1}}
 %
-%TODO	new ref commands - can i make \ref have different behavior depending on whether the label starts with chap: or sec: or fig: or tab: ?
 % ref commands, e.g. for images, tables and text labels
-% --------------------------------------------------
-% RESULT = (siehe Tab. 12.4)
-\newcommand{\tabref}[1]{(see Tab.~\ref{#1})}
-%
-% RESULT = (siehe Tab. 12.4)
-\newcommand{\tableref}[1]{(see Tab.~\ref{#1} Page~\pageref{#1})}
-%
-% --------------------------------------------------
-% RESULT = (siehe 3.4)
-\newcommand{\tref}[1]{(see \ref{#1})}
-%
-% RESULT = Abschnitt 3.4
-\newcommand{\treft}[1]{Abschnitt~\ref{#1}}
-%
-% RESULT = (siehe 3.4, Seite 12)
-\newcommand{\textref}[1]{(siehe \ref{#1}, Seite~\pageref{#1})}
-%
-% RESULT = Abschnitt 3.4 (siehe Seite 12)
-\newcommand{\textreft}[1]{Abschnitt~\ref{#1} (siehe Seite~\pageref{#1})}
-%
-% --------------------------------------------------
-% RESULT = (siehe Abb. 10.4)
-\newcommand{\fref}[1]{(siehe Abb.~\ref{#1})}
-%
-% RESULT = (siehe Abb. 10.4 b)
-\newcommand{\frefadd}[2]{(siehe Abb.~\ref{#1}~#2)}
-%
-% RESULT = (siehe Abb. 10.4, Seite 12)
-\newcommand{\figref}[1]{(siehe Abb.~\ref{#1}, Seite~\pageref{#1})}
-%
-% RESULT = (siehe Abb. 10.4 b, Seite 12)
-\newcommand{\figrefadd}[2]{(siehe Abb.~\ref{#1}~#2, Seite~\pageref{#1})}
-%
-% RESULT = Abbildung 10.4
-\newcommand{\figreft}[1]{Abbildung~\ref{#1}}
-%
-% RESULT = Abbildung 10.4 b
-\newcommand{\figrefaddt}[2]{Abbildung~\ref{#1}~#2}
-%
-% --------------------------------------------------
-% RESULT = (siehe Seite 12)
-\newcommand{\seepage}[1]{(siehe Seite~\pageref{#1})}
+%% --------------------------------------------------
+%% RESULT = (siehe Tab. 12.4)
+%\newcommand{\tabref}[1]{(see Tab.~\ref{#1})}
+%%
+%% RESULT = (siehe Tab. 12.4)
+%\newcommand{\tableref}[1]{(see Tab.~\ref{#1} Page~\pageref{#1})}
+%%
+%% --------------------------------------------------
+%% RESULT = (siehe 3.4)
+%\newcommand{\tref}[1]{(see \ref{#1})}
+%%
+%% RESULT = Abschnitt 3.4
+%\newcommand{\treft}[1]{Abschnitt~\ref{#1}}
+%%
+%% RESULT = (siehe 3.4, Seite 12)
+%\newcommand{\textref}[1]{(siehe \ref{#1}, Seite~\pageref{#1})}
+%%
+%% RESULT = Abschnitt 3.4 (siehe Seite 12)
+%\newcommand{\textreft}[1]{Abschnitt~\ref{#1} (siehe Seite~\pageref{#1})}
+%%
+%% --------------------------------------------------
+%% RESULT = (siehe Abb. 10.4)
+%\newcommand{\fref}[1]{(siehe Abb.~\ref{#1})}
+%%
+%% RESULT = (siehe Abb. 10.4 b)
+%\newcommand{\frefadd}[2]{(siehe Abb.~\ref{#1}~#2)}
+%%
+%% RESULT = (siehe Abb. 10.4, Seite 12)
+%\newcommand{\figref}[1]{(siehe Abb.~\ref{#1}, Seite~\pageref{#1})}
+%%
+%% RESULT = (siehe Abb. 10.4 b, Seite 12)
+%\newcommand{\figrefadd}[2]{(siehe Abb.~\ref{#1}~#2, Seite~\pageref{#1})}
+%%
+%% RESULT = Abbildung 10.4
+%\newcommand{\figreft}[1]{Abbildung~\ref{#1}}
+%%
+%% RESULT = Abbildung 10.4 b
+%\newcommand{\figrefaddt}[2]{Abbildung~\ref{#1}~#2}
+%%
+%% --------------------------------------------------
+%% RESULT = (siehe Seite 12)
+%\newcommand{\seepage}[1]{(siehe Seite~\pageref{#1})}
 
 
 % **************************************************

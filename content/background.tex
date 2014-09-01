@@ -15,17 +15,25 @@
 \section{Computer-Assisted Pronunciation Training} %TODO Teaching,Training?
 \label{sec:bkgd:capt}
 
+	\citep{Eskenazi2009,Delmonte2011,Witt2012}
 
 	\subsection{Pronunciation in foreign language education}
 	\label{sec:capt:l2ed}
+	
+	The difficulties posed by including pronunciation in the foreign language classroom curriculum will be discussed in this section, leading to the conclusion that CAPT can help make pronunciation training more accessible by overcoming some of these difficulties (e.g. teacher-to-student ratio).
 
 
-	\subsection{Computer-based and intelligent tutoring systems} 
+	\subsection{Computer-based and intelligent tutoring systems?} 
 	\label{sec:capt:its}
 	%TODO is this section necessary?
 	
-	\subsection{Survey of existing CAPT systems?}
+	This section would serve as a domain-independent overview of CBT and ITS, and the advantages such systems can bring when deployed in schools or used individually.
+	
+	\subsection{Prosody in existing CAPT systems?}
 	\label{sec:capt:systems}
+	
+	This section would describe various ways in which the prosodic level has been treated in CAPT systems and tools such as those developed at LORIA \citep{Bonneau2011} and KTH \citep{Hincks2002,Hincks2009}, Project LISTEN \citep[e.g.]{Mostow2012}, and various other systems mentioned by \textcite{Eskenazi2009,Delmonte2011,Witt2012}.
+	
 	
 % Alternative organization:
  \section{Lexical stress}
@@ -51,8 +59,12 @@ Because stress carries meaning thus, native speakers of such languages are sensi
 			
 		Therefore, native speakers of French may lack the sensitivity to stress patterns possessed by native speakers of German. Indeed, this has been borne out by research by \citeauthor{Dupoux2008} \citep{Peperkamp2002,Dupoux2001,Dupoux2008}, which demonstrated that native French speakers were ``deaf'' to differences in stress patterns, such that they have great difficulty discriminating between Spanish words which contrast only at the level of stress. This difficulty should therefore also exist for French speakers when they are presented with German words in which the stress pattern is crucial to the word's meaning, as in the minimal pair above.
 		
-		\subsection{Lexical stress in foreign language teaching}
+		\subsection{Lexical stress in foreign language teaching?}
 		\label{sec:stress:l2ed}
+		
+		This section may be merged into \cref{sec:capt:l2ed} above.
+		
+		\citep{Hirschfeld2007}
 		
 		
  \section{Targeting lexical stress errors in CAPT}
@@ -60,7 +72,9 @@ Because stress carries meaning thus, native speakers of such languages are sensi
  	Learners of a foreign language typically make a wide variety of pronunciation errors, at both the segmental level (e.g. errors in producing certain individual phones of the target language) and the prosodic level (e.g. errors in the speaker's intonation contour or the duration of certain syllables or words). As it is not possible to address all of these in an automated system, one of the first aims of this work is to identify a single type of error which is well suited to being addressed via a CAPT system targeting French L1 learners of German as the L2. 
 	
 	To guide this selection, we may consider %TODO wording
-a set of three criteria that such an error must meet. First, the error must be produced with a some degree of frequency by French L1 speakers in their production of L2 German, as it would be a misuse of resources to design a system which addresses an error that is seldom made by learners. Secondly, the given error must have a significant impact on the perceived intelligibility of the learner's speech; as the ultimate goal of the system is to help learners communicate more effectively in the L2, an error which is commonly made but nevertheless does not impede understanding of the learner's L2 speech, and thus does not hinder communication in the L2, is not an ideal target. Finally, in order for the CAPT system to provide any meaningful diagnosis of and feedback on the error, it must lend itself to reasonably accurate and reliable  detection through automatic processing. 
+a set of three criteria that such an error must meet. 
+As illustrated in \cref{fig:errors}, the best error to target with the CAPT system will fulfill all of these criteria, rather than only one or two of the three. 
+First, the error must be produced with a some degree of frequency by French L1 speakers in their production of L2 German, as it would be a misuse of resources to design a system which addresses an error that is seldom made by learners. Secondly, the given error must have a significant impact on the perceived intelligibility of the learner's speech; as the ultimate goal of the system is to help learners communicate more effectively in the L2, an error which is commonly made but nevertheless does not impede understanding of the learner's L2 speech, and thus does not hinder communication in the L2, is not an ideal target. Finally, in order for the CAPT system to provide any meaningful diagnosis of and feedback on the error, it must lend itself to reasonably accurate and reliable  detection through automatic processing. 
 	
 		%\begin{center}
 		\begin{figure}[htb]
@@ -71,14 +85,13 @@ a set of three criteria that such an error must meet. First, the error must be p
 		\end{figure}
 		%\end{center}
 	
-	\Cref{fig:errors} shows that...
-	
-	 As illustrated in \cref{fig:errors}, the best error to target with the CAPT system will fulfill all of these criteria, rather than only one or two of the three. 
+	This thesis proposes that lexical stress errors are a strong candidate for treatment via CAPT, and will therefore be the focus of the prototype system which will be developed. The remainder of this section justifies the targeting of lexical stress errors by describing how this type of error fulfills the aforementioned criteria.
+	 
 	 %TODO take the below out?
-	 For example, vowel quality errors (e.g. an L1 French speaker producing a German /\textipa{@}/ as [\textipa{\oe}]) may occur frequently in the L2 speech and may be relatively easy to detect automatically, but may not have a great impact on the intelligibility of the L2 German speech. On the other hand, equally frequent vowel quantity errors (e.g. the L1 French speaker producing a German long /\textipa{e:}/ as [\textipa{e}]) may have a greater impact on intelligibility in some cases, but may be more difficult to reliably identify automatically.
+	 %For example, vowel quality errors (e.g. an L1 French speaker producing a German /\textipa{@}/ as [\textipa{\oe}]) may occur frequently in the L2 speech and may be relatively easy to detect automatically, but may not have a great impact on the intelligibility of the L2 German speech. On the other hand, equally frequent vowel quantity errors (e.g. the L1 French speaker producing a German long /\textipa{e:}/ as [\textipa{e}]) may have a greater impact on intelligibility in some cases, but may be more difficult to reliably identify automatically.
 	
 %TODO remove
-	Analysis of the typical and expected errors described in \cref{sec:CAPT4FG:comparison} in terms of these criteria reveals that lexical stress errors are a strong candidate for treatment via CAPT, and will therefore be the focus of the prototype CAPT system described in this thesis. The remainder of this section justifies the selection of this type of error by describing how it fulfills the aforementioned criteria as well or better than any other error type.
+	%Analysis of the typical and expected errors described in \cref{sec:CAPT4FG:comparison} in terms of these criteria reveals that lexical stress errors are a strong candidate for treatment via CAPT, and will therefore be the focus of the prototype CAPT system described in this thesis. The remainder of this section justifies the selection of this type of error by describing how it fulfills the aforementioned criteria as well or better than any other error type.
 	
 
 
@@ -99,7 +112,7 @@ a set of three criteria that such an error must meet. First, the error must be p
 		
 		\subsection{Feasibility of automatic detection}
 		\label{sec:targeting:autodetect}
-		\citep{ISADEPT, delmonte2011}
+		\citep{ISADEPT, Delmonte2011}
 		
 		\citep{Bonneau2011}
 		

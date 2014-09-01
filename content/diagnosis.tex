@@ -7,65 +7,114 @@
 
 %\cleanchapterquote{You can’t do better design with a computer, but you can speed up your work enormously.}{Wim Crouwel}{(Graphic designer and typographer)}
 
+In order to provide learners with useful feedback on their lexical stress errors in the L2, the CAPT system must first be able to detect and diagnose such errors in a learner's utterance. This requires at least:
+\begin{enumerate}[label=(\alph*)]
+\item A reasonably accurate segmentation of the learner's L2 utterance; %TODO wording?
+\item A means of analyzing how lexical stress is realized in the prosody of the segmented utterance;
+\item A representation of how native speakers of the target language (would) realize  lexical stress in the given sentence; and
+\item A way of comparing the learner's prosody to this representation. 
+\end{enumerate}
+
+In this section, we will examine how (a) is achieved using forced-alignment segmentation of the learner's read-speech utterance with the corresponding text, and how problems in accuracy of the resulting segmentation can be overcome (\cref{sec:diag:segmentation}); how the lexical stress analysis in (b) can be performed by measuring the fundamental frequency (F0), duration, and energy of the relevant parts of the speech signal (\cref{sec:diag:prosody}); and finally a variety of approaches to (c) and (d), and the advantages and difficulties of each (\cref{sec:diag:compare}).
 
 \section{Related work}
 \label{sec:diag:related}
 
-	Lots of Nancy references
+	Both the diagnosis and feedback modules of the CAPT tool will build to a great extent on work conducted by the speech group at LORIA in Nancy \citep{Bonneau2011,Fohr1996,Fohr2012,Mesbahi2011,Orosanu2012}. The Jsnoori/WinSnoori software \citep{Parole2013} %TODO properly cite Jsnoori/WinSnoori?
+which this group has developed will be instrumental in the construction of the CAPT tool. 
 	
-	\cite{Duong2011}
-	
-	\cite{Probst2002}
+	This work will also draw from research conducted at Carnegie Mellon University in Pittsburgh, particularly in the context of the LISTEN project and its Reading Tutor \citep{Duong2011,Mostow2012,Mostow1999,Sitaram2011,Weber2010}, as well as the FLUENCY pronunciation training system \cite{Eskenazi1998,Probst2002}.
 
 \section{Automatic segmentation of nonnative speech}
 \label{sec:diag:segmentation}
 
+	By way of introduction, this section will begin with a brief explanation of the task of automatically segmenting, or labeling, a non-native speaker's utterance, and some of the difficulties involved.
+	
+	\begin{figure}
+		\centering
+		\includegraphics[width=\textwidth]{../img/screenshots/SampleGG-basic}
+		\caption{An example of a German utterance that has been segmented at the phone level (first row) and word level (second row). The third row contains the canonical (expected) native pronunciation of each word in the sentence, while the fourth row contains the written sentence of which the utterance is a reading.}
+		\label{fig:GGsegmentation}
+	\end{figure}
+
 	\subsection{Segmentation via forced alignment}
 	\label{sec:segmentation:alignment}
+	
+	This section will briefly summarize the forced-alignment segmentation method \citep[etc.]{Fohr1996,Mesbahi2011}, describe the data on which the relevant acoustic models were trained (if possible, the models will be retrained on or adapted to the IFCASL data), and point out the inclusion of a lexicon of non-native variants (which may be extracted from the IFCASL data).
 	
 	\subsection{Evaluation of system accuracy}
 	\label{sec:segmentation:eval}
 	
+	In this section, the accuracy of the forced-alignment segmentation will be assessed by computing inter-annotator agreement between the automatically produced segmentation and one or more segmentations manually verified by human annotators. This may be conducted in cooperation with the team at LORIA in Nancy, and will make use of the CoALT tool developed there \citep{Fohr2012}. Error analysis will be performed for each boundary type, to enable identification of the types of boundaries at which the system tends (not) to make many errors. This detailed analysis will contribute to error management in the system, as described in \cref{sec:segmentation:errors}.
+	
 	\subsection{Coping with segmentation errors}
 	\label{sec:segmentation:errors}
-		\cite{Mesbahi2011},
-		\cite{Orosanu2012}
+	
+	This section will explain how the system attempts to reduce the amount of error introduced by inaccurate segmentation. This may involve implementation of the error-triage methods described by \textcite{Mesbahi2011,Bonneau2012,Orosanu2012}. Other strategies may also be explored, such as the development of a type of sentence- and/or word-level confidence measure based on the boundary error rates found in \cref{sec:segmentation:eval}.
 	
 \section{Prosodic analysis}
 \label{sec:diag:prosody}
-	``acoustic differences between stressed and unstressed syllables are relatively large in spontaneous speech. With laboratory-read materials, however, such differences do not always arise'' \citep[p.~275]{Cutler2005}
 
-	\subsection{Pitch}
-	\label{sec:prosody:pitch}
-		``...in German utterances, stressed syllables could be signaled by any F0 obtrusion from the overall contour, so that a stressed syllable could be either higher or lower in pitch than its neighbors'' \citep[p.~267]{Cutler2005}
+	This section will describe the features by which the system analyzes the lexical stress prosody of an utterance, be it the utterance of a learner or of a native speaker. These features relate to the three properties described in \cref{sec:bkgd:stress}, namely fundamental frequency or F0 (pitch), duration (timing), and intensity (loudness). The features computed for each property are described in the corresponding sections below.
+	
+	Where possible, the diagnosis module of the CAPT tool will provide researchers control over the features used; for example, there may be an option to include all F0 and duration features but ignore intensity features.
+	
+	One potential complication of this analysis that should be pointed out relates to the fact that we are here dealing exclusively with read, and not sponaneous, speech. As \textcite[p.~275]{Cutler2005} remarks, ``acoustic differences between stressed and unstressed syllables are relatively large in spontaneous speech. With laboratory-read materials, however, such differences do not always arise''. Therefore, the task of recognizing prosodic deviations in learners' read speech may be somewhat different than the corresponding task for spontaneous speech, and this difference should be kept in mind. 
+
+	\subsection{Fundamental frequency}
+	\label{sec:prosody:f0}
+	%TODO more text
+	As described in \cref{sec:bkgd:stress}, the fundamental frequency (F0) of an utterance, which corresponds at the perceptual level to its pitch, provides a strong signal of how lexical stress is realized in that utterance, and F0 features should therefore figure prominently in the system's prosodic analysis. In general F0 will be computed using a standard pitch-tracking algorithm, such as that implemented in the Praat\footnote{\url{http://www.praat.org/}} software.
+	
+	Much of the work on assessing non-native lexical stress has been conducted with English as the L2, and thus often makes the assumption that a stressed syllable should have a higher F0 than unstressed syllables \citep{Bonneau2011}. In German, the F0 of a stressed syllable also tends to differ from the surrounding contour, but the difference may be positive (the stressed syllable has a higher pitch) or negative (lower pitch) \citep[p.~267]{Cutler2005}. Therefore, features used to represent F0 may include the absolute value of the difference in average F0 between each pair of adjacent syllables in the word, or perhaps between the syllable which should carry (primary) stress and the rest of the word. To guard against unvoiced segments interfering with the F0 analysis, syllables may be represented by the vowels that form their nuclei. Relative differences may be more helpful than absolute differences. The F0 variation (range) over the entire word might be informative of whether or not the speaker failed to stress any syllable, although it would not tell us which syllable were stressed. Other features may be drawn from related work on lexical stress in learner speech, such as \textcite{Bonneau2011}.
+	
+		%``...in German utterances, stressed syllables could be signaled by any F0 obtrusion from the overall contour, so that a stressed syllable could be either higher or lower in pitch than its neighbors'' \citep[p.~267]{Cutler2005}
 		
 	\subsection{Duration}
 	\label{sec:prosody:duration}
+	%TODO more text
+	Following \textcite{Bonneau2011}, timing analysis will most likely take into account the relative durations of each syllable of the word in question, and/or of the vowel at the nucleus of each syllable. Other features may be drawn from related work.
 	
 	\subsection{Intensity}
 	\label{sec:prosody:intensity}
-		least important of the three \citep{Cutler2005}
+		Research on lexical stress prosody has generally indicated that intensity is the least important of the three features, i.e. corresponds least closely to lexical stress patterns \citep{Cutler2005}. 
+Indeed, existing lexical stress assessment tools may not take intensity into account, as is the case in the system described by \textcite{Bonneau2011}.  However, intensity can nonetheless have an impact on the perception of lexical stress, especially in combination with pitch or duration, or both \citep{Cutler2005}; %TODO check this reference
+Therefore, the diagnosis system should ideally take intensity into account when performing its prosodic analysis. This could be as simple as computing the total energy of the part of the signal corresponding to each syllable of the word in question, although more complex measures may be explored if time allows.
 	
 \section{Comparison of native and nonnative speech}
 \label{sec:diag:compare}
 
-		\cite{Probst2002}
+	This section will explore a variety of approaches to modeling the lexical stress prosody of native speech in such a way that the learner's utterance can be automatically compared to that native model. This investigation, and the creation of a CAPT tool that allows researchers to easily switch between approaches to study their effects, will be one of the primary contributions of the thesis.
 		
 	\subsection{Using a single reference speaker}
 	\label{sec:compare:single}
 	
+	The most common approach to assessing L2 prosody involves comparing a learner's utterance to a single utterance of the same sentence produced by a native speaker of the target language. This is the approach taken by \textcite{Bonneau2011} and others.
+	
+	 Inspired and informed by the investigations of \textcite{Probst2002}, this section will examine different ways of selecting the reference speaker against which a learner's utterance will be judged, given a pool of potential references. 
+	
 		\subsubsection{Manually selecting a reference}
 		\label{sec:compare:single:manual}
+		
+		The most basic way of selecting a reference speaker is to manually specify which speaker should be used for comparison. The CAPT tool will therefore enable  the learner and/or the instructor/experimenter to choose a reference from a set of available speakers, with that set potentially being constrained by one or more properties of the speaker (e.g. gender).
 		
 		\subsubsection{Automatically selecting a reference}
 		\label{sec:compare:single:auto}
 		
+		A more interesting means of selecting a reference speaker would be to automatically choose a speaker whose voice resembles to a greater or lesser degree the voice of the learner. By analyzing speaker-dependent features of the speech of both the learner and the reference candidates, it should be possible for the system to rank reference candidates by proximity to the learner's voice, and this should also be an option in the CAPT tool. Relevant features may include F0 mean, F0 range, duration-based features (speech tempo), spectral analysis, and/or other features informed by research on speaker identification \citep[etc.]{Shriberg2005,Reynolds1995}.
+		
 	\subsection{Using multiple reference speakers}
 	\label{sec:compare:multi}
 	
+	When using a single native-speaker utterance for reference, even if the chosen  speaker's voice closely resembles that of the learner, we may be ``over-fitting'' to speaker- or utterance-dependent characteristics of the reference utterance that do not accurately represent the ``nativeness'' of the reference speech. It would therefore be advantageous not to limit the diagnosis to comparison with a single reference speaker, but to instead compare the learner's speech with a variety of native utterances. This could be accomplished by conducting a series of one-on-one comparisons, pairing the learner utterance with a different reference utterance for each comparison, and then combining the results from all the comparisons.  Factors to explore in this approach might include whether the set of reference speakers should be more or less constrained (e.g. by gender), and which metrics can be used to synthesize the one-on-one comparisons into a single diagnosis.
+	
+	Alternatively, the learner's utterance could perhaps be compared directly with some unified representation of all the reference utterances; for example, if we represent each reference utterance as a point in n-dimensional space, with each dimension representing a relevant feature, the references will form a cluster which can serve as a representation of the variation permissible in native speech. By plotting the learner's utterance in the same space, it could be possible to distinguish how well (or poorly) this utterance fits into that cluster, and thereby produce a diagnosis.
+
+	
 	\subsection{Using no reference speaker?}
 	\label{sec:compare:noref}
-		\cite{Duong2011}
+	
+	In their work on assessing children's reading fluency, \textcite{Duong2011} found that evaluating a child's utterance in terms of a generalized prosody model, which predicts how a given text should be uttered, yielded more accurate fluency predictions than comparing it to a reference utterance of the text in question. It would be interesting to investigate whether the same principle applies in our CAPT scenario, so if time permits, this work will explore the possibility of constructing a more general model of native lexical stress realization, and comparing the learner's utterance directly to this model instead of to one or more reference utterances. This would differ from the multiple-reference approach described in \cref{sec:compare:multi} in that while that approach limits tutoring exercises to sentences for which we have reference utterances, the general-model approach would theoretically enable the creation of exercises with arbitrary text, including sentences for which no reference utterance has been recorded.
 
 		
 \section{Summary}

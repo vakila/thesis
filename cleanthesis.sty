@@ -304,7 +304,7 @@
 	style=authoryear,				% 	- use alphabetic (or numeric) bib style
 	natbib=true,					% 	- allow natbib commands
 	hyperref=true,					% 	- activate hyperref support
-	backref=false,					% 	- activate backrefs		%TODO true in final
+	backref=true,					% 	- activate backrefs		%TODO true in final
 	isbn=false,						% 	- don't show isbn tags
 	url=false,							% 	- don't show url tags
 	doi=false,						% 	- don't show doi tags
@@ -337,7 +337,7 @@
 % List Definitions
 % **************************************************
 %TODO change vertical spacing?
-\setlist[itemize]{topsep=0em, partopsep=0em, parsep=0em, itemsep=.5em} 
+\setlist[itemize,enumerate]{topsep=0em, partopsep=0em, parsep=0em, itemsep=.5em, beginpenalty=5000, midpenalty=10000} 
 
 \newenvironment{my_list}%
 	{\begin{enumerate}%

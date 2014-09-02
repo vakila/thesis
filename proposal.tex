@@ -1,0 +1,236 @@
+% !TEX TS-program = pdflatex
+% !TEX encoding = UTF-8 Unicode
+
+% This is a simple template for a LaTeX document using the "article" class.
+% See "book", "report", "letter" for other types of document.
+
+\documentclass[11pt]{article} % use larger type; default would be 10pt
+
+\usepackage[utf8]{inputenc} % set input encoding (not needed with XeLaTeX)
+
+%%% Examples of Article customizations
+% These packages are optional, depending whether you want the features they provide.
+% See the LaTeX Companion or other references for full information.
+
+% **************************************************
+% Load and Configure Packages
+% **************************************************
+
+%%% PAGE DIMENSIONS
+\usepackage{geometry} % to change the page dimensions
+\geometry{a4paper} % or letterpaper (US) or a5paper or....
+\geometry{vmarginratio=1:1}
+%\geometry{top=4cm} % for example, change the margins to 2 inches all round
+% \geometry{landscape} % set up the page for landscape
+%   read geometry.pdf for detailed page layout information
+
+
+\usepackage[utf8]{inputenc} 	% defines file's character encoding
+\usepackage[english]{babel} 	% adjust the language of the content
+
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks=true,
+	citecolor=black,
+	linkcolor=black,
+	urlcolor=blue
+}
+%\hypersetup{						% setup the hyperref-package options
+%	pdftitle={\thesisTitle},		% 	- title (PDF meta)
+%	pdfsubject={\thesisSubject},	% 	- subject (PDF meta)
+%	pdfauthor={\authorName},		% 	- author (PDF meta)
+%	plainpages=false,				% 	- 
+%	colorlinks=false,				% 	- colorize links?
+%	pdfborder={0 0 0},				% 	-
+%	breaklinks=true,				% 	- allow line break inside links
+%	bookmarksnumbered=true,			%
+%	bookmarksopen=true				%
+%}
+
+\usepackage{tipa}	% IPA symbols
+
+\usepackage{graphicx} % support the \includegraphics command and options
+%TODO reverse in final version
+\DeclareGraphicsExtensions{.png,.pdf}
+
+\RequirePackage{enumitem}			% for simple list modifications
+%\setlist[itemize,enumerate]{topsep=0em, partopsep=0em, parsep=0em, itemsep=.5em, beginpenalty=5000, midpenalty=10000} 
+
+\RequirePackage[%
+							%capitalise,
+							nameinlink]{cleveref}		% prints reference name and # 
+\crefname{page}{p.}{pp.}
+\newcommand{\crefrangeconjunction}{--}
+							
+%
+\RequirePackage[					% modify figure and table captions
+	font={small}, 					% 	- small font size
+	%labelfont={bf,sf,color=ctcolorfloatlabel},% 	- label in bold, sans-serif and magenta
+	%labelsep=\cthesis@figuresep,				% 	- separator: none, colon, period, space, quad, newline, endash
+	%singlelinecheck=false			% 	- no centered single-lined captions
+]{caption}[2008/08/24]
+
+
+
+\RequirePackage[							% use biblatex for bibliography
+	backend=bibtex,		% 	- use biber backend (bibtex replacement) or bibtex
+	bibencoding=utf8,			% 	- use auto file encode
+	style=authoryear,				% 	- use alphabetic (or numeric) bib style
+	natbib=true,					% 	- allow natbib commands
+	hyperref=true,					% 	- activate hyperref support
+	backref=true,					% 	- activate backrefs		%TODO true in final
+	isbn=false,						% 	- don't show isbn tags
+	url=false,							% 	- don't show url tags
+	doi=false,						% 	- don't show doi tags
+	urldate=long,					% 	- display type for dates
+%TODO figure out what max/min-names declarations are really necessary
+%	maxnames=3,%				-- I think this is no longer necessary
+%	minnames=1,%				-- "
+	maxbibnames=100,%
+%	minbibnames=3,%			-- Unnecessary?
+	maxcitenames=2,%
+%	mincitenames=1%			-- "
+]{biblatex}
+\addbibresource{library.bib}
+
+
+
+
+
+
+
+% **************************************************
+% Information and Commands for Reuse
+% **************************************************
+\newcommand{\myemph}[1]{\textbf{#1}}
+
+\let\oldpart\part
+\let\oldchapter\chapter
+\let\oldsection\section
+\let\oldsubsec\subsection
+\let\oldsubsubsec\subsubsection
+\let\oldparagraph\paragraph
+
+\let\part\chapter		%useless
+\let\chapter\section
+\let\section\subsection
+\let\subsection\subsubsection
+%\let\something\paragraph
+
+% TITLE PAGE INFO
+\newcommand{\thesisTitle}{Automatic diagnosis and feedback for lexical stress errors in non-native speech}
+\newcommand{\thesisSubtitle}{Towards a CAPT system for French learners of German}
+
+\newcommand{\authorName}{Anjana Sofia Vakil}
+\newcommand{\authorContact}{anjanav@coli.uni-saarland.de}
+
+\newcommand{\thesisSubject}{Thesis subject (whatever that means)}
+\newcommand{\thesisDate}{5 September, 2014}
+
+\newcommand{\thesisFirstSupervisor}{Prof. Dr. Bernd M\"{o}bius}
+\newcommand{\thesisSecondSupervisor}{Dr. J\"{u}rgen Trouvain}
+
+\newcommand{\thesisUniversity}{\protect{Saarland University}}
+\newcommand{\thesisUniversityDepartment}{Department of Computational Linguistics \& Phonetics}
+\newcommand{\thesisUniversityInstitute}{Fachrichtung 4.7 Allgemeine Linguistik
+}
+%\newcommand{\thesisUniversityGroup}{Clean Thesis Group (CTG)}
+\newcommand{\thesisUniversityCity}{Saarbr\"{u}cken}
+\newcommand{\thesisUniversityStreetAddress}{Postfach 15 11 50}
+\newcommand{\thesisUniversityPostalCode}{66041}
+
+
+
+%
+
+\begin{document}
+
+%\begin{titlepage}
+%\begin{center}
+%~
+%\vspace{2cm}
+%
+%\Huge Speech Technology \\
+%\Huge for Low-Resource Languages \\
+%\Huge Using High-Resource Language Tools:  \\ 
+%\vspace{15pt} \Huge Does Source Language Choice Matter? \\
+%
+%\vfill
+%
+%\huge Anjana Vakil\\
+%%\normalsize (anjanav@coli.uni-saarland.de)\\
+%\vspace{10mm}
+%
+%\Large Computational Linguistics for
+%\Large Low-Resource Languages Seminar\\
+%\Large Instructor: Alexis Palmer\\[5mm]
+%
+%%\Large Summer Semester 2013\\
+%\Large University of Saarland \\[5mm]
+%
+%\today
+%
+%
+%
+%
+%\end{center}
+%\end{titlepage}
+
+\begin{titlepage}
+	\pdfbookmark[0]{Cover}{Cover}
+	%\tgherosfont
+	\flushright
+	\hfill
+	\vfill
+	
+	%{\color{ctcolormain}
+	{\LARGE\textbf{\thesisTitle}} \par
+	\vspace{1em}
+	{\Large \thesisSubtitle} \par
+	%} %end coloring
+	
+	\rule[5pt]{\textwidth}{.4pt} \par
+	
+	\vspace{1em}
+	{\LARGE \authorName} \\[2mm]
+%TODO include email here?  		\texttt{\authorContact}
+
+	\vfill
+	
+	{\large
+	M.Sc. Thesis proposal \\[1mm]
+	Language Science and Technology \\
+	}	
+	
+%	\textit{A thesis submitted toward the degree of} \\[1mm]
+%	{\Large Master of Science} \\[1mm]
+%	{\large in Language Science and Technology} \\	
+%	
+	\vfill	
+	
+	\textit{Supervised by} \\
+	\thesisFirstSupervisor \\
+	\thesisSecondSupervisor 
+	
+	\vfill
+	
+	
+	\includegraphics[width=6cm]{../img/uni_des_saarlandes} \\[2mm]
+	{\Large \thesisUniversity} \\[2mm]
+	{\large \thesisUniversityDepartment} \\
+	%{\large \thesisUniversityInstitute \\}
+	
+	\vfill
+	
+	\thesisDate \\
+	
+\end{titlepage}
+
+
+\input{content/intro} 		% INCLUDE: introduction
+\input{content/background}
+
+\clearpage
+\printbibliography
+
+\end{document}

@@ -179,7 +179,7 @@
 \begin{titlepage}
 	\pdfbookmark[0]{Cover}{Cover}
 	%\tgherosfont
-	\flushright
+	\centering
 	\hfill
 	\vfill
 	
@@ -189,17 +189,17 @@
 	{\Large \thesisSubtitle} \par
 	%} %end coloring
 	
-	\rule[5pt]{\textwidth}{.4pt} \par
+	%\rule[5pt]{\textwidth}{.4pt} \par
 	
-	\vspace{1em}
+	\vspace{3em}
 	{\LARGE \authorName} \\[2mm]
 %TODO include email here?  		\texttt{\authorContact}
 
 	\vfill
 	
 	{\large
-	M.Sc. Thesis proposal \\[1mm]
-	Language Science and Technology \\
+	Thesis Proposal \\[1mm]
+	M.Sc. Language Science and Technology \\
 	}	
 	
 %	\textit{A thesis submitted toward the degree of} \\[1mm]
@@ -208,14 +208,14 @@
 %	
 	\vfill	
 	
-	\textit{Supervised by} \\
+	\textit{Supervisors:} \\
 	\thesisFirstSupervisor \\
 	\thesisSecondSupervisor 
 	
 	\vfill
 	
 	
-	\includegraphics[width=6cm]{../img/uni_des_saarlandes} \\[2mm]
+	%\includegraphics[width=6cm]{../img/uni_des_saarlandes} \\[2mm]
 	{\Large \thesisUniversity} \\[2mm]
 	{\large \thesisUniversityDepartment} \\
 	%{\large \thesisUniversityInstitute \\}
@@ -228,8 +228,26 @@
 
 
 \input{content/intro} 		% INCLUDE: introduction
+
+
 \input{content/background}
 
+\input{content/diagnosis}
+\input{content/feedback}
+
+% Set sectioning commands back to regular
+\let\section\oldsection
+\let\subsection\oldsubsec
+\let\subsubsection\oldsubsubsec
+\let\paragraph\oldparagraph
+
+
+
+\section{Conclusion}
+\label{sec:conclusion}
+
+
+% Bibliography
 \clearpage
 \printbibliography
 

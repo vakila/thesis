@@ -9,7 +9,7 @@
 
 In order to provide learners with useful feedback on their lexical stress errors in the L2, the CAPT system must first be able to detect and diagnose such errors in a learner's utterance. This requires at least:
 \begin{enumerate}[label=(\alph*)]
-\item A reasonably accurate segmentation of the learner's L2 utterance; %TODO wording?
+\item Reasonably accurate word-, syllable- and phone-level segmentation of the learner's L2 utterance; %TODO wording?
 \item A means of analyzing how lexical stress is realized in the prosody of the segmented utterance;
 \item A representation of how native speakers of the target language (would) realize  lexical stress in the given sentence; and
 \item A way of comparing the learner's prosody to this representation. 
@@ -30,12 +30,13 @@ In this section, we will examine how (a) is achieved using forced-alignment segm
 
 	By way of introduction, this section will begin with a brief explanation of the task of automatically segmenting, or labeling, a non-native speaker's utterance, and some of the difficulties involved.
 	
-	\begin{figure}
-		\centering
-		\includegraphics[width=\textwidth]{../img/screenshots/SampleGG-basic}
-		\caption{An example of a German utterance that has been segmented at the phone level (first row) and word level (second row). The third row contains the canonical (expected) native pronunciation of each word in the sentence, while the fourth row contains the written sentence of which the utterance is a reading.}
-		\label{fig:GGsegmentation}
-	\end{figure}
+%TODO replace after proposal
+%	\begin{figure}
+%		\centering
+%		\includegraphics[width=\textwidth]{../img/screenshots/SampleGG-basic}
+%		\caption{An example of a German utterance that has been segmented at the phone level (first row) and word level (second row). The third row contains the canonical (expected) native pronunciation of each word in the sentence, while the fourth row contains the written sentence of which the utterance is a reading.}
+%		\label{fig:GGsegmentation}
+%	\end{figure}
 
 	\subsection{Segmentation via forced alignment}
 	\label{sec:segmentation:alignment}

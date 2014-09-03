@@ -28,6 +28,9 @@
 \usepackage[utf8]{inputenc} 	% defines file's character encoding
 \usepackage[english]{babel} 	% adjust the language of the content
 
+\usepackage[dvipsnames]{xcolor}
+
+
 \usepackage{hyperref}
 \hypersetup{
 	colorlinks=true,
@@ -104,6 +107,11 @@
 % **************************************************
 \newcommand{\myemph}[1]{\textbf{#1}}
 
+% TODO command
+\definecolor{color_todo}{rgb}{.6,.8,.2}
+\newcommand{\TODO}[1]{{\color{red}\textbf{[TODO #1]}}}
+
+% SECTIONING COMMANDS
 \let\oldpart\part
 \let\oldchapter\chapter
 \let\oldsection\section
@@ -227,10 +235,11 @@
 \end{titlepage}
 
 
-\input{content/intro} 		% INCLUDE: introduction
-
+\input{content/intro} 
 
 \input{content/background}
+
+%\chapter{Data and tools?}
 
 \input{content/diagnosis}
 \input{content/feedback}
@@ -240,7 +249,6 @@
 \let\subsection\oldsubsec
 \let\subsubsection\oldsubsubsec
 \let\paragraph\oldparagraph
-
 
 
 \section{Conclusion}

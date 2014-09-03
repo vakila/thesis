@@ -13,11 +13,22 @@
 
 \citep{Derwing2005,Dlaska2013,Hirschfeld2007,Mehlhorn2005}
 
+In the foreign language classroom, less focus has traditionally been placed on pronunciation than on other aspects of language education, such as grammar and vocabulary \citep{Neri2002}.
+
+However, even when pronunciation is taught in the classroom, a number of factors may limit the effectiveness of that training \citep{Neri2002}. First of all, many teachers lack the training in phonetics and phonology to provide helpful feedback to students and correct their articulation \TODO{citation}. Secondly, high student-to-teacher ratios may prevent teachers from giving adequate attention and feedback to individual students, and limit the amount of time each student can practice speaking. Furthermore, anxiety about speaking the L2 in front of their peers may make students less willing to practice speaking, and less able to absorb corrective feedback.
+
+%CAPT may also be perceived by the learner as a lower-stakes, more comfortable environment than the classroom, where they may feel too intimidated to practice speaking in the L2.
+
+
 \section{Computer-Assisted Pronunciation Training} %TODO Teaching,Training?
 \label{sec:bkgd:capt}
 
-	The value of speech technologies in foreign-language teaching has been well demonstrated in recent decades \citep{Eskenazi2009,Delmonte2011,Witt2012}. Computer-Assisted Pronunciation Training (CAPT) has emerged as one important educational application of speech technology, its viability demonstrated by a variety of CAPT systems that have been developed in both academic and commercial contexts. 
-
+	The value of speech technologies in foreign-language teaching has been well demonstrated in recent decades \citep{Neri2002,Eskenazi2009,Delmonte2011,Witt2012}. Computer-Assisted Pronunciation Training (CAPT) has emerged as one important educational application of speech technology. Indeed, as \textcite{Neri2002} point out, CAPT stands to overcome the hurdles of teacher-led pronunciation training described in the previous section.
+	
+	The viability of CAPT has been demonstrated by a variety of systems and tools that have been developed in both academic and commercial contexts. Some tools focus on overall assessment of pronunciation or fluency, while others focus on the detection and correction of individual pronunciation errors \citep{Eskenazi2009}; the tool developed in this work will fall into the latter category. In error-focused systems, a distinction has typically been drawn between phonemic errors, e.g. the substitution, insertion, or deletion of a segmental speech sound, and prosodic errors, such as those related to stress/accent, intonation, or rhythm \citep{Witt2012}. As we saw in the previous section, prosodic errors have a larger impact on intelligibility, and will be the focus of this work (see \cref{sec:bkgd:targeting} below). With this in mind, a few CAPT systems relevant to this thesis are discussed below; overviews and comparisons of these and many other systems are given by \textcite{Neri2002,Eskenazi2009,Delmonte2011,Witt2012}.  
+	
+	
+	
 %	\subsection{Pronunciation in foreign language education}
 %	\label{sec:capt:l2ed}
 %	
@@ -29,17 +40,38 @@
 %	
 %	This section would serve as a domain-independent overview of CBT and ITS, and the advantages such systems can bring when deployed in schools or used individually.
 	
-	\subsection{Prosody in existing CAPT systems}
-	\label{sec:capt:systems}
+%TODO replace
+%	\subsection{Prosody in existing CAPT systems}
+%	\label{sec:capt:systems}
 	
-	This section will describe a selection of related CAPT systems and tools, and how these tools have analyzed and offered feedback on speech prosody.
+	%This section will describe a selection of related CAPT systems and tools, and how these tools have analyzed and offered feedback on speech prosody.
 	
-	Both the diagnosis and feedback modules of the CAPT tool will build to a great extent on work conducted by the speech group at LORIA in Nancy \citep{Bonneau2011,Fohr1996,Fohr2012,Mesbahi2011,Orosanu2012}. The Jsnoori/WinSnoori software \citep{Parole2013} %TODO properly cite Jsnoori/WinSnoori?
-which this group has developed will be instrumental in the construction of the CAPT tool. 
+	Both the diagnosis and feedback modules of the CAPT tool developed in this work will build to a great extent on previous work by researchers in the speech group at LORIA in Nancy, many of whom are also involved in the IFCASL project (see \cref{sec:intro:ifcasl}). Their work has, on the one hand, investigated the task of automatically recognizing and segmenting learners' speech, and determining how this possibly incorrect automatic segmentation can be effectively utilized in the context of pronunciation tutoring, particularly at the prosodic level \citep{Mesbahi2011,Orosanu2012}; see \cref{chap:diagnosis} for a discussion of how this thesis will build upon that work. Additionally, the group has developed the \textit{Snoori} suite of software, including the PC-based WinSnoori and its partial Java port, Jsnoori \citep{Parole2013}.  %TODO properly cite Jsnoori/WinSnoori?
+These programs take as input a learner utterance, a native reference utterance, and segmentations of each, perform an acoustic comparison of the two utterances, and deliver feedback on the learner's speech in the form of e.g. annotated displays of the speech signal and spectrogram of each. Moreover, auditory feedback can be delivered thanks to the capability of resynthesizing the learner's utterance to match the pitch contour and timing of the reference, without modifying the voice quality of the utterance, such that the learner can hear the ``correct'' pronunciation in their own voice. The utility of such software, and especially this resynthesized feedback, for pronunciation teaching has been explored by \textcite{Bonneau2011}, who used it to assess and deliver feedback on lexical stress in L1 French speakers' pronunciation of English words. %TODO more about the Bonneau paper?
+As described later in this paper, the proposed thesis will, on the one hand, build on the error detection and diagnosis functionality of Jsnoori (see \cref{chap:diagnosis}), as well as leverage its feedback generation capabilities to deliver a more diverse, and potentially more effective, range of feedback types (see \cref{chap:feedback}). 
 	
-	This work will also draw from research conducted at Carnegie Mellon University in Pittsburgh, particularly in the context of the FLUENCY pronunciation training system \cite{Eskenazi1998,Probst2002} and the LISTEN project and its Reading Tutor \citep{Duong2011,Mostow2012,Mostow1999,Sitaram2011,Weber2010}. The latter may not strictly fall into the category of CAPT systems, but as it analyzes the prosody of children's read speech to measure reading fluency, and offers feedback on this prosody, it is nevertheless very relevant to this thesis.
+	% \citep{Bonneau2011,Fohr1996,Fohr2012,Mesbahi2011,Orosanu2012}. The Jsnoori/WinSnoori software \citep{Parole2013}
+%which this group has developed will be instrumental in the construction of the CAPT tool. 
 	
-	The vast majority of CAPT systems which analyze learners' speech at the prosodic level have been developed with English as the target L2. Notable exceptions include \TODO{all the Dutch stuff} and \TODO{Swedish thing}, as well as \TODO{Jilke's German intonation thing}. \TODO{anything else in German}?
+	This work will also draw from research conducted at Carnegie Mellon University in Pittsburgh, particularly in the context of the Fluency pronunciation training system \citep{Eskenazi1998,Eskenazi2000,Probst2002} and the LISTEN project and its Reading Tutor \citep{%
+	Duong2011,
+	Mostow2012,
+	Mostow1999,
+	Sitaram2011,
+	%Weber2010
+	}. 
+	
+	In the Fluency CAPT system, particular emphasis is placed on
+%prosody and 
+user-adaptivity, corrective articulatory feedback, and the integration of perceptual training (e.g. listening exercises) \citep{Eskenazi2000}. As with the work at LORIA described above, the Fluency system evaluates learners' speech via comparison with that of a native reference speaker, and \textcite{Probst2002} found that selecting a ``golden speaker'' whose voice closely matched the learner's improved learning gains. Fluency also implements an error-catching step to reject utterances which do not match the expected text \citep{Eskenazi2000}, in the same vein as that of \textcite{Mesbahi2011,Orosanu2012}. \textcite{Eskenazi2007} report that Fluency's commercial spin-off, NativeAccent\textsuperscript{TM}, has been shown to help real-world users significantly improve their pronunciation skills.
+	%In an early version of Fluency, an utterance is elicited from the learner using a targeted question, constraining the learner's response such that a speech recognizer can perform forced alignment on the utterance, while at the same time giving the learner the impression that they have decided what to say (as opposed to simply reading a given sentence out loud).
+	
+	The Reading Tutor is not strictly a CAPT tool, as it is designed to help children develop their reading fluency in their native language. However, as it analyzes the prosody of children's read speech to measure reading fluency, and offers feedback on this prosody, it is nevertheless very relevant to CAPT and thus this thesis. 
+	%Indeed, the potential for such a tool, and its underlying technologies, to enhance foreign-language education has already been demonstrated by \textcite{Weber2010}, who deployed the Reading Tutor in English as a second language classes in India with encouraging initial results. 
+	In the Reading Tutor, the child's read speech is automatically segmented and compared either to a reference utterance by an adult reader, analogous to the native speaker reference in many CAPT systems, or to a generalized model of adult prosody \citep{Duong2011}. Analysis of the pitch and intensity contours of the utterances, as well as the duration of words/syllables and the spaces between them, results in an assessment of the child's overall fluency as well as identification of words which have been pronounced (in)correctly, and feedback is delivered visually in real time by revealing the text of each word as it is spoken, with properties such as the position, color, and font size of each word reflecting various aspects of the reader's prosody \citep{Sitaram2011}. This thesis will incorporate ideas and techniques from the Reading Tutor, in both its diagnosis (see \cref{chap:diagnosis}) and feedback (see \cref{chap:feedback}) modules. %TODO reword that
+	
+	The vast majority of CAPT systems which analyze learners' speech at the prosodic level have been developed with English as the target L2, though there are some notable exceptions.
+	\TODO{Delmonte's SLIM?}, \TODO{VILLE Swedish thing}, as well as \TODO{Jilke's German intonation thing}. \TODO{anything else in German}?
 	
 	%Other systems mentioned by \textcite{Eskenazi2009,Delmonte2011,Witt2012} may also be briefly described, including tools developed at KTH \citep{Hincks2002,Hincks2009} to teach English prosody.
 	
@@ -83,15 +115,16 @@ Because stress carries meaning thus, native speakers of such languages are sensi
  	Learners of a foreign language typically make a wide variety of pronunciation errors, at both the segmental level (e.g. errors in producing certain individual phones of the target language) and the prosodic level (e.g. errors in the speaker's intonation contour or the duration of certain syllables or words). As it is not possible to address all of these in an automated system, one of the first aims of this work is to identify a single type of error which is well suited to being addressed via a CAPT system targeting French L1 learners of German as the L2. 
 	
 	To guide this selection, we may consider %TODO wording
-a set of three criteria that such an error must meet. 
+a set of three criteria that such an error must meet; similar criteria are proposed by \textcite{Cucchiarini2009}.
 %As illustrated in \cref{fig:errors}, t %TODO replace reference after proposal
 The best error to target with the CAPT system will fulfill all of these criteria, rather than only one or two of the three. The criteria are:
 
 \begin{enumerate}
 
-\item The error must be produced with a some degree of frequency by French L1 speakers in their production of L2 German, as it would be a misuse of resources to design a system which addresses an error that is seldom made by learners.
+\item The error must be produced with a some degree of frequency by French L1 speakers in their production of L2 German, as it would be a misuse of resources to design a system which addresses an error that is seldom made by learners \citep{Neri2002}.
 
-\item The error must have a significant impact on the perceived intelligibility of the learner's speech; as the ultimate goal of the system is to help learners communicate more effectively in the L2, an error which is commonly made but nevertheless does not impede understanding of the learner's L2 speech, and thus does not hinder communication in the L2, is not an ideal target. \TODO{citation about how intelligibility and not accentedness should be the goal}
+\item The error must have a significant impact on the perceived intelligibility of the learner's speech; as the ultimate goal of the system is to help learners communicate more effectively in the L2, an error which is commonly made but nevertheless does not impede understanding of the learner's L2 speech, and thus does not hinder communication in the L2, is not an ideal target. 
+It should be noted here that intelligibility, and not lack of a ``foreign accent'', is generally considered to be the most important goal of pronunciation training \citep{Neri2002,Witt2012}.
 
 \item In order for the CAPT system to provide any meaningful diagnosis and feedback, the error must lend itself to reasonably accurate and reliable  detection through automatic processing. 
 
@@ -108,7 +141,7 @@ The best error to target with the CAPT system will fulfill all of these criteria
 %		\end{figure}
 %		%\end{center}
 	
-	This thesis proposes that lexical stress errors are a strong candidate for treatment via CAPT, insofar as this type of error meets the proposed criteria. 
+	This thesis proposes that lexical stress errors are a strong candidate for treatment via CAPT, insofar as this type of error meets the above criteria. 
 Lexical stress errors are frequently produced by L1 French speakers when learning a free-stress L2 \TODO{citation}.
 	
 	Lexical stress errors will therefore be the focus of the prototype system which will be developed.

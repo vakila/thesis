@@ -57,7 +57,7 @@
 \DeclareGraphicsExtensions{.png,.pdf}
 
 \RequirePackage{enumitem}			% for simple list modifications
-%\setlist[itemize,enumerate]{topsep=0em, partopsep=0em, parsep=0em, itemsep=.5em, beginpenalty=5000, midpenalty=10000} 
+\setlist[itemize,enumerate]{itemsep=.2em, beginpenalty=5000, midpenalty=10000} 
 
 \RequirePackage[%
 							%capitalise,
@@ -136,7 +136,7 @@
 \newcommand{\authorContact}{anjanav@coli.uni-saarland.de}
 
 \newcommand{\thesisSubject}{Thesis subject (whatever that means)}
-\newcommand{\thesisDate}{5 September, 2014}
+\newcommand{\thesisDate}{7 September, 2014}
 
 \newcommand{\thesisFirstSupervisor}{Prof. Dr. Bernd M\"{o}bius}
 \newcommand{\thesisSecondSupervisor}{Dr. J\"{u}rgen Trouvain}
@@ -237,6 +237,7 @@
 	
 \end{titlepage}
 
+%\tableofcontents
 
 \input{content/intro} 
 
@@ -262,5 +263,4 @@ This proposal has outlined a thesis project in Computer-Assisted Pronunciation T
 % Bibliography
 \clearpage
 \printbibliography
-
 \end{document}

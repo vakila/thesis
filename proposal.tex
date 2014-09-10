@@ -55,7 +55,13 @@
 \usepackage{graphicx} % support the \includegraphics command and options
 %TODO change in final version
 \DeclareGraphicsRule{.bw.png}{png}{.bw.png}{}
-\DeclareGraphicsExtensions{.bw.png,.png,.pdf}
+\DeclareGraphicsExtensions{%
+	.bw.png,%
+	.png,%
+	.pdf%
+	}
+
+
 
 \RequirePackage{enumitem}			% for simple list modifications
 \setlist[itemize,enumerate]{itemsep=.2em, beginpenalty=5000, midpenalty=10000} 

@@ -72,7 +72,7 @@ In this section, we will examine how (a) will be achieved using
 %	\label{sec:segmentation:eval}
 	
 	The accuracy of the forced-alignment segmentation can be assessed by computing inter-annotator agreement between the automatically produced segmentation and one or more manually-verified segmentations. The team at LORIA in Nancy has already completed this evaluation for the French IFCASL sub-corpus using the CoALT tool \citep{Fohr2012}. In cooperation with that team, the German sub-corpus (or a subset thereof) will be evaluated in the same way.
-	A similar evaluation will be carried out the syllable-level segmentations, a subset of which will be manually verified.
+	A similar evaluation will be carried out for the syllable-level segmentations, a subset of which will be manually verified.
 
 %	Error analysis will be performed for each boundary type, to enable identification of the types of boundaries at which the system tends (not) to make many errors. This detailed analysis will contribute to error management in the system, as described 
 %in \cref{sec:segmentation:errors}.
@@ -88,10 +88,10 @@ In this section, we will examine how (a) will be achieved using
 	% based on the boundary error rates found in \cref{sec:segmentation:eval}. 
 	Other error-management strategies may also be explored, such as the type of error-filtering methods described by \textcite{Mesbahi2011,Bonneau2012,Orosanu2012}, in which utterances which do not correspond to the expected text are detected and rejected before alignment is attempted.
 	
-\section{Prosodic analysis}
+\section{Analysis of word prosody}
 \label{sec:diag:prosody}
 
-	This section will describe the features by which the system analyzes the lexical stress prosody of an utterance, be it the utterance of a learner or of a native speaker. These features relate to the three properties described in \cref{sec:bkgd:stress}, namely fundamental frequency or F0 (pitch), duration (timing), and intensity (loudness). 
+	This section will describe the features by which the system analyzes the lexical stress prosody of an utterance, be it the utterance of a learner or of a native speaker. These features relate to the three properties described in \cref{sec:bkgd:stress}, namely duration (timing), fundamental frequency or F0 (pitch), and intensity (loudness). 
 		The features computed for each property are described in the corresponding sections below.
 %
 	Where possible, the diagnosis module of the CAPT tool will provide researchers control over the features used; for example, there may be an option to include all F0 and duration features but ignore intensity features.
@@ -102,22 +102,26 @@ In this section, we will examine how (a) will be achieved using
 %TODO replace
 %	One potential complication of this analysis that should be pointed out relates to the fact that we are here dealing exclusively with read, and not sponaneous, speech. As \textcite[p.~275]{Cutler2005} remarks, ``acoustic differences between stressed and unstressed syllables are relatively large in spontaneous speech. With laboratory-read materials, however, such differences do not always arise''. Therefore, the task of recognizing prosodic deviations in learners' read speech may be somewhat different than the corresponding task for spontaneous speech, and this difference should be kept in mind. 
 
+%TODO replace		
+%	\subsection{Duration}
+%	\label{sec:prosody:duration}
+	%TODO more text
+	Analysis of duration (timing) is extremely important for detecting stress patterns;
+indeed, syllable duration may be the most important acoustic correlate for lexical stress in German \citep{Dogil1999}.
+In this work, duration analysis will figure prominently, and following \textcite{Bonneau2011} will most likely take into account the relative duration of each syllable of the word in question, and/or of the vowel at the nucleus of each syllable. %Other features may also be explored.
+
 %TODO replace
 %	\subsection{Fundamental frequency}
 %	\label{sec:prosody:f0}
 	%TODO more text
-	As described in \cref{sec:bkgd:stress}, the fundamental frequency (F0) of an utterance, which corresponds at the perceptual level to its pitch, provides a strong signal of how lexical stress is realized in that utterance, and F0 features should therefore figure prominently in the system's prosodic analysis. 
+	As described in \cref{sec:bkgd:stress}, the fundamental frequency (F0) of an utterance, which corresponds at the perceptual level to its pitch, also provides a strong signal of how lexical stress is realized in that utterance, and F0 features should therefore also contribute to the system's prosodic analysis. 
 	%
 	Much of the work on assessing non-native lexical stress has been conducted with English as the L2, and thus often makes the assumption that a stressed syllable should have a higher F0 than unstressed syllables \citep{Bonneau2011}. In German, the F0 of a stressed syllable also tends to differ from the surrounding contour, but the difference may be positive (the stressed syllable has a higher pitch) or negative (lower pitch) \citep[p.~267]{Cutler2005}. Therefore, features used to represent F0 may include the absolute value of the difference in average F0 between each pair of adjacent syllables in the word, or perhaps between the syllable which should carry (primary) stress and the rest of the word. To guard against unvoiced segments interfering with the F0 analysis, syllables may be represented by the vowels that form their nuclei. Relative differences between syllables may be more helpful than absolute differences. The F0 variation (range) over the entire word might also be informative of whether or not the speaker failed to stress any syllable.%, although it would not tell us which syllable were stressed. 
 	%Other features may be drawn from related work on lexical stress in learner speech, such as \textcite{Bonneau2011}.
 	
 		%``...in German utterances, stressed syllables could be signaled by any F0 obtrusion from the overall contour, so that a stressed syllable could be either higher or lower in pitch than its neighbors'' \citep[p.~267]{Cutler2005}
 
-%TODO replace		
-%	\subsection{Duration}
-%	\label{sec:prosody:duration}
-	%TODO more text
-	Analysis of duration (timing) is also important for detecting stress patterns, and in this work, following \textcite{Bonneau2011}, this analysis will most likely take into account the relative duration of each syllable of the word in question, and/or of the vowel at the nucleus of each syllable. %Other features may also be explored.
+
 
 %TODO replace	
 %	\subsection{Intensity}
@@ -144,7 +148,7 @@ Therefore, the diagnosis system should ideally take intensity into account when 
 		
 		The most basic way of selecting a reference speaker is to choose one manually.
 %manually specify which speaker should be used for comparison. 
-The CAPT tool will therefore enable  the learner and/or the instructor/experimenter to choose a reference from a set of available speakers, with that set potentially being constrained by one or more properties of the speaker (e.g. gender). 
+As a type of baseline, the CAPT tool will therefore enable the learner and/or the instructor/experimenter to choose a reference from a set of available speakers, with that set potentially being constrained by one or more properties of the speaker (e.g. gender). 
 	
 %TODO replace
 %		\subsubsection{Automatically selecting a reference}
@@ -168,13 +172,21 @@ that of the learner \citep{Probst2002}. By analyzing speaker-dependent features 
 %	\label{sec:compare:noref}
 	
 	Finally, a different approach may be to abstract away from the reference speaker(s). In their work on assessing children's reading fluency, \textcite{Duong2011} found that evaluating a child's utterance in terms of a generalized prosody model, which predicts how a given text should be uttered, yielded more accurate fluency predictions than comparing it to a reference utterance of the text in question. It would be interesting to investigate whether the same principle applies in our CAPT scenario, so if time permits, this work will explore the possibility of constructing a more general model of native lexical stress realization, and comparing the learner's utterance directly to this model instead of to one or more reference utterances. 
-%
 This would 
+theoretically enable the creation of exercises with arbitrary text, including sentences for which no reference utterance has been recorded. 
+%
+Possibilities for generalized lexical stress modeling include using word-prosody predictions from a text-to-speech synthesizer such as MARY \citep{Schroeder2003}, as well as
+classification-based machine learning approaches such as those used by \textcite{Shahin2012a,Kim2011} to categorize English words based on their stress patterns.
+%
+%Using a generalized model would 
 	%differ from the multiple-reference approach described 
 %in \cref{sec:compare:multi} 
 %above,
 %in that while that approach limits tutoring exercises to sentences for which we have reference utterances, the general-model approach would 
-theoretically enable the creation of exercises with arbitrary text, including sentences for which no reference utterance has been recorded. This is also generally the approach that \textcite{Shahin2012a,Kim2011} followed, so classification-based machine learning methods similar to theirs may be used.
+%theoretically enable the creation of exercises with arbitrary text, including sentences for which no reference utterance has been recorded. 
+%This is also generally the approach that \textcite{Shahin2012a,Kim2011} followed, so classification-based machine learning methods similar to theirs may be used.
+
+As this last diagnostic approach, using generalized lexical stress modeling, is the one which has been least explored in CAPT research, it will be the first priority for this thesis work after the baseline approach (manually selecting a single reference speaker) has been implemented. The next highest priority will be comparing the learner's speech to multiple reference speakers, followed by automatically selecting a reference speaker to match the learner's voice; these approaches will only be explored as time allows.
 
 \section{Evaluation}
 \label{sec:diag:eval}

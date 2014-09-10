@@ -53,8 +53,9 @@
 \usepackage{tipa}	% IPA symbols
 
 \usepackage{graphicx} % support the \includegraphics command and options
-%TODO reverse in final version
-\DeclareGraphicsExtensions{.png,.pdf}
+%TODO change in final version
+\DeclareGraphicsRule{.bw.png}{png}{.bw.png}{}
+\DeclareGraphicsExtensions{.bw.png,.png,.pdf}
 
 \RequirePackage{enumitem}			% for simple list modifications
 \setlist[itemize,enumerate]{itemsep=.2em, beginpenalty=5000, midpenalty=10000} 
@@ -136,7 +137,7 @@
 \newcommand{\authorContact}{anjanav@coli.uni-saarland.de}
 
 \newcommand{\thesisSubject}{Thesis subject (whatever that means)}
-\newcommand{\thesisDate}{7 September, 2014}
+\newcommand{\thesisDate}{10 September, 2014}
 
 \newcommand{\thesisFirstSupervisor}{Prof. Dr. Bernd M\"{o}bius}
 \newcommand{\thesisSecondSupervisor}{Dr. J\"{u}rgen Trouvain}

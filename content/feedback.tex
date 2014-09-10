@@ -77,6 +77,8 @@ the learner is presented with relatively direct visualizations of the speech sig
 	
 	
 %	Visualizations of the required articulators, such as those displayed in the Fluency pronunciation trainer \citep{Eskenazi2000}, may be helpful for correcting certain segmental errors, but are not likely of much use for correcting lexical stress, and will therefore not be implemented in the proposed tool.
+
+	Implementation of at least one visual feedback type will be of high priority in this work. Stylized text and graphical representations will be explored first. If time allows, animation will be added to convey corrective feedback to the learner.
 	
 	
 \section{Auditory feedback}
@@ -84,17 +86,23 @@ the learner is presented with relatively direct visualizations of the speech sig
 
 %Some have speculated that auditory feedback may be more helpful than visual feedback in making learners more aware of lexical stress patterns \citep[p.~3]{Bissiri2009}, so it will be important to address both in the proposed CAPT tool.
 
-In foreign language classrooms, feedback on correct pronunciation is often given implicitly in the form of
+In foreign language classrooms, feedback on correct pronunciation is often given implicitly by
 %One strategy often used in classrooms is 
 %%implicit feedback, i.e. 
 allowing the learner to listen to a native speaker's production of the target utterance and/or a recording of their own production.
 % while there is no reason not to include the option for this type of implicit feedback in the CAPT tool, it will also be necessary to deliver explicit auditory feedback, as the latter may improve pronunciation more \citep{Dlaska2013} 
-	However, as described in \cref{sec:capt:systems} above, previous work on delivering lexical stress feedback has revealed that learners seem to benefit more from prosodically modified implicit feedback, either in the form of a learner utterance which has been modified to reflect the ``correct'' prosody of a native reference utterance \citep{Bonneau2011}, or a native speaker's utterance which has been modified to place exaggerated emphasis on the stressed syllable \citep{Bissiri2006,Bissiri2009}.
-	%In previous work on delivering %explicit 
-%feedback on lexical stress, as described in \cref{sec:capt:systems}, resynthesis of the learner's utterance has often been performed, where prosodic modifications are applied to make the utterance match the ``correct'' prosody of a reference utterance \citep{Bonneau2011,Bissiri2006,Bissiri2009}. 
-%	Another possibility to be explored follows \citeauthor{Bissiri2009} (\citeyear{Bissiri2006,Bissiri2009}), who found that presenting learners with native model utterances which had been modified to place exaggerated emphasis on the stressed syllable gave positive results. 
-	Therefore, these two types of modification will be implemented in the proposed CAPT tool's feedback module; the prosodic modification capabilities of the Jsnoori program \citep{Parole2013} will be used to transform the given utterance. 
-	If a more generalized model of the native prosody of a given word is developed (see \cref{sec:diag:compare}), it might also be possible to modify a reference (or learner) utterance to match this speaker-independent prosody.
+	However, 
+%as described in \cref{sec:capt:systems} above, 
+previous work on delivering lexical stress feedback 
+(see \cref{sec:capt:systems}) 
+has revealed that learners seem to benefit more from prosodically modified implicit feedback, either in the form of a learner utterance  modified to reflect the ``correct'' prosody of a native reference utterance \citep{Bonneau2011}, or a native utterance modified to place exaggerated emphasis on the stressed syllable \citep{Bissiri2006,Bissiri2009}.
+%	%In previous work on delivering %explicit 
+%%feedback on lexical stress, as described in \cref{sec:capt:systems}, resynthesis of the learner's utterance has often been performed, where prosodic modifications are applied to make the utterance match the ``correct'' prosody of a reference utterance \citep{Bonneau2011,Bissiri2006,Bissiri2009}. 
+%%	Another possibility to be explored follows \citeauthor{Bissiri2009} (\citeyear{Bissiri2006,Bissiri2009}), who found that presenting learners with native model utterances which had been modified to place exaggerated emphasis on the stressed syllable gave positive results. 
+%	Therefore, these two types of modification may be implemented in the proposed CAPT tool's feedback module; the prosodic modification capabilities of the Jsnoori program \citep{Parole2013} will be used to transform the given utterance. 
+%	If a more generalized model of the native prosody of a given word is developed (see \cref{sec:diag:compare}), it might also be possible to modify a reference (or learner) utterance to match this speaker-independent prosody.
+	
+	At least one type of audio feedback type will be implemented in the CAPT tool, with the highest-priority option being prosodic modification of the learner's utterance to match a single, manually-selected reference utterance, following \textcite{Bonneau2011}; Jsnoori \citep{Parole2013} will be used to perform this modification. If a generalized lexical stress model is successfully integrated into the diagnostic module (see \cref{sec:diag:compare}), the next highest-priority task will be performing prosodic modification of the learner's utterance based on this model. Emphasizing stressed syllables in the native reference utterance(s) will be of lowest priority. 
  
 
 
@@ -113,11 +121,14 @@ allowing the learner to listen to a native speaker's production of the target ut
 \section{Alternative feedback types}
 \label{sec:fb:alternative}
 
-Other options which will be explored include metalinguistic feedback, interactivity, and feedback encouraging self-assessment and self-correction. %TODO explain self-regulated learning
-	Metalinguistic feedback, e.g. reminding learners who have made an error of the stress rule(s) affecting the target utterance, could be delivered either visually (e.g. text displayed on the screen), auditorily (e.g. playback of an instructor's voice), or both. 
+Other options, which will only be explored if time allows, include (in order of priority) feedback encouraging self-assessment and self-correction, metalinguistic feedback, and interactivity. %TODO explain self-regulated learning
+ 	Self-assessment and self-correction can be encouraged by presenting learners with targeted questionnaires before delivering diagnosis and feedback, e.g. asking learners to listen to their utterance and assess whether they have placed stress on the correct syllable, or 
+ 	%asking them to listen to an incorrect production (theirs or another speaker's) and 
+ 	asking how the speaker of an incorrect production could have realized stress properly (``By making the first syllable longer'', etc.). 
+	Metalinguistic feedback, e.g. reminding learners %who have made an error 
+of the stress rule(s) affecting the target utterance, could be delivered either visually (e.g. text displayed on the screen), auditorily (e.g. playback of an instructor's voice), or both. 
  	Interactivity could be achieved by allowing learners to interact with the resynthesis component to modify the prosody of their utterance, as is done in WinPitch LTL \citep{Martin2004}. %TODO {Snoori too?} 
- 	Self-assessment and self-correction can be encouraged by presenting learners with targeted questionnaires before delivering diagnosis and feedback, e.g. by asking learners to listen to their utterance and assess whether they have placed stress on the correct syllable, or by asking them to listen to an incorrect production (theirs or another speaker's) and asking how the speaker could have realized stress properly (``By making the first syllable longer'', etc.). 
- 	By allowing researchers to easily control which of these feedback options to present to the learner, the tool will hopefully facilitate research into the effects of alternative feedback types such as these, which have not yet been adequately studied in CAPT.
+ 	By allowing researchers to easily control which of these feedback options to present to the learner, the tool could facilitate research into the effects of alternative feedback types such as these, which have not yet been adequately studied in CAPT.
  
 
 %TODO replace

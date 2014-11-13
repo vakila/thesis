@@ -40,17 +40,15 @@ In this section, we will examine how (a) will be achieved using
 	
 	
 	
-%TODO replace after proposal
-%	\begin{figure}
-%		\centering
-%		\includegraphics[width=\textwidth]{../img/screenshots/SampleGG-basic}
-%		\caption{An example of a German utterance that has been segmented at the phone level (first row) and word level (second row). The third row contains the canonical (expected) native pronunciation of each word in the sentence, while the fourth row contains the written sentence of which the utterance is a reading.}
-%		\label{fig:GGsegmentation}
-%	\end{figure}
+	\begin{figure}
+		\centering
+		\includegraphics[width=\textwidth]{../img/screenshots/SampleGG-basic}
+		\caption{An example of a German utterance that has been segmented at the phone level (first row) and word level (second row). The third row contains the canonical (expected) native pronunciation of each word in the sentence, while the fourth row contains the written sentence of which the utterance is a reading.}
+		\label{fig:GGsegmentation}
+	\end{figure}
 
-%TODO replace
-%	\subsection{Segmentation via forced alignment}
-%	\label{sec:segmentation:alignment}
+	\subsection{Segmentation via forced alignment}
+	\label{sec:segmentation:alignment}
 	
 	The native and non-native read speech recordings comprising the IFCASL corpus \citep{Fauth2014,Trouvain2013} have been automatically segmented via forced alignment 
 	\citep{Fohr1996,Mesbahi2011}.
@@ -67,9 +65,8 @@ In this section, we will examine how (a) will be achieved using
 	
 	%This section will briefly summarize the forced-alignment segmentation method \citep[etc.]{Fohr1996,Mesbahi2011}, describe the data on which the relevant acoustic models were trained (if possible, the models will be retrained on or adapted to the IFCASL data), and point out the inclusion of a lexicon of non-native variants (which may be extracted from the IFCASL data).
 	
-%TODO replace
-%	\subsection{Evaluation of segmentation accuracy}
-%	\label{sec:segmentation:eval}
+	\subsection{Evaluation of segmentation accuracy}
+	\label{sec:segmentation:eval}
 	
 	The accuracy of the forced-alignment segmentation can be assessed by computing inter-annotator agreement between the automatically produced segmentation and one or more manually-verified segmentations. The team at LORIA in Nancy has already completed this evaluation for the French IFCASL sub-corpus using the CoALT tool \citep{Fohr2012}. In cooperation with that team, the German sub-corpus (or a subset thereof) will be evaluated in the same way.
 	A similar evaluation will be carried out for the syllable-level segmentations, a subset of which will be manually verified.
@@ -78,9 +75,8 @@ In this section, we will examine how (a) will be achieved using
 %in \cref{sec:segmentation:errors}.
 %below.
 
-%TODO replace
-%	\subsection{Coping with segmentation errors}
-%	\label{sec:segmentation:errors}
+	\subsection{Coping with segmentation errors}
+	\label{sec:segmentation:errors}
 	
 	Forced alignment is not a perfect method; because of the constraints put on the recognition system, the aligner will always find a match between the given text and audio, even if they do not correspond. Incorrect segmentation can lead to mistakes in diagnosis, so CAPT systems must have a means of reducing, or at least monitoring, the amount of error introduced by inaccurate segmentation \citep{Eskenazi2009}. 	
 	In the proposed CAPT tool, this function may be served by the development of a simple sentence- and/or word-level confidence measure. 
@@ -102,17 +98,15 @@ In this section, we will examine how (a) will be achieved using
 %TODO replace
 %	One potential complication of this analysis that should be pointed out relates to the fact that we are here dealing exclusively with read, and not sponaneous, speech. As \textcite[p.~275]{Cutler2005} remarks, ``acoustic differences between stressed and unstressed syllables are relatively large in spontaneous speech. With laboratory-read materials, however, such differences do not always arise''. Therefore, the task of recognizing prosodic deviations in learners' read speech may be somewhat different than the corresponding task for spontaneous speech, and this difference should be kept in mind. 
 
-%TODO replace		
-%	\subsection{Duration}
-%	\label{sec:prosody:duration}
+	\subsection{Duration}
+	\label{sec:prosody:duration}
 	%TODO more text
 	Analysis of duration (timing) is extremely important for detecting stress patterns;
 indeed, syllable duration may be the most important acoustic correlate for lexical stress in German \citep{Dogil1999}.
 In this work, duration analysis will figure prominently, and following \textcite{Bonneau2011} will most likely take into account the relative duration of each syllable of the word in question, and/or of the vowel at the nucleus of each syllable. %Other features may also be explored.
 
-%TODO replace
-%	\subsection{Fundamental frequency}
-%	\label{sec:prosody:f0}
+	\subsection{Fundamental frequency}
+	\label{sec:prosody:f0}
 	%TODO more text
 	As described in \cref{sec:bkgd:stress}, the fundamental frequency (F0) of an utterance, which corresponds at the perceptual level to its pitch, also provides a strong signal of how lexical stress is realized in that utterance, and F0 features should therefore also contribute to the system's prosodic analysis. 
 	%
@@ -123,9 +117,8 @@ In this work, duration analysis will figure prominently, and following \textcite
 
 
 
-%TODO replace	
-%	\subsection{Intensity}
-%	\label{sec:prosody:intensity}
+	\subsection{Intensity}
+	\label{sec:prosody:intensity}
 		Research on lexical stress prosody has generally indicated that intensity is the least important of the three features, i.e. corresponds least closely to lexical stress patterns \citep{Cutler2005}. 
 Indeed, existing lexical stress assessment tools may not take intensity into account, as is the case in the system described by \textcite{Bonneau2011}.  However, intensity can nonetheless have an impact on the perception of lexical stress, especially in combination with pitch or duration, or both \citep{Cutler2005}; %TODO check this reference
 Therefore, the diagnosis system should ideally take intensity into account when performing its prosodic analysis. This could be as simple as computing the total energy of the part of the signal corresponding to each syllable of the word in question, although more complex measures may be explored if time allows.
@@ -135,41 +128,36 @@ Therefore, the diagnosis system should ideally take intensity into account when 
 
 	This thesis will explore a variety of approaches to modeling the lexical stress prosody of native speech in such a way that the learner's utterance can be automatically compared to that native model. This investigation, and the creation of a CAPT tool that allows researchers to easily switch between approaches to study their effects, will be one of the primary contributions of the thesis.
 	
-%TODO replace
-%	\subsection{Using a single reference speaker}
-%	\label{sec:compare:single}
+	\subsection{Using a single reference speaker}
+	\label{sec:compare:single}
 	
 	The most common approach to assessing L2 prosody involves comparing a learner's utterance to the same utterance produced by a native speaker of the target language; this approach is taken by \textcite{Bonneau2011} and others.% \citep{Eskenazi2009, Delmonte2011}. %TODO take that citation out?
 %	 Inspired and informed by the investigations of \textcite{Probst2002}, this work will examine different ways of selecting the reference speaker against which a learner's utterance will be judged, given a pool of potential references. 
 	
-%TODO replace
-%		\subsubsection{Manually selecting a reference}
-%		\label{sec:compare:single:manual}
+		\subsubsection{Manually selecting a reference}
+		\label{sec:compare:single:manual}
 		
 		The most basic way of selecting a reference speaker is to choose one manually.
 %manually specify which speaker should be used for comparison. 
 As a type of baseline, the CAPT tool will therefore enable the learner and/or the instructor/experimenter to choose a reference from a set of available speakers, with that set potentially being constrained by one or more properties of the speaker (e.g. gender). 
 	
-%TODO replace
-%		\subsubsection{Automatically selecting a reference}
-%		\label{sec:compare:single:auto}
+		\subsubsection{Automatically selecting a reference}
+		\label{sec:compare:single:auto}
 		
 		Another means of selecting a reference speaker would be to automatically choose a speaker whose voice resembles
 that of the learner \citep{Probst2002}. By analyzing speaker-dependent features of the speech of each reference candidate and of the learner -- possibly in their L1 (French) as well as the L2 (German) -- it should be possible for the system to rank reference candidates by proximity to the learner's voice. Relevant features may include F0 mean/range as well as spectral and duration-based features.
 %, and/or other features informed by research on speaker identification \citep[etc.]{Shriberg2005,Reynolds1995}. \TODO{examples of speaker ID features}
 	
-%TODO replace	
-%	\subsection{Using multiple reference speakers}
-%	\label{sec:compare:multi}
+	\subsection{Using multiple reference speakers}
+	\label{sec:compare:multi}
 	
 	However, when using a single native-speaker utterance for reference, even if the chosen speaker has been chosen carefully, we may be ``over-fitting'' to speaker- or utterance-dependent characteristics of the reference utterance that do not accurately represent the ``nativeness'' of the reference speech. It would therefore be advantageous not to limit the diagnosis to comparison with a single reference speaker, but to instead compare the learner's speech with a variety of native utterances. This could be accomplished by conducting a series of one-on-one comparisons, pairing the learner utterance with a different reference utterance for each comparison, and then combining the results from all the comparisons.  Factors to explore in this approach might include whether the set of reference speakers should be more or less constrained (e.g. by gender), and which metrics can be used to synthesize the one-on-one comparisons into a single diagnosis.
 	
 %TODO replace?
 %	Alternatively, the learner's utterance could perhaps be compared directly with some unified representation of all the reference utterances; for example, if we represent each reference utterance as a point in n-dimensional space, with each dimension representing a relevant feature, the references will form a cluster which can serve as a representation of the variation permissible in native speech. By plotting the learner's utterance in the same space, it could be possible to distinguish how well (or poorly) this utterance fits into that cluster, and thereby produce a diagnosis.
 
-%TODO replace
-%	\subsection{Using no reference speaker?}
-%	\label{sec:compare:noref}
+	\subsection{Using no reference speaker}
+	\label{sec:compare:noref}
 	
 	Finally, a different approach may be to abstract away from the reference speaker(s). In their work on assessing children's reading fluency, \textcite{Duong2011} found that evaluating a child's utterance in terms of a generalized prosody model, which predicts how a given text should be uttered, yielded more accurate fluency predictions than comparing it to a reference utterance of the text in question. It would be interesting to investigate whether the same principle applies in our CAPT scenario, so if time permits, this work will explore the possibility of constructing a more general model of native lexical stress realization, and comparing the learner's utterance directly to this model instead of to one or more reference utterances. 
 This would 
@@ -193,6 +181,5 @@ As this last diagnostic approach, using generalized lexical stress modeling, is 
 
 Lexical stress errors in the manually-annotated subset of the IFCASL corpus have not been explicitly labeled. We can assume that the utterances from L1 German speakers exhibit only correct German stress patterns, but a subset of the L1 French utterances will need to be annotated for lexical stress errors. This labeled data will be needed to assess the accuracy of the various error diagnosis methods which will be explored, and potentially to train classifiers to recognize correctly and incorrectly stressed words. 
 
-%TODO replace		
-%\section{Summary}
-%\label{sec:diag:summary}
+\section{Summary}
+\label{sec:diag:summary}

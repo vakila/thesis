@@ -59,7 +59,7 @@
 % **************************************************
 \documentclass[%
 	paper=A4,			% paper size --> A4 is default in Germany
-	twoside=false,		% oneside or twoside printing 	%TODO true in final
+	twoside=true,		% oneside or twoside printing 	
 	openright,			% doublepage cleaning ends up right side
 	parskip=full,		% spacing value / method for paragraphs
 	chapterprefix=true,	% prefix for chapter marks
@@ -87,7 +87,7 @@
 \newcommand{\authorContact}{anjanav@coli.uni-saarland.de}
 
 \newcommand{\thesisSubject}{Thesis subject (whatever that means)}
-\newcommand{\thesisDate}{10 Never, 2014}
+\newcommand{\thesisDate}{11 December, 2014}
 %\newcommand{\thesisVersion}{Thesis version (what is this?)}
 
 %\newcommand{\thesisFirstReviewer}{Jane Doe}
@@ -139,8 +139,7 @@
 
 \usepackage{tipa}	% IPA symbols
 
-%TODO reverse in final version
-\DeclareGraphicsExtensions{.png,.pdf}
+\DeclareGraphicsExtensions{.pdf,.png}
 
 \addbibresource{library.bib}
 
@@ -162,39 +161,39 @@
 % --------------------------
 \pagenumbering{roman} % roman page numbing (invisible for empty page style)
 
-%TODO replace real front matter in final
+% only for Proposal
+%\pagestyle{empty}
+%\input{frontmatter/proposal-front}
+%\cleardoublepage
 
-\pagestyle{empty}
-\input{frontmatter/proposal-front}
+\pagestyle{empty}					% no header or footers
+\input{frontmatter/titlepages}	% INCLUDE: all titlepages
 \cleardoublepage
 
-%\pagestyle{empty}					% no header or footers
-%\input{frontmatter/titlepages}	% INCLUDE: all titlepages
+\pagestyle{empty}					% no header or footers
+\input{frontmatter/declaration}	% INCLUDE: all titlepages
+\cleardoublepage
+
+%TODO put acknowledgement before abstract?
+\pagestyle{plain}					% display just page numbers
+\input{frontmatter/abstract}		% INCLUDE: the abstract
+\cleardoublepage
+%
+\input{frontmatter/thanks} % INCLUDE: acknowledgement
+\cleardoublepage
+%
+
+\input{frontmatter/contents} 		% INCLUDE: ToC, LoF, LoT
+%% MOVED the below to frontmatter/contents
+%%\setcounter{tocdepth}{2}			% define depth of toc
+%\tableofcontents					% display table of contents
 %\cleardoublepage
 %
-%\pagestyle{empty}					% no header or footers
-%\input{frontmatter/declaration}	% INCLUDE: all titlepages
+%\listoffigures
 %\cleardoublepage
 %
-%\pagestyle{plain}					% display just page numbers
-%\input{frontmatter/abstract}		% INCLUDE: the abstract
+%\listoftables
 %\cleardoublepage
-%%
-%\input{frontmatter/thanks} % INCLUDE: acknowledgement
-%\cleardoublepage
-%%
-%
-%\input{frontmatter/contents} 		% INCLUDE: ToC, LoF, LoT
-%%% MOVED the below to frontmatter/contents
-%%%\setcounter{tocdepth}{2}			% define depth of toc
-%%\tableofcontents					% display table of contents
-%%\cleardoublepage
-%%
-%%\listoffigures
-%%\cleardoublepage
-%%
-%%\listoftables
-%%\cleardoublepage
 
 
 % --------------------------
@@ -202,9 +201,9 @@
 % --------------------------
 \pagenumbering{arabic}			% arabic page numbering
 \setcounter{page}{1}			% set page counter
-%TODO switch page style for final
-\pagestyle{plain}				% display just page numbers
-%\pagestyle{maincontentstyle} 	% fancy header and footer
+
+%\pagestyle{plain}				% display just page numbers
+\pagestyle{maincontentstyle} 	% fancy header and footer
 
 \input{content/intro} 		% INCLUDE: introduction
 

@@ -210,9 +210,7 @@
 %\part{Background}
 \input{content/background}	% INCLUDE: background
 %\input{content/capt} 		% INCLUDE: CAPT
-%\input{content/lexstress}	% INCLUDE: lexical stress errors
-
-%\part{System description}
+\input{content/lexstress}	% INCLUDE: lexical stress errors
 \input{content/system}		% INCLUDE: system overview
 \input{content/diagnosis}	% INCLUDE: diagnosis
 \input{content/feedback}	% INCLUDE: feedback
@@ -223,18 +221,24 @@
 % --------------------------
 % Back matter
 % --------------------------
-{%
-\setstretch{1.1}
-\renewcommand{\bibfont}{\normalfont\small}
-\setlength{\biblabelsep}{0pt}
-\setlength{\bibitemsep}{0.5\baselineskip plus 0.5\baselineskip}
-%\nocite{*}
-\printbibliography%[title={References}]
-%\printbibliography[nottype=online]
-%\printbibliography[heading=subbibliography,title={Webseiten},type=online,prefixnumbers={@}]
-}
+% MOVED THE BELOW TO backmatter/bibliography.tex
+%{%
+%\setstretch{1.1}
+%\renewcommand{\bibfont}{\normalfont\small}
+%\setlength{\biblabelsep}{0pt}
+%\setlength{\bibitemsep}{0.5\baselineskip plus 0.5\baselineskip}
+%%\nocite{*}
+%\printbibliography%[title={References}]
+%%\printbibliography[nottype=online]
+%%\printbibliography[heading=subbibliography,title={Webseiten},type=online,prefixnumbers={@}]
+%}
 
+
+\input{backmatter/bibliography}
 \cleardoublepage
+
+%TODO appendices - after bib?
+
 
 
 %TODO put this back in? (instead of the \cleardoublepage after bib)

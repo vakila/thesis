@@ -238,7 +238,7 @@
 \fi
 
 % **************************************************
-% Load Packages
+% Miscellaneous Packages
 % **************************************************
 \RequirePackage{fixltx2e}			% packages provides fixes to LaTeX2e
 \RequirePackage{microtype}			% typographic tuning
@@ -250,15 +250,12 @@
 \RequirePackage{textcomp}			% different symbols
 \RequirePackage{floatflt}			% to wrap text around figures
 \RequirePackage{hyperref} 			% interactive link inside the document
-\RequirePackage[%
-							%capitalise,
-							nameinlink]{cleveref}		% prints reference name and # 
-\crefname{page}{p.}{pp.}
-\Crefname{page}{Page}{Pages}
-\crefname{section}{sec.}{secs.}
-\Crefname{section}{Section}{Sections}
-\newcommand{\crefrangeconjunction}{--}
-							
+\RequirePackage{tabularx}
+\RequirePackage{booktabs} % For prettier horizontal rules in tables
+
+% **************************************************
+% Captions
+% **************************************************						
 %
 \RequirePackage[					% modify figure and table captions
 	font={small}, 					% 	- small font size
@@ -273,6 +270,10 @@
 		\captionsetup{format=llap,labelsep=quad,singlelinecheck=false}%
 %	}{}
 \fi
+
+% **************************************************
+% Geometry (Page Setup)
+% **************************************************
 %
 \RequirePackage[					% page layout modifications
 	paper=a4paper,					% 	- use A4 paper size
@@ -297,6 +298,17 @@
 %	style=german					% 	- german quotes
 %]{csquotes}
 %
+
+% **************************************************
+% Cleveref References (naming conventions)
+% **************************************************
+\RequirePackage[%capitalise,
+							nameinlink]{cleveref}	% prints reference name+# 
+\crefname{page}{p.}{pp.}
+\Crefname{page}{Page}{Pages}
+\crefname{section}{sec.}{secs.}
+\Crefname{section}{Section}{Sections}
+\newcommand{\crefrangeconjunction}{--}
 
 % **************************************************
 % Biblatex Bibliography 

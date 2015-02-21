@@ -94,16 +94,51 @@ In this section, we will examine how (a) will be achieved using
 %	
 
 
+
 	
-%TODO replace
-%	One potential complication of this analysis that should be pointed out relates to the fact that we are here dealing exclusively with read, and not sponaneous, speech. As \textcite[p.~275]{Cutler2005} remarks, ``acoustic differences between stressed and unstressed syllables are relatively large in spontaneous speech. With laboratory-read materials, however, such differences do not always arise''. Therefore, the task of recognizing prosodic deviations in learners' read speech may be somewhat different than the corresponding task for spontaneous speech, and this difference should be kept in mind. 
+	%TODO 
+	In this section, the features discussed are illustrated with their values for a word from a sample utterance selected from the IFCASL corpus. The oscillogram, waveform, and annotation for this sample word are given in \cref{fig:featuresexample}.
+	
+	\begin{figure}
+		\centering
+		\TODO{figure with praat screenshot of wavform and annotation}
+		\caption{}
+		\label{fig:featuresexample}
+	\end{figure}
+	
+In this work, the features described below have been computed from the automatically generated segmentation of an utterance \TODO{(see section X)}, and not from a hand-corrected segmentation; as a result, the computed values may be slightly (or in some cases, significantly) inaccurate due to errors in the forced-alignment segmentation process. This reliance only on automatically-detected segment boundaries is intentional, as it simulates the conditions of an automatic, real-time tutoring system, which would need to perform segmentation on the fly and would not have recourse to human verification of segment boundary locations.
+
+	A potential complication of this analysis that should be pointed out relates to the fact that we are here dealing exclusively with read, and not sponaneous, speech. As \textcite[p.~275]{Cutler2005} remarks, ``acoustic differences between stressed and unstressed syllables are relatively large in spontaneous speech. With laboratory-read materials, however, such differences do not always arise''. Therefore, the task of recognizing prosodic deviations in learners' read speech may be somewhat different than the corresponding task for spontaneous speech, and this difference should be kept in mind in the discussion that follows.
 
 	\subsection{Duration}
 	\label{sec:prosody:duration}
 	%TODO more text
 	Analysis of duration (timing) is extremely important for detecting stress patterns;
-indeed, syllable duration may be the most important acoustic correlate for lexical stress in German \citep{Dogil1999}.
-In this work, duration analysis will figure prominently, and following \textcite{Bonneau2011} will most likely take into account the relative duration of each syllable of the word in question, and/or of the vowel at the nucleus of each syllable. %Other features may also be explored.
+indeed, syllable duration may be the most important acoustic correlate of lexical stress in German \citep{Dogil1999}.
+%as discussed in section %TODO above.
+%In this work, duration analysis will figure prominently, and following \textcite{Bonneau2011} will most likely take into account the relative duration of each syllable of the word in question, and/or of the vowel at the nucleus of each syllable. %Other features may also be explored.
+Duration analysis therefore figures prominently in the analysis and assessment of learners' lexical stress in this work. Following \textcite{Bonneau2011}, we take into account the relative duration of each syllable of the word to be analyzed, as well as the relative duration of the vowels at the nucleus of each syllable. 
+The complete list of features computed for each utterance is given in \cref{tab:durationfeatures}, 
+%TODO 
+along with the values computed for a sample utterance from the IFCASL corpus \TODO{reference?}. 
+
+
+
+\begin{table}[htb]
+		\centering
+		\caption{Features computed for duration analysis, and their values for a sample from the data.}
+		\begin{tabular}{ll}
+		\toprule
+		Feature  & Value for \TODO{} \\
+		\midrule
+		\TODO{} & \\
+		\bottomrule
+		\end{tabular}
+		\label{tab:durationfeatures}
+\end{table}
+
+The relative utility of these features in automatically diagnosing lexical stress errors is discussed further in \cref{sec:diag:eval}.
+
 
 	\subsection{Fundamental frequency}
 	\label{sec:prosody:f0}

@@ -103,13 +103,15 @@ In this section, we will examine how (a) will be achieved using
 		\centering
 		\begin{subfigure}[t]{\textwidth}
                 \includegraphics[width=\textwidth]{../img/screenshots/2SH05_FGMB1_527-flagge}
-                \caption{L1 French speaker (Flagge-F)}
+                \caption{L1 French speaker (F)}
                 \label{fig:featuresexample:fg}
         \end{subfigure}%
         \vspace{1.5em}
+        \TODO{Add incorrect FG example?}        \vspace{1.5em}
+
         \begin{subfigure}[b]{\textwidth}
                 \includegraphics[width=\textwidth]{../img/screenshots/2SH05_GGMB2_035-flagge}
-                \caption{L1 German speaker (Flagge-G}
+                \caption{L1 German speaker (G)}
                 \label{fig:featuresexample:gg}
         \end{subfigure}%
 		\caption{Two sample utterances of the word "Flagge" from the IFCASL corpus, used to illustrate the features discussed in this section. \TODO{description}}
@@ -136,21 +138,21 @@ along with the values computed for a sample utterance from the IFCASL corpus \TO
 
 \begin{table}[htb]
 		\centering
-		\caption[Features computed for duration analysis]{Features computed for duration analysis, and their values for the sample utterances in \cref{fig:featuresexample}. Values are given in seconds.}
+		\caption[Features computed for duration analysis]{Features computed for duration analysis, and their values for the sample utterances of ``Flagge'' in \cref{fig:featuresexample}. Values are given in seconds.}
 		\begin{tabularx}{\textwidth}{lXcc}
 		\toprule
 		\multirow{2}{*}{Feature name} 
 									& \multirow{2}{*}{Description}
 																	& \multicolumn{2}{c}{Value (seconds)} \\
-					  				&												&  (a) Flagge-F		& (b) Flagge-G \\
+					  				&												&  (a) F		& (b) G \\
 		\midrule
-		WORD\_DUR 		&	Duration of entire word				& 0.32			& 0.33			\\
-		SYLL0\_DUR 		&	Dur. of first syllable						& 0.16			& 0.22			\\
-		SYLL1\_DUR 		&	Dur. of second syllable				& 0.16			& 0.11			\\
-		V0\_DUR 				&	Dur. of vowel in first syllable		& 0.04			& 0.09			\\
-		V1\_DUR 				&	Dur. of vowel in second syllable	& 0.06			& 0.05			\\
-		SYLL\_REL\_DUR 	&	SYLL0\_DUR$/$SYLL1\_DUR 		& 1.00			& 2.00			\\
-		V\_REL\_DUR 		&	V0\_DUR$/$V1\_DUR					& 0.67			& 1.80 			\\
+		WORD-DUR 		&	Duration of entire word				& 0.32			& 0.33			\\
+		SYLL0-DUR 		&	Dur. of 1st syllable						& 0.16			& 0.22			\\
+		SYLL1-DUR 		&	Dur. of 2nd syllable				& 0.16			& 0.11			\\
+		V0-DUR 				&	Dur. of vowel in 1st syllable		& 0.04			& 0.09			\\
+		V1-DUR 				&	Dur. of vowel in 2nd syllable	& 0.06			& 0.05			\\
+		SYLL-REL-DUR 	&	SYLL0-DUR$/$SYLL1-DUR 		& 1.00			& 2.00			\\
+		V-REL-DUR 		&	V0-DUR$/$V1-DUR					& 0.67			& 1.80 			\\
 		\bottomrule	
 		\end{tabularx}
 		\label{tab:durationfeatures}
@@ -169,28 +171,128 @@ The relative utility of these features in automatically diagnosing lexical stres
 	
 		%``...in German utterances, stressed syllables could be signaled by any F0 obtrusion from the overall contour, so that a stressed syllable could be either higher or lower in pitch than its neighbors'' \citep[p.~267]{Cutler2005}
 
+		%\setlength\extrarowheight{5pt}
+\begin{table}[htb]
+		\centering
+		\caption[Features computed for fundamental frequency (F0) analysis]{Features computed for fundamental frequency (F0) analysis, and their values for the sample utterances of ``Flagge'' in \cref{fig:featuresexample}. Values are given in semitones.}
+		{\renewcommand{\arraystretch}{1.4}%
+		\begin{tabularx}{\textwidth}{p{.225\textwidth}Xrr}
+		\toprule
+		\multirow{3}{*}{Feature name} 
+									& \multirow{3}{*}{Description}
+																	& \multicolumn{2}{c}{Value} \\
+									&								& \multicolumn{2}{c}{(semitones)} \\							
+					  				&																	&  (a) F		
+					  																											& (b) G
+					  																																\\
+		\midrule
+		%%%% WORD FEATURES 
+		WORD-F0-MEAN	& Average (Avg.) F0, entire word	 				& 8.78		& 16.36\\
+		WORD-F0-MAX	& Maximum (Max.) F0, entire word				& 10.73	& 20.08\\
+		WORD-F0-MIN		& Minimum (Min.) F0, entire word				& 6.27		& 13.65\\
+		WORD-F0-RANGE & WORD-F0-MAX$-$WORD-F0-MIN			& 4.46		& 6.43\\
+%		WORD-F0-RANGE & {\renewcommand{\arraystretch}{.9}%
+%										$\displaystyle\begin{array}{l}%
+%										\phantom{-}\mbox{WORD-F0-MAX}\\%
+%										-\mbox{WORD-F0-MIN}\\\end{array}$}	& 4.46	& 6.43\\
+%		\multirow{2}{*}{WORD-F0-RANGE}	
+%									& $\phantom{- }\text{WORD-F0-MAX}$
+%																			& \multirow{2}{*}{4.459217}		
+%																									& \multirow{2}{*}{6.425775}\\
+%									& $- \text{WORD-F0-MIN}$						& 						& 					\\		
 
-		\begin{table}[htb]
-				\centering
-				\caption[Features computed for duration analysis]{Features computed for duration analysis, and their values for the sample utterances in \cref{fig:featuresexample}. Values are given in seconds.}
-				\begin{tabularx}{\textwidth}{lXcc}
-				\toprule
-				\multirow{2}{*}{Feature name} 
-											& \multirow{2}{*}{Description}
-																			& \multicolumn{2}{c}{Value (seconds)} \\
-							  				&												&  (a) Flagge-F		& (b) Flagge-G \\
-				\midrule
-				WORD\_DUR 		&	Duration of entire word				& 0.32			& 0.33			\\
-				SYLL0\_DUR 		&	Dur. of first syllable						& 0.16			& 0.22			\\
-				SYLL1\_DUR 		&	Dur. of second syllable				& 0.16			& 0.11			\\
-				V0\_DUR 				&	Dur. of vowel in first syllable		& 0.04			& 0.09			\\
-				V1\_DUR 				&	Dur. of vowel in second syllable	& 0.06			& 0.05			\\
-				SYLL\_REL\_DUR 	&	SYLL0\_DUR$/$SYLL1\_DUR & 1.00	& 2.00			\\
-				V\_REL\_DUR 		&	V0\_DUR$/$V1\_DUR	& 0.67			& 1.80 			\\
-				\bottomrule
-				\end{tabularx}
-				\label{tab:durationfeatures}
-		\end{table}
+		%\addlinespace
+		%%%% SYLL* FEATURES 
+		SYLL0-F0-MEAN	& Avg. F0, 1st syllable					& 9.29		& 15.81\\	
+		SYLL0-F0-MAX		& Max. F0, 1st syllable					& 10.73		& 18.25\\
+		SYLL0-F0-MIN		& Min. F0, 1st syllable					& \color{red}{TD}		& \color{red}{TD}\\
+		SYLL0-F0-RANGE & SYLL0-F0-MAX$-$SYLL0-F0-MIN	& 1.45		& 4.60\\
+%		SYLL0-F0-RANGE	& {\renewcommand{\arraystretch}{.9}%
+%										$\displaystyle\begin{array}{l}%
+%										\phantom{-}\mbox{SYLL0-F0-MAX}\\%
+%										-\mbox{SYLL0-F0-MIN}\\\end{array}$} 		& 1.45		& 4.60\\
+%		\multirow{2}{*}{SYLL0-F0-RANGE}	
+%									& $\phantom{- }\text{SYLL0-F0-MAX}$%-$SYLL0-F0-MIN	
+%																			& \multirow{2}{*}{1.44952}		
+%																										& \multirow{2}{*}{4.600318}\\
+%									& $- \text{SYLL0-F0-MIN}$					& 						& 					\\		
+
+		SYLL1-F0-MEAN	& Avg. F0, 2nd syllable						& 8.24		& 17.51\\
+		SYLL1-F0-MAX		& Max. F0, 2nd syllable						& 9.93		& 20.08\\
+		SYLL1-F0-MIN		& Min. F0, 2nd syllable			& \color{red}{TD}	& \color{red}{TD}\\
+		SYLL1-F0-RANGE	& SYLL1-F0-MAX$-$SYLL1-F0-MIN 	& 3.66		& 5.86 \\
+%		SYLL1-F0-RANGE	& {\renewcommand{\arraystretch}{.9}%
+%										$\displaystyle\begin{array}{l}%
+%										\phantom{-}\mbox{SYLL1-F0-MAX}\\%
+%										-\mbox{SYLL1-F0-MIN}\\\end{array}$} 		& 3.66	& 5.86 \\
+%		\multirow{2}{*}{SYLL1-F0-RANGE}	
+%									& $\phantom{- }\text{SYLL1-F0-MAX}$%-$SYLL1-F0-MIN	
+%																			& \multirow{2}{*}{3.65978}		
+%																										& \multirow{2}{*}{5.862722}\\
+%									& $- \text{SYLL1-F0-MIN}$					& 						& 					\\		
+		
+		%\addlinespace
+		%%%% RELATIVE FEATURES 
+%		SYLL-REL-MEAN & {\renewcommand{\arraystretch}{.9}%
+%									 $\displaystyle\begin{array}{l}
+%									 \mbox{SYLL0-F0-MEAN}\\
+%									 \hline
+%									 \mbox{SYLL1-F0-MEAN}\\
+%									 \end{array}$}			
+%																				& 1.12688     & 0.903218 \\		
+		SYLL-REL-MEAN & SYLL0-F0-MEAN$/$SYLL1-F0-MEAN 	& 1.13    & 0.90 \\
+%		SYLL-REL-MEAN
+%							& $\displaystyle\frac{\mbox{SYLL0-F0-MEAN}}{\mbox{SYLL1-F0-MEAN}}$			
+%																									& 1.13    & 0.90 \\
+		%\addlinespace
+		SYLL-REL-MAX & SYLL0-F0-MAX$/$SYLL1-F0-MAX 			& 1.08		& 0.91 \\
+%		SYLL-REL-MAX
+%							& $\displaystyle\frac{\mbox{SYLL0-F0-MAX}}{\mbox{SYLL1-F0-MAX}}$
+%																									& 1.08		& 0.91 \\
+		SYLL-REL-MIN & SYLL0-F0-MIN$/$SYLL1-F0-MIN &\color{red}{TD}&\color{red}{TD}\\
+		
+		%\addlinespace
+%		SYLL-REL-MIN		
+%							& $\displaystyle\frac{\mbox{SYLL0-F0-MIN}}{\mbox{SYLL1-F0-MIN}}$	
+%																		& \color{red}{TD}		& \color{red}{TD}\\
+		%\addlinespace
+		SYLL-REL-RANGE & SYLL0-F0-RANGE$/$SYLL1-F0-RANGE & 0.40%0.396068		
+																															& 0.78\\
+%		SYLL-REL-RANGE	
+%							& $\displaystyle\frac{\mbox{SYLL0-F0-RANGE}}{\mbox{SYLL1-F0-RANGE}}$
+%																									& 0.40%0.396068		
+%																															& 0.78\\
+		%\addlinespace
+		SYLL-MAX-INDEX	
+							& 	$\begin{cases} 
+								0, & \text{if SYLL0-F0-MAX}>\text{SYLL1-F0-MAX}\\
+								1, & \text{if SYLL0-F0-MAX}<\text{SYLL1-F0-MAX}\\
+								\end{cases}$
+%							& 0 if  SYLL0-F0-MAX$>$SYLL1-F0-MAX,
+%								1 if  SYLL0-F0-MAX$<$SYLL1-F0-MAX		
+																									& 0					& 1				\\
+		SYLL-MIN-INDEX	
+							& 	$\begin{cases} 
+								0, & \text{if SYLL0-F0-MIN}<\text{SYLL1-F0-MIN}\\
+								1, & \text{if SYLL0-F0-MIN}>\text{SYLL1-F0-MIN}\\
+								\end{cases}$
+%							& 0 if  SYLL0-F0-MIN$<$SYLL1-F0-MIN,
+%								1 if  SYLL0-F0-MIN$>$SYLL1-F0-MIN		
+																									& 1					& 0				\\
+																									
+		SYLL-MAXRANGE-INDEX	
+					& $\begin{cases} 
+								0, & \text{if SYLL0-F0-RANGE}>\text{SYLL1-F0-RANGE}\\
+								1, & \text{if SYLL0-F0-RANGE}<\text{SYLL1-F0-RANGE}\\
+							\end{cases}$
+%					& 0 if  SYLL0-F0-RANGE$>$SYLL1-F0-RANGE,
+%						1 if  SYLL0-F0-RANGE$<$SYLL1-F0-RANGE		
+																									& 1					& 1				\\
+		\bottomrule
+		\end{tabularx}
+		} % end arraystretch
+		\label{tab:durationfeatures}
+\end{table}
 
 
 	\subsection{Intensity}

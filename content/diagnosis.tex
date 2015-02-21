@@ -97,12 +97,22 @@ In this section, we will examine how (a) will be achieved using
 
 	
 	%TODO 
-	In this section, the features discussed are illustrated with their values for a word from a sample utterance selected from the IFCASL corpus. The oscillogram, waveform, and annotation for this sample word are given in \cref{fig:featuresexample}.
+	In this section, the features discussed are illustrated with their values for a word from two sample utterances of a German word selected from the IFCASL corpus; one by a L1 French speaker and the other by a L1 German speaker. The oscillogram, waveform, and annotation for these samples are shown in \cref{fig:featuresexample}.
 	
 	\begin{figure}
 		\centering
-		\TODO{figure with praat screenshot of wavform and annotation}
-		\caption{}
+		\begin{subfigure}[t]{\textwidth}
+                \includegraphics[width=\textwidth]{../img/screenshots/2SH05_FGMB1_527-flagge}
+                \caption{L1 French speaker (Flagge-F)}
+                \label{fig:featuresexample:fg}
+        \end{subfigure}%
+        \vspace{1.5em}
+        \begin{subfigure}[b]{\textwidth}
+                \includegraphics[width=\textwidth]{../img/screenshots/2SH05_GGMB2_035-flagge}
+                \caption{L1 German speaker (Flagge-G}
+                \label{fig:featuresexample:gg}
+        \end{subfigure}%
+		\caption{Two sample utterances of the word "Flagge" from the IFCASL corpus, used to illustrate the features discussed in this section. \TODO{description}}
 		\label{fig:featuresexample}
 	\end{figure}
 	
@@ -126,14 +136,23 @@ along with the values computed for a sample utterance from the IFCASL corpus \TO
 
 \begin{table}[htb]
 		\centering
-		\caption{Features computed for duration analysis, and their values for a sample from the data.}
-		\begin{tabular}{ll}
+		\caption[Features computed for duration analysis]{Features computed for duration analysis, and their values for the sample utterances in \cref{fig:featuresexample}. Values are given in seconds.}
+		\begin{tabularx}{\textwidth}{lXcc}
 		\toprule
-		Feature  & Value for \TODO{} \\
+		\multirow{2}{*}{Feature name} 
+									& \multirow{2}{*}{Description}
+																	& \multicolumn{2}{c}{Value (seconds)} \\
+					  				&												&  (a) Flagge-F		& (b) Flagge-G \\
 		\midrule
-		\TODO{} & \\
-		\bottomrule
-		\end{tabular}
+		WORD\_DUR 		&	Duration of entire word				& 0.32			& 0.33			\\
+		SYLL0\_DUR 		&	Dur. of first syllable						& 0.16			& 0.22			\\
+		SYLL1\_DUR 		&	Dur. of second syllable				& 0.16			& 0.11			\\
+		V0\_DUR 				&	Dur. of vowel in first syllable		& 0.04			& 0.09			\\
+		V1\_DUR 				&	Dur. of vowel in second syllable	& 0.06			& 0.05			\\
+		SYLL\_REL\_DUR 	&	SYLL0\_DUR$/$SYLL1\_DUR 		& 1.00			& 2.00			\\
+		V\_REL\_DUR 		&	V0\_DUR$/$V1\_DUR					& 0.67			& 1.80 			\\
+		\bottomrule	
+		\end{tabularx}
 		\label{tab:durationfeatures}
 \end{table}
 
@@ -150,6 +169,28 @@ The relative utility of these features in automatically diagnosing lexical stres
 	
 		%``...in German utterances, stressed syllables could be signaled by any F0 obtrusion from the overall contour, so that a stressed syllable could be either higher or lower in pitch than its neighbors'' \citep[p.~267]{Cutler2005}
 
+
+		\begin{table}[htb]
+				\centering
+				\caption[Features computed for duration analysis]{Features computed for duration analysis, and their values for the sample utterances in \cref{fig:featuresexample}. Values are given in seconds.}
+				\begin{tabularx}{\textwidth}{lXcc}
+				\toprule
+				\multirow{2}{*}{Feature name} 
+											& \multirow{2}{*}{Description}
+																			& \multicolumn{2}{c}{Value (seconds)} \\
+							  				&												&  (a) Flagge-F		& (b) Flagge-G \\
+				\midrule
+				WORD\_DUR 		&	Duration of entire word				& 0.32			& 0.33			\\
+				SYLL0\_DUR 		&	Dur. of first syllable						& 0.16			& 0.22			\\
+				SYLL1\_DUR 		&	Dur. of second syllable				& 0.16			& 0.11			\\
+				V0\_DUR 				&	Dur. of vowel in first syllable		& 0.04			& 0.09			\\
+				V1\_DUR 				&	Dur. of vowel in second syllable	& 0.06			& 0.05			\\
+				SYLL\_REL\_DUR 	&	SYLL0\_DUR$/$SYLL1\_DUR & 1.00	& 2.00			\\
+				V\_REL\_DUR 		&	V0\_DUR$/$V1\_DUR	& 0.67			& 1.80 			\\
+				\bottomrule
+				\end{tabularx}
+				\label{tab:durationfeatures}
+		\end{table}
 
 
 	\subsection{Intensity}

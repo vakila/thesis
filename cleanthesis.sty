@@ -250,8 +250,14 @@
 \RequirePackage{textcomp}			% different symbols
 \RequirePackage{floatflt}			% to wrap text around figures
 \RequirePackage{hyperref} 			% interactive link inside the document
+
+% **************************************************
+% Tables
+% **************************************************						
+%
 \RequirePackage{tabularx}
-\RequirePackage{booktabs} % For prettier horizontal rules in tables
+\RequirePackage{booktabs} 	% For prettier horizontal rules in tables
+\RequirePackage{multirow}	
 
 % **************************************************
 % Captions
@@ -270,6 +276,8 @@
 		\captionsetup{format=llap,labelsep=quad,singlelinecheck=false}%
 %	}{}
 \fi
+\RequirePackage{subcaption}
+
 
 % **************************************************
 % Geometry (Page Setup)

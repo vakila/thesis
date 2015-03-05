@@ -2,7 +2,7 @@
 %
 % !TEX root = ../thesis-main.tex
 %
-
+%TODO change title? \chapter{Lexical stress errors in the IFCASL corpus}
 \chapter{Lexical stress errors by French learners of German}
 \label{chap:lexstress}
 
@@ -16,8 +16,10 @@
 %	\subsection{Expected errors}
 %	
 	
-	
+\TODO{Change title?}
 %\section{Lexical stress errors in the IFCASL corpus} 
+
+	\TODO{Reminder of IFCASL corpus} see \cref{sec:intro:ifcasl}
 
 	To investigate to what extent the expected lexical stress errors by French speakers of German are actually produced, a subset of the non-native German-language IFCASL corpus was annotated for such errors, with a view to answering the following questions:
 
@@ -26,20 +28,26 @@
 	\item{Is there a difference in the frequency of these errors among different groups of speakers (i.e. in terms of skill level, age, or gender) or in different contexts (e.g. after hearing a native speaker produce the word)?}
 	\item{Are lexical stress errors observed more frequently with certain word types than with others?}
 	\item{Can lexical stress errors be reliably identified by native German speakers (i.e. to what extent do the judgments of different annotators agree)?}
-	\item{Are there differences in how native and non-native German speakers annotate stress errors?}
+	\item{Are there differences in how expert and novice annotators (those without annotation experience or any training in phonetics/phonology) identify lexical stress errors?} 
+	\item{Are there differences in how native and non-native German speakers identify errors?}
 	\item{How frequently do technical problems interfere with determining the accuracy of a production?}
 	\end{itemize}
 	
+	
+	This chapter presents the data and method used for this annotation, and an analysis of the annotated sub-corpus \TODO{\textit{rephrase}: in light of these guiding questions}. 
 	
 	%\subsection{Data}
 	\section{Data}
 	\label{sec:lexstress:data}
 	
-	The IFCASL sub-corpus annotated for lexical stress errors consists of utterances of twelve word types (see \cref{tab:bisyllwords}), each of which is bisyllabic and canonically has its primary stress on the initial syllable. These characteristics were chosen deliberately: the selected words are bisyllabic because this simplifies comparison between stressed and unstressed syllables, and they are initial-stress because this is the stress pattern which L1 French speakers are expected to have the most difficulty producing in German, given the fixed final-position stress and final lengthening in French.
+	The IFCASL sub-corpus annotated for lexical stress errors consists of utterances of twelve word types (see \cref{tab:bisyllwords}), each of which is bisyllabic and canonically has its primary stress on the initial syllable. These characteristics were chosen deliberately: the selected words are bisyllabic because this simplifies comparison between stressed and unstressed syllables, and they are initial-stress because this is the stress pattern which native (L1) French speakers are expected to have the most difficulty producing in German, given the fixed final-position stress and final lengthening in French (see \cref{sec:stress:expected}). 
 	
-	In the IFCASL corpus recordings, sentences containing these words were read aloud by L1 and L2 (L1 French) speakers. Here, only the L2 utterances were annotated; it is assumed that the L1 German speakers always realize lexical stress correctly. 
-	The recordings were performed under two conditions: the ``Sentence Read'' (SR) condition, in which the L2 speaker is simply  presented with the text of the sentence and asked to record themselves reading it aloud, and the ``Sentence Heard'' (SH) condition, in which the L2 speaker is asked to listen to an utterance of the sentence by an L1 German speaker before recording their own utterance.
-	Utterances (tokens) of each word as produced by over 50 L2 speakers were extracted from the recordings automatically in Praat \parencite{Boersma2014}, using the word-level segmentation of each sentence utterance automatically obtained by forced alignment (see \TODO{ref}).
+	In the IFCASL corpus recordings, sentences containing these words were read aloud by L1 and L2 (L1 French) speakers. Here, only the L2 utterances were annotated; it is assumed that the L1 German speakers always realize lexical stress correctly. \TODO{justify that assumption?}
+	
+	As described in \cref{sec:intro:ifcasl} \TODO{verify that this reference is appropriate}, the IFCASL recordings were performed under two conditions: the ``Sentence Read'' (SR) condition, in which the L2 speaker is simply  presented with the text of the sentence and asked to record themselves reading it aloud, and the ``Sentence Heard'' (SH) condition, in which the L2 speaker is asked to listen to an utterance of the sentence by an L1 German speaker before recording their own utterance. The sub-corpus for annotation includes recordings from both conditions, though the majority are from the SR condition \TODO{does mentioning that help or hurt?}.
+	
+	To compile the sub-corpus for annotation, utterances (tokens) of each word as produced by over 50 L2 speakers were extracted from the recordings automatically in Praat \parencite{Boersma2014}, using the word-level segmentation of each sentence utterance automatically obtained by forced alignment (see \TODO{ref}).
+	\TODO{How many tokens couldn't be annotated because of disfluencies, this is a problem that a real CAPT system would have to cope with (reference appropriate section)}
 	
 	\begin{table}[htb]
 		\centering
@@ -59,7 +67,7 @@
 		Part of speech & 
 		English \linebreak translation & 
 		Recording condition & 
-		Tokens \linebreak annotated\\
+		Number \linebreak of tokens \TODO{redo without bad\_nwords} \\%\linebreak annotated\\
 		
 		\midrule
 		E-mail	&	\TODO{prons} &	noun &	e-mail &	SR 	&	56	\\
@@ -78,19 +86,54 @@
 		\end{tabularx}
 		\label{tab:bisyllwords}
 	\end{table}
+	
+	\section{Annotators}
+	\label{sec:lexstress:annotators}
+	
+	\TODO{}
+	
+	Of the \TODO{X} annotators, \TODO{X} were native German speakers, \TODO{2} were native speakers of American English, and \TODO{one} annotator's first language was Hebrew. 
+	
+	\TODO{Some of the annotators' judgments were not useable due to technical problems, and had to be excluded from the analysis.} 
+	
+	
+	\begin{table}[htb]
+		\centering
+		\caption{Annotators \TODO{caption}}
+		
+		\begin{tabularx}{\textwidth}{lllX}
+		\toprule
+		ID & L1 & Expertise & Word types annotated (number of tokens) \\
+		\midrule
+		\TODO{} & \TODO{} & \TODO{} & \TODO{} \\
+		
+		\bottomrule
+		\end{tabularx}
+		\label{tab:annotators}
+	\end{table}
 
 	%\subsection{Annotation method}
 	\section{Annotation method}
 	\label{sec:lexstress:method}
 
-
+	The annotation task consisted of assigning the lexical stress realization in each token of the selected word types, i.e. each utterance of each word by each L1 French speaker in the corpus, one of the following labels:
 	
-	The interface of the graphical annotation tool, scripted in Praat \parencite{Boersma2014}, is shown in \cref{fig:annotationtool}. At the top, a word's text is displayed, along with the ID number of the speaker whose utterance of that word will be annotated. The recording of the word, extracted from a longer sentence, is played automatically. The annotator may choose to play the word again, or play the entire sentence; either may be played as many times as the annotator wishes. Once the annotator has judged the accuracy of the lexical stress realization in this utterance, they log that judgment by clicking on one of the gray buttons. The annotator is then automatically advanced to the next utterance, with the counts in the lower right corner tracking their progress towards the total number of tokens to be annotated. 
+	\begin{itemize}
+	\item{\textbf{correct}: the speaker audibly stressed the lexically stressed (initial) syllable}
+	\item{\textbf{incorrect}:the speaker audibly stressed the lexically unstressed (final) syllable}
+	\item{\textbf{none}: the speaker did not clearly stress either syllable, i.e. did not audibly differentiate stressed and unstressed syllables, or the annotator was unable to determine which syllable was stressed}
+	\item{\textbf{bad\_nsylls}: the speaker pronounced the word with an incorrect number of syllables (i.e. by inserting or deleting a syllable), rendering it impossible to judge whether stress was realized correctly or not}
+	\item{\textbf{bad\_audio}: a problem with the audio file (e.g. noise in the signal or very inaccurate segmentation) interfered with the annotator's ability to judge the stress realization}
+	 \end{itemize}
+	
+	Annotation proceeded by means of a graphical tool scripted in Praat \parencite{Boersma2014}, the main interface of which is shown in \cref{fig:annotationtool}. At the top, a word's text is displayed, along with the IFCASL corpus ID number of the speaker whose utterance of that word will be annotated (this number is only relevant for the annotator insofar as changes in its value inform the annotator that the speaker is changing from utterance to utterance). The recording of the word
+%, extracted automatically from the utterance of the entire sentence using the boundaries of the forced-alignment segmentation, 
+is played once automatically; the annotator may then choose to click one of the green buttons to play the word again, or play the recording of the entire sentence, as many times as they wish. Once the annotator has judged the accuracy of the lexical stress realization in this utterance, they log that judgment by clicking one of the gray buttons. The annotator is then automatically advanced to the next utterance, with the counts in the lower right corner tracking their progress towards the total number of tokens to be annotated. 
 	
 		\begin{figure}[bht]
 			\centering
 			\includegraphics[width=\textwidth]{../img/screenshots/AnnotationTool}
-			\caption{A screenshot of the graphical annotation tool scripted in Praat.  }
+			\caption[A screenshot of the graphical annotation tool scripted in Praat.]{A screenshot of the graphical annotation tool scripted in Praat. Green buttons allow the annotator to play the audio recordings of the word and sentence. Gray buttons allow the annotator to record their judgment of stress accuracy; from top to bottom, the buttons correspond to the labels [correct], [incorrect], [none], [bad\_nsylls], and [bad\_audio].}
 			\label{fig:annotationtool}
 		\end{figure}
 	
@@ -117,7 +160,7 @@
 		\subsection{Native vs. nonnative annotators}
 		\label{sec:results:native}
 		
-		Of the \TODO{X} annotators, \TODO{X} were native German speakers, \TODO{2} were native speakers of American English, and \TODO{one} annotator's first language was Hebrew. 
+		
 
 		In comparing the relative frequencies of the different response classes, we observe that the native and nonnative speakers judge utterances as having correct lexical stress with approximately the same frequency. However, nonnative speakers seem to choose the ``no clear stress/I can't tell'' label somewhat more frequently than native speakers; this could be attributed to nonnative speakers being less confident about the how stress should be realized in German, resulting in less certainty about whether a given utterance is correct or not. \TODO{update/verify this paragraph}
 		

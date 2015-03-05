@@ -3,7 +3,7 @@
 % !TEX root = ../thesis-main.tex
 %
 %TODO change title? \chapter{Lexical stress errors in the IFCASL corpus}
-\chapter{Lexical stress errors by French learners of German}
+\chapter{Lexical stress errors by French learners of German \TODO{title?}}
 \label{chap:lexstress}
 
 %\cleanchapterquote{You can’t do better design with a computer, but you can speed up your work enormously.}{Wim Crouwel}{(Graphic designer and typographer)}
@@ -33,8 +33,8 @@
 	\item{How frequently do technical problems interfere with determining the accuracy of a production?}
 	\end{itemize}
 	
-	
-	This chapter presents the data and method used for this annotation, and an analysis of the annotated sub-corpus \TODO{\textit{rephrase}: in light of these guiding questions}. 
+	This chapter describes the annotation of this sub-corpus, and presents an analysis of the annotated data that provides tentative answers to the above questions. \TODO{rephrase that?}
+	%This chapter presents the data and method used for this annotation, and an analysis of the annotated sub-corpus \TODO{\textit{rephrase}: in light of these guiding questions}. 
 	
 	%\subsection{Data}
 	\section{Data}
@@ -90,16 +90,19 @@
 	\section{Annotators}
 	\label{sec:lexstress:annotators}
 	
-	\TODO{}
+	A total of 15 annotators participated in the annotation of this IFCASL sub-corpus \TODO{\textit{remove?:} over the course of 2 months}, each of whom is listed in \cref{tab:annotators} (by an arbitrary identifier, to preserve anonymity).
+	As \cref{tab:annotators} shows, the annotators varied with respect to their native language, as well as with respect to their level of expertise in phonetics/phonology/linguistic annotation. 
 	 
 	 % Nativeness
-	Of the \TODO{X} annotators, \TODO{X} were native German speakers, \TODO{2} were native speakers of American English, and \TODO{one} annotator's first language was Hebrew. 
-	
+	Of the 15 annotators, the majority (12) were native German speakers, two were native speakers of American English, and one annotator's first language was Hebrew. The nonnative speakers all have \TODO{\textit{more specific?:} some knowledge}  of German as L2.
+	%
 	% Expertise
-	\TODO{Expertise}
-	
-	% Incomplete annotations
-	\TODO{Some of the annotators' judgments were not useable due to technical problems, and had to be excluded from the analysis.} 
+	In terms of expertise, the annotators can broadly be categorized into three groups: 
+	\begin{itemize}
+	\item{\textit{expert} annotators are professional researchers with a thorough understanding of phonetics/phonology and extensive experience in annotating speech data}
+	\item{\textit{intermediate} annotators are university students \TODO{ enrolled in an experimental phonology course \textit{is that true of Frankfurt students too?}}, and have some training in phonetics/phonology and/or experience annotating speech data}
+	\item{\textit{novice} annotators have negligible training in phonetics/phonology and lack experience annotating speech data}
+	\end{itemize}
 	
 	
 	\begin{table}[htb]
@@ -108,66 +111,104 @@
 		
 		\begin{tabularx}{\textwidth}{lllX}
 		\toprule
-		ID & L1 & Expertise & Word types annotated (number of tokens) \newline \TODO{redo without bad\_nwords} \\
+		ID & Native language & Expertise & Word types annotated (number of tokens) \newline \TODO{alphabetize}\\
 		\midrule
 		%Frank	FZ 
-		A	&	German	& expert & Flagge (55), \newline Ringen (55),\newline Tschechen (56) \\
+		A	&	German	& expert & Flagge (55),  Ringen (55), Tschechen (56) \\
 		
 		%Raphael	RM	
-		B	&	German	& intermediate & 	halten (56), \newline M\"{o}rder (56),    \newline Tatort (56) \\
+		B	&	German	& intermediate & 	halten (56),  M\"{o}rder (56),     Tatort (56) \\
 		
 		%Lukas	LS	
-		C & German & intermediate &		Fr\"{u}hling (56),\newline fliegen (56), \newline Pollen (55) \TODO{FALSE}  \\
-		
-		%Diana	DA 
-		D &	German & intermediate &		Pollen (55),\newline Flagge (55), \newline Ringen (55)	 \TODO{FALSE}   \\
-		
-		%Patrick	PC 
-		E & English (US)	& intermediate & 	Tschechen (56), \newline halten (56), \newline M\"{o}rder (56) 	 \\
-		
-		%Sarah	SC
-		F & 	German	 & intermediate & 	Tatort (56),\newline Fr\"{u}hling (56),\newline fliegen (56)	 \\
-		
-		%Yoav	YB	 
-		G & Hebrew	& intermediate & 	fliegen (56), \newline Pollen (55),\newline Flagge (55)	 \TODO{FALSE}   \\
-		
-		%Jeanin	JJ	
-		H & German & expert &		Fr\"{u}hling (56),\newline fliegen (56), \newline Pollen (55) \\
-		
-		%Dilber	DB 
-		J & 	German & intermediate &		Ringen (55),\newline Tschechen (56),\newline halten (56)	 \\
-		
-		%Christine	CM
-		K &	German	 & intermediate & M\"{o}rder (56),   \newline Tatort (56),\newline Fr\"{u}hling (56) \\
-		
-		%Anjana	AV	
-		L & English (US)	& intermediate &  manche (56),  \newline E-mail (56),  \newline tragen (55),	 \newline   fliegen (56), \newline Pollen (55),\newline Flagge (55) \\
-		
-		%Marc	MS	
-		M & German	 & novice & Flagge (55), \newline Tatort (56), \newline E-mail (56) 	 \\
-		
-		%Maya	ML
-		N & 	German	 & intermediate & Ringen (55),\newline Fr\"{u}hling (56),\newline tragen (55)	 \\
-		
-		%Lisa	LB	
-		O & German	& novice & Tschechen (56), \newline fliegen (56), \newline manche (56)	 \\
+		%C & German & intermediate &		Fr\"{u}hling (0), fliegen (0),  Pollen (0) \TODO{Remove entirely?}  \\
 		
 		%Tobias	TB	
-		P & German & novice & 	halten (56), \newline Pollen (55), \newline E-mail (56)	 \\
+		%P
+		C & German & novice & 	halten (56),  Pollen (55),  E-mail (56)	 \\
+		
+		%Diana	DA 
+		D &	German & intermediate &		Pollen (53), Flagge (49),  Ringen (49)	 %\TODO{FALSE}   
+		\\
+		
+		%Patrick	PC 
+		E & English (US)	& intermediate & 	Tschechen (56),  halten (56),  M\"{o}rder (56) 	 \\
+		
+		%Sarah	SC
+		F & 	German	 & intermediate & 	Tatort (56), Fr\"{u}hling (56), fliegen (56)	 \\
+		
+		%Yoav	YB	 
+		G & Hebrew	& intermediate & 	fliegen (0),  Pollen (0), Flagge (20)	 %\TODO{FALSE}   
+		\\
+		
+		%Jeanin	JJ	
+		H & German & expert &		Fr\"{u}hling (56), fliegen (56),  Pollen (55) \\
+		
+		%Dilber	DB 
+		J & 	German & intermediate &		Ringen (55), Tschechen (56), halten (56)	 \\
+		
+		%Christine	CM
+		K &	German	 & intermediate & M\"{o}rder (56),    Tatort (56), Fr\"{u}hling (56) \\
+		
+		%Anjana	AV	
+		L & English (US)	& intermediate &  manche (56),   E-mail (56),   tragen (55),	    fliegen (56),  Pollen (55), Flagge (55) \\
+		
+		%Marc	MS	
+		M & German	 & novice & Flagge (54), \TODO{mention?}  Tatort (56),  E-mail (56) 	 \\
+		
+		%Maya	ML
+		N & 	German	 & intermediate & Ringen (54), \TODO{mention?}  Fr\"{u}hling (56), tragen (55)	 \\
+		
+		%Lisa	LB	
+		O & German	& novice & Tschechen (56),  fliegen (56),  manche (56)	 \\
 		
 		%Steffen	SB
-		Q	& German	 & intermediate & Mörder (56),  \newline manche (56), \newline tragen (55) \\
+		%Q
+		P	& German	 & intermediate & Mörder (56),   manche (56),  tragen (55) \\
 		
 		\bottomrule
 		\end{tabularx}
 		\label{tab:annotators}
 	\end{table}
-
+	
+	Each annotator was assigned three word types to annotate in a single session, with the exception of one annotator who was assigned six word types over two sessions (see \cref{sec:lexstress:method} for a description of an annotation session). \Cref{tab:annotators} lists the word types assigned to each annotator, along with the number of tokens labeled for each type. Some judgments by annotators \TODO{D and G} had to be excluded from the analysis due to technical problems; the token counts for each annotator in \cref{tab:annotators} reflect only their usable judgments. \TODO{move following to agreement section in results?} Word types were assigned such that each word type was annotated by at least two native German speakers, and to maximize the amount of overlap between annotators in order to obtain as many pairwise measures of annotator agreement as possible; \cref{tab:annotatorsbyword} lists the number of annotators for each word type.
+	
+	
+	\begin{table}[htb]
+		\centering
+		\caption{Number of annotators by word type}
+		\begin{tabular}{lccc}
+		\toprule
+		Word type 
+		&		Native %annotators 
+		& 	Nonnative %annotators 
+		& Total %annotators 
+		\\
+		\midrule
+		E-mail	& 2 &	1 &	3 \\
+		Flagge	& 3	& 2	& 5 \\
+		fliegen	& 3	& 1	& 4 \\
+		Frühling	& 4	& 0	& 4 \\
+		halten	& 3	& 1	& 4 \\
+		manche	& 2	& 1	& 3 \\
+		Mörder & 	3	& 1	& 4 \\
+		Pollen	& 3	& 1	& 4 \\
+		Ringen	& 4	& 0	& 4 \\
+		Tatort	& 4	& 0	& 4 \\
+		tragen	& 2	& 1	& 3 \\
+		Tschechen 	& 3	& 1	& 4 \\
+		\bottomrule
+		\end{tabular}
+		\label{tab:annotatorsbyword}
+	\end{table}
+	
+	
 	%\subsection{Annotation method}
 	\section{Annotation method}
 	\label{sec:lexstress:method}
 
-	The annotation task consisted of assigning the lexical stress realization in each token of the selected word types, i.e. each utterance of each word by each L1 French speaker in the corpus, one of the following labels:
+	The annotation task consisted of assigning one of the following labels to 
+	%the lexical stress realization in 
+	each token of the selected word types, i.e. each utterance of each word by each L1 French speaker in the corpus:
 	
 	\begin{itemize}
 	\item{\textbf{correct}: the speaker audibly stressed the lexically stressed (initial) syllable}
@@ -180,11 +221,13 @@
 	Annotation proceeded by means of a graphical tool scripted in Praat \parencite{Boersma2014}, the main interface of which is shown in \cref{fig:annotationtool}. At the top, a word's text is displayed, along with the IFCASL corpus ID number of the speaker whose utterance of that word will be annotated (this number is only relevant for the annotator insofar as changes in its value inform the annotator that the speaker is changing from utterance to utterance). The recording of the word
 %, extracted automatically from the utterance of the entire sentence using the boundaries of the forced-alignment segmentation, 
 is played once automatically; the annotator may then choose to click one of the green buttons to play the word again, or play the recording of the entire sentence, as many times as they wish. Once the annotator has judged the accuracy of the lexical stress realization in this utterance, they log that judgment by clicking one of the gray buttons. The annotator is then automatically advanced to the next utterance, with the counts in the lower right corner tracking their progress towards the total number of tokens to be annotated. 
+
+A single annotation session consisted of annotating all tokens of three word types, and lasted approximately 15 minutes. As mentioned in \cref{sec:lexstress:annotators} above, each annotator participated in one session, with the exception of annotator L who participated in two sessions (separated by several days) and annotated a total of six word types.
 	
 		\begin{figure}[bht]
 			\centering
 			\includegraphics[width=\textwidth]{../img/screenshots/AnnotationTool}
-			\caption[A screenshot of the graphical annotation tool scripted in Praat.]{A screenshot of the graphical annotation tool scripted in Praat. Green buttons allow the annotator to play the audio recordings of the word and sentence. Gray buttons allow the annotator to record their judgment of stress accuracy; from top to bottom, the buttons correspond to the labels [correct], [incorrect], [none], [bad\_nsylls], and [bad\_audio].}
+			\caption[A screenshot of the graphical annotation tool scripted in Praat.]{A screenshot of the graphical annotation tool scripted in Praat. Green buttons allow the annotator to listen to  the word and sentence utterances. Gray buttons allow the annotator to record their judgment of stress accuracy; from top to bottom, the buttons correspond to the labels [correct], [incorrect], [none], [bad\_nsylls], and [bad\_audio]. \TODO{border around graphic}}
 			\label{fig:annotationtool}
 		\end{figure}
 	
@@ -239,3 +282,8 @@ is played once automatically; the annotator may then choose to click one of the 
 		\subsection{Impact of technical problems}
 		\label{sec:results:techproblems}
 			\TODO{}
+	
+	
+	\section{Summary}
+	\label{sec:lexstress:summary}
+	\TODO{}

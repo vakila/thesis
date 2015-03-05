@@ -104,7 +104,7 @@
 	\item{\textit{intermediate} annotators are university students \TODO{ enrolled in an experimental phonology course \textit{is that true of Frankfurt students too?}}, and have some training in phonetics/phonology and/or experience annotating speech data}
 	\item{\textit{novice} annotators have negligible training in phonetics/phonology and lack experience annotating speech data}
 	\end{itemize}
-	
+	As shown in \cref{tab:annotators}, the majority of annotators (10 out of 15) fall into the \textit{intermediate} group; two annotators can be considered \textit{expert}, and there are three \textit{novice} annotators.
 	
 	\begin{table}[htb]
 		\centering
@@ -257,14 +257,52 @@ A single annotation session consisted of annotating all tokens of three word typ
 		
 		
 
-		In comparing the relative frequencies of the different response classes, we observe that the native and nonnative speakers judge utterances as having correct lexical stress with approximately the same frequency. However, nonnative speakers seem to choose the \textbf{[none]}
+		In comparing the relative frequencies of the different response classes, we observe that the native and nonnative speakers judge utterances as having correct lexical stress with approximately the same frequency: 52.7\% of native annotators' judgments are \textbf{[correct]}, vs. 57.3\% for nonnative annotators. However, nonnative speakers seem to choose the \textbf{[none]}
 		%``no clear stress/I can't tell'' 
-		label somewhat more frequently than native speakers; this could be attributed to nonnative speakers being less confident about how stress should be realized in German, resulting in less certainty about whether a given utterance is correct or not. \TODO{update/verify this paragraph}
+		label somewhat more frequently than native speakers (21.3\% vs. 11\%); this could indicate that nonnative speakers are less confident about how stress should be realized in German, resulting in less certainty about whether a given utterance is correct or not. \TODO{update/verify this paragraph}
+		
+		
+			
+			
 		
 		\subsection{Expert vs. novice annotators?}
 		\label{sec:results:expert}
 		
 			\TODO{}
+			
+			\begin{figure}[htb]
+				\centering
+				\includegraphics[width=\textwidth]{img/annotation/expertiseBars}
+				\caption{Stress judgments by annotator expertise}
+				\label{fig:expertisebars}
+			\end{figure}
+			
+			
+			\begin{figure}[htb]
+				\centering
+				\begin{subfigure}[b]{.5\textwidth}
+					\centering
+					\includegraphics[width=\textwidth]{img/annotation/expertPie}
+					\caption{Expert}
+					\label{fig:expertisepies:expert}
+				\end{subfigure}%
+				
+				\begin{subfigure}[b]{.5\textwidth}
+					\centering
+					\includegraphics[width=\textwidth]{img/annotation/intermediatePie}
+					\caption{Intermediate}
+					\label{fig:expertisepies:intermediate}
+				\end{subfigure}%
+				~
+				\begin{subfigure}[b]{.5\textwidth}
+					\centering
+					\includegraphics[width=\textwidth]{img/annotation/novicePie}
+					\caption{Novice}
+					\label{fig:expertisepies:novice}
+				\end{subfigure}%
+				\caption{Stress judgments by annotator expertise}
+				\label{fig:expertisepies}
+			\end{figure}
 			
 			
 		\subsection{Overall frequency of lexical stress errors}
@@ -278,13 +316,13 @@ A single annotation session consisted of annotating all tokens of three word typ
 		
 			\TODO{text}
 			
-			%TODO include?
-%			\begin{figure}[htb]
-%				\centering
-%				\includegraphics[width=\textwidth]{img/annotation/skillLevelBars}
-%				\caption{\TODO{Caption}}
-%				\label{fig:levelbars}
-%			\end{figure}
+			%TODO exclude?
+			\begin{figure}[htb]
+				\centering
+				\includegraphics[width=\textwidth]{img/annotation/skillLevelBars}
+				\caption{Stress judgments by speaker skill level \TODO{Exclude?}}
+				\label{fig:levelbars}
+			\end{figure}
 		
 		
 			\begin{figure}[htb]

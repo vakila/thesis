@@ -257,25 +257,47 @@ A single annotation session consisted of annotating all tokens of three word typ
 		
 		
 
-		In comparing the relative frequencies of the different response classes, we observe that the native and nonnative speakers judge utterances as having correct lexical stress with approximately the same frequency: 52.7\% of native annotators' judgments are \textbf{[correct]}, vs. 57.3\% for nonnative annotators. However, nonnative speakers seem to choose the \textbf{[none]}
+		In comparing the relative frequencies of the different response classes, illustrated in \cref{fig:l1pies}, we observe that the native and nonnative speakers judge utterances as having correct lexical stress with approximately the same frequency: 52.7\% of native annotators' judgments are \textbf{[correct]}, vs. 57.3\% for nonnative annotators. However, nonnative speakers seem to choose the \textbf{[none]}
 		%``no clear stress/I can't tell'' 
 		label somewhat more frequently than native speakers (21.3\% vs. 11\%); this could indicate that nonnative speakers are less confident about how stress should be realized in German, resulting in less certainty about whether a given utterance is correct or not. \TODO{update/verify this paragraph}
 		
 		
-			
+			\begin{figure}[htb]
+				\centering
+				\begin{subfigure}[b]{.5\textwidth}
+					\centering
+					\includegraphics[width=\textwidth]{img/annotation/nativePie}
+					\caption{Native annotators}
+					\label{fig:l1pies:native}
+				\end{subfigure}%
+				~
+				\begin{subfigure}[b]{.5\textwidth}
+					\centering
+					\includegraphics[width=\textwidth]{img/annotation/nonnativePie}
+					\caption{Nonnative annotators}
+					\label{fig:l1pies:nonnative}
+				\end{subfigure}%
+				\caption{Stress judgments made by native and nonnative German speakers}
+				\label{fig:l1pies}
+			\end{figure}
 			
 		
 		\subsection{Expert vs. novice annotators?}
 		\label{sec:results:expert}
 		
-			\TODO{}
+			\Cref{fig:expertisepies} illustrates the relative number of each label type as assigned by annotators of the three expertise levels described in \cref{sec:lexstress:annotators} above, and while any analysis of this data should bear in mind the small sample sizes of the expert and novice groups (two and three annotators, respectively), it does appear that some interesting differences may exist between the three groups. 
 			
-			\begin{figure}[htb]
-				\centering
-				\includegraphics[width=\textwidth]{img/annotation/expertiseBars}
-				\caption{Stress judgments by annotator expertise}
-				\label{fig:expertisebars}
-			\end{figure}
+			Expert annotators seem to be far more ``generous'' in their labeling than intermediate or novice annotators, in that the experts assigned the \textbf{[correct]} label 73.6\% of the time, in contrast with 49.3\% and 54.8\% for the other two groups respectively. \TODO{\textit{person?:} One could} speculate that experts' familiarity with nonnative speech and knowledge of possible inter-speaker variations in lexical stress realization may be the cause for this willingness to ``accept'' a high proportion of utterances as correct. \TODO{too many scare quotes in this paragraph?}
+			
+			Another interesting difference can be observed between the intermediate and novice annotator groups: compared with the intermediate annotators, novices assign the \textbf{[none]} label less frequently (5.8\% of the time, versus 16.3\% for intermediates) and the \textbf{[bad\_nsylls]} label more frequently (8.4\% of the time, versus 2.1\% for intermediates). Still keeping in mind the discrepancy in sample sizes when comparing 10 intermediate annotators to three novices, \TODO{\textit{person?:} we might} speculate that if experts' extensive experience with nonnative speech could be an explanation for their ``generosity'' with the correct label, novice annotators' lack of experience with nonnative speech could in a similar way make them ``harsher'' in judging nonnative utterances as having an incorrect number of syllables. \TODO{This paragraph sucks. Also too many scare quotes.}
+			
+			%TODO include?
+%			\begin{figure}[htb]
+%				\centering
+%				\includegraphics[width=\textwidth]{img/annotation/expertiseBars}
+%				\caption{Stress judgments by annotator expertise}
+%				\label{fig:expertisebars}
+%			\end{figure}
 			
 			
 			\begin{figure}[htb]

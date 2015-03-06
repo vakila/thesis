@@ -372,14 +372,37 @@ A single annotation session consisted of annotating all tokens of three word typ
 		%\subsubsection{Native vs. nonnative annotators}
 		\subsection{Native vs. nonnative annotators}
 		\label{sec:agreement:native}
+
 		
 		
-		\quote{Are there differences in how native and non-native German speakers identify errors?} 
+		Going beyond the coarse-grained analysis of inter-annotator agreement described in the previous section, we come now to the second question raised at the beginning of this chapter:
+		\textit{Are there differences in how native and non-native German speakers identify errors?}
+		
+		To answer this question, it is useful to look at the inter-annotator agreement between native and non-native annotators, as well as at the distribution of label types within each group. 
+		
+		\Cref{fig:agreement:L1} illustrates the inter-annotator agreement for all pairs in which one annotator was a native German speaker and the other a non-native speaker, as well as agreement between pairs in which both annotators were native speakers. Due to the small size of the non-native group (3 annotators) and the aforementioned technical problems with annotator G's data (see \cref{sec:lexstress:annotators}), there was very little overlap between non-native annotators (only one pairwise comparison), preventing meaningful analysis of agreement within the non-native group. The precise mean, maximum, median, and minimum pairwise values for the two agreement metrics are listed in \cref{tab:agreement:L1}, for both  native-nonnative pairs and native-native pairs. 
+		
+		Looking at these statistics, we see little difference between the two types of pairs; in particular, the mean percentage agreement and $\kappa$ values for native-nonnative and native-native pairs are quite close. If anything, it would appear that agreement within the native annotator group is slightly lower and more varied than agreement between the native and nonnative groups, though this may be explained by the larger number of native-native pairs compared to native-nonnative. It would therefore seem that these inter-annotator statistics do not tell us much about difference between how the two groups of annotators judge lexical stress accuracy.
 		
 		
-		Going beyond the coarse-grained analysis of inter-annotator agreement described in the previous section, we come now to the 
-		
-			\TODO{mention that the small size of the nonnative, expert, and novice groups prevented meaningful within-group agreement analysis}
+		\begin{table}[htb]
+			\centering
+			\caption{Inter-annotator agreement between native and non-native annotators (pairwise)}
+			%\begin{tabularr}{\textwidth}{lXXXX}
+			\begin{tabular}{lrrrr}
+			\toprule
+			& \multicolumn{2}{c}{Native vs. nonnative} & \multicolumn{2}{c}{Native vs. native} \\
+			\cmidrule(lr){2-3} \cmidrule(lr){4-5}
+			& \% Agreement & Cohen's $\kappa$ & \% Agreement & Cohen's $\kappa$  \\
+			\midrule
+Mean	&56.98\%	 & 0.29  & 53.87\%	& 0.25\\
+Maximum&	76.79\%	& 0.56 & 83.93\%	 & 0.61\\
+Median	& 57.14\%	 &0.25 &  50.91\%	& 0.23 \\
+Minimum	&32.65\%	 & 0.10 &  23.21\% &	-0.01\\
+			\bottomrule
+			\end{tabular}
+			\label{tab:agreement:L1}
+		\end{table} 
 		
 		\begin{figure}[htb]
 			\centering
@@ -388,23 +411,23 @@ A single annotation session consisted of annotating all tokens of three word typ
 				\centering
 				\includegraphics[width=\textwidth]{img/annotation/pairAgreeL1}
 				\caption{Percent agreement}
-				\label{fig:agree:L1:pct}
+				\label{fig:agreement:L1:pct}
 			\end{subfigure}%
 			~
 			\begin{subfigure}[b]{.5\textwidth}
 				\centering
 				\includegraphics[width=\textwidth]{img/annotation/pairKappaL1}
 				\caption{Cohen's Kappa statistic}
-				\label{fig:agree:L1:k}
+				\label{fig:agreement:L1:k}
 			\end{subfigure}%
 			
 			\caption[Pairwise agreement statistics by annotator L1 group]{Pairwise agreement between annotators based on their L1  (native or nonnative German speaker). The bottom of each vertical bar represents the minimum pairwise value, the top the maximum. Horizontal bars indicate average pairwise values.}
-			\label{fig:agree:L1}
+			\label{fig:agreement:L1}
 		\end{figure}
 		
 		
 
-		In comparing the relative frequencies of the different response classes, illustrated in \cref{fig:l1pies}, we observe that the native and nonnative speakers judge utterances as having correct lexical stress with approximately the same frequency: 52.7\% of native annotators' judgments are \textbf{[correct]}, vs. 57.3\% for nonnative annotators. However, nonnative speakers seem to choose the \textbf{[none]}
+		However, in comparing the relative frequencies of the different labels assigned by annotators in these two L1 groups, a more noticeable difference between the groups begin to emerge. As illustrated in \cref{fig:l1pies}, we observe that the native and nonnative speakers judge utterances as having correct lexical stress with approximately the same frequency: 52.7\% of native annotators' judgments are \textbf{[correct]}, vs. 57.3\% for nonnative annotators. However, nonnative speakers seem to choose the \textbf{[none]}
 		%``no clear stress/I can't tell'' 
 		label somewhat more frequently than native speakers (21.3\% vs. 11\%); this could indicate that nonnative speakers are less confident about how stress should be realized in German, resulting in less certainty about whether a given utterance is correct or not. \TODO{update/verify this paragraph}
 		
@@ -427,6 +450,8 @@ A single annotation session consisted of annotating all tokens of three word typ
 				\caption{Stress judgments made by native and nonnative German speakers}
 				\label{fig:l1pies}
 			\end{figure}
+			
+		Though the differences between native and nonnative annotators are interesting \TODO{from the perspective of X}, the ultimate goal of this thesis project is to create a CAPT tool which will help L1 French speakers be more intelligible when speaking German as L2, and therefore the way in which native German speakers perceive lexical stress in non-native speech is of more relevance to this work than the way it is perceived by non-native speakers. Therefore, the remainder of this chapter is concerned exclusively with the judgments of native annotators, and judgments by non-native annotators are not included in the analyses that follow.
 			
 		
 		\subsection{Expert vs. intermediate vs. novice annotators}

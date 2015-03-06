@@ -30,9 +30,10 @@
 	%, which gives some indication of the general difficulty of the task of diagnosing lexical stress errors in nonnative German speech. 
 	\Cref{sec:lexstress:agreement} describes this analysis of inter-annotator agreement, which aims to shed light on the following questions:
 	\begin{itemize}
-	\item{Can lexical stress errors be reliably identified by 
+	\item{How reliably can lexical stress errors be identified by
+	%Can lexical stress errors be reliably identified by 
 	%native German speakers 
-	annotators (i.e. to what extent do the judgments of different annotators agree)?  (\cref{sec:agreement:overall})}
+	annotators, i.e. to what extent do the judgments of different annotators agree?  (\cref{sec:agreement:overall})}
 	\item{Are there differences in how native and non-native German speakers identify errors?  (\cref{sec:agreement:native})}
 	\item{Are there differences in how expert and novice annotators (those without annotation experience or any training in phonetics/phonology) identify lexical stress errors?  (\cref{sec:agreement:expert})} 
 	\end{itemize}
@@ -292,7 +293,9 @@ A single annotation session consisted of annotating all tokens of three word typ
 		
 		
 		To obtain an overall measure of inter-annotator agreement for this lexical stress assessment task, the agreement between each pair of overlapping annotators was quantified by the metrics discussed in the previous section, and the minimum, median, mean, and maximum values over all pairwise comparisons were computed; these values are given in \cref{tab:agreement:overall}.
-	Though this provides a rather coarse-grained picture of the overall agreement, this simple analysis already points to a few interesting observations. First of all, we observe that the mean and median percentage agreement are near 55\%, indicating that, roughly speaking, annotators agree just slightly more often than they disagree; \TODO{\textit{fix:} this is not necessarily an encouraging ratio}. The $\kappa$ values are somewhat more difficult to interpret, but if we consider that $\kappa = 0$ represents agreement purely by chance while $k = 1$ represents perfect, meaningful agreement, the fact that the mean and median $\kappa$ values between annotators are somewhere near 0.25 indicates that the agreement observed between annotators is closer to what would be expected simply by chance than to agreement that would indicate high reliability \TODO{\textit{remove?:} or some type of objective truth}. Looking next at the minimum and maximum values, we observe that while some pairs of annotators seem to exhibit relatively high agreement, 
+	Though this provides a rather coarse-grained picture of the overall agreement, this simple analysis already points to a few interesting observations. First of all, we observe that the mean and median percentage agreement are near 55\%, indicating that, roughly speaking, annotators agree just slightly more often than they disagree; \TODO{\textit{fix:} this is not necessarily an encouraging ratio}. 
+	%The $\kappa$ values are somewhat more difficult to interpret, but i
+	Turning to the $\kappa$ values, if we consider that $\kappa = 0$ represents agreement purely by chance while $k = 1$ represents perfect, meaningful agreement, the fact that the mean and median $\kappa$ values between annotators are somewhere near 0.25 indicates that the agreement observed between annotators is closer to what would be expected simply by chance than to agreement that would indicate high reliability \TODO{\textit{remove?:} or some type of objective truth}. Looking next at the minimum and maximum values, we observe that while some pairs of annotators seem to exhibit relatively high agreement, 
 	%removing this because it's not certain that these numbers correspond to the same pair:
 	%with one pair reaching over 80\% agreement and a $\kappa$ over 0.6, 
 	indicating \TODO{\textit{too fuzzy?} reasonably reliable} judgments, other pairs have very low agreement; in one case, with 23.21\% agreement, the annotators seem to be closer to perfect disagreement than perfect agreement, and the corresponding $\kappa$ being below zero indicates that they agreed even (slightly) less than one would expect if they were merely labeling utterances randomly. 
@@ -311,9 +314,7 @@ A single annotation session consisted of annotating all tokens of three word typ
 			\label{tab:agreement:overall}
 		\end{table}
 	
-	
-		
-		
+	\TODO{Is this section even meaningful? Should it be left out?} It seems, then, that there may be stark differences in reliability from annotator to annotator. Analysis of the set of pairwise comparisons between a given annotator and all overlapping annotators provides more insight into that annotator's individual reliability; \cref{fig:agreement:annotators} illustrates the pairwise agreements involving each of the 15 annotators. These figures should be interpreted with caution because they do not account for differences in the number of overlapping annotators/tokens available for each annotator \TODO{reference overlap table}; nonetheless, it seems that there is indeed some noticeable variation from annotator to annotator \TODO{finish this paragraph}
 		\TODO{table of percent/kappa min/avg/max by annotator, since graphs are difficult to read precisely?}
 		
 		\begin{figure}[htb]
@@ -323,19 +324,21 @@ A single annotation session consisted of annotating all tokens of three word typ
 				\centering
 				\includegraphics[width=\textwidth]{img/annotation/pairAgreeAnnotators}
 				\caption{Percent agreement}
-				\label{fig:agree:annotators:pct}
+				\label{fig:agreement:annotators:pct}
 			\end{subfigure}%
 			
 			\begin{subfigure}[b]{\textwidth}
 				\centering
 				\includegraphics[width=\textwidth]{img/annotation/pairKappaAnnotators}
 				\caption{Cohen's Kappa statistic}
-				\label{fig:agree:annotators:k}
+				\label{fig:agreement:annotators:k}
 			\end{subfigure}%
 			
-			\caption[Pairwise agreement statistics by annotator]{Each annotator's pairwise agreement with all other annotators with whom they overlapped. The bottom of each vertical bar represents the minimum pairwise value, the top the maximum. Horizontal bars indicate average pairwise values.}
-			\label{fig:agree:annotators}
+			\caption[Pairwise agreement statistics by annotator]{Each annotator's pairwise agreement with all other annotators with whom they overlapped. Numbers in parentheses indicate the number of pairwise comparisons involving each annotator. The bottom of each vertical bar represents the minimum pairwise value, the top the maximum. Horizontal bars indicate mean pairwise values.}
+			\label{fig:agreement:annotators}
 		\end{figure}
+		
+		It is also of interest to analyze the overall inter-annotator agreement for each word type in the annotated sub-corpus. As \cref{fig:agreement:words} illustrates, there are noticeable differences between word types, with annotators exhibiting relatively high agreement on certain words (e.g. \textit{E-mail}, \textit{halten}, and \textit{Pollen}), and on other words (e.g. \textit{manche} and \textit{Ringen}) exhibiting agreement values closer to chance. \TODO{DISCUSSION (reference error breakdown by word in sec:results:overall}
 		
 		
 		\begin{figure}[htb]
@@ -345,31 +348,36 @@ A single annotation session consisted of annotating all tokens of three word typ
 				\centering
 				\includegraphics[width=\textwidth]{img/annotation/pairAgreeWords}
 				\caption{Percent agreement}
-				\label{fig:agree:words:pct}
+				\label{fig:agreement:words:pct}
 			\end{subfigure}%
 			
 			\begin{subfigure}[b]{\textwidth}
 				\centering
 				\includegraphics[width=\textwidth]{img/annotation/pairKappaWords}
 				\caption{Cohen's Kappa statistic}
-				\label{fig:agree:words:k}
+				\label{fig:agreement:words:k}
 			\end{subfigure}%
 			
-			\caption[Pairwise agreement statistics by word type]{Pairwise agreement between annotators for each word type. The bottom of each vertical bar represents the minimum pairwise value, the top the maximum. Horizontal bars indicate average pairwise values.}
-			\label{fig:agree:words}
+			\caption[Pairwise agreement statistics by word type]{Pairwise agreement between annotators for each word type. Numbers in parentheses indicate the number of pairwise comparisons available for each word type. The bottom of each vertical bar represents the minimum pairwise value, the top the maximum. Horizontal bars indicate average pairwise values.}
+			\label{fig:agreement:words}
 		\end{figure}
 		
 		
 	
 		
-		
+		\TODO{Move this?} On the whole, then, it seems that inter-annotator agreement in this lexical stress error annotation task is relatively low, which indicates that the task of assessing a given lexical stress realization as correct or incorrect is a relatively difficult one. 
 	
+		\TODO{transition}
 	
 		%\subsubsection{Native vs. nonnative annotators}
 		\subsection{Native vs. nonnative annotators}
 		\label{sec:agreement:native}
 		
-		\TODO{text about agreement}
+		
+		\quote{Are there differences in how native and non-native German speakers identify errors?} 
+		
+		
+		Going beyond the coarse-grained analysis of inter-annotator agreement described in the previous section, we come now to the 
 		
 			\TODO{mention that the small size of the nonnative, expert, and novice groups prevented meaningful within-group agreement analysis}
 		
@@ -421,12 +429,14 @@ A single annotation session consisted of annotating all tokens of three word typ
 			\end{figure}
 			
 		
-		\subsection{Agreement with respect to expertise}
+		\subsection{Expert vs. intermediate vs. novice annotators}
 		\label{sec:agreement:expert}
 		
 		\TODO{text about agreement}
 		
 			\TODO{mention that the small size of the nonnative, expert, and novice groups prevented meaningful within-group agreement analysis}
+			
+		\TODO{mention that we're trying to train nonnative speakers to communicate in the L2, which means their speech will be ``evaluated'' by novices (native speakers), so we don't want to limit ourselves to expert judgments}
 		
 		\begin{figure}[htb]
 			\centering

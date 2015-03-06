@@ -273,6 +273,28 @@ A single annotation session consisted of annotating all tokens of three word typ
 			\caption[Pairwise agreement statistics by annotator]{Each annotator's pairwise agreement with all other annotators with whom they overlapped. The bottom of each vertical bar represents the minimum pairwise value, the top the maximum. Horizontal bars indicate average pairwise values.}
 			\label{fig:agree:annotators}
 		\end{figure}
+		
+		
+		\begin{figure}[htb]
+			\centering
+			
+			\begin{subfigure}[b]{\textwidth}
+				\centering
+				\includegraphics[width=\textwidth]{img/annotation/pairAgreeWords}
+				\caption{Percent agreement}
+				\label{fig:agree:words:pct}
+			\end{subfigure}%
+			
+			\begin{subfigure}[b]{\textwidth}
+				\centering
+				\includegraphics[width=\textwidth]{img/annotation/pairKappaWords}
+				\caption{Cohen's Kappa statistic}
+				\label{fig:agree:words:k}
+			\end{subfigure}%
+			
+			\caption[Pairwise agreement statistics by word type]{Pairwise agreement between annotators for each word type. The bottom of each vertical bar represents the minimum pairwise value, the top the maximum. Horizontal bars indicate average pairwise values.}
+			\label{fig:agree:words}
+		\end{figure}
 	
 		\TODO{Explain how a final label was decided for each token}
 	

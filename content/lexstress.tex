@@ -145,26 +145,26 @@
 		H & German & expert &		Fr\"{u}hling (56), fliegen (56),  Pollen (55) \\
 		
 		%Dilber	DB 
-		J & 	German & intermediate &		Ringen (55), Tschechen (56), halten (56)	 \\
+		I & 	German & intermediate &		Ringen (55), Tschechen (56), halten (56)	 \\
 		
 		%Christine	CM
-		K &	German	 & intermediate & M\"{o}rder (56),    Tatort (56), Fr\"{u}hling (56) \\
+		J &	German	 & intermediate & M\"{o}rder (56),    Tatort (56), Fr\"{u}hling (56) \\
 		
 		%Anjana	AV	
-		L & English (US)	& intermediate &  manche (56),   E-mail (56),   tragen (55),	    fliegen (56),  Pollen (55), Flagge (55) \\
+		K & English (US)	& intermediate &  manche (56),   E-mail (56),   tragen (55),	    fliegen (56),  Pollen (55), Flagge (55) \\
 		
 		%Marc	MS	
-		M & German	 & novice & Flagge (54), \TODO{mention?}  Tatort (56),  E-mail (56) 	 \\
+		L & German	 & novice & Flagge (54), \TODO{mention?}  Tatort (56),  E-mail (56) 	 \\
 		
 		%Maya	ML
-		N & 	German	 & intermediate & Ringen (54), \TODO{mention?}  Fr\"{u}hling (56), tragen (55)	 \\
+		M & 	German	 & intermediate & Ringen (54), \TODO{mention?}  Fr\"{u}hling (56), tragen (55)	 \\
 		
 		%Lisa	LB	
-		O & German	& novice & Tschechen (56),  fliegen (56),  manche (56)	 \\
+		N & German	& novice & Tschechen (56),  fliegen (56),  manche (56)	 \\
 		
 		%Steffen	SB
 		%Q
-		P	& German	 & intermediate & Mörder (56),   manche (56),  tragen (55) \\
+		O	& German	 & intermediate & Mörder (56),   manche (56),  tragen (55) \\
 		
 		\bottomrule
 		\end{tabularx}
@@ -250,6 +250,29 @@ A single annotation session consisted of annotating all tokens of three word typ
 	
 	
 		\TODO{matrix of pairwise agreement (or just x/o to show which annotators overlapped?}
+		
+		\TODO{table of percent/kappa min/avg/max by annotator, since graphs are difficult to read precisely?}
+		
+		\begin{figure}[htb]
+			\centering
+			
+			\begin{subfigure}[b]{\textwidth}
+				\centering
+				\includegraphics[width=\textwidth]{img/annotation/pairAgreeAnnotators}
+				\caption{Percent agreement}
+				\label{fig:agree:annotators:pct}
+			\end{subfigure}%
+			
+			\begin{subfigure}[b]{\textwidth}
+				\centering
+				\includegraphics[width=\textwidth]{img/annotation/pairKappaAnnotators}
+				\caption{Cohen's Kappa statistic}
+				\label{fig:agree:annotators:k}
+			\end{subfigure}%
+			
+			\caption[Pairwise agreement statistics by annotator]{Each annotator's pairwise agreement with all other annotators with whom they overlapped. The bottom of each vertical bar represents the minimum pairwise value, the top the maximum. Horizontal bars indicate average pairwise values.}
+			\label{fig:agree:annotators}
+		\end{figure}
 	
 		\TODO{Explain how a final label was decided for each token}
 	

@@ -63,7 +63,8 @@
 	As described in \cref{sec:intro:ifcasl} \TODO{verify that this reference is appropriate}, the IFCASL recordings were performed under two conditions: the ``Sentence Read'' (SR) condition, in which the L2 speaker is simply  presented with the text of the sentence and asked to record themselves reading it aloud, and the ``Sentence Heard'' (SH) condition, in which the L2 speaker is asked to listen to an utterance of the sentence by an L1 German speaker before recording their own utterance. The sub-corpus for annotation includes recordings from both conditions, though the majority are from the SR condition \TODO{does mentioning that help or hurt?}.
 	
 	To compile the sub-corpus for annotation, utterances (tokens) of each word as produced by over 50 L2 speakers were extracted from the recordings automatically with Praat \parencite{Boersma2014}, using extraction times (start and end points of word utterances) taken from the word-level segmentation of each sentence utterance automatically obtained by forced alignment (see \cref{sec:diag:segmentation}).
-	\TODO{How many tokens (4?) couldn't be annotated because of disfluencies, this is a problem that a real CAPT system would have to cope with (reference appropriate section)}
+	\Cref{tab:bisyllwords} lists the exact number of tokens available for each word type. In total, 669 word tokens were annotated for lexical stress errors. 
+	Four tokens had to be excluded from the data, as disfluencies in the sentence utterance (e.g. false starts or repetitions of the target word) prevented the automatic extraction of the word utterance from the sentence as a whole. In a fully-fledged student-facing CAPT system, such disfluencies would need to be dealt with accordingly, e.g. by means of a pre-processing step which analyzes the student's utterance for possible disfluencies and compensates for any that are detected by, for example, prompting the student to re-record their utterance. However, detecting disfluencies in speech, especially non-native speech, is an area of active research (see e.g. \TODO{refs}), and the development of a  disfluency-aware system is outside the scope of this thesis project; therefore, this work presupposes that no disfluencies exist in the student's utterance, and the handful of disfluent tokens have been excluded from the error-annotated sub-corpus described here.
 	
 	\begin{table}[htb]
 		\centering
@@ -187,15 +188,12 @@
 		\label{tab:annotators}
 	\end{table}
 	
-	Each annotator was assigned three word types to annotate in a single session, with the exception of one annotator who was assigned six word types over two sessions (see \cref{sec:lexstress:method} for a description of an annotation session). \Cref{tab:annotators} lists the word types assigned to each annotator, along with the number of tokens labeled for each type. Some judgments by annotators \TODO{D and G} had to be excluded from the analysis due to technical problems; the token counts for each annotator in \cref{tab:annotators} reflect only their usable judgments. \TODO{move following to agreement section in results?} Word types were assigned such that each word type was annotated by at least two native German speakers, and to maximize the amount of overlap between annotators in order to obtain as many pairwise measures of annotator agreement as possible; \cref{tab:annotatorsbyword} lists the number of annotators for each word type.
-	
-	
 	\begin{table}[htb]
 		\centering
-		\caption{Number of annotators by word type}
+		\caption{Number of annotators by word type \TODO{add expertise levels} \TODO{move to agreement section?}}
 		\begin{tabular}{lccc}
 		\toprule
-		Word type 
+		Word type \TODO{(Tokens)} 
 		&		Native %annotators 
 		& 	Nonnative %annotators 
 		& Total %annotators 
@@ -217,6 +215,11 @@
 		\end{tabular}
 		\label{tab:annotatorsbyword}
 	\end{table}
+	
+	
+	Each annotator was assigned three word types to annotate in a single session, with the exception of one annotator who was assigned six word types over two sessions (see \cref{sec:lexstress:method} for a description of an annotation session). \Cref{tab:annotators} lists the word types assigned to each annotator, along with the number of tokens labeled for each type. Some judgments by annotators \TODO{D and G} had to be excluded from the analysis due to technical problems; the token counts for each annotator in \cref{tab:annotators} reflect only their usable judgments. \TODO{move following to agreement section in results?} Word types were assigned such that each word type was annotated by at least two native German speakers, and to maximize the amount of overlap between annotators in order to obtain as many pairwise measures of annotator agreement as possible (see \cref{sec:lexstress:agreement} for a discussion of inter-annotator agreement); \cref{tab:annotatorsbyword} lists the number of annotators for each word type.
+	
+	
 	
 	
 	%\subsection{Annotation method}
@@ -248,16 +251,38 @@ A single annotation session consisted of annotating all tokens of three word typ
 			\caption[A screenshot of the graphical annotation tool scripted in Praat.]{A screenshot of the graphical annotation tool scripted in Praat. Green buttons allow the annotator to listen to  the word and sentence utterances. Gray buttons allow the annotator to record their judgment of stress accuracy; from top to bottom, the buttons correspond to the labels [correct], [incorrect], [none], [bad\_nsylls], and [bad\_audio]. \TODO{border around graphic}}
 			\label{fig:annotationtool}
 		\end{figure}
+		
+		\TODO{some kind of section wrap-up?}
+		
 	
 	\section{Inter-annotator agreement}
 	\label{sec:lexstress:agreement}	
 	
-
-	
-	\TODO{Intro}
-	
-	
+	As stated in the previous section,
+	%\cref{sec:lexstress:data}, 
+	lexical stress realizations in a total of 669 word utterances were each assigned to one of five classes by multiple annotators, based on whether the annotator judged the production to have correctly placed stress, incorrectly placed stress, no clear stress placement, or other problems which prevented the annotator from making a judgment about the lexical stress accuracy. The agreement between these judgments was calculated for each pair of annotators who overlapped, i.e. labeled any of the same tokens. 
+	\TODO{matrix of pairwise agreement (or just x/o to show which annotators overlapped?}
+	%This section describes how this agreement was calculated, and the following sections \cref{sec:agreement:overall, sec:agreement:native, sec:agreement:expertise} present an analysis of the resulting inter-annotator agreement statistics. Finally, 
 		
+		Two measures were used in this analysis of inter-annotator agreement: the simple percentage of observed agreement, and Cohen's Kappa statistic \citep{Cohen1960}. For a given pair of annotators, percentage agreement is calculated as the number of tokens to which both annotators assigned the same label, divided by the total number of tokens labeled by both annotators \TODO{as formula?}. This simple metric ignores the probability of annotators agreeing by chance, and therefore may give a somewhat optimistic picture of inter-annotator agreement, but nevertheless serves as a basic, easy-to-interpret preliminary indication of the reliability of the collected judgments.
+		
+		To account for chance agreements not captured by the simple percentage of agreement, a second, more robust measure of inter-annotator agreement, Cohen's Kappa statistic ($\kappa$), was also calculated for each pair of annotators. For a given pair of annotators who have labeled the same tokens, $\kappa$ is computed as
+		\[
+		\kappa = \frac{p_a-p_c}{1-p_c}
+		\]
+		where $p_a$ is the proportion of tokens assigned the same label by both annotators (i.e. the simple percentage agreement just described) and $p_c$ is the proportion of tokens which can be expected to receive the same label from both annotators purely by chance. The latter thus represents the probability of the two annotators agreeing by chance, and is calculated for a pair of annotators $A$ and $B$ as
+		\[
+		p_c = \sum_{s \in S} p_A(s) \times p_B(s)
+		\]
+		where $s$ is one of the stress judgments in the set of possible labels $S$:
+		\[S = \{\text{[correct]}, \text{[incorrect]}, \text{[none]}, \text{[bad\_nsylls]}, \text{[bad\_audio]}\}\]
+		and $p_A(s)$ is the proportion of tokens assigned the label $s$ by annotator $A$, calculated as the number of tokens assigned label $s$ by annotator $A$ divided by the total number of tokens labeled by annotator $A$; $p_B(s)$ is calculated in the same way for annotator $B$.
+		%and $p_A(s)$ and $p_B(s)$ are the proportion of tokens assigned the label $s$ by annotators $A$ and $B$, respectively. The value of $p_A(s)$ is calculated as the number of tokens assigned label $s$ by annotator $A$ divided by the total number of tokens labeled by annotator $A$. 
+		As $\kappa$ thus accounts for the probability of two annotators assigning a token the same label purely by chance, it provides a more conservative representation of inter-annotator agreement. 
+		
+		In the following sections, both measures are provided in the hopes of presenting a more comprehensive picture of inter-annotator agreement than either metric can convey alone.  
+		
+		\TODO{Anything else to say here?}
 		
 		\subsection{Overall agreement}
 		\label{sec:agreement:overall}
@@ -272,14 +297,14 @@ A single annotation session consisted of annotating all tokens of three word typ
 				Agreement measure &	Minimum	& Median &	 Maximum &	 Mean\\
 				\midrule
 				Percent agreement &	23.21\%	& 55.36\%	& 83.93\%	& 54.92\% \\
-				Cohen's Kappa statistic & 	-0.01	& 0.26	& 0.61	& 0.23 \\
+				Cohen's $\kappa$ & 	-0.01	& 0.26	& 0.61	& 0.23 \\
 				\bottomrule
 			\end{tabular}
 			\label{tab:overallagreement}
 		\end{table}
 	
 	
-		\TODO{matrix of pairwise agreement (or just x/o to show which annotators overlapped?}
+		
 		
 		\TODO{table of percent/kappa min/avg/max by annotator, since graphs are difficult to read precisely?}
 		
@@ -327,7 +352,7 @@ A single annotation session consisted of annotating all tokens of three word typ
 		\end{figure}
 		
 		
-		\TODO{mention that the small size of the nonnative, expert, and novice groups prevented meaningful within-group agreement analysis}
+	
 		
 		
 	
@@ -337,6 +362,8 @@ A single annotation session consisted of annotating all tokens of three word typ
 		\label{sec:agreement:native}
 		
 		\TODO{text about agreement}
+		
+			\TODO{mention that the small size of the nonnative, expert, and novice groups prevented meaningful within-group agreement analysis}
 		
 		\begin{figure}[htb]
 			\centering
@@ -390,6 +417,8 @@ A single annotation session consisted of annotating all tokens of three word typ
 		\label{sec:agreement:expert}
 		
 		\TODO{text about agreement}
+		
+			\TODO{mention that the small size of the nonnative, expert, and novice groups prevented meaningful within-group agreement analysis}
 		
 		\begin{figure}[htb]
 			\centering

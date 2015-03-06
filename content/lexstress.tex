@@ -23,16 +23,24 @@
 
 	To investigate to what extent the expected lexical stress errors by French speakers of German are actually produced, a subset of the non-native German-language IFCASL corpus was annotated for such errors.
 	\TODO{more about why this is necessary?}
-	
-	This chapter describes the selection of material for this sub-corpus (\cref{sec:lexstress:data}), the annotators who labeled lexical stress errors in that data (\cref{sec:lexstress:annotators}), and the method by which annotation was performed (\cref{sec:lexstress:method}). Finally, this chapter presents an analysis of the error-annotated data 
 	%
-	 with a view to answering the following questions:
+	The first sections of this chapter describe the selection of material for this sub-corpus (\cref{sec:lexstress:data}), the annotators who labeled lexical stress errors in that data (\cref{sec:lexstress:annotators}), and the method by which annotation was performed (\cref{sec:lexstress:method}). 
+	
+	Once error judgments had been collected from each annotator, different annotators' judgments of the same utterances were compared to determine the reliability of the annotation, i.e. the agreement between annotators.
+	%, which gives some indication of the general difficulty of the task of diagnosing lexical stress errors in nonnative German speech. 
+	\Cref{sec:lexstress:agreement} describes this analysis of inter-annotator agreement, which aims to shed light on the following questions:
 	\begin{itemize}
 	\item{Can lexical stress errors be reliably identified by 
 	%native German speakers 
-	annotators (i.e. to what extent do the judgments of different annotators agree)?  (\cref{sec:results:agreement})}
-	\item{Are there differences in how native and non-native German speakers identify errors?  (\cref{sec:results:native})}
-	\item{Are there differences in how expert and novice annotators (those without annotation experience or any training in phonetics/phonology) identify lexical stress errors?  (\cref{sec:results:expert})} 
+	annotators (i.e. to what extent do the judgments of different annotators agree)?  (\cref{sec:agreement:overall})}
+	\item{Are there differences in how native and non-native German speakers identify errors?  (\cref{sec:agreement:native})}
+	\item{Are there differences in how expert and novice annotators (those without annotation experience or any training in phonetics/phonology) identify lexical stress errors?  (\cref{sec:agreement:expert})} 
+	\end{itemize}
+	%
+	As \cref{sec:lexstress:agreement} will show, annotators did not always agree as to whether a given utterance exhibited a lexical stress error or not. Nevertheless, a ``gold-standard'' label for each utterance had to be determined; \cref{sec:agreement:gold} describes how this was accomplished in cases of disagreement.
+	
+	Finally, given the gold-standard labels for each utterance, the distribution of lexical stress errors in the sub-corpus was analyzed; the following questions guided this analysis, which is detailed in \cref{sec:lexstress:results}.
+	\begin{itemize}
 	\item{Are lexical stress errors observed frequently in the IFCASL data? (\cref{sec:results:overall})}
 	\item{Is there a difference in the frequency of these errors among different groups of speakers (i.e. in terms of skill level, age, or gender) or in different contexts (e.g. after hearing a native speaker produce the word)?  (\cref{sec:results:level,sec:results:agegender,sec:results:condition})}
 	\item{Are lexical stress errors observed more frequently with certain word types than with others?  (\cref{sec:results:wordtype})}
@@ -41,7 +49,8 @@
 	
 	%--moved to before questions--
 	%This chapter describes the annotation of this sub-corpus, and presents an analysis of the annotated data that provides tentative answers to the above questions. \TODO{rephrase that?}
-	%This chapter presents the data and method used for this annotation, and an analysis of the annotated sub-corpus \TODO{\textit{rephrase}: in light of these guiding questions}. 
+	%This chapter presents the data and method used for this annotation, and an analysis of the annotated sub-corpus \TODO{\textit{rephrase}: in light of these guiding questions}.
+ 
 	
 	%\subsection{Data}
 	\section{Data}
@@ -240,18 +249,18 @@ A single annotation session consisted of annotating all tokens of three word typ
 			\label{fig:annotationtool}
 		\end{figure}
 	
-	%\subsection{Results}
-	\section{Results}
-	\label{sec:lexstress:results}	
+	\section{Inter-annotator agreement}
+	\label{sec:lexstress:agreement}	
+	
+
 	
 	\TODO{Intro}
 	
-	\TODO{Split this into two sections (Agreement and Results)?}
 	
 		
 		
-		\subsection{Inter-annotator agreement}
-		\label{sec:results:agreement}
+		\subsection{Overall agreement}
+		\label{sec:agreement:overall}
 		
 		\TODO{text}
 	
@@ -320,6 +329,15 @@ A single annotation session consisted of annotating all tokens of three word typ
 		
 		\TODO{mention that the small size of the nonnative, expert, and novice groups prevented meaningful within-group agreement analysis}
 		
+		
+	
+	
+		%\subsubsection{Native vs. nonnative annotators}
+		\subsection{Native vs. nonnative annotators}
+		\label{sec:agreement:native}
+		
+		\TODO{text about agreement}
+		
 		\begin{figure}[htb]
 			\centering
 			
@@ -340,34 +358,6 @@ A single annotation session consisted of annotating all tokens of three word typ
 			\caption[Pairwise agreement statistics by annotator L1 group]{Pairwise agreement between annotators based on their L1  (native or nonnative German speaker). The bottom of each vertical bar represents the minimum pairwise value, the top the maximum. Horizontal bars indicate average pairwise values.}
 			\label{fig:agree:L1}
 		\end{figure}
-		
-		
-		\begin{figure}[htb]
-			\centering
-			
-			\begin{subfigure}[b]{.5\textwidth}
-				\centering
-				\includegraphics[width=\textwidth]{img/annotation/pairAgreeExpertise}
-				\caption{Percent agreement}
-				\label{fig:agree:expertise:pct}
-			\end{subfigure}%
-			~
-			\begin{subfigure}[b]{.5\textwidth}
-				\centering
-				\includegraphics[width=\textwidth]{img/annotation/pairKappaExpertise}
-				\caption{Cohen's Kappa statistic}
-				\label{fig:agree:expertise:k}
-			\end{subfigure}%
-			
-			\caption[Pairwise agreement statistics by annotator expertise]{Pairwise agreement between annotators based on their level of expertise (expert, intermediate, or novice). The bottom of each vertical bar represents the minimum pairwise value, the top the maximum. Horizontal bars indicate average pairwise values.}
-			\label{fig:agree:expertise}
-		\end{figure}
-	
-		\TODO{Explain how a final label was decided for each token}
-	
-		%\subsubsection{Native vs. nonnative annotators}
-		\subsection{Native vs. nonnative annotators}
-		\label{sec:results:native}
 		
 		
 
@@ -396,8 +386,31 @@ A single annotation session consisted of annotating all tokens of three word typ
 			\end{figure}
 			
 		
-		\subsection{Expert vs. novice annotators?}
-		\label{sec:results:expert}
+		\subsection{Agreement with respect to expertise}
+		\label{sec:agreement:expert}
+		
+		\TODO{text about agreement}
+		
+		\begin{figure}[htb]
+			\centering
+			
+			\begin{subfigure}[b]{.5\textwidth}
+				\centering
+				\includegraphics[width=\textwidth]{img/annotation/pairAgreeExpertise}
+				\caption{Percent agreement}
+				\label{fig:agree:expertise:pct}
+			\end{subfigure}%
+			~
+			\begin{subfigure}[b]{.5\textwidth}
+				\centering
+				\includegraphics[width=\textwidth]{img/annotation/pairKappaExpertise}
+				\caption{Cohen's Kappa statistic}
+				\label{fig:agree:expertise:k}
+			\end{subfigure}%
+			
+			\caption[Pairwise agreement statistics by annotator expertise]{Pairwise agreement between annotators based on their level of expertise (expert, intermediate, or novice). The bottom of each vertical bar represents the minimum pairwise value, the top the maximum. Horizontal bars indicate average pairwise values.}
+			\label{fig:agree:expertise}
+		\end{figure}
 		
 			\Cref{fig:expertisepies} illustrates the relative number of each label type as assigned by annotators of the three expertise levels described in \cref{sec:lexstress:annotators} above, and while any analysis of this data should bear in mind the small sample sizes of the expert and novice groups (two and three annotators, respectively), it does appear that some interesting differences may exist between the three groups. 
 			
@@ -439,6 +452,21 @@ A single annotation session consisted of annotating all tokens of three word typ
 				\caption{Stress judgments by annotator expertise}
 				\label{fig:expertisepies}
 			\end{figure}
+			
+			
+			
+		\subsection{Choosing gold-standard labels}
+		\label{sec:agreement:gold}
+		
+				\TODO{Explain how a final label was decided for each token}
+
+			
+
+	\section{Results}
+	\label{sec:lexstress:results}		
+	
+		\TODO{intro}		
+			
 			
 			
 		\subsection{Overall frequency of lexical stress errors}

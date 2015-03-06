@@ -19,7 +19,7 @@
 \TODO{Change title?}
 %\section{Lexical stress errors in the IFCASL corpus} 
 
-	\TODO{Reminder of IFCASL corpus} see \cref{sec:intro:ifcasl}
+	\TODO{Recap of IFCASL corpus} see \cref{sec:intro:ifcasl}
 
 	To investigate to what extent the expected lexical stress errors by French speakers of German are actually produced, a subset of the non-native German-language IFCASL corpus was annotated for such errors.
 	\TODO{more about why this is necessary?}
@@ -27,19 +27,20 @@
 	This chapter describes the selection of material for this sub-corpus (\cref{sec:lexstress:data}), the annotators who labeled lexical stress errors in that data (\cref{sec:lexstress:annotators}), and the method by which annotation was performed (\cref{sec:lexstress:method}). Finally, this chapter presents an analysis of the error-annotated data 
 	%
 	 with a view to answering the following questions:
-
-	\TODO{Put questions in same order as results subsections, add ref to subsection for each question}
 	\begin{itemize}
-	\item{Are lexical stress errors observed frequently in the IFCASL data?}
-	\item{Is there a difference in the frequency of these errors among different groups of speakers (i.e. in terms of skill level, age, or gender) or in different contexts (e.g. after hearing a native speaker produce the word)?}
-	\item{Are lexical stress errors observed more frequently with certain word types than with others?}
-	\item{Can lexical stress errors be reliably identified by native German speakers (i.e. to what extent do the judgments of different annotators agree)?}
-	\item{Are there differences in how expert and novice annotators (those without annotation experience or any training in phonetics/phonology) identify lexical stress errors?} 
-	\item{Are there differences in how native and non-native German speakers identify errors?}
-	\item{How frequently do technical problems interfere with determining the accuracy of a production?}
+	\item{Can lexical stress errors be reliably identified by 
+	%native German speakers 
+	annotators (i.e. to what extent do the judgments of different annotators agree)?  (\cref{sec:results:agreement})}
+	\item{Are there differences in how native and non-native German speakers identify errors?  (\cref{sec:results:native})}
+	\item{Are there differences in how expert and novice annotators (those without annotation experience or any training in phonetics/phonology) identify lexical stress errors?  (\cref{sec:results:expert})} 
+	\item{Are lexical stress errors observed frequently in the IFCASL data? (\cref{sec:results:overall})}
+	\item{Is there a difference in the frequency of these errors among different groups of speakers (i.e. in terms of skill level, age, or gender) or in different contexts (e.g. after hearing a native speaker produce the word)?  (\cref{sec:results:level,sec:results:agegender,sec:results:condition})}
+	\item{Are lexical stress errors observed more frequently with certain word types than with others?  (\cref{sec:results:wordtype})}
+	\item{How frequently do technical problems interfere with determining whether an error was made?  (\cref{sec:results:techproblems})}
 	\end{itemize}
 	
-	This chapter describes the annotation of this sub-corpus, and presents an analysis of the annotated data that provides tentative answers to the above questions. \TODO{rephrase that?}
+	%--moved to before questions--
+	%This chapter describes the annotation of this sub-corpus, and presents an analysis of the annotated data that provides tentative answers to the above questions. \TODO{rephrase that?}
 	%This chapter presents the data and method used for this annotation, and an analysis of the annotated sub-corpus \TODO{\textit{rephrase}: in light of these guiding questions}. 
 	
 	%\subsection{Data}
@@ -52,8 +53,8 @@
 	
 	As described in \cref{sec:intro:ifcasl} \TODO{verify that this reference is appropriate}, the IFCASL recordings were performed under two conditions: the ``Sentence Read'' (SR) condition, in which the L2 speaker is simply  presented with the text of the sentence and asked to record themselves reading it aloud, and the ``Sentence Heard'' (SH) condition, in which the L2 speaker is asked to listen to an utterance of the sentence by an L1 German speaker before recording their own utterance. The sub-corpus for annotation includes recordings from both conditions, though the majority are from the SR condition \TODO{does mentioning that help or hurt?}.
 	
-	To compile the sub-corpus for annotation, utterances (tokens) of each word as produced by over 50 L2 speakers were extracted from the recordings automatically in Praat \parencite{Boersma2014}, using the word-level segmentation of each sentence utterance automatically obtained by forced alignment (see \TODO{ref}).
-	\TODO{How many tokens couldn't be annotated because of disfluencies, this is a problem that a real CAPT system would have to cope with (reference appropriate section)}
+	To compile the sub-corpus for annotation, utterances (tokens) of each word as produced by over 50 L2 speakers were extracted from the recordings automatically with Praat \parencite{Boersma2014}, using extraction times (start and end points of word utterances) taken from the word-level segmentation of each sentence utterance automatically obtained by forced alignment (see \cref{sec:diag:segmentation}).
+	\TODO{How many tokens (4?) couldn't be annotated because of disfluencies, this is a problem that a real CAPT system would have to cope with (reference appropriate section)}
 	
 	\begin{table}[htb]
 		\centering
@@ -71,22 +72,22 @@
 		Orthography & 
 		Canonical \linebreak pronunciation & 
 		Part of speech & 
-		English \linebreak translation & 
+		English \linebreak meaning & 
 		Recording condition & 
 		Number \linebreak of tokens \\%\linebreak annotated\\
 		
 		\midrule
 		E-mail	&	\TODO{prons} &	noun &	e-mail &	SR 	&	56	\\
 		Flagge	&	&	noun &	 flag &	SH	&	55	\\
-		fliegen	&	&	verb &	fly &	SR		& 56	\\
-		Frühling	&	& noun	&	spring &	SR		&	56	\\
-		halten	&	&	verb &	hold &	SR 	&	56	\\
+		fliegen	&	&	verb &	to fly &	SR		& 56	\\
+		Frühling	&	& noun	&	spring \newline (season) &	SR		&	56	\\
+		halten	&	&	verb &	to hold &	SR 	&	56	\\
 		manche	&	&	pronoun &	some & 	SR 	&	56	\\
 		Mörder	&	&	noun &	murderer &	SR 	&	56	\\
 		Pollen	&	&	noun &	pollen &	SR 	& 	55	\\
 		Ringen	&	&	noun &	rings &	SH	&	55	\\
 		Tatort	&	&	noun &	crime scene & 	SR 	&		56	\\
-		tragen	&	&	verb &	wear &	SH	&	55	\\
+		tragen	&	&	verb &	to wear &	SH	&	55	\\
 		Tschechen	&	& noun	&	Czechs	&	SR		& 56	\\
 		\bottomrule
 		\end{tabularx}
@@ -245,14 +246,28 @@ A single annotation session consisted of annotating all tokens of three word typ
 	
 	\TODO{Intro}
 	
-	\TODO{Section organization?}
+	\TODO{Split this into two sections (Agreement and Results)?}
 	
 		
 		
 		\subsection{Inter-annotator agreement}
 		\label{sec:results:agreement}
 		
-		\TODO{}
+		\TODO{text}
+	
+		\begin{table}[htb]
+			\centering
+			\caption{Overall pairwise agreement between annotators}
+			\begin{tabular}{lrrrr}
+				\toprule
+				Agreement measure &	Minimum	& Median &	 Maximum &	 Mean\\
+				\midrule
+				Percent agreement &	23.21\%	& 55.36\%	& 83.93\%	& 54.92\% \\
+				Cohen's Kappa statistic & 	-0.01	& 0.26	& 0.61	& 0.23 \\
+				\bottomrule
+			\end{tabular}
+			\label{tab:overallagreement}
+		\end{table}
 	
 	
 		\TODO{matrix of pairwise agreement (or just x/o to show which annotators overlapped?}
@@ -502,7 +517,10 @@ A single annotation session consisted of annotating all tokens of three word typ
 				\label{fig:levelgroupspies}
 			\end{figure}	
 			
-			
+		
+		\subsection{Errors by speaker age and gender}
+		\label{sec:results:agegender}
+			\TODO{}
 			
 		
 		\subsection{Errors by recording condition}

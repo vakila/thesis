@@ -258,15 +258,18 @@ A single annotation session consisted of annotating all tokens of three word typ
 	\section{Inter-annotator agreement}
 	\label{sec:lexstress:agreement}	
 	
+	To create a useful CAPT system for lexical stress errors in nonnative German, i.e. to automatically detect whether a student has made a lexical stress error in a given utterance, it is helpful to have an understanding of the difficulty of the error-detection task, not only for machines but for humans. It is therefore useful to analyze the collected stress accuracy judgments in terms of inter-annotator agreement, in order to gain insight into the nature of the challenge this task presents. If it is uncommon for human annotators to agree about whether a given lexical stress realization is correct or incorrect, this may indicate that  identifying lexical stress errors is a challenging task, and one which an automatic system should also be expected to have difficulty with. If, on the other hand, human annotators are generally in strong agreement, this may reflect a lower level of difficulty, and give reason to judge the performance of an automatic system by a higher standard.  
+	
 	As stated in the previous section,
 	%\cref{sec:lexstress:data}, 
 	lexical stress realizations in a total of 669 word utterances were each assigned to one of five classes by multiple annotators, based on whether the annotator judged the production to have correctly placed stress, incorrectly placed stress, no clear stress placement, or other problems which prevented the annotator from making a judgment about the lexical stress accuracy. The agreement between these judgments was calculated for each pair of annotators who overlapped, i.e. labeled any of the same tokens. 
-	\TODO{matrix of pairwise agreement (or just x/o to show which annotators overlapped?}
+	\TODO{matrix of pairwise tokens in common (or just x/o to show which annotators overlapped?}
 	%This section describes how this agreement was calculated, and the following sections \cref{sec:agreement:overall, sec:agreement:native, sec:agreement:expertise} present an analysis of the resulting inter-annotator agreement statistics. Finally, 
+		Two metrics were used to quantify agreement between a pair of annotators: the simple percentage of observed agreement, and Cohen's Kappa statistic ($\kappa$). 
 		
-		Two measures were used in this analysis of inter-annotator agreement: the simple percentage of observed agreement, and Cohen's Kappa statistic \citep{Cohen1960}. For a given pair of annotators, percentage agreement is calculated as the number of tokens to which both annotators assigned the same label, divided by the total number of tokens labeled by both annotators \TODO{as formula?}. This simple metric ignores the probability of annotators agreeing by chance, and therefore may give a somewhat optimistic picture of inter-annotator agreement, but nevertheless serves as a basic, easy-to-interpret preliminary indication of the reliability of the collected judgments.
+		For a given pair of annotators, percentage agreement is calculated as the number of tokens to which both annotators assigned the same label, divided by the total number of tokens labeled by both annotators \TODO{as formula?}. Possible values for percentage agreement range from 0\%, representing complete disagreement between annotators, to 100\%, representing complete agreement. This simple metric ignores the probability of annotators agreeing by chance, and therefore may give a somewhat optimistic picture of inter-annotator agreement, but nevertheless serves as a basic, easy-to-interpret preliminary indication of the reliability of the collected judgments.
 		
-		To account for chance agreements not captured by the simple percentage of agreement, a second, more robust measure of inter-annotator agreement, Cohen's Kappa statistic ($\kappa$), was also calculated for each pair of annotators. For a given pair of annotators who have labeled the same tokens, $\kappa$ is computed as
+		To account for chance agreements not captured by the simple percentage of agreement, a second, more robust measure of inter-annotator agreement, Cohen's $\kappa$ \citep{Cohen1960}, was also calculated for each pair of annotators. For a given pair of annotators who have labeled the same tokens, $\kappa$ is computed as
 		\[
 		\kappa = \frac{p_a-p_c}{1-p_c}
 		\]
@@ -278,7 +281,7 @@ A single annotation session consisted of annotating all tokens of three word typ
 		\[S = \{\text{[correct]}, \text{[incorrect]}, \text{[none]}, \text{[bad\_nsylls]}, \text{[bad\_audio]}\}\]
 		and $p_A(s)$ is the proportion of tokens assigned the label $s$ by annotator $A$, calculated as the number of tokens assigned label $s$ by annotator $A$ divided by the total number of tokens labeled by annotator $A$; $p_B(s)$ is calculated in the same way for annotator $B$.
 		%and $p_A(s)$ and $p_B(s)$ are the proportion of tokens assigned the label $s$ by annotators $A$ and $B$, respectively. The value of $p_A(s)$ is calculated as the number of tokens assigned label $s$ by annotator $A$ divided by the total number of tokens labeled by annotator $A$. 
-		As $\kappa$ thus accounts for the probability of two annotators assigning a token the same label purely by chance, it provides a more conservative representation of inter-annotator agreement. 
+		As $\kappa$ thus accounts for the probability of two annotators assigning a token the same label purely by chance, it provides a more conservative representation of inter-annotator agreement. A $\kappa$ value of 0 indicates that the annotators do not agree any more than would be expected by chance. If agreement between annotators is less than chance, $\kappa$ will take a value below 0. The maximum possible value of $\kappa$ is 1.00, which indicates perfect agreement between annotators.
 		
 		In the following sections, both measures are provided in the hopes of presenting a more comprehensive picture of inter-annotator agreement than either metric can convey alone.  
 		
@@ -287,8 +290,13 @@ A single annotation session consisted of annotating all tokens of three word typ
 		\subsection{Overall agreement}
 		\label{sec:agreement:overall}
 		
-		\TODO{text}
-	
+		
+		To obtain an overall measure of inter-annotator agreement for this lexical stress assessment task, the agreement between each pair of overlapping annotators was quantified by the metrics discussed in the previous section, and the minimum, median, mean, and maximum values over all pairwise comparisons were computed; these values are given in \cref{tab:agreement:overall}.
+	Though this provides a rather coarse-grained picture of the overall agreement, this simple analysis already points to a few interesting observations. First of all, we observe that the mean and median percentage agreement are near 55\%, indicating that, roughly speaking, annotators agree just slightly more often than they disagree; \TODO{\textit{fix:} this is not necessarily an encouraging ratio}. The $\kappa$ values are somewhat more difficult to interpret, but if we consider that $\kappa = 0$ represents agreement purely by chance while $k = 1$ represents perfect, meaningful agreement, the fact that the mean and median $\kappa$ values between annotators are somewhere near 0.25 indicates that the agreement observed between annotators is closer to what would be expected simply by chance than to agreement that would indicate high reliability \TODO{\textit{remove?:} or some type of objective truth}. Looking next at the minimum and maximum values, we observe that while some pairs of annotators seem to exhibit relatively high agreement, 
+	%removing this because it's not certain that these numbers correspond to the same pair:
+	%with one pair reaching over 80\% agreement and a $\kappa$ over 0.6, 
+	indicating \TODO{\textit{too fuzzy?} reasonably reliable} judgments, other pairs have very low agreement; in one case, with 23.21\% agreement, the annotators seem to be closer to perfect disagreement than perfect agreement, and the corresponding $\kappa$ being below zero indicates that they agreed even (slightly) less than one would expect if they were merely labeling utterances randomly. 
+
 		\begin{table}[htb]
 			\centering
 			\caption{Overall pairwise agreement between annotators}
@@ -296,11 +304,11 @@ A single annotation session consisted of annotating all tokens of three word typ
 				\toprule
 				Agreement measure &	Minimum	& Median &	 Maximum &	 Mean\\
 				\midrule
-				Percent agreement &	23.21\%	& 55.36\%	& 83.93\%	& 54.92\% \\
+				Percentage agreement &	23.21\%	& 55.36\%	& 83.93\%	& 54.92\% \\
 				Cohen's $\kappa$ & 	-0.01	& 0.26	& 0.61	& 0.23 \\
 				\bottomrule
 			\end{tabular}
-			\label{tab:overallagreement}
+			\label{tab:agreement:overall}
 		\end{table}
 	
 	

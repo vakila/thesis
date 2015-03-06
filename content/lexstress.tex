@@ -21,9 +21,14 @@
 
 	\TODO{Reminder of IFCASL corpus} see \cref{sec:intro:ifcasl}
 
-	To investigate to what extent the expected lexical stress errors by French speakers of German are actually produced, a subset of the non-native German-language IFCASL corpus was annotated for such errors, with a view to answering the following questions:
+	To investigate to what extent the expected lexical stress errors by French speakers of German are actually produced, a subset of the non-native German-language IFCASL corpus was annotated for such errors.
+	\TODO{more about why this is necessary?}
+	
+	This chapter describes the selection of material for this sub-corpus (\cref{sec:lexstress:data}), the annotators who labeled lexical stress errors in that data (\cref{sec:lexstress:annotators}), and the method by which annotation was performed (\cref{sec:lexstress:method}). Finally, this chapter presents an analysis of the error-annotated data 
+	%
+	 with a view to answering the following questions:
 
-	\TODO{Put questions in same order as results subsections}
+	\TODO{Put questions in same order as results subsections, add ref to subsection for each question}
 	\begin{itemize}
 	\item{Are lexical stress errors observed frequently in the IFCASL data?}
 	\item{Is there a difference in the frequency of these errors among different groups of speakers (i.e. in terms of skill level, age, or gender) or in different contexts (e.g. after hearing a native speaker produce the word)?}
@@ -105,6 +110,7 @@
 	\item{\textit{novice} annotators have negligible training in phonetics/phonology and lack experience annotating speech data}
 	\end{itemize}
 	As shown in \cref{tab:annotators}, the majority of annotators (10 out of 15) fall into the \textit{intermediate} group; two annotators can be considered \textit{expert}, and there are three \textit{novice} annotators.
+	
 	
 	\begin{table}[htb]
 		\centering
@@ -294,6 +300,52 @@ A single annotation session consisted of annotating all tokens of three word typ
 			
 			\caption[Pairwise agreement statistics by word type]{Pairwise agreement between annotators for each word type. The bottom of each vertical bar represents the minimum pairwise value, the top the maximum. Horizontal bars indicate average pairwise values.}
 			\label{fig:agree:words}
+		\end{figure}
+		
+		
+		\TODO{mention that the small size of the nonnative, expert, and novice groups prevented meaningful within-group agreement analysis}
+		
+		\begin{figure}[htb]
+			\centering
+			
+			\begin{subfigure}[b]{.5\textwidth}
+				\centering
+				\includegraphics[width=\textwidth]{img/annotation/pairAgreeL1}
+				\caption{Percent agreement}
+				\label{fig:agree:L1:pct}
+			\end{subfigure}%
+			~
+			\begin{subfigure}[b]{.5\textwidth}
+				\centering
+				\includegraphics[width=\textwidth]{img/annotation/pairKappaL1}
+				\caption{Cohen's Kappa statistic}
+				\label{fig:agree:L1:k}
+			\end{subfigure}%
+			
+			\caption[Pairwise agreement statistics by annotator L1 group]{Pairwise agreement between annotators based on their L1  (native or nonnative German speaker). The bottom of each vertical bar represents the minimum pairwise value, the top the maximum. Horizontal bars indicate average pairwise values.}
+			\label{fig:agree:L1}
+		\end{figure}
+		
+		
+		\begin{figure}[htb]
+			\centering
+			
+			\begin{subfigure}[b]{.5\textwidth}
+				\centering
+				\includegraphics[width=\textwidth]{img/annotation/pairAgreeExpertise}
+				\caption{Percent agreement}
+				\label{fig:agree:expertise:pct}
+			\end{subfigure}%
+			~
+			\begin{subfigure}[b]{.5\textwidth}
+				\centering
+				\includegraphics[width=\textwidth]{img/annotation/pairKappaExpertise}
+				\caption{Cohen's Kappa statistic}
+				\label{fig:agree:expertise:k}
+			\end{subfigure}%
+			
+			\caption[Pairwise agreement statistics by annotator expertise]{Pairwise agreement between annotators based on their level of expertise (expert, intermediate, or novice). The bottom of each vertical bar represents the minimum pairwise value, the top the maximum. Horizontal bars indicate average pairwise values.}
+			\label{fig:agree:expertise}
 		\end{figure}
 	
 		\TODO{Explain how a final label was decided for each token}

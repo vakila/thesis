@@ -584,28 +584,34 @@ Minimum	& 23.21\%	& -0.01	& 33.93\%	& 0.10	& 35.71\%	& 0.08	& 28.57\%	&  0.04 \\
 		
 		\TODO{Rephrase gold-standard  as ground truth or some other term?}
 		
-		As the previous sections have illustrated, having multiple annotators judge the accuracy of each lexical stress production was useful insofar as it led to some interesting observations about the difficulty of reliably assessing lexical stress accuracy and differences in how judgments by annotators with different native languages and levels of expertise compare. However, if the annotations are to be used for \TODO{training an automated error-diagnosis system}, each token in the sub-corpus must ultimately be assigned a single ``gold-standard'' label from the set of possibilities described in \cref{sec:lexstress:annotation} (\textbf{[correct]},\textbf{[incorrect]},\textbf{[none]},\textbf{[bad\_nyslls]},\textbf{[bad\_audio]}). 
+		As the previous sections have illustrated, having multiple annotators judge the accuracy of each lexical stress production was useful insofar as it led to some interesting observations about the difficulty of reliably assessing lexical stress accuracy and differences in how judgments by annotators with different native languages and levels of expertise compare. However, if the annotations are to be used for \TODO{training an automated error-diagnosis system}, each token in the sub-corpus must ultimately be assigned a single ``gold-standard'' label from the set of possible labels described in \cref{sec:lexstress:method}.
+		% which will be referred to henceforth as  $S$: $\{$[correct],{[incorrect]},{[none]},{[bad\_nyslls]},{[bad\_audio]}$\}$. 
+		
+		In some cases, this assignment was trivial, while in others a decision had to be made between competing candidate labels. This section describes the procedure by which a single gold standard label was chosen for each word token (utterance) in the data set described in \cref{sec:lexstress:data}. In the remainder of this section, the gold-standard label chosen for a given word token $t$ will be referred to as $s_{\text{gold}}(t)$, where $s \in S = \{$[correct],{[incorrect]},{[none]},{[bad\_nyslls]},{[bad\_audio]}$\}$ stands for one of the possible labels.
+		
+		To prepare for gold-standard labeling, all available annotations for $t$ were tallied by their label type $s$, resulting in a set $S_t \subseteq S$ of labels assigned to $t$ by any of the native annotators who labeled this token (non-native annotators' judgments were omitted as mentioned in \cref{sec:agreement:native} above). For each label $s(t) \in S_t$, the number of ``votes'' for that label was recorded as the number of annotators who assigned this label to token $t$; henceforth \TODO{\textit{need better notation for maxvotes set: }$S_{\text{max}} \subseteq S_t$} will refer to the set of labels for $t$ with the highest number of votes \TODO{reword?}.
+		
+		Given the observed labels and their vote counts, a rule-based procedure was followed to assign a gold-standard label $s_{\text{gold}}(t)$ to each token $t$ in the annotated sub-corpus; this procedure is outlined in \cref{tab:agreement:goldrules}. At each step $i$ in the procedure, any tokens whose set $S_t$ of observed labels fits condition $C_i$ are assigned the gold-standard label described in column $s_{\text{gold}}(t)$; the number of tokens matching $C_i$ is given as $N(C_i)$, and 
+		% gives the number of tokens labeled at this step, i.e. the number matching $C_i$. The rightmost column 
+		$N(C_{1 \dots i})$ represents the total number of tokens which have been assigned a gold-standard label at the end of step $i$ in the labeling procedure (i.e. the number of tokens matching $C_i$ or any previous condition).
 		
 		For 268 of the 
 		%669 
-		668 tokens annotated, there was no disagreement whatsoever between annotators: for each of these 268 tokens, all annotators who labeled the token made the same judgment \TODO{How does this fit in with \cref{sec:agreement:overall}? Should it be mentioned there?}, making it easy to assign this label as the gold standard for this utterance. For another 265 tokens, a majority of annotators assigned the same label, though one or more annotators dissented, so assigning the majority-vote label as the gold standard is logical. Therefore, for a total of 533 tokens (approximately 80\% of the word utterances in the sub-corpus), the gold standard label was uncontroversial.
-		
-		However, choosing gold-standard labels for the remaining 
+		668 tokens annotated, there was no disagreement whatsoever between annotators: for each of these 268 tokens, all annotators who labeled the token made the same judgment \TODO{How does this fit in with \cref{sec:agreement:overall}? Should it be mentioned there?}, making it easy to assign this label as the gold standard for this utterance. For another 265 tokens, a majority of annotators assigned the same label, though one or more annotators dissented, so assigning the majority-vote label as the gold standard is logical. Therefore, for a total of 533 tokens (approximately 80\% of the word utterances in the sub-corpus), the gold standard label was uncontroversial,
+		while choosing gold-standard labels for the remaining 
 		%116 
 		utterances was a less straightforward task. 
 		
-				\TODO{Explain how a final label was decided for each token}
-		
-		
-		At each step $i$, any tokens whose set of assigned labels fits condition $C_i$ are assigned the gold-standard label described in column $s_{\text{gold}}(t)$. Column $N(C_i)$ gives the number of tokens labeled at this step, i.e. the number matching $C_i$. The rightmost column $N(C_{1 \dots i})$ gives the total number of tokens which have been assigned a gold-standard label at the end of step $i$, i.e. the number of tokens matching $C_i$ or any previous condition.
+				
+		\TODO{Justify rules 4, 5, 6, 7 in  \cref{tab:agreement:goldrules}} 
 		
 		\begin{table}[htb]
-		\caption[Rules for choosing a gold-standard label for a given token]{Rules for choosing a gold-standard label $s_{\text{gold}}(t)$ for a given token $t$. }
+		\caption[Rules for choosing a gold-standard label for a given token]{Rules for choosing a gold-standard label $s_{\text{gold}}(t)$ for a given token $t$. At step $i$, tokens matching $C_i$ are assigned the label in column $s_{\text{gold}}(t)$. The rightmost columns $N(C_i)$ and $N(C_{1 \dots i})$ list the number of tokens labeled in step $i$ and the total number that have been labeled at the end of step $i$, respectively.}
 			\begin{tabularx}{\textwidth}{lXlrr}
 			\toprule
 			%Step (
 			$i$
-			& Condition ($C_i$) & $s_{\text{gold}}(t)$ & $N(C_i)$ & $N(C_{1 \dots i})$ \\
+			& Condition ($C_i$) \TODO{reword w/ $S_t$\&$S_{\text{max}}$} & $s_{\text{gold}}(t)$ & $N(C_i)$ & $N(C_{1 \dots i})$ \\
 			\midrule
 			
 			1.& There is only one label $s_{\text{only}}$ with any votes & 
@@ -620,9 +626,9 @@ Minimum	& 23.21\%	& -0.01	& 33.93\%	& 0.10	& 35.71\%	& 0.08	& 28.57\%	&  0.04 \\
 			%$s_{\text{gold}}(t) \gets 
 			$s_{\text{expert}}$ & 51 & 584 \\
 			
-			4.& [bad\_nsylls] is one of the competing labels, 
+			4.&[bad\_nsylls] is one of the competing labels, 
 			%ignore it; \newline if 
-			and there is only one other competing label $s_{\text{only}}$
+			and there is only one other competing label $s_{\text{only}}$  \TODO{reword}
 			%remains 
 			& 
 			%$s_{\text{gold}}(t) \gets 

@@ -3,7 +3,7 @@
 % !TEX root = ../thesis-main.tex
 %
 %TODO change title? \chapter{Lexical stress errors in the IFCASL corpus}
-\chapter{Lexical stress errors by French learners of German \TODO{title?}}
+\chapter{Lexical stress errors by French learners of German \TODO{retitle?}}
 \label{chap:lexstress}
 
 %\cleanchapterquote{You can’t do better design with a computer, but you can speed up your work enormously.}{Wim Crouwel}{(Graphic designer and typographer)}
@@ -16,13 +16,15 @@
 %	\subsection{Expected errors}
 %	
 	
-\TODO{Change title?}
+%\TODO{Change title?}
 %\section{Lexical stress errors in the IFCASL corpus} 
 
-	\TODO{Recap of IFCASL corpus} see \cref{sec:intro:ifcasl}
+\TODO{``sub-corpus'' gets pretty annoying in this chapter - think of better term?}
+
+	\TODO{Recap of IFCASL corpus  \cref{sec:intro:ifcasl}}
 
 	To investigate to what extent the expected lexical stress errors by French speakers of German are actually produced, a subset of the non-native German-language IFCASL corpus was annotated for such errors.
-	\TODO{more about why this is necessary?}
+	\TODO{more about why this is necessary/how the corpus will be used for supervised training}
 	%
 	The first sections of this chapter describe the selection of material for this sub-corpus (\cref{sec:lexstress:data}), the annotators who labeled lexical stress errors in that data (\cref{sec:lexstress:annotators}), and the method by which annotation was performed (\cref{sec:lexstress:method}). 
 	
@@ -302,7 +304,7 @@ A single annotation session consisted of annotating all tokens of three word typ
 
 		\begin{table}[htb]
 			\centering
-			\caption{Overall pairwise agreement between annotators}
+			\caption{Overall pairwise agreement between annotators  \TODO{transpose this table so it's consistent with \cref{tab:agreement:L1} and \cref{tab:agreement:expertise}}}
 			\begin{tabular}{lrrrr}
 				\toprule
 				Agreement measure &	Minimum	& Median &	 Maximum &	 Mean\\
@@ -376,7 +378,10 @@ A single annotation session consisted of annotating all tokens of three word typ
 		
 		
 		Going beyond the coarse-grained analysis of inter-annotator agreement described in the previous section, we come now to the second question raised at the beginning of this chapter:
+		
 		\textit{Are there differences in how native and non-native German speakers identify errors?}
+		
+		\TODO{expectations/speculations of what we will find?}
 		
 		To answer this question, it is useful to look at the inter-annotator agreement between native and non-native annotators, as well as at the distribution of label types within each group. 
 		
@@ -454,14 +459,55 @@ Minimum	&32.65\%	 & 0.10 &  23.21\% &	-0.01\\
 		Though the differences between native and nonnative annotators are interesting \TODO{from the perspective of X}, the ultimate goal of this thesis project is to create a CAPT tool which will help L1 French speakers be more intelligible when speaking German as L2, and therefore the way in which native German speakers perceive lexical stress in non-native speech is of more relevance to this work than the way it is perceived by non-native speakers. Therefore, the remainder of this chapter is concerned exclusively with the judgments of native annotators, and judgments by non-native annotators are not included in the analyses that follow.
 			
 		
-		\subsection{Expert vs. intermediate vs. novice annotators}
+		\subsection{Expert vs. novice annotators}
 		\label{sec:agreement:expert}
 		
-		\TODO{text about agreement}
 		
-			\TODO{mention that the small size of the nonnative, expert, and novice groups prevented meaningful within-group agreement analysis}
+		
+	\TODO{Transition} This section seeks to answer the last of the questions raised at the beginning of the chapter concerning inter-annotator agreement in the stress-annotated IFCASL sub-corpus, namely:
+	
+	\textit{Are there differences in how expert and novice annotators identify lexical stress errors?}
+	
+	Given the general difficulty of the task of identifying lexical stress errors, evidenced by relatively low overall inter-annotator agreement as discussed in \cref{sec:agreement:overall} above, it might seem reasonable to suppose that training in phonetics/phonology or experience annotating (non-native) speech might have a positive impact on an annotator's ability to reliably judge the accuracy of lexical stress realizations by non-native speakers. However, it once again bears mentioning that the ultimate goal of this work is to help L2 learners communicate intelligibly in German, and it can safely be assumed that in the vast majority of cases such learners will be communicating more often with native speakers who possess little formal knowledge of speech science than with expert phoneticians. Therefore, even if differences in reliability do exist between expert and novice annotators, it is important that the perception of non-native lexical stress errors by non-experts not be ignored in favor of perception of such errors by experts \TODO{reword that, or just scrap this sentence?}. 
+	
+	%\TODO{mention that we're trying to train nonnative speakers to communicate in the L2, which means their speech will be ``evaluated'' by novices (native speakers), so we don't want to limit ourselves to expert judgments}
+
+	\TODO{Better transition needed here?}
+	
+	Just as the previous section analyzed native vs. non-native annotations in terms of inter-annotator agreement and differences in label distributions between those groups, this section uses analogous data to investigate the differences between annotators of the three different expertise levels -- expert (exp.), intermediate (int.), and novice (nov.) -- described in \cref{sec:lexstress:annotators} above.
+	
+	To determine inter-annotator agreement between the three expertise groups, percentage agreement and $\kappa$ were tabulated for each pairing of annotators from different groups, i.e. for each of the following three pair types:
+	
+	\begin{itemize}
+	\item{Expert annotator vs. novice annotator}
+	\item{Expert annotator vs. intermediate annotator}
+	\item{Novice annotator vs. intermediate annotator}
+	\end{itemize}
+	
+	Additionally, pairwise agreement was tallied for pairings between two intermediate annotators, as a measure of inter-annotator agreement within this expertise group. Due to the small size of the expert and novice groups (two and three annotators, respectively), as well as the fact that expert annotators were deliberately not assigned overlapping tokens to label in an effort to maximize the number of tokens labeled by at least one expert \TODO{does that contradict the above statement about novice judgments being just as important as expert ones?}, overlap within these groups was insufficient to calculate meaningful intra-group agreement statistics, so none are reported here. The small size of these two groups should also be kept in mind throughout the following analysis, as we should hesitate to draw firm conclusions from such small samples. 
+		
+		The agreement measures between groups and within the intermediate group are presented in \cref{tab:agreement:expertise} and illustrated in \cref{fig:agreement:expertise}. As these figures show, the mean values of both percentage agreement and $\kappa$ between the different expertise groups are quite close, and close to the overall means for all annotator pairs;  interestingly, the highest mean percentage agreement observed in this comparison (though only by a small margin) is that of expert-novice pairings, which might be a preliminary indication that there is no relevant difference in reliability between expertise levels. 
 			
-		\TODO{mention that we're trying to train nonnative speakers to communicate in the L2, which means their speech will be ``evaluated'' by novices (native speakers), so we don't want to limit ourselves to expert judgments}
+		
+		
+		\begin{table}[htb]
+			\centering
+			\caption{Pairwise agreement between expertise groups \TODO{explain abbreviations}}
+			\begin{tabularx}{\textwidth}{lXXXXXXXX}
+				\toprule
+		& \multicolumn{2}{c}{Exp vs. Nov} & \multicolumn{2}{c}{Exp vs. Int} & \multicolumn{2}{c}{Nov vs. Int} & \multicolumn{2}{c}{Int vs. Int} \\
+	&\% Agr.	& $\kappa$	&\% agr. &	$\kappa$&	\% agr.	& $\kappa$	&\% agr. & $\kappa$ \\
+	\midrule
+Mean	& 57.89\%	& 0.23	& 55.30\%	& 0.23	& 52.12\%	& 0.26	& 51.44\%	& 0.23 \\
+Maximum	& 71.43\%	& 0.44	& 83.93\%	& 0.32	& 71.43\% & 	0.47	& 80.36\%	& 0.61 \\
+Median	& 68.46\%	& 0.24	& 49.95\%	& 0.25	& 51.70\%	& 0.26	& 47.58\%	& 0.22\\
+Minimum	& 23.21\%	& -0.01	& 33.93\%	& 0.10	& 35.71\%	& 0.08	& 28.57\%	&  0.04 \\
+				\bottomrule
+			\end{tabularx}
+			\label{tab:agreement:expertise}
+		\end{table}
+			
+		
 		
 		\begin{figure}[htb]
 			\centering
@@ -470,18 +516,18 @@ Minimum	&32.65\%	 & 0.10 &  23.21\% &	-0.01\\
 				\centering
 				\includegraphics[width=\textwidth]{img/annotation/pairAgreeExpertise}
 				\caption{Percent agreement}
-				\label{fig:agree:expertise:pct}
+				\label{fig:agreement:expertise:pct}
 			\end{subfigure}%
 			~
 			\begin{subfigure}[b]{.5\textwidth}
 				\centering
 				\includegraphics[width=\textwidth]{img/annotation/pairKappaExpertise}
 				\caption{Cohen's Kappa statistic}
-				\label{fig:agree:expertise:k}
+				\label{fig:agreement:expertise:k}
 			\end{subfigure}%
 			
 			\caption[Pairwise agreement statistics by annotator expertise]{Pairwise agreement between annotators based on their level of expertise (expert, intermediate, or novice). The bottom of each vertical bar represents the minimum pairwise value, the top the maximum. Horizontal bars indicate average pairwise values.}
-			\label{fig:agree:expertise}
+			\label{fig:agreement:expertise}
 		\end{figure}
 		
 			\Cref{fig:expertisepies} illustrates the relative number of each label type as assigned by annotators of the three expertise levels described in \cref{sec:lexstress:annotators} above, and while any analysis of this data should bear in mind the small sample sizes of the expert and novice groups (two and three annotators, respectively), it does appear that some interesting differences may exist between the three groups. 
@@ -526,12 +572,65 @@ Minimum	&32.65\%	 & 0.10 &  23.21\% &	-0.01\\
 			\end{figure}
 			
 			
+			\TODO{Conclusion}
 			
 		\subsection{Choosing gold-standard labels}
 		\label{sec:agreement:gold}
 		
+		\TODO{Rephrase gold-standard  as ground truth or some other term?}
+		
+		As the previous sections have illustrated, having multiple annotators judge the accuracy of each lexical stress production was useful insofar as it led to some interesting observations about the difficulty of reliably assessing lexical stress accuracy and differences in how judgments by annotators with different native languages and levels of expertise compare. However, if the annotations are to be used for \TODO{training an automated error-diagnosis system}, each token in the sub-corpus must ultimately be assigned a single ``gold-standard'' label from the set of possibilities described in \cref{sec:lexstress:annotation} (\textbf{[correct]},\textbf{[incorrect]},\textbf{[none]},\textbf{[bad\_nyslls]},\textbf{[bad\_audio]}). 
+		
+		For 268 of the 669 tokens annotated, there was no disagreement whatsoever between annotators: for each of these 268 tokens, all annotators who labeled the token made the same judgment \TODO{How does this fit in with \cref{sec:agreement:overall}? Should it be mentioned there?}, making it easy to assign this label as the gold standard for this utterance. For another 265 tokens, a majority of annotators assigned the same label, though one or more annotators dissented, so assigning the majority-vote label as the gold standard is logical. Therefore, for a total of 533 tokens (approximately 80\% of the word utterances in the sub-corpus), the gold standard label was uncontroversial.
+		
+		However, choosing gold-standard labels for the remaining 116 utterances was a less straightforward task. 
+		
 				\TODO{Explain how a final label was decided for each token}
 
+		Original rules:
+		\begin{itemize}
+		\item{if there is only one label or a majority vote, use that}
+		\item{if one of the annotators is an expert (FZ, JJ, or RM), use that}
+		\item{if [bad\_nsylls] is one of the best labels, ignore it}
+		\item{if it was judged both correct and incorrect (i.e. both [correct] and [incorrect] are in the best labels), choose [none]}
+		\item{if there are two best labels and one is [none], choose the more certain label (i.e. ignore [none])}
+		\end{itemize}
+		
+		\begin{tabular}{ll}
+				Original breakdown:\\
+		ignore\_none &	 19 \\
+ignore\_badsylls &	 0\\
+no\_decision &	 0\\
+incorrect+correct=none &	 36\\
+single\_label &	 268\\
+majority\_vote (533 - 268) &	 265\\
+expert\_wins &	 81\\
+		\end{tabular}
+		
+
+		New rules:
+		\begin{itemize}
+		
+		\item{if there is only one label or a majority vote, use that}
+		\item{if one of the annotators is an expert (FZ or JJ), use that}
+		\item{if [bad\_nsylls] is one of the best labels, ignore it}
+		%\item{\textit{the rest of these are \TODO{}}}
+		\item{Be generous? (if anyone labeled it [correct], go with that)}
+		\item{ignore [none]}
+		%\item{...}
+		\end{itemize}
+		
+		
+		\begin{tabular}{ll}
+		New breakdown:\\
+		generosity &	 51 \\
+no\_decision &	 0 \\ 
+single\_label &	 268 \\ 
+majority\_vote\_or\_single (subtract single from this) &	 533 \\
+expert\_wins &	 68 \\ 
+ignore\_badsylls &	 0 \\
+ignore\_none &	 17 \\
+		\end{tabular}
 			
 
 	\section{Results}

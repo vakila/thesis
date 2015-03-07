@@ -66,12 +66,15 @@
 	As described in \cref{sec:intro:ifcasl} \TODO{verify that this reference is appropriate}, the IFCASL recordings were performed under two conditions: the ``Sentence Read'' (SR) condition, in which the L2 speaker is simply  presented with the text of the sentence and asked to record themselves reading it aloud, and the ``Sentence Heard'' (SH) condition, in which the L2 speaker is asked to listen to an utterance of the sentence by an L1 German speaker before recording their own utterance. The sub-corpus for annotation includes recordings from both conditions, though the majority are from the SR condition \TODO{does mentioning that help or hurt?}.
 	
 	To compile the sub-corpus for annotation, utterances (tokens) of each word as produced by over 50 L2 speakers were extracted from the recordings automatically with Praat \parencite{Boersma2014}, using extraction times (start and end points of word utterances) taken from the word-level segmentation of each sentence utterance automatically obtained by forced alignment (see \cref{sec:diag:segmentation}).
-	\Cref{tab:bisyllwords} lists the exact number of tokens available for each word type. In total, 669 word tokens were annotated for lexical stress errors. 
-	Four tokens had to be excluded from the data, as disfluencies in the sentence utterance (e.g. false starts or repetitions of the target word) prevented the automatic extraction of the word utterance from the sentence as a whole. In a fully-fledged student-facing CAPT system, such disfluencies would need to be dealt with accordingly, e.g. by means of a pre-processing step which analyzes the student's utterance for possible disfluencies and compensates for any that are detected by, for example, prompting the student to re-record their utterance. However, detecting disfluencies in speech, especially non-native speech, is an area of active research (see e.g. \TODO{refs}), and the development of a  disfluency-aware system is outside the scope of this thesis project; therefore, this work presupposes that no disfluencies exist in the student's utterance, and the handful of disfluent tokens have been excluded from the error-annotated sub-corpus described here.
+	\Cref{tab:bisyllwords} lists the exact number of tokens available for each word type. In total, 
+	%669 
+	668 word tokens were annotated for lexical stress errors. 
+	%Four 
+	Five tokens had to be excluded from the data, as disfluencies in the sentence utterance (e.g. false starts or repetitions of the target word) prevented the automatic extraction of the word utterance from the sentence as a whole. In a fully-fledged student-facing CAPT system, such disfluencies would need to be dealt with accordingly, e.g. by means of a pre-processing step which analyzes the student's utterance for possible disfluencies and compensates for any that are detected by, for example, prompting the student to re-record their utterance. However, detecting disfluencies in speech, especially non-native speech, is an area of active research (see e.g. \TODO{refs}), and the development of a  disfluency-aware system is outside the scope of this thesis project; therefore, this work presupposes that no disfluencies exist in the student's utterance, and the handful of disfluent tokens have been excluded from the error-annotated sub-corpus described here.
 	
 	\begin{table}[htb]
 		\centering
-		\caption{The twelve bisyllabic initial-stress words types selected from the IFCASL corpus for stress error annotation \TODO{column details}%, and the number of distinct tokens annotated (each produced by a different speaker)
+		\caption[Word types annotated for lexical stress errors]{The twelve bisyllabic initial-stress words types selected from the IFCASL corpus for stress error annotation \TODO{column details}%, and the number of distinct tokens annotated (each produced by a different speaker)
 		}
 %		\begin{tabular}{llll}
 %		Flagge & Ringen & Tschechen & halten \\
@@ -87,7 +90,7 @@
 		Part of speech & 
 		English \linebreak meaning & 
 		Recording condition & 
-		Number \linebreak of tokens \\%\linebreak annotated\\
+		Number \linebreak of tokens \TODO{check that these tally to 668} \\%\linebreak annotated\\
 		
 		\midrule
 		E-mail	&	\TODO{prons} &	noun &	e-mail &	SR 	&	56	\\
@@ -265,7 +268,9 @@ A single annotation session consisted of annotating all tokens of three word typ
 	
 	As stated in the previous section,
 	%\cref{sec:lexstress:data}, 
-	lexical stress realizations in a total of 669 word utterances were each assigned to one of five classes by multiple annotators, based on whether the annotator judged the production to have correctly placed stress, incorrectly placed stress, no clear stress placement, or other problems which prevented the annotator from making a judgment about the lexical stress accuracy. The agreement between these judgments was calculated for each pair of annotators who overlapped, i.e. labeled any of the same tokens. 
+	lexical stress realizations in a total of 
+	%669 
+	668 word utterances were each assigned to one of five classes by multiple annotators, based on whether the annotator judged the production to have correctly placed stress, incorrectly placed stress, no clear stress placement, or other problems which prevented the annotator from making a judgment about the lexical stress accuracy. The agreement between these judgments was calculated for each pair of annotators who overlapped, i.e. labeled any of the same tokens. 
 	\TODO{matrix of pairwise tokens in common (or just x/o to show which annotators overlapped?}
 	%This section describes how this agreement was calculated, and the following sections \cref{sec:agreement:overall, sec:agreement:native, sec:agreement:expertise} present an analysis of the resulting inter-annotator agreement statistics. Finally, 
 		Two metrics were used to quantify agreement between a pair of annotators: the simple percentage of observed agreement, and Cohen's Kappa statistic ($\kappa$). 
@@ -581,57 +586,152 @@ Minimum	& 23.21\%	& -0.01	& 33.93\%	& 0.10	& 35.71\%	& 0.08	& 28.57\%	&  0.04 \\
 		
 		As the previous sections have illustrated, having multiple annotators judge the accuracy of each lexical stress production was useful insofar as it led to some interesting observations about the difficulty of reliably assessing lexical stress accuracy and differences in how judgments by annotators with different native languages and levels of expertise compare. However, if the annotations are to be used for \TODO{training an automated error-diagnosis system}, each token in the sub-corpus must ultimately be assigned a single ``gold-standard'' label from the set of possibilities described in \cref{sec:lexstress:annotation} (\textbf{[correct]},\textbf{[incorrect]},\textbf{[none]},\textbf{[bad\_nyslls]},\textbf{[bad\_audio]}). 
 		
-		For 268 of the 669 tokens annotated, there was no disagreement whatsoever between annotators: for each of these 268 tokens, all annotators who labeled the token made the same judgment \TODO{How does this fit in with \cref{sec:agreement:overall}? Should it be mentioned there?}, making it easy to assign this label as the gold standard for this utterance. For another 265 tokens, a majority of annotators assigned the same label, though one or more annotators dissented, so assigning the majority-vote label as the gold standard is logical. Therefore, for a total of 533 tokens (approximately 80\% of the word utterances in the sub-corpus), the gold standard label was uncontroversial.
+		For 268 of the 
+		%669 
+		668 tokens annotated, there was no disagreement whatsoever between annotators: for each of these 268 tokens, all annotators who labeled the token made the same judgment \TODO{How does this fit in with \cref{sec:agreement:overall}? Should it be mentioned there?}, making it easy to assign this label as the gold standard for this utterance. For another 265 tokens, a majority of annotators assigned the same label, though one or more annotators dissented, so assigning the majority-vote label as the gold standard is logical. Therefore, for a total of 533 tokens (approximately 80\% of the word utterances in the sub-corpus), the gold standard label was uncontroversial.
 		
-		However, choosing gold-standard labels for the remaining 116 utterances was a less straightforward task. 
+		However, choosing gold-standard labels for the remaining 
+		%116 
+		utterances was a less straightforward task. 
 		
 				\TODO{Explain how a final label was decided for each token}
-
-		Original rules:
-		\begin{itemize}
-		\item{if there is only one label or a majority vote, use that}
-		\item{if one of the annotators is an expert (FZ, JJ, or RM), use that}
-		\item{if [bad\_nsylls] is one of the best labels, ignore it}
-		\item{if it was judged both correct and incorrect (i.e. both [correct] and [incorrect] are in the best labels), choose [none]}
-		\item{if there are two best labels and one is [none], choose the more certain label (i.e. ignore [none])}
-		\end{itemize}
-		
-		\begin{tabular}{ll}
-				Original breakdown:\\
-		ignore\_none &	 19 \\
-ignore\_badsylls &	 0\\
-no\_decision &	 0\\
-incorrect+correct=none &	 36\\
-single\_label &	 268\\
-majority\_vote (533 - 268) &	 265\\
-expert\_wins &	 81\\
-		\end{tabular}
-		
-
-		New rules:
-		\begin{itemize}
-		
-		\item{if there is only one label or a majority vote, use that}
-		\item{if one of the annotators is an expert (FZ or JJ), use that}
-		\item{if [bad\_nsylls] is one of the best labels, ignore it}
-		%\item{\textit{the rest of these are \TODO{}}}
-		\item{Be generous? (if anyone labeled it [correct], go with that)}
-		\item{ignore [none]}
-		%\item{...}
-		\end{itemize}
 		
 		
-		\begin{tabular}{ll}
-		New breakdown:\\
-		generosity &	 51 \\
-no\_decision &	 0 \\ 
-single\_label &	 268 \\ 
-majority\_vote\_or\_single (subtract single from this) &	 533 \\
-expert\_wins &	 68 \\ 
-ignore\_badsylls &	 0 \\
-ignore\_none &	 17 \\
-		\end{tabular}
+		At each step $i$, any tokens whose set of assigned labels fits condition $C_i$ are assigned the gold-standard label described in column $s_{\text{gold}}(t)$. Column $N(C_i)$ gives the number of tokens labeled at this step, i.e. the number matching $C_i$. The rightmost column $N(C_{1 \dots i})$ gives the total number of tokens which have been assigned a gold-standard label at the end of step $i$, i.e. the number of tokens matching $C_i$ or any previous condition.
+		
+		\begin{table}[htb]
+		\caption[Rules for choosing a gold-standard label for a given token]{Rules for choosing a gold-standard label $s_{\text{gold}}(t)$ for a given token $t$. }
+			\begin{tabularx}{\textwidth}{lXlrr}
+			\toprule
+			%Step (
+			$i$
+			& Condition ($C_i$) & $s_{\text{gold}}(t)$ & $N(C_i)$ & $N(C_{1 \dots i})$ \\
+			\midrule
 			
+			1.& There is only one label $s_{\text{only}}$ with any votes & 
+			%$s_{\text{gold}}(t) \gets 
+			$s_{\text{only}}$ & 268 & 268 \\
+			 
+			2.& One label $s_{\text{max}}$ has more votes than any other labels & 
+			%$s_{\text{gold}}(t) \gets 
+			$s_{\text{max}}$ & 265 & 533 \\
+			
+			3.& There is a label $s_{\text{expert}}$ assigned by an expert & 
+			%$s_{\text{gold}}(t) \gets 
+			$s_{\text{expert}}$ & 51 & 584 \\
+			
+			4.& [bad\_nsylls] is one of the competing labels, 
+			%ignore it; \newline if 
+			and there is only one other competing label $s_{\text{only}}$
+			%remains 
+			& 
+			%$s_{\text{gold}}(t) \gets 
+			$s_{\text{only}}$ & 17 & 601 \\
+			
+			5.& There is a three-way tie between labels
+			%, indicating that the accuracy of the lexical stress realization is not clear 
+			&
+			% [correct], [none], and [incorrect] & 
+			%$s_{\text{gold}}(t) \gets$ 
+			[none] & 6 & 607\\
+			
+			6.& There are two competing labels: 
+			%one of which is 
+			[none] and 
+			%the other of which is 
+			$s_{\text{certain}} \in \{$[correct],[incorrect]$\}$ &
+			$s_{\text{certain}}$ & 21 & 628\\
+			
+			7.& There are two competing labels: [correct] and \mbox{[incorrect]} &
+			[correct] & 40 & 668\\
+	
+			\bottomrule
+			\end{tabularx}
+		\label{tab:agreement:goldrules}
+		\end{table}
+		
+		
+		
+		%%%%	ORIGINAL RULES (BEFORE 6.3.15)
+%%%%		Original rules:
+%%%%		\begin{itemize}
+%%%%		\item{if there is only one label or a majority vote, use that}
+%%%%		\item{if one of the annotators is an expert (FZ, JJ, or RM), use that}
+%%%%		\item{if [bad\_nsylls] is one of the best labels, ignore it}
+%%%%		\item{if it was judged both correct and incorrect (i.e. both [correct] and [incorrect] are in the best labels), choose [none]}
+%%%%		\item{if there are two best labels and one is [none], choose the more certain label (i.e. ignore [none])}
+%%%%		\end{itemize}
+%%%%		
+%%%%		\begin{tabular}{ll}
+%%%%				Original breakdown:\\
+%%%%		ignore\_none &	 19 \\
+%%%%ignore\_badsylls &	 0\\
+%%%%no\_decision &	 0\\
+%%%%incorrect+correct=none &	 36\\
+%%%%single\_label &	 268\\
+%%%%majority\_vote (533 - 268) &	 265\\
+%%%%expert\_wins &	 81\\
+%%%%		\end{tabular}
+	
+%%%%	RESULTS USING NEW RULES:		
+%%%%	rejected :	 1
+%%%%	threeway :	 6
+%%%%	incorrect+none+correct=none :	 0
+%%%%	expert_wins :	 51
+%%%%	value_certainty :	 21
+%%%%	ignore_none :	 0
+%%%%	ignore_badsylls :	 17
+%%%%	generosity :	 40
+%%%%	ignore_badwords :	 0
+%%%%	single_label :	 268
+%%%%	majority_vote_or_single :	 533
+%%%%	no_decision :	 0
+%%%%	
+%%%%	Rejected due to disfluencies:
+%%%%	('2SR31_FGBA2_547', 'tatort')
+		
+%		\begin{algorithm}[h!]
+%			\caption*{Procedure for choosing a gold-standard label  for a given token ($s_{\text{gold}}(t)$)}
+%			\begin{algorithmic}
+%				%\State $T \gets $ the set of word tokens (utterances) to be labeled
+%				\State $t \gets$ a word token to be labeled
+%				\State $S \gets$ the set of labels $\{$[correct],[incorrect],[none],[bad\_nsylls],[bad\_audio]$\}$
+%				
+%				\vspace{1em}
+%				
+%				%\For {each word token $t \in T$}
+%				
+%				
+%					%tally votes for each label 
+%					\For {each possible label $s_i \in S$}
+%					
+%						\State tally votes for $s_i(t)$, i.e. the number of annotators who assigned $s_i$ to $t$
+%					\EndFor
+%					
+%					\vspace{1em}
+%					
+%					\If {only one label $s_{\text{only}}$ has any votes}
+%					    \State $s_{\text{gold}}(t) \gets s_{\text{only}}$
+%					\ElsIf {one label $s_{\text{max}}$ has more votes than any other labels}
+%				        \State $s_{\text{gold}}(t) \gets s_{\text{max}}$
+%					\Else
+%						\State Break the tie between competing labels in one of the following ways:
+%						\If {there is a label $s_{\text{expert}}$ assigned by an expert}
+%					     	\State $s_{\text{gold}}(t) \gets s_{\text{expert}}$
+%					     \Else
+%					     	\If {[bad\_nsylls] is one of the competing labels, ignore it}
+%					     		\If {only one label $s_{\text{only}}$ remains}
+%					     			\State $s_{\text{gold}}(t) \gets s_{\text{only}}$
+%					     		\EndIf 
+%					     	\EndIf
+%						\EndIf
+%					\EndIf
+%					
+%				%\EndFor
+%			\end{algorithmic}
+%		\end{algorithm}
+		
+		
 
 	\section{Results}
 	\label{sec:lexstress:results}		

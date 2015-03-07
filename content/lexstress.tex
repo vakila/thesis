@@ -595,22 +595,13 @@ Minimum	& 23.21\%	& -0.01	& 33.93\%	& 0.10	& 35.71\%	& 0.08	& 28.57\%	&  0.04 \\
 		% gives the number of tokens labeled at this step, i.e. the number matching $C_i$. The rightmost column 
 		$N(C_{1 \dots i})$ represents the total number of tokens which have been assigned a gold-standard label at the end of step $i$ in the labeling procedure (i.e. the number of tokens matching $C_i$ or any previous condition).
 		
-		For 268 of the 
-		%669 
-		668 tokens annotated, there was no disagreement whatsoever between annotators: for each of these 268 tokens, all annotators who labeled the token made the same judgment \TODO{How does this fit in with \cref{sec:agreement:overall}? Should it be mentioned there?}, making it easy to assign this label as the gold standard for this utterance. For another 265 tokens, a majority of annotators assigned the same label, though one or more annotators dissented, so assigning the majority-vote label as the gold standard is logical. Therefore, for a total of 533 tokens (approximately 80\% of the word utterances in the sub-corpus), the gold standard label was uncontroversial,
-		while choosing gold-standard labels for the remaining 
-		%116 
-		utterances was a less straightforward task. 
 		
-				
-		\TODO{Justify rules 4, 5, 6, 7 in  \cref{tab:agreement:goldrules}} 
-		
+
 		\begin{table}[htb]
-		\caption[Rules for choosing a gold-standard label for a given token]{Rules for choosing a gold-standard label $s_{\text{gold}}(t)$ for a given token $t$. At step $i$, tokens matching $C_i$ are assigned the label in column $s_{\text{gold}}(t)$. The rightmost columns $N(C_i)$ and $N(C_{1 \dots i})$ list the number of tokens labeled in step $i$ and the total number that have been labeled at the end of step $i$, respectively.}
-			\begin{tabularx}{\textwidth}{lXlrr}
+		\caption[Procedure for choosing a gold-standard label for a given token]{Procedure for choosing a gold-standard label $s_{\text{gold}}(t)$ for a given token $t$. At step $i$, tokens matching $C_i$ are assigned the label in column $s_{\text{gold}}(t)$. The rightmost columns $N(C_i)$ and $N(C_{1 \dots i})$ list the number of tokens labeled in step $i$ and the total number that have been labeled at the end of step $i$, respectively.}
+			\begin{tabularx}{\textwidth}{rXlrr}
 			\toprule
-			%Step (
-			$i$
+			Step ($i$)
 			& Condition ($C_i$) \TODO{reword w/ $S_t$\&$S_{\text{max}}$} & $s_{\text{gold}}(t)$ & $N(C_i)$ & $N(C_{1 \dots i})$ \\
 			\midrule
 			
@@ -626,7 +617,7 @@ Minimum	& 23.21\%	& -0.01	& 33.93\%	& 0.10	& 35.71\%	& 0.08	& 28.57\%	&  0.04 \\
 			%$s_{\text{gold}}(t) \gets 
 			$s_{\text{expert}}$ & 51 & 584 \\
 			
-			4.&[bad\_nsylls] is one of the competing labels, 
+			4.& \mbox{[bad\_nsylls]} is one of the competing labels, 
 			%ignore it; \newline if 
 			and there is only one other competing label $s_{\text{only}}$  \TODO{reword}
 			%remains 
@@ -639,23 +630,51 @@ Minimum	& 23.21\%	& -0.01	& 33.93\%	& 0.10	& 35.71\%	& 0.08	& 28.57\%	&  0.04 \\
 			&
 			% [correct], [none], and [incorrect] & 
 			%$s_{\text{gold}}(t) \gets$ 
-			[none] & 6 & 607\\
+			\mbox{[none]} & 6 & 607\\
 			
 			6.& There are two competing labels: 
 			%one of which is 
-			[none] and 
+			\mbox{[none]} and 
 			%the other of which is 
 			$s_{\text{certain}} \in \{$[correct],[incorrect]$\}$ &
 			$s_{\text{certain}}$ & 21 & 628\\
 			
-			7.& There are two competing labels: [correct] and \mbox{[incorrect]} &
-			[correct] & 40 & 668\\
+			7.& There are two competing labels: \mbox{[correct]} and \mbox{[incorrect]} &
+			\mbox{[correct]} & 40 & 668\\
 	
 			\bottomrule
 			\end{tabularx}
 		\label{tab:agreement:goldrules}
 		\end{table}
 		
+				
+		
+		
+		\TODO{Check following paragraphs for consistency of terms - shouldn't "Condition 1" be $C_1$, etc.?}
+		
+		For 268 of the 
+		%669 
+		668 tokens annotated, there was no disagreement whatsoever between annotators: for each of these 268 tokens, all annotators who labeled the token made the same judgment \TODO{How does this fit in with \cref{sec:agreement:overall}? Should it be mentioned there?}, making it easy to assign this label as the gold standard for this utterance. Condition 1 in \cref{tab:agreement:goldrules} captures this category of tokens. 
+		%
+		For another 265 tokens, a majority of annotators assigned the same label, though one or more annotators dissented, so assigning the majority-vote label as the gold standard is logical; these are captured by Condition 2 \TODO{$C_2$?} in the table. Therefore, for a total of 533 tokens (approximately 80\% of the word utterances in the sub-corpus), the choice of $s_{\text{gold}}(t)$ was uncontroversial.
+		
+		For the remaining 
+		%116 
+		utterances, choosing gold-standard labels was a less straightforward task,
+		and the decisions made in steps 3-7 are somewhat more controversial.
+		%3
+		%In a third step, i
+		If either of the two expert annotators had labeled one of the remaining tokens, the expert's judgment was taken as the gold standard; 51 tokens met this condition ($C_3$). 
+		%4
+		Next, in step 4, if there were exactly two labels in $S_{\text{max}}$ and one of them was [bad\_nsylls], the other label was chosen as $s_{\text{gold}}(t)$. The reasoning behind this step is that since the label [bad\_nsylls] was intended to be applied to utterances for which no stress judgment was possible, then if at least one annotator was able to make a judgment, the [bad\_nsylls] label must not be appropriate and should be rejected. This condition ($C_4$) applied to 17 tokens. 
+		%5
+		The following step (5) addressed tokens for which the set of competing labels $S_{\text{max}}$ had three members, i.e. for which there was a three-way tie between labels. The fact that so many different labels were assigned to each of these tokens was taken as an indication that the accuracy of the lexical stress realization in this utterance was quite difficult to judge, i.e. it is unclear which syllable in the uttered word has been stressed; as the label [none] is intended to capture such cases, this label was chosen as the gold standard for the 6 utterances matching this condition ($C_5$).
+		%6
+		The next condition ($C_6$) captured the 21 cases in which $S_{\text{max}}$ contained exactly two labels competing for gold-standard status, with one of the labels being [none] and the other being one of the two labels associated with certainty about the accuracy of the lexical stress realization, i.e. [correct] or [incorrect]. In these cases, [none] was rejected in favor of the certain label, based on the assumption that if at least one annotator was able to categorically classify the given utterance as correct or incorrect in terms of lexical stress, other native-speaking listeners might be inclined to make the same judgment \TODO{fix that sentence}.
+		%7
+		The remaining 40 utterances were captured by the seventh and final condition, $C_7$, in which $S_{\text{max}}$ contained exactly two labels: [correct] and [incorrect]. In these cases, the learner's utterance was assessed generously and the [correct] label was chosen as $s_{\text{gold}}(t)$, to capture the fact that as mentioned in \cref{sec:agreement:overall}, assessing the accuracy of a lexical stress realization seems to be a somewhat difficult task, and if at least one of the native speakers who heard the given utterance were willing to accept its stress realization as correct, the learner should not be \TODO{``penalized''} by an [incorrect] label.
+		
+		Despite the necessarily controversial nature of some of the labeling decisions described above, in the remainder of this thesis, the gold-standard labels chosen thus are taken as the ground truth for the distribution of lexical stress errors in this annotated subset of  668 word utterances from the IFCASL corpus. These gold-standard labels are used to analyze the distribution of errors in the corpus (see the following section), and also serve as training data for the supervised machine learning approach to stress error diagnosis described in  \cref{chap:diagnosis}\TODO{more specific section reference}. 
 		
 		
 		%%%%	ORIGINAL RULES (BEFORE 6.3.15)

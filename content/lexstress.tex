@@ -770,6 +770,33 @@ Minimum	& 23.21\%	& -0.01	& 33.93\%	& 0.10	& 35.71\%	& 0.08	& 28.57\%	&  0.04 \\
 		
 		\TODO{Maybe this section should go last instead of first?}
 		
+		\begin{table}[htb]
+			\centering
+			\caption{Overall frequency of stress errors in the corpus \TODO{retitle}}
+			\begin{tabular}{lrr}
+			\toprule
+			Label & Tokens & \% of corpus \\
+			\midrule
+			correct	& 426	& 63.77\% \\
+			incorrect &	198	& 29.64\% \\
+			none	 &35 &	5.24\% \\
+			bad\_nsylls	& 8	& 1.20\% \\
+			bad\_audio	& 1	& 0.15\%\\
+			\midrule
+			%\addlinespace
+			Total & 668 & 100\%\\
+			\bottomrule
+			\end{tabular}
+			\label{tab:results:overall}
+		\end{table}
+		
+		\begin{figure}[ht]
+			\centering
+			\includegraphics[width=\textwidth]{img/annotation/overallPie}
+			\caption{Overall distribution of lexical stress errors in the annotated corpus \TODO{retitle}}
+			\label{fig:results:overallpie}
+		\end{figure}
+		
 		%\subsubsection{Accuracy by L2 skill level}
 		\subsection{Errors by L2 skill level}
 		\label{sec:results:level}
@@ -777,7 +804,7 @@ Minimum	& 23.21\%	& -0.01	& 33.93\%	& 0.10	& 35.71\%	& 0.08	& 28.57\%	&  0.04 \\
 			\TODO{text}
 			
 			%TODO exclude?
-			\begin{figure}[htb]
+			\begin{figure}[ht]
 				\centering
 				\includegraphics[width=\textwidth]{img/annotation/skillLevelBars}
 				\caption{Stress judgments by speaker skill level \TODO{Exclude?}}

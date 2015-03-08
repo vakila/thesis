@@ -769,6 +769,8 @@ Minimum	& 23.21\%	& -0.01	& 33.93\%	& 0.10	& 35.71\%	& 0.08	& 28.57\%	&  0.04 \\
 		\TODO{Are the subsections in this section really necessary? Can they all be rolled into one?}
 		
 		Given the final stress accuracy judgments compiled as described in the previous section, it is finally possible to return to the most important questions raised at the beginning of this chapter:
+		
+		\TODO{put these in the right order}
 		\begin{itemize}
 	\item{Are lexical stress errors observed frequently in the IFCASL data? (\cref{sec:results:overall})}
 	\item{Is there a difference in the frequency of these errors among different groups of speakers (i.e. in terms of skill level, age, or gender) or in different contexts (e.g. after hearing a native speaker produce the word)?  (\cref{sec:results:level,sec:results:agegender,sec:results:condition})}
@@ -1010,26 +1012,32 @@ Advanced (B2,C1)	&	221	&			31	&			6	&			3	&			0	&			261	&	39.07\%	\\
 		
 		\subsection{Errors by speaker age and gender}
 		\label{sec:results:agegender}
-			\TODO{}
 			
 			
+			Given that the IFCASL corpus, and by extension the sub-corpus annotated for lexical stress errors, contains recordings from speakers of both genders and from adult speakers (those over age 18 \TODO{check that}) as well as children (see \cref{sec:lexstress:data}), an analysis of the errors observed in terms of the age and gender of the speakers is of interest, to determine whether any discernible differences exist between the different groups of speakers. The breakdown of errors for each of these groups is presented in \cref{tab:results:agegender} and illustrated in \cref{fig:results:agepies,fig:results:genderpies}.
 			
-			\begin{table}
-				\caption{Errors by speaker age and gender}
-				\begin{tabularx}{\textwidth}{lrrrrrXX}			
+		
+			
+			\begin{table}[h]
+				\caption[Errors by speaker age and gender]{Errors by speaker age and gender \TODO{add \%ages}}
+				\begin{tabularx}{\textwidth}{XXXXXXXX}			
 				\toprule
-Group	&	correct	&	incorrect	&	none	&	bad\_nsylls	&	bad\_audio	&	Total	&	(\% corp.)	\\
+Group	&	correct	&	incorrect	&	none	&	bad\_ nsylls	&	bad\_ audio	&	Total	&	\% of corpus	\\
 				\midrule
 Boys	&	48	&	60	&	17	&	5	&	1	&	131	&	19.61\%	\\
 Girls	&	6	&	17	&	1	&	0	&	0	&	24	&	3.59\%	\\
 Men	&	184	&	61	&	7	&	0	&	0	&	252	&	37.72\%	\\
 Women	&	188	&	60	&	10	&	3	&	0	&	261	&	39.07\%	\\
-\midrule															
-Males	&	232	&	121	&	24	&	5	&	1	&	383	&	57.34\%	\\
-Females	&	194	&	77	&	11	&	3	&	0	&	285	&	42.66\%	\\
-\midrule															
+
+\midrule		
+Children	&	54	&	77	&	18	&	5	&	1	&	155	&	23.20\%	\\													
 Adults	&	372	&	121	&	17	&	3	&	0	&	513	&	76.80\%	\\
-Children	&	54	&	77	&	18	&	5	&	1	&	155	&	23.20\%	\\
+Adults (A2~only) & 86 & 49 & 9 & 0 & 0 & 144 & 21.56\%\\
+Adults (A2,~B1) &  151 & 90 & 11 & 0 & 0 & 252 & 37.72\%\\
+
+\midrule															
+Females	&	194	&	77	&	11	&	3	&	0	&	285	&	42.66\%	\\
+Males	&	232	&	121	&	24	&	5	&	1	&	383	&	57.34\%	\\
 				\bottomrule	
 				\end{tabularx}
 				\label{tab:results:agegender}
@@ -1047,16 +1055,23 @@ Children	&	54	&	77	&	18	&	5	&	1	&	155	&	23.20\%	\\
 			\begin{figure}[htb]
 				\centering
 				\begin{subfigure}[t]{0.5\textwidth}
-					\includegraphics[width=\textwidth]{img/annotation/adultPie}
-					\caption{Adults}
-					\label{fig:results:agepies:adult}
-				\end{subfigure}%
-				~
-				\begin{subfigure}[t]{0.5\textwidth}
 					\includegraphics[width=\textwidth]{img/annotation/childPie}
 					\caption{Children}
 					\label{fig:results:agepies:child}
 				\end{subfigure}%
+				~
+%				\begin{subfigure}[t]{0.5\textwidth}
+%					\includegraphics[width=\textwidth]{img/annotation/adultPie}
+%					\caption{Adults \TODO{remove?}}
+%					\label{fig:results:agepies:adult}
+%				\end{subfigure}%
+%		
+				\begin{subfigure}[t]{0.5\textwidth}
+					\includegraphics[width=\textwidth]{img/annotation/adultBeginnersPie}
+					\caption{Adult beginners}
+					\label{fig:results:agepies:adultbeg}
+				\end{subfigure}%
+				
 				\caption{Error distribution by speaker age}
 				\label{fig:results:agepies}
 			\end{figure}	
@@ -1077,6 +1092,39 @@ Children	&	54	&	77	&	18	&	5	&	1	&	155	&	23.20\%	\\
 				\caption{Error distribution by speaker gender}
 				\label{fig:results:genderpies}
 			\end{figure}	
+			
+			
+			
+				With regard to the two different age groups of speakers, any interpretation of the results presented here must bear in mind the considerable difference in size between the two different groups: \TODO{reference the actual number of each type of speaker - should already have been presented in \cref{sec:lexstress:data} or earlier} of the 668 tokens annotated in total, 513 (over three-fourths) were from adult speakers while only 155 (less than one-fourth) were utterances by children. Furthermore, it must be highlighted that there is a strong interaction between age and proficiency level: all of the child speakers recorded in the IFCASL corpus are beginners 
+				(the majority at the A2 level with only 2 girls at B1),
+				% \TODO{technically true but implies A2 while a couple of the girls are B1 - worth mentioning?}, 
+				while the adults span all four levels. Given the discrepancies between L2 proficiency levels discussed in the previous section, then, it is not surprising to see that over half of children's utterances are judged to have lexical stress errors, with correct stress productions making up only 35.1\% of utterances (54 utterances) by this age group. Adults, on the other hand, seem to realize lexical stress correctly in the majority of their utterances, with only 23.6\% (121) incorrect productions and 3.3\% percent (17) utterances with no clear lexical stress realization ([none]). However, this is not an entirely just comparison, given that the group of child speakers only includes beginners; therefore, instead of comparing the children's error distribution to that of all adults, it is helpful to restrict the comparison to adults of the lower proficiency levels. 
+				%The bottom rows of \cref{tab:results:agegender} list
+				\Cref{tab:results:agegender} lists the statistics for 
+				\TODO{\textit{remove?:} adults at the A2 proficiency level only as well as for}
+				adults of both beginner levels (A2 and B1), 
+				and \cref{fig:results:agepies:adultbeg} illustrates the error distribution for the latter group \TODO{include adult A2 chart also? (distribution is quite similar to A2/B1)}. 
+				Comparing the distribution of children's errors to that of adult beginners, the difference is less drastic but still noticeable, as adult beginners realize lexical stress correctly in the majority (approximately 60\%) of their utterances. Considering the comparatively high proportion of lexical stress errors in children's speech, therefore, it seems that just as \TODO{we} concluded in the previous section that beginners may benefit more from a CAPT system targeting lexical stress errors than advanced learners would, so also may children stand to gain more from such a system than adult beginners. \TODO{anything else to say about age?}
+				
+%				\begin{figure}[htb]
+%				\centering
+%				\begin{subfigure}[t]{0.5\textwidth}
+%					\includegraphics[width=\textwidth]{img/annotation/adultA2Pie}
+%					\caption{Adults of A2 skill level}
+%					\label{fig:results:adultbeginners:a2}
+%				\end{subfigure}%
+%				~
+%				\begin{subfigure}[t]{0.5\textwidth}
+%					\includegraphics[width=\textwidth]{img/annotation/adultBeginnersPie}
+%					\caption{Adult beginners (A2 and B1)}
+%					\label{fig:results:adultbeginners:a2b1}
+%				\end{subfigure}%
+%				\caption{Error distribution for adult beginners}
+%				\label{fig:results:adultbeginners}
+%			\end{figure}	
+				
+				Coming now to the question of whether there is any difference in error distribution between speakers of different genders, 
+				
 			
 		
 		\subsection{Errors by recording condition}

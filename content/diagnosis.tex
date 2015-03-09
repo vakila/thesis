@@ -33,51 +33,71 @@ how (a) is achieved using
  %
  and finally, the various approaches to (c) and (d) that are implemented in the prototype tool, and how the system's modular architecture allows researchers and teachers control over which of these approaches are used \TODO{\textit{update section organization?} (\cref{sec:diag:compare})}.
 
-%\section{Related work}
-%\label{sec:diag:related}
-%
-%	Both the diagnosis and feedback modules of the CAPT tool will build to a great extent on work conducted by the speech group at LORIA in Nancy \citep{Bonneau2011,Fohr1996,Fohr2012,Mesbahi2011,Orosanu2012}. The Jsnoori/WinSnoori software \citep{Parole2013} %TODO properly cite Jsnoori/WinSnoori?
-%which this group has developed will be instrumental in the construction of the CAPT tool. 
-%	
-%	This work will also draw from research conducted at Carnegie Mellon University in Pittsburgh, particularly in the context of the LISTEN project and its Reading Tutor \citep{Duong2011,Mostow2012,Mostow1999,Sitaram2011,Weber2010}, as well as the FLUENCY pronunciation training system \cite{Eskenazi1998,Probst2002}.
+
 
 \section{Automatic segmentation of nonnative speech}
 \label{sec:diag:segmentation}
 
-	%By way of introduction, this section will begin with a brief explanation of the task of automatically segmenting, or labeling, a non-native speaker's utterance, and some of the difficulties involved.
-
-%TODO replace?	
-%	Automatic segmentation, or labeling, of a recorded utterance is the task of annotating the speech signal with boundaries that demarcate individual phones, syllables, words, sentences, and/or other units of speech. Such segmentation enables analysis of a learner's L2 pronunciation, since it allows us to compare units of their speech to equivalent units in native speech. 
-	
-	
+%Automatic 
+Segmentation, or labeling, of a recorded utterance is the task of annotating the speech signal with boundaries that demarcate individual phones, syllables, words, sentences, and/or other units of speech; see \cref{fig:GGsegmentation} for an example of a multi-level segmentation of a German utterance. 
 	
 	\begin{figure}
 		\centering
 		\includegraphics[width=\textwidth]{img/screenshots/SampleGG-basic}
-		\caption{An example of a German utterance that has been segmented at the phone level (first row) and word level (second row). The third row contains the canonical (expected) native pronunciation of each word in the sentence, while the fourth row contains the written sentence of which the utterance is a reading.}
+		\caption[An example German utterance and its segmentation]{\TODO{update with new example w/ SyllableTier} An example of a German utterance that has been segmented at the phone level (first row) and word level (second row). The third row contains the canonical (expected) native pronunciation of each word in the sentence, while the fourth row contains the written sentence of which the utterance is a reading.}
 		\label{fig:GGsegmentation}
 	\end{figure}
 
-	\subsection{Segmentation via forced alignment}
-	\label{sec:segmentation:alignment}
+
+A reasonably accurate segmentation of an L2 learner's utterance is indispensable for an analysis of the accuracy of their pronunciation; 
+\TODO{mention that there are methods which don't need segmentation, but they're more limited?}
+as it allows comparison between relevant units of the learner's utterance -- e.g. words, syllables, and phones -- and corresponding units in native speech. 
+The most accurate segmentation would of course be one produced by hand by a trained phonetician. However, hand-labeling is not feasible in most scenarios because of its high cost in terms of time and wages; moreover, because the ultimate goal of this work is the development of a CAPT tool which can give L2 learners helpful automatic feedback on their pronunciation, 
+%even when they do not have access to a language teacher, 
+any analysis of the learner's speech signal, including the preliminary step of segmentation, must proceed fully automatically. Therefore, a means of automatically segmenting a given utterance is required.
+
+
+
+	%\subsection{Segmentation via forced alignment}
+	%\label{sec:segmentation:alignment}
+	
+	When the content (text) of a given utterance is already known, the goal of automatic segmentation becomes aligning the  boundaries of each phone in the expected sentence with the appropriate points in the recorded signal. Boundaries for larger units such as syllables and words can be inferred from the phone boundaries. 
+	An effective and widely-used technique for this is forced alignment \citep{Fohr1996,Mesbahi2011}, 
+	which \TODO{...}
+	%
+	This technique 
+	requires 
+%knowledge of the text of the given utterance (known beforehand in the IFCASL case), 
+	the expected text of the given utterance, 
+	acoustic models of the target language, and a pronunciation lexicon that describes the sequence of phones expected for each word. To account for differences in how different speakers (especially non-native speakers) may pronounce the given sentence, 
+	%the lexicon is supplemented with a lexicon of non-native pronunciation variants 
+	the lexicon should contain not only the canonical pronunciation for each word, i.e. the pronunciation that might be given in a standard dictionary, but also any alternate or non-standard pronunciation variants (native or non-native) that might be encountered. 	
+	
+	
+	\TODO{mention how a real CAPT system would have to do this on the fly, and that can be done in Jsnoori, but the prototype assumes segmentation has been done and mocks that up by only using auto segmentations of IFCASL data}
 	
 	The native and non-native read speech recordings comprising the IFCASL corpus \citep{Fauth2014,Trouvain2013} have been automatically segmented via forced alignment 
 	\citep{Fohr1996,Mesbahi2011}.
 %(see e.g. \cite{Fohr1996,Mesbahi2011}). 
-	This technique requires 
-%knowledge of the text of the given utterance (known beforehand in the IFCASL case), 
-	the expected text of the given utterance, 
-	acoustic models of the target language, and a pronunciation lexicon that describes the sequence of phones expected for each word. To account for non-native pronunciations, the lexicon is supplemented with a lexicon of non-native variants that might be encountered for each word. 
+	
 	
 %TODO is it worth mentioning retraining the AMs? will I actually try that?
 %	In the segmentation of the German IFCASL subcorpus, the acoustic models used have been trained on native German speech data. 
 	
-	The IFCASL recordings have already been segmented at the phone and word levels, and a subset of these automatic segmentations has been manually verified. However, segmentation at the syllable level still needs to be performed. This may be accomplished based on the word- and phone-level annotations by automatically or manually determining the sounds between which syllable boundaries are expected in each sentence from the text and phonetic lexicon, automatically extracting the locations of these boundaries from the phone-level segmentation, and automatically combining those boundaries with the word-level boundaries to create a new annotation level. 
+	The IFCASL corpus uses segmentations at the phone and word levels, 
+	but not at the syllable level.
+	%and a subset of these automatic segmentations has been manually verified.
+	As the syllable is arguably the most important unit for analysis of lexical stress realization \TODO{reference/justification}, syllable-level segmentations for each utterance had to be added. This was accomplished by 
+	 %However, segmentation at the syllable level still needs to be performed. This may be accomplished based on the word- and phone-level annotations by automatically or 
+	 manually determining the phones between which syllable boundaries are expected in each sentence from the text and phonetic lexicon, 
+	\TODO{using the syllabification program [...] and a pronunciation dictionary?}.
+	 Given the sequence of phones expected for each syllable, the locations of syllable boundaries were automatically extracted from the phone-level segmentation, and automatically combined with the word-level boundaries to create the syllable-level segmentation. 
 	
-	%This section will briefly summarize the forced-alignment segmentation method \citep[etc.]{Fohr1996,Mesbahi2011}, describe the data on which the relevant acoustic models were trained (if possible, the models will be retrained on or adapted to the IFCASL data), and point out the inclusion of a lexicon of non-native variants (which may be extracted from the IFCASL data).
+
 	
-	\subsection{Evaluation of segmentation accuracy}
-	\label{sec:segmentation:eval}
+	%\subsection{Evaluation of segmentation accuracy}
+	%\label{sec:segmentation:eval}
+	\TODO{xxxxxxxxxxxxxxxxxxxx}
 	
 	The accuracy of the forced-alignment segmentation can be assessed by computing inter-annotator agreement between the automatically produced segmentation and one or more manually-verified segmentations. The team at LORIA in Nancy has already completed this evaluation for the French IFCASL sub-corpus using the CoALT tool \citep{Fohr2012}. In cooperation with that team, the German sub-corpus (or a subset thereof) will be evaluated in the same way.
 	A similar evaluation will be carried out for the syllable-level segmentations, a subset of which will be manually verified.
@@ -86,14 +106,19 @@ how (a) is achieved using
 %in \cref{sec:segmentation:errors}.
 %below.
 
-	\subsection{Coping with segmentation errors}
-	\label{sec:segmentation:errors}
-	
-	Forced alignment is not a perfect method; because of the constraints put on the recognition system, the aligner will always find a match between the given text and audio, even if they do not correspond. Incorrect segmentation can lead to mistakes in diagnosis, so CAPT systems must have a means of reducing, or at least monitoring, the amount of error introduced by inaccurate segmentation \citep{Eskenazi2009}. 	
-	In the proposed CAPT tool, this function may be served by the development of a simple sentence- and/or word-level confidence measure. 
-	While it is very difficult to compute such a measure directly from the decoding scores of the forced aligner, it may be possible to determine from the aforementioned accuracy evaluation which types of boundaries (e.g. between a sonorant and a vowel) the aligner typically has trouble detecting accurately, and then to calculate, for a given utterance, the proportion of error-prone boundaries. While a very simplistic measure, this could nevertheless provide some indication of when (not) to trust the automatic alignment, thus impacting decisions on how and whether to attempt error diagnosis (or feedback).
-	% based on the boundary error rates found in \cref{sec:segmentation:eval}. 
-	Other error-management strategies may also be explored, such as the type of error-filtering methods described by \textcite{Mesbahi2011,Bonneau2012,Orosanu2012}, in which utterances which do not correspond to the expected text are detected and rejected before alignment is attempted.
+
+%%%%%%%%%%%%%%%%%%%%%%%
+%%% Moved to Future Work
+%%%%%%%%%%%%%%%%%%%%%%%
+%	\subsection{Coping with segmentation errors}
+%	\label{sec:segmentation:errors}
+%	
+%	Forced alignment is not a perfect method; because of the constraints put on the recognition system, the aligner will always find a match between the given text and audio, even if they do not correspond. Incorrect segmentation can lead to mistakes in diagnosis, so CAPT systems must have a means of reducing, or at least monitoring, the amount of error introduced by inaccurate segmentation \citep{Eskenazi2009}. 	
+%	In the proposed CAPT tool, this function may be served by the development of a simple sentence- and/or word-level confidence measure. 
+%	While it is very difficult to compute such a measure directly from the decoding scores of the forced aligner, it may be possible to determine from the aforementioned accuracy evaluation which types of boundaries (e.g. between a sonorant and a vowel) the aligner typically has trouble detecting accurately, and then to calculate, for a given utterance, the proportion of error-prone boundaries. While a very simplistic measure, this could nevertheless provide some indication of when (not) to trust the automatic alignment, thus impacting decisions on how and whether to attempt error diagnosis (or feedback).
+%	% based on the boundary error rates found in \cref{sec:segmentation:eval}. 
+%	Other error-management strategies may also be explored, such as the type of error-filtering methods described by \textcite{Mesbahi2011,Bonneau2012,Orosanu2012}, in which utterances which do not correspond to the expected text are detected and rejected before alignment is attempted.
+%%%%%%%%%%%%%%%%%%%%%%%
 	
 \section{Analysis of word prosody}
 \label{sec:diag:prosody}

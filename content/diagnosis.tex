@@ -163,9 +163,26 @@ The relative utility of these features in automatically diagnosing lexical stres
 
 	\subsection{Fundamental frequency}
 	\label{sec:prosody:f0}
-	%TODO more text
-	As described in \cref{sec:bkgd:stress}, the fundamental frequency (F0) of an utterance, which corresponds at the perceptual level to its pitch, also provides a strong signal of how lexical stress is realized in that utterance, and F0 features should therefore also contribute to the system's prosodic analysis. 
+	
+	As described in \cref{sec:bkgd:stress}, the fundamental frequency (F0) of an utterance, which corresponds at the perceptual level to its pitch, also provides a strong indication of how lexical stress is realized in that utterance, and F0 features 
+	%should therefore also contribute to 
+	are another crucial component of
+	the system's prosodic analysis. 
 	%
+	
+		\TODO{Pitch in Jsnoori:
+	\begin{itemize}
+		\item Martin's basic spectral comb algo
+		\item with Yves' improvement using parabolic interpolation
+		\item with Secrest \& Doddington's improvement for voicing decision 
+		\item With dynamic programming (Ney?) to select which F0 values to accept
+		\item Soon to implement Yin's temporal method, and then combine results with those of Martin's or another spectral method such as SWIPE (SWYPE?) (combining with NNs or something else)
+	\end{itemize}	
+	}	
+	
+	The F0 contour of a given utterance is determined using the pitch detection algorithm(s) implemented in Jsnoori \TODO{ref}. At the heart of Jsnoori's approach to pitch detection lies the algorithm developed by Martin \cref{Martin1982}, which 
+	
+	\TODO{de-proposal-ize this paragraph}
 	Much of the work on assessing non-native lexical stress has been conducted with English as the L2, and thus often makes the assumption that a stressed syllable should have a higher F0 than unstressed syllables \citep{Bonneau2011}. In German, the F0 of a stressed syllable also tends to differ from the surrounding contour, but the difference may be positive (the stressed syllable has a higher pitch) or negative (lower pitch) \citep[p.~267]{Cutler2005}. Therefore, features used to represent F0 may include the absolute value of the difference in average F0 between each pair of adjacent syllables in the word, or perhaps between the syllable which should carry (primary) stress and the rest of the word. To guard against unvoiced segments interfering with the F0 analysis, syllables may be represented by the vowels that form their nuclei. Relative differences between syllables may be more helpful than absolute differences. The F0 variation (range) over the entire word might also be informative of whether or not the speaker failed to stress any syllable.%, although it would not tell us which syllable were stressed. 
 	%Other features may be drawn from related work on lexical stress in learner speech, such as \textcite{Bonneau2011}.
 	
@@ -297,6 +314,16 @@ The relative utility of these features in automatically diagnosing lexical stres
 
 	\subsection{Intensity}
 	\label{sec:prosody:intensity}
+	
+	\TODO{Energy in Jsnoori:
+	\begin{itemize}
+		\item Determined by FFT
+		\item Which window size/spacing used?
+		\item Energy calculated in which frequency band (range)?
+		\item Other parameters for energy calc?
+	\end{itemize}
+	}	
+	
 		Research on lexical stress prosody has generally indicated that intensity is the least important of the three features, i.e. corresponds least closely to lexical stress patterns \citep{Cutler2005}. 
 Indeed, existing lexical stress assessment tools may not take intensity into account, as is the case in the system described by \textcite{Bonneau2011}.  However, intensity can nonetheless have an impact on the perception of lexical stress, especially in combination with pitch or duration, or both \citep{Cutler2005}; %TODO check this reference
 Therefore, the diagnosis system should ideally take intensity into account when performing its prosodic analysis. This could be as simple as computing the total energy of the part of the signal corresponding to each syllable of the word in question, although more complex measures may be explored if time allows.

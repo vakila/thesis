@@ -77,16 +77,49 @@ Indeed, in recent decades, the educational value of speech technologies has been
 	\label{sec:capt:systems}
 		
 	The viability of CAPT has been demonstrated by a variety of systems and tools that have been developed in both academic and commercial contexts. Some focus on overall assessment of pronunciation or fluency, and others on the detection and correction of individual pronunciation errors \citep{Eskenazi2009}; the tool developed in this work falls into the latter category. In error-focused systems, a distinction has typically been drawn between phonemic errors, e.g. the substitution, insertion, or deletion of a segmental speech sound, and prosodic errors, such as those related to stress/accent, intonation, or rhythm \citep{Witt2012}. As discussed in the previous section, word-prosodic errors have a larger impact on intelligibility than segmental errors, and are therefore the focus of this work (see \cref{sec:bkgd:targeting} below). With this in mind, a few prosody-aware CAPT systems relevant to this thesis are discussed below; comprehensive overviews and comparisons of these and many other systems are given by \textcite{Neri2002,Eskenazi2009,Delmonte2011,Witt2012}.  
+	
+	\subsubsection{LORIA \TODO{title}}
+	\label{sec:capt:systems:loria}
 		
-	Both the diagnosis and feedback modules of the CAPT tool developed in this work build to a great extent on previous work by researchers in the speech group at LORIA\footnote{\url{http://www.loria.fr/}} in Nancy, France, many of whom are also involved in the IFCASL project (see \cref{sec:intro:ifcasl}). Their work has, on the one hand, investigated the task of automatically recognizing and segmenting learners' speech, and determining how this possibly incorrect automatic segmentation can be effectively utilized in the context of pronunciation tutoring, particularly at the prosodic level \citep{Mesbahi2011,Orosanu2012}; see \cref{chap:diagnosis} for a discussion of how this thesis will build upon that work. Additionally, the group has developed the \textit{Snoori} suite of software, including the PC-based WinSnoori and its partial Java port, Jsnoori \citep{Parole2013}.  %TODO properly cite Jsnoori/WinSnoori?
-These programs take as input a learner utterance, a native reference utterance, and segmentations of each, perform an acoustic comparison of the two utterances, and deliver feedback on the learner's speech in the form of e.g. annotated displays of the speech signal and spectrogram of each. Moreover, auditory feedback can be delivered thanks to the capability of resynthesizing the learner's utterance to match the pitch contour and timing of the reference, without modifying the voice quality of the utterance, such that the learner can hear the ``correct'' pronunciation in their own voice. The utility of such software, and especially this resynthesized feedback, for pronunciation teaching has been explored by \textcite{Bonneau2011}, who used it to assess and deliver feedback on lexical stress in L1 French speakers' pronunciation of English words. \TODO{more about the Bonneau paper?}
-As described later in this paper, 
-the prototype CAPT tool developed in this thesis project
-builds on the error detection and diagnosis functionality of Jsnoori (see \cref{chap:diagnosis}), 
-and leverages its feedback generation capabilities to deliver a more diverse, and potentially more effective, range of feedback types (see \cref{chap:feedback}). 
+	Both the diagnosis and feedback modules of the CAPT tool developed in this work build to a great extent on previous work by researchers in the speech group at LORIA\footnote{\url{http://www.loria.fr/}} in Nancy, France, many of whom are also involved in the IFCASL project (see \cref{sec:intro:ifcasl}). 
+	%
+	 \TODO{\textit{This part about segmentation doesn't really fit in with the CAPT systems discussion - find a better place for it.}}
+	 Their work has, on the one hand, investigated the task of automatically recognizing and segmenting learners' speech, and determining how this possibly incorrect automatic segmentation can be effectively utilized in the context of pronunciation tutoring, particularly at the prosodic level \citep{Mesbahi2011,Orosanu2012}; 
+	\TODO{see \cref{chap:diagnosis} for a discussion of how this thesis will build upon that work. \textit{Details \& de-proposal-ize}}
+	
+	%Additionally, the group has developed
+	Another important contribution of the LORIA group is 
+	the \textit{Snorri/Snoori} suite of software, 
+	which includes the now-outdated original \textit{Snorri} developed in 1987 \citep{Fohr1989} and the Unix adaptation thereof developed shortly thereafter,
+	a later Windows port, \textit{WinSnorri} \citep{Laprie1999},
+	%and its partial Java port, Jsnoori {Parole2013}, 
+	and most recently a partial Java port of WinSnorri, \textit{Jsnoori} \citep{Parole2013}, which is still under active development, and is the version of the \textit{Snorri} suite most relevant to this work.
+Jsnoori 
+takes as input a learner utterance, a native reference utterance, and segmentations of each, perform an acoustic comparison of the two utterances, and deliver feedback on the learner's speech in the form of e.g. annotated displays of the speech signal and spectrogram of each. Moreover, auditory feedback can be delivered 
+%thanks to the capability of 
+by
+resynthesizing the learner's utterance to match the pitch contour and timing of the reference, without modifying the voice quality of the utterance, such that the learner can hear the ``correct'' pronunciation in their own voice. 
+%
+	\TODO{paragraph break?}
+	Though the \textit{Snorri} programs were originally developed primarily as research tools for speech scientists \citep{Fohr1989,Laprie1999}, 
+	the utility of such software
+	%, and especially of resynthesized feedback, 
+	for pronunciation teaching has been explored by \textcite{Bonneau2011}, who used \TODO{\textit{correct?} WinSnoori} to assess and deliver feedback on lexical stress in L1 French speakers' pronunciation of English words. \TODO{more about the Bonneau paper}
+%
+As described in \cref{chap:diagnosis,chap:feedback}, 
+the Jsnoori software is vital to this thesis project;
+the prototype CAPT tool developed in this work 
+utilizes the signal processing capabilities of Jsnoori 
+%and
+%builds on the error diagnosis functionality of Jsnoori 
+for speech analysis and error diagnosis (see \cref{chap:diagnosis}), 
+and leverages its feedback generation capabilities to deliver \TODO{\textit{verify:} a more diverse, and potentially more effective, range of feedback types} (see \cref{chap:feedback}). 
 	
 	% \citep{Bonneau2011,Fohr1996,Fohr2012,Mesbahi2011,Orosanu2012}. The Jsnoori/WinSnoori software \citep{Parole2013}
 %which this group has developed will be instrumental in the construction of the CAPT tool. 
+
+	\subsubsection{CMU \TODO{title}}
+	\label{sec:capt:systems:cmu}
 	
 	This work also draws from research on two systems developed at Carnegie Mellon University.
 %, namely the Fluency pronunciation trainer

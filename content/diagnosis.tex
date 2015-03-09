@@ -96,27 +96,56 @@ any analysis of the learner's speech signal, including the preliminary step of s
 	
 	\TODO{Details about how forced Viterbi alignment works?}
 	%Given the expected text and the corresponding phone sequence, forced alignment consists of using the Viterbi algorithm and an acoustic Hidden Markov Model trained on the target language to determine the temporal locations of boundaries between each of the expected phones. The Viterbi algorithm is commonly used in automatic speech recognition to determine... 
+
 	
-	%TODO is it worth mentioning retraining the AMs? will I actually try that?
-%	In the segmentation of the German IFCASL subcorpus, the acoustic models used have been trained on native German speech data. 
+	Given these resources, the Jsnoori software,
+	\TODO{\textit{awkward:}} which the lexical stress CAPT tool developed in this work uses for speech processing,
+	%used to process speech in the lexical stress CAPT tool
+	is capable of automatically segmenting a learner's utterance almost instantly. Unfortunately, a disadvantage of forced alignment is that it requires the entire utterance (e.g. sentence), so real-time segmentation is not possible \TODO{true? should this go in a footnote?}. However, acoustic models and pronunciation lexicons for German have yet to be integrated into Jsnoori, which 
+	%is currently only capable of segmenting 
+	currently only has the resources to segment 
+	speech in English and French.
+	 %In the absence of automatic segmentation capabilities for German,
+	 Therefore,
+	 the prototype CAPT tool developed in this thesis project presupposes the existence of a segmentation for a given utterance,
+	%the tool %thus takes 
+	taking a ``Wizard-of-Oz'' approach to the automatic segmentation step by demonstrating its error diagnosis and feedback capabilities using learner (L2) and reference (L1) read-speech utterances from the German-language subset of the IFCASL corpus \citep{Fauth2014,Trouvain2013}, all of which have been segmented at the phone and word levels using the forced alignment technique described above.
+	Once the requisite German-language resources are available in Jsnoori, the tool can easily be extended to perform on-the-fly segmentation of learner utterances (see \cref{sec:conclusion:future}).
 	
-	
-	
-	\TODO{a real CAPT system would have to do this on the fly, and that can be done in Jsnoori, but the prototype assumes segmentation has been done and mocks that up by only using auto segmentations of IFCASL data}
+	%\TODO{a real CAPT system would have to do this on the fly, and that can be done in Jsnoori, but the prototype assumes segmentation has been done and mocks that up by only using auto segmentations of IFCASL data}
 	%
-	The native and non-native read speech recordings comprising the German-language subset of the IFCASL corpus \citep{Fauth2014,Trouvain2013} have already been automatically segmented via forced alignment, as described above.
-	\TODO{transition}
-	%
-	The IFCASL corpus uses segmentations at the phone and word levels, 
-	but not at the syllable level.
+	
+	
+	\TODO{\textit{awkward clause:}} Although the IFCASL corpus also contains manually-corrected versions of the majority of the forced-alignment segmentations,
+	the CAPT tool only makes use of the automatically-determined determined boundaries, even though these are potentially less accurate; 
+	this is to more accurately reflect the fact that any fully-automatic CAPT system will not have recourse to manually corrected segmentations, and will have to cope with any problems that may result from using imperfect automatic segmentations as a starting point for analysis.
+	%The native and non-native read speech recordings comprising the German-language subset of the IFCASL corpus \citep{Fauth2014,Trouvain2013} have already been automatically segmented via forced alignment, as described above.
+	\TODO{paragraph break?}
+	Indeed, 
+	%segmentations obtained by forced alignment 
+	forced alignment is not a perfect method; \TODO{\textit{unclear?:} because of the constraints put on the recognition system,} the aligner will always find a match between the given text and audio, even if they do not correspond.  
+	Therefore, inaccuracies in the phone boundaries determined using this technique should be expected, especially when the alignment is performed on non-native utterances using an acoustic model trained on native speech.
+		\TODO{Reliability of non-native speech automatic segmentation for prosodic feedback. \citep{Mesbahi2011}}
+	
+	
+	As mentioned above, the utterances in the IFCASL corpus have %pre-existing 
+	segmentations at the phone and word levels; however, the corpus does not contain syllable-level segmentations.
+	%but not at the syllable level.
 	%and a subset of these automatic segmentations has been manually verified.
-	As the syllable is arguably the most important unit for analysis of lexical stress realization \TODO{reference/justification}, syllable-level segmentations for each utterance had to be added. This was accomplished by 
+	As the syllable is arguably the most important unit for analysis of lexical stress realization \TODO{reference/justification}, syllable-level segmentations had to be created for each utterance. This was accomplished by 
 	 %However, segmentation at the syllable level still needs to be performed. This may be accomplished based on the word- and phone-level annotations by automatically or 
-	 manually determining the phones between which syllable boundaries are expected in each sentence from the text and phonetic lexicon, 
-	\TODO{using the syllabification program [...] and a pronunciation dictionary?}.
-	 Given the sequence of phones expected for each syllable, the locations of syllable boundaries were automatically extracted from the phone-level segmentation, and automatically combined with the word-level boundaries to create the syllable-level segmentation. 
+	 manually determining the locations of syllable boundaries in the phone sequence for each word, 		%(i.e. the locations in the phone sequence where syllable boundaries are expected) 
+	 %using the text of each sentence and a syllabified phonetic lexicon from the speech synthesis system MaryTTS \citep{Schroeder2003}, 
+	%\TODO{using the syllabification program [...] and a pronunciation dictionary?  },
+	 %Given the sequence of phones expected for each syllable, the locations of syllable boundaries were automatically extracted 
+	 %using  to 
+	 automatically extracting the temporal locations of these %syllable 
+	 boundaries
+	 from the phone-level segmentation, 
+	 and automatically combining the word-internal syllable boundaries with the boundaries in the word-level segmentation to create the syllable-level segmentation. 
+
+
 	
-	\TODO{Reliability of non-native speech automatic segmentation for prosodic feedback. \citep{Mesbahi2011}}
 
 	
 %%%%%%%%%%%%%%%%%%%%%%%
@@ -145,9 +174,12 @@ any analysis of the learner's speech signal, including the preliminary step of s
 \section{Analysis of word prosody}
 \label{sec:diag:prosody}
 	
-	\TODO{transition}
-
-	This section describes the features by which the system analyzes the lexical stress prosody of an utterance, be it the utterance of a learner or of a native speaker. These features relate to the three \TODO{acoustic properties (and by extension their perceptual correlates)} described in \cref{sec:bkgd:stress}, namely duration (timing), fundamental frequency or F0 (pitch), and intensity (loudness). 
+	The automatically-determined word, syllable, and phone boundaries obtained as described in the previous section 
+	%were used to 
+	enable the CAPT tool to locate and analyze segments of the speech signal relevant to the realization of lexical stress.
+	%, enabling analysis of these  
+	%in terms of the acoustic correlates of word prosody described in \cref{sec:background:stress}.  
+	This section describes the features by which the system analyzes the lexical stress prosody of an utterance, be it the utterance of a learner or of a native speaker. These features relate to the three \TODO{acoustic properties (and by extension their perceptual correlates)} described in \cref{sec:bkgd:stress}, namely duration (timing), fundamental frequency (pitch), and intensity (loudness). 
 		%The features computed for each property are described in the corresponding sections below.
 %
 	\TODO{Where possible, the diagnosis module of the CAPT tool will provide researchers control over the features used; for example, there may be an option to include all F0 and duration features but ignore intensity features.}

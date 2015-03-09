@@ -38,6 +38,8 @@ how (a) is achieved using
 \section{Automatic segmentation of nonnative speech}
 \label{sec:diag:segmentation}
 
+\TODO{Should this become a subsection of \cref{sec:diag:prosody}?}
+
 %Automatic 
 Segmentation, or labeling, of a recorded utterance is the task of annotating the speech signal with boundaries that demarcate individual phones, syllables, words, sentences, and/or other units of speech; see \cref{fig:GGsegmentation} for an example of a multi-level segmentation of a German utterance. 
 	
@@ -62,28 +64,49 @@ any analysis of the learner's speech signal, including the preliminary step of s
 	%\label{sec:segmentation:alignment}
 	
 	When the content (text) of a given utterance is already known, the goal of automatic segmentation becomes aligning the  boundaries of each phone in the expected sentence with the appropriate points in the recorded signal. Boundaries for larger units such as syllables and words can be inferred from the phone boundaries. 
-	An effective and widely-used technique for this is forced alignment \citep{Fohr1996,Mesbahi2011}, 
-	which \TODO{...}
+	An effective and widely-used technique for this is forced
+	% (Viterbi) 
+	alignment \citep{Fohr1996,Mesbahi2011,Fohr2012,Fauth2014}.
+	%which uses the Viterbi algorithm to 
 	%
 	This technique 
-	requires 
+	requires:
+	\begin{itemize}
 %knowledge of the text of the given utterance (known beforehand in the IFCASL case), 
-	the expected text of the given utterance, 
-	acoustic models of the target language, and a pronunciation lexicon that describes the sequence of phones expected for each word. To account for differences in how different speakers (especially non-native speakers) may pronounce the given sentence, 
+	\item the expected text (word sequence) of the given utterance, 
+	\item a pronunciation lexicon containing the sequence of phones expected for each word, and
+	\item an acoustic model for the target language.
+	%which captures how phones in the target language (and potentially other phenomena, e.g. breathing or silence) are realized acoustically.
+	\end{itemize}
+	
+	The first of these requirements, the text of the utterance, is trivial when the speaker has been asked to read a given sentence aloud, which is the case in \TODO{this context \textit{is that unclear?}}.
+	%
+	A lexicon of canonical word pronunciations, i.e. the pronunciations that might be given in a standard dictionary, is also relatively easy to obtain for a well-researched language such as German, for which many digital linguistic resources exist.
+	 To account for differences in how different speakers (especially non-native speakers) may pronounce the given sentence, 
 	%the lexicon is supplemented with a lexicon of non-native pronunciation variants 
-	the lexicon should contain not only the canonical pronunciation for each word, i.e. the pronunciation that might be given in a standard dictionary, but also any alternate or non-standard pronunciation variants (native or non-native) that might be encountered. 	
+	the lexicon should contain not only the canonical pronunciation for each word, but also any alternate or non-standard pronunciation variants (native or non-native) that might be encountered. Research \TODO{at LORIA} has found the inclusion of non-native pronunciation variants to lead to improvements in the accuracy of automatic segmentation of non-native speech \citep{Jouvet2011,Mesbahi2011,Bonneau2012,Orosanu2012}, and one of the intended outcomes of the IFCASL project is the extraction of a non-native variant lexicon from the L2 speech in the corpus \TODO{ref?}.
 	
+	The final requirement for segmentation via forced alignment is an acoustic model, i.e. a statistical model 
+	%(typically a Hidden Markov Model) 
+	%trained on speech in the target language 
+	which captures the correspondence between acoustic features extracted from the speech signal and phones in the target language. 
+	To accurately capture this correspondence, the model must be trained on a large amount of speech data in the target language; 
+	the acoustic model used to align the German IFCASL data was trained on native German speech from the Kiel corpus \TODO{ref, verify}.
+	However, research by \citeauthor{Boulsemi2005} (\citeyear{Boulsemi2005,Boulsemi2012}) has shown that even more accurate segmentation of learners' utterances an be obtained by using acoustic models adapted to non-native speech in the target language and/or speech in the learner's L1; refining the automatic segmentation functionality using such adapted models would therefore be a logical extension of this work (see \cref{sec:conclusion:future}) \TODO{does that clause work?}.
 	
-	\TODO{mention how a real CAPT system would have to do this on the fly, and that can be done in Jsnoori, but the prototype assumes segmentation has been done and mocks that up by only using auto segmentations of IFCASL data}
+	\TODO{Details about how forced Viterbi alignment works?}
+	%Given the expected text and the corresponding phone sequence, forced alignment consists of using the Viterbi algorithm and an acoustic Hidden Markov Model trained on the target language to determine the temporal locations of boundaries between each of the expected phones. The Viterbi algorithm is commonly used in automatic speech recognition to determine... 
 	
-	The native and non-native read speech recordings comprising the IFCASL corpus \citep{Fauth2014,Trouvain2013} have been automatically segmented via forced alignment 
-	\citep{Fohr1996,Mesbahi2011}.
-%(see e.g. \cite{Fohr1996,Mesbahi2011}). 
-	
-	
-%TODO is it worth mentioning retraining the AMs? will I actually try that?
+	%TODO is it worth mentioning retraining the AMs? will I actually try that?
 %	In the segmentation of the German IFCASL subcorpus, the acoustic models used have been trained on native German speech data. 
 	
+	
+	
+	\TODO{a real CAPT system would have to do this on the fly, and that can be done in Jsnoori, but the prototype assumes segmentation has been done and mocks that up by only using auto segmentations of IFCASL data}
+	%
+	The native and non-native read speech recordings comprising the German-language subset of the IFCASL corpus \citep{Fauth2014,Trouvain2013} have already been automatically segmented via forced alignment, as described above.
+	\TODO{transition}
+	%
 	The IFCASL corpus uses segmentations at the phone and word levels, 
 	but not at the syllable level.
 	%and a subset of these automatic segmentations has been manually verified.
@@ -93,23 +116,22 @@ any analysis of the learner's speech signal, including the preliminary step of s
 	\TODO{using the syllabification program [...] and a pronunciation dictionary?}.
 	 Given the sequence of phones expected for each syllable, the locations of syllable boundaries were automatically extracted from the phone-level segmentation, and automatically combined with the word-level boundaries to create the syllable-level segmentation. 
 	
+	\TODO{Reliability of non-native speech automatic segmentation for prosodic feedback. \citep{Mesbahi2011}}
 
 	
-	%\subsection{Evaluation of segmentation accuracy}
-	%\label{sec:segmentation:eval}
-	\TODO{xxxxxxxxxxxxxxxxxxxx}
-	
-	The accuracy of the forced-alignment segmentation can be assessed by computing inter-annotator agreement between the automatically produced segmentation and one or more manually-verified segmentations. The team at LORIA in Nancy has already completed this evaluation for the French IFCASL sub-corpus using the CoALT tool \citep{Fohr2012}. In cooperation with that team, the German sub-corpus (or a subset thereof) will be evaluated in the same way.
-	A similar evaluation will be carried out for the syllable-level segmentations, a subset of which will be manually verified.
-
-%	Error analysis will be performed for each boundary type, to enable identification of the types of boundaries at which the system tends (not) to make many errors. This detailed analysis will contribute to error management in the system, as described 
-%in \cref{sec:segmentation:errors}.
-%below.
-
-
 %%%%%%%%%%%%%%%%%%%%%%%
 %%% Moved to Future Work
 %%%%%%%%%%%%%%%%%%%%%%%
+	%\subsection{Evaluation of segmentation accuracy}
+	%\label{sec:segmentation:eval}
+%	
+%	The accuracy of the forced-alignment segmentation can be assessed by computing inter-annotator agreement between the automatically produced segmentation and one or more manually-verified segmentations. The team at LORIA in Nancy has already completed this evaluation for the French IFCASL sub-corpus using the CoALT tool \citep{Fohr2012}. In cooperation with that team, the German sub-corpus (or a subset thereof) will be evaluated in the same way.
+%	A similar evaluation will be carried out for the syllable-level segmentations, a subset of which will be manually verified.
+%
+%%	Error analysis will be performed for each boundary type, to enable identification of the types of boundaries at which the system tends (not) to make many errors. This detailed analysis will contribute to error management in the system, as described 
+%%in \cref{sec:segmentation:errors}.
+%%below.
+
 %	\subsection{Coping with segmentation errors}
 %	\label{sec:segmentation:errors}
 %	
@@ -130,6 +152,8 @@ any analysis of the learner's speech signal, including the preliminary step of s
 %
 	\TODO{Where possible, the diagnosis module of the CAPT tool will provide researchers control over the features used; for example, there may be an option to include all F0 and duration features but ignore intensity features.}
 %	
+
+\TODO{\textit{To go somewhere in this section:} Added German phonetic inventories to Jsnoori so that it could know e.g. which segments are vowels}
 
 
 	Throughout this section, the features discussed are illustrated with their values for a word from \TODO{\textit{three?} two sample utterances} of a German word selected from the IFCASL corpus; one by a L1 French speaker and the other by a L1 German speaker. The oscillogram, waveform, and annotation for these samples are shown in \cref{fig:featuresexample}.

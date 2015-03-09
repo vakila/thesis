@@ -437,7 +437,12 @@ The relative utility of these features in automatically diagnosing lexical stres
 Indeed, existing lexical stress assessment tools may not take intensity into account, as is the case in the system described by \textcite{Bonneau2011}.  However, intensity can nonetheless have an impact on the perception of lexical stress, especially in combination with pitch or duration, or both \citep{Cutler2005}; %TODO check this reference
 Therefore, the diagnosis system should ideally take intensity into account when performing its prosodic analysis. This could be as simple as computing the total energy of the part of the signal corresponding to each syllable of the word in question, although more complex measures may be explored if time allows.
 	
-\section{Comparison of native and nonnative speech}
+	
+	
+	
+	
+\section{Diagnosis by direct comparison}
+%\section{Comparison of native and nonnative speech}
 \label{sec:diag:compare}
 
 	This thesis will explore a variety of approaches to modeling the lexical stress prosody of native speech in such a way that the learner's utterance can be automatically compared to that native model. This investigation, and the creation of a CAPT tool that allows researchers to easily switch between approaches to study their effects, will be one of the primary contributions of the thesis.
@@ -447,21 +452,8 @@ Therefore, the diagnosis system should ideally take intensity into account when 
 	
 	The most common approach to assessing L2 prosody involves comparing a learner's utterance to the same utterance produced by a native speaker of the target language; this approach is taken by \textcite{Bonneau2011} and others.% \citep{Eskenazi2009, Delmonte2011}. %TODO take that citation out?
 %	 Inspired and informed by the investigations of \textcite{Probst2002}, this work will examine different ways of selecting the reference speaker against which a learner's utterance will be judged, given a pool of potential references. 
-	
-		\subsubsection{Manually selecting a reference}
-		\label{sec:compare:single:manual}
-		
-		The most basic way of selecting a reference speaker is to choose one manually.
-%manually specify which speaker should be used for comparison. 
-As a type of baseline, the CAPT tool will therefore enable the learner and/or the instructor/experimenter to choose a reference from a set of available speakers, with that set potentially being constrained by one or more properties of the speaker (e.g. gender). 
-	
-		\subsubsection{Automatically selecting a reference}
-		\label{sec:compare:single:auto}
-		
-		Another means of selecting a reference speaker would be to automatically choose a speaker whose voice resembles
-that of the learner \citep{Probst2002}. By analyzing speaker-dependent features of the speech of each reference candidate and of the learner -- possibly in their L1 (French) as well as the L2 (German) -- it should be possible for the system to rank reference candidates by proximity to the learner's voice. Relevant features may include F0 mean/range as well as spectral and duration-based features.
-%, and/or other features informed by research on speaker identification \citep[etc.]{Shriberg2005,Reynolds1995}. \TODO{examples of speaker ID features}
-	
+
+
 	\subsection{Using multiple reference speakers}
 	\label{sec:compare:multi}
 	
@@ -470,8 +462,42 @@ that of the learner \citep{Probst2002}. By analyzing speaker-dependent features 
 %TODO replace?
 %	Alternatively, the learner's utterance could perhaps be compared directly with some unified representation of all the reference utterances; for example, if we represent each reference utterance as a point in n-dimensional space, with each dimension representing a relevant feature, the references will form a cluster which can serve as a representation of the variation permissible in native speech. By plotting the learner's utterance in the same space, it could be possible to distinguish how well (or poorly) this utterance fits into that cluster, and thereby produce a diagnosis.
 
-	\subsection{Using no reference speaker}
-	\label{sec:compare:noref}
+	\subsection{Reference speaker selection}
+	\label{sec:compare:selection}	
+	
+		\subsubsection{Manually selecting a reference}
+		\label{sec:selection:manual}
+		%\label{sec:compare:single:manual}
+		
+		The most basic way of selecting a reference speaker is to choose one manually.
+%manually specify which speaker should be used for comparison. 
+As a type of baseline, the CAPT tool will therefore enable the learner and/or the instructor/experimenter to choose a reference from a set of available speakers, with that set potentially being constrained by one or more properties of the speaker (e.g. gender). 
+	
+		\subsubsection{Automatically selecting a reference}
+		\label{sec:selection:auto}
+		%\label{sec:compare:single:auto}
+		
+		Another means of selecting a reference speaker would be to automatically choose a speaker whose voice resembles
+that of the learner \citep{Probst2002}. By analyzing speaker-dependent features of the speech of each reference candidate and of the learner -- possibly in their L1 (French) as well as the L2 (German) -- it should be possible for the system to rank reference candidates by proximity to the learner's voice. Relevant features may include F0 mean/range as well as spectral and duration-based features.
+%, and/or other features informed by research on speaker identification \citep[etc.]{Shriberg2005,Reynolds1995}. \TODO{examples of speaker ID features}
+	
+	
+
+	\section{Diagnosis by classification}
+	\label{sec:diag:classification}
+	%\subsection{Using no reference speaker}
+	%\label{sec:compare:noref}
+	
+		\subsection{Data and method}
+		\subsection{Features}
+		\subsection{Classification algorithms}
+		\subsection{Unknown words and speakers}
+%		ALTERNATIVE ORGANIZATION:		
+%		\subsection{Experimental results}
+%			\subsubsection{Features}
+%			\subsubsection{Classification algorithms}
+%			\subsubsection{Classifying unseen words}
+%			\subsubsection{Classifying unseen speakers}
 	
 	Finally, a different approach may be to abstract away from the reference speaker(s). In their work on assessing children's reading fluency, \textcite{Duong2011} found that evaluating a child's utterance in terms of a generalized prosody model, which predicts how a given text should be uttered, yielded more accurate fluency predictions than comparing it to a reference utterance of the text in question. It would be interesting to investigate whether the same principle applies in our CAPT scenario, so if time permits, this work will explore the possibility of constructing a more general model of native lexical stress realization, and comparing the learner's utterance directly to this model instead of to one or more reference utterances. 
 This would 
@@ -490,8 +516,8 @@ classification-based machine learning approaches such as those used by \textcite
 
 As this last diagnostic approach, using generalized lexical stress modeling, is the one which has been least explored in CAPT research, it will be the first priority for this thesis work after the baseline approach (manually selecting a single reference speaker) has been implemented. The next highest priority will be comparing the learner's speech to multiple reference speakers, followed by automatically selecting a reference speaker to match the learner's voice; these approaches will only be explored as time allows.
 
-\section{Evaluation}
-\label{sec:diag:eval}
+%\subsection{Evaluation}
+%\label{sec:classification:eval}
 
 Lexical stress errors in the manually-annotated subset of the IFCASL corpus have not been explicitly labeled. We can assume that the utterances from L1 German speakers exhibit only correct German stress patterns, but a subset of the L1 French utterances will need to be annotated for lexical stress errors. This labeled data will be needed to assess the accuracy of the various error diagnosis methods which will be explored, and potentially to train classifiers to recognize correctly and incorrectly stressed words. 
 

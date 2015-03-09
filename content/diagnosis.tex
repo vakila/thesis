@@ -7,20 +7,31 @@
 
 %\cleanchapterquote{You can’t do better design with a computer, but you can speed up your work enormously.}{Wim Crouwel}{(Graphic designer and typographer)}
 
-In order to provide learners with useful feedback on their lexical stress errors in the L2, the CAPT system must first be able to detect and diagnose such errors in a learner's utterance. This requires at least:
+In order to provide learners with useful feedback on their lexical stress errors in the L2, 
+the prototype CAPT tool developed in this thesis project 
+must first be able to automatically detect and diagnose such errors in a learner's utterance. This requires at least:
 \begin{enumerate}[label=(\alph*)]
-\item Reasonably accurate word-, syllable- and phone-level segmentation of the learner's L2 utterance; %TODO wording?
-\item A means of analyzing how lexical stress is realized in the
+\item Reasonably accurate word-, syllable- and phone-level segmentation of the learner's L2 utterance; 
+\item %A means of analyzing
+An analysis of how lexical stress is realized in the
 % prosody of the segmented 
 given
 utterance;
-\item A representation of how native speakers of the target language (would) realize  lexical stress in the given sentence; and
-\item A way of comparing the learner's prosody to this representation. 
+\item A representation of how native speakers of the target language (would) realize lexical stress in the given sentence; and
+\item %A way of comparing
+A comparison of the learner's prosody to this representation. 
 \end{enumerate}
 
-In this section, we will examine how (a) will be achieved using
- forced alignment, %segmentation of the learner's read-speech utterance with the corresponding text, 
- and how problems in accuracy of the resulting segmentation can be overcome (\cref{sec:diag:segmentation}); how the lexical stress analysis in (b) can be performed by measuring the fundamental frequency (F0), duration, and energy of the relevant parts of the speech signal (\cref{sec:diag:prosody}); and finally a variety of approaches to (c) and (d) (\cref{sec:diag:compare}).
+This chapter describes 
+%
+how (a) is achieved using
+ forced-alignment segmentation of a learner's read-speech utterance with the corresponding text, 
+ %and how problems in accuracy of the resulting segmentation can be overcome 
+ (\cref{sec:diag:segmentation}); 
+ %
+ how the lexical stress analysis of (b), which is also crucial to (c), is produced by measuring the fundamental frequency, duration, and energy of relevant sections of the speech signal (\cref{sec:diag:prosody}); 
+ %
+ and finally, the various approaches to (c) and (d) that are implemented in the prototype tool, and how the system's modular architecture allows researchers and teachers control over which of these approaches are used \TODO{\textit{update section organization?} (\cref{sec:diag:compare})}.
 
 %\section{Related work}
 %\label{sec:diag:related}
@@ -86,18 +97,17 @@ In this section, we will examine how (a) will be achieved using
 	
 \section{Analysis of word prosody}
 \label{sec:diag:prosody}
+	
+	\TODO{transition}
 
-	This section will describe the features by which the system analyzes the lexical stress prosody of an utterance, be it the utterance of a learner or of a native speaker. These features relate to the three properties described in \cref{sec:bkgd:stress}, namely duration (timing), fundamental frequency or F0 (pitch), and intensity (loudness). 
-		The features computed for each property are described in the corresponding sections below.
+	This section describes the features by which the system analyzes the lexical stress prosody of an utterance, be it the utterance of a learner or of a native speaker. These features relate to the three \TODO{acoustic properties (and by extension their perceptual correlates)} described in \cref{sec:bkgd:stress}, namely duration (timing), fundamental frequency or F0 (pitch), and intensity (loudness). 
+		%The features computed for each property are described in the corresponding sections below.
 %
-	Where possible, the diagnosis module of the CAPT tool will provide researchers control over the features used; for example, there may be an option to include all F0 and duration features but ignore intensity features.
+	\TODO{Where possible, the diagnosis module of the CAPT tool will provide researchers control over the features used; for example, there may be an option to include all F0 and duration features but ignore intensity features.}
 %	
 
 
-
-	
-	%TODO 
-	In this section, the features discussed are illustrated with their values for a word from two sample utterances of a German word selected from the IFCASL corpus; one by a L1 French speaker and the other by a L1 German speaker. The oscillogram, waveform, and annotation for these samples are shown in \cref{fig:featuresexample}.
+	Throughout this section, the features discussed are illustrated with their values for a word from \TODO{\textit{three?} two sample utterances} of a German word selected from the IFCASL corpus; one by a L1 French speaker and the other by a L1 German speaker. The oscillogram, waveform, and annotation for these samples are shown in \cref{fig:featuresexample}.
 	
 	\begin{figure}
 		\centering

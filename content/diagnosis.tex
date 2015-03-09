@@ -118,14 +118,20 @@ any analysis of the learner's speech signal, including the preliminary step of s
 	
 	\TODO{\textit{awkward clause:}} Although the IFCASL corpus also contains manually-corrected versions of the majority of the forced-alignment segmentations,
 	the CAPT tool only makes use of the automatically-determined determined boundaries, even though these are potentially less accurate; 
-	this is to more accurately reflect the fact that any fully-automatic CAPT system will not have recourse to manually corrected segmentations, and will have to cope with any problems that may result from using imperfect automatic segmentations as a starting point for analysis.
+	this is to more accurately 
+	%reflect the fact that any 
+	simulate the conditions of a 
+	fully-automatic CAPT system,
+	which 
+	would need to perform segmentation on the fly without recourse to manual verification.
 	%The native and non-native read speech recordings comprising the German-language subset of the IFCASL corpus \citep{Fauth2014,Trouvain2013} have already been automatically segmented via forced alignment, as described above.
-	\TODO{paragraph break?}
+	%\TODO{paragraph break?}
 	Indeed, 
 	%segmentations obtained by forced alignment 
 	forced alignment is not a perfect method; \TODO{\textit{unclear?:} because of the constraints put on the recognition system,} the aligner will always find a match between the given text and audio, even if they do not correspond.  
 	Therefore, inaccuracies in the phone boundaries determined using this technique should be expected, especially when the alignment is performed on non-native utterances using an acoustic model trained on native speech.
 		\TODO{Reliability of non-native speech automatic segmentation for prosodic feedback. \citep{Mesbahi2011}}
+		\TODO{\textit{work this sentence in somewhere:}} A fully-fledged CAPT system extending this thesis project would have to cope with any problems that may result from using imperfect automatic segmentations as a starting point for analysis.
 	
 	
 	As mentioned above, the utterances in the IFCASL corpus have %pre-existing 
@@ -173,6 +179,8 @@ any analysis of the learner's speech signal, including the preliminary step of s
 	
 \section{Analysis of word prosody}
 \label{sec:diag:prosody}
+
+	\TODO{Technically these features aren't all relevant to comparison-based diagnosis, only classification - so I guess this whole section needs to be rewritten :/}
 	
 	The automatically-determined word, syllable, and phone boundaries obtained as described in the previous section 
 	%were used to 
@@ -182,10 +190,10 @@ any analysis of the learner's speech signal, including the preliminary step of s
 	This section describes the features by which the system analyzes the lexical stress prosody of an utterance, be it the utterance of a learner or of a native speaker. These features relate to the three \TODO{acoustic properties (and by extension their perceptual correlates)} described in \cref{sec:bkgd:stress}, namely duration (timing), fundamental frequency (pitch), and intensity (loudness). 
 		%The features computed for each property are described in the corresponding sections below.
 %
-	\TODO{Where possible, the diagnosis module of the CAPT tool will provide researchers control over the features used; for example, there may be an option to include all F0 and duration features but ignore intensity features.}
+	%\TODO{Where possible, the diagnosis module of the CAPT tool will provide researchers control over the features used; for example, there may be an option to include all F0 and duration features but ignore intensity features.}
 %	
 
-\TODO{\textit{To go somewhere in this section:} Added German phonetic inventories to Jsnoori so that it could know e.g. which segments are vowels}
+%TODO {\textit{To go somewhere in this section:} Added German phonetic inventories to Jsnoori so that it could know e.g. which segments are vowels}
 
 
 	Throughout this section, the features discussed are illustrated with their values for a word from \TODO{\textit{three?} two sample utterances} of a German word selected from the IFCASL corpus; one by a L1 French speaker and the other by a L1 German speaker. The oscillogram, waveform, and annotation for these samples are shown in \cref{fig:featuresexample}.
@@ -209,9 +217,11 @@ any analysis of the learner's speech signal, including the preliminary step of s
 		\label{fig:featuresexample}
 	\end{figure}
 	
-In this work, the features described below have been computed from the automatically generated segmentation of an utterance \TODO{(see section X)}, and not from a hand-corrected segmentation; as a result, the computed values may be slightly (or in some cases, significantly) inaccurate due to errors in the forced-alignment segmentation process. This reliance only on automatically-detected segment boundaries is intentional, as it simulates the conditions of an automatic, real-time tutoring system, which would need to perform segmentation on the fly and would not have recourse to human verification of segment boundary locations.
-
-	A potential complication of this analysis that should be pointed out relates to the fact that we are here dealing exclusively with read, and not sponaneous, speech. As \textcite[p.~275]{Cutler2005} remarks, ``acoustic differences between stressed and unstressed syllables are relatively large in spontaneous speech. With laboratory-read materials, however, such differences do not always arise''. Therefore, the task of recognizing prosodic deviations in learners' read speech may be somewhat different than the corresponding task for spontaneous speech, and this difference should be kept in mind in the discussion that follows.
+Once again it should be stressed that the features described below are computed from the automatically generated segmentation of a given utterance, and not from a hand-corrected segmentation; as a result, the computed values may be slightly (or in some cases, significantly) inaccurate due to errors in the forced-alignment segmentation process, as just discussed in \cref{sec:diag:segmentation}. %MOVED ABOVE This reliance only on automatically-detected segment boundaries is intentional, as it simulates the conditions of an automatic, real-time tutoring system, which would need to perform segmentation on the fly and would not have recourse to human verification of segment boundary locations.
+	%
+	\TODO{\textit{Worth mentioning? Seems a bit out of place}} 
+	%A potential complication of this analysis that should be pointed out relates to 
+	Also worth noting is the fact that we are here dealing exclusively with read, and not sponaneous, speech. As \textcite[p.~275]{Cutler2005} remarks, ``acoustic differences between stressed and unstressed syllables are relatively large in spontaneous speech. With laboratory-read materials, however, such differences do not always arise''. Therefore, the task of recognizing prosodic deviations in learners' read speech may be somewhat different than the corresponding task for spontaneous speech, and this difference should be kept in mind in the discussion that follows.
 
 	\subsection{Duration}
 	\label{sec:prosody:duration}
@@ -220,16 +230,24 @@ In this work, the features described below have been computed from the automatic
 indeed, syllable duration may be the most important acoustic correlate of lexical stress in German \citep{Dogil1999}.
 %as discussed in section %TODO above.
 %In this work, duration analysis will figure prominently, and following \textcite{Bonneau2011} will most likely take into account the relative duration of each syllable of the word in question, and/or of the vowel at the nucleus of each syllable. %Other features may also be explored.
-Duration analysis therefore figures prominently in the analysis and assessment of learners' lexical stress in this work. Following \textcite{Bonneau2011}, we take into account the relative duration of each syllable of the word to be analyzed, as well as the relative duration of the vowels at the nucleus of each syllable. 
-The complete list of features computed for each utterance is given in \cref{tab:durationfeatures}, 
-%TODO 
-along with the values computed for a sample utterance from the IFCASL corpus \TODO{reference?}. 
+Duration analysis therefore figures prominently in the analysis and assessment of learners' lexical stress in this work. 
+
+
+Given the word-, syllable- and phone-level segmentations of an utterance (see \cref{sec:diag:segmentation}), the extraction of duration features for that utterance is trivial, as it consists simply of noting the duration of each relevant segment. % in the appropriate segmentation. 
+Following \textcite{Bonneau2011}, \TODO{we} take into account the %relative
+ duration of each syllable in the word to be analyzed, and
+ %as well as the %relative duration 
+ of the vowels at the nucleus of each syllable. 
+ 	\TODO{Mention that to find vowels I had to add German phonetic inventory to Jsnoori?}
+	To account for inter-speaker variability, e.g. the fact that some speakers may have an overall slower or faster speech rate than others, relative rather than absolute durations are used.
+	The list of duration features computed for each word utterance is given in \cref{tab:durationfeatures}, 
+along with the values computed for each feature from the sample utterances shown in \cref{fig:featuresexample}. % from the IFCASL corpus \TODO{reference?}. 
 
 
 
 \begin{table}[htb]
 		\centering
-		\caption[Features computed for duration analysis]{Features computed for duration analysis, and their values for the sample utterances of ``Flagge'' in \cref{fig:featuresexample}. Values are given in seconds.}
+		\caption[Features computed for duration analysis]{Features computed for duration analysis, and their values for the sample utterances of ``Flagge'' in \cref{fig:featuresexample}. Values are given in seconds. \TODO{remove absolutes}}
 		\begin{tabularx}{\textwidth}{lXcc}
 		\toprule
 		\multirow{2}{*}{Feature name} 
@@ -271,7 +289,7 @@ The relative utility of these features in automatically diagnosing lexical stres
 	\end{itemize}	
 	}	
 	
-	The F0 contour of a given utterance is determined using the pitch detection algorithm(s) implemented in Jsnoori \TODO{ref}. At the heart of Jsnoori's approach to pitch detection lies the algorithm developed by Martin \cref{Martin1982}, which 
+	The F0 contour of a given utterance is determined using the pitch detection algorithm(s) implemented in Jsnoori \TODO{ref}. At the heart of Jsnoori's approach to pitch detection lies the algorithm developed by \textcite{Martin1982}, which \TODO{...}
 	
 	\TODO{de-proposal-ize this paragraph}
 	Much of the work on assessing non-native lexical stress has been conducted with English as the L2, and thus often makes the assumption that a stressed syllable should have a higher F0 than unstressed syllables \citep{Bonneau2011}. In German, the F0 of a stressed syllable also tends to differ from the surrounding contour, but the difference may be positive (the stressed syllable has a higher pitch) or negative (lower pitch) \citep[p.~267]{Cutler2005}. Therefore, features used to represent F0 may include the absolute value of the difference in average F0 between each pair of adjacent syllables in the word, or perhaps between the syllable which should carry (primary) stress and the rest of the word. To guard against unvoiced segments interfering with the F0 analysis, syllables may be represented by the vowels that form their nuclei. Relative differences between syllables may be more helpful than absolute differences. The F0 variation (range) over the entire word might also be informative of whether or not the speaker failed to stress any syllable.%, although it would not tell us which syllable were stressed. 

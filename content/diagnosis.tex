@@ -291,6 +291,8 @@ The relative utility of these features in automatically diagnosing lexical stres
 	\subsection{Fundamental frequency}
 	\label{sec:prosody:f0}
 	
+	\TODO{consistency in terminology: F0 vs. pitch?}
+	
 	As described in \cref{sec:bkgd:stress}, the fundamental frequency (F0) of an utterance, which corresponds at the perceptual level to its pitch, also provides a strong indication of how lexical stress is realized in that utterance, and F0 features 
 	%should therefore also contribute to 
 	are another crucial component of
@@ -299,19 +301,25 @@ The relative utility of these features in automatically diagnosing lexical stres
 	
 		\TODO{Pitch in Jsnoori:
 	\begin{itemize}
-		\item Martin's basic spectral comb algo
-		\item with Yves' improvement using parabolic interpolation
-		\item with Secrest \& Doddington's improvement for voicing decision 
-		\item With dynamic programming (Ney?) to select which F0 values to accept
-		\item Soon to implement Yin's temporal method, and then combine results with those of Martin's or another spectral method such as SWIPE (SWYPE?) (combining with NNs or something else)
-		\item semitones
-		\item 0 values are excluded from mean calculations
+		%\item Martin's basic spectral comb algo
+		\item Yves' improvement using parabolic interpolation
+		%\item Secrest \& Doddington's improvement for voicing decision 
+		%\item dynamic programming (Ney?) to select which F0 values to accept
+		\item Soon to implement Yin temporal method, and then combine results with those of Martin's or another spectral method such as SWIPE (SWYPE?) (combining with NNs or something else)
+		%\item semitones
+		%\item 0 values are excluded from mean calculations
 	\end{itemize}	
 	}	
 	
-	The F0 contour of a given utterance is determined using the pitch detection algorithm(s) implemented in Jsnoori \TODO{ref}. At the heart of Jsnoori's approach to pitch detection lies the algorithm developed by \textcite{Martin1982}, which \TODO{...}
+	The F0 contour of a given utterance is determined using the pitch detection algorithm(s) implemented in Jsnoori \TODO{ref}. At the heart of Jsnoori's approach to pitch detection lies the algorithm developed by \textcite{Martin1982}, a frequency-domain method of pitch detection which uses a comb function with teeth of decreasing magnitude to identify harmonics of F0 in the spectrum (spectra are extracted by Fast Fourier Transform using 32-millisecond Hamming windows set 8 milliseconds apart \TODO{double-check that}). Jsnoori also implements several improvements to pitch detection beyond Martin's algorithm \citep{DiMartino1999}, including \TODO{Yves' parabolic interpolation - citation?}, the voicing decision optimization of   \textcite{Secrest1983}, and the dynamic programming technique proposed by \textcite{Ney1981} for identifying and removing incorrect points in the contour. Further improvements to Jsnoori's pitch detection capabilities, including the implementation of additional detection algorithms, are currently \TODO{under?} development (see \cref{sec:conclusion:future}).
 	
-	\TODO{de-proposal-ize this paragraph}
+	Together, these techniques enable efficient, generally accurate detection of F0 within the range of 65-800 Hertz; each pitch point in the contour is subsequently converted from Hertz to semitones.
+	%, using the Bagshaw definition \citep{Bagshaw1994} (or \citep{Bonneau2004}?)
+	
+	Given the pitch contour thus determined, each of the relevant segments of the utterance -- i.e. the word of interest, each of its syllables, and their nuclei -- is analyzed in terms of its F0 mean, maximum, minimum, and range. These features are calculated from the non-zero point in the pitch contour, i.e. only take into account the voiced sections of the utterance. 
+	
+	\TODO{Jsnoori only looks at mean and max? or something? by way of transition to this next paragraph}
+	
 	Much of the work on assessing non-native lexical stress has been conducted with English as the L2, and thus often makes the assumption that a stressed syllable should have a higher F0 than unstressed syllables \citep{Bonneau2011}. In German, the F0 of a stressed syllable also tends to differ from the surrounding contour, but the difference may be positive (the stressed syllable has a higher pitch than surrounding syllables) or negative (lower pitch) \citep[p.~267]{Cutler2005}. 		%``...in German utterances, stressed syllables could be signaled by any F0 obtrusion from the overall contour, so that a stressed syllable could be either higher or lower in pitch than its neighbors'' \citep[p.~267]{Cutler2005}
 	Therefore, the computed features
 	%include not only the difference in F0 maxima between syllables in the word and the location (syllable index) of the word's F0 maximum, but also the analogous features for F0 minima and ranges.

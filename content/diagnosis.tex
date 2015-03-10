@@ -31,7 +31,10 @@ how (a) is achieved using
  %
  how the lexical stress analysis of (b), which is also crucial to (c), is produced by measuring the fundamental frequency, duration, and energy of relevant sections of the speech signal (\cref{sec:diag:prosody}); 
  %
- and finally, the various approaches to (c) and (d) that are implemented in the prototype tool, and how the system's modular architecture allows researchers and teachers control over which of these approaches are used \TODO{\textit{update section organization?} (\cref{sec:diag:compare})}.
+ and 
+ %finally, 
+ the various approaches to (c) and (d) that are implemented in the prototype tool (\cref{sec:diag:compare,sec:diag:classification}).
+ Finally, it describes how the system's modular architecture allows researchers and teachers control over which of these approaches are used \TODO{(\cref{sec:diag:system})}.
 
 
 
@@ -337,11 +340,11 @@ along with the values computed for each feature from the sample utterances shown
 
 
 		%\setlength\extrarowheight{5pt}
-\begin{table}[ht]
+\begin{table}[h!]
 		\centering
 		\caption[Features computed for fundamental frequency (F0) analysis]{Features computed for fundamental frequency (F0) analysis, and their values for the sample utterances of ``Flagge'' in \cref{fig:featuresexample}.% Values are given in semitones.
 		}
-		{\renewcommand{\arraystretch}{1.4}%
+		{\renewcommand{\arraystretch}{1.25}%
 		
 		\begin{subtable}[h]{\textwidth}
 		\caption{Absolute features}
@@ -417,10 +420,12 @@ along with the values computed for each feature from the sample utterances shown
 		\end{table}
 		%\vspace{1em}
 		
-		\begin{table}[ht]
+		\begin{table}[h!]
+		
 		\ContinuedFloat
 		\caption[Features computed for fundamental frequency (F0) analysis (cont.)]{(continued) Features computed for fundamental frequency (F0) analysis, and their values for the sample utterances of ``Flagge'' in \cref{fig:featuresexample}.% Values are given in semitones.
 		}
+		{\renewcommand{\arraystretch}{1.25}%
 		\begin{subtable}[h]{\textwidth}
 		\caption{Relative features}
 		\begin{tabularx}{\textwidth}{p{.225\textwidth}Xrr}
@@ -495,7 +500,7 @@ along with the values computed for each feature from the sample utterances shown
 		\end{tabularx}
 		\end{subtable}
 		
-%		} % end arraystretch
+		} % end arraystretch
 		\label{tab:durationfeatures}
 \end{table}
 
@@ -507,7 +512,7 @@ along with the values computed for each feature from the sample utterances shown
 		
 		Research on lexical stress prosody has generally indicated that intensity is the least important of the three features, i.e. corresponds least closely to lexical stress patterns \citep{Cutler2005}. 
 Indeed, existing lexical stress assessment tools may not take intensity into account, as 
-was the case with the prosodic diagnosis functionality of Jsnoori \TODO{at the start of this thesis project \textit{reword htat}}.
+was the case with the prosodic diagnosis functionality of Jsnoori \TODO{at the start of this thesis project \textit{reword that}}.
 %is the case in the system described by \textcite{Bonneau2011}.  
 However, intensity can nonetheless have an impact on the perception of lexical stress, especially in combination with pitch or duration, or both \citep{Cutler2005}; %TODO check this reference
 Therefore, in addition to duration and fundamental frequency, the intensity of relevant portions of an utterance are taken into account when performing prosodic analysis.
@@ -531,9 +536,9 @@ Therefore, in addition to duration and fundamental frequency, the intensity of r
 %	}		
 	
 	
-\begin{table}[ht]
+\begin{table}[h!]
 		\centering
-		\caption[Features computed for intensity  analysis]{Features computed for intensity analysis, and their values for the sample utterances of ``Flagge'' in \cref{fig:featuresexample}.}	
+		\caption[Features computed for intensity  analysis]{Features computed for intensity analysis, and their values for the sample utterances of ``Flagge'' in \cref{fig:featuresexample}. Values are given in dB over 60dB}	
 		
 		
 		\begin{subtable}[h]{\textwidth}
@@ -543,7 +548,7 @@ Therefore, in addition to duration and fundamental frequency, the intensity of r
 		\multirow{3}{*}{Feature name} 
 							& \multirow{3}{*}{Description}
 									& \multicolumn{2}{c}{Value} \\
-							&		& \multicolumn{2}{c}{(\TODO{units})} \\							
+							&		& \multicolumn{2}{c}{(dB$>$60)} \\							
 					  		&		&  (a) F		& (b) G\\
 		\midrule
 		
@@ -562,12 +567,13 @@ V1-ENERGY-MAX & \color{red}{TD} &  \color{red}{TD}	& \color{red}{TD}\\
 	\bottomrule
 	\end{tabularx}
 	\end{subtable}
-	\label{tab:intfeatures}
-\end{table}
-
-\begin{table}[ht]
-	\ContinuedFloat
-	\caption[Features computed for intensity analysis (cont.)]{(continued) Features computed for intensity analysis, and their values for the sample utterances of ``Flagge'' in \cref{fig:featuresexample}.}	
+	
+%	\label{tab:intfeatures}
+%\end{table}
+%
+%\begin{table}[ht]
+%	\ContinuedFloat
+%	\caption[Features computed for intensity analysis (cont.)]{(continued) Features computed for intensity analysis, and their values for the sample utterances of ``Flagge'' in \cref{fig:featuresexample}.}	
 		
 	\begin{subtable}[h]{\textwidth}
 	\caption{Relative features}
@@ -588,7 +594,7 @@ ENERGY-MAX-INDEX & \color{red}{TD} &  \color{red}{TD}	& \color{red}{TD}\\
 	\bottomrule
 	\end{tabularx}
 	\end{subtable}
-	
+\label{tab:intfeatures}
 \end{table}
 	
 	
@@ -600,27 +606,41 @@ ENERGY-MAX-INDEX & \color{red}{TD} &  \color{red}{TD}	& \color{red}{TD}\\
 %\section{Comparison of native and nonnative speech}
 \label{sec:diag:compare}
 
-\TODO{Jsnoori wasn't using Energy for diagnosis until I made it} 
+\TODO{intro}
 
-	This thesis will explore a variety of approaches to modeling the lexical stress prosody of native speech in such a way that the learner's utterance can be automatically compared to that native model. This investigation, and the creation of a CAPT tool that allows researchers to easily switch between approaches to study their effects, will be one of the primary contributions of the thesis.
+The most common approach to assessing L2 prosody involves comparing a learner's utterance to an utterance of the same word or sentence produced by a native speaker of the target language; this approach is taken by \textcite{Bonneau2011} and others.% \citep{Eskenazi2009, Delmonte2011}. %TODO take that citation out?
+
+
+	%MOVED TO CONCLUSION CHAPTER
+	%This thesis project explores a variety of approaches to modeling the lexical stress prosody of native speech in such a way that the learner's utterance can be automatically compared to that native model. This investigation, and the creation of a CAPT tool that allows researchers to easily switch between different diagnostic approaches to study their effects, is one of the primary contributions of the thesis.
 	
 	\subsection{Using a single reference speaker}
 	\label{sec:compare:single}
 	
-	The most common approach to assessing L2 prosody involves comparing a learner's utterance to the same utterance produced by a native speaker of the target language; this approach is taken by \textcite{Bonneau2011} and others.% \citep{Eskenazi2009, Delmonte2011}. %TODO take that citation out?
-%	 Inspired and informed by the investigations of \textcite{Probst2002}, this work will examine different ways of selecting the reference speaker against which a learner's utterance will be judged, given a pool of potential references. 
+	
+	\TODO{Jsnoori does it this way}
+	
+	\TODO{Jsnoori wasn't using Energy for diagnosis until I made it} 
+
 
 
 	\subsection{Using multiple reference speakers}
 	\label{sec:compare:multi}
 	
-	However, when using a single native-speaker utterance for reference, even if the chosen speaker has been chosen carefully, we may be ``over-fitting'' to speaker- or utterance-dependent characteristics of the reference utterance that do not accurately represent the ``nativeness'' of the reference speech. It would therefore be advantageous not to limit the diagnosis to comparison with a single reference speaker, but to instead compare the learner's speech with a variety of native utterances. This could be accomplished by conducting a series of one-on-one comparisons, pairing the learner utterance with a different reference utterance for each comparison, and then combining the results from all the comparisons.  Factors to explore in this approach might include whether the set of reference speakers should be more or less constrained (e.g. by gender), and which metrics can be used to synthesize the one-on-one comparisons into a single diagnosis.
+	When using a single native-speaker utterance for reference, even if the reference speaker has been chosen carefully (see \cref{sec:compare:selection} below), analysis of the learner's pronunciation may be ``over-fitting'' to speaker- or utterance-dependent characteristics of the reference utterance that do not accurately represent the ``nativeness'' of the reference speech. It is therefore advantageous not to limit the diagnosis to comparison with a single reference speaker, but to instead compare the learner's speech with a variety of native utterances, \TODO{\textit{remove?} the hope being that the variability between these reference utterances will capture more general traits of native pronunciation}.
 	
-%TODO replace?
-%	Alternatively, the learner's utterance could perhaps be compared directly with some unified representation of all the reference utterances; for example, if we represent each reference utterance as a point in n-dimensional space, with each dimension representing a relevant feature, the references will form a cluster which can serve as a representation of the variation permissible in native speech. By plotting the learner's utterance in the same space, it could be possible to distinguish how well (or poorly) this utterance fits into that cluster, and thereby produce a diagnosis.
+	In the lexical stress CAPT tool, this is accomplished by conducting a series of one-on-one comparisons, pairing the learner utterance with a different reference utterance for each comparison, and then combining the results from all the comparisons. \TODO{how are the multiple diagnoses combined}
+	
+	
+	%MOVED TO FUTURE WORK
+	%Factors to explore in this approach might include whether the set of reference speakers should be more or less constrained (e.g. by gender), and which metrics can be used to synthesize the one-on-one comparisons into a single diagnosis.
+	%	Alternatively, the learner's utterance could perhaps be compared directly with some unified representation of all the reference utterances; for example, if we represent each reference utterance as a point in n-dimensional space, with each dimension representing a relevant feature, the references will form a cluster which can serve as a representation of the variation permissible in native speech. By plotting the learner's utterance in the same space, it could be possible to distinguish how well (or poorly) this utterance fits into that cluster, and thereby produce a diagnosis.
 
 	\subsection{Reference speaker selection}
 	\label{sec:compare:selection}	
+	
+	Inspired and informed by the investigations of \textcite{Probst2002}, this work also examines different ways of selecting the reference speaker against which a learner's utterance will be judged, given a pool of potential references. 
+	
 	
 		\subsubsection{Manually selecting a reference}
 		\label{sec:selection:manual}
@@ -628,15 +648,29 @@ ENERGY-MAX-INDEX & \color{red}{TD} &  \color{red}{TD}	& \color{red}{TD}\\
 		
 		The most basic way of selecting a reference speaker is to choose one manually.
 %manually specify which speaker should be used for comparison. 
-As a type of baseline, the CAPT tool will therefore enable the learner and/or the instructor/experimenter to choose a reference from a set of available speakers, with that set potentially being constrained by one or more properties of the speaker (e.g. gender). 
+As a type of baseline, the CAPT tool therefore enables the learner or the instructor/researcher to choose a reference from a set of available speakers, \TODO{with that set potentially being constrained by one or more properties of the speaker (e.g. gender)}. 
+
+
+	\TODO{MANUAL = learner chooses, FIXED = researcher chooses?}
+
+		
 	
 		\subsubsection{Automatically selecting a reference}
 		\label{sec:selection:auto}
 		%\label{sec:compare:single:auto}
 		
-		Another means of selecting a reference speaker would be to automatically choose a speaker whose voice resembles
-that of the learner \citep{Probst2002}. By analyzing speaker-dependent features of the speech of each reference candidate and of the learner -- possibly in their L1 (French) as well as the L2 (German) -- it should be possible for the system to rank reference candidates by proximity to the learner's voice. Relevant features may include F0 mean/range as well as spectral and duration-based features.
-%, and/or other features informed by research on speaker identification \citep[etc.]{Shriberg2005,Reynolds1995}. \TODO{examples of speaker ID features}
+		A different and perhaps more interesting means of selecting a reference speaker is to automatically choose a speaker whose voice resembles
+that of the learner \citep{Probst2002}. 
+
+	\TODO{Only uses F0 mean/range for now, very simplistic representation.}
+	
+	
+	\TODO{see \cref{sec:conclusion:future}}
+
+
+% MOVED TO FUTURE WORK
+%By analyzing speaker-dependent features of the speech of each reference candidate and of the learner -- possibly in their L1 (French) as well as the L2 (German) -- it should be possible for the system to rank reference candidates by proximity to the learner's voice. Relevant features may include F0 mean/range as well as spectral and duration-based features.
+%, and/or other features informed by research on speaker identification (e.g. \cite{Shriberg2005}). \TODO{examples of speaker ID features}
 	
 	
 
@@ -656,12 +690,28 @@ that of the learner \citep{Probst2002}. By analyzing speaker-dependent features 
 %			\subsubsection{Classifying unseen words}
 %			\subsubsection{Classifying unseen speakers}
 	
-	Finally, a different approach may be to abstract away from the reference speaker(s). In their work on assessing children's reading fluency, \textcite{Duong2011} found that evaluating a child's utterance in terms of a generalized prosody model, which predicts how a given text should be uttered, yielded more accurate fluency predictions than comparing it to a reference utterance of the text in question. It would be interesting to investigate whether the same principle applies in our CAPT scenario, so if time permits, this work will explore the possibility of constructing a more general model of native lexical stress realization, and comparing the learner's utterance directly to this model instead of to one or more reference utterances. 
-This would 
-theoretically enable the creation of exercises with arbitrary text, including sentences for which no reference utterance has been recorded. 
-%
-Possibilities for generalized lexical stress modeling include using word-prosody predictions from a text-to-speech synthesizer such as MARY \citep{Schroeder2003}, as well as
-classification-based machine learning approaches such as those used by \textcite{Shahin2012a,Kim2011} to categorize English words based on their stress patterns.
+	\TODO{Finally, a different approach may be to abstract away from the reference speaker(s). }
+	\TODO{comparison approach has disadvantages (still not general enough, limits tutoring exercises to sentences for which we have reference utterances, ...)}
+	By constructing a more general model of native lexical stress realization, and comparing the learner's utterance directly to this model instead of to one or more reference utterances, 
+	\TODO{we} may be able to overcome these shortcomings of the comparison approach, 
+	as such a model could theoretically
+	abstract away from any remaining speaker- or utterance-dependent influence from the reference utterance(s)
+	and
+	%theoretically 
+	enable the creation of exercises with arbitrary text, including sentences for which no reference utterance has been recorded. 
+	
+	\TODO{This diagnostic approach, using generalized lexical stress modeling, is the one which has been least explored in CAPT research, ... although these people have done it: ....}
+	%
+	\TODO{\textit{move the following to \cref{chap:background} Background?}}  
+	\textcite{Shahin2012a,Kim2011} use machine learning to categorize English words based on their stress patterns.
+	%
+	 In their work on assessing children's reading fluency, \textcite{Duong2011} found that evaluating a child's utterance in terms of a generalized prosody model, which predicts how a given text should be uttered, yielded more accurate fluency predictions than comparing it to a reference utterance of the text in question. 
+	
+	
+
+%MOVED TO FUTURE WORK
+%Possibilities for generalized lexical stress modeling include using word-prosody predictions from a text-to-speech synthesizer such as MARY \citep{Schroeder2003}, as well as
+%classification-based machine learning approaches such as those used by \textcite{Shahin2012a,Kim2011} to categorize English words based on their stress patterns.
 %
 %Using a generalized model would 
 	%differ from the multiple-reference approach described 
@@ -671,12 +721,12 @@ classification-based machine learning approaches such as those used by \textcite
 %theoretically enable the creation of exercises with arbitrary text, including sentences for which no reference utterance has been recorded. 
 %This is also generally the approach that \textcite{Shahin2012a,Kim2011} followed, so classification-based machine learning methods similar to theirs may be used.
 
-As this last diagnostic approach, using generalized lexical stress modeling, is the one which has been least explored in CAPT research, it will be the first priority for this thesis work after the baseline approach (manually selecting a single reference speaker) has been implemented. The next highest priority will be comparing the learner's speech to multiple reference speakers, followed by automatically selecting a reference speaker to match the learner's voice; these approaches will only be explored as time allows.
+%As this last diagnostic approach, using generalized lexical stress modeling, is the one which has been least explored in CAPT research, it will be the first priority for this thesis work after the baseline approach (manually selecting a single reference speaker) has been implemented. The next highest priority will be comparing the learner's speech to multiple reference speakers, followed by automatically selecting a reference speaker to match the learner's voice; these approaches will only be explored as time allows.
 
 %\subsection{Evaluation}
 %\label{sec:classification:eval}
 
-Lexical stress errors in the manually-annotated subset of the IFCASL corpus have not been explicitly labeled. We can assume that the utterances from L1 German speakers exhibit only correct German stress patterns, but a subset of the L1 French utterances will need to be annotated for lexical stress errors. This labeled data will be needed to assess the accuracy of the various error diagnosis methods which will be explored, and potentially to train classifiers to recognize correctly and incorrectly stressed words. 
+%Lexical stress errors in the manually-annotated subset of the IFCASL corpus have not been explicitly labeled. We can assume that the utterances from L1 German speakers exhibit only correct German stress patterns, but a subset of the L1 French utterances will need to be annotated for lexical stress errors. This labeled data will be needed to assess the accuracy of the various error diagnosis methods which will be explored, and potentially to train classifiers to recognize correctly and incorrectly stressed words. 
 
 %\subsection{Stress annotation of subset of IFCASL corpus}
 %\subsubsection{Data}
@@ -687,5 +737,13 @@ Lexical stress errors in the manually-annotated subset of the IFCASL corpus have
 %\subsubsection{Feature selection?}
 %\subsubsection{Comparing diagnostic approaches?} 
 
+\section{\TODO{\textit{retitle} Using diagnosis methods in the system}}
+\label{sec:diag:system}
+
+	\TODO{}
+
 \section{Summary}
 \label{sec:diag:summary}
+
+
+	\TODO{}

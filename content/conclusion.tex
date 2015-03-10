@@ -10,6 +10,10 @@
 
 \section{Thesis summary}
  \label{sec:conclusion:summary}
+ 
+ 
+ \TODO{here or in intro? or somewhere else?}
+ This thesis project explores a variety of approaches to modeling the lexical stress prosody of native speech in such a way that the learner's utterance can be automatically compared to that native model. This investigation, and the creation of a CAPT tool that allows researchers to easily switch between different diagnostic approaches to study their effects, is one of the primary contributions of this work.
 
 \section{Future work}
 \label{sec:conclusion:future}
@@ -48,3 +52,19 @@ The accuracy of the forced-alignment segmentation can be assessed by computing i
 	
 	\subsubsection{Pitch in Jsnoori}
 	Soon to implement YIN \citep{Cheveigne2002} temporal method, and then combine results with those of Martin's or another spectral method such as SWIPE \citep{Camacho2007} (combining with NNs or something else)
+	
+	
+	\subsubsection{Multiple references}
+	Factors to explore in this approach might include whether the set of reference speakers should be more or less constrained (e.g. by gender), and which metrics can be used to synthesize the one-on-one comparisons into a single diagnosis.
+	Alternatively, the learner's utterance could perhaps be compared directly with some unified representation of all the reference utterances; for example, if we represent each reference utterance as a point in n-dimensional space, with each dimension representing a relevant feature, the references will form a cluster which can serve as a representation of the variation permissible in native speech. By plotting the learner's utterance in the same space, it could be possible to distinguish how well (or poorly) this utterance fits into that cluster, and thereby produce a diagnosis.
+	
+	\subsubsection{Auto reference selection}
+	.... speaker-dependent features of the speech of each reference candidate and of the learner -- possibly in their L1 (French) as well as the L2 (German) 
+	
+	 Relevant features may include.... spectral and duration-based features, and/or other features informed by research on speaker identification (e.g. \cite{Shriberg2005}). \TODO{examples of speaker ID features}
+	 
+	 \subsubsection{No-reference diagnosis}
+	 
+	 Other possibilities for generalized lexical stress modeling include using word-prosody predictions from a text-to-speech synthesizer such as MARY \citep{Schroeder2003}, as well as \TODO{fancier}
+classification-based machine learning approaches 
+%such as those used by \textcite{Shahin2012a,Kim2011} to categorize English words based on their stress patterns.

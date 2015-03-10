@@ -67,12 +67,14 @@ any analysis of the learner's speech signal, including the preliminary step of s
 	%\label{sec:segmentation:alignment}
 	
 	When the content (text) of a given utterance is already known, the goal of automatic segmentation becomes aligning the  boundaries of each phone in the expected sentence with the appropriate points in the recorded signal. Boundaries for larger units such as syllables and words can be inferred from the phone boundaries. 
-	An effective and widely-used technique for this is forced
+	An effective and widely-used technique for this is 
+	forced
 	% (Viterbi) 
 	alignment \citep{Fohr1996,Mesbahi2011,Fohr2012,Fauth2014}.
 	%which uses the Viterbi algorithm to 
 	%
-	This technique 
+	This technique,
+	\TODO{\textit{remove?} a type of speech recognition,}
 	requires:
 	\begin{itemize}
 %knowledge of the text of the given utterance (known beforehand in the IFCASL case), 
@@ -598,8 +600,9 @@ ENERGY-MAX-INDEX & \color{red}{TD} &  \color{red}{TD}	& \color{red}{TD}\\
 \end{table}
 	
 	
-\TODO{section outro?}	
+\vspace{2em}
 	
+Using the prosodic features thus computed, the prototype CAPT tool analyzes a given learner utterance and diagnoses their lexical stress error(s) (or lack thereof) by comparing this non-native speech to that of L1 German speakers using one of several possible methods. The following section describes the various diagnostic methods explored in this thesis project, and how they make use of (subsets of) the duration, F0, and intensity features described above. 
 	
 	
 \section{Diagnosis by direct comparison}
@@ -608,7 +611,15 @@ ENERGY-MAX-INDEX & \color{red}{TD} &  \color{red}{TD}	& \color{red}{TD}\\
 
 \TODO{intro}
 
-The most common approach to assessing L2 prosody involves comparing a learner's utterance to an utterance of the same word or sentence produced by a native speaker of the target language; this approach is taken by \textcite{Bonneau2011} and others.% \citep{Eskenazi2009, Delmonte2011}. %TODO take that citation out?
+A typical approach to assessing L2 prosody involves comparing a learner's utterance to the utterance(s) of the same word or sentence as produced by one or more native speaker of the target language; this is the approach commonly taken in CAPT systems and research
+(e.g. \TODO{refs}),  %taken by \textcite{Bonneau2011} and others.% \citep{Eskenazi2009, Delmonte2011}. 
+In this comparison-based approach, the L1 utterance serves as a direct representation of how the word/sentence would be realized by a native speaker; errors are diagnosed when there are stark enough differences between the L2 learner's utterance and that of the native speaker with respect to the relevant features \TODO{\textit{is that sentence awkward?}}.
+
+This section describes the various \textit{approaches} to such diagnosis by comparison taken in the prototype CAPT tool developed in this thesis project. 
+	\TODO{is more intro/summary of upcoming sections needed here?}
+	%In addition to the simplest type of comparison, in which a single
+  
+
 
 
 	%MOVED TO CONCLUSION CHAPTER
@@ -618,9 +629,16 @@ The most common approach to assessing L2 prosody involves comparing a learner's 
 	\label{sec:compare:single}
 	
 	
-	\TODO{Jsnoori does it this way}
+	The simplest type of diagnosis by direct comparison involves comparing a single learner utterance to a single reference (native-speaker) utterance. 
+	As mentioned in \cref{sec:capt:systems:loria}, this is the approach used to evaluate learner speech in Jsnoori and its predecessor WinSnoori \citep{Bonneau2004,Henry2007,Bonneau2011}. 
+
+	\TODO{Summary/recap of how it works}
 	
+	\TODO{List features used for comparison}	
 	\TODO{Jsnoori wasn't using Energy for diagnosis until I made it} 
+	
+	\TODO{Describe output of diagnosis in Jsnoori (score, explicit metalinguistic feedback) and how that's utilized in de-stress}
+
 
 
 

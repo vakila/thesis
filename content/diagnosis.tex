@@ -244,10 +244,12 @@ Following \textcite{Bonneau2011}, \TODO{we} take into account the %relative
 along with the values computed for each feature from the sample utterances shown in \cref{fig:featuresexample}. % from the IFCASL corpus \TODO{reference?}. 
 
 
-
 \begin{table}[htb]
 		\centering
 		\caption[Features computed for duration analysis]{Features computed for duration analysis, and their values for the sample utterances of ``Flagge'' in \cref{fig:featuresexample}. Values are given in seconds. \TODO{remove absolutes}}
+		
+		\begin{subtable}[h]{\textwidth}
+		\caption{Absolute features}
 		\begin{tabularx}{\textwidth}{lXcc}
 		\toprule
 		\multirow{2}{*}{Feature name} 
@@ -255,15 +257,31 @@ along with the values computed for each feature from the sample utterances shown
 																	& \multicolumn{2}{c}{Value (seconds)} \\
 					  				&												&  (a) F		& (b) G \\
 		\midrule
-		WORD-DUR 		&	Duration of entire word				& 0.32			& 0.33			\\
+		WORD-DUR 		&	Duration of entire word \TODO{remove?}				& 0.32			& 0.33			\\
 		SYLL0-DUR 		&	Dur. of 1st syllable						& 0.16			& 0.22			\\
 		SYLL1-DUR 		&	Dur. of 2nd syllable				& 0.16			& 0.11			\\
 		V0-DUR 				&	Dur. of vowel in 1st syllable		& 0.04			& 0.09			\\
 		V1-DUR 				&	Dur. of vowel in 2nd syllable	& 0.06			& 0.05			\\
-		SYLL-REL-DUR 	&	SYLL0-DUR$/$SYLL1-DUR 		& 1.00			& 2.00			\\
-		V-REL-DUR 		&	V0-DUR$/$V1-DUR					& 0.67			& 1.80 			\\
+		\bottomrule
+		\end{tabularx}
+		\end{subtable}
+
+		\vspace{1em}		
+		
+		\begin{subtable}[h]{\textwidth}
+		\caption{Relative features}
+		\begin{tabularx}{\textwidth}{lXcc}
+		\toprule
+		\multirow{2}{*}{Feature name} 
+									& \multirow{2}{*}{Description}
+														& \multicolumn{2}{c}{Value} \\
+	&												&  (a) F		& (b) G \\
+		\midrule
+		REL-SYLL-DUR 	&	SYLL1-DUR$/$SYLL0-DUR 		& 1.00			& 2.00			\\
+		REL-V-DUR 		&	V1-DUR$/$V0-DUR					& 0.67			& 1.80 			\\
 		\bottomrule	
 		\end{tabularx}
+		\end{subtable}
 		\label{tab:durationfeatures}
 \end{table}
 
@@ -286,22 +304,33 @@ The relative utility of these features in automatically diagnosing lexical stres
 		\item with Secrest \& Doddington's improvement for voicing decision 
 		\item With dynamic programming (Ney?) to select which F0 values to accept
 		\item Soon to implement Yin's temporal method, and then combine results with those of Martin's or another spectral method such as SWIPE (SWYPE?) (combining with NNs or something else)
+		\item semitones
+		\item 0 values are excluded from mean calculations
 	\end{itemize}	
 	}	
 	
 	The F0 contour of a given utterance is determined using the pitch detection algorithm(s) implemented in Jsnoori \TODO{ref}. At the heart of Jsnoori's approach to pitch detection lies the algorithm developed by \textcite{Martin1982}, which \TODO{...}
 	
 	\TODO{de-proposal-ize this paragraph}
-	Much of the work on assessing non-native lexical stress has been conducted with English as the L2, and thus often makes the assumption that a stressed syllable should have a higher F0 than unstressed syllables \citep{Bonneau2011}. In German, the F0 of a stressed syllable also tends to differ from the surrounding contour, but the difference may be positive (the stressed syllable has a higher pitch) or negative (lower pitch) \citep[p.~267]{Cutler2005}. Therefore, features used to represent F0 may include the absolute value of the difference in average F0 between each pair of adjacent syllables in the word, or perhaps between the syllable which should carry (primary) stress and the rest of the word. To guard against unvoiced segments interfering with the F0 analysis, syllables may be represented by the vowels that form their nuclei. Relative differences between syllables may be more helpful than absolute differences. The F0 variation (range) over the entire word might also be informative of whether or not the speaker failed to stress any syllable.%, although it would not tell us which syllable were stressed. 
+	Much of the work on assessing non-native lexical stress has been conducted with English as the L2, and thus often makes the assumption that a stressed syllable should have a higher F0 than unstressed syllables \citep{Bonneau2011}. In German, the F0 of a stressed syllable also tends to differ from the surrounding contour, but the difference may be positive (the stressed syllable has a higher pitch than surrounding syllables) or negative (lower pitch) \citep[p.~267]{Cutler2005}. 		%``...in German utterances, stressed syllables could be signaled by any F0 obtrusion from the overall contour, so that a stressed syllable could be either higher or lower in pitch than its neighbors'' \citep[p.~267]{Cutler2005}
+	Therefore, the computed features
+	%include not only the difference in F0 maxima between syllables in the word and the location (syllable index) of the word's F0 maximum, but also the analogous features for F0 minima and ranges.
+	capture not only the F0 maximum of each syllable, but also the minimum and range (difference between maximum and minimum) \TODO{more/separate discussion of why range might be important?}.
+	 
+	%To guard against unvoiced segments interfering with the F0 analysis, syllables may be represented by the vowels that form their nuclei. Relative differences between syllables may be more helpful than absolute differences. The F0 variation (range) over the entire word might also be informative of whether or not the speaker failed to stress any syllable.%, although it would not tell us which syllable were stressed. 
 	%Other features may be drawn from related work on lexical stress in learner speech, such as \textcite{Bonneau2011}.
 	
-		%``...in German utterances, stressed syllables could be signaled by any F0 obtrusion from the overall contour, so that a stressed syllable could be either higher or lower in pitch than its neighbors'' \citep[p.~267]{Cutler2005}
+
 
 		%\setlength\extrarowheight{5pt}
 \begin{table}[htb]
 		\centering
-		\caption[Features computed for fundamental frequency (F0) analysis]{Features computed for fundamental frequency (F0) analysis, and their values for the sample utterances of ``Flagge'' in \cref{fig:featuresexample}. Values are given in semitones.}
+		\caption[Features computed for fundamental frequency (F0) analysis]{Features computed for fundamental frequency (F0) analysis, and their values for the sample utterances of ``Flagge'' in \cref{fig:featuresexample}.% Values are given in semitones.
+		}
 		{\renewcommand{\arraystretch}{1.4}%
+		
+		\begin{subtable}[h]{\textwidth}
+		\caption{Absolute features}
 		\begin{tabularx}{\textwidth}{p{.225\textwidth}Xrr}
 		\toprule
 		\multirow{3}{*}{Feature name} 
@@ -330,9 +359,13 @@ The relative utility of these features in automatically diagnosing lexical stres
 		%\addlinespace
 		%%%% SYLL* FEATURES 
 		SYLL0-F0-MEAN	& Avg. F0, 1st syllable					& 9.29		& 15.81\\	
+		V0-F0-MEAN		& Avg. F0, 1st syllable	nucleus				& \color{red}{TD}		& \color{red}{TD}\\
 		SYLL0-F0-MAX		& Max. F0, 1st syllable					& 10.73		& 18.25\\
+		V0-F0-MAX		& Max. F0, 1st syllable	nucleus				& \color{red}{TD}		& \color{red}{TD}\\
 		SYLL0-F0-MIN		& Min. F0, 1st syllable					& \color{red}{TD}		& \color{red}{TD}\\
+		V0-F0-MIN		& Min. F0, 1st syllable	nucleus				& \color{red}{TD}		& \color{red}{TD}\\
 		SYLL0-F0-RANGE & SYLL0-F0-MAX$-$SYLL0-F0-MIN	& 1.45		& 4.60\\
+		V0-F0-RANGE		& V0-F0-MAX$-$V0-F0-MIN				& \color{red}{TD}		& \color{red}{TD}\\
 %		SYLL0-F0-RANGE	& {\renewcommand{\arraystretch}{.9}%
 %										$\displaystyle\begin{array}{l}%
 %										\phantom{-}\mbox{SYLL0-F0-MAX}\\%
@@ -344,9 +377,13 @@ The relative utility of these features in automatically diagnosing lexical stres
 %									& $- \text{SYLL0-F0-MIN}$					& 						& 					\\		
 
 		SYLL1-F0-MEAN	& Avg. F0, 2nd syllable						& 8.24		& 17.51\\
+		V1-F0-MEAN		& Avg. F0, 2nd syllable	nucleus				& \color{red}{TD}		& \color{red}{TD}\\
 		SYLL1-F0-MAX		& Max. F0, 2nd syllable						& 9.93		& 20.08\\
+		V1-F0-MAX		& Max. F0, 2nd syllable	nucleus				& \color{red}{TD}		& \color{red}{TD}\\
 		SYLL1-F0-MIN		& Min. F0, 2nd syllable			& \color{red}{TD}	& \color{red}{TD}\\
+		V1-F0-MIN		& Min. F0, 2nd syllable 	nucleus				& \color{red}{TD}		& \color{red}{TD}\\
 		SYLL1-F0-RANGE	& SYLL1-F0-MAX$-$SYLL1-F0-MIN 	& 3.66		& 5.86 \\
+		V1-F0-RANGE		& V1-F0-MAX$-$V1-F0-MIN				& \color{red}{TD}		& \color{red}{TD}\\
 %		SYLL1-F0-RANGE	& {\renewcommand{\arraystretch}{.9}%
 %										$\displaystyle\begin{array}{l}%
 %										\phantom{-}\mbox{SYLL1-F0-MAX}\\%
@@ -358,6 +395,27 @@ The relative utility of these features in automatically diagnosing lexical stres
 %									& $- \text{SYLL1-F0-MIN}$					& 						& 					\\		
 		
 		%\addlinespace
+		\bottomrule
+		\end{tabularx}
+		\end{subtable}
+		}
+		\end{table}
+		%\vspace{1em}
+		
+		\begin{table}[ht]
+		\ContinuedFloat
+		\caption[Features computed for fundamental frequency (F0) analysis (cont.)]{(continued) Features computed for fundamental frequency (F0) analysis, and their values for the sample utterances of ``Flagge'' in \cref{fig:featuresexample}.% Values are given in semitones.
+		}
+		\begin{subtable}[h]{\textwidth}
+		\caption{Relative features}
+		\begin{tabularx}{\textwidth}{p{.225\textwidth}Xrr}
+		\toprule
+		\multirow{2}{*}{Feature name} 
+									& \multirow{2}{*}{Description}
+													& \multicolumn{2}{c}{Value} \\						
+					  				&							&  (a) F		& (b) G
+					  																																\\
+		\midrule
 		%%%% RELATIVE FEATURES 
 %		SYLL-REL-MEAN & {\renewcommand{\arraystretch}{.9}%
 %									 $\displaystyle\begin{array}{l}
@@ -366,30 +424,34 @@ The relative utility of these features in automatically diagnosing lexical stres
 %									 \mbox{SYLL1-F0-MEAN}\\
 %									 \end{array}$}			
 %																				& 1.12688     & 0.903218 \\		
-		SYLL-REL-MEAN & SYLL0-F0-MEAN$/$SYLL1-F0-MEAN 	& 1.13    & 0.90 \\
+		REL-SYLL-F0-MEAN & SYLL0-F0-MEAN$/$SYLL1-F0-MEAN 	& 1.13    & 0.90 \\
+		REL-V-F0-MEAN & V1-F0-MEAN$/$V0-F0-MEAN &  \color{red}{TD}	& \color{red}{TD}\\
 %		SYLL-REL-MEAN
 %							& $\displaystyle\frac{\mbox{SYLL0-F0-MEAN}}{\mbox{SYLL1-F0-MEAN}}$			
 %																									& 1.13    & 0.90 \\
 		%\addlinespace
-		SYLL-REL-MAX & SYLL0-F0-MAX$/$SYLL1-F0-MAX 			& 1.08		& 0.91 \\
+		REL-SYLL-F0-MAX & SYLL1-F0-MAX$/$SYLL0-F0-MAX 			& 1.08		& 0.91 \\
+		REL-V-F0-MAX & V1-F0-MAX$/$V0-F0-MAX &  \color{red}{TD}	& \color{red}{TD}\\
 %		SYLL-REL-MAX
 %							& $\displaystyle\frac{\mbox{SYLL0-F0-MAX}}{\mbox{SYLL1-F0-MAX}}$
 %																									& 1.08		& 0.91 \\
-		SYLL-REL-MIN & SYLL0-F0-MIN$/$SYLL1-F0-MIN &\color{red}{TD}&\color{red}{TD}\\
+		REL-SYLL-F0-MIN & SYLL1-F0-MIN$/$SYLL0-F0-MIN &\color{red}{TD}&\color{red}{TD}\\
+		REL-V-F0-MIN & V1-F0-MIN$/$V0-F0-MIN &  \color{red}{TD}	& \color{red}{TD}\\
 		
 		%\addlinespace
 %		SYLL-REL-MIN		
 %							& $\displaystyle\frac{\mbox{SYLL0-F0-MIN}}{\mbox{SYLL1-F0-MIN}}$	
 %																		& \color{red}{TD}		& \color{red}{TD}\\
 		%\addlinespace
-		SYLL-REL-RANGE & SYLL0-F0-RANGE$/$SYLL1-F0-RANGE & 0.40%0.396068		
+		REL-SYLL-F0-RANGE & SYLL1-F0-RANGE$/$SYLL0-F0-RANGE & 0.40%0.396068		
 																															& 0.78\\
+																															REL-V-F0-RANGE & V1-F0-RANGE$/$V0-F0-RANGE &  \color{red}{TD}	& \color{red}{TD}\\
 %		SYLL-REL-RANGE	
 %							& $\displaystyle\frac{\mbox{SYLL0-F0-RANGE}}{\mbox{SYLL1-F0-RANGE}}$
 %																									& 0.40%0.396068		
 %																															& 0.78\\
 		%\addlinespace
-		SYLL-MAX-INDEX	
+		F0-MAX-INDEX	
 							& 	$\begin{cases} 
 								0, & \text{if SYLL0-F0-MAX}>\text{SYLL1-F0-MAX}\\
 								1, & \text{if SYLL0-F0-MAX}<\text{SYLL1-F0-MAX}\\
@@ -397,7 +459,7 @@ The relative utility of these features in automatically diagnosing lexical stres
 %							& 0 if  SYLL0-F0-MAX$>$SYLL1-F0-MAX,
 %								1 if  SYLL0-F0-MAX$<$SYLL1-F0-MAX		
 																									& 0					& 1				\\
-		SYLL-MIN-INDEX	
+		F0-MIN-INDEX	
 							& 	$\begin{cases} 
 								0, & \text{if SYLL0-F0-MIN}<\text{SYLL1-F0-MIN}\\
 								1, & \text{if SYLL0-F0-MIN}>\text{SYLL1-F0-MIN}\\
@@ -406,7 +468,7 @@ The relative utility of these features in automatically diagnosing lexical stres
 %								1 if  SYLL0-F0-MIN$>$SYLL1-F0-MIN		
 																									& 1					& 0				\\
 																									
-		SYLL-MAXRANGE-INDEX	
+		F0-MAXRANGE-INDEX	
 					& $\begin{cases} 
 								0, & \text{if SYLL0-F0-RANGE}>\text{SYLL1-F0-RANGE}\\
 								1, & \text{if SYLL0-F0-RANGE}<\text{SYLL1-F0-RANGE}\\
@@ -416,7 +478,9 @@ The relative utility of these features in automatically diagnosing lexical stres
 																									& 1					& 1				\\
 		\bottomrule
 		\end{tabularx}
-		} % end arraystretch
+		\end{subtable}
+		
+%		} % end arraystretch
 		\label{tab:durationfeatures}
 \end{table}
 
@@ -438,7 +502,65 @@ Indeed, existing lexical stress assessment tools may not take intensity into acc
 Therefore, the diagnosis system should ideally take intensity into account when performing its prosodic analysis. This could be as simple as computing the total energy of the part of the signal corresponding to each syllable of the word in question, although more complex measures may be explored if time allows.
 	
 	
+\begin{table}[htb]
+		\centering
+		\caption[Features computed for intensity  analysis]{Features computed for intensity analysis, and their values for the sample utterances of ``Flagge'' in \cref{fig:featuresexample}.}	
+		
+		
+		\begin{subtable}[h]{\textwidth}
+		\caption{Absolute features}
+		\begin{tabularx}{\textwidth}{p{.3\textwidth}Xrr}
+		\toprule
+		\multirow{3}{*}{Feature name} 
+							& \multirow{3}{*}{Description}
+									& \multicolumn{2}{c}{Value} \\
+							&		& \multicolumn{2}{c}{(\TODO{units})} \\							
+					  		&		&  (a) F		& (b) G\\
+		\midrule
+		
 	
+WORD-ENERGY-MEAN & \color{red}{TD} &  \color{red}{TD}	& \color{red}{TD}\\
+WORD-ENERGY-MAX & \color{red}{TD} &  \color{red}{TD}	& \color{red}{TD}\\
+SYLL0-ENERGY-MEAN & \color{red}{TD} &  \color{red}{TD}	& \color{red}{TD}\\
+SYLL0-ENERGY-MAX & \color{red}{TD} &  \color{red}{TD}	& \color{red}{TD}\\
+SYLL1-ENERGY-MEAN & \color{red}{TD} &  \color{red}{TD}	& \color{red}{TD}\\
+SYLL1-ENERGY-MAX & \color{red}{TD} &  \color{red}{TD}	& \color{red}{TD}\\
+V0-ENERGY-MEAN & \color{red}{TD} &  \color{red}{TD}	& \color{red}{TD}\\
+V0-ENERGY-MAX & \color{red}{TD} &  \color{red}{TD}	& \color{red}{TD}\\
+V1-ENERGY-MEAN & \color{red}{TD} &  \color{red}{TD}	& \color{red}{TD}\\
+V1-ENERGY-MAX & \color{red}{TD} &  \color{red}{TD}	& \color{red}{TD}\\
+	
+	\bottomrule
+	\end{tabularx}
+	\end{subtable}
+	
+\end{table}
+
+\begin{table}[ht]
+	\ContinuedFloat
+	\caption[Features computed for intensity analysis (cont.)]{(continued) Features computed for intensity analysis, and their values for the sample utterances of ``Flagge'' in \cref{fig:featuresexample}.}	
+		
+	\begin{subtable}[h]{\textwidth}
+	\caption{Relative features}
+	\begin{tabularx}{\textwidth}{p{.35\textwidth}Xrr}
+	\toprule
+	\multirow{2}{*}{Feature name} 
+					& \multirow{2}{*}{Description}
+										& \multicolumn{2}{c}{Value} \\	
+				  	&							&  (a) F		& (b) G			\\
+	\midrule
+	
+REL-SYLL-ENERGY-MEAN & \color{red}{TD} &  \color{red}{TD}	& \color{red}{TD}\\
+REL-SYLL-ENERGY-MAX & \color{red}{TD} &  \color{red}{TD}	& \color{red}{TD}\\
+REL-VOWEL-ENERGY-MEAN & \color{red}{TD} &  \color{red}{TD}	& \color{red}{TD}\\
+REL-VOWEL-ENERGY-MAX & \color{red}{TD} &  \color{red}{TD}	& \color{red}{TD}\\
+ENERGY-MAX-INDEX & \color{red}{TD} &  \color{red}{TD}	& \color{red}{TD}\\
+	
+	\bottomrule
+	\end{tabularx}
+	\end{subtable}
+	
+\end{table}
 	
 	
 \section{Diagnosis by direct comparison}

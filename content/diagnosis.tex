@@ -244,9 +244,9 @@ Following \textcite{Bonneau2011}, \TODO{we} take into account the %relative
 along with the values computed for each feature from the sample utterances shown in \cref{fig:featuresexample}. % from the IFCASL corpus \TODO{reference?}. 
 
 
-\begin{table}[htb]
+\begin{table}[ht]
 		\centering
-		\caption[Features computed for duration analysis]{Features computed for duration analysis, and their values for the sample utterances of ``Flagge'' in \cref{fig:featuresexample}. Values are given in seconds. \TODO{remove absolutes}}
+		\caption[Features computed for duration analysis]{Features computed for duration analysis, and their values for the sample utterances of ``Flagge'' in \cref{fig:featuresexample}. Values are given in seconds. \TODO{remove absolutes?}}
 		
 		\begin{subtable}[h]{\textwidth}
 		\caption{Absolute features}
@@ -285,7 +285,7 @@ along with the values computed for each feature from the sample utterances shown
 		\label{tab:durationfeatures}
 \end{table}
 
-The relative utility of these features in automatically diagnosing lexical stress errors is discussed further in \cref{sec:diag:eval}.
+\TODO{\textit{awkwardly placed:}} The relative utility of these features in automatically diagnosing lexical stress errors is discussed further in \cref{sec:diag:classification}.
 
 
 	\subsection{Fundamental frequency}
@@ -299,26 +299,32 @@ The relative utility of these features in automatically diagnosing lexical stres
 	the system's prosodic analysis. 
 	%
 	
-		\TODO{Pitch in Jsnoori:
-	\begin{itemize}
-		%\item Martin's basic spectral comb algo
-		\item Yves' improvement using parabolic interpolation
-		%\item Secrest \& Doddington's improvement for voicing decision 
-		%\item dynamic programming (Ney?) to select which F0 values to accept
-		\item Soon to implement Yin temporal method, and then combine results with those of Martin's or another spectral method such as SWIPE (SWYPE?) (combining with NNs or something else)
-		%\item semitones
-		%\item 0 values are excluded from mean calculations
-	\end{itemize}	
-	}	
+%		\TODO{Pitch in Jsnoori:
+%	\begin{itemize}
+%		%\item Martin's basic spectral comb algo
+%		\item Yves' improvement using parabolic interpolation
+%		%\item Secrest \& Doddington's improvement for voicing decision 
+%		%\item dynamic programming (Ney?) to select which F0 values to accept
+%		\item Soon to implement Yin temporal method, and then combine results with those of Martin's or another spectral method such as SWIPE (SWYPE?) (combining with NNs or something else)
+%		%\item semitones
+%		%\item 0 values are excluded from mean calculations
+%	\end{itemize}	
+%	}	
 	
-	The F0 contour of a given utterance is determined using the pitch detection algorithm(s) implemented in Jsnoori \TODO{ref}. At the heart of Jsnoori's approach to pitch detection lies the algorithm developed by \textcite{Martin1982}, a frequency-domain method of pitch detection which uses a comb function with teeth of decreasing magnitude to identify harmonics of F0 in the spectrum (spectra are extracted by Fast Fourier Transform using 32-millisecond Hamming windows set 8 milliseconds apart \TODO{double-check that}). Jsnoori also implements several improvements to pitch detection beyond Martin's algorithm \citep{DiMartino1999}, including \TODO{Yves' parabolic interpolation - citation?}, the voicing decision optimization of   \textcite{Secrest1983}, and the dynamic programming technique proposed by \textcite{Ney1981} for identifying and removing incorrect points in the contour. Further improvements to Jsnoori's pitch detection capabilities, including the implementation of additional detection algorithms, are currently \TODO{under?} development (see \cref{sec:conclusion:future}).
+	The F0 contour of a given utterance is determined using the pitch detection 
+	%algorithm(s) implemented in 
+	functionality of 
+	Jsnoori. At the heart of Jsnoori's approach to pitch detection lies the algorithm developed by \textcite{Martin1982}, a frequency-domain method of pitch detection which uses a comb function with teeth of decreasing magnitude to identify harmonics of F0 in the spectrum (spectra are extracted by Fast Fourier Transform using 32-millisecond Hamming windows set 8 milliseconds apart \TODO{double-check that}). Jsnoori also implements several improvements to pitch detection beyond Martin's algorithm \citep{DiMartino1999}, including \TODO{Yves' parabolic interpolation - citation?}, the voicing decision optimization of   \textcite{Secrest1983}, and the dynamic programming technique proposed by \textcite{Ney1981} for identifying and removing incorrect points in the contour. Further improvements to Jsnoori's pitch detection capabilities, including the implementation of additional detection algorithms, are currently in development (see \cref{sec:conclusion:future}).
 	
-	Together, these techniques enable efficient, generally accurate detection of F0 within the range of 65-800 Hertz; each pitch point in the contour is subsequently converted from Hertz to semitones.
+	Thanks to these techniques, Jsnoori is capable of efficient, generally accurate detection of F0 
+	\TODO{\textit{keep?} within the range of 65-800 Hertz}. Each pitch point in the contour is subsequently converted from Hertz to semitones.
 	%, using the Bagshaw definition \citep{Bagshaw1994} (or \citep{Bonneau2004}?)
-	
-	Given the pitch contour thus determined, each of the relevant segments of the utterance -- i.e. the word of interest, each of its syllables, and their nuclei -- is analyzed in terms of its F0 mean, maximum, minimum, and range. These features are calculated from the non-zero point in the pitch contour, i.e. only take into account the voiced sections of the utterance. 
+	Using this contour, each of the relevant segments of the utterance -- i.e. the word of interest, each of its syllables, and their nuclei -- is analyzed in terms of its F0 mean, maximum, minimum, and range;
+	the full list of features computed is presented in \cref{tab:prosody:f0}.
+	Features only take into account the non-zero points in the contour, i.e. points corresponding to voiced sections of the utterance. The F0 mean is calculated as the average of all non-zero points within the start and end boundaries of the given segment; the maximum F0 is the highest value at any of these points, and the minimum the lowest non-zero value; and F0 range is computed as the difference between the maximum and minimum values. 
 	
 	\TODO{Jsnoori only looks at mean and max? or something? by way of transition to this next paragraph}
+	% Jsnoori diagnoses errors in the learner's pitch only with regard to 
 	
 	Much of the work on assessing non-native lexical stress has been conducted with English as the L2, and thus often makes the assumption that a stressed syllable should have a higher F0 than unstressed syllables \citep{Bonneau2011}. In German, the F0 of a stressed syllable also tends to differ from the surrounding contour, but the difference may be positive (the stressed syllable has a higher pitch than surrounding syllables) or negative (lower pitch) \citep[p.~267]{Cutler2005}. 		%``...in German utterances, stressed syllables could be signaled by any F0 obtrusion from the overall contour, so that a stressed syllable could be either higher or lower in pitch than its neighbors'' \citep[p.~267]{Cutler2005}
 	Therefore, the computed features
@@ -331,7 +337,7 @@ The relative utility of these features in automatically diagnosing lexical stres
 
 
 		%\setlength\extrarowheight{5pt}
-\begin{table}[htb]
+\begin{table}[ht]
 		\centering
 		\caption[Features computed for fundamental frequency (F0) analysis]{Features computed for fundamental frequency (F0) analysis, and their values for the sample utterances of ``Flagge'' in \cref{fig:featuresexample}.% Values are given in semitones.
 		}
@@ -407,6 +413,7 @@ The relative utility of these features in automatically diagnosing lexical stres
 		\end{tabularx}
 		\end{subtable}
 		}
+		\label{tab:f0features}
 		\end{table}
 		%\vspace{1em}
 		
@@ -495,6 +502,19 @@ The relative utility of these features in automatically diagnosing lexical stres
 
 	\subsection{Intensity}
 	\label{sec:prosody:intensity}
+		
+		Research on lexical stress prosody has generally indicated that intensity is the least important of the three features, i.e. corresponds least closely to lexical stress patterns \citep{Cutler2005}. 
+Indeed, existing lexical stress assessment tools may not take intensity into account, as 
+was the case with the prosodic diagnosis functionality of Jsnoori \TODO{at the start of this thesis project \textit{reword htat}}.
+%is the case in the system described by \textcite{Bonneau2011}.  
+However, intensity can nonetheless have an impact on the perception of lexical stress, especially in combination with pitch or duration, or both \citep{Cutler2005}; %TODO check this reference
+%Therefore, the diagnosis system should ideally take intensity into account when performing its prosodic analysis. This could be as simple as computing the total energy of the part of the signal corresponding to each syllable of the word in question, although more complex measures may be explored if time allows.
+
+
+
+\TODO{Jsnoori wasn't using Energy for diagnosis until I made it}
+	
+	
 	
 	\TODO{Energy in Jsnoori:
 	\begin{itemize}
@@ -503,14 +523,10 @@ The relative utility of these features in automatically diagnosing lexical stres
 		\item Energy calculated in which frequency band (range)?
 		\item Other parameters for energy calc?
 	\end{itemize}
-	}	
-	
-		Research on lexical stress prosody has generally indicated that intensity is the least important of the three features, i.e. corresponds least closely to lexical stress patterns \citep{Cutler2005}. 
-Indeed, existing lexical stress assessment tools may not take intensity into account, as is the case in the system described by \textcite{Bonneau2011}.  However, intensity can nonetheless have an impact on the perception of lexical stress, especially in combination with pitch or duration, or both \citep{Cutler2005}; %TODO check this reference
-Therefore, the diagnosis system should ideally take intensity into account when performing its prosodic analysis. This could be as simple as computing the total energy of the part of the signal corresponding to each syllable of the word in question, although more complex measures may be explored if time allows.
+	}		
 	
 	
-\begin{table}[htb]
+\begin{table}[ht]
 		\centering
 		\caption[Features computed for intensity  analysis]{Features computed for intensity analysis, and their values for the sample utterances of ``Flagge'' in \cref{fig:featuresexample}.}	
 		

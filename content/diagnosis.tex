@@ -502,28 +502,33 @@ along with the values computed for each feature from the sample utterances shown
 
 	\subsection{Intensity}
 	\label{sec:prosody:intensity}
+	
+	\TODO{intensity and energy are used interchangeably - fix or explain}
 		
 		Research on lexical stress prosody has generally indicated that intensity is the least important of the three features, i.e. corresponds least closely to lexical stress patterns \citep{Cutler2005}. 
 Indeed, existing lexical stress assessment tools may not take intensity into account, as 
 was the case with the prosodic diagnosis functionality of Jsnoori \TODO{at the start of this thesis project \textit{reword htat}}.
 %is the case in the system described by \textcite{Bonneau2011}.  
 However, intensity can nonetheless have an impact on the perception of lexical stress, especially in combination with pitch or duration, or both \citep{Cutler2005}; %TODO check this reference
-%Therefore, the diagnosis system should ideally take intensity into account when performing its prosodic analysis. This could be as simple as computing the total energy of the part of the signal corresponding to each syllable of the word in question, although more complex measures may be explored if time allows.
+Therefore, in addition to duration and fundamental frequency, the intensity of relevant portions of an utterance are taken into account when performing prosodic analysis.
+% This could be as simple as computing the total energy of the part of the signal corresponding to each syllable of the word in question, although more complex measures may be explored if time allows.
 
 
 
-\TODO{Jsnoori wasn't using Energy for diagnosis until I made it}
+
+	The intensity contour of a given segment (word, syllable, or syllable nucleus) in the utterance is computed in Jsnoori, which calculates the total amount of energy at frequencies from 0 to 8000 Hertz in spectra extracted from the signal by Fast Fourier Transform, using Hamming windows 20 milliseconds long spaced 4 milliseconds apart \TODO{explain why I didn't use 32ms windows?}. Energies below a ``silence threshold'' of 60 decibels are not counted toward the total, as these are assumed to correspond to ambient or non-speech noise.  
+	This intensity contour is then used to calculate the mean and maximum energy in the relevant segments of the speech signal; the list of features extracted is given in \cref{tab:intfeatures}.
 	
 	
-	
-	\TODO{Energy in Jsnoori:
-	\begin{itemize}
-		\item Determined by FFT
-		\item Which window size/spacing used?
-		\item Energy calculated in which frequency band (range)?
-		\item Other parameters for energy calc?
-	\end{itemize}
-	}		
+%	\TODO{Energy in Jsnoori:
+%	\begin{itemize}
+%		\item Determined by FFT
+%		\item Which window size/spacing used? (20 ms window, spaced  4ms apart )
+%		\item Energy calculated in which frequency band (range)? (0-8000 hz)
+%		\item takes 60dB as silence level - only calculates energy above that
+%		\item Other parameters for energy calc?
+%	\end{itemize}
+%	}		
 	
 	
 \begin{table}[ht]
@@ -557,7 +562,7 @@ V1-ENERGY-MAX & \color{red}{TD} &  \color{red}{TD}	& \color{red}{TD}\\
 	\bottomrule
 	\end{tabularx}
 	\end{subtable}
-	
+	\label{tab:intfeatures}
 \end{table}
 
 \begin{table}[ht]
@@ -587,9 +592,15 @@ ENERGY-MAX-INDEX & \color{red}{TD} &  \color{red}{TD}	& \color{red}{TD}\\
 \end{table}
 	
 	
+\TODO{section outro?}	
+	
+	
+	
 \section{Diagnosis by direct comparison}
 %\section{Comparison of native and nonnative speech}
 \label{sec:diag:compare}
+
+\TODO{Jsnoori wasn't using Energy for diagnosis until I made it} 
 
 	This thesis will explore a variety of approaches to modeling the lexical stress prosody of native speech in such a way that the learner's utterance can be automatically compared to that native model. This investigation, and the creation of a CAPT tool that allows researchers to easily switch between approaches to study their effects, will be one of the primary contributions of the thesis.
 	

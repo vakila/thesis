@@ -193,6 +193,7 @@ any analysis of the learner's speech signal, including the preliminary step of s
 	%, enabling analysis of these  
 	%in terms of the acoustic correlates of word prosody described in \cref{sec:background:stress}.  
 	This section describes the features by which the system analyzes the lexical stress prosody of an utterance, be it the utterance of a learner or of a native speaker. These features relate to the three \TODO{acoustic properties (and by extension their perceptual correlates)} described in \cref{sec:bkgd:stress}, namely duration (timing), fundamental frequency (pitch), and intensity (loudness). 
+	The relative utility of these features in automatically diagnosing lexical stress errors is discussed further in \cref{sec:diag:classification}.
 		%The features computed for each property are described in the corresponding sections below.
 %
 	%\TODO{Where possible, the diagnosis module of the CAPT tool will provide researchers control over the features used; for example, there may be an option to include all F0 and duration features but ignore intensity features.}
@@ -290,7 +291,6 @@ along with the values computed for each feature from the sample utterances shown
 		\label{tab:durationfeatures}
 \end{table}
 
-\TODO{\textit{awkwardly placed:}} The relative utility of these features in automatically diagnosing lexical stress errors is discussed further in \cref{sec:diag:classification}.
 
 
 	\subsection{Fundamental frequency}
@@ -759,11 +759,14 @@ For the two most frequently observed classes in the data, [correct] and [incorre
 			\begin{itemize}
 			\item{Precision (P): the number of instances the classifier correctly assigned to this class (i.e. the number labeled as this class that were truly of this class), divided by the total number of instances it assigned to this class}
 			\item{Recall (R): the number of instances the classifier correctly assigned to this class, divided by the number of instances which truly belong to this class}
-			\item{F-measure (F), also known as F-score or F$_1$-score: a metric which combines Precision and Recall by taking their harmonic mean, given by the formula $2PR/(P+R)$ 
+			\item{F-measure (F), also known as F-score or F$_1$ measure: a metric which combines Precision and Recall by taking their harmonic mean, given by the formula $F = 2PR/(P+R)$ 
 			%\[\frac{2PR}{P+R}\]
+			\item{\TODO{add F$_2$ measure? (weights R twice as much as P)\\
+			$F_2 = (1+2^2) \cdot PR/(2^2 \cdot P+R) = 5PR/(4P+R)$}}
 			}
 			\end{itemize}
-	\TODO{say how we want to see high recall for correct utterances, becaues it's worse to misclassify correct as incorrect than vice versa.   ....what do we want to see for [incorrect]? should [incorrect] P/R/F be left out entirely?}
+	Given the intended application of error detection in a student-facing CAPT system, the recall for the [correct] class should be accorded particular importance, since it informs us of the proportion of truly correct utterances that the system marks as having some type of error. This type of misclassification is more dangerous for a CAPT system than misclassifying incorrect pronunciations as correct, because telling a student that they have made a mistake when in fact they have not can be more damaging to their motivation and willingness to continue learning with the system than telling them that they have stressed a word correctly when in fact they have made a mistake \TODO{citation?}. Therefore, [correct] recall should be high (close to 1.0) for a classifier that will be used for error diagnosis. However, recall of 1.0 can be trivially achieved by simply classifying everything as [correct], though this would defeat the purpose of an error diagnosis system. Therefore, a balance must be struck between high recall  for the [correct] class, i.e. a low proportion of correct utterances misclassified as incorrect, and high precision, i.e. a low proportion of incorrect utterances misclassified as correct. The evenly-weighted F-measure 
+	%\TODO{say how we want to see high recall for correct utterances, becaues it's worse to misclassify correct as incorrect than vice versa.   ....what do we want to see for [incorrect]? should [incorrect] P/R/F be left out entirely?}
 	
 	In each cross-validation, these evaluation statistics were averaged over all folds, i.e. over each train/test split in the data. 
 	%The average values represent the overall accuracy of that  
@@ -777,16 +780,12 @@ For the two most frequently observed classes in the data, [correct] and [incorre
 		
 		A 10-fold cross-validation was performed on the entire set of available training data, i.e. the utterances of 12 German word types produced by L1 French speakers which had been annotated for lexical stress errors as described in \cref{chap:lexstress}, along with the	utterances of these word types by native German speakers, labeled as correct. As the goal of  error diagnosis by classification in the CAPT context is to classify non-native, and not native, speech, including native utterances in the test data was not appropriate; therefore, for each of the 10 folds of the cross-validation, one tenth of the non-native utterances were randomly selected to be held out as the test data set, and the other nine-tenths were combined with the native utterances to create the training data set. 
 		
-		To evaluate feature performance, classifiers were trained using various subsets of the complete feature set;  the various feature sets used in the experiments are listed in \cref{tab:features:sets}. For each of these feature combinations, classifiers were trained on each of the 10 training sets created as just described, and tested on the corresponding test set. 
+		To evaluate feature performance, classifiers were trained using various subsets of the complete feature set,
+		%;  the various feature sets used in the experiments 
+		which are listed in \cref{tab:features:sets}. For each of these feature combinations, classifiers were trained on each of the 10 training sets created as just described, and tested on the corresponding test set. The averages of each of the aforementioned evaluation metrics (see \cref{sec:classification:datamethod}) across all 10 folds are reported.
+
 		
-		\TODO{Things to mention:
-		\begin{itemize}
-			\item Random FG data splits
-			\item Compare kappas to inter-annotator kappas
-		\end{itemize}
-		}
-		
-		\begin{table}
+		\begin{table}[h]
 			\centering
 			\caption{Feature sets used in classification experiments}
 			
@@ -823,6 +822,7 @@ For the two most frequently observed classes in the data, [correct] and [incorre
 				ALL & DURATION + F0 + ENERGY \\
 				\bottomrule
 				\end{tabularx}
+				\label{tab:features:sets:prosody}
 			\end{subtable}
 			
 			\vspace{1.5em}			
@@ -843,16 +843,24 @@ For the two most frequently observed classes in the data, [correct] and [incorre
 				WD-GEN & WORD, GENDER \\
 				WD-SPKR & WORD, LEVEL, GENDER \\
 				\bottomrule
-				\end{tabular}		
+				\end{tabular}
+				\label{tab:features:sets:other}		
 			\end{subtable}
 				
 			\label{tab:features:sets}
 		\end{table}
 		
 		
+		\Cref{tab:results:prosody} lists the results of experiments with the prosodic features described in \cref{tab:features:sets:prosody}. The results obtained using features representing each of the three acoustic correlates of lexical stress, duration, F0, and intensity (energy), which are displayed in the first three rows of \cref{tab:results:prosody}, conform with findings from other research regarding the correspondence between these three \TODO{features} and lexical stress (see \cref{sec:bkgd:stress}): of the three feature sets, duration seems to be the best predictor of lexical stress errors, insofar as a classifier trained on duration features alone has higher accuracy, $\kappa$, and F-scores than one trained on F0 features alone, which in turn outperforms a classifier trained using only features related to intensity. However, it should be noted that the F0 and intensity features do seem to be at an advantage over the duration features in one respect: the latter has an average recall of only 0.91 for [correct] utterances, while the other two features exhibit perfect recall (1.0). As mentioned earlier (\cref{sec:classification:datamethod}), lower [correct] recall means that correct pronunciations are being misclassified as incorrect, which is a dangerous type of mistake for the CAPT system to make. Therefore, it is worth bearing in mind that while F0 and intensity features may not lead to the best overall accuracy in error diagnosis, they may constitute ``safer'' alternatives to the duration features, in that they tend to make classifiers more conservative in labeling utterances as [incorrect]. \TODO{\textit{rewrite that sentence?}}
+		
+		Compared to using each of the three prosodic feature sets in isolation, it is clear from the figures in the lower rows of \cref{tab:results:prosody} that even better performance can be achieved by combining these features. Interestingly, however, the overall best performance was observed not with classifiers trained on features of all three types (ALL), but rather from those trained only on duration and F0 features, with no regard to intensity. 
+		
+		\TODO{Compare kappas to inter-annotator kappas: 
+		mean 0.23, min -0.01, median 0.26, max 0.61}
+		
 		\begin{table}
 			\centering
-			\caption{Results of experiments with prosodic features \TODO{explain stats} \TODO{remove [incorrect] stats?}}
+			\caption{Results of experiments with prosodic features \TODO{explain stats} \TODO{remove [incorrect] stats?} \TODO{add [correct] F$_2$ measure?}}
 			\begin{tabularx}{\textwidth}{lXXXXXXXX}			
 			\toprule
 			\multirow{2}{*}{Feature set} & 
@@ -869,7 +877,7 @@ ENERGY	&	63.77	&	0.00	&	0.64	&	\textbf{1.00}	&	0.78	&	0.00	&	0.00	&	0.00	\\
 ENER-F0	&	64.52	&	0.04	&	0.65	&	0.98	&	0.78	&	0.17	&	0.07	&	0.09	\\
 DUR-ENER	&	67.68	&	0.25	&	0.71	&	0.89	&	0.79	&	0.56	&	0.37	&	0.42	\\
 DUR-F0	&	\textbf{69.77}	&	\textbf{0.29}	&	\textbf{0.72}	&	0.91	&	\textbf{0.80}	&	\textbf{0.64}	&	\textbf{0.41}	&	\textbf{0.48}	\\
-			\addlinespace
+			%\addlinespace
 ALL 	&	67.52	&	0.25	&	0.71	&	0.89	&	0.79	&	0.58	&	0.37	&	0.43	\\
 			\bottomrule
 			\label{tab:results:prosody}
@@ -880,7 +888,7 @@ ALL 	&	67.52	&	0.25	&	0.71	&	0.89	&	0.79	&	0.58	&	0.37	&	0.43	\\
 		
 		\begin{table}
 			\centering
-			\caption{Results of experiments with speaker and word features \TODO{remove [incorrect] stats?} \TODO{Redo with DUR-F0 instead of ALL}}
+			\caption{Results of experiments with speaker and word features \TODO{remove [incorrect] stats?} \TODO{Redo with DUR-F0 instead of ALL} \TODO{add [correct] F$_2$ measure?}}
 			\begin{tabularx}{\textwidth}{lXXXXXXXX}			
 			
 			\toprule

@@ -747,6 +747,72 @@ that of the learner \citep{Probst2002}.
 	\subsection{Features}
 		\TODO{}
 		
+		\begin{table}
+			\centering
+			\caption{\TODO{Feature sets}}
+			\begin{tabularx}{.65\textwidth}{lX}
+			\toprule
+			Set name & Features \\
+			\midrule
+			DURATION & 	REL-SYLL-DUR, REL-V-DUR \\
+			\addlinespace
+			F0 &	REL-SYLL-F0-MEAN,\newline
+					REL-SYLL-F0-MAX, \newline
+					REL-SYLL-F0-MIN, \newline
+					REL-SYLL-F0-RANGE, \newline
+					REL-VOWEL-F0-MEAN, \newline
+					REL-VOWEL-F0-MAX, \newline
+					REL-VOWEL-F0-MIN, \newline
+					REL-VOWEL-F0-RANGE, \newline
+					F0-MAX-INDEX, \newline
+					F0-MIN-INDEX, \newline
+					F0-MAXRANGE-INDEX \\
+			\addlinespace
+			ENERGY &	REL-SYLL-ENERGY-MEAN, \newline
+							REL-SYLL-ENERGY-MAX, \newline
+							REL-VOWEL-ENERGY-MEAN, \newline
+							REL-VOWEL-ENERGY-MAX, \newline
+							ENERGY-MAX-INDEX \\
+			\addlinespace
+			DUR-F0 & DURATION + F0 \\
+			DUR-ENER & DURATION + ENERGY \\
+			ENER-F0 & ENERGY + F0 \\
+			PROSODY & DURATION + F0 + ENERGY \\
+			\addlinespace
+			SPKR-INFO & SPEAKER-LEVEL, SPEAKER-GENDER \\
+			WORD & WORD \\
+			\bottomrule
+			\end{tabularx}			
+			\label{tab:features:sets}
+		\end{table}
+		
+		
+		\begin{table}
+			\centering
+			\caption{Results \TODO{Caption} \TODO{remove [incorrect] stats?}}
+			\begin{tabularx}{\textwidth}{lXXXXXXXX}			
+			\toprule
+			\multirow{2}{*}{Feature set} & 
+			%\multicolumn{2}{c}{Instances} & 
+			\multirow{2}{*}{\% acc.} & \multirow{2}{*}{$\kappa$} & \multicolumn{3}{c}{[correct] class} & \multicolumn{3}{c}{[incorrect] class} \\
+			 %& acc. & inacc. 
+			 \cmidrule(lr){4-6} \cmidrule(lr){7-9}
+			 & & & P & R & F & P & R & F \\
+			\midrule
+DURATION	&	66.78	&	0.19	&	0.69	&	0.91	&	0.79	&	0.53	&	0.28	&	0.35	\\
+F0	&	64.37	&	0.02	&	0.64	&	1.00	&	0.78	&	0.08	&	0.02	&	0.03	\\
+ENERGY	&	63.77	&	0.00	&	0.64	&	1.00	&	0.78	&	0.00	&	0.00	&	0.00	\\
+			\addlinespace
+ENER-F0	&	64.52	&	0.04	&	0.65	&	0.98	&	0.78	&	0.17	&	0.07	&	0.09	\\
+DUR-ENER	&	67.68	&	0.25	&	0.71	&	0.89	&	0.79	&	0.56	&	0.37	&	0.42	\\
+DUR-F0	&	69.77	&	0.29	&	0.72	&	0.91	&	0.80	&	0.64	&	0.41	&	0.48	\\
+			\addlinespace
+PROSODY 	&	67.52	&	0.25	&	0.71	&	0.89	&	0.79	&	0.58	&	0.37	&	0.43	\\
+			\bottomrule
+			\label{tab:features:results}
+			\end{tabularx}
+		\end{table}
+		
 %	\subsection{Classification algorithms}
 %		\TODO{}	
 	

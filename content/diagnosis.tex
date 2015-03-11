@@ -717,11 +717,31 @@ that of the learner \citep{Probst2002}.
 	 In their work on assessing children's reading fluency, \textcite{Duong2011} found that evaluating a child's utterance in terms of a generalized prosody model, which predicts how a given text should be uttered, yielded more accurate fluency predictions than comparing it to a reference utterance of the text in question. 
 	 
 	 
-	 Given the relative novelty of this type of diagnosis for prosodic errors, diagnosis by classification was of particular interest in this thesis project. The classification experiments conducted in this work are described in the sections that follow. \TODO{\textit{rephrase this paragraph}}. \TODO{outline what experiments were done}
+	 Given the relative novelty of this type of diagnosis for prosodic errors, diagnosis by classification was of particular interest in this thesis project. A series of classification experiments was conducted in an effort to determine:
+	 \begin{itemize}
+	 \item how well lexical errors can be identified by a classification-based approach, in comparison to the accuracy of human listeners in identifying such errors,
+	 \item which of the features discussed in \cref{sec:diag:prosody} are most useful for diagnosis by classification, and 
+	 \item whether a classification-based approach can lead to reasonably accurate diagnosis for words or speakers not seen in the training data \TODO{do I need to say more about that here?}.
+	 \end{itemize}
+	 The sections that follow describe these experiments and their findings. \TODO{\textit{rephrase this paragraph}}. 
+	 The objective of these experiments 
 	 
 	\subsection{Data and method}
 		
-		In addition to the motivation of analyzing the frequency and distribution of lexical stress errors in L2 German speech by L1 French speakers, another motivation behind the annotation of these errors in a subset of the IFCASL corpus (described in \cref{chap:lexstress}) was the creation of labeled data for a supervised machine learning approach to diagnosing learner errors. Using the WEKA machine learning toolkit \citep{Hall2009}, classifiers were trained to predict a label (e.g. [correct] or [incorrect]) for a given learner utterance using the gold-standard labels from the annotated sub-corpus (see \cref{sec:agreement:gold}) as training data. The accuracy of these classifiers was assessed by using held-out portions of the annotated data as test sets, and performing cross-evaluation on multiple train/test splits of the data. Details of the features, classifiers, and data splits used in each experiment are given in the relevant section below. \TODO{reword now that using only 1 classifier}
+		In addition to the motivation of analyzing the frequency and distribution of lexical stress errors in L2 German speech by L1 French speakers, another motivation behind the annotation of these errors in a subset of the IFCASL corpus (described in \cref{chap:lexstress}) was the creation of labeled data for a supervised machine learning approach to diagnosing learner errors. Using the gold-standard labels from the annotated sub-corpus (see \cref{sec:agreement:gold}), it is possible to predict a label (e.g. [correct] or [incorrect]) for a given learner utterance based on the values of (a subset of) the features described in \cref{sec:diag:prosody}, and then compare the predicted label to the label assigned to that instance in the gold-standard data to evaluate the accuracy of the prediction. 
+		
+		This was accomplished by training and evaluating classifiers in various configurations using the WEKA machine learning toolkit \citep{Hall2009}. 	
+		In the experiments reported below, 
+		the classifiers used are
+		simple Classification And Regression Trees (CARTs) \cref{Breiman1984}. 
+		% the classification algorithm used is 
+		%the J48 decision tree, a Java implementation of the C4.5 algorithm developed by \textcite{Quinlan1993}.} 
+		\TODO{explanation of how CARTs work and why I chose decision trees?}. 
+		However, as WEKA implements a wide variety of other classifiers, some of which can be much more powerful than the algorithm used here, it would be interesting to compare different classification algorithms to see if other classifiers are more effective for this type of data (see \cref{sec:conclusion:future}).
+		
+		For each relevant configuration (see below), a CART is trained to classify utterances as belonging to one of the five categories described in \cref{sec:lexstress:method}. However, in practice these trees classify every utterance as either [correct] or [incorrect], neglecting [none] and the other labels due to their comparatively low frequency in the data \TODO{need to say more?}.
+		%
+		Overall classification accuracy on the annotated sub-corpus was assessed by using held-out portions of the annotated data as test sets, and performing cross-evaluation on multiple train/test splits of the data. The features and data splits used in each experiment are described in the sections below. \TODO{\textit{reword that?}}
 
 		
 	\subsection{Features}
@@ -731,7 +751,12 @@ that of the learner \citep{Probst2002}.
 %		\TODO{}	
 	
 	\subsection{Unknown words and speakers}
-		\TODO{}
+		\TODO{If accuracy on unseen words is good, that's encouraging for making new CAPT exercises for which we don't have reference recordings}
+		
+		\TODO{If accuracy on unseen speakers is good, that means ....?
+		If accuracy on unseen speakers is bad, it could mean that the overall accuracy was the result of having training data specific to the speaker (even though the classifier isn't aware of the speaker's ID), which could mean that....}
+		
+		
 	
 	
 	

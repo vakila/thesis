@@ -51,6 +51,8 @@ though there is much to be learned about exactly when and how feedback can be mo
 \section{Computer-Assisted Pronunciation Training}
 \label{sec:bkgd:capt}
 
+\TODO{REORGANIZE THIS SECTION}
+
 Computer-Assisted Pronunciation Training\footnote{Also known as Computer-Assisted Pronunciation Teaching or Tutoring} (CAPT) stands to help make pronunciation training more accessible by overcoming some of these difficulties. 
 With CAPT, student-to-teacher ratio is not an issue, as the learner always has the full attention of the digital tutor, and provided an effective curriculum design, a CAPT system can offer learners practically limitless practice opportunities. Interacting with a computer program may also be perceived by the learner as a lower-stakes, more comfortable environment than the classroom, where they may feel too intimidated to practice speaking in the L2. But perhaps most compelling is the potential for CAPT 
 to deliver the type of individualized instruction
@@ -78,14 +80,15 @@ Indeed, in recent decades, the educational value of speech technologies has been
 		
 	The viability of CAPT has been demonstrated by a variety of systems and tools that have been developed in both academic and commercial contexts. Some focus on overall assessment of pronunciation or fluency, and others on the detection and correction of individual pronunciation errors \citep{Eskenazi2009}; the tool developed in this work falls into the latter category. In error-focused systems, a distinction has typically been drawn between phonemic errors, e.g. the substitution, insertion, or deletion of a segmental speech sound, and prosodic errors, such as those related to stress/accent, intonation, or rhythm \citep{Witt2012}. As discussed in the previous section, word-prosodic errors have a larger impact on intelligibility than segmental errors, and are therefore the focus of this work (see \cref{sec:bkgd:targeting} below). With this in mind, a few prosody-aware CAPT systems relevant to this thesis are discussed below; comprehensive overviews and comparisons of these and many other systems are given by \textcite{Neri2002,Eskenazi2009,Delmonte2011,Witt2012}.  
 	
-	\subsubsection{LORIA \TODO{title}}
-	\label{sec:capt:systems:loria}
+	\subsubsection{Automatic processing of learner speech}
 		
 	Both the diagnosis and feedback modules of the CAPT tool developed in this work build to a great extent on previous work by researchers in the speech group at LORIA\footnote{\url{http://www.loria.fr/}} in Nancy, France, many of whom are also involved in the IFCASL project (see \cref{sec:intro:ifcasl}). 
 	%
-	 \TODO{\textit{This part about segmentation doesn't really fit in with the CAPT systems discussion - find a better place for it.}}
+	 \TODO{\textit{This part about segmentation doesn't really fit in with the prosody-in-CAPT discussion - find a better place for it.}}
 	 Their work has, on the one hand, investigated the task of automatically recognizing and segmenting learners' speech, and determining how this possibly incorrect automatic segmentation can be effectively utilized in the context of pronunciation tutoring, particularly at the prosodic level \citep{Mesbahi2011,Orosanu2012}; 
 	\TODO{see \cref{chap:diagnosis} for a discussion of how this thesis will build upon that work. \textit{Details \& de-proposal-ize}}
+	
+	\subsubsection{The \textit{Snorri} suite and \textit{Jsnoori}}
 	
 	%Additionally, the group has developed
 	Another important contribution of the LORIA group is 
@@ -130,8 +133,7 @@ and leverages its feedback generation capabilities to deliver \TODO{\textit{veri
 	% \citep{Bonneau2011,Fohr1996,Fohr2012,Mesbahi2011,Orosanu2012}. The Jsnoori/WinSnoori software \citep{Parole2013}
 %which this group has developed will be instrumental in the construction of the CAPT tool. 
 
-	\subsubsection{CMU \TODO{title}}
-	\label{sec:capt:systems:cmu}
+	\subsubsection{The \textit{Fluency} pronunciation trainer}
 	
 	This work also draws from research on two systems developed at Carnegie Mellon University.
 %, namely the Fluency pronunciation trainer
@@ -152,6 +154,8 @@ and leverages its feedback generation capabilities to deliver \TODO{\textit{veri
 %prosody and 
 user-adaptivity, corrective articulatory feedback, and the integration of perceptual training (e.g. listening exercises). As with the work at LORIA described above, the Fluency system evaluates learners' speech via comparison with that of a native reference speaker, and \textcite{Probst2002} found that selecting a ``golden speaker'' whose voice closely matched the learner's improved learning gains. \TODO{more about golden speaker?} Fluency also implements an error-catching step to reject utterances which do not match the expected text \citep{Eskenazi2000}, in the same vein as that of \textcite{Mesbahi2011,Orosanu2012}. \textcite{Eskenazi2007} report that Fluency's commercial spin-off, NativeAccent\textsuperscript{TM}, has been shown to help real-world users significantly improve their pronunciation skills.
 	%In an early version of Fluency, an utterance is elicited from the learner using a targeted question, constraining the learner's response such that a speech recognizer can perform forced alignment on the utterance, while at the same time giving the learner the impression that they have decided what to say (as opposed to simply reading a given sentence out loud).
+	
+	\subsubsection{The Project LISTEN Reading Tutor}
 	
 	A second CMU system, the Project LISTEN Reading Tutor \citep{Mostow2012} 
 may not strictly be a CAPT tool, as it 

@@ -569,6 +569,7 @@ V1-ENERGY-MAX & \color{red}{TD} &  \color{red}{TD}	& \color{red}{TD}\\
 	\bottomrule
 	\end{tabularx}
 	\end{subtable}
+	\vspace{2em}	
 	
 %	\label{tab:intfeatures}
 %\end{table}
@@ -727,6 +728,7 @@ that of the learner \citep{Probst2002}.
 	 The objective of these experiments 
 	 
 	\subsection{Data and method}
+	\label{sec:classification:datamethod}
 		
 		In addition to the motivation of analyzing the frequency and distribution of lexical stress errors in L2 German speech by L1 French speakers, another motivation behind the annotation of these errors in a subset of the IFCASL corpus (described in \cref{chap:lexstress}) was the creation of labeled data for a supervised machine learning approach to diagnosing learner errors. Using the gold-standard labels from the annotated sub-corpus (see \cref{sec:agreement:gold}), it is possible to predict a label (e.g. [correct] or [incorrect]) for a given learner utterance based on the values of (a subset of) the features described in \cref{sec:diag:prosody}, and then compare the predicted label to the label assigned to that instance in the gold-standard data to evaluate the accuracy of the prediction. 
 		
@@ -744,52 +746,82 @@ that of the learner \citep{Probst2002}.
 		Overall classification accuracy on the annotated sub-corpus was assessed by using held-out portions of the annotated data as test sets, and performing cross-evaluation on multiple train/test splits of the data. The features and data splits used in each experiment are described in the sections below. \TODO{\textit{reword that?}}
 
 		
-	\subsection{Features}
-		\TODO{}
+	\subsection{Feature performance \TODO{\textit{retitle?}}}
+	\label{sec:classification:features}
+		\TODO{Things to mention:
+		\begin{itemize}
+			\item Random FG data splits
+			\item Compare kappas to inter-annotator kappas
+		\end{itemize}
+		}
 		
 		\begin{table}
 			\centering
-			\caption{\TODO{Feature sets}}
-			\begin{tabularx}{.65\textwidth}{lX}
-			\toprule
-			Set name & Features \\
-			\midrule
-			DURATION & 	REL-SYLL-DUR, REL-V-DUR \\
-			\addlinespace
-			F0 &	REL-SYLL-F0-MEAN,\newline
-					REL-SYLL-F0-MAX, \newline
-					REL-SYLL-F0-MIN, \newline
-					REL-SYLL-F0-RANGE, \newline
-					REL-VOWEL-F0-MEAN, \newline
-					REL-VOWEL-F0-MAX, \newline
-					REL-VOWEL-F0-MIN, \newline
-					REL-VOWEL-F0-RANGE, \newline
-					F0-MAX-INDEX, \newline
-					F0-MIN-INDEX, \newline
-					F0-MAXRANGE-INDEX \\
-			\addlinespace
-			ENERGY &	REL-SYLL-ENERGY-MEAN, \newline
-							REL-SYLL-ENERGY-MAX, \newline
-							REL-VOWEL-ENERGY-MEAN, \newline
-							REL-VOWEL-ENERGY-MAX, \newline
-							ENERGY-MAX-INDEX \\
-			\addlinespace
-			DUR-F0 & DURATION + F0 \\
-			DUR-ENER & DURATION + ENERGY \\
-			ENER-F0 & ENERGY + F0 \\
-			PROSODY & DURATION + F0 + ENERGY \\
-			\addlinespace
-			SPKR-INFO & SPEAKER-LEVEL, SPEAKER-GENDER \\
-			WORD & WORD \\
-			\bottomrule
-			\end{tabularx}			
+			\caption{Feature sets \TODO{separate prosodic/other features}}
+			
+			\begin{subtable}[h]{\textwidth}
+				\centering
+				\caption{Prosodic features (see \cref{sec:diag:prosody})}
+				\begin{tabularx}{.65\textwidth}{lX}
+				\toprule
+				Set name & Features \\
+				\midrule
+				DURATION & 	REL-SYLL-DUR, REL-V-DUR \\
+				\addlinespace
+				F0 &	REL-SYLL-F0-MEAN,\newline
+						REL-SYLL-F0-MAX, \newline
+						REL-SYLL-F0-MIN, \newline
+						REL-SYLL-F0-RANGE, \newline
+						REL-VOWEL-F0-MEAN, \newline
+						REL-VOWEL-F0-MAX, \newline
+						REL-VOWEL-F0-MIN, \newline
+						REL-VOWEL-F0-RANGE, \newline
+						F0-MAX-INDEX, \newline
+						F0-MIN-INDEX, \newline
+						F0-MAXRANGE-INDEX \\
+				\addlinespace
+				ENERGY &	REL-SYLL-ENERGY-MEAN, \newline
+								REL-SYLL-ENERGY-MAX, \newline
+								REL-VOWEL-ENERGY-MEAN, \newline
+								REL-VOWEL-ENERGY-MAX, \newline
+								ENERGY-MAX-INDEX \\
+				\addlinespace
+				DUR-F0 & DURATION + F0 \\
+				DUR-ENER & DURATION + ENERGY \\
+				ENER-F0 & ENERGY + F0 \\
+				PROSODY & DURATION + F0 + ENERGY \\
+				\bottomrule
+				\end{tabularx}
+			\end{subtable}
+			
+			\vspace{1.5em}			
+			
+			\begin{subtable}[h]{\textwidth}
+				\centering
+				\caption{Speaker/word features}
+				%\begin{tabularx}{\textwidth}{lX}
+				\begin{tabular}{ll}
+				\toprule
+				Set name & Feature(s) \\
+				\midrule
+				WORD & The word being uttered (e.g. \textit{Tatort}) \\
+				LEVEL & Speaker's L2 German skill level (e.g. A2)\\
+				GENDER & Speaker's age/gender category (Girl/Boy/Woman/Man)\\
+				LVL-GEN & LEVEL, GENDER \\
+				WD-LVL & WORD, LEVEL \\
+				WD-GEN & WORD, GENDER \\
+				WD-SPKR & WORD, LEVEL, GENDER \\
+				\bottomrule
+				\end{tabular}		
+			\end{subtable}
+				
 			\label{tab:features:sets}
 		\end{table}
 		
 		
 		\begin{table}
 			\centering
-			\caption{Results \TODO{Caption} \TODO{remove [incorrect] stats?}}
+			\caption{Results of experiments with prosodic features \TODO{explain stats} \TODO{remove [incorrect] stats?}}
 			\begin{tabularx}{\textwidth}{lXXXXXXXX}			
 			\toprule
 			\multirow{2}{*}{Feature set} & 
@@ -809,7 +841,36 @@ DUR-F0	&	69.77	&	0.29	&	0.72	&	0.91	&	0.80	&	0.64	&	0.41	&	0.48	\\
 			\addlinespace
 PROSODY 	&	67.52	&	0.25	&	0.71	&	0.89	&	0.79	&	0.58	&	0.37	&	0.43	\\
 			\bottomrule
-			\label{tab:features:results}
+			\label{tab:results:prosody}
+			\end{tabularx}
+		\end{table}
+		
+		
+		
+		\begin{table}
+			\centering
+			\caption{Results of experiments with speaker and word features \TODO{remove [incorrect] stats?} \TODO{Redo with DUR-F0 instead of PROSODY}}
+			\begin{tabularx}{\textwidth}{lXXXXXXXX}			
+			
+			\toprule
+			Feature set & 
+			%\multicolumn{2}{c}{Instances} & 
+			\multirow{2}{*}{\% acc.} & \multirow{2}{*}{$\kappa$} & \multicolumn{3}{c}{[correct] class} & \multicolumn{3}{c}{[incorrect] class} \\
+			 %& acc. & inacc. 
+			 \cmidrule(lr){4-6} \cmidrule(lr){7-9}
+			 (+PROSODY)& & & P & R & F & P & R & F \\
+			\midrule
+WORD	&	68.41	&	0.28	&	0.72	&	0.88	&	0.79	&	0.60	&	0.44	&	0.49	\\
+LEVEL	&	70.07	&	0.29	&	0.71	&	0.92	&	0.80	&	0.66	&	0.39	&	0.48	\\
+GENDER	&	66.93	&	0.24	&	0.71	&	0.88	&	0.78	&	0.55	&	0.37	&	0.42	\\
+\addlinespace
+LVL-GEN	&	68.57	&	0.27	&	0.72	&	0.89	&	0.79	&	0.60	&	0.41	&	0.46	\\
+WD-GEN	&	68.87	&	0.30	&	0.73	&	0.87	&	0.79	&	0.58	&	0.47	&	0.51	\\
+WD-LVL	&	71.87	&	0.34	&	0.73	&	0.92	&	0.81	&	0.70	&	0.46	&	0.54	\\
+\addlinespace
+WD-SPKR	&	70.52	&	0.31	&	0.72	&	0.91	&	0.80	&	0.67	&	0.44	&	0.52	\\
+			\bottomrule
+			\label{tab:results:spkrword}
 			\end{tabularx}
 		\end{table}
 		

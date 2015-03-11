@@ -952,6 +952,32 @@ Average	&	66.85	&	0.17	&	0.69	&	0.88	&	0.77	&	0.83	\\
 		\end{table}
 	
 	
+	
+		\begin{table}
+			\centering
+			\caption[Results of experiments with unseen speakers]{Results of experiments with unseen speakers, averaged over all 56 held-out speakers \TODO{explain stats}}
+			\begin{tabularx}{\textwidth}{lXXXXXX}			
+			\toprule
+			\multirow{2}{*}{Feature set} & \multirow{2}{*}{\% acc.} & \multirow{2}{*}{$\kappa$} & \multicolumn{4}{c}{[correct] class} \\
+			\cmidrule(lr){4-7}
+			& & & P & R & F$_1$ & F$_2$ \\
+			\midrule
+DUR-F0	&	69.16	&	0.19	&	0.68	&	0.90	&	0.74	&	0.85	\\
+{+LEVEL}	&	69.33	&	0.22	&	0.69	&	0.87	&	0.74	&	0.82	\\
+{+WORD}	&	70.22	&	0.24	&	0.68	&	0.90	&	0.75	&	0.84	\\							
+			\bottomrule
+			\label{tab:results:speakers}
+			\end{tabularx}
+		\end{table}
+
+
+
+
+
+
+	
+	
+	
 %		ALTERNATIVE ORGANIZATION:		
 %		\subsection{Experimental results}
 %			\subsubsection{Features}

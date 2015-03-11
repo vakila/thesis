@@ -720,8 +720,8 @@ that of the learner \citep{Probst2002}.
 	 
 	 Given the relative novelty of this type of diagnosis for prosodic errors, diagnosis by classification was of particular interest in this thesis project. A series of classification experiments was conducted in an effort to determine:
 	 \begin{itemize}
-	 \item how well lexical errors can be identified by a classification-based approach, in comparison to the accuracy of human listeners in identifying such errors,
-	 \item which of the features discussed in \cref{sec:diag:prosody} are most useful for diagnosis by classification, and 
+	 \item how well lexical errors can be identified by a classification-based approach, in comparison to the accuracy of human listeners in identifying such errors, \TODO{combine with 2nd point?}
+	 \item which of the features discussed in \cref{sec:diag:prosody} are most useful for diagnosis by classification, and
 	 \item whether a classification-based approach can lead to reasonably accurate diagnosis for words or speakers not seen in the training data \TODO{do I need to say more about that here?}.
 	 \end{itemize}
 	 The sections that follow describe these experiments and their findings. \TODO{\textit{rephrase this paragraph}}. 
@@ -730,8 +730,10 @@ that of the learner \citep{Probst2002}.
 	\subsection{Data and method}
 	\label{sec:classification:datamethod}
 		
-		In addition to the motivation of analyzing the frequency and distribution of lexical stress errors in L2 German speech by L1 French speakers, another motivation behind the annotation of these errors in a subset of the IFCASL corpus (described in \cref{chap:lexstress}) was the creation of labeled data for a supervised machine learning approach to diagnosing learner errors. Using the gold-standard labels from the annotated sub-corpus (see \cref{sec:agreement:gold}), it is possible to predict a label (e.g. [correct] or [incorrect]) for a given learner utterance based on the values of (a subset of) the features described in \cref{sec:diag:prosody}, and then compare the predicted label to the label assigned to that instance in the gold-standard data to evaluate the accuracy of the prediction. 
+		In addition to the motivation of analyzing the frequency and distribution of lexical stress errors in L2 German speech by L1 French speakers, another motivation behind the annotation of these errors in a subset of the IFCASL corpus (described in \cref{chap:lexstress}) was the creation of labeled data for a supervised machine learning approach to diagnosing learner errors. In addition to the non-native utterances and their gold-standard labels from the annotated sub-corpus (see \cref{sec:agreement:gold}), the corresponding utterances of the selected word types from the L1-German portion of the IFCASL corpus were also included in training data, with each native utterance labeled as [correct] based on the assumption that native speakers always realize lexical stress correctly.
 		
+		\TODO{\textit{awkward}} Using a classifier trained on (a subset of) this data, it is possible to predict a label (e.g. [correct] or [incorrect]) for a given learner utterance based on the values of (a subset of) the features described in \cref{sec:diag:prosody}, and then compare the predicted label to the label assigned to that instance in the gold-standard data to evaluate the accuracy of the prediction. 
+		%
 		This was accomplished by training and evaluating classifiers in various configurations using the WEKA machine learning toolkit \citep{Hall2009}. 	
 		In the experiments reported below, 
 		the classifiers used are
@@ -745,9 +747,38 @@ that of the learner \citep{Probst2002}.
 		%
 		Overall classification accuracy on the annotated sub-corpus was assessed by using held-out portions of the annotated data as test sets, and performing cross-evaluation on multiple train/test splits of the data. The features and data splits used in each experiment are described in the sections below. \TODO{\textit{reword that?}}
 
+
+	Overall accuracy of each classifier's performance on its test set was quantified in terms of the following measures:
+		\begin{itemize}
+		\item{Percent accuracy (\% acc.): The number of samples given the correct label, divided by the total number of samples in the test set}
+		\item{Kappa ($\kappa$): Agreement between the labels assigned by the classifier and the true labels 
+		%as represented by Cohen's Kappa statistics 
+		(see \cref{sec:lexstress:agreement})}
+		\end{itemize}
+For the two most frequently observed classes in the data, [correct] and [incorrect], the following evaluation metrics were also computed:
+			\begin{itemize}
+			\item{Precision (P): the number of instances the classifier correctly assigned to this class (i.e. the number labeled as this class that were truly of this class), divided by the total number of instances it assigned to this class}
+			\item{Recall (R): the number of instances the classifier correctly assigned to this class, divided by the number of instances which truly belong to this class}
+			\item{F-measure (F), also known as F-score or F$_1$-score: a metric which combines Precision and Recall by taking their harmonic mean, given by the formula $2PR/(P+R)$ 
+			%\[\frac{2PR}{P+R}\]
+			}
+			\end{itemize}
+	\TODO{say how we want to see high recall for correct utterances, becaues it's worse to misclassify correct as incorrect than vice versa.   ....what do we want to see for [incorrect]? should [incorrect] P/R/F be left out entirely?}
+	
+	In each cross-validation, these evaluation statistics were averaged over all folds, i.e. over each train/test split in the data. 
+	%The average values represent the overall accuracy of that  
+	\TODO{\textit{fit that in better}} 
+
 		
 	\subsection{Feature performance \TODO{\textit{retitle?}}}
 	\label{sec:classification:features}
+	
+		As mentioned above, a series of experiments was carried out in an effort to determine which of the prosodic features described in \cref{sec:diag:prosody} give the best accuracy in the task of classifying lexical stress errors. Determining the best-performing features not only enables the creation of the most accurate diagnosis-by-classification system possible, but may also have implications for the way these acoustic features of the speech signal correspond (or fail to correspond) with the perception of lexical stress in non-native speech. 
+		
+		A 10-fold cross-validation was performed on the entire set of available training data, i.e. the utterances of 12 German word types produced by L1 French speakers which had been annotated for lexical stress errors as described in \cref{chap:lexstress}, along with the	utterances of these word types by native German speakers, labeled as correct. As the goal of  error diagnosis by classification in the CAPT context is to classify non-native, and not native, speech, including native utterances in the test data was not appropriate; therefore, for each of the 10 folds of the cross-validation, one tenth of the non-native utterances were randomly selected to be held out as the test data set, and the other nine-tenths were combined with the native utterances to create the training data set. 
+		
+		To evaluate feature performance, classifiers were trained using various subsets of the complete feature set;  the various feature sets used in the experiments are listed in \cref{tab:features:sets}. For each of these feature combinations, classifiers were trained on each of the 10 training sets created as just described, and tested on the corresponding test set. 
+		
 		\TODO{Things to mention:
 		\begin{itemize}
 			\item Random FG data splits
@@ -757,7 +788,7 @@ that of the learner \citep{Probst2002}.
 		
 		\begin{table}
 			\centering
-			\caption{Feature sets \TODO{separate prosodic/other features}}
+			\caption{Feature sets used in classification experiments}
 			
 			\begin{subtable}[h]{\textwidth}
 				\centering

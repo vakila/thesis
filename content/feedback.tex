@@ -49,7 +49,7 @@ This chapter presents the various options for the types of feedback that can be 
 
 	\section{Implicit feedback types}
 	
-		
+		\TODO{Describe what implicit fb is}
 	
 		\subsection{Visual }
 		
@@ -59,10 +59,11 @@ This chapter presents the various options for the types of feedback that can be 
 	In many existing CAPT tools %such as Snoori \citep{Bonneau2011,Parole2013} and WinPitch LTL \citep{Martin2004}, 
 	(e.g. \cite{Martin2004,Henry2007}),
 the learner is presented with relatively direct visualizations of the speech signal, such as its waveform (oscillogram) and spectrogram, often with overlays highlighting perceptually relevant properties such as the pitch contour and durations of various parts of the utterance. 
-	Indeed, this is the case in Jsnoori, as seen in \TODO{\cref{Jsnoori screenshot}}.
+	Indeed, this is the case in Jsnoori, as seen in \TODO{Jsnoori screenshot}.
 	However, as \textcite{Neri2002} point out, waveforms and spectrograms are signal representations designed for speech researchers, not language learners, and the latter may have difficulty understanding these visualizations without the proper training. To research whether this conjecture holds, these direct visualizations must be compared with alternatives in user studies with learners; to this end, visual feedback in the lexical stress CAPT tool developed in this thesis project focuses on alternatives to direct signal visualizations, as described in this section.	
 		
 			\subsubsection{Graphical abstractions of prosody}
+			\label{sec:implicit:visual:graphical}
 			
 			One type of alternative to direct visualizations of the speech signal is a more abstract graphical representation of the lexical stress pattern in the native reference speaker and/or the learner's speech. Classroom materials for pronunciation instruction sometimes represent lexical stress patterns using dots or other shapes, one for each syllable, whose relative sizes indicate each syllable's prominence in the word \citep{Hirschfeld1998}. By mapping the acoustic features of each syllable in the utterance(s) to graphical features (e.g. height, width) of a geometrical shape
 			%-- e.g. using width to represent duration, height to represent F0, \TODO{and opacity to represent intensity} -- 
@@ -81,8 +82,29 @@ the learner is presented with relatively direct visualizations of the speech sig
 			
 			
 			\subsubsection{Stylized text}
+			\label{sec:implicit:visual:text}
+			
+			A related approach to the abstract graphical representations just described involves stylizing, or reshaping, the text of the word(s) pronounced  to match the prosodic features of the learner's utterance.
+	This is essentially the approach used by the work \textcite{Sitaram2011}, who used text stylization to help visualize prosody in the Project LISTEN reading tutor (see \cref{sec:capt:listen}. 
+	Such text stylization is also often used to convey canonical prosody in pronunciation instruction materials \citep{Behme-Gissel2005,Hirschfeld2007a}, e.g. by using larger text for the  stressed syllable than for the unstressed syllable(s) in a given word.
+	Familiarity with this type of presentation might make feedback via stylized text easier for learners to comprehend, so text stylization was another form of implicit visual feedback implemented in the system, as illustrated in \cref{fig:textstylization}.
 			
 			
+			\begin{figure}
+			\centering
+			\caption[Feedback on syllable duration via text stylization]{Screenshot of feedback on syllable duration via text stylization}
+			\includegraphics[width=\textwidth]{img/screenshots/textStylization}
+			\label{fig:textstylization}
+			\end{figure}
+		
+		
+		When using geometric shapes to visualize prosody, different prosodic features can be conveyed simultaneously by mapping each to a different geometric property, as described in \cref{sec:implicit:visual:graphical} However, when dealing with text, visualizing multiple prosodic features at the same time is more difficult.
+		First of all, noticing a clear difference between two syllables in terms of textual features such as height, font weight, or letter spacing is not as easy as comparing the height and width of two rectangles, given the inherent geometric variability of the different letters of the alphabet.
+		Secondly, if text is stretched or skewed too dramatically, it becomes more difficult to read, which may be distracting for learners using the system. 
+		
+		
+		Therefore, in the CAPT tool developed here, the text of a given syllable is stylized with a simple mapping between font size (as a multiple of the default size) and duration (as a fraction of the word duration). Duration was chosen as the prosodic feature to visualize based on its relative importance for the perception of lexical stress in German (see \cref{chap:diagnosis}). Font size was chosen as the textual feature to manipulate because it can be changed without distorting the text, i.e. without risking decreased legibility. Of course, other mappings between prosodic and textual features could be imagined, and once again the addition of other options than those currently implemented in the system could be worthwhile (see \cref{sec:conclusion:future}), though this might be less useful for text stylization than for  graphical visualizations, for the reasons mentioned in the previous paragraph.
+		
 			
 			
 		\subsection{Auditory}
@@ -100,6 +122,7 @@ the learner is presented with relatively direct visualizations of the speech sig
 		\subsection{Metalinguistic feedback}
 
 
+\section{\TODO{REMOVE OLD SECTIONS BELOW}}
 
 \section{Visual feedback}
 \label{sec:fb:visual}
@@ -115,9 +138,9 @@ the learner is presented with relatively direct visualizations of the speech sig
 %	several types of which are presented in this section.
 	
 	
-	\subsection{Graphical representations of prosody}
-	\label{sec:visual:graphical}
-	
+%	\subsection{Graphical representations of prosody}
+%	\label{sec:visual:graphical}
+%	
 
 
 %	\TODO{\textit{DE-PROPOSAL-IZE} One type of alternative would be a more abstract graphical representation of the lexical stress pattern in the native reference speaker and/or the learner's speech. Classroom materials for pronunciation instruction sometimes represent lexical stress patterns using dots or other shapes, one for each syllable, whose relative sizes indicate each syllable's prominence in the word \citep{Hirschfeld1998}. This type of visualization would be relatively simple to implement, given that the reference or learner utterance can be classified into one of a set of stress patterns \citep{Kim2011,Shahin2012a}. It would also be possible to map the acoustic features of each syllable in the utterance(s) to graphical features of the representative shape, e.g. using size to represent duration, vertical position to represent F0, and darkness to represent intensity. 
@@ -132,24 +155,24 @@ the learner is presented with relatively direct visualizations of the speech sig
 %	\end{figure}
 	
 	
-	\subsection{Stylized text}
-	\label{sec:visual:text}
-	
-	In a related approach used by \textcite{Sitaram2011}, instead of displaying an abstract graphical representation of 	features of the learner's utterance, the text of the word(s) pronounced is stylized, or reshaped, to match these features.
-	%This is essentially the approach used by \textcite{Sitaram2011}, though they modify the text of each word instead of a more abstract visual representation. 
-	Such text stylization is also often used to convey canonical prosody in pronunciation instruction materials \citep{Behme-Gissel2005,Hirschfeld2007a}, 
-	and familiarity with this type of presentation might make feedback via stylized text easier for learners to comprehend; therefore,
-	including stylized text as a feedback option in the CAPT tool is a logical choice.
-	%so it would be logical for the CAPT tool to offer text stylization as a feedback option.
-	
-	\TODO{write up text stylization}	
-	
-	\begin{figure}
-	\centering
-	\caption[Feedback on syllable duration via text stylization]{Screenshot of feedback on syllable duration via text stylization  \TODO{crop out banner}}
-	\includegraphics[width=\textwidth]{img/screenshots/textStylization}
-	\label{fig:visual:text}
-	\end{figure}
+%	\subsection{Stylized text}
+%	\label{sec:visual:text}
+%	
+%	In a related approach used by \textcite{Sitaram2011}, instead of displaying an abstract graphical representation of 	features of the learner's utterance, the text of the word(s) pronounced is stylized, or reshaped, to match these features.
+%	%This is essentially the approach used by \textcite{Sitaram2011}, though they modify the text of each word instead of a more abstract visual representation. 
+%	Such text stylization is also often used to convey canonical prosody in pronunciation instruction materials \citep{Behme-Gissel2005,Hirschfeld2007a}, 
+%	and familiarity with this type of presentation might make feedback via stylized text easier for learners to comprehend; therefore,
+%	including stylized text as a feedback option in the CAPT tool is a logical choice.
+%	%so it would be logical for the CAPT tool to offer text stylization as a feedback option.
+%	
+%	\TODO{write up text stylization}	
+%	
+%	\begin{figure}
+%	\centering
+%	\caption[Feedback on syllable duration via text stylization]{Screenshot of feedback on syllable duration via text stylization  \TODO{crop out banner}}
+%	\includegraphics[width=\textwidth]{img/screenshots/textStylization}
+%	\label{fig:visual:text}
+%	\end{figure}
 	
 	
 	%MOVED TO FUTURE WORK 

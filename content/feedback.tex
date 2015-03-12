@@ -15,10 +15,11 @@ such studies,
 the tool has been designed 
 with this application in mind.
 %to facilitate such studies going forward. 
-Ultimately, once research has given us a better understanding of which feedback types are most effective in which situations, the modular feedback delivery system developed here could theoretically be embedded in a full-featured intelligent tutoring system, where models of the relevant learning contexts (such as  the objectives of the current exercise, or the student's past achievements and personal goals and preferences) could be used to automatically select the most useful feedback type to present to the learner, as mentioned in \cref{sec:intro:objectives} and illustrated in \cref{fig:hourglass-ITS}.
+Ultimately, once research has given us a better understanding of which feedback types are most effective in which situations, the modular feedback delivery system developed here could theoretically be embedded in a full-featured intelligent tutoring system, where models of the relevant learning contexts (such as  the objectives of the current exercise, or the student's past achievements and personal goals and preferences) could be used to automatically select the most useful feedback type to present to the learner, as mentioned in \cref{sec:intro:objectives} and illustrated in \cref{fig:hourglass-ITS,fig:feedback}.
 
 This chapter presents the various options for the types of feedback that can be generated given a diagnosis of the learner's lexical stress realization, 
 \TODO{\textit{rephrase:} guided by the notion that} to maximize its utility in future feedback research, the CAPT tool should offer as wide a variety of feedback options as possible, especially those offering types of feedback not commonly seen in existing CAPT systems. 
+	Some of these feedback options are visual \cref{sec:fb:visual}, some auditory \cref{sec:fb:auditory}, \TODO{\textit{reword:} and others constitute alternative feedback types} \cref{sec:fb:alternative}, as illustrated in \cref{fig:feedback}. 
 
 %\textcite{Hattie2007} suggest that feedback in education should help the learner recognize their current learning goals (``Where am I going?''), assess their progress towards them (``How am I going?''), and identify next steps for achieving and moving beyond these goals (``Where to next?'').
 
@@ -31,7 +32,7 @@ This chapter presents the various options for the types of feedback that can be 
 
 	\begin{figure}[htb]
 		\includegraphics[width=\textwidth]{img/feedback}
-		\caption{Delivery of prosody feedback in different modalities.}
+		\caption{Delivery of prosody feedback in different modalities. \TODO{redo}}
 		\label{fig:feedback}
 	\end{figure}
 
@@ -46,25 +47,54 @@ This chapter presents the various options for the types of feedback that can be 
 \section{Visual feedback}
 \label{sec:fb:visual}
 
-
-	\subsection{Visualizations of the speech signal}
-	\label{sec:visual:visualizations}
-	In several existing CAPT tools, %such as Snoori \citep{Bonneau2011,Parole2013} and WinPitch LTL \citep{Martin2004}, 
-the learner is presented with relatively direct visualizations of the speech signal, such as its waveform (oscillogram) and spectrogram, often with overlays highlighting perceptually relevant properties such as the pitch contour and durations of various parts of the utterance.
-	However, as \textcite{Neri2002} point out, waveforms and spectrograms are signal representations designed for speech researchers, not language learners, and the latter may have difficulty understanding these visualizations without the proper training. To research whether this conjecture holds, these direct visualizations must be compared with alternatives in user studies with learners; several options for such alternative visualizations are explored in this section.
+	Visual delivery of feedback on learner errors (or lack thereof) is a widely used technique in CAPT.
+%	\subsection{Visualizations of the speech signal}
+%	\label{sec:visual:visualizations}
+	In many existing CAPT tools %such as Snoori \citep{Bonneau2011,Parole2013} and WinPitch LTL \citep{Martin2004}, 
+	(e.g. \cite{Martin2004,Henry2007}),
+the learner is presented with relatively direct visualizations of the speech signal, such as its waveform (oscillogram) and spectrogram, often with overlays highlighting perceptually relevant properties such as the pitch contour and durations of various parts of the utterance. 
+	Indeed, this is the case in Jsnoori, as seen in \TODO{\cref{Jsnoori screenshot}}.
+	However, as \textcite{Neri2002} point out, waveforms and spectrograms are signal representations designed for speech researchers, not language learners, and the latter may have difficulty understanding these visualizations without the proper training. To research whether this conjecture holds, these direct visualizations must be compared with alternatives in user studies with learners; to this end, visual feedback in the lexical stress CAPT tool developed in this thesis project focuses on alternatives to direct signal visualizations, 
+	and these alternatives are presented in this section.
+	%and several options for such alternative visualizations are explored in this section.
 	
 	
 	\subsection{Graphical representations of prosody}
 	\label{sec:visual:graphical}
 	
 
-	One type of alternative would be a more abstract graphical representation of the lexical stress pattern in the native reference speaker and/or the learner's speech. Classroom materials for pronunciation instruction sometimes represent lexical stress patterns using dots or other shapes, one for each syllable, whose relative sizes indicate each syllable's prominence in the word \citep{Hirschfeld1998}. This type of visualization would be relatively simple to implement, given that the reference or learner utterance can be classified into one of a set of stress patterns \citep{Kim2011,Shahin2012a}. It would also be possible to map the acoustic features of each syllable in the utterance(s) to graphical features of the representative shape, e.g. using size to represent duration, vertical position to represent F0, and darkness to represent intensity. To facilitate studies on which mappings, if any, make this feedback useful to the learner, the researcher-facing GUI should offer control over the different possible mappings.
+
+	\TODO{\textit{DE-PROPOSAL-IZE} One type of alternative would be a more abstract graphical representation of the lexical stress pattern in the native reference speaker and/or the learner's speech. Classroom materials for pronunciation instruction sometimes represent lexical stress patterns using dots or other shapes, one for each syllable, whose relative sizes indicate each syllable's prominence in the word \citep{Hirschfeld1998}. This type of visualization would be relatively simple to implement, given that the reference or learner utterance can be classified into one of a set of stress patterns \citep{Kim2011,Shahin2012a}. It would also be possible to map the acoustic features of each syllable in the utterance(s) to graphical features of the representative shape, e.g. using size to represent duration, vertical position to represent F0, and darkness to represent intensity. To facilitate studies on which mappings, if any, make this feedback useful to the learner, the researcher-facing GUI should offer control over the different possible mappings.}
+	
+	\begin{figure}
+		\centering
+		\caption{Screenshot of feedback on syllable duration via graphical shapes}
+		\includegraphics[width=\textwidth]{img/screenshots/rectangles}
+		\label{fig:visual:graphical}
+	\end{figure}
 	
 	
 	\subsection{Stylized text}
 	\label{sec:visual:text}
 	
-	This is essentially the approach used by \textcite{Sitaram2011}, though they modify the text of each word instead of a more abstract visual representation. As text stylization is also often used in pronunciation instruction materials \citep{Behme-Gissel2005,Hirschfeld2007a}, it would be logical for the CAPT tool to offer text stylization as a feedback option. As with the shapes mentioned above, and following \textcite{Sitaram2011}, it would be interesting to explore the possible mappings between acoustic features and properties of the text of each syllable (e.g. size, weight, underlining/decoration, etc.), with these mappings controllable by the researcher via the GUI.
+	In a related approach used by \textcite{Sitaram2011}, instead of displaying an abstract graphical representation of 	features of the learner's utterance, the text of the word(s) pronounced is stylized, or reshaped, to match these features.
+	%This is essentially the approach used by \textcite{Sitaram2011}, though they modify the text of each word instead of a more abstract visual representation. 
+	Such text stylization is also often used to convey canonical prosody in pronunciation instruction materials \citep{Behme-Gissel2005,Hirschfeld2007a}, 
+	and familiarity with this type of presentation might make feedback via stylized text easier for learners to comprehend; therefore,
+	including stylized text as a feedback option in the CAPT tool is a logical choice.
+	%so it would be logical for the CAPT tool to offer text stylization as a feedback option.
+	
+	\TODO{write up text stylization}	
+	
+	\begin{figure}
+	\centering
+	\caption{Screenshot of feedback on syllable duration via text stylization}
+	\includegraphics[width=\textwidth]{img/screenshots/textStylization}
+	\label{fig:visual:text}
+	\end{figure}
+	
+	
+	\TODO{\textit{Move to future work?} As with the shapes mentioned above, and following \textcite{Sitaram2011}, it would be interesting to explore the possible mappings between acoustic features and properties of the text of each syllable (e.g. size, weight, underlining/decoration, etc.), with these mappings controllable by the researcher via the GUI.}
 
 %Underlining \citep{Hirschfeld2007a}
 
@@ -74,13 +104,13 @@ the learner is presented with relatively direct visualizations of the speech sig
 \label{sec:visual:other}
 
 
-	Given some visual representation of the learner's utterance, be it textual or more abstract, visual feedback should also be given on what the learner can do to improve their lexical stress realization. \textcite{Bonneau2011} deliver such feedback in the F0 dimension by displaying arrows which indicate whether the user should raise or lower the pitch of a given syllable to make their realization more like that of the reference speaker, and this is one option for the CAPT tool. Another might be the use of animation to transform the visualization of the learner's (incorrectly realized) utterance into a corresponding visualization of the correct realization, e.g. by growing or shrinking the size of the dot or text for each syllable to visualize the desired change in duration, or showing it moving up or down to convey the desired change in pitch.
+	\TODO{Given some visual representation of the learner's utterance, be it textual or more abstract, visual feedback should also be given on what the learner can do to improve their lexical stress realization. \textcite{Bonneau2011} deliver such feedback in the F0 dimension by displaying arrows which indicate whether the user should raise or lower the pitch of a given syllable to make their realization more like that of the reference speaker, and this is one option for the CAPT tool. Another might be the use of animation to transform the visualization of the learner's (incorrectly realized) utterance into a corresponding visualization of the correct realization, e.g. by growing or shrinking the size of the dot or text for each syllable to visualize the desired change in duration, or showing it moving up or down to convey the desired change in pitch.}
 	
 	
 %	Visualizations of the required articulators, such as those displayed in the Fluency pronunciation trainer \citep{Eskenazi2000}, may be helpful for correcting certain segmental errors, but are not likely of much use for correcting lexical stress, and will therefore not be implemented in the proposed tool.
 
-	Implementation of at least one visual feedback type will be of high priority in this work. Stylized text and graphical representations will be explored first. If time allows, animation will be added to convey corrective feedback to the learner.
-	
+\TODO{	Implementation of at least one visual feedback type will be of high priority in this work. Stylized text and graphical representations will be explored first. If time allows, animation will be added to convey corrective feedback to the learner.
+}	
 	
 \section{Auditory feedback}
 \label{sec:fb:auditory}

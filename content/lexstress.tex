@@ -86,6 +86,7 @@ Woman	&	5	&	5	&	3	&	9	&	\textbf{22}	\\
 	
 	
 	The IFCASL sub-corpus annotated for lexical stress errors consists of utterances of twelve word types (see \cref{tab:bisyllwords}), each of which is bisyllabic and canonically has its primary stress on the initial syllable. These characteristics were chosen deliberately: the selected words are bisyllabic because this simplifies comparison between stressed and unstressed syllables, and they are initial-stress because this is the stress pattern which native (L1) French speakers are expected to have the most difficulty producing in German, given the fixed final-position stress and final lengthening in French (see \cref{sec:stress:expected}). 
+	\TODO{Didn't control for phrase position - could be hypothesized that phrase position would have an effect given the way prosody works in French, but \textcite{Michaux2013} found that wasn't the case for French learners of German}
 	
 	In the IFCASL corpus recordings, sentences containing these words were read aloud by L1 and L2 (L1 French) speakers. Here, only the L2 utterances were annotated; it is assumed that the L1 German speakers always realize lexical stress correctly. \TODO{justify that assumption?}
 	
@@ -332,6 +333,8 @@ A single annotation session consisted of annotating all tokens of three word typ
 	%removing this because it's not certain that these numbers correspond to the same pair:
 	%with one pair reaching over 80\% agreement and a $\kappa$ over 0.6, 
 	indicating \TODO{\textit{too fuzzy?} reasonably reliable} judgments, other pairs have very low agreement; in one case, with 23.21\% agreement, the annotators seem to be closer to perfect disagreement than perfect agreement, and the corresponding $\kappa$ being below zero indicates that they agreed even (slightly) less than one would expect if they were merely labeling utterances randomly. 
+	\TODO{Compare Kappas to those in \citep{Michaux2013}? They got substantial agreement but only had 3 expert annotators }	
+	\TODO{Describe these in terms of \citep{Landis1977} - "fair" agreement?}
 
 		\begin{table}[htb]
 			\centering
@@ -346,6 +349,8 @@ A single annotation session consisted of annotating all tokens of three word typ
 			\end{tabular}
 			\label{tab:agreement:overall}
 		\end{table}
+	
+	
 	
 	\TODO{Is this section even meaningful? Should it be left out?} It seems, then, that there may be stark differences in reliability from annotator to annotator. Analysis of the set of pairwise comparisons between a given annotator and all overlapping annotators provides more insight into that annotator's individual reliability; \cref{fig:agreement:annotators} illustrates the pairwise agreements involving each of the 15 annotators. These figures should be interpreted with caution because they do not account for differences in the number of overlapping annotators/tokens available for each annotator \TODO{reference overlap table}; nonetheless, it seems that there is indeed some noticeable variation from annotator to annotator \TODO{finish this paragraph}
 		\TODO{table of percent/kappa min/avg/max by annotator, since graphs are difficult to read precisely?}
@@ -860,6 +865,7 @@ Minimum	& 23.21\%	& -0.01	& 33.93\%	& 0.10	& 35.71\%	& 0.08	& 28.57\%	&  0.04 \\
 			\end{tabular}
 			\end{center}
 			As a result of this regularity, correctly realizing the prosody of each word in this sentence may present less of a challenge to L1 French speakers than a less regular sentence, and may thus explain their uncharacteristically flawless productions of the words therein. The fact that no fewer than the expected proportion of errors were observed in utterance of \textit{Pollen} would seem to contradict this speculative explanation; however, unlike the other words, \textit{Pollen} is doubly challenging for L1 French speakers, insofar as its first vowel is a short \textipa{O}, as opposed to the long \textipa{o:} in the word \textit{Polen} (meaning \textit{Poland} in English), with which \textit{Pollen} forms a minimal pair.\footnote{This minimal pair was of interest to the researchers who constructed the IFCASL corpus, and \textit{Polen} also appears in the corpus, though it was not selected for inclusion in the sub-corpus to be annotated for lexical stress errors.}  Differentiating between long and short vowels when speaking German is a notorious hurdle for French speakers \TODO{reference(s)}. It may be the case that the short vowel in \textit{Pollen}, and the existence of another similar-sounding word, is responsible for some of the errors observed in the data, even though \textit{Pollen} and \textit{Polen} share the same stress pattern (stress on the initial syllable), for one of two reasons: either the added challenge of producing a difficult vowel in \textit{Pollen} distracts French speakers from the simple, regular prosody of the sentence, causing them to produce more prosodic errors with this word, or the native German annotators (most of whom, as discussed in \cref{sec:lexstress:annotators}, are not trained in phonetics or phonology) who are tasked with assessing the correctness of the word's prosody are distracted by the incorrect vowel quantity/quality in French speakers' productions of this word, and erroneously interpret the flaw(s) that they detect in the word's pronunciation as having to do with lexical stress, when in fact they are segmental errors. 
+			\TODO{...or it could be word frequency (Pollen less frequent), or maybe influence of phrase position or interpreted phrase position, cf. \citep{Michaux2013}?}
 			
 			As for the uncharacteristically large proportion of errors in \textit{Tatort}, it may be the case that this word's resemblance to the common French words \textit{ta} (\textit{your}) and \textit{tort} (\textit{wrong}) interferes with French speakers' production, such that they realize the word as the plausible French word sequence \textit{ta tort} (\textit{your wrong(doing)} or \textit{your mistake}), in which \textit{tort} would unmistakably be the focus \TODO{is that inaccurate?}, instead of realizing it correctly as a compound of the German words \textit{Tat} (\textit{act}) and \textit{Ort} (\textit{place}).
 			%, its actual meaning in German being \textit{crime scene}.
@@ -1029,8 +1035,7 @@ Advanced (B2,C1)	&	221	&			31	&			6	&			3	&			0	&			261	&	39.07\%	\\
 			
 			
 	Unsurprisingly, these figures reveal that  speakers of the higher levels (B2 and C1) seem to make a proportionally lower number of errors than speakers of the lower ones (A2 and B1), with each level exhibiting a lower proportion of errors than the level below it. Generally speaking, beginners  (A2 and B1) seem to realize lexical stress correctly in about half of their utterances, whereas for upper intermediate (B2) learners the proportion of correct utterances is closer to three-fourths, and it approaches 90\% for advanced (C1) learners. As previously established (see \cref{sec:bkgd:targeting}), a CAPT system targeting a particular type of error will only be useful if that error is produced with considerable frequency by the learners using the system; therefore, it would seem from the frequency of lexical stress errors in their speech that learners of lower proficiency levels may benefit more from a CAPT system targeting such errors than learners of higher proficiency. 
-			
-			\TODO{anything else to say about this?}
+			\TODO{This conforms with findings of \textcite{Michaux2012} that beginners make more errors than advanced learners.}
 			
 			
 		

@@ -7,12 +7,18 @@
 
 %\cleanchapterquote{You can’t do better design with a computer, but you can speed up your work enormously.}{Wim Crouwel}{(Graphic designer and typographer)}
 
-Since the focus of this thesis is on pronunciation training, not pronunciation assessment (see \cref{sec:capt:systems}), feedback on the errors diagnosed via the methods described in \cref{chap:diagnosis} will be an important component of the proposed CAPT tool. As mentioned in \cref{sec:capt:l2ed}, the particular importance of corrective feedback in pronunciation training is generally acknowledged,
+Since the focus of this thesis is on pronunciation training, not pronunciation assessment (see \cref{sec:capt:systems}), feedback on the errors diagnosed via the methods described in \cref{chap:diagnosis} is an important component of the prototype CAPT tool developed in this work. As mentioned in \cref{sec:capt:l2ed}, the particular importance of corrective feedback in pronunciation training is generally acknowledged,
 %\citep{Neri2002,Dlaska2013}, 
-though much remains to be learned about when and how feedback can be most effective. Therefore, one aim of this thesis is the creation of a feedback generation module for the lexical stress CAPT tool which will offer a variety of possible feedback types, and a Graphical User Interface (GUI) allowing a researcher or instructor to easily switch between feedback types. While it is outside the scope of the thesis to carry out in vivo studies with learners to determine which feedback types are most effective in which situations, the tool will hopefully facilitate such studies going forward. 
+though much remains to be learned about when and how feedback can be most effective. Therefore, an important contribution of this thesis is the creation of a feedback module for the lexical stress CAPT tool which offers a variety of possible feedback types, and a Graphical User Interface (GUI) allowing a researcher or instructor to easily switch between feedback types. The hope is that researchers can use this modular tool in in-vivo studies with language learners to compare the effects of various feedback types on the acquisition of L2 German prosody by L1 French speakers (or perhaps even speakers of other L1s); though it is outside the scope of the thesis to carry out 
+such studies,
+%in vivo studies with learners to determine which feedback types are most effective in which situations, 
+the tool has been designed 
+with this application in mind.
+%to facilitate such studies going forward. 
+Ultimately, once research has given us a better understanding of which feedback types are most effective in which situations, the modular feedback delivery system developed here could theoretically be embedded in a full-featured intelligent tutoring system, where models of the relevant learning contexts (such as  the objectives of the current exercise, or the student's past achievements and personal goals and preferences) could be used to automatically select the most useful feedback type to present to the learner, as mentioned in \cref{sec:intro:objectives} and illustrated in \cref{fig:hourglass-ITS}.
 
-%TODO replace?
-%In the remainder of this section, various options for the types of feedback that can be generated given a diagnosis of the learner's lexical stress realization are presented, guided by the notion that to maximize its utility in future feedback research, the CAPT tool should offer as wide a variety of feedback options as possible. 
+This chapter presents the various options for the types of feedback that can be generated given a diagnosis of the learner's lexical stress realization, 
+\TODO{\textit{rephrase:} guided by the notion that} to maximize its utility in future feedback research, the CAPT tool should offer as wide a variety of feedback options as possible, especially those offering types of feedback not commonly seen in existing CAPT systems. 
 
 %\textcite{Hattie2007} suggest that feedback in education should help the learner recognize their current learning goals (``Where am I going?''), assess their progress towards them (``How am I going?''), and identify next steps for achieving and moving beyond these goals (``Where to next?'').
 
@@ -21,7 +27,7 @@ though much remains to be learned about when and how feedback can be most effect
 
 %Since our focus is on pronunciation training and not just pronunciation assessment.
 
-%Explicit FB is necessary; learners have trouble identifying their errors when simply asked to listen to what they said \citep{Dlaska2013}
+
 
 	\begin{figure}[htb]
 		\includegraphics[width=\textwidth]{img/feedback}

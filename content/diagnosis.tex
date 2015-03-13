@@ -1203,12 +1203,32 @@ Average	&	66.85	&	0.17	&	0.69	&	0.88	&	0.77	&	0.83	\\
 %\subsubsection{Feature selection?}
 %\subsubsection{Comparing diagnostic approaches?} 
 
-\section{\TODO{\textit{retitle} Using diagnosis methods in the system}}
+\section{Controlling diagnosis in the system}
 \label{sec:diag:system}
 
-	\TODO{}
+	In the prototype CAPT tool developed in this thesis project, a  researcher (or teacher) can choose between the various possible approaches for diagnosing lexical stress errors in learner's speech which have been discussed in this chapter. The choices available in the tool are illustrated in \cref{fig:diag:system}. When creating a new exercise, in which a learner is asked to read one of the sentences extracted from the IFCASL corpus \TODO{(see \cref{??}} in order to receive feedback on their realization of lexical stress in a target word in that sentence, the researcher is asked to select a DiagnosisMethod for that exercise. The Diagnosis method captures the researchers' choices among the various diagnostic options offered by the system; a screenshot showing the creation of a simple example is presented in \cref{fig:diag:creatediagnosismethod}. As illustrated in \cref{fig:createexercise}, this DiagnosisMethod is combined with a (compatible) FeedbackMethod when the exercise is created; see \cref{sec:fb:system} for a description of FeedbackMethods and their compatibility with the various possible DiagnosisMethods. 
 	
-	\TODO{Screenshot of DiagnosisMethod create page?}
+	\begin{figure}
+		\centering
+		\caption[Overview of diagnosis options]{Overview of diagnosis options in the prototype CAPT tool \TODO{Make workflow clearer}}
+		\includegraphics[width=\textwidth]{img/DiagnosisMethod}
+		\label{fig:diag:system}
+	\end{figure}
+	
+	\begin{figure}
+		\centering
+		\caption[Creating a DiagnosisMethod]{Screenshot of the researcher-facing interface to create a DiagnosisMethod}
+		\includegraphics[width=\textwidth]{img/screenshots/createDiagnosisMethod}
+		\label{fig:diag:creatediagnosismethod}
+	\end{figure}
+	
+	
+	\begin{figure}
+		\centering
+		\caption[Creating an Exercise]{Screenshot of the researcher-facing interface to create an Exercise}
+		\includegraphics[width=\textwidth]{img/screenshots/createExercise}
+		\label{fig:diag:createexercise}
+	\end{figure}
 
 \section{Summary}
 \label{sec:diag:summary}

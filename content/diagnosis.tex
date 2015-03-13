@@ -648,7 +648,7 @@ This section describes the various \textit{approaches} to such diagnosis by comp
 	
 	When using a single native-speaker utterance for reference, even if the reference speaker has been chosen carefully (see \cref{sec:compare:selection} below), analysis of the learner's pronunciation may be ``over-fitting'' to speaker- or utterance-dependent characteristics of the reference utterance that do not accurately represent the ``nativeness'' of the reference speech. It is therefore advantageous not to limit the diagnosis to comparison with a single reference speaker, but to instead compare the learner's speech with a variety of native utterances, \TODO{\textit{remove?} the hope being that the variability between these reference utterances will capture more general traits of native pronunciation}.
 	
-	In the lexical stress CAPT tool, this is accomplished by conducting a series of one-on-one comparisons, pairing the learner utterance with a different reference utterance for each comparison, and then combining the results from all the comparisons. \TODO{how are the multiple diagnoses combined}
+	In the lexical stress CAPT tool, this is accomplished by conducting a series of one-on-one comparisons, pairing the learner utterance with a different reference utterance for each comparison, and then combining the results from all the comparisons. This is accomplished simply by averaging each of the duration, pitch, and energy scores assigned by Jsnoori in each one-on-one comparison; for example, the final pitch score for a learner's utterance when compared to three different reference utterances will be the average of those three one-on-one pitch scores as computed by Jsnoori. Other means for combining several single-reference scores into one multiple-reference score are certainly conceivable, and this could be an interesting direction for future work (see \cref{sec:conclusion:future}).
 	
 	
 	%MOVED TO FUTURE WORK
@@ -667,11 +667,7 @@ This section describes the various \textit{approaches} to such diagnosis by comp
 		
 		The most basic way of selecting a reference speaker is to choose one manually.
 %manually specify which speaker should be used for comparison. 
-As a type of baseline, the CAPT tool therefore enables the learner or the instructor/researcher to choose a reference from a set of available speakers, \TODO{with that set potentially being constrained by one or more properties of the speaker (e.g. gender, age)}. 
-
-
-	\TODO{MANUAL = learner chooses, FIXED = researcher chooses?}
-
+As a type of baseline, the CAPT tool therefore enables the choice of a reference from a set of available speakers, \TODO{with that set optionally being constrained by one or more properties of the speaker (e.g. gender, age)}. When designing an exercise, the researcher can either manually select a reference utterance for all students who will complete that exercise \TODO{FIXED}, or enable each student to manually select their own reference \TODO{MANUAL}
 		
 	
 		\subsubsection{Automatically selecting a reference}
@@ -679,12 +675,8 @@ As a type of baseline, the CAPT tool therefore enables the learner or the instru
 		%\label{sec:compare:single:auto}
 		
 		A different and perhaps more interesting means of selecting a reference speaker is to automatically choose a speaker whose voice resembles
-that of the learner \citep{Probst2002}. 
-
-	\TODO{Only uses F0 mean/range for now, very simplistic representation.}
-	
-	
-	\TODO{see \cref{sec:conclusion:future}}
+that of the learner; as described in \cref{sec:capt:fluency}, research by \textcite{Probst2002} seems to indicate that using an carefully-selected reference speaker can help learners improve their pronunciation. 
+	This requires some representation of the relevant features of each speaker's voice; the prototype CAPT tool follows \textcite{Probst2002} in using F0 mean and range for that representation, where ach speaker's overall F0 mean and range are computed as the average of each of these features across all available whole-sentence utterances by that speaker. To determine the best reference speaker for a given learner, the respective absolute differences between that learner's overall F0 mean and range and those of each of the available native speakers are calculated and added together, and the native speaker with the lowest total difference from the learner is selected as the reference. While this accomplishes the goal of providing automatic reference selection as an alternative to the more common manual selection of the reference speaker, it remains a rather simplistic way of representing each speaker's voice, and an exploration of how speakers can be compared using other representations would be a worthwhile future endeavor (see \cref{sec:conclusion:future}).
 
 
 % MOVED TO FUTURE WORK

@@ -985,7 +985,7 @@ WD-SPKR	&	68.41	&	0.26	&	0.71	&	0.91	&	0.79	&	0.86	\\
 		Interestingly, for many of the word/speaker feature combinations tried, 
 		slightly %higher accuracy was 
 		different results were
-		obtained when these features were combined with the full set of prosodic features (ALL) than with the best-performing subset of the prosodic features, DUR+F0. For example, when combined with the feature set ALL, the feature LEVEL slightly outperformed the word of the utterance (WORD) as a predictor of stress accuracy, yet when combined with only the duration and F0 features (DUR+F0), WORD outperformed LEVEL. In both situations, the combination of these two features, WD+LVL, seemed to give better results than any combination involving GENDER, including the combination using all three word/speaker features. In fact, the best-performing classifiers 
+		obtained when these features were combined with the full set of prosodic features (ALL) than with the best-performing subset of the prosodic features, DUR+F0 \TODO{\textit{What can we infer from that?}}. For example, when combined with the feature set ALL, the feature LEVEL slightly outperformed the word of the utterance (WORD) as a predictor of stress accuracy, yet when combined with only the duration and F0 features (DUR+F0), WORD outperformed LEVEL. In both situations, the combination of these two features, WD+LVL, seemed to give better results than any combination involving GENDER, including the combination using all three word/speaker features. In fact, the best-performing classifiers 
 		%of any of the experiments reported in this section 
 		resulted from using the word of the utterance, the speaker's proficiency level, and the entire set of prosodic features (WD+LVL+ALL), yielding an average accuracy of 71.87\%, $\kappa$ of 0.34, and F$_1$ and F$_2$ measures of 0.81 and 0.87, respectively.
 		
@@ -1021,13 +1021,13 @@ DUR-F0	&	69.16	&	0.19	&	0.68	&	0.90	&	0.74	&	0.85	\\
 	\subsection{Unseen speakers and words}
 	\label{sec:classification:unseen}
 	
-		Test test test \TODO{If accuracy on unseen words is good, that's encouraging for making new CAPT exercises for which we don't have reference recordings}
+		\TODO{If accuracy on unseen words is good, that's encouraging for making new CAPT exercises for which we don't have reference recordings}
 		
 		\TODO{If accuracy on unseen speakers is good, that means ....?
 		If accuracy on unseen speakers is bad, it could mean that the overall accuracy was the result of having training data specific to the speaker (even though the classifier isn't aware of the speaker's ID), which could mean that....}
 		
 		
-
+	\TODO{Graph or table comparing the classifier accuracy/kappa for each word type to the human-human stats }
 		
 		
 	\begin{table}

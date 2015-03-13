@@ -854,6 +854,8 @@ For the two most frequently observed classes in the data, [correct] and [incorre
 		\subsubsection{Prosodic features}
 		\label{sec:classification:features:prosodic}
 		
+		\TODO{Hypothesis: Dur>F0>Intensity}
+		
 		\Cref{tab:results:prosody} lists the results of experiments with the prosodic features described in \cref{tab:features:sets:prosody}. The results obtained using features representing each of the three acoustic correlates of lexical stress, duration, F0, and intensity (energy), which are displayed in the first three rows of \cref{tab:results:prosody}, conform with findings from other research regarding the correspondence between these three \TODO{features} and lexical stress (see \cref{sec:bkgd:stress}): of the three feature sets, duration seems to be the best predictor of lexical stress errors, insofar as a classifier trained on duration features alone has higher accuracy, $\kappa$, and F-scores than one trained on F0 features alone, which in turn outperforms a classifier trained using only features related to intensity. However, it should be noted that the F0 and intensity features do seem to be at an advantage over the duration features in one respect: the latter has an average recall of only 0.91 for [correct] utterances, while the other two features exhibit perfect recall (1.0). As mentioned earlier (\cref{sec:classification:datamethod}), lower [correct] recall means that correct pronunciations are being misclassified as incorrect, which is a dangerous type of mistake for the CAPT system to make. Therefore, it is worth bearing in mind that while F0 and intensity features may not lead to the best overall accuracy in error diagnosis, they may constitute ``safer'' alternatives to the duration features, in that they tend to make classifiers more conservative in labeling utterances as [incorrect]. \TODO{\textit{rewrite that sentence?}}
 		
 		Compared to using each of the three prosodic feature sets in isolation, it is clear from the figures in the lower rows of \cref{tab:results:prosody} that even better performance can be achieved by combining these features. Interestingly, however, 
@@ -864,7 +866,7 @@ For the two most frequently observed classes in the data, [correct] and [incorre
 		
 		\begin{table}
 			\centering
-			\caption{Results of experiments with prosodic features \TODO{explain stats}}
+			\caption{Results of experiments with prosodic features \TODO{explain stats} \TODO{bold best values}}
 			\begin{tabularx}{\textwidth}{lXXXXXXXX}			
 			
 			\toprule
@@ -918,13 +920,13 @@ ALL	&	67.52	&	0.25	&	0.71	&	0.89	&	0.79	&	0.85	\\
 		\subsubsection{Speaker- and word-related features}
 		\label{sec:classification:features:spkrword}
 		
-		As discussed in \cref{sec:lexstress:results}, differences in the realization of lexical stress can sometimes arise due to features not specific to the utterance itself, but rather to the speaker making the utterance or to the word type uttered. Therefore, in addition to the prosodic features described in \cref{sec:diag:prosody}, another series of experiments included features related to the speaker and word of a given utterance (listed in \cref{tab:features:sets:spkrword}), to ascertain whether the inclusion of such features could lead to any performance gains. \Cref{tab:results:spkrword} presents the results of those experiments.
+		As discussed in \cref{sec:lexstress:results}, differences in the realization of lexical stress can sometimes arise due to features not specific to the utterance itself, but rather to the speaker making the utterance or to the word type uttered. Therefore, in addition to the prosodic features described in \cref{sec:diag:prosody}, another series of experiments included features related to the speaker and word of a given utterance (listed in \cref{tab:features:sets:spkrword}), to ascertain whether the inclusion of such features could lead to any performance gains. \Cref{tab:results:spkrword} presents the results of those experiments. \TODO{Hypothesis: all are helpful}
 		
 		
 		
 		\begin{table}[htb]
 			\centering
-			\caption[Results of experiments with speaker and word features]{Results of experiments with speaker and word features \TODO{Reorder subtables?} \TODO{fix width}}
+			\caption[Results of experiments with speaker and word features]{Results of experiments with speaker and word features \TODO{Reorder subtables?} \TODO{fix width} \TODO{bold best values}}
 			
 			\begin{subtable}{\textwidth}
 			\centering
@@ -1001,9 +1003,33 @@ diagnose lexical stress errors,
 		\TODO{\textit{fix this nightmare sentence-paragraph:} } If, as seems possible given the low inter-annotator agreement observed in the annotation described in \cref{chap:lexstress}, there is an element of subjectivity in the decision of whether or not lexical stress was realized correctly in an utterance of a given word, such that an indisputable diagnosis of that utterance cannot be produced, and different listeners could and would make different assessments of that utterance, it would not be realistic to expect an automatic diagnosis system to reproduce humans' assessments with perfect accuracy, and any agreement between the classifier's output and the gold-standard labels which exceeds the average agreement between humans should be interpreted in a positive light. 
 
 
-\begin{table}
+
+	\subsection{Unseen speakers and words}
+	\label{sec:classification:unseen}
+	
+	\TODO{Split into 2 separate subsections?}	
+	
+	In the feature experiments described in the previous section, each speaker and word type in the testing data had already been seen in the training data, i.e. the training data included utterances by that speaker or of that word type (uttered by both native and non-native speakers). However, as stated in \TODO{\cref{??}}, one motivation for a classification-based approach to error diagnosis is that the abstraction from concrete reference utterances afforded by such a method can theoretically enable the diagnosis of errors in new word types without requiring additional recordings of native speakers pronouncing these words; to assess the feasibility of diagnosing utterances of new words, the classifier's performance on words not seen in the training data must be evaluated and compared with the performance observed on seen words, with the hypothesis that the former will be better than the latter. Furthermore, in order for a CAPT tool to be useful in practice, it must be able to diagnose the speech of a learner from their very first time using the system. In the experiments reported above, it is possible that the training data's inclusion of other utterances by the speaker in question resulted in higher performance than would be observed if such utterances were not available as training instances, so the classifier's performance on unseen speakers must be compared to the performance reported above, once again with the hypothesis that the classifier will perform more poorly on unseen test data. To test these hypotheses, another series of experiments was carried out using different configurations of testing and training data sets. 
+	
+	
+	To evaluate classification performance on unseen word types, all non-native utterances in the IFCASL sub-corpus annotated for lexical stress were divided by their word type, resulting in twelve different data sets to be used for testing. To construct the training set for each test set, utterances of the target word type  were removed from the complete set of native German utterances, and the resulting set of 11 word types uttered by L1 German speakers was combined with the utterances of those 11 word types by L2 speakers. Given the improvement in performance observed with the inclusion of speaker-related features (see \cref{sec:classification:features:spkrword}), along with the apparent \TODO{interaction \textit{in the everyday, not scientific sense}} between such features and the prosodic feature set (such that overall performance improved when all prosodic features were included, not just the best-performing prosodic features of duration and F0), classifiers were trained using a few  different combinations of features, to ascertain how these features affect performance when the test data consists of unseen words. It might be the case that including information about the speaker, i.e. their age/gender and proficiency level, may be more helpful when there are no training instances available for the given word type. 
+	
+	The results of these experiments are presented in \cref{tab:results:words}. As that table shows, the best average performance on all twelve unseen word types was achieved using classifiers trained only on the best-performing prosodic features,(DUR+F0), and not taking either of the speaker-related features into consideration: this yielded an accuracy of 66.85\%, $\kappa$ of 0.17, and F$_1$ and F$_2$ measures of 0.77 and 0.84, respectively. 
+	
+	A more detailed breakdown of classification performance, using these best-performing features, for each of the twelve held-out word types, is presented in \cref{tab:results:wordtypes}. As this table shows, there are relatively large differences in accuracy from word to word. Accuracy ranges from 83.93\% (on the word \textit{fliegen}) to 50.91\% (\textit{Tatort}), $\kappa$ from -0.10 (\textit{Fr\"uhling}) to 0.47 (\textit{Tschechen}), and F$_1$ and F$_2$ from 0.91/0.96 (\textit{fliegen}) to 0.49/0.55 (\textit{Tatort}). This recalls the large differences in human-human annotator agreement observed from word type to word type, as described in \cref{sec:agreement:overall}, reinforces the impression that lexical stress realizations are more difficult to assess for some word types than for others, and provides an additional motivation for future investigations into the acoustic-phonetic features responsible for this observed difference in accuracy among word types \see cref{sec:conclusion:future})
+	\TODO{Graph or table comparing the classifier accuracy/kappa for each word type to the human-human stats?}
+	
+	In comparison with the best results obtained on seen words as reported in the previous section (\TODO{recap results for DUR+F0 and WD+LVL+ALL}), these statistics seem to confirm the hypothesis that performance would be lower on words not seen in the training data. Perhaps most striking is the difference in $\kappa$, which constitutes a drop from fair to slight agreement with the gold-standard labels (using the \textcite{Landis1977} thresholds), which also constitutes a fall below the average inter-annotator $\kappa$ of 0.23 observed between human annotations (see \cref{sec:agreement:overall}). However, the drop in the overall accuracy percentage, as well as in the two F-measures, seems less drastic, which seems encouraging from the perspective of extending the diagnostic capabilities of the CAPT tool to novel word types using a classification-based approach, especially considering the possibilities for improving classification performance by other means, e.g. using additional features or more powerful machine learning algorithms (see \cref{sec:conclusion:future}).
+	
+	
+		
+		
+	
+	
+	
+	\begin{table}
 			\centering
-			\caption[Results of experiments with unseen speakers]{Results of experiments with unseen speakers, averaged over all 56 held-out speakers \TODO{explain stats} \TODO{fix width}}
+			\caption[Results of experiments with unseen speakers]{Results of experiments with unseen speakers, averaged over all 56 held-out speakers \TODO{explain stats} \TODO{fix width} \TODO{bold best values}}
 			\begin{tabularx}{\textwidth}{lXXXXXX}			
 			\toprule
 			\multirow{2}{*}{Feature set} & \multirow{2}{*}{\% acc.} & \multirow{2}{*}{$\kappa$} & \multicolumn{4}{c}{[correct] class} \\
@@ -1018,21 +1044,33 @@ DUR-F0	&	69.16	&	0.19	&	0.68	&	0.90	&	0.74	&	0.85	\\
 			\end{tabularx}
 		\end{table}
 	
-	\subsection{Unseen speakers and words}
-	\label{sec:classification:unseen}
 	
-		\TODO{If accuracy on unseen words is good, that's encouraging for making new CAPT exercises for which we don't have reference recordings}
-		
-		\TODO{If accuracy on unseen speakers is good, that means ....?
-		If accuracy on unseen speakers is bad, it could mean that the overall accuracy was the result of having training data specific to the speaker (even though the classifier isn't aware of the speaker's ID), which could mean that....}
-		
-		
-	\TODO{Graph or table comparing the classifier accuracy/kappa for each word type to the human-human stats }
+	\begin{table}
+			\centering
+			\caption[Results of experiments with unseen words]{Results of experiments with unseen words, averaged over all 12 held-out word types \TODO{explain stats} \TODO{fix width} \TODO{bold best values}}
+			\begin{tabularx}{\textwidth}{lXXXXXX}		
+			\toprule
+			\multirow{2}{*}{Feature set} & \multirow{2}{*}{\% acc.} & \multirow{2}{*}{$\kappa$} & \multicolumn{4}{c}{[correct] class} \\
+			\cmidrule(lr){4-7}
+			& & & P & R & F$_1$ & F$_2$ \\
+			\midrule
+DUR+F0	&	66.85	&	0.17	&	0.69	&	0.88	&	0.77	&	0.84	\\
+{+LEVEL}	&	65.51	&	0.16	&	0.69	&	0.89	&	0.77	&	0.84	\\
+{+GENDER}	&	65.05	&	0.16	&	0.69	&	0.88	&	0.76	&	0.84	\\
+			\midrule								
+ALL	&	65.66	&	0.19	&	0.70	&	0.85	&	0.76	&	0.82	\\
+{+LEVEL}	&	64.16	&	0.11	&	0.67	&	0.88	&	0.75	&	0.83	\\
+{+GENDER}	&	64.31	&	0.12	&	0.68	&	0.90	&	0.77	&	0.85	\\
+
+		\bottomrule
+			\label{tab:results:words}
+			\end{tabularx}
+		\end{table}
 		
 		
 	\begin{table}
 			\centering
-			\caption{Results of experiments with unseen words \TODO{explain stats} \TODO{fix width}}
+			\caption[Best classification results on unseen words, by word type]{Best classification results (using feature set DUR+F0) on unseen words, by word type\TODO{explain stats} \TODO{fix width} \TODO{bold best values}}
 			\begin{tabularx}{\textwidth}{lXXXXXX}			
 			\toprule
 			\multirow{2}{*}{Held-out word} & \multirow{2}{*}{\% acc.} & \multirow{2}{*}{$\kappa$} & \multicolumn{4}{c}{[correct] class} \\
@@ -1054,7 +1092,7 @@ fliegen	&	83.93	&	0.16	&	0.84	&	1.00	&	0.91	&	0.96	\\
 \addlinespace													
 Average	&	66.85	&	0.17	&	0.69	&	0.88	&	0.77	&	0.83	\\
 			\bottomrule
-			\label{tab:results:words}
+			\label{tab:results:wordtypes}
 			\end{tabularx}
 		\end{table}
 	

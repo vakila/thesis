@@ -17,7 +17,9 @@
 
 In the foreign language classroom, less focus has traditionally been placed on pronunciation than other aspects of language education, such as grammar and vocabulary. %\citep{Neri2002,Derwing2005}. 
 %This is particularly true for German \citep{Hirschfeld2007}
-However, even when pronunciation is taught in the classroom, a number of factors may limit the effectiveness of that training \citep{Neri2002,Derwing2005}. First of all, partly thanks to a historical lack of communication between the fields of speech science and foreign language education, many teachers lack the training in phonetics and phonology to provide helpful feedback to students and correct their articulation. Secondly, high student-to-teacher ratios may prevent teachers from giving adequate attention and feedback to individual students, and limit the amount of time each student can practice speaking. Furthermore, anxiety about speaking the L2 in front of their peers may make students less willing to practice speaking, and less able to absorb corrective feedback. \TODO{individual/specific citations for each point above?}
+However, even when pronunciation is taught in the classroom, a number of factors may limit the effectiveness of that training \citep{Neri2002,Derwing2005}. First of all, partly thanks to a historical lack of communication between the fields of speech science and foreign language education, many teachers lack the training in phonetics and phonology to provide helpful feedback to students and correct their articulation. Secondly, high student-to-teacher ratios may prevent teachers from giving adequate attention and feedback to individual students, and limit the amount of time each student can practice speaking. Furthermore, anxiety about speaking the L2 in front of their peers may make students less willing to practice speaking, and less able to absorb corrective feedback. 
+%TODO
+{individual/specific citations for each point above?}
 
 
 
@@ -28,23 +30,23 @@ Although much work still needs to be done to improve our understanding of how be
 intelligibility, and not lack of a ``foreign accent'', is generally considered to be the most important goal of pronunciation training \citep{Neri2002,Derwing2005,Witt2012}. \TODO{\citep{Hahn2004}?}
 	
 
-Research on the impact of various types of pronunciation errors on intelligibility tends to indicate that errors on the prosodic (suprasegmental) level hinder intelligibility more than segmental errors \citep{Anderson-Hsieh1992,Derwing2005,Hirschfeld2007,Dlaska2013}. 
+Research on the impact of various types of pronunciation errors on intelligibility tends to indicate that errors on the prosodic (suprasegmental) level hinder intelligibility more than segmental errors \citep{Anderson-Hsieh1992,Hahn2004,Derwing2005,Hirschfeld2007,Dlaska2013}. 
 	%Indeed, lexical stress errors have been found to impact intelligibility
 	% when the L2 is German is the L2 \citep{Hirschfeld2007} 
-\TODO{expand} \TODO{Work in \citep{Hahn2004}}
+%TODO {expand} \TODO{Work in \citep{Hahn2004}}
 
 For reducing these and other types of errors,
 perception training 
 %in the form of listening exercises
 has been found to be very important \citep{Derwing2005,Hirschfeld2007},
 though some researchers stress that combining this with corrective feedback on pronunciation errors leads to bigger performance gains \citep{Dlaska2013}. 
-\TODO{expand}
-
+%TODO {expand}
+%
 The importance of individualized corrective feedback is also generally acknowledged \citep{Neri2002,Mehlhorn2005,Dlaska2013}, 
-\TODO{expand}
+%TODO{expand}
 though there is much to be learned about exactly when and how feedback can be most effective. This is the motivation behind the feedback generation module of the proposed tool (see \cref{chap:feedback}), which is intended to facilitate research on CAPT feedback.
 
-\TODO{Explicit FB is necessary; learners have trouble identifying their errors when simply asked to listen to what they said \citep{Dlaska2013}}
+%TODO {Explicit FB is necessary; learners have trouble identifying their errors when simply asked to listen to what they said \citep{Dlaska2013}}
 
 
 
@@ -77,20 +79,23 @@ Indeed, in recent decades, the educational value of speech technologies has been
 %	
 %	This section would serve as a domain-independent overview of CBT and ITS, and the advantages such systems can bring when deployed in schools or used individually.
 %	
-    \subsection{Prosody in existing CAPT systems}
+   % \subsection{Prosody in existing CAPT systems}
 	\label{sec:capt:systems}
 		
 	The viability of CAPT has been demonstrated by a variety of systems and tools that have been developed in both academic and commercial contexts. Some focus on overall assessment of pronunciation or fluency, and others on the detection and correction of individual pronunciation errors \citep{Eskenazi2009}; the tool developed in this work falls into the latter category. In error-focused systems, a distinction has typically been drawn between phonemic errors, e.g. the substitution, insertion, or deletion of a segmental speech sound, and prosodic errors, such as those related to stress/accent, intonation, or rhythm \citep{Witt2012}. As discussed in the previous section, word-prosodic errors have a larger impact on intelligibility than segmental errors, and are therefore the focus of this work (see \cref{sec:bkgd:targeting} below). With this in mind, a few prosody-aware CAPT systems relevant to this thesis are discussed below; comprehensive overviews and comparisons of these and many other systems are given by \textcite{Neri2002,Eskenazi2009,Delmonte2011,Witt2012}.  
 	
-	\subsubsection{Automatic processing of learner speech}
+	%\subsubsection{Automatic processing of learner speech}
+	\subsection{Automatic processing of learner speech}
 		
 	Both the diagnosis and feedback modules of the CAPT tool developed in this work build to a great extent on previous work by researchers in the speech group at LORIA\footnote{\url{http://www.loria.fr/}} in Nancy, France, many of whom are also involved in the IFCASL project (see \cref{sec:intro:ifcasl}). 
 	%
-	 \TODO{\textit{This part about segmentation doesn't really fit in with the prosody-in-CAPT discussion - find a better place for it.}}
+	% \TODO{\textit{This part about segmentation doesn't really fit in with the prosody-in-CAPT discussion - find a better place for it.}}
 	 Their work has, on the one hand, investigated the task of automatically recognizing and segmenting learners' speech, and determining how this possibly incorrect automatic segmentation can be effectively utilized in the context of pronunciation tutoring, particularly at the prosodic level \citep{Mesbahi2011,Orosanu2012}; 
-	\TODO{see \cref{chap:diagnosis} for a discussion of how this thesis will build upon that work. \textit{Details \& de-proposal-ize}}
+	%TODO {see \cref{chap:diagnosis} for a discussion of how this thesis will build upon that work. \textit{Details \& de-proposal-ize}}
 	
-	\subsubsection{The \textit{Snorri} suite and \textit{Jsnoori}}
+	%\sub
+	\subsection{The \textit{Snorri} suite and \textit{Jsnoori}}
+	\label{sec:capt:snoori}
 	
 	%Additionally, the group has developed
 	Another important contribution of the LORIA group is 
@@ -99,25 +104,29 @@ Indeed, in recent decades, the educational value of speech technologies has been
 	a later Windows port, \textit{WinSnorri} \citep{Laprie1999},
 	%and its partial Java port, Jsnoori {Parole2013}, 
 	and most recently a partial Java port of WinSnorri, \textit{Jsnoori}\footnote{\url{http://jsnoori.loria.fr}} \citep{Parole2013}, which is still under active development, and is the version of the \textit{Snorri} suite most relevant to this work.
-	\TODO{summary of speech processing capabilities of the Snooris \citep{Fohr1989,Laprie1999}, without mention of application to L2 acquisition. Then...}
 	
-	Though the \textit{Snorri} programs were originally developed primarily as research tools for speech scientists \TODO{\textit{necessary to cite again so soon?} \citep{Fohr1989,Laprie1999}}, 
+	\TODO{summary of speech processing capabilities of the Snooris \citep{Fohr1989,Laprie1999}}
+	%, without mention of application to L2 acquisition. Then...}
+	
+	Though the \textit{Snorri} programs were originally developed primarily as research tools for speech scientists %\TODO{\textit{necessary to cite again so soon?} 
+	\citep{Fohr1989,Laprie1999}, 
 	the utility of such software
 	%, and especially of resynthesized feedback, 
-	for pronunciation teaching has been explored by \citeauthor{Bonneau2004} (\citeyear{Bonneau2004,Bonneau2011}) \TODO{add \citep{Henry2007}},
+	for pronunciation teaching has been explored by the LORIA team \citep{Bonneau2004,Henry2007,Bonneau2011},
+	% \citeauthor{Bonneau2004} (\citeyear{Bonneau2004,Bonneau2011}) \TODO{add \citep{Henry2007}},
 	% \textcite{Bonneau2011}, 
-	who used 
+	who have used 
 	%\TODO{\textit{correct?} WinSnoori} 
 	this software to assess and deliver feedback on lexical stress in L1 French speakers' pronunciation of English words. 
 	%
-	\TODO{transition}
-Jsnoori 
+	%\TODO{transition}
+In its role as a CAPT tool, Jsnoori 
 takes as input a learner utterance, a native reference utterance, and segmentations of each, perform an acoustic comparison of the two utterances, and deliver feedback on the learner's speech in the form of e.g. annotated displays of the speech signal and spectrogram of each. Moreover, auditory feedback can be delivered 
 %thanks to the capability of 
 by
 resynthesizing the learner's utterance to match the pitch contour and timing of the reference, without modifying the voice quality of the utterance, such that the learner can hear the ``correct'' pronunciation in their own voice. 
 %
-	\TODO{more about those papers} 
+	\TODO{more details about those papers} 
 	
 	
 	\TODO{Jsnoori screenshot}
@@ -130,12 +139,13 @@ utilizes the signal processing capabilities of Jsnoori
 %and
 %builds on the error diagnosis functionality of Jsnoori 
 for speech analysis and error diagnosis (see \cref{chap:diagnosis}), 
-and leverages its feedback generation capabilities to deliver \TODO{\textit{verify:} a more diverse, and potentially more effective, range of feedback types} (see \cref{chap:feedback}). 
+and leverages its feedback generation capabilities to deliver  a more diverse, and potentially more effective, range of feedback types (see \cref{chap:feedback}). 
 	
 	% \citep{Bonneau2011,Fohr1996,Fohr2012,Mesbahi2011,Orosanu2012}. The Jsnoori/WinSnoori software \citep{Parole2013}
 %which this group has developed will be instrumental in the construction of the CAPT tool. 
 
-	\subsubsection{The \textit{Fluency} pronunciation trainer}
+	%\sub
+	\subsection{The \textit{Fluency} pronunciation trainer}
 	\label{sec:capt:fluency}
 	
 	This work also draws from research on two systems developed at Carnegie Mellon University.
@@ -155,10 +165,13 @@ and leverages its feedback generation capabilities to deliver \TODO{\textit{veri
 %
 	The first of these, the Fluency pronunciation trainer \citep{Eskenazi1998,Eskenazi2000}, is a CAPT system placing particular emphasis on
 %prosody and 
-user-adaptivity, corrective articulatory feedback, and the integration of perceptual training (e.g. listening exercises). As with the work at LORIA described above, the Fluency system evaluates learners' speech via comparison with that of a native reference speaker, and \textcite{Probst2002} found that selecting a ``golden speaker'' whose voice closely matched the learner's improved learning gains. \TODO{more about golden speaker?} Fluency also implements an error-catching step to reject utterances which do not match the expected text \citep{Eskenazi2000}, in the same vein as that of \textcite{Mesbahi2011,Orosanu2012}. \textcite{Eskenazi2007} report that Fluency's commercial spin-off, NativeAccent\textsuperscript{TM}, has been shown to help real-world users significantly improve their pronunciation skills.
+user-adaptivity, corrective articulatory feedback, and the integration of perceptual training (e.g. listening exercises). As with the work at LORIA described above, the Fluency system evaluates learners' speech via comparison with that of a native reference speaker, and \textcite{Probst2002} found that selecting a ``golden speaker'' whose voice closely matched the learner's improved learning gains. 
+%TODO {more about golden speaker?} 
+Fluency also implements an error-catching step to reject utterances which do not match the expected text \citep{Eskenazi2000}, in the same vein as that of \textcite{Mesbahi2011,Orosanu2012}. \textcite{Eskenazi2007} report that Fluency's commercial spin-off, NativeAccent\textsuperscript{TM}, has been shown to help real-world users significantly improve their pronunciation skills.
 	%In an early version of Fluency, an utterance is elicited from the learner using a targeted question, constraining the learner's response such that a speech recognizer can perform forced alignment on the utterance, while at the same time giving the learner the impression that they have decided what to say (as opposed to simply reading a given sentence out loud).
 	
-	\subsubsection{The Project LISTEN Reading Tutor}
+	%\sub
+	\subsection{The Project LISTEN Reading Tutor}
 	\label{sec:capt:listen}
 	
 	A second CMU system, the Project LISTEN Reading Tutor \citep{Mostow2012} 
@@ -168,12 +181,15 @@ However, as
 %To that end, 
 it analyzes the prosody of children's read speech to measure reading fluency, and offers feedback on this prosody. %, 
 it is nevertheless very relevant to CAPT and thus this thesis. 
-	Indeed, the potential for such a tool, and its underlying technologies, to enhance foreign-language education has already been demonstrated by \TODO{\textcite{Weber2010}}, who deployed the Reading Tutor in English as a second language classes in India with encouraging initial results. 
-	In the Reading Tutor, the child's read speech is automatically segmented and compared either to a reference utterance by an adult reader, analogous to the native speaker reference in many CAPT systems, or to a generalized model of adult prosody; \textcite{Duong2011} report better performance using the generalized model. Analysis of the pitch and intensity contours of the utterance(s), as well as the duration of words/syllables and the pauses between them, results in an assessment of the child's overall fluency as well as identification of words which have been pronounced (in)correctly, and feedback is delivered visually in real time by revealing the text of each word as it is spoken, with properties such as the position, color, and font size of each word reflecting various aspects of the reader's prosody \citep{Sitaram2011}. Ideas and techniques from the Reading Tutor have influenced both the diagnosis (see \cref{chap:diagnosis}) and feedback (see \cref{chap:feedback}) modules of the proposed CAPT tool. \TODO{which ideas, influenced how?}
+	Indeed, the potential for such a tool, and its underlying technologies, to enhance foreign-language education has already been demonstrated by 
+	%TODO more 
+	\textcite{Weber2010}, who deployed the Reading Tutor in English as a second language classes in India with encouraging initial results. 
+	In the Reading Tutor, the child's read speech is automatically segmented and compared either to a reference utterance by an adult reader, analogous to the native speaker reference in many CAPT systems, or to a generalized model of adult prosody; \textcite{Duong2011} report better performance using the generalized model. Analysis of the pitch and intensity contours of the utterance(s), as well as the duration of words/syllables and the pauses between them, results in an assessment of the child's overall fluency as well as identification of words which have been pronounced (in)correctly, and feedback is delivered visually in real time by revealing the text of each word as it is spoken, with properties such as the position, color, and font size of each word reflecting various aspects of the reader's prosody \citep{Sitaram2011}. Ideas and techniques from the Reading Tutor have influenced both the diagnosis (see \cref{chap:diagnosis}) and feedback (see \cref{chap:feedback}) modules of the proposed CAPT tool. \TODO{more details}
+	%TODO {which ideas, influenced how?}
 	
 	\subsection{German and language-independent CAPT}
 	\label{sec:capt:german}
-	\TODO{flesh out this paragraph - rephrase subsection heading?}
+	%\TODO{flesh out this paragraph - rephrase subsection heading?}
 	The vast majority of CAPT systems which analyze learners' speech at the prosodic level have been developed with English as the target L2, and relatively little work has been done on German.
 	%Notable exceptions include
 	%\TODO{Delmonte's SLIM?}, 
@@ -192,12 +208,13 @@ prosodically-modified recordings of their own speech and that of native speakers
 %TODO replace?
 %	Ville, for L2 Swedish instruction \citep{Wik2009}, incorporates both perception and production exercises for lexical stress and other prosodic errors, and features an animated virtual character as the tutor.
 %
-	Language-independent tools have also been developed, such as WinPitch LTL \citep{Martin2004}, which enables speech signal visualization of prosodic features such as pitch contours as well as manipulation of prosody and comparison to reference utterances, with the intent that a human instructor will guide the learner in using the software and interpreting the visualizations.
+
+	Language-independent tools have also been developed for teaching prosody, such as WinPitch LTL \citep{Martin2004}, which enables speech signal visualization of prosodic features such as pitch contours as well as manipulation of prosody and comparison to reference utterances, with the intent that a human instructor will guide the learner in using the software and interpreting the visualizations.
 	%\TODO{anything else?}
 	
 	%Other systems mentioned by \textcite{Eskenazi2009,Delmonte2011,Witt2012} may also be briefly described, including tools developed at KTH \citep{Hincks2002,Hincks2009} to teach English prosody.
 	
-	\TODO{need an outro for this (sub)section}
+	\TODO{need an outro for this (sub)section?}
 	
 	
 % Alternative organization:
@@ -206,9 +223,11 @@ prosodically-modified recordings of their own speech and that of native speakers
 		%TODO check this section for inaccuracies
 		When there is a typological difference between some segmental or prosodic feature(s) of a language learner's L1 compared to the target L2, there is a particular need for pronunciation training to bridge this gap. In the case of the French-German language pair, the prosodic realization of lexical stress is one feature which marks a striking difference between the languages.
 		
-			Lexical stress is the phenomenon of how syllables are accentuated within a word  \citep{Cutler2005}. \TODO{Elaborate} This relates not to the segmental characteristics of an uttered syllable, i.e. the speech sounds it contains, but rather to its (relative) suprasegmental properties, namely: %TODO need citation here?
+			In the broadest terms, lexical stress is the phenomenon of how syllables are accentuated within a word  \citep{Cutler2005}. To say that a given syllable in a word is stressed is, generally speaking, to say that that syllable is somehow accorded a more prominent role in the word than other syllables, i.e. that this syllable is perceived as somehow ``standing out'' \citep{Dogil1999}.
+			%\TODO{Elaborate} 
+			The perceived prominence of a syllable in a word is a function not merely of the segmental characteristics of the uttered syllable, i.e. the speech sounds it contains, but rather of its (relative) suprasegmental properties, namely: %TODO need citation here?
 			\begin{itemize}
-			\item duration, which equates on the perceptual level to timing;
+			\item duration, which equates on the perceptual level to length; %timing;
 			\item fundamental frequency (F0), which corresponds to perceived pitch; and
 			\item intensity (energy or amplitude), which perceptually equates to loudness.
 			\end{itemize}
@@ -230,17 +249,19 @@ Furthermore, in German, misplaced stress has been shown to disrupt understanding
 	\label{sec:stress:french}
 
 			However, in the so-called fixed-stress languages, stress is completely predictable, as it always falls on a certain position in the word;
-in French, for example, stress is fixed on the word-final syllable, while 
+%in French, for example, stress is fixed on the word-final syllable, while 
 in Czech and Hungarian, stress always falls on the initial syllable. Lexical stress may not be as crucial to the knowledge of a word in these languages as in the free-stress languages. Furthermore, although lexical stress is realized in these languages, the distinction between stressed and unstressed syllables may be weaker than in free-stress languages.
 %
  While many theorists place French 
  %has often been placed 
- into this category of fixed-stress languages, 
+ into this category of fixed-stress languages, pointing to the fact that word-final syllables are always most prominent when a word is pronounced in isolation,
  %although 
  others argue that
- it may be more properly considered a language without lexical stress, insofar as there is no systematic way in which speakers distinguish a certain syllable from others in the word, aside from the fact that French exhibits phrasal accent, i.e. lengthening of the final syllable in each prosodic group or phrase \citep{Dupoux2008}. 
+ it may be more properly considered a language without lexical stress, insofar as there is no systematic way in which speakers distinguish a certain syllable from others in the word, aside from the fact that French exhibits phrasal accent, expressed as a lengthening of the final syllable in each prosodic group or phrase \citep{Dupoux2008,Michaux2013}.  
+ %
+ Regardless, stress at the word level does not serve any contrastive function in French \citep[p.~89]{Michaux2013}, which constitutes a significant difference between this language and a language with variable, contrastive lexical stress such as German or English.
  
- 		\TODO{``French does not have contrastive stress: the standard final prominence in isolated words disappears when they are located in non-final position in a larger word group, leaving a word-group final accent... Rather than being contrastive, this `primary' accent has a demarcative function. \citep[p.~89]{Michaux2013}}
+% 		\TODO{``French does not have contrastive stress: the standard final prominence in isolated words disappears when they are located in non-final position in a larger word group, leaving a word-group final accent... Rather than being contrastive, this `primary' accent has a demarcative function. \citep[p.~89]{Michaux2013}}
 			
 		\subsection{Expected pronunciation errors}
 		\label{sec:stress:expected}
@@ -248,8 +269,10 @@ in Czech and Hungarian, stress always falls on the initial syllable. Lexical str
 		native speakers of French may generally be expected to lack the sensitivity to stress patterns possessed by native speakers of German. Indeed, this has been borne out by research by \textcite{Dupoux2008},
 		%\citep{Dupoux2001,Dupoux2008},
   who found that native French speakers are ``deaf'' to differences in stress patterns, such that they have great difficulty discriminating between Spanish words which contrast only at the level of stress. This difficulty should also exist for French speakers when they are presented with German words in which the stress pattern is crucial to the word's meaning, as in the minimal pair above. 
-  \TODO{Furthermore, we can expect errors in their production...} %see \cref{chap:lexstress} for a more detailed discussion of  expected errors.}
-  \TODO{Work in \citep{Michaux2012,Michaux2013}}
+  
+  In addition to these difficulties with lexical stress perception, French learners of variable-stress languages such as English, German and Dutch have also been shown to have difficulties in producing stress patterns correctly. Research by \citeauthor{Michaux2012} et al. \citeyear{Michaux2012,Michaux2013} revealed that, as might be expected given the tendency for word- and/or phrase-final syllable prominence in French just discussed, French learners of Dutch  showed a tendency to stress the final syllables of Dutch words, even when not called for by the canonical stress pattern.
+  
+ While little research exists specifically investigating the errors of French, it can reasonably be expected that French learners of German will face challenges with both the perception and production of lexical stress, and that the (lack of) lexical stress system in their native language will have an influence on their realization of lexical stress patterns in German words.
 
 		
 		
@@ -271,7 +294,7 @@ the error must be \textit{produced relatively frequently} by French L1 speakers 
 Second,
 the error must have a significant \textit{impact on the perceived intelligibility} of the learner's speech; 
 as the ultimate goal of the system is to help learners communicate more effectively in the L2,
- an error which is commonly made but nevertheless does not impede understanding of the learner's L2 speech, and thus does not hinder communication in the L2, is not an ideal target. \TODO{refer to intelligibility vs. accentedness as discussed above}
+ an error which is commonly made but nevertheless does not impede understanding of the learner's L2 speech, and thus does not hinder communication in the L2, is not an ideal target. %TODO {refer to intelligibility vs. accentedness as discussed above}
 %\item I
 Third,
 in order for the CAPT system to provide any meaningful diagnosis and feedback, the error must lend itself to reasonably accurate and reliable  \textit{detection through automatic processing}. 
@@ -292,7 +315,9 @@ As illustrated in \cref{fig:errors}, the best error to target with the CAPT syst
 		\end{figure}
 		%\end{center}
 
-	Lexical stress errors \TODO{e.g.} fulfill all three of these criteria, and this error type has therefore been chosen as the target of the proposed CAPT tool; the remainder of this section justifies that choice. 
+	Lexical stress errors 
+	%\TODO{e.g.} 
+	fulfill all three of these criteria, and this error type has therefore been chosen as the target of the proposed CAPT tool; the remainder of this section justifies that choice. 
 	%This thesis proposes that lexical stress errors are a strong candidate for treatment via CAPT, as this type of error meets all three criteria. 
 %	
 %	
@@ -307,7 +332,7 @@ As illustrated in \cref{fig:errors}, the best error to target with the CAPT syst
 		\subsection{Impact on intelligibility}
 		\label{sec:targeting:intelligibility}
 
-	First, \TODO{as mentioned in \cref{sec:capt:l2ed} above \textit{was it?}}, errors related to prosody have 
+	First, as mentioned in \cref{sec:capt:l2ed} above, errors related to prosody have 
 	often
 	%generally
 	 been found to have a larger impact on intelligibility than segmental errors \citep{Derwing2005,Witt2012}, and several studies have found lexical stress to be particularly important for comprehension in free-stress languages like English, Dutch, and our target language, German \citep{Hirschfeld1994,Hahn2004,Cutler2005}.
@@ -332,7 +357,9 @@ Secondly, we saw in \cref{sec:bkgd:stress} that perceiving contrasts in lexical 
 %mentioned earlier (\cref{sec:capt:l2ed}), 
 this is a good indication that L1 French speakers will regularly make lexical stress errors in an L2 with free, contrastive stress, such as German. \textcite{Bonneau2011} report that in a pilot study of L1 French speakers pronouncing English words, lexical stress was frequently misplaced by beginners; given the similarities of the lexical stress systems of English and German compared to that of French, this is another sign that we can expect such errors to be produced frequently.
 %
-Indeed, an analysis of lexical stress errors in the IFCASL corpus of non-native (L1 French) German speech conducted as part of this thesis project supports the expectation of frequent lexical stress errors in this particular L1/L2 pair: \TODO{verify/reword if necessary: errors were observed at all skill levels, though beginners made many more errors than advanced learners}. See \cref{chap:lexstress} for a detailed discussion of these findings.
+Indeed, an analysis of lexical stress errors in the IFCASL corpus of non-native (L1 French) German speech conducted as part of this thesis project supports the expectation of frequent lexical stress errors in this particular L1/L2 pair: 
+%\TODO{verify/reword if necessary: 
+errors were observed at all skill levels, though beginners made many more errors than advanced learners. See \cref{chap:lexstress} for a detailed discussion of these findings.
 	
 
 		\subsection{Feasibility of automatic detection}

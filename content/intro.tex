@@ -33,7 +33,8 @@ become more intelligible when speaking German.
 \section{Context: The IFCASL project}
 \label{sec:intro:ifcasl}
 
-This work has been conducted in the context of the ongoing research project ``Individualized Feedback in Computer-Assisted Spoken Language Learning (IFCASL)'' at Saarland University (Saarbrücken, Germany) and LORIA (Nancy, France). \TODO{more project info (ANR/DFG project no.? citation?)}
+This work has been conducted in the context of the ongoing research project ``Individualized Feedback in Computer-Assisted Spoken Language Learning'' (IFCASL)\footnote{\url{http://www.ifcasl.org}} at Saarland University (Saarbrücken, Germany) and LORIA (Nancy, France). 
+%\TODO{more project info (ANR/DFG project no.? citation?)}
 %TODO can I cite project proposal?
 
 The goal of the IFCASL project is to take initial steps toward the development of a CAPT system targeting
@@ -41,12 +42,15 @@ The goal of the IFCASL project is to take initial steps toward the development o
 native (L1) French speakers learning German as a foreign language (L2), 
 as well as
 %and on the other, 
-L1 German speakers learning French as their L2. To this end, a bidirectional learner speech corpus has been recorded, comprising phonetically diverse utterances in French and German spoken by both native speakers and non-native speakers with the other language as L1 \citep{Fauth2014,Trouvain2013}.  While the project as a whole is thus also concerned with L1 German speakers learning French as L2, this thesis focuses exclusively on French L1 speakers learning German as L2. 
+L1 German speakers learning French as their L2. To this end, one of the major project objectives has been the compilation of a bidirectional learner speech corpus, comprising phonetically diverse utterances in French and German spoken by both native speakers and non-native speakers with the other language as L1 \citep{Fauth2014,Trouvain2013}, representing the first known corpus of L2 speech in both directions of the French-Language pair.
 
-\TODO{Details about corpus (summary of corpus articles)}
+As described by \textcite{Trouvain2013,Fauth2014}, the IFCASL corpus comprises recordings of approximately 100 speakers (50 native speakers of each of the two languages) uttering carefully constructed stimuli in both languages, such that speech in both the L1 and L2 was recorded for each speaker. In recording sessions, subjects were asked to read aloud a given sentence or longer text, and for about half of the L2 stimuli, subjects were allowed to listen to a recording of the text as uttered by a native speaker of the target language before recording their utterance. An even gender distribution was maintained among the speakers recorded, and both children (under 18 years of age) and adults participated in the recordings (the majority being adults); while children were uniformly of beginner proficiency in their L2, adults of both beginner and advanced levels in the L2 were recorded. 
 
-\TODO{Remove the following paragraph?}
-The German-language subset of the IFCASL corpus has been instrumental in training and testing the automatic diagnosis and feedback systems developed in this work. Furthermore, those systems have been designed with a view to contributing to the overall set of software developed in the context of the IFCASL project, such that they have been as compatible as possible with the other tools developed and used by the IFCASL team. %TODO reword that
+While the project as a whole is also concerned with L1 German speakers learning French as L2, and the corpus collected in the IFCASL project is evenly distributed between the two languages, this thesis focuses exclusively on French L1 speakers learning German as L2. 
+%\TODO{Remove the following paragraph?}
+The German-language subset of the IFCASL corpus has been instrumental in training and testing the automatic diagnosis and feedback systems developed in this work. As the IFCASL corpus was not annotated for lexical stress errors, one major contribution of this thesis was the annotation of such errors for a subset of the German-language utterances from L1 French speakers; the details of this annotation effort are described in \cref{chap:lexstress}. 
+
+Furthermore, the prototype CAPT tool developed in this thesis project has been designed with a view to contributing to the overall set of software developed in the context of the IFCASL project, such that they have been as compatible as possible with the other tools developed and used by the IFCASL team, especially the \textit{Jsnoori} speech processing software developed at LORIA (see \cref{sec:capt:snoori}).
 
 
 \section{Objectives}
@@ -75,8 +79,16 @@ automatically, and on the other, an exploration of the types of multimodal feedb
 The outcome of these investigations is a prototype CAPT tool, illustrated in \cref{fig:hourglass-ITS},
 which can diagnose lexical stress errors in different ways and present learners with different types of feedback on these errors.
 
-This prototype tool has been developed with both instructional and research applications in mind.
-Unlike with some existing tools for diagnosis pf and feedback on pronunciation errors, learners can interact with the tool and interpret its feedback independently, i.e. without the assistance of a human instructor at their side.
+\TODO{Overview of system architecture to?}
+
+In the prototype tool, implemented as a web application in the Groovy language using the Grails web framework,\footnote{\url{grails.org}}, a simple web interface presents a student with a German sentence (taken from the IFCASL corpus), one of the words of which is highlighted as the target word for that exercise. The student is prompted to submit an utterance of that sentence for assessment and feedback, with the instruction to focus on the accurate expression of the lexical stress pattern of the target word. The student's utterance is subsequently analyzed for lexical stress errors using a variety of diagnostic approaches (see \cref{chap:diag}), and finally the student is presented with one or more types of feedback on their realization of lexical stress in the analyzed utterance (see \cref{chap:fb}).  
+
+In addition to this student-facing interface, the tool also implements an interface through which a language teacher or a researcher of L2 language acquisition can create new exercises for students to complete, where each exercise features a specific combination of the various diagnostic methods and feedback types available in the system. By allowing fine-grained control over these features, the tool enables researchers to create CAPT exercises with different features for the purposes of in-vivo studies of the effectiveness of different feedback types, and allows teachers to create exercises matching the needs of their students.
+
+\TODO{Add screenshots of both interfaces}
+
+This prototype tool has thus been developed with both instructional and research applications in mind.
+Unlike with some existing tools for diagnosis and feedback on pronunciation errors, learners can interact with the tool and interpret its feedback independently, i.e. without the assistance of a human instructor at their side.
 At the same time, researchers can use this modular system to study the impact of various assessment and feedback types on learner outcomes, user engagement, and other factors impacting the success of a CAPT system. 
 %
 Once more is known about which diagnosis/feedback types should be delivered to which learners in which situations, this tool could become a useful component to a fully-fledged CAPT system, in which learner models and other intelligent components automatically decide which modules of the tool to activate. 

@@ -24,7 +24,7 @@
 	\TODO{Recap of IFCASL corpus  \cref{sec:intro:ifcasl}}
 
 	To investigate to what extent the expected lexical stress errors by French speakers of German are actually produced, a subset of the non-native German-language IFCASL corpus was annotated for such errors.
-	\TODO{more about why this is necessary/how the corpus will be used for supervised training}
+%
 	%
 	The first sections of this chapter describe the selection of material for this sub-corpus (\cref{sec:lexstress:data}), the annotators who labeled lexical stress errors in that data (\cref{sec:lexstress:annotators}), and the method by which annotation was performed (\cref{sec:lexstress:method}). 
 	
@@ -55,6 +55,9 @@
 	%This chapter describes the annotation of this sub-corpus, and presents an analysis of the annotated data that provides tentative answers to the above questions. \TODO{rephrase that?}
 	%This chapter presents the data and method used for this annotation, and an analysis of the annotated sub-corpus \TODO{\textit{rephrase}: in light of these guiding questions}.
  
+	
+	\TODO{preview of how the corpus will be used for supervised training}	
+	
 	
 	%\subsection{Data}
 	\section{Data}
@@ -90,7 +93,7 @@ Woman	&	5	&	5	&	3	&	9	&	\textbf{22}	\\
 	
 	In the IFCASL corpus recordings, sentences containing these words were read aloud by L1 and L2 (L1 French) speakers. Here, only the L2 utterances were annotated; it is assumed that the L1 German speakers always realize lexical stress correctly. \TODO{justify that assumption?}
 	
-	As described in \cref{sec:intro:ifcasl} \TODO{verify that this reference is appropriate}, the IFCASL recordings were performed under two conditions: the ``Sentence Read'' (SR) condition, in which the L2 speaker is simply  presented with the text of the sentence and asked to record themselves reading it aloud, and the ``Sentence Heard'' (SH) condition, in which the L2 speaker is asked to listen to an utterance of the sentence by an L1 German speaker before recording their own utterance. The sub-corpus for annotation includes recordings from both conditions, though the majority are from the SR condition \TODO{does mentioning that help or hurt?}.
+	As mentioned in \cref{sec:intro:ifcasl}, the IFCASL recordings were performed under two conditions: the ``Sentence Read'' (SR) condition, in which the L2 speaker is simply  presented with the text of the sentence and asked to record themselves reading it aloud, and the ``Sentence Heard'' (SH) condition, in which the L2 speaker is asked to listen to an utterance of the sentence by an L1 German speaker before recording their own utterance. The sub-corpus for annotation includes recordings from both conditions, though the majority are from the SR condition \TODO{does mentioning that help or hurt?}.
 	
 	To compile the sub-corpus for annotation, utterances (tokens) of each word as produced by over 50 L2 speakers were extracted from the recordings automatically with Praat \parencite{Boersma2014}, using extraction times (start and end points of word utterances) taken from the word-level segmentation of each sentence utterance automatically obtained by forced alignment (see \cref{sec:diag:segmentation}).
 	\Cref{tab:bisyllwords} lists the exact number of tokens available for each word type. In total, 
@@ -140,7 +143,9 @@ Woman	&	5	&	5	&	3	&	9	&	\textbf{22}	\\
 	\section{Annotators}
 	\label{sec:lexstress:annotators}
 	
-	A total of 15 annotators participated in the annotation of this IFCASL sub-corpus \TODO{\textit{remove?:} over the course of 2 months}, each of whom is listed in \cref{tab:annotators} (by an arbitrary identifier, to preserve anonymity).
+	A total of 15 annotators participated in the annotation of this IFCASL sub-corpus ,
+	%\TODO{\textit{remove?:} over the course of 2 months}, 
+	each of whom is listed in \cref{tab:annotators} (by an arbitrary identifier, to preserve anonymity).
 	As \cref{tab:annotators} shows, the annotators varied with respect to their native language, as well as with respect to their level of expertise in phonetics/phonology/linguistic annotation. 
 	 
 	 % Nativeness
@@ -150,7 +155,9 @@ Woman	&	5	&	5	&	3	&	9	&	\textbf{22}	\\
 	In terms of expertise, the annotators can broadly be categorized into three groups: 
 	\begin{itemize}
 	\item{\textit{expert} annotators are professional researchers with a thorough understanding of phonetics/phonology and extensive experience in annotating speech data}
-	\item{\textit{intermediate} annotators are university students \TODO{ enrolled in an experimental phonology course \textit{is that true of Frankfurt students too?}}, and have some training in phonetics/phonology and/or experience annotating speech data}
+	\item{\textit{intermediate} annotators are university students enrolled in an experimental phonology course,
+	% \textit{is that true of Frankfurt students too?}}, 
+	and have some training in phonetics/phonology and/or experience annotating speech data}
 	\item{\textit{novice} annotators have negligible training in phonetics/phonology and lack experience annotating speech data}
 	\end{itemize}
 	As shown in \cref{tab:annotators}, the majority of annotators (10 out of 15) fall into the \textit{intermediate} group; two annotators can be considered \textit{expert}, and there are three \textit{novice} annotators.
@@ -204,10 +211,10 @@ Woman	&	5	&	5	&	3	&	9	&	\textbf{22}	\\
 		K & English (US)	& intermediate &  manche (56),   E-mail (56),   tragen (55),	    fliegen (56),  Pollen (55), Flagge (55) \\
 		
 		%Marc	MS	
-		L & German	 & novice & Flagge (54), \TODO{mention?}  Tatort (56),  E-mail (56) 	 \\
+		L & German	 & novice & Flagge (54),  Tatort (56),  E-mail (56) 	 \\
 		
 		%Maya	ML
-		M & 	German	 & intermediate & Ringen (54), \TODO{mention?}  Fr\"{u}hling (56), tragen (55)	 \\
+		M & 	German	 & intermediate & Ringen (54),  Fr\"{u}hling (56), tragen (55)	 \\
 		
 		%Lisa	LB	
 		N & German	& novice & Tschechen (56),  fliegen (56),  manche (56)	 \\
@@ -320,7 +327,7 @@ A single annotation session consisted of annotating all tokens of three word typ
 		
 		In the following sections, both measures are provided in the hopes of presenting a more comprehensive picture of inter-annotator agreement than either metric can convey alone.  
 		
-		\TODO{Anything else to say here?}
+		%\TODO{Anything else to say here?}
 		
 		\subsection{Overall agreement}
 		\label{sec:agreement:overall}
@@ -333,8 +340,9 @@ A single annotation session consisted of annotating all tokens of three word typ
 	%removing this because it's not certain that these numbers correspond to the same pair:
 	%with one pair reaching over 80\% agreement and a $\kappa$ over 0.6, 
 	indicating \TODO{\textit{too fuzzy?} reasonably reliable} judgments, other pairs have very low agreement; in one case, with 23.21\% agreement, the annotators seem to be closer to perfect disagreement than perfect agreement, and the corresponding $\kappa$ being below zero indicates that they agreed even (slightly) less than one would expect if they were merely labeling utterances randomly. 
-	\TODO{Compare Kappas to those in \citep{Michaux2013}? They got substantial agreement but only had 3 expert annotators }	
 	\TODO{Describe these in terms of \citep{Landis1977} - "fair" agreement?}
+	\TODO{Compare Kappas to those in \citep{Michaux2013}? They got substantial agreement but only had 3 expert annotators }	
+	
 
 		\begin{table}[htb]
 			\centering
@@ -352,7 +360,7 @@ A single annotation session consisted of annotating all tokens of three word typ
 	
 	
 	
-	\TODO{Is this section even meaningful? Should it be left out?} It seems, then, that there may be stark differences in reliability from annotator to annotator. Analysis of the set of pairwise comparisons between a given annotator and all overlapping annotators provides more insight into that annotator's individual reliability; \cref{fig:agreement:annotators} illustrates the pairwise agreements involving each of the 15 annotators. These figures should be interpreted with caution because they do not account for differences in the number of overlapping annotators/tokens available for each annotator \TODO{reference overlap table}; nonetheless, it seems that there is indeed some noticeable variation from annotator to annotator \TODO{finish this paragraph}
+	\TODO{Is this section even meaningful? Should it be left out?} It seems, then, that there may be stark differences in reliability from annotator to annotator. Analysis of the set of pairwise comparisons between a given annotator and all overlapping annotators provides more insight into that annotator's individual reliability; \cref{fig:agreement:annotators} illustrates the pairwise agreements involving each of the 15 annotators. These figures should be interpreted with caution because they do not account for differences in the number of overlapping annotators/tokens available for each annotator \TODO{reference overlap table}; nonetheless, it seems that there is indeed some noticeable variation from annotator to annotator. %TODO {finish this paragraph}
 		\TODO{table of percent/kappa min/avg/max by annotator, since graphs are difficult to read precisely?}
 		
 		\begin{figure}[htb]
@@ -376,7 +384,7 @@ A single annotation session consisted of annotating all tokens of three word typ
 			\label{fig:agreement:annotators}
 		\end{figure}
 		
-		It is also of interest to analyze the overall inter-annotator agreement for each word type in the annotated sub-corpus. As \cref{fig:agreement:words} illustrates, there are noticeable differences between word types, with annotators exhibiting relatively high agreement on certain words (e.g. \textit{E-mail}, \textit{halten}, and \textit{Pollen}), and on other words (e.g. \textit{manche} and \textit{Ringen}) exhibiting agreement values closer to chance. \TODO{DISCUSSION (reference error breakdown by word in sec:results:overall}
+		It is also of interest to analyze the overall inter-annotator agreement for each word type in the annotated sub-corpus. As \cref{fig:agreement:words} illustrates, there are noticeable differences between word types, with annotators exhibiting relatively high agreement on certain words (e.g. \textit{E-mail}, \textit{halten}, and \textit{Pollen}), and on other words (e.g. \textit{manche} and \textit{Ringen}) exhibiting agreement values closer to chance. %\TODO{DISCUSSION (reference error breakdown by word in sec:results:overall}
 		
 		
 		\begin{figure}[htb]
@@ -417,7 +425,7 @@ A single annotation session consisted of annotating all tokens of three word typ
 		
 		\textit{Are there differences in how native and non-native German speakers identify errors?}
 		
-		\TODO{expectations/speculations of what we will find?}
+		%\TODO{expectations/speculations of what we will find?}
 		
 		To answer this question, it is useful to look at the inter-annotator agreement between native and non-native annotators, as well as at the distribution of label types within each group. 
 		
@@ -568,9 +576,9 @@ Minimum	& 23.21\%	& -0.01	& 33.93\%	& 0.10	& 35.71\%	& 0.08	& 28.57\%	&  0.04 \\
 		
 			\Cref{fig:expertisepies} illustrates the relative number of each label type as assigned by annotators of the three expertise levels described in \cref{sec:lexstress:annotators} above, and while any analysis of this data should bear in mind the small sample sizes of the expert and novice groups (two and three annotators, respectively), it does appear that some interesting differences may exist between the three groups. 
 			
-			Expert annotators seem to be far more ``generous'' in their labeling than intermediate or novice annotators, in that the experts assigned the \textbf{[correct]} label 73.6\% of the time, in contrast with 49.3\% and 54.8\% for the other two groups respectively. \TODO{\textit{person?:} One could} speculate that experts' familiarity with nonnative speech and knowledge of possible inter-speaker variations in lexical stress realization may be the cause for this willingness to ``accept'' a high proportion of utterances as correct. \TODO{too many scare quotes in this paragraph?}
+			Expert annotators seem to be far more ``generous'' in their labeling than intermediate or novice annotators, in that the experts assigned the \textbf{[correct]} label 73.6\% of the time, in contrast with 49.3\% and 54.8\% for the other two groups respectively. \TODO{One could} speculate that experts' familiarity with nonnative speech and knowledge of possible inter-speaker variations in lexical stress realization may be the cause for this willingness to ``accept'' a high proportion of utterances as correct. \TODO{too many scare quotes in this paragraph}
 			
-			Another interesting difference can be observed between the intermediate and novice annotator groups: compared with the intermediate annotators, novices assign the \textbf{[none]} label less frequently (5.8\% of the time, versus 16.3\% for intermediates) and the \textbf{[bad\_nsylls]} label more frequently (8.4\% of the time, versus 2.1\% for intermediates). Still keeping in mind the discrepancy in sample sizes when comparing 10 intermediate annotators to three novices, \TODO{\textit{person?:} we might} speculate that if experts' extensive experience with nonnative speech could be an explanation for their ``generosity'' with the correct label, novice annotators' lack of experience with nonnative speech could in a similar way make them ``harsher'' in judging nonnative utterances as having an incorrect number of syllables. \TODO{This paragraph sucks. Also too many scare quotes.}
+			Another interesting difference can be observed between the intermediate and novice annotator groups: compared with the intermediate annotators, novices assign the \textbf{[none]} label less frequently (5.8\% of the time, versus 16.3\% for intermediates) and the \textbf{[bad\_nsylls]} label more frequently (8.4\% of the time, versus 2.1\% for intermediates). Still keeping in mind the discrepancy in sample sizes when comparing 10 intermediate annotators to three novices, \TODO{we might} speculate that if experts' extensive experience with nonnative speech could be an explanation for their ``generosity'' with the correct label, novice annotators' lack of experience with nonnative speech could in a similar way make them ``harsher'' in judging nonnative utterances as having an incorrect number of syllables. %\TODO{This paragraph sucks. Also too many scare quotes.}
 			
 			%TODO include?
 %			\begin{figure}[htb]
@@ -857,7 +865,8 @@ Minimum	& 23.21\%	& -0.01	& 33.93\%	& 0.10	& 35.71\%	& 0.08	& 28.57\%	&  0.04 \\
 			%For the word \textit{tragen}, the number of incorrect realizations (23, or 41.82\%)was much closer to that of correct ones  (32, or 58.18\%) , 
 			and for one word, \textit{Tatort}, incorrect realizations actually exceeded correct productions by a noticeable margin (32 or 58.18\% versus 20 or 36.36\%, respectively). 
 			
-			Unfortunately, no clear explanations for these discrepancies between word types readily present themselves, though a few speculations will be offered here. Of the words with uncommonly high proportions of correct utterances, two of the three (\textit{fliegen} and \textit{Fr\"{u}hling}) occurred in the same sentence in the IFCASL corpus --  \textit{In Fr\"uhling fliegen Pollen durch die Luft} -- along with another of the annotated word types, \textit{Pollen}. This sentence, in part due to the occurrence of these three bisyllabic initial-stress words in immediate succession, exhibits a very regular metrical pattern \TODO{is this iambic or trochaic? explanation? reference?}:
+			Unfortunately, no clear explanations for these discrepancies between word types readily present themselves, though a few speculations will be offered here. Of the words with uncommonly high proportions of correct utterances, two of the three (\textit{fliegen} and \textit{Fr\"{u}hling}) occurred in the same sentence in the IFCASL corpus --  \textit{In Fr\"uhling fliegen Pollen durch die Luft} -- along with another of the annotated word types, \textit{Pollen}. This sentence, in part due to the occurrence of these three bisyllabic initial-stress words in immediate succession, exhibits a very regular metrical pattern:
+			%TODO {is this iambic or trochaic? explanation? reference?}:
 			\begin{center}
 			\begin{tabular}{llllllllll}
 			In & Fr\"uh-& ling & flie-& gen & Pol-& len & durch & die & Luft \\

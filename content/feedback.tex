@@ -134,9 +134,19 @@ has revealed that learners seem to benefit more from prosodically modified impli
 		\subsection{Skill bars}
 		
 		
-		\TODO{Scores come from Jsnoori}
+		One way in which 
+		the diagnosis of the learner's utterance in terms of duration, F0, and energy scores (calculated as
+		%Jsnoori's diagnosis of a learner's utterance in terms of its timing (duration), pitch (F0), and energy (intensity), 
+		described in \cref{sec:compare:single}) is made explicit to the learner is by means of graphical skill bars of the type often used in tutoring systems (e.g. \cite{Long2011,Long2013}).
+		As illustrated in \cref{fig:skillbars:balanced,fig:skillbars:durpriority}, these bars provide explicit visual feedback for each ``skill'' (feature type) by displaying the score for that feature (as an integer out of 10, visible on the right hand side of the bar), as well as by graphically representing this score with both the length of the filled region of the bar (as a fraction of the total bar width corresponding to the score) and the color of that region (green for scores above 0.7, red for scores below 0.25, and yellow for intermediate scores).
+		%
+		 The bottom-most bar represents the overall score, computed as a weighted average of the three individual scores, using the weights assigned to each score by the researcher/teacher when configuring the diagnosis method \TODO{\cref{??}}.
+		 
+		  \Cref{fig:skillbars:balanced} illustrates a case where each of the three scores is given equal weighting, while \cref{fig:skillbars:durpriority} shows the same scores in the case where duration is prioritized over F0, which is in turn given a higher weight than intensity. \TODO{learner should be informed of the weighting - take new screenshot} Although the teacher or researcher setting up the exercise may (justifiably) choose to prioritize a feature, such as duration, in this way, one drawback of the skill bar visualization is that the equal size of the bars for each feature score seems to convey that all are equally important. Modifying the size of each bar based on the weight accorded to its feature may be a simple way to improve the effectiveness of this feedback type.% (see \cref{sec:conclusion:future})
+		  
+		  A potential problem with this feedback method relates to the fact, discussed in \cref{sec:compare:single}, that the scores output by Jsnoori's diagnostic tools are actually discrete, ordinal values, despite the use of numbers between 0 and 1 to represent these values. Therefore, the visual representation of these scores as if they belonged to a true interval or continuous variable is not necessarily justified, and this feedback may be somewhat confusing to the learner. It would be worthwhile to investigate this hypothesis through the type of in-vivo studies the CAPT tool has been designed to facilitate. 
 		
-		\TODO{Skill bars may be misleading in that a) the scores are discrete, ordinal and not interval (see \cref{sec:compare:single:jsnoori}), b) displaying bars seems to accord equal importance to all three features, while we know that duration is most important}
+%		\TODO{Skill bars may be misleading in that a) the scores are discrete, ordinal and not interval (see \cref{sec:compare:single:jsnoori}), b) displaying bars seems to accord equal importance to all three features, while we know that duration is most important}
 		
 			\begin{figure}
 			\centering
@@ -161,7 +171,7 @@ has revealed that learners seem to benefit more from prosodically modified impli
 		\subsection{Self-assessment}
 		\label{sec:other:selfassess}
 		
-		\TODO{explain self-regulated learning}
+		\TODO{explain self-regulated learning, \citep{Long2011,Long2013}}
  
  	
  	In the prototype CAPT tool, learners can be encouraged to assess their own pronunciation by means of a short questionnaire optionally presented before any feedback has been delivered. This questionnaire, seen in \cref{fig:selfassess}, asks learners to listen to their utterance and that of the reference speaker(s) and assess whether they have placed stress on the correct syllable, whether stress is clearly realized in their utterance, and how they can improve their stress production going forward. The learner's responses to these questions are not evaluated in any way, but instead are \TODO{logged in the system} so that they can later reflect on their self-assessed progress and refer to their self-directed advice. 

@@ -633,8 +633,8 @@ This section describes the various \textit{approaches} to such diagnosis by comp
 	The simplest type of diagnosis by direct comparison involves comparing a single learner utterance to a single reference (native-speaker) utterance; as mentioned in \cref{sec:capt:systems:loria}, this is the approach used to evaluate learner speech in Jsnoori and its predecessor WinSnoori \citep{Bonneau2004,Henry2007,Bonneau2011}. 
 	In the prototype CAPT tool, this method of comparison is implemented as a type of baseline, using the pre-existing capabilities of Jsnoori for processing and comparing the learner and reference utterances, which are described in the following section. 
 	
-	\subsubsection{Diagnosis by comparison in Jsnoori \TODO{retitle?}}
-	\label{sec:compare:single:jsnoori}
+%	\subsubsection{Diagnosis by comparison in Jsnoori \TODO{retitle?}}
+%	\label{sec:compare:single:jsnoori}
 	
 	In Jsnoori, comparison between a student's utterance and that of the reference speaker is effected through analysis of the duration (referred to as ``timing'' in Jsnoori), F0 (``pitch''), and intensity (``energy'') of relevant segments of each utterance. \TODO{At the beginning of this thesis project, intensity was not taken into account for the analysis of learner utterances; part of this project therefore involved adding intensity analysis to Jsnoori's learner-assessment module(s).} For each of these three feature types, a score between 0 and 1 is assigned to the learner utterance based on its correspondence with the reference, and an overall score is computed as the evenly-weighted average of the duration and F0 scores (intensity does not count towards the overall score). 
 	
@@ -655,18 +655,28 @@ This section describes the various \textit{approaches} to such diagnosis by comp
 	
 	\paragraph{Pitch (F0) score}
 	
-	To assign a pitch score, Jsnoori identifies the syllable with the highest F0 peak in the learner's utterance by comparing and compares that to the syllable with the highest F0 in the reference utterance. If the syllable is the same in both utterances, stress is judged to have been placed on the correct syllable; otherwise, the learner is assessed as having placed stress on the wrong syllable and receives a score of 0.1. If the learner has stressed the correct syllable, Jsnoori assesses whether they have realized that stress clearly enough by comparing the difference between the mean pitch of the stressed and unstressed syllables in the learner's utterance (e.g. SYLL0-F0-MEAN $-$ SYLL1-F0-MEAN) with the analogous difference in the reference utterance; if the difference between these differences is greater than a threshold \TODO{(3)}, the learner is considered not to have expressed stress strongly enough, receiving a score of 0.8. If the difference exceeds the threshold, stress realization in terms of F0 is considered acceptable, and the learner's score is a perfect 1.0.
+	To assign a pitch score, Jsnoori identifies the stressed syllable in an utterance  by comparing the F0 maxima in each syllable (i.e. SYLL0-F0-MAX and SYLL1-F0-MAX), assuming that the syllable with the highest F0 peak is the syllable that has been stressed. \TODO{this is not actually true for German - Jsnoori was developed for English}
+	 Having identified the syllables stressed by the learner and reference speaker, the two are compared;
+	% that to the syllable with the highest F0 in the reference utterance. I
+	if the syllable is the same in both utterances, stress is judged to have been placed on the correct syllable; otherwise, the learner is assessed as having placed stress on the wrong syllable and receives a score of 0.1. If the learner has stressed the correct syllable, Jsnoori assesses whether they have realized that stress clearly enough by comparing the difference between the mean pitch of the stressed and unstressed syllables in the learner's utterance (e.g. SYLL0-F0-MEAN $-$ SYLL1-F0-MEAN) with the analogous difference in the reference utterance; if the difference between these differences is greater than a threshold \TODO{(3)}, the learner is considered not to have expressed stress strongly enough, receiving a score of 0.8. If the difference exceeds the threshold, stress realization in terms of F0 is considered acceptable, and the learner's score is a perfect 1.0.
 	
 	
 	\paragraph{Energy (intensity) score}
 	
-	
+	Jsnoori's method for assessing lexical stress realization in terms of energy is analogous to that for F0, with the exception that the location of the stressed placement in the utterance is determined with reference to the maximum, not mean, energy observed in each syllable (i.e. SYLL0-ENERGY-MAX vs. SYLL1-ENERGY-MAX), such that the syllable with the higher energy peak is assumed to contain the stress. \TODO{again, this is not actually true for German} 
+	As with pitch, if the learner has stressed the wrong syllable they are assigned a score of 0.1, whereas if they have stressed the correct syllable, their score depends on the difference in maximum intensity between the stressed and unstressed syllables, comparing their utterance to the reference: if the difference in differences exceeds a threshold, they are assessed as having not realized stress clearly enough, and receive a score of 0.8. Otherwise, they receive a perfect intensity score of 1.0.
+
+
 
 	
-	\TODO{Describe output of diagnosis in Jsnoori (score, explicit metalinguistic feedback) and how that's utilized in de-stress}
 
-	\subsubsection{Alternative comparison methods}
-	\TODO{write or take out}
+%	\subsubsection{Alternative comparison methods}
+%	\TODO{write or take out}
+
+
+	\vspace{2em}
+	
+	The scores calculated thus for each of the three feature types are used in the prototype CAPT tool to generate various types of feedback for the learner, including the explicit feedback of reporting their scores directly; see \cref{chap:feedback} for a detailed discussion of the use of these diagnoses in feedback delivery.
 
 
 	\subsection{Using multiple reference speakers}
@@ -1094,7 +1104,7 @@ ALL	&	65.66	&	0.19	&	0.70	&	0.85	&	0.76	&	0.82	\\
 	
 		\begin{table}
 			\centering
-			\caption[Best classification results on unseen words, by word type]{Best classification results (using feature set DUR+F0) on unseen words, by word type\TODO{explain stats} \TODO{fix width} \TODO{bold best values}}
+			\caption[Best classification results on unseen words, by word type]{Best classification results (using feature set DUR+F0) on unseen words, by word type \TODO{explain stats} \TODO{fix width} \TODO{bold best values}}
 			\begin{tabularx}{\textwidth}{lXXXXXX}			
 			\toprule
 			\multirow{2}{*}{Held-out word} & \multirow{2}{*}{\% acc.} & \multirow{2}{*}{$\kappa$} & \multicolumn{4}{c}{[correct] class} \\

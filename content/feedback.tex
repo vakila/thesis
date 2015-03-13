@@ -118,17 +118,17 @@ allowing the learner to listen to a native speaker's production of the target ut
 			\subsubsection{Resynthesized audio}
 			\label{sec:implicit:auditory:resynth}
 			
-			\TODO{Previous work on delivering lexical stress feedback 
-(see \cref{sec:capt:systems}) 
-has revealed that learners seem to benefit more from prosodically modified implicit feedback, either in the form of a learner utterance  modified to reflect the ``correct'' prosody of a native reference utterance \citep{Bonneau2011}, or a native utterance modified to place exaggerated emphasis on the stressed syllable \citep{Bissiri2006,Bissiri2009}.}
+			As described in \cref{sec:capt:systems}, previous work on delivering lexical stress feedback 
+has revealed that learners sometimes benefit from prosodically modified implicit auditory feedback, either in the form of a learner utterance  modified to reflect the ``correct'' prosody of a native reference utterance \citep{Bonneau2011}.
+%TODO or a native utterance modified to place exaggerated emphasis on the stressed syllable \citep{Bissiri2006,Bissiri2009}.
+			Thanks to the speech resynthesis capabilities of Jsnoori, this is another feedback option offered by the prototype CAPT tool.
 			
-			\TODO{Resynthesis in Jsnoori
-				\begin{itemize}
-					\item TD-PSOLA
-					\item Pitch marking
-					\item ...?
-				\end{itemize}
-			}
+			To modify the learner's utterance to match a reference utterance, Jsnoori uses the technique of Time Domain Pitch Synchronous Overlap and Add, or TD-PSOLA \citep{Moulines1990}. This technique uses the general strategy of creating a new, modified version of the original signal by using a windowing function to break the signal into a series of overlapping frames, where the spacing between those frames is pitch-synchronous, i.e. corresponds to the F0 period of (that part of) the signal. The duration of a region of the signal  (e.g. a vowel) can then be decreased or increased by removing or duplicating frames in that region while keeping the spacing between frames consistent, and  the perceived pitch of a region can be lowered or raised by increasing or decreasing the spacing between frames. The implementation of this signal-transformation technique in Jsnoori includes an improved method for detecting pitch marks in the original signal \citep{Laprie1998,Colotte2002}, as the accuracy of pitch marking is vitally important to the quality of resynthesis obtained via TD-PSOLA.
+			
+			To apply this technique in the context of prosody-oriented CAPT (see \cref{Henri2007,Bonneau2011}), the target prosody for that utterance is first established via analysis and comparison of F0 and duration in the learner and reference utterances, resulting in the computation of  target F0 contours and relative phone durations for (the relevant sections of) the learner's utterance. The learner's signal is then transformed to match the targets for F0 and duration by means of the removal/addition and re-spacing of frames, as described in the previous paragraph. The resulting signal maintains the individuality of the learner's voice, yet replaces their original ``incorrect'' prosody with the ``correct'' prosody of the reference speaker. 
+			
+			Like the Jsnoori software itself, the prototype CAPT tool offers the learner the opportunity to listen to this resynthesized utterance alongside their original utterance and that of the the native speaker. The hope is that by offering this this implicit auditory feedback as one of the many feedback types teachers/researchers can choose to present to the learner, the CAPT tool will facilitate further research into the use of this type of speech resynthesis for L2 language teaching.
+			
 			
 	\section{Explicit feedback}
 		\subsection{Skill bars}
@@ -162,8 +162,41 @@ has revealed that learners seem to benefit more from prosodically modified impli
 			\label{fig:skillbars:durpriority}
 			\end{figure}	
 		
-		\subsection{correct/incorrect/none classification}
-		\subsection{Verbal feedback (Jsnoori messages)}
+		%\subsection{correct/incorrect/none classification}
+		%TODO
+		
+		\subsection{Verbal feedback}
+		
+		Another way to explicitly deliver feedback on the learner's diagnosis is by verbalizing this diagnosis with one or more appropriate messages. 
+		%
+		If individual scores have been computed for the three prosodic feature types (duration, F0, and intensity) as described in \cref{sec:compare:single}, these are verbalized using the corresponding message from the set listed in \cref{tab:explicit:messages}.
+		%
+		If the learner's utterance has been diagnosed via classification and assigned one of the possible stress-accuracy labels (see \cref{sec:diag:classification}), that classification is verbalized with one of the following messages:
+		\begin{itemize}
+		\item{[correct]: ``You stressed the correct syllable. Great job!''}
+		\item{[none]: ``It sounds like you pronounced both syllables with equal stress. Next time, try to use duration, pitch, and loudness to make the first syllable sound more important than the second syllable.''}
+		\item{[incorrect]: ``It sounds like you stressed the incorrect syllable. Remember that the stress in <WORD> should be on the first syllable.''}
+		\end{itemize}
+		
+		
+		\begin{table}
+			\centering
+			\caption{Messages used to deliver explicit verbal feedback of feature-specific scores}
+			\begin{tabular}{lll}
+			\toprule
+			Feature type & Score & Message \\
+			\midrule 
+			Duration (timing) & \TODO{} & \TODO{} \\
+			F0 (pitch) & \TODO{} & \TODO{} \\
+			Intensity (energy) & \TODO{} & \TODO{} \\
+
+			\bottomrule
+			\end{tabular}
+			\label{tab:explicit:messages}
+		\end{table}
+		
+		
+		
 		
 	\section{Other types of feedback}
 	\label{sec:fb:other}

@@ -920,13 +920,11 @@ ALL	&	67.52	&	0.25	&	0.71	&	0.89	&	0.79	&	0.85	\\
 		
 		As discussed in \cref{sec:lexstress:results}, differences in the realization of lexical stress can sometimes arise due to features not specific to the utterance itself, but rather to the speaker making the utterance or to the word type uttered. Therefore, in addition to the prosodic features described in \cref{sec:diag:prosody}, another series of experiments included features related to the speaker and word of a given utterance (listed in \cref{tab:features:sets:spkrword}), to ascertain whether the inclusion of such features could lead to any performance gains. \Cref{tab:results:spkrword} presents the results of those experiments.
 		
-		\TODO{describe results}
 		
-		\TODO{why are results with +ALL better than +DUR-F0?}
 		
 		\begin{table}[htb]
 			\centering
-			\caption{Results of experiments with speaker and word features \TODO{fix width}}
+			\caption[Results of experiments with speaker and word features]{Results of experiments with speaker and word features \TODO{Reorder subtables?} \TODO{fix width}}
 			
 			\begin{subtable}{\textwidth}
 			\centering
@@ -977,8 +975,28 @@ WD-SPKR	&	68.41	&	0.26	&	0.71	&	0.91	&	0.79	&	0.86	\\
 		\end{subtable}
 		\label{tab:results:spkrword}
 	\end{table}
+	
+	Comparing the performance of the two speaker-related features, the speaker's proficiency level (LEVEL) seems to be a better predictor of stress accuracy than their age/gender category (GENDER, which refers to whether the speaker is a girl, boy, woman, or man, and not exclusively to whether they are a male or a female; see \cref{tab:features:sets:spkrword}). This is not surprising, considering the large discrepancy between skill level groups observed in the error distribution analysis (see \cref{sec:results:level}). If the intended application of the classifier were the assessment of a learner's proficiency level, including this feature would obviously be nonsensical; however, in this context the application is not assessment but training, and in that case it makes sense to allow the system to take the learner's level into account. 
+		%In a fully-fledged intelligent tutoring system for CAPT training, the learner's current skill level could be valuable information for deciding when and how to }
 		
-\TODO{\textit{take out?:} These statistics are not terribly impressive, and} for a student-facing CAPT system we would perhaps like to see better accuracy and F-scores. However, these results should be interpreted in the context of the particular task at hand: diagnosing lexical stress errors. Considering the relatively low inter-annotator agreement observed when humans were asked to perform this task (detailed in \cref{sec:lexstress:agreement}), the classification accuracy and $\kappa$ scores do not seem shockingly low. Indeed, the best average $\kappa$ between the classifier's decision and the gold-standard labels (\TODO{}) exceeds the observed average human-human $\kappa$ (0.23), and the best average percentage accuracy for the classifier (\TODO{}) is substantially higher than the average human-human percentage agreement (54.92\%).
+		
+		
+		
+		Interestingly, for many of the word/speaker feature combinations tried, 
+		slightly %higher accuracy was 
+		different results were
+		obtained when these features were combined with the full set of prosodic features (ALL) than with the best-performing subset of the prosodic features, DUR+F0. For example, when combined with the feature set ALL, the feature LEVEL slightly outperformed the word of the utterance (WORD) as a predictor of stress accuracy, yet when combined with only the duration and F0 features (DUR+F0), WORD outperformed LEVEL. In both situations, the combination of these two features, WD+LVL, seemed to give better results than any combination involving GENDER, including the combination using all three word/speaker features. In fact, the best-performing classifiers 
+		%of any of the experiments reported in this section 
+		resulted from using the word of the utterance, the speaker's proficiency level, and the entire set of prosodic features (WD+LVL+ALL), yielding an average accuracy of 71.87\%, $\kappa$ of 0.34, and F$_1$ and F$_2$ measures of 0.81 and 0.87, respectively.
+		
+		
+		
+Though these statistics are the best of any of the experiments reported in this section, they are still not terribly impressive, and we would perhaps like to see better accuracy and F-scores before placing such an error-diagnosis system in front of actual students. However, these results should be interpreted in the context of the particular task at hand.
+%: diagnosing lexical stress errors. 
+Considering the relatively low inter-annotator agreement observed when humans were asked to 
+diagnose lexical stress errors,
+%perform this task 
+(detailed in \cref{sec:lexstress:agreement}), the classification accuracy and $\kappa$ scores do not seem shockingly low. Indeed, the best average $\kappa$ between the classifier's decision and the gold-standard labels (0.34) exceeds the observed average human-human $\kappa$ (0.23), and the best average percentage accuracy for that classifier (71.87\%) is substantially higher than the average human-human percentage agreement (54.92\%).
 		%
 		\TODO{\textit{fix this nightmare sentence-paragraph:} } If, as seems possible given the low inter-annotator agreement observed in the annotation described in \cref{chap:lexstress}, there is an element of subjectivity in the decision of whether or not lexical stress was realized correctly in an utterance of a given word, such that an indisputable diagnosis of that utterance cannot be produced, and different listeners could and would make different assessments of that utterance, it would not be realistic to expect an automatic diagnosis system to reproduce humans' assessments with perfect accuracy, and any agreement between the classifier's output and the gold-standard labels which exceeds the average agreement between humans should be interpreted in a positive light. 
 

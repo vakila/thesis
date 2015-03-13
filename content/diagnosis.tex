@@ -630,17 +630,43 @@ This section describes the various \textit{approaches} to such diagnosis by comp
 	\label{sec:compare:single}
 	
 	
-	The simplest type of diagnosis by direct comparison involves comparing a single learner utterance to a single reference (native-speaker) utterance. 
-	As mentioned in \cref{sec:capt:systems:loria}, this is the approach used to evaluate learner speech in Jsnoori and its predecessor WinSnoori \citep{Bonneau2004,Henry2007,Bonneau2011}. 
-
-	\TODO{Summary/recap of how it works}
+	The simplest type of diagnosis by direct comparison involves comparing a single learner utterance to a single reference (native-speaker) utterance; as mentioned in \cref{sec:capt:systems:loria}, this is the approach used to evaluate learner speech in Jsnoori and its predecessor WinSnoori \citep{Bonneau2004,Henry2007,Bonneau2011}. 
+	In the prototype CAPT tool, this method of comparison is implemented as a type of baseline, using the pre-existing capabilities of Jsnoori for processing and comparing the learner and reference utterances, which are described in the following section. 
 	
-	\TODO{List features used for comparison}	
-	\TODO{Jsnoori wasn't using Energy for diagnosis until I made it} 
+	\subsubsection{Diagnosis by comparison in Jsnoori \TODO{retitle?}}
+	\label{sec:compare:single:jsnoori}
+	
+	In Jsnoori, comparison between a student's utterance and that of the reference speaker is effected through analysis of the duration (referred to as ``timing'' in Jsnoori), F0 (``pitch''), and intensity (``energy'') of relevant segments of each utterance. \TODO{At the beginning of this thesis project, intensity was not taken into account for the analysis of learner utterances; part of this project therefore involved adding intensity analysis to Jsnoori's learner-assessment module(s).} For each of these three feature types, a score between 0 and 1 is assigned to the learner utterance based on its correspondence with the reference, and an overall score is computed as the evenly-weighted average of the duration and F0 scores (intensity does not count towards the overall score). 
+	
+	\TODO{\textit{unnecessary?} As the diagnostic capabilities of Jsnoori were designed with isolated-word utterances in mind, and the data evaluated here consisted of utterances of entire sentences, the utterances could not be passed directly to Jsnoori for analysis; instead, the word under analysis in the utterance was first isolated in the segmentation by re-labeling all segments before and after that word as silence.}
+	
+	The following paragraphs describe how each of these three scores is calculated, with reference to the features listed in \cref{sec:diag:prosody}. It must be noted here that the range of possible values for each of the three scores is not continuous, but discrete, and that these values fall on an ordinal rather than an interval scale. Furthermore, the same values for different scores do not necessarily correspond; for example, it is possible to achieve a timing score of 0.3 or 0.5, but possible values for pitch scores jump from 0.1 directly to 0.8.
+	Therfore, Jsnoori's representation of scores with floating-point numbers between 0 and 1 is perhaps misleading, and the use of categorical labels might be more appropriate.
+	
+	
+	
+	\paragraph{Timing (duration) score}
+	
+	If the number of syllables in the segmentation of the learner's word utterance matches that of the reference, Jsnoori assigns an arbitrary low timing score of 0.1; similarly, if there is a match in the number of syllables but a mismatch in the number of phones within one or more of those syllables, the assigned score is 0.3. 
+	If both the number of syllables and the number of phones in each syllable match, a true analysis of the learner's timing is undertaken as follows.
+	
+	First, the location of stress placement in the word utterance is determined by comparing the lengths of each syllable's nucleus, usually a vowel, i.e. by comparing the features V0-DUR and V1-DUR. The syllable with the longest vowel is taken as the stressed syllable. If the stressed syllable differs between the learner and reference utterances, the learner is assigned a timing score of 0.5. If the stressed syllable is the same, Jsnoori then computes the difference between the length of the stressed vowel in the learner's utterance (normalized by dividing the vowel's duration by the sum of the durations of all vowels in the word) and that of the stressed vowel in the reference utterance; if that difference falls below a certain threshold \TODO{(-0.2)}, the stressed syllable is deemed not to have been stressed clearly enough, resulting in a score of 0.8. If the difference in relative vowel lengths exceeds the threshold, the learner is assigned a perfect score of 1.0.
+	
+	
+	\paragraph{Pitch (F0) score}
+	
+	To assign a pitch score, Jsnoori identifies the syllable with the highest F0 peak in the learner's utterance by comparing and compares that to the syllable with the highest F0 in the reference utterance. If the syllable is the same in both utterances, stress is judged to have been placed on the correct syllable; otherwise, the learner is assessed as having placed stress on the wrong syllable and receives a score of 0.1. If the learner has stressed the correct syllable, Jsnoori assesses whether they have realized that stress clearly enough by comparing the difference between the mean pitch of the stressed and unstressed syllables in the learner's utterance (e.g. SYLL0-F0-MEAN $-$ SYLL1-F0-MEAN) with the analogous difference in the reference utterance; if the difference between these differences is greater than a threshold \TODO{(3)}, the learner is considered not to have expressed stress strongly enough, receiving a score of 0.8. If the difference exceeds the threshold, stress realization in terms of F0 is considered acceptable, and the learner's score is a perfect 1.0.
+	
+	
+	\paragraph{Energy (intensity) score}
+	
+	
+
 	
 	\TODO{Describe output of diagnosis in Jsnoori (score, explicit metalinguistic feedback) and how that's utilized in de-stress}
 
-
+	\subsubsection{Alternative comparison methods}
+	\TODO{write or take out}
 
 
 	\subsection{Using multiple reference speakers}

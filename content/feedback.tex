@@ -182,16 +182,62 @@ has revealed that learners sometimes benefit from prosodically modified implicit
 		\begin{table}
 			\centering
 			\caption{Messages used to deliver explicit verbal feedback of feature-specific scores}
-			\begin{tabular}{lll}
-			\toprule
-			Feature type & Score & Message \\
-			\midrule 
-			Duration (timing) & \TODO{} & \TODO{} \\
-			F0 (pitch) & \TODO{} & \TODO{} \\
-			Intensity (energy) & \TODO{} & \TODO{} \\
-
-			\bottomrule
-			\end{tabular}
+			
+			\begin{subtable}{\textwidth}
+				\centering
+				\caption{Duration (timing)}
+				\begin{tabularx}{\textwidth}{rX}
+					\toprule
+					Score & Message \\
+					\midrule 
+					 0.0 & ``Sorry, I wasn't able to analyze duration in your utterance.'' \\
+					 0.1 & ``I think you pronounced an incorrect number of syllables for this word.'' \\
+					0.3 & ``I think you pronounced an incorrect number of phones in at least one of the word's syllables.'' \\
+					0.5 & ``The wrong syllable has the longest vowel.'' \\
+					0.8 & ``The correct syllable's vowel is longest, good job! But it should be even longer compared to the unstressed syllable.'' \\
+					1.0 & ``No problems with duration, great job!'' \\
+		
+					\bottomrule
+				\end{tabularx}
+				\label{tab:explicit:messages:dur}
+			\end{subtable}	
+			
+			\vspace{1.5em}			
+			
+			\begin{subtable}{\textwidth}
+				\centering
+				\caption{F0 (pitch)}
+				\begin{tabularx}{\textwidth}{rX}
+					\toprule
+					Score & Message \\
+					\midrule 
+					 0.0 & ``Sorry, I wasn't able to analyze pitch in your utterance.'' \\
+					 0.1 & ``The wrong syllable has the highest pitch.'' \\
+					0.8 & ``The correct syllable has the highest pitch, good job! But it should be even higher compared to the unstressed syllable.'' \\
+					1.0 & ``Your pitch was pitch-perfect, great job!'' \\
+					\bottomrule
+				\end{tabularx}
+				\label{tab:explicit:messages:f0}
+			\end{subtable}	
+			
+			\vspace{1.5em}
+			
+			\begin{subtable}{\textwidth}
+				\centering
+				\caption{Intensity (energy)}
+				\begin{tabularx}{\textwidth}{rX}
+					\toprule
+					Score & Message \\
+					\midrule 
+					 0.0 & ``Sorry, I wasn't able to analyze the loudness of your utterance.'' \\
+					 0.1 & ``The wrong syllable is loudest.'' \\
+					0.8 & ``The correct syllable is loudest, good job! But it should be even louder compared to the unstressed syllable.'' \\
+					1.0 & ``No problems with loudness, great job!'' \\
+					\bottomrule
+				\end{tabularx}
+				\label{tab:explicit:messages:int}
+			\end{subtable}	
+			
 			\label{tab:explicit:messages}
 		\end{table}
 		

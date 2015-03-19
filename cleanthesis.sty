@@ -162,12 +162,12 @@
 	\or
 		% case = 2 (colorize == bw)
 		% --> footer colors
-		\colorlet{ctcolorfooterline}{ctcolorgray}
-		\colorlet{ctcolorfootertitle}{ctcolorgray}
+		\colorlet{ctcolorfooterline}{ctcolorgraylight}%{ctcolorgray}
+		\colorlet{ctcolorfootertitle}{ctcolorgraydark}%{ctcolorgray}
 		% --> sectioning colors
 		\colorlet{ctcolorpartnum}{ctcolorblack}
 		\colorlet{ctcolorchapternum}{ctcolorblack}
-		\colorlet{ctcolorchapterline}{ctcolorblack}
+		\colorlet{ctcolorchapterline}{ctcolorgraylight}%{ctcolorblack}
 		\colorlet{ctcolorsection}{ctcolorblack}
 		\colorlet{ctcolorsubsection}{ctcolorblack}
 		% --> text colors
@@ -198,6 +198,7 @@
 \definecolor{ctcolorblack}{gray}{0}
 \definecolor{ctcolorgray}{gray}{.5}
 \definecolor{ctcolorgraylight}{gray}{.8}
+\definecolor{ctcolorgraydark}{gray}{.3}
 
 % sets the color theme regarding the given package option colortheme
 \ifcase\cthesis@colortheme
@@ -277,7 +278,8 @@
 		\captionsetup{format=llap,labelsep=quad,singlelinecheck=false}%
 %	}{}
 \fi
-\RequirePackage{subcaption}
+\RequirePackage[labelsep=quad]{subcaption}
+\renewcommand{\captionlabelfont}{\bfseries\tgherosfont\color{ctcolorfloatlabel}}
 
 
 % **************************************************

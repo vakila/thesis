@@ -361,31 +361,51 @@ A single annotation session consisted of annotating all tokens of three word typ
 	
 	
 	
-	\TODO{Is this section even meaningful? Should it be left out?} It seems, then, that there may be stark differences in reliability from annotator to annotator. Analysis of the set of pairwise comparisons between a given annotator and all overlapping annotators provides more insight into that annotator's individual reliability; \cref{fig:agreement:annotators} illustrates the pairwise agreements involving each of the 15 annotators. These figures should be interpreted with caution because they do not account for differences in the number of overlapping annotators/tokens available for each annotator \TODO{reference overlap table}; nonetheless, it seems that there is indeed some noticeable variation from annotator to annotator. %TODO {finish this paragraph}
+	\TODO{Is this section even meaningful? Should it be left out?} It seems, then, that there may be stark differences in reliability from annotator to annotator. Analysis of the set of pairwise comparisons between a given annotator and all overlapping annotators provides more insight into that annotator's individual reliability; \cref{fig:agreement:annotators} illustrates the pairwise agreements involving each of the 15 annotators. These figures should be interpreted with caution because they do not account for differences in the number of overlapping annotators/tokens available for each annotator \TODO{reference overlap table}; nonetheless, it seems that there is indeed some noticeable variation from annotator to annotator. \TODO{finish this paragraph}
 		\TODO{table of percent/kappa min/avg/max by annotator, since graphs are difficult to read precisely?}
 		
-		\begin{figure}[htb]
+		\begin{figure}[phtb]
 			\centering
 			
-			\begin{subfigure}[b]{\textwidth}
+%			\begin{subfigure}[b]{\textwidth}
+%				\centering
+%				\includegraphics[width=\textwidth]{img/annotation/pairAgreeAnnotators}
+%				\caption{Percent agreement}
+%				\label{fig:agreement:annotators:pct}
+%			\end{subfigure}%
+			
+%			\begin{subfigure}[b]{\textwidth}
+%				\centering
+%				\includegraphics[width=\textwidth]{img/annotation/pairKappaAnnotators}
+%				\caption{Cohen's Kappa statistic}
+%				\label{fig:agreement:annotators:k}
+%			\end{subfigure}%
+
+			\begin{subfigure}{\textwidth}
 				\centering
-				\includegraphics[width=\textwidth]{img/annotation/pairAgreeAnnotators}
-				\caption{Percent agreement}
+				\caption{Pairwise percentage agreement by annotator}
+				\includegraphics[width=.9\textwidth]{img/plots/pairwisePercentageByAnnotator-noTitle}
 				\label{fig:agreement:annotators:pct}
 			\end{subfigure}%
+
+			\vspace{1em}			
 			
-			\begin{subfigure}[b]{\textwidth}
+			\begin{subfigure}{\textwidth}
 				\centering
-				\includegraphics[width=\textwidth]{img/annotation/pairKappaAnnotators}
-				\caption{Cohen's Kappa statistic}
+				\caption{Pairwise $\kappa$ by annotator}
+				\includegraphics[width=.9\textwidth]{img/plots/pairwiseKappaByAnnotator-noTitle}
 				\label{fig:agreement:annotators:k}
 			\end{subfigure}%
 			
-			\caption[Pairwise agreement statistics by annotator]{Each annotator's pairwise agreement with all other annotators with whom they overlapped. Numbers in parentheses indicate the number of pairwise comparisons involving each annotator. The bottom of each vertical bar represents the minimum pairwise value, the top the maximum. Horizontal bars indicate mean pairwise values.}
+			\caption[Pairwise agreement statistics by annotator]{Each annotator's pairwise agreement with all other annotators with whom they overlapped.
+			Horizontal lines represent median values. Colored boxes extend from the first quartile to the third quartile, and thus represent the Inter Quartile Range (IQR). Whiskers extend to the minimum and maximum values within 1.58 IQR of the first and third quartiles, respectively, and roughly represent a 95\% confidence interval around the median. 
+			 Outliers that fall outside of the IQR by a distance of more than approximately 1.5$\times$IQR  are represented by circles.%
+			%Numbers in parentheses indicate the number of pairwise comparisons involving each annotator. The bottom of each vertical bar represents the minimum pairwise value, the top the maximum. Horizontal bars indicate mean pairwise values.
+			}
 			\label{fig:agreement:annotators}
 		\end{figure}
 		
-		It is also of interest to analyze the overall inter-annotator agreement for each word type in the annotated sub-corpus. As \cref{fig:agreement:words} illustrates, there are noticeable differences between word types, with annotators exhibiting relatively high agreement on certain words (e.g. \textit{E-mail}, \textit{halten}, and \textit{Pollen}), and on other words (e.g. \textit{manche} and \textit{Ringen}) exhibiting agreement values closer to chance. %\TODO{DISCUSSION (reference error breakdown by word in sec:results:overall}
+		It is also of interest to analyze the overall inter-annotator agreement for each word type in the annotated sub-corpus. As \cref{fig:agreement:words} illustrates, there are noticeable differences between word types, with annotators exhibiting relatively high agreement on certain words (e.g. \textit{E-mail}, \textit{halten}, and \textit{Pollen}), and on other words (e.g. \textit{manche} and \textit{Ringen}) exhibiting agreement values closer to chance. \TODO{DISCUSSION (reference error breakdown by word in sec:results:overall}
 		
 		
 		\begin{figure}[htb]
@@ -454,24 +474,42 @@ Minimum	&32.65\%	 & 0.10 &  23.21\% &	-0.01\\
 			\label{tab:agreement:L1}
 		\end{table} 
 		
-		\begin{figure}[htb]
+		\begin{figure}[h!]
 			\centering
 			
-			\begin{subfigure}[b]{.5\textwidth}
+%			\begin{subfigure}[b]{.5\textwidth}
+%				\centering
+%				\includegraphics[width=\textwidth]{img/annotation/pairAgreeL1}
+%				\caption{Percent agreement}
+%				\label{fig:agreement:L1:pct}
+%			\end{subfigure}%
+%			~
+%			\begin{subfigure}[b]{.5\textwidth}
+%				\centering
+%				\includegraphics[width=\textwidth]{img/annotation/pairKappaL1}
+%				\caption{Cohen's Kappa statistic}
+%				\label{fig:agreement:L1:k}
+%			\end{subfigure}%
+			
+			\begin{subfigure}{.5\textwidth}
 				\centering
-				\includegraphics[width=\textwidth]{img/annotation/pairAgreeL1}
-				\caption{Percent agreement}
+				\caption{Pairwise \% agreement by L1 group}
+				\includegraphics[width=\textwidth]{img/plots/pairwisePctByL1-noTitle}
 				\label{fig:agreement:L1:pct}
 			\end{subfigure}%
 			~
-			\begin{subfigure}[b]{.5\textwidth}
+			\begin{subfigure}{.5\textwidth}
 				\centering
-				\includegraphics[width=\textwidth]{img/annotation/pairKappaL1}
-				\caption{Cohen's Kappa statistic}
+				\caption{Pairwise $\kappa$ by L1 group}
+				\includegraphics[width=\textwidth]{img/plots/pairwiseKappaByL1-noTitle}
 				\label{fig:agreement:L1:k}
 			\end{subfigure}%
 			
-			\caption[Pairwise agreement statistics by annotator L1 group]{Pairwise agreement between annotators based on their L1  (native or nonnative German speaker). The bottom of each vertical bar represents the minimum pairwise value, the top the maximum. Horizontal bars indicate average pairwise values.}
+			\caption[Pairwise agreement statistics by annotator L1 group]{Pairwise agreement between annotators based on L1 group (L1 = native German speaker, L2 = nonnative speaker). 
+			Horizontal lines represent median values. Colored boxes extend from the first quartile to the third quartile, and thus represent the Inter Quartile Range (IQR). Whiskers extend to the minimum and maximum values within 1.58 IQR of the first and third quartiles, respectively, and roughly represent a 95\% confidence interval around the median. 
+			 Outliers that fall outside of the IQR by a distance of more than approximately 1.5$\times$IQR  are represented by circles.
+			%The bottom of each vertical bar represents the minimum pairwise value, the top the maximum. Horizontal bars indicate average pairwise values.
+			}
 			\label{fig:agreement:L1}
 		\end{figure}
 		
@@ -796,8 +834,8 @@ Minimum	& 23.21\%	& -0.01	& 33.93\%	& 0.10	& 35.71\%	& 0.08	& 28.57\%	&  0.04 \\
 %			\end{algorithmic}
 %		\end{algorithm}
 		
-		
-
+		\TODO{check that clearpage works here}
+\clearpage
 	\section{Results}
 	\label{sec:lexstress:results}		
 	

@@ -408,24 +408,42 @@ A single annotation session consisted of annotating all tokens of three word typ
 		It is also of interest to analyze the overall inter-annotator agreement for each word type in the annotated sub-corpus. As \cref{fig:agreement:words} illustrates, there are noticeable differences between word types, with annotators exhibiting relatively high agreement on certain words (e.g. \textit{E-mail}, \textit{halten}, and \textit{Pollen}), and on other words (e.g. \textit{manche} and \textit{Ringen}) exhibiting agreement values closer to chance. \TODO{DISCUSSION (reference error breakdown by word in sec:results:overall}
 		
 		
-		\begin{figure}[htb]
+		\begin{figure}[phtb]
 			\centering
 			
-			\begin{subfigure}[b]{\textwidth}
+%			\begin{subfigure}[b]{\textwidth}
+%				\centering
+%				\includegraphics[width=\textwidth]{img/annotation/pairAgreeWords}
+%				\caption{Percent agreement}
+%				\label{fig:agreement:words:pct}
+%			\end{subfigure}%
+%			
+%			\begin{subfigure}[b]{\textwidth}
+%				\centering
+%				\includegraphics[width=\textwidth]{img/annotation/pairKappaWords}
+%				\caption{Cohen's Kappa statistic}
+%				\label{fig:agreement:words:k}
+%			\end{subfigure}%
+			
+			\begin{subfigure}{\textwidth}
 				\centering
-				\includegraphics[width=\textwidth]{img/annotation/pairAgreeWords}
-				\caption{Percent agreement}
+				\caption{Pairwise \% agreement by word type}
+				\includegraphics[width=.9\textwidth]{img/plots/pairwisePctByWord-noTitle}
 				\label{fig:agreement:words:pct}
 			\end{subfigure}%
 			
-			\begin{subfigure}[b]{\textwidth}
+			\begin{subfigure}{\textwidth}
 				\centering
-				\includegraphics[width=\textwidth]{img/annotation/pairKappaWords}
-				\caption{Cohen's Kappa statistic}
+				\caption{Pairwise $\kappa$ by word type}
+				\includegraphics[width=.9\textwidth]{img/plots/pairwiseKappaByWord-noTitle}
 				\label{fig:agreement:words:k}
 			\end{subfigure}%
 			
-			\caption[Pairwise agreement statistics by word type]{Pairwise agreement between annotators for each word type. Numbers in parentheses indicate the number of pairwise comparisons available for each word type. The bottom of each vertical bar represents the minimum pairwise value, the top the maximum. Horizontal bars indicate average pairwise values.}
+			\caption[Pairwise agreement statistics by word type]{Pairwise agreement between annotators for each word type. 	
+			Horizontal lines represent median values. Colored boxes extend from the first quartile to the third quartile, and thus represent the Inter Quartile Range (IQR). Whiskers extend to the minimum and maximum values within 1.58 IQR of the first and third quartiles, respectively, and roughly represent a 95\% confidence interval around the median. 
+			 Outliers that fall outside of the IQR by a distance of more than approximately 1.5$\times$IQR  are represented by circles.
+			%Numbers in parentheses indicate the number of pairwise comparisons available for each word type. The bottom of each vertical bar represents the minimum pairwise value, the top the maximum. Horizontal bars indicate average pairwise values.
+			}
 			\label{fig:agreement:words}
 		\end{figure}
 		
@@ -455,7 +473,7 @@ A single annotation session consisted of annotating all tokens of three word typ
 		Looking at these statistics, we see little difference between the two types of pairs; in particular, the mean percentage agreement and $\kappa$ values for native-nonnative and native-native pairs are quite close. If anything, it would appear that agreement within the native annotator group is slightly lower and more varied than agreement between the native and nonnative groups, though this may be explained by the larger number of native-native pairs compared to native-nonnative. It would therefore seem that these inter-annotator statistics do not tell us much about difference between how the two groups of annotators judge lexical stress accuracy.
 		
 		
-		\begin{table}[htb]
+		\begin{table}[tb]
 			\centering
 			\caption{Inter-annotator agreement between native and non-native annotators (pairwise)}
 			%\begin{tabularr}{\textwidth}{lXXXX}

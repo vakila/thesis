@@ -986,10 +986,10 @@ Minimum	& 23.21\%	& -0.01	& 33.93\%	& 0.10	& 35.71\%	& 0.08	& 28.57\%	&  0.04 \\
 			
 			\begin{table}[tbp]
 				\centering
-				\caption[Errors by word type]{Tokens (utterances) assigned to each of the five categories, listed by word type. Equivalent percentages of each word type's total number of tokens are given in parentheses.}
+				\caption[Errors by word type]{Errors by word type: Number of tokens (utterances) assigned to each of the five categories, listed by word type. Equivalent percentages of each word type's total number of tokens are given in parentheses.}
 				\begin{tabularx}{\textwidth}{lXXXXX}
 				\toprule
-				Word & [correct] & [incorrect] & [none] & [bad\_nsylls] & [bad\_audio] \\	
+				Word & correct & incorrect & none & bad\_nsylls & bad\_audio \\	
 					\midrule
 E-mail 			&	35 (62.5\%)	& 21 (37.5\%) 	&	0 					&	0 				&  0  				\\
 Flagge			& 33 (60.0\%)	&	16 (29.1\%)	&	6 (10.9\%)	&	0 		 		&	0 					\\
@@ -1078,28 +1078,82 @@ Tschechen 	&	40 (71.4\%)	&	9 (16.1\%)	 &	6 (10.7\%)	&	1 (1.8\%) 	&	0  				\\
 %				\end{tabularx}
 %			\end{table}		
 
+%		\begin{table}
+%			\caption{Errors by speaker skill level}
+%				\begin{tabularx}{\textwidth}{XXXXXXX}		
+%				\toprule
+%				 & correct	& incorrect &	none &		bad\_nsylls & 		{bad\_audio} & %\multicolumn{2}{c}{Total (\% corpus)} 
+%				 \\
+%				\midrule			
+%A2	&	137	(47.7\%)	&	118	(41.1\%)	&	26 (9.1\%)	&	5	(1.7\%)		&	1	(0.4\%)		&	287	(43.0\%)	\\
+%B1		&	68	(56.7\%)	&	49 	(40.8\%)	&	3	(2.5\%)		&	0					&	0					&	120	(18.0\%)	\\
+%B2		&	52	(72.2\%) &	17	(23.6\%)	&	3	(4.2\%)		&	0					&	0					&	72	(10.8\%)	\\
+%C1	&	169	(89.4\%) &	14	(7.4\%)		&	3	(1.6\%)		&	3	(1.6\%)		&	0					&	189	(28.3\%)	\\
+%				\midrule					
+%Beginner (A2,B1)	&	205	(50.4\%)	&	167	(41.0\%)	&	29 (7.1\%)	&	5	(1.2\%)	&	1	(0.3\%)	&	407	(60.9\%)	\\
+%Advanced (B2,C1)	&	221	(84.7\%)	&	31	(11.9\%)	&	6	(2.3\%)	&	3	(1.2\%)	&	0					&	261	(39.1\%)	\\
+%				\bottomrule
+%				\end{tabularx}
+%				\label{tab:results:levels}
+%			\end{table}		
+			
 		\begin{table}
-			\caption{Errors by speaker skill level \TODO{\%ages}}
-				\begin{tabularx}{\textwidth}{XrrrrrXX}		
+			\caption[Errors by L2 proficiency level]{Errors by L2 proficiency level: Number of tokens (utterances) assigned to each of the five categories, listed by the L2 German proficiency level of the speaker. Equivalent percentages of the total number of tokens for each level/level group are given in parentheses.}
+			\setlength{\tabcolsep}{0.5mm}
+			
+			\begin{subtable}{\textwidth}
+				\caption{Each level}
+				\begin{tabularx}{\textwidth}{lrXrXrXrX}
 				\toprule
-				 & correct	& incorrect &	none &		bad\_nsylls & 		{bad\_audio} & \multicolumn{2}{c}{Total (\% corpus)} \\
-				\midrule			
-A2	&	137	&			118	&			26	&			5	&			1	&			287	&	42.96\%	\\
-B1	&	68	&			49	&			3	&			0	&			0	&			120	&	17.96\%	\\
-B2	&	52	&			17	&			3	&			0	&			0	&			72	&	10.78\%	\\
-C1	&	169	&			14	&			3	&			3	&			0	&			189	&	28.29\%	\\
-				\midrule					
-Beginner (A2,B1)	&	205	&			167	&			29	&			5	&			1	&			407	&	60.93\%	\\
-Advanced (B2,C1)	&	221	&			31	&			6	&			3	&			0	&			261	&	39.07\%	\\
+					&	A2 & %\multicolumn{2}{l}{A2}					
+					&	B1 & %\multicolumn{2}{l}{B1}						
+					&	B2 & %\multicolumn{2}{l}{B2}							
+					&	C1 & %\multicolumn{2}{l}{C1}					
+					\\
+				\midrule
+correct			&	137 	& (47.7\%)	&	68	& (56.7\%)	&	52	& (72.2\%)	&	169	& (89.4\%)	\\
+incorrect		&	118 	& (41.1\%)	&	49	& (40.8\%)	&	17	& (23.6\%)	&	14	& (7.4\%)		\\
+none				&	26 	& (9.1\%)		&	3		& (2.5\%)		&	3		& (4.2\%)		&	3		& (1.6\%)		\\
+bad\_nyslls	&	5		& (1.7\%)		&	0		&					&	0		&					&	3		& (1.6\%)		\\
+bad\_audio	&	1		& (0.4\%)		&	0		&					&	0		&					&	0		&					\\
+Total (\% of dataset)	&	287 & (43.0\%)	&	120 & (18.0\%)	&	72 & (10.8\%)	&	189 & (28.3\%)	\\
 				\bottomrule
 				\end{tabularx}
-				\label{tab:results:levels}
-			\end{table}						
+				\label{tab:results:levels:4}
+			\end{subtable}
+			
+			\vspace{1em}
+			
+			\begin{subtable}{\textwidth}
+				\caption{Level groups}
+				\begin{tabularx}{\textwidth}{XrXrX}
+				\toprule
+					&	\multicolumn{2}{l}{Beginner (A2+B1)}					
+					&	\multicolumn{2}{l}{Advanced (B2+C1)}									
+					\\
+				\midrule
+correct			&	205	&	(50.37\%)	& 221	&	(84.67\%)	\\
+incorrect		&	167	&	(41.03\%) & 31		&	(11.88\%)\\
+none				&	29	&	(7.13\%)	& 6		&	(2.30\%)\\
+bad\_nyslls	&	5		&	(1.23\%)	& 3		&	(1.15\%)\\
+bad\_audio	&	1		&	(0.25\%) 	& 0		& 	\\
+Total (\% of dataset)	&	407	&	(60.93\%) & 261	&	(39.07\%)	\\
+				\bottomrule
+				\end{tabularx}
+				\label{tab:results:levels:groups}
+			\end{subtable}
+			
+			\label{tab:results:levels}
+		\end{table}
+					
 			
 			\begin{figure}[tbp]
 				\centering
-				\caption{Stress judgments by speaker skill level}
-				
+				%\caption{Stress judgments by speaker skill level}
+				\caption[Error distribution by proficiency level]{Distribution of errors by speaker's L2 German proficiency level,
+				as a percentage of the total number of labeled tokens (utterances) from speakers of that level/group 
+				(see \cref{tab:results:levels} for precise values)
+				}
 				\begin{subfigure}{\textwidth}
 					\centering
 					\caption{Each level}
@@ -1172,30 +1226,30 @@ Advanced (B2,C1)	&	221	&			31	&			6	&			3	&			0	&			261	&	39.07\%	\\
 %			\end{tabularx}
 %			\end{table}		
 			
-			\begin{figure}[htb]
-				\centering
-				\includegraphics[width=\textwidth]{img/annotation/skillLevelGroupsBars}
-				\caption{Stress judgments by speaker skill level (grouped)}
-				\label{fig:levelgroupsbars}
-			\end{figure}
-			
-			
-			\begin{figure}[htb]
-				\centering
-				\begin{subfigure}[t]{0.5\textwidth}
-					\includegraphics[width=\textwidth]{img/annotation/beginnerPie}
-					\caption{}
-					\label{fig:levelgroupspies:beg}
-				\end{subfigure}%
-				~
-				\begin{subfigure}[t]{0.5\textwidth}
-					\includegraphics[width=\textwidth]{img/annotation/advancedPie}
-					\caption{}
-					\label{fig:levelgroupspies:adv}
-				\end{subfigure}%
-				\caption{Error distribution by speaker skill level (grouped)}
-				\label{fig:levelgroupspies}
-			\end{figure}	
+%			\begin{figure}[htb]
+%				\centering
+%				\includegraphics[width=\textwidth]{img/annotation/skillLevelGroupsBars}
+%				\caption{Stress judgments by speaker skill level (grouped)}
+%				\label{fig:levelgroupsbars}
+%			\end{figure}
+%			
+%			
+%			\begin{figure}[htb]
+%				\centering
+%				\begin{subfigure}[t]{0.5\textwidth}
+%					\includegraphics[width=\textwidth]{img/annotation/beginnerPie}
+%					\caption{}
+%					\label{fig:levelgroupspies:beg}
+%				\end{subfigure}%
+%				~
+%				\begin{subfigure}[t]{0.5\textwidth}
+%					\includegraphics[width=\textwidth]{img/annotation/advancedPie}
+%					\caption{}
+%					\label{fig:levelgroupspies:adv}
+%				\end{subfigure}%
+%				\caption{Error distribution by speaker skill level (grouped)}
+%				\label{fig:levelgroupspies}
+%			\end{figure}	
 			
 			
 	Unsurprisingly, these figures reveal that  speakers of the higher levels (B2 and C1) seem to make a proportionally lower number of errors than speakers of the lower ones (A2 and B1), with each level exhibiting a lower proportion of errors than the level below it. Generally speaking, beginners  (A2 and B1) seem to realize lexical stress correctly in about half of their utterances, whereas for upper intermediate (B2) learners the proportion of correct utterances is closer to three-fourths, and it approaches 90\% for advanced (C1) learners. As previously established (see \cref{sec:bkgd:targeting}), a CAPT system targeting a particular type of error will only be useful if that error is produced with considerable frequency by the learners using the system; therefore, it would seem from the frequency of lexical stress errors in their speech that learners of lower proficiency levels may benefit more from a CAPT system targeting such errors than learners of higher proficiency. 

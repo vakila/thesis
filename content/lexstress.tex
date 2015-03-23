@@ -1102,7 +1102,7 @@ Tschechen 	&	40 (71.4\%)	&	9 (16.1\%)	 &	6 (10.7\%)	&	1 (1.8\%) 	&	0  				\\
 			\setlength{\tabcolsep}{0.5mm}
 			
 			\begin{subtable}{\textwidth}
-				\caption{Each level}
+				\caption{Individual levels}
 				\begin{tabularx}{\textwidth}{lrXrXrXrX}
 				\toprule
 					&	A2 & %\multicolumn{2}{l}{A2}					
@@ -1263,32 +1263,105 @@ Total (\% of dataset)	&	407	&	(60.93\%) & 261	&	(39.07\%)	\\
 			
 			Given that the IFCASL corpus, and by extension the sub-corpus annotated for lexical stress errors, contains recordings from speakers of both genders and from adult speakers (those over age 18 \TODO{check that}) as well as children (see \cref{sec:lexstress:data}), an analysis of the errors observed in terms of the age and gender of the speakers is of interest, to determine whether any discernible differences exist between the different groups of speakers. The breakdown of errors for each of these groups is presented in \cref{tab:results:agegender} and illustrated in \cref{fig:results:agepies,fig:results:genderpies}.
 			
+			
+			\begin{table}[tbp]
+			\caption[Errors by speaker age and gender]{Errors by speaker age and gender: Number of tokens (utterances) assigned to each of the five categories, listed by the age/gender of the speaker. Equivalent percentages of the total number of tokens for each age/gender group are given in parentheses.}
+			\setlength{\tabcolsep}{0.5mm}
+			
+			\vspace{1em}			
+			
+			\begin{subtable}{\textwidth}
+				\centering
+				\caption{Individual age/gender categories. Boys and Girls are males and females under the age of 18, respectively, and Men and Women are males and females over 18, respectively.}
+				\begin{tabularx}{\textwidth}{lrXrXrXrX}
+				\toprule
+				& \multicolumn{2}{c}{Boys}% &
+				& \multicolumn{2}{c}{Girls}% &
+				& \multicolumn{2}{c}{Men}% &
+				& \multicolumn{2}{c}{Women}% &
+				\\
+				\midrule
+correct			&	48	&	(36.64\%)	&	6		&	(25.00\%)	&	184	&	(73.02\%)	&	188	&	(72.03\%)	\\
+incorrect		&	60	&	(45.80\%)	&	17	&	(70.83\%)	&	61	&	(24.21\%)	&	60	&	(22.99\%)	\\
+none				&	17	&	(12.98\%)	&	1		&	(4.17\%)	&	7		&	(2.78\%)	&	10	&	(3.83\%)	\\
+bad\_nsylls	&	5		&	(3.82\%)	&	0		&					&	0		&					&	3		&	(1.15\%)	\\
+bad\_audio	&	1		&	(0.76\%)	&	0		&					&	0		&					&	0		&		\\
+Total (\%) of corpus)	&	131	&	(19.61\%)	&	24	&	(3.59\%)	&	252	&	(37.72\%)	&	261	&	(39.07\%)	\\
+				\bottomrule
+				\end{tabularx}
+			\end{subtable}			
+			
+			\vspace{2em}
+			
+			\begin{subtable}{\textwidth}
+				\centering
+				\caption{By age, regardless of gender. Children are adolescents under age 18, adults are over 18. Adult beginners are adults with a German proficiency level of A2 or B1.}
+				\begin{tabularx}{\textwidth}{lrXrXrX}
+				\toprule
+				& \multicolumn{2}{l}{Children}
+				& \multicolumn{2}{l}{Adults}
+				& \multicolumn{2}{l}{Adult beginners}
+				\\
+				\midrule
+correct			&	54	&	(34.84\%)	&	372	&	(72.51\%)	&	151	&	(59.92\%)	\\
+incorrect		&	77	&	(49.68\%)	&	121	&	(23.59\%)	&	90	&	(35.71\%)	\\
+none				&	18	&	(11.61\%)	&	17	&	(3.31\%)	&	11	&	(4.37\%)	\\
+bad\_nsylls	&	5		&	(3.23\%)	&	3		&	(0.58\%)	&	0		&		\\
+bad\_audio	&	1		&	(0.65\%)	&	0		&					&	0		&		\\
+Total (\%) of corpus)	&	155	&	(23.20\%)	&	513	&	(76.80\%)	&	252	&	(37.72\%)	\\
+				\bottomrule
+				\end{tabularx}
+			\end{subtable}
+			
+			\vspace{2em}
+			
+			\begin{subtable}{\textwidth}
+				%\centering
+				\caption{By gender, regardless of age.}
+				\begin{tabularx}{\textwidth}{XrXrX}
+				\toprule
+					&	\multicolumn{2}{l}{Males}					
+					&	\multicolumn{2}{l}{Females}									
+					\\
+				\midrule
+correct			&	232	&	(60.57\%)	&	194	&	(68.07\%)	\\
+incorrect		&	121	&	(31.59\%)	&	77	&	(27.02\%)	\\
+none				&	24	&	(6.27\%)	&	11	&	(3.86\%)	\\
+bad\_nsylls	&	5		&	(1.31\%)	&	3		&	(1.05\%)	\\
+bad\_audio	&	1		&	(0.26\%)	&	0		&		\\
+Total (\% of corpus)	&	383	&	(57.34\%)	&	285	&	(42.66\%)	\\
+				\bottomrule
+				\end{tabularx}
+			\end{subtable}
+			
+			\label{tab:results:agegender}
+			\end{table}
 		
 			
-			\begin{table}[h]
-				\caption[Errors by speaker age and gender]{Errors by speaker age and gender \TODO{add \%ages}}
-				\begin{tabularx}{\textwidth}{XXXXXXXX}			
-				\toprule
-Group	&	correct	&	incorrect	&	none	&	bad\_ nsylls	&	bad\_ audio	&	Total	&	\% of corpus	\\
-				\midrule
-Boys	&	48	&	60	&	17	&	5	&	1	&	131	&	19.61\%	\\
-Girls	&	6	&	17	&	1	&	0	&	0	&	24	&	3.59\%	\\
-Men	&	184	&	61	&	7	&	0	&	0	&	252	&	37.72\%	\\
-Women	&	188	&	60	&	10	&	3	&	0	&	261	&	39.07\%	\\
-
-\midrule		
-Children	&	54	&	77	&	18	&	5	&	1	&	155	&	23.20\%	\\													
-Adults	&	372	&	121	&	17	&	3	&	0	&	513	&	76.80\%	\\
-Adults (A2~only) & 86 & 49 & 9 & 0 & 0 & 144 & 21.56\%\\
-Adults (A2,~B1) &  151 & 90 & 11 & 0 & 0 & 252 & 37.72\%\\
-
-\midrule															
-Females	&	194	&	77	&	11	&	3	&	0	&	285	&	42.66\%	\\
-Males	&	232	&	121	&	24	&	5	&	1	&	383	&	57.34\%	\\
-				\bottomrule	
-				\end{tabularx}
-				\label{tab:results:agegender}
-			\end{table}
+%			\begin{table}[h]
+%				\caption[Errors by speaker age and gender]{Errors by speaker age and gender \TODO{add \%ages}}
+%				\begin{tabularx}{\textwidth}{XXXXXXXX}			
+%				\toprule
+%Group	&	correct	&	incorrect	&	none	&	bad\_ nsylls	&	bad\_ audio	&	Total	&	\% of corpus	\\
+%				\midrule
+%Boys	&	48	&	60	&	17	&	5	&	1	&	131	&	19.61\%	\\
+%Girls	&	6	&	17	&	1	&	0	&	0	&	24	&	3.59\%	\\
+%Men	&	184	&	61	&	7	&	0	&	0	&	252	&	37.72\%	\\
+%Women	&	188	&	60	&	10	&	3	&	0	&	261	&	39.07\%	\\
+%
+%\midrule		
+%Children	&	54	&	77	&	18	&	5	&	1	&	155	&	23.20\%	\\													
+%Adults	&	372	&	121	&	17	&	3	&	0	&	513	&	76.80\%	\\
+%Adults (A2~only) & 86 & 49 & 9 & 0 & 0 & 144 & 21.56\%\\
+%Adults (A2,~B1) &  151 & 90 & 11 & 0 & 0 & 252 & 37.72\%\\
+%
+%\midrule															
+%Females	&	194	&	77	&	11	&	3	&	0	&	285	&	42.66\%	\\
+%Males	&	232	&	121	&	24	&	5	&	1	&	383	&	57.34\%	\\
+%				\bottomrule	
+%				\end{tabularx}
+%				\label{tab:results:agegender}
+%			\end{table}
 			
 			
 			\begin{figure}[htb]

@@ -121,11 +121,11 @@ Woman	&	5	&	5	&	3	&	9	&	\textbf{22}	\\
 		
 		Orthography & 
 		%Canonical \linebreak 
-		Pronunciation & 
+		\TODO{Pronunciation} & 
 		Part of speech & 
 		English \linebreak meaning & 
-		Recording condition & 
-		Number \linebreak of tokens \TODO{check that these tally to 668} \\%\linebreak annotated\\
+		Recording condition \TODO{remove?}& 
+		Number \linebreak of tokens\\%\linebreak annotated\\
 		
 		\midrule
 		E-mail	&	\texttt{i: - m eI l} &	noun &	e-mail &	SR 	&	56	\\
@@ -174,96 +174,123 @@ Woman	&	5	&	5	&	3	&	9	&	\textbf{22}	\\
 		
 		\begin{tabularx}{\textwidth}{lllX}
 		\toprule
-		ID & Native language & Expertise & Word types annotated (number of tokens) \newline \TODO{alphabetize}\\
+		ID & Native language & Expertise & Word types annotated (number of tokens) \\
 		\midrule
 		%Frank	FZ 
 		A	&	German	& expert & Flagge (55),  Ringen (55), Tschechen (56) \\
 		
+
+		%Jeanin JJ	
+		H & German & expert &		 fliegen (56), Fr\"{u}hling (56),  Pollen (55) \\		
+		
+		
 		%Raphael	RM	
 		B	&	German	& intermediate & 	halten (56),  M\"{o}rder (56),     Tatort (56) \\
 		
-		%Lukas	LS	
-		%C & German & intermediate &		Fr\"{u}hling (0), fliegen (0),  Pollen (0) \TODO{Remove entirely?}  \\
 		
-		%Tobias	TB	
-		%P
-		C & German & novice & 	halten (56),  Pollen (55),  E-mail (56)	 \\
-		
+
 		%Diana	DA 
-		D &	German & intermediate &		Pollen (53), Flagge (49),  Ringen (49)	 %\TODO{FALSE}   
+		D &	German & intermediate &		Flagge (49),  Pollen (53), Ringen (49)	 %\TODO{FALSE}   
 		\\
 		
-		%Patrick	PC 
-		E & English (US)	& intermediate & 	Tschechen (56),  halten (56),  M\"{o}rder (56) 	 \\
+
 		
 		%Sarah	SC
-		F & 	German	 & intermediate & 	Tatort (56), Fr\"{u}hling (56), fliegen (56)	 \\
+		F & 	German	 & intermediate & 	 fliegen (56), Fr\"{u}hling (56), Tatort (56)	 \\
 		
-		%Yoav	YB	 
-		G & Hebrew	& intermediate & 	fliegen (0),  Pollen (0), Flagge (20)	 %\TODO{FALSE}   
-		\\
+
 		
-		%Jeanin	JJ	
-		H & German & expert &		Fr\"{u}hling (56), fliegen (56),  Pollen (55) \\
-		
+
 		%Dilber	DB 
-		I & 	German & intermediate &		Ringen (55), Tschechen (56), halten (56)	 \\
+		I & 	German & intermediate &		halten (56), Ringen (55), Tschechen (56)	 \\
 		
 		%Christine	CM
-		J &	German	 & intermediate & M\"{o}rder (56),    Tatort (56), Fr\"{u}hling (56) \\
+		J &	German	 & intermediate & Fr\"{u}hling (56), M\"{o}rder (56),    Tatort (56) \\
 		
-		%Anjana	AV	
-		K & English (US)	& intermediate &  manche (56),   E-mail (56),   tragen (55),	    fliegen (56),  Pollen (55), Flagge (55) \\
+
 		
-		%Marc	MS	
-		L & German	 & novice & Flagge (54),  Tatort (56),  E-mail (56) 	 \\
 		
 		%Maya	ML
-		M & 	German	 & intermediate & Ringen (54),  Fr\"{u}hling (56), tragen (55)	 \\
-		
-		%Lisa	LB	
-		N & German	& novice & Tschechen (56),  fliegen (56),  manche (56)	 \\
+		M & 	German	 & intermediate & Fr\"{u}hling (56), Ringen (54),   tragen (55)	 \\
 		
 		%Steffen	SB
 		%Q
-		O	& German	 & intermediate & Mörder (56),   manche (56),  tragen (55) \\
+		O	& German	 & intermediate & manche (56), Mörder (56),    tragen (55) \\
+
+
+
+
 		
+		%Tobias	TB	
+		%P
+		C & German & novice & 	 E-mail (56), halten (56),  Pollen (55)	 \\
+		
+		
+		%Marc	MS	
+		L & German	 & novice & E-mail (56), Flagge (54),  Tatort (56) \\
+		
+
+		
+		%Lisa	LB	
+		N & German	& novice & fliegen (56),  manche (56), Tschechen (56)	 \\
+		
+		
+		
+		%Yoav	YB	 
+		G & Hebrew	& intermediate & Flagge (20), 	fliegen (0),  Pollen (0)	 %\TODO{FALSE}   
+		\\		
+
+		%Patrick	PC 
+		E & English (US)	& intermediate & 	halten (56),  M\"{o}rder (56), Tschechen (56) 	 \\
+
+		%Anjana	AV	
+		K & English (US)	& intermediate &  E-mail (56), Flagge (55),	    fliegen (56),  manche (56),   Pollen (55),   tragen (55) \\		
+		
+
+
+
 		\bottomrule
 		\end{tabularx}
 		\label{tab:annotators}
 	\end{table}
 	
+	
+	
+	
+	Each annotator was assigned three word types to annotate in a single session, with the exception of one annotator who was assigned six word types over two sessions (see \cref{sec:lexstress:method} for a description of an annotation session). \Cref{tab:annotators} lists the word types assigned to each annotator, along with the number of tokens labeled for each type. Some judgments by annotators D and G had to be excluded from the analysis due to technical problems; the token counts for each annotator in \cref{tab:annotators} reflect only their usable judgments. 
+	
+	Word types were assigned to ensure that each was annotated by at least two native German speakers, and to maximize the amount of overlap between annotators in order to obtain as many pairwise measures of annotator agreement as possible (see \cref{sec:lexstress:agreement} for a discussion of inter-annotator agreement); \cref{tab:annotatorsbyword} lists the number of annotators for each word type.
+	
 	\begin{table}[htb]
 		\centering
-		\caption{Number of annotators by word type \TODO{add expertise levels} \TODO{move to agreement section?}}
-		\begin{tabular}{lccc}
+		\caption{Number of annotators assigned to each word type}
+		\begin{tabular}{lcccccc}
 		\toprule
-		Word type \TODO{(Tokens)} 
+		%Word type
 		&		Native %annotators 
 		& 	Nonnative %annotators 
+		& Expert
+		& Intermediate
+		& Novice
 		& Total %annotators 
 		\\
 		\midrule
-		E-mail	& 2 &	1 &	3 \\
-		Flagge	& 3	& 2	& 5 \\
-		fliegen	& 3	& 1	& 4 \\
-		Frühling	& 4	& 0	& 4 \\
-		halten	& 3	& 1	& 4 \\
-		manche	& 2	& 1	& 3 \\
-		Mörder & 	3	& 1	& 4 \\
-		Pollen	& 3	& 1	& 4 \\
-		Ringen	& 4	& 0	& 4 \\
-		Tatort	& 4	& 0	& 4 \\
-		tragen	& 2	& 1	& 3 \\
-		Tschechen 	& 3	& 1	& 4 \\
+		E-mail			& 2 	& 1 	&	0	&	1	&	2	& 3 \\
+		Flagge			& 3	& 2	&	1	&	3	&	1	& 5 \\
+		fliegen			& 3	& 1	&	1	&	2	&	1	& 4 \\
+		Frühling		& 4	& 0	&	1	&	3	&	0	& 4 \\
+		halten			& 3	& 1	&	0	&	3	&	1	& 4 \\
+		manche		& 2	& 1	&	0	&	2	&	1	& 3 \\
+		Mörder 		& 3	& 1	&	0	&	4	&	0	& 4 \\
+		Pollen			& 3	& 1	&	1	&	2	&	1	& 4 \\
+		Ringen			& 4	& 0	&	1	&	3	&	0	& 4 \\
+		Tatort			& 4	& 0	&	0	&	3	&	1	& 4 \\
+		tragen			& 2	& 1	&	0	&	3	&	0	& 3 \\
+		Tschechen 	& 3	& 1	&	1	&	2	&	1	& 4 \\
 		\bottomrule
 		\end{tabular}
 		\label{tab:annotatorsbyword}
 	\end{table}
-	
-	
-	Each annotator was assigned three word types to annotate in a single session, with the exception of one annotator who was assigned six word types over two sessions (see \cref{sec:lexstress:method} for a description of an annotation session). \Cref{tab:annotators} lists the word types assigned to each annotator, along with the number of tokens labeled for each type. Some judgments by annotators \TODO{D and G} had to be excluded from the analysis due to technical problems; the token counts for each annotator in \cref{tab:annotators} reflect only their usable judgments. \TODO{move following to agreement section in results?} Word types were assigned such that each word type was annotated by at least two native German speakers, and to maximize the amount of overlap between annotators in order to obtain as many pairwise measures of annotator agreement as possible (see \cref{sec:lexstress:agreement} for a discussion of inter-annotator agreement); \cref{tab:annotatorsbyword} lists the number of annotators for each word type.
-	
 	
 	
 	

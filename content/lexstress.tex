@@ -1061,7 +1061,7 @@ Tschechen 	&	40 (71.4\%)	&	9 (16.1\%)	 &	6 (10.7\%)	&	1 (1.8\%) 	&	0  				\\
 		
 			\TODO{Be consistent with skill/proficiency or OK to use them interchangeably?}
 			
-			As \cref{sec:lexstress:data} stated, the L1 French speakers whose recordings comprise the annotated IFCASL sub-corpus span four levels of L2 German proficiency: A2 (elementary), B1 (intermediate), B2 (upper intermediate), and C1 (advanced). The rightmost column of \cref{tab:results:levels} gives the number and proportion of utterances from speakers of each level in the annotated sub-corpus, along with the number of utterances from speakers of each level that were assigned to each of the five possible stress-accuracy labels, and these figures are illustrated in \cref{fig:levelbars,fig:levelpies}. Because the total number of utterances by speakers of each of the two intermediate (B) levels in the corpus is lower than the number by speakers of the lowest (A2) and highest (C1) levels, the judgments have also been grouped into two broader categories for easier comparison: beginners (A2 and B1) and advanced speakers (B2 and C1). The breakdown of stress errors by these groups is given in the lower portion of \cref{tab:results:levels} and illustrated in \cref{fig:levelgroupsbars,fig:levelgroupspies}.
+			As \cref{sec:lexstress:data} stated, the L1 French speakers whose recordings comprise the annotated IFCASL sub-corpus span four levels of L2 German proficiency: A2 (elementary), B1 (intermediate), B2 (upper intermediate), and C1 (advanced). The rightmost column of \cref{tab:results:levels} gives the number and proportion of utterances from speakers of each level in the annotated sub-corpus, along with the number of utterances from speakers of each level that were assigned to each of the five possible stress-accuracy labels, and these figures are illustrated in \cref{fig:levelbars:4}. Because the total number of utterances by speakers of each of the two intermediate (B) levels in the corpus is lower than the number by speakers of the lowest (A2) and highest (C1) levels, the judgments have also been grouped into two broader categories for easier comparison: beginners (A2 and B1) and advanced speakers (B2 and C1). The breakdown of stress errors by these groups is given in the lower portion of \cref{tab:results:levels} and illustrated in \cref{fig:levelbars:groups}.
 			
 			
 			
@@ -1079,7 +1079,7 @@ Tschechen 	&	40 (71.4\%)	&	9 (16.1\%)	 &	6 (10.7\%)	&	1 (1.8\%) 	&	0  				\\
 %			\end{table}		
 
 		\begin{table}
-			\caption{Errors by speaker skill level}
+			\caption{Errors by speaker skill level \TODO{\%ages}}
 				\begin{tabularx}{\textwidth}{XrrrrrXX}		
 				\toprule
 				 & correct	& incorrect &	none &		bad\_nsylls & 		{bad\_audio} & \multicolumn{2}{c}{Total (\% corpus)} \\
@@ -1096,45 +1096,66 @@ Advanced (B2,C1)	&	221	&			31	&			6	&			3	&			0	&			261	&	39.07\%	\\
 				\label{tab:results:levels}
 			\end{table}						
 			
-			
-			
-			%TODO exclude?
-			\begin{figure}[ht]
+			\begin{figure}[tbp]
 				\centering
-				\includegraphics[width=\textwidth]{img/annotation/skillLevelBars}
-				\caption{Stress judgments by speaker skill level \TODO{Exclude?}}
+				\caption{Stress judgments by speaker skill level}
+				
+				\begin{subfigure}{\textwidth}
+					\centering
+					\caption{Each level}
+					\includegraphics[width=\textwidth]{img/plots/judgments4Levels}
+					\label{fig:levelbars:4}
+				\end{subfigure}
+
+				\vspace{1em}				
+				
+				\begin{subfigure}{\textwidth}
+					\centering
+					\caption{Level groups (Beginner is A2 + B1, Advanced is B2 + C1)}
+					\includegraphics[width=\textwidth]{img/plots/judgmentsLevelGroups}
+					\label{fig:levelbars:groups}
+				\end{subfigure}
+				
 				\label{fig:levelbars}
 			\end{figure}
+			
+%			
+%			\begin{figure}[ht]
+%				\centering
+%				\includegraphics[width=\textwidth]{img/annotation/skillLevelBars}
+%				\caption{Stress judgments by speaker skill level \TODO{Exclude?}}
+%				\label{fig:levelbars}
+%			\end{figure}
 		
 		
-			\begin{figure}[htb]
-				\centering
-				\begin{subfigure}[t]{0.5\textwidth}
-					\includegraphics[width=\textwidth]{img/annotation/A2}
-					\caption{A2}
-					\label{fig:levelpies:A2}
-				\end{subfigure}%
-				~
-				\begin{subfigure}[t]{0.5\textwidth}
-					\includegraphics[width=\textwidth]{img/annotation/B1}
-					\caption{B1}
-					\label{fig:levelpies:B1}
-				\end{subfigure}%
-				
-				\begin{subfigure}[b]{0.5\textwidth}
-					\includegraphics[width=\textwidth]{img/annotation/B2}
-					\caption{B2}
-					\label{fig:levelpies:B2}
-				\end{subfigure}%
-				~
-				\begin{subfigure}[b]{0.5\textwidth}
-					\includegraphics[width=\textwidth]{img/annotation/C1}
-					\caption{C1}
-					\label{fig:levelpies:C1}
-				\end{subfigure}%
-				\caption{Error distribution by speaker skill level}
-				\label{fig:levelpies}
-			\end{figure}		
+%			\begin{figure}[htb]
+%				\centering
+%				\begin{subfigure}[t]{0.5\textwidth}
+%					\includegraphics[width=\textwidth]{img/annotation/A2}
+%					\caption{A2}
+%					\label{fig:levelpies:A2}
+%				\end{subfigure}%
+%				~
+%				\begin{subfigure}[t]{0.5\textwidth}
+%					\includegraphics[width=\textwidth]{img/annotation/B1}
+%					\caption{B1}
+%					\label{fig:levelpies:B1}
+%				\end{subfigure}%
+%				
+%				\begin{subfigure}[b]{0.5\textwidth}
+%					\includegraphics[width=\textwidth]{img/annotation/B2}
+%					\caption{B2}
+%					\label{fig:levelpies:B2}
+%				\end{subfigure}%
+%				~
+%				\begin{subfigure}[b]{0.5\textwidth}
+%					\includegraphics[width=\textwidth]{img/annotation/C1}
+%					\caption{C1}
+%					\label{fig:levelpies:C1}
+%				\end{subfigure}%
+%				\caption{Error distribution by speaker skill level}
+%				\label{fig:levelpies}
+%			\end{figure}		
 			
 			
 			

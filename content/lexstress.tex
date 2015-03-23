@@ -1336,6 +1336,55 @@ Total (\% of corpus)	&	383	&	(57.34\%)	&	285	&	(42.66\%)	\\
 			
 			\label{tab:results:agegender}
 			\end{table}
+			
+			
+			\begin{figure}[ptb]
+				\centering
+				\caption[Error distribution by speaker age and gender]{Distribution of errors by speaker's age and gender,
+				as a percentage of the total number of labeled tokens (utterances) from speakers of that age/gender group
+				(see \cref{tab:results:agegender} for precise values)
+				}
+				\ContinuedFloat
+				
+				\vspace{1em}
+				
+				\begin{subfigure}{\textwidth}
+					\centering
+					\caption{Individual age/gender groups}
+					\includegraphics[width=\textwidth]{img/plots/judgmentsAgeGender}
+				\end{subfigure}
+				
+			\end{figure}
+			
+			\begin{figure}[ptb]
+			\ContinuedFloat
+			\centering
+				\caption[Error distribution by speaker age and gender (cont.)]{(continued) Distribution of errors by speaker's age and gender,
+				as a percentage of the total number of labeled tokens (utterances) from speakers of that age/gender group
+				(see \cref{tab:results:agegender} for precise values)
+				}
+				
+				\vspace{1em}
+				
+				\begin{subfigure}{\textwidth}
+					\setcounter{subfigure}{1}
+					\centering
+					\caption{By age, regardless of gender}
+					\includegraphics[width=\textwidth]{img/plots/judgmentsAge}
+				\end{subfigure}
+				
+				\vspace{1em}
+			
+				\begin{subfigure}{\textwidth}
+					\centering
+					\caption{By gender, regardless of age}
+					\includegraphics[width=\textwidth]{img/plots/judgmentsGender}
+				\end{subfigure}
+				
+				
+				
+				\label{fig:results:agegenderbars}
+			\end{figure}
 		
 			
 %			\begin{table}[h]
@@ -1372,46 +1421,46 @@ Total (\% of corpus)	&	383	&	(57.34\%)	&	285	&	(42.66\%)	\\
 			\end{figure}
 			
 			
-			\begin{figure}[htb]
-				\centering
-				\begin{subfigure}[t]{0.5\textwidth}
-					\includegraphics[width=\textwidth]{img/annotation/childPie}
-					\caption{Children}
-					\label{fig:results:agepies:child}
-				\end{subfigure}%
-				~
+%			\begin{figure}[htb]
+%				\centering
 %				\begin{subfigure}[t]{0.5\textwidth}
-%					\includegraphics[width=\textwidth]{img/annotation/adultPie}
-%					\caption{Adults \TODO{remove?}}
-%					\label{fig:results:agepies:adult}
+%					\includegraphics[width=\textwidth]{img/annotation/childPie}
+%					\caption{Children}
+%					\label{fig:results:agepies:child}
 %				\end{subfigure}%
-%		
-				\begin{subfigure}[t]{0.5\textwidth}
-					\includegraphics[width=\textwidth]{img/annotation/adultBeginnersPie}
-					\caption{Adult beginners}
-					\label{fig:results:agepies:adultbeg}
-				\end{subfigure}%
-				
-				\caption{Error distribution by speaker age}
-				\label{fig:results:agepies}
-			\end{figure}	
-			
-			\begin{figure}[htb]
-				\centering
-				\begin{subfigure}[t]{0.5\textwidth}
-					\includegraphics[width=\textwidth]{img/annotation/femalePie}
-					\caption{Females}
-					\label{fig:results:genderpies:female}
-				\end{subfigure}%
-				~
-				\begin{subfigure}[t]{0.5\textwidth}
-					\includegraphics[width=\textwidth]{img/annotation/malePie}
-					\caption{Males}
-					\label{fig:results:genderpies:male}
-				\end{subfigure}%
-				\caption{Error distribution by speaker gender}
-				\label{fig:results:genderpies}
-			\end{figure}	
+%				~
+%%				\begin{subfigure}[t]{0.5\textwidth}
+%%					\includegraphics[width=\textwidth]{img/annotation/adultPie}
+%%					\caption{Adults \TODO{remove?}}
+%%					\label{fig:results:agepies:adult}
+%%				\end{subfigure}%
+%%		
+%				\begin{subfigure}[t]{0.5\textwidth}
+%					\includegraphics[width=\textwidth]{img/annotation/adultBeginnersPie}
+%					\caption{Adult beginners}
+%					\label{fig:results:agepies:adultbeg}
+%				\end{subfigure}%
+%				
+%				\caption{Error distribution by speaker age}
+%				\label{fig:results:agepies}
+%			\end{figure}	
+%			
+%			\begin{figure}[htb]
+%				\centering
+%				\begin{subfigure}[t]{0.5\textwidth}
+%					\includegraphics[width=\textwidth]{img/annotation/femalePie}
+%					\caption{Females}
+%					\label{fig:results:genderpies:female}
+%				\end{subfigure}%
+%				~
+%				\begin{subfigure}[t]{0.5\textwidth}
+%					\includegraphics[width=\textwidth]{img/annotation/malePie}
+%					\caption{Males}
+%					\label{fig:results:genderpies:male}
+%				\end{subfigure}%
+%				\caption{Error distribution by speaker gender}
+%				\label{fig:results:genderpies}
+%			\end{figure}	
 			
 			
 			

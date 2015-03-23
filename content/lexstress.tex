@@ -3,7 +3,7 @@
 % !TEX root = ../thesis-main.tex
 %
 %TODO change title? \chapter{Lexical stress errors in the IFCASL corpus}
-\chapter{Lexical stress errors by French learners of German \TODO{retitle?}}
+\chapter{Lexical stress errors by French learners of German}
 \label{chap:lexstress}
 
 %\cleanchapterquote{You can’t do better design with a computer, but you can speed up your work enormously.}{Wim Crouwel}{(Graphic designer and typographer)}
@@ -23,7 +23,7 @@
 
 	\TODO{Recap of IFCASL corpus  \cref{sec:intro:ifcasl}}
 
-	To investigate to what extent the expected lexical stress errors by French speakers of German are actually produced, a subset of the non-native German-language IFCASL corpus was annotated for such errors.
+	To investigate to what extent the expected lexical stress errors by French speakers of German are actually produced, a subset of the nonnative German-language IFCASL corpus was annotated for such errors.
 %
 	%
 	The first sections of this chapter describe the selection of material for this sub-corpus (\cref{sec:lexstress:data}), the annotators who labeled lexical stress errors in that data (\cref{sec:lexstress:annotators}), and the method by which annotation was performed (\cref{sec:lexstress:method}). 
@@ -36,8 +36,11 @@
 	%Can lexical stress errors be reliably identified by 
 	%native German speakers 
 	annotators, i.e. to what extent do the judgments of different annotators agree?  (\cref{sec:agreement:overall})}
-	\item{Are there differences in how native and non-native German speakers identify errors?  (\cref{sec:agreement:native})}
-	\item{Are there differences in how expert and novice annotators (those without annotation experience or any training in phonetics/phonology) identify lexical stress errors?  (\cref{sec:agreement:expert})} 
+	\item{Are there differences in how native and nonnative German speakers identify errors?  (\cref{sec:agreement:native})}
+	\item{Are there differences in how 
+	%expert and novice annotators (those without 
+	annotators with different levels of expertise
+	(annotation experience or training in phonetics/phonology) identify lexical stress errors?  (\cref{sec:agreement:expert})} 
 	\end{itemize}
 	%
 	As \cref{sec:lexstress:agreement} will show, annotators did not always agree as to whether a given utterance exhibited a lexical stress error or not. Nevertheless, a ``gold-standard'' label for each utterance had to be determined; \cref{sec:agreement:gold} describes how this was accomplished in cases of disagreement.
@@ -100,7 +103,7 @@ Woman	&	5	&	5	&	3	&	9	&	\textbf{22}	\\
 	%669 
 	668 word tokens were annotated for lexical stress errors. 
 	%Four 
-	Five tokens had to be excluded from the data, as disfluencies in the sentence utterance (e.g. false starts or repetitions of the target word) prevented the automatic extraction of the word utterance from the sentence as a whole. In a fully-fledged student-facing CAPT system, such disfluencies would need to be dealt with accordingly, e.g. by means of a pre-processing step which analyzes the student's utterance for possible disfluencies and compensates for any that are detected by, for example, prompting the student to re-record their utterance. However, detecting disfluencies in speech, especially non-native speech, is a challenging area of active research (see e.g. \cite{Bonneau2012,Orosanu2012}), and the development of a  disfluency-aware system is outside the scope of this thesis project; therefore, this work presupposes that no disfluencies exist in the student's utterance, and the handful of disfluent tokens have been excluded from the error-annotated sub-corpus described here.
+	Five tokens had to be excluded from the data, as disfluencies in the sentence utterance (e.g. false starts or repetitions of the target word) prevented the automatic extraction of the word utterance from the sentence as a whole. In a fully-fledged student-facing CAPT system, such disfluencies would need to be dealt with accordingly, e.g. by means of a pre-processing step which analyzes the student's utterance for possible disfluencies and compensates for any that are detected by, for example, prompting the student to re-record their utterance. However, detecting disfluencies in speech, especially nonnative speech, is a challenging area of active research (see e.g. \cite{Bonneau2012,Orosanu2012}), and the development of a  disfluency-aware system is outside the scope of this thesis project; therefore, this work presupposes that no disfluencies exist in the student's utterance, and the handful of disfluent tokens have been excluded from the error-annotated sub-corpus described here.
 	
 	\begin{table}[htb]
 		\centering
@@ -455,27 +458,28 @@ A single annotation session consisted of annotating all tokens of three word typ
 		\TODO{transition}
 	
 		%\subsubsection{Native vs. nonnative annotators}
-		\subsection{Native vs. nonnative annotators}
+		%\subsection{Native vs. nonnative annotators}
+		\subsection{Native and nonnative annotator agreement}
 		\label{sec:agreement:native}
 
 		
 		
 		Going beyond the coarse-grained analysis of inter-annotator agreement described in the previous section, we come now to the second question raised at the beginning of this chapter:
 		
-		\textit{Are there differences in how native and non-native German speakers identify errors?}
+		\textit{Are there differences in how native and nonnative German speakers identify errors?}
 		
 		%\TODO{expectations/speculations of what we will find?}
 		
-		To answer this question, it is useful to look at the inter-annotator agreement between native and non-native annotators, as well as at the distribution of label types within each group. 
+		To answer this question, it is useful to look at the inter-annotator agreement between native and nonnative annotators, as well as at the distribution of label types within each group. 
 		
-		\Cref{fig:agreement:L1} illustrates the inter-annotator agreement for all pairs in which one annotator was a native German speaker and the other a non-native speaker, as well as agreement between pairs in which both annotators were native speakers. Due to the small size of the non-native group (3 annotators) and the aforementioned technical problems with annotator G's data (see \cref{sec:lexstress:annotators}), there was very little overlap between non-native annotators (only one pairwise comparison), preventing meaningful analysis of agreement within the non-native group. The precise mean, maximum, median, and minimum pairwise values for the two agreement metrics are listed in \cref{tab:agreement:L1}, for both  native-nonnative pairs and native-native pairs. 
+		\Cref{fig:agreement:L1} illustrates the inter-annotator agreement for all pairs in which one annotator was a native German speaker and the other a nonnative speaker, as well as agreement between pairs in which both annotators were native speakers. Due to the small size of the nonnative group (3 annotators) and the aforementioned technical problems with annotator G's data (see \cref{sec:lexstress:annotators}), there was very little overlap between nonnative annotators (only one pairwise comparison), preventing meaningful analysis of agreement within the nonnative group. The precise mean, maximum, median, and minimum pairwise values for the two agreement metrics are listed in \cref{tab:agreement:L1}, for both  native-nonnative pairs and native-native pairs. 
 		
 		Looking at these statistics, we see little difference between the two types of pairs; in particular, the mean percentage agreement and $\kappa$ values for native-nonnative and native-native pairs are quite close. If anything, it would appear that agreement within the native annotator group is slightly lower and more varied than agreement between the native and nonnative groups, though this may be explained by the larger number of native-native pairs compared to native-nonnative. It would therefore seem that these inter-annotator statistics do not tell us much about difference between how the two groups of annotators judge lexical stress accuracy.
 		
 		
 		\begin{table}[tb]
 			\centering
-			\caption{Inter-annotator agreement between native and non-native annotators (pairwise)}
+			\caption{Inter-annotator agreement between native and nonnative annotators (pairwise)}
 			%\begin{tabularr}{\textwidth}{lXXXX}
 			\begin{tabular}{lrrrr}
 			\toprule
@@ -573,25 +577,28 @@ Minimum	&32.65\%	 & 0.10 &  23.21\% &	-0.01\\
 %				\label{fig:l1pies}
 %			\end{figure}
 			
-		Though the differences between native and nonnative annotators are interesting \TODO{from the perspective of X}, the ultimate goal of this thesis project is to create a CAPT tool which will help L1 French speakers be more intelligible when speaking German as L2, and therefore the way in which native German speakers perceive lexical stress in non-native speech is of more relevance to this work than the way it is perceived by non-native speakers. Therefore, the remainder of this chapter is concerned exclusively with the judgments of native annotators, and judgments by non-native annotators are not included in the analyses that follow.
+		Though the differences between native and nonnative annotators are interesting \TODO{from the perspective of X}, the ultimate goal of this thesis project is to create a CAPT tool which will help L1 French speakers be more intelligible when speaking German as L2, and therefore the way in which native German speakers perceive lexical stress in nonnative speech is of more relevance to this work than the way it is perceived by nonnative speakers. Therefore, the remainder of this chapter is concerned exclusively with the judgments of native annotators, and judgments by nonnative annotators are not included in the analyses that follow.
 			
 		
-		\subsection{Expert vs. novice annotators \TODO{retitle 3 gps}}
+		\subsection{Agreement with respect to annotator expertise}
 		\label{sec:agreement:expert}
 		
 		
 		
-	\TODO{Transition} This section seeks to answer the last of the questions raised at the beginning of the chapter concerning inter-annotator agreement in the stress-annotated IFCASL sub-corpus, namely:
+	This section brings us to the last of the questions raised at the beginning of the chapter concerning inter-annotator agreement in the \TODO{stress-annotated IFCASL sub-corpus}, namely:
 	
-	\textit{Are there differences in how expert and novice annotators identify lexical stress errors?}
+	\textit{Are there differences in how 
+	%expert and novice annotators 
+	annotators with different levels of expertise
+	identify lexical stress errors?}
 	
-	Given the general difficulty of the task of identifying lexical stress errors, evidenced by relatively low overall inter-annotator agreement as discussed in \cref{sec:agreement:overall} above, it might seem reasonable to suppose that training in phonetics/phonology or experience annotating (non-native) speech might have a positive impact on an annotator's ability to reliably judge the accuracy of lexical stress realizations by non-native speakers. However, it once again bears mentioning that the ultimate goal of this work is to help L2 learners communicate intelligibly in German, and it can safely be assumed that in the vast majority of cases such learners will be communicating more often with native speakers who possess little formal knowledge of speech science than with expert phoneticians. Therefore, even if differences in reliability do exist between expert and novice annotators, it is important that the perception of non-native lexical stress errors by non-experts not be ignored in favor of perception of such errors by experts \TODO{reword that, or just scrap this sentence?}. 
+	Given the general difficulty of the task of identifying lexical stress errors, evidenced by relatively low overall inter-annotator agreement as discussed in \cref{sec:agreement:overall} above, it might seem reasonable to suppose that training in phonetics/phonology or experience annotating (nonnative) speech might have a positive impact on an annotator's ability to reliably judge the accuracy of lexical stress realizations by nonnative speakers. However, it once again bears mentioning that the ultimate goal of this work is to help L2 learners communicate intelligibly in German, and it can safely be assumed that in the vast majority of cases such learners will be communicating more often with native speakers who possess little formal knowledge of speech science than with expert phoneticians. Therefore, even if differences in reliability do exist between expert and novice annotators, it is important that the perception of nonnative lexical stress errors by non-experts not be ignored in favor of perception of such errors by experts \TODO{reword that, or just scrap this sentence?}. 
 	
 	%\TODO{mention that we're trying to train nonnative speakers to communicate in the L2, which means their speech will be ``evaluated'' by novices (native speakers), so we don't want to limit ourselves to expert judgments}
 
 	\TODO{Better transition needed here?}
 	
-	Just as the previous section analyzed native vs. non-native annotations in terms of inter-annotator agreement and differences in label distributions between those groups, this section uses analogous data to investigate the differences between annotators of the three different expertise levels -- expert (exp.), intermediate (int.), and novice (nov.) -- described in \cref{sec:lexstress:annotators} above.
+	Just as the previous section analyzed native vs. nonnative annotations in terms of inter-annotator agreement and differences in label distributions between those groups, this section uses analogous data to investigate the differences between annotators of the three different expertise levels -- expert (exp.), intermediate (int.), and novice (nov.) -- described in \cref{sec:lexstress:annotators} above.
 	
 	To determine inter-annotator agreement between the three expertise groups, percentage agreement and $\kappa$ were tabulated for each pairing of annotators from different groups, i.e. for each of the following three pair types:
 	
@@ -730,7 +737,7 @@ Minimum	& 23.21\%	& -0.01	& 33.93\%	& 0.10	& 35.71\%	& 0.08	& 28.57\%	&  0.04 \\
 		
 		In some cases, this assignment was trivial, while in others a decision had to be made between competing candidate labels. This section describes the procedure by which a single gold standard label was chosen for each word token (utterance) in the data set described in \cref{sec:lexstress:data}. In the remainder of this section, the gold-standard label chosen for a given word token $t$ will be referred to as $s_{\text{gold}}(t)$, where $s \in S = \{$[correct],{[incorrect]},{[none]},{[bad\_nyslls]},{[bad\_audio]}$\}$ stands for one of the possible labels.
 		
-		To prepare for gold-standard labeling, all available annotations for $t$ were tallied by their label type $s$, resulting in a set $S_t \subseteq S$ of labels assigned to $t$ by any of the native annotators who labeled this token (non-native annotators' judgments were omitted as mentioned in \cref{sec:agreement:native} above). For each label $s(t) \in S_t$, the number of ``votes'' for that label was recorded as the number of annotators who assigned this label to token $t$; henceforth \TODO{\textit{need better notation for maxvotes set: }$S_{\text{max}} \subseteq S_t$} will refer to the set of labels for $t$ with the highest number of votes \TODO{reword?}.
+		To prepare for gold-standard labeling, all available annotations for $t$ were tallied by their label type $s$, resulting in a set $S_t \subseteq S$ of labels assigned to $t$ by any of the native annotators who labeled this token (nonnative annotators' judgments were omitted as mentioned in \cref{sec:agreement:native} above). For each label $s(t) \in S_t$, the number of ``votes'' for that label was recorded as the number of annotators who assigned this label to token $t$; henceforth \TODO{\textit{need better notation for maxvotes set: }$S_{\text{max}} \subseteq S_t$} will refer to the set of labels for $t$ with the highest number of votes \TODO{reword?}.
 		
 		Given the observed labels and their vote counts, a rule-based procedure was followed to assign a gold-standard label $s_{\text{gold}}(t)$ to each token $t$ in the annotated sub-corpus; this procedure is outlined in \cref{tab:agreement:goldrules}. At each step $i$ in the procedure, any tokens whose set $S_t$ of observed labels fits condition $C_i$ are assigned the gold-standard label described in column $s_{\text{gold}}(t)$; the number of tokens matching $C_i$ is given as $N(C_i)$, and 
 		% gives the number of tokens labeled at this step, i.e. the number matching $C_i$. The rightmost column 
@@ -905,16 +912,16 @@ Minimum	& 23.21\%	& -0.01	& 33.93\%	& 0.10	& 35.71\%	& 0.08	& 28.57\%	&  0.04 \\
 		\TODO{Choose consistent naming for tables/graphs in this section - now some are "Errors" and others are "Stress judgments"}
 
 			
-		\TODO{Are the subsections in this section really necessary? Can they all be rolled into one?}
 		
 		Given the final stress accuracy judgments compiled as described in the previous section, it is finally possible to return to the most important questions raised at the beginning of this chapter:
 		
-		\TODO{put these in the right order}
 		\begin{itemize}
 	\item{Are lexical stress errors observed frequently in the IFCASL data? (\cref{sec:results:overall})}
-	\item{Is there a difference in the frequency of these errors among different groups of speakers (i.e. in terms of skill level, age, or gender) or in different contexts (e.g. after hearing a native speaker produce the word)?  (\cref{sec:results:level,sec:results:agegender,sec:results:condition})}
 	\item{Are lexical stress errors observed more frequently with certain word types than with others?  (\cref{sec:results:wordtype})}
-	\item{How frequently do technical problems interfere with determining whether an error was made?  (\cref{sec:results:techproblems})}
+	\item{Is there a difference in the frequency of these errors among different groups of speakers (i.e. in terms of skill level, age, or gender)? (\cref{sec:results:level,sec:results:agegender})
+	%or in different contexts (e.g. after hearing a native speaker produce the word)?  (\cref{sec:results:level,sec:results:agegender,sec:results:condition})
+	}
+	%\item{How frequently do technical problems interfere with determining whether an error was made?  (\cref{sec:results:techproblems})}
 	\end{itemize}
 	
 		In the hope of providing tentative answers to these questions, this section describes and analyzes the distribution of errors in the IFCASL sub-corpus of 668 word tokens of 12 bisyllabic initial-stress word types as pronounced by L1 French speakers learning German as L2 (see \cref{sec:lexstress:data}), given the assessment of these errors made by native German speakers as described in \cref{sec:lexstress:annotators,sec:lexstress:method,sec:agreement:gold}.
@@ -922,7 +929,6 @@ Minimum	& 23.21\%	& -0.01	& 33.93\%	& 0.10	& 35.71\%	& 0.08	& 28.57\%	&  0.04 \\
 		\subsection{Overall frequency of lexical stress errors}
 		\label{sec:results:overall}
 		
-		\TODO{Maybe this section should go last instead of first?}
 		
 		The overall distribution of the lexical stress accuracy judgments observed in the annotated IFCASL sub-corpus is detailed in \cref{tab:results:overall} and illustrated in \cref{fig:results:overallbars}. Evidently, the majority (63.77\%) of learners' lexical stress productions were judged to be correct; in other words, almost two-thirds of the time, learners 
 		clearly stressed the correct (initial) syllable in the uttered word.
@@ -933,7 +939,7 @@ Minimum	& 23.21\%	& -0.01	& 33.93\%	& 0.10	& 35.71\%	& 0.08	& 28.57\%	&  0.04 \\
 		
 		\begin{table}[htb]
 			\centering
-			\caption{Overall frequency of stress judgments in the annotated data}
+			\caption{Overall frequency of lexical stress errors in the annotated data}
 			\begin{tabular}{lrr}
 			\toprule
 			Label & Tokens & \% of corpus \\
@@ -1279,10 +1285,10 @@ Total (\% of dataset)	&	407	&	(60.93\%) & 261	&	(39.07\%)	\\
 		\label{sec:results:agegender}
 			
 			
-			Given that the IFCASL corpus, and by extension the sub-corpus annotated for lexical stress errors, contains recordings from speakers of both genders and from adult speakers (those over age 18 \TODO{check that}) as well as children (see \cref{sec:lexstress:data}), an analysis of the errors observed in terms of the age and gender of the speakers is of interest, to determine whether any discernible differences exist between the different groups of speakers. The breakdown of errors for each of these groups is presented in \cref{tab:results:agegender} and illustrated in \cref{fig:results:agepies,fig:results:genderpies}.
+			Given that the IFCASL corpus, and by extension the sub-corpus annotated for lexical stress errors, contains recordings from speakers of both genders and from adult speakers (those over age 18 \TODO{check that}) as well as children (see \cref{sec:lexstress:data}), an analysis of the errors observed in terms of the age and gender of the speakers is of interest, to determine whether any discernible differences exist between the different groups of speakers. The breakdown of errors for each of these groups is presented in \cref{tab:results:agegender} and illustrated in \TODO{\cref{fig:results:agepies,fig:results:genderpies}}.
 			
 			
-			\begin{table}[tbp]
+			\begin{table}[p]
 			\caption[Errors by speaker age and gender]{Errors by speaker age and gender: Number of tokens (utterances) assigned to each of the five categories, listed by the age/gender of the speaker. Equivalent percentages of the total number of tokens for each age/gender group are given in parentheses.}
 			\setlength{\tabcolsep}{0.5mm}
 			
@@ -1356,6 +1362,25 @@ Total (\% of corpus)	&	383	&	(57.34\%)	&	285	&	(42.66\%)	\\
 			\end{table}
 			
 			
+
+				With regard to the two different age groups of speakers, any interpretation of the results presented here must bear in mind the considerable difference in size between the two different groups: \TODO{reference the actual number of each type of speaker - should already have been presented in \cref{sec:lexstress:data} or earlier} of the 668 tokens annotated in total, 513 (over three-fourths) were from adult speakers while only 155 (less than one-fourth) were utterances by children. Furthermore, it must be highlighted that there is a strong interaction between age and proficiency level: all of the child speakers recorded in the IFCASL corpus are beginners 
+				(the majority at the A2 level with only 1 girl at B1),
+				% \TODO{technically true but implies A2 while a couple of the girls are B1 - worth mentioning?}, 
+				while the adults span all four levels. Given the discrepancies between L2 proficiency levels discussed in the previous section, then, it is not surprising to see that over half of children's utterances are judged to have lexical stress errors, with correct stress productions making up only 35.1\% of utterances (54 utterances) by this age group. Adults, on the other hand, seem to realize lexical stress correctly in the majority of their utterances, with only 23.6\% (121) incorrect productions and 3.3\% percent (17) utterances with no clear lexical stress realization ([none]). However, this is not an entirely just comparison, given that the group of child speakers only includes beginners; therefore, instead of comparing the children's error distribution to that of all adults, it is helpful to restrict the comparison to adults of the lower proficiency levels. 
+				%The bottom rows of \cref{tab:results:agegender} list
+				\Cref{tab:results:agegender} lists the statistics for 
+				\TODO{\textit{remove?:} adults at the A2 proficiency level only as well as for}
+				adults of both beginner levels (A2 and B1), 
+				and \cref{fig:results:agepies:adultbeg} illustrates the error distribution for the latter group \TODO{include adult A2 chart also/instead? (distribution is quite similar to A2/B1)}. 
+				Comparing the distribution of children's errors to that of adult beginners, the difference is less drastic but still noticeable, as adult beginners realize lexical stress correctly in the majority (approximately 60\%) of their utterances. Considering the comparatively high proportion of lexical stress errors in children's speech, therefore, it seems that just as \TODO{we} concluded in the previous section that beginners may benefit more from a CAPT system targeting lexical stress errors than advanced learners would, so also may children stand to gain more from such a system than adult beginners. \TODO{anything else to say about age?}
+				
+				
+					Coming now to the question of whether there is any difference in error distribution between speakers of different genders, a brief glance at \TODO{\cref{fig:results:genderpies}} reveals that there does not seem to be a drastic difference in the distribution of errors between the two genders. Males seem to make slightly more errors in lexical stress realization than females, with 60.7\% correct productions for males and 68.1\% for women, though this might be explained by the fact that as noted in \cref{sec:lexstress:data} above (see \cref{tab:data:speakers}), the group of male speakers has a higher proportion of elementary (A2) learners (18 out of 32 males, or 56.25\%) than the group of female speakers (6 A2 speakers out of 24 females, or 25\%). \TODO{do we need an apples-to-apples comparison based on level, as we did in the age discussion?} Therefore, it would seem that the error distribution observed in the annotated sub-corpus provides no indication of a meaningful difference in the way speakers of different genders realize lexical stress in their L2 German.
+				
+					
+			
+			
+			
 			\begin{figure}[ptb]
 				\centering
 				\caption[Error distribution by speaker age and gender]{Distribution of errors by speaker's age and gender,
@@ -1374,7 +1399,7 @@ Total (\% of corpus)	&	383	&	(57.34\%)	&	285	&	(42.66\%)	\\
 				
 			\end{figure}
 			
-			\begin{figure}[ptb]
+			\begin{figure}[p]
 			\ContinuedFloat
 			\centering
 				\caption[Error distribution by speaker age and gender (cont.)]{(continued) Distribution of errors by speaker's age and gender,
@@ -1482,16 +1507,6 @@ Total (\% of corpus)	&	383	&	(57.34\%)	&	285	&	(42.66\%)	\\
 			
 			
 			
-				With regard to the two different age groups of speakers, any interpretation of the results presented here must bear in mind the considerable difference in size between the two different groups: \TODO{reference the actual number of each type of speaker - should already have been presented in \cref{sec:lexstress:data} or earlier} of the 668 tokens annotated in total, 513 (over three-fourths) were from adult speakers while only 155 (less than one-fourth) were utterances by children. Furthermore, it must be highlighted that there is a strong interaction between age and proficiency level: all of the child speakers recorded in the IFCASL corpus are beginners 
-				(the majority at the A2 level with only 1 girl at B1),
-				% \TODO{technically true but implies A2 while a couple of the girls are B1 - worth mentioning?}, 
-				while the adults span all four levels. Given the discrepancies between L2 proficiency levels discussed in the previous section, then, it is not surprising to see that over half of children's utterances are judged to have lexical stress errors, with correct stress productions making up only 35.1\% of utterances (54 utterances) by this age group. Adults, on the other hand, seem to realize lexical stress correctly in the majority of their utterances, with only 23.6\% (121) incorrect productions and 3.3\% percent (17) utterances with no clear lexical stress realization ([none]). However, this is not an entirely just comparison, given that the group of child speakers only includes beginners; therefore, instead of comparing the children's error distribution to that of all adults, it is helpful to restrict the comparison to adults of the lower proficiency levels. 
-				%The bottom rows of \cref{tab:results:agegender} list
-				\Cref{tab:results:agegender} lists the statistics for 
-				\TODO{\textit{remove?:} adults at the A2 proficiency level only as well as for}
-				adults of both beginner levels (A2 and B1), 
-				and \cref{fig:results:agepies:adultbeg} illustrates the error distribution for the latter group \TODO{include adult A2 chart also/instead? (distribution is quite similar to A2/B1)}. 
-				Comparing the distribution of children's errors to that of adult beginners, the difference is less drastic but still noticeable, as adult beginners realize lexical stress correctly in the majority (approximately 60\%) of their utterances. Considering the comparatively high proportion of lexical stress errors in children's speech, therefore, it seems that just as \TODO{we} concluded in the previous section that beginners may benefit more from a CAPT system targeting lexical stress errors than advanced learners would, so also may children stand to gain more from such a system than adult beginners. \TODO{anything else to say about age?}
 				
 %				\begin{figure}[htb]
 %				\centering
@@ -1510,9 +1525,7 @@ Total (\% of corpus)	&	383	&	(57.34\%)	&	285	&	(42.66\%)	\\
 %				\label{fig:results:adultbeginners}
 %			\end{figure}	
 				
-				Coming now to the question of whether there is any difference in error distribution between speakers of different genders, a brief glance at \cref{fig:results:genderpies} reveals that there does not seem to be a drastic difference in the distribution of errors between the two genders. Males seem to make slightly more errors in lexical stress realization than females, with 60.7\% correct productions for males and 68.1\% for women, though this might be explained by the fact that as noted in \cref{sec:lexstress:data} above (see \cref{tab:data:speakers}), the group of male speakers has a higher proportion of elementary (A2) learners (18 out of 32 males, or 56.25\%) than the group of female speakers (6 A2 speakers out of 24 females, or 25\%). \TODO{do we need an apples-to-apples comparison based on level, as we did in the age discussion?} Therefore, it would seem that the error distribution observed in the annotated sub-corpus provides no indication of a meaningful difference in the way speakers of different genders realize lexical stress in their L2 German.
 				
-			
 		
 %		\subsection{Errors by recording condition}
 %		\label{sec:results:condition}

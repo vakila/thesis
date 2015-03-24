@@ -29,7 +29,73 @@ by creating a tool which will diagnose and offer feedback on lexical stress erro
 %become more sensitive to the lexical stress patterns of German and develop the ability to accurately realize these patterns in their speech. 
 become more intelligible when speaking German.
 
-%TODO move Context to after Objectives?
+
+
+\section{Objectives}
+\label{sec:intro:objectives}
+
+%		\begin{floatingfigure}[r]{.5\textwidth}
+%			\centering
+%			\vspace{-2em}
+%			\includegraphics[width=.35\textwidth]{img/hourglass}
+%			\vspace{1em}
+%			\caption{Conceptual diagram of the prototype CAPT tool.}
+%			\label{fig:hourglass}
+%			%\vspace{1em}
+%		\end{floatingfigure}
+
+The main objective of this work is to investigate the automatic treatment of lexical stress errors in the context of a CAPT system for French learners of German. This includes, on the one hand, an examination of the ways in which lexical stress errors of the type made by French L1 speakers when speaking German as L2 can be reliably detected %and measured
+automatically, and on the other, an exploration of the types of multimodal feedback on such errors that can be automatically delivered based on the aforementioned error detection. 
+%
+%
+%The outcome of these investigations is a prototype CAPT tool, conceptually illustrated in \cref{fig:hourglass-ITS},
+%which can diagnose lexical stress errors in different ways and present learners with different types of feedback on these errors. 
+%
+The outcome of these investigations and primary contribution of this thesis project is a prototype CAPT tool called 
+\TODO{pick one:}
+
+\textit{de-stress}: the German (\underline{de}) \underline{S}ystem for \underline{T}raining and \underline{R}esearch on \underline{E}rrors in \underline{S}econd-language \underline{S}tress. 
+
+\textbf{de-stress}: the German (\textbf{de}) \textbf{S}ystem for \textbf{T}raining and \textbf{R}esearch on \textbf{E}rrors in \textbf{S}econd-language \textbf{S}peech.
+
+Implemented as a web application in the Java-based language Groovy\footnote{\url{http://groovy-lang.org}} using the Grails web framework,\footnote{\url{https://grails.org}} \TODO{de-stress} is open-source and publicly available online.\footnote{\url{https://github.com/vakila/de-stress}}
+\Cref{fig:hourglass-ITS} provides a conceptual overview of the tool, which provides a variety of options for diagnosis of and feedback on lexical stress errors, and could potentially be a useful component of a fully-fledged intelligent CAPT system (a type of Intelligent Tutoring System, or ITS). 
+
+	\begin{figure}[thb] 
+		\centering
+		\includegraphics[height=.45\textheight]{img/hourglass-ITS} 
+		\caption[Conceptual diagram of the prototype lexical stress CAPT tool]{Conceptual diagram of the prototype lexical stress CAPT tool (demarcated by dashed line) and its possible function in the context of a more comprehensive Intelligent Tutoring System (ITS).}
+		\label{fig:hourglass-ITS}
+	\end{figure}
+
+ Via a simple web interface, the system presents a student with a German sentence (taken from the IFCASL corpus), one of the words of which is highlighted as the target word for that exercise. The student is prompted to submit an utterance of that sentence for assessment and feedback, with the instruction to focus on the accurate expression of the lexical stress pattern of the target word. The student's utterance is subsequently analyzed for lexical stress errors using a variety of diagnostic approaches (see \TODO{\cref{chap:diagnosis}}), and finally the student is presented with one or more types of feedback on their realization of lexical stress in the analyzed utterance (see \TODO{\cref{chap:feedback}}). \Cref{fig:interface:student} presents a screenshot of the interface presenting such feedback.
+
+	\begin{figure}
+		\centering
+		\caption{The student-facing interface of \TODO{de-stress}}
+		\includegraphics[width=.9\textwidth]{img/screenshots/StudentInterface-userIcon}
+		\label{fig:interface:student}
+	\end{figure}
+
+In addition to this student-facing interface, the tool also implements an interface through which a language teacher or a researcher of L2 language acquisition can create new exercises for students to complete, where each exercise features a specific combination of the various diagnostic methods and feedback types available in the system. By allowing fine-grained control over these features, \TODO{de-stress} enables researchers to create CAPT exercises with different features for the purposes of in-vivo studies of the effectiveness of different feedback types, and allows teachers to create exercises matching the needs of their students. The teacher- or researcher-facing interface for exercise creation can be seen in \cref{fig:interface:teacher}.
+
+	\begin{figure}
+		\centering
+		\caption{The interface of \TODO{de-stress} for teachers/researchers}
+		\includegraphics[width=.9\textwidth]{img/screenshots/TeacherInterface-userIcon}
+		\label{fig:interface:teacher}
+	\end{figure}
+
+%\TODO{This prototype tool} has thus been developed with both instructional and research applications in mind.
+Both instructional and research applications have thus motivated the development of \TODO{de-stress}.
+Unlike with some existing tools for diagnosis and feedback on pronunciation errors, learners can interact with the tool and interpret its feedback independently, i.e. without the assistance of a human instructor at their side.
+At the same time, researchers can use this modular system to study the impact of various assessment and feedback types on learner outcomes, user engagement, and other factors impacting the success of a CAPT system. 
+%
+Once more is known about which diagnosis/feedback types should be delivered to which learners in which situations, this tool could become a useful component to a fully-fledged intelligent CAPT system, in which learner models and other intelligent components automatically decide which modules of the tool to activate, as \cref{fig:hourglass-ITS} illustrates.
+
+
+
+
 \section{Context: The IFCASL project}
 \label{sec:intro:ifcasl}
 
@@ -52,60 +118,11 @@ While the project as a whole is also concerned with L1 German speakers learning 
 %\TODO{Remove the following paragraph?}
 The German-language subset of the IFCASL corpus has been instrumental in training and testing the automatic diagnosis and feedback systems developed in this work. As the IFCASL corpus was not annotated for lexical stress errors, one major contribution of this thesis was the annotation of such errors for a subset of the German-language utterances from L1 French speakers; the details of this annotation effort are described in \cref{chap:lexstress}. 
 
-Furthermore, the prototype CAPT tool developed in this thesis project has been designed with a view to contributing to the overall set of software developed in the context of the IFCASL project, such that they have been as compatible as possible with the other tools developed and used by the IFCASL team, especially the \textit{Jsnoori} speech processing software developed at LORIA (see \cref{sec:capt:snoori}).
+Furthermore, 
+\TODO{de-stress}
+%\TODO{the prototype CAPT tool developed in this thesis project}
+ has been designed with a view to contributing to the overall set of software developed in the context of the IFCASL project, such that they have been as compatible as possible with the other tools developed and used by the IFCASL team, especially the \TODO{Jsnoori} speech processing software developed at LORIA (see \cref{sec:capt:snoori}).
 
-
-\section{Objectives}
-\label{sec:intro:objectives}
-
-%		\begin{floatingfigure}[r]{.5\textwidth}
-%			\centering
-%			\vspace{-2em}
-%			\includegraphics[width=.35\textwidth]{img/hourglass}
-%			\vspace{1em}
-%			\caption{Conceptual diagram of the prototype CAPT tool.}
-%			\label{fig:hourglass}
-%			%\vspace{1em}
-%		\end{floatingfigure}
-
-The main objective of this work is to investigate the automatic treatment of lexical stress errors in the context of a CAPT system for French learners of German. This includes, on the one hand, an examination of the ways in which lexical stress errors of the type made by French L1 speakers when speaking German as L2 can be reliably detected and measured %TODO reword
-automatically, and on the other, an exploration of the types of multimodal feedback on such errors that can be automatically delivered based on the aforementioned error detection. 
-%
-	\begin{figure}[thb] 
-		\centering
-		\includegraphics[height=.45\textheight]{img/hourglass-ITS} 
-		\caption[Conceptual diagram of the prototype lexical stress CAPT tool]{Conceptual diagram of the prototype lexical stress CAPT tool (demarcated by dashed line) and its possible function in the context of a more comprehensive Intelligent Tutoring System. \TODO{printable colors}}
-		\label{fig:hourglass-ITS}
-	\end{figure}
-%
-The outcome of these investigations is a prototype CAPT tool, illustrated in \cref{fig:hourglass-ITS},
-which can diagnose lexical stress errors in different ways and present learners with different types of feedback on these errors. \TODO{the tool is a major contribution}
-
-
-\TODO{The prototype tool} has been 
-implemented as a web application in the Java-based language Groovy\footnote{\url{http://groovy-lang.org}} using the Grails web framework.\footnote{\url{https://grails.org}} Via a simple web interface, the system presents a student with a German sentence (taken from the IFCASL corpus), one of the words of which is highlighted as the target word for that exercise. The student is prompted to submit an utterance of that sentence for assessment and feedback, with the instruction to focus on the accurate expression of the lexical stress pattern of the target word. The student's utterance is subsequently analyzed for lexical stress errors using a variety of diagnostic approaches (see \TODO{\cref{chap:diag}}), and finally the student is presented with one or more types of feedback on their realization of lexical stress in the analyzed utterance (see \TODO{\cref{chap:fb}}). \Cref{fig:interface:student} presents a screenshot of the interface presenting such feedback.
-
-	\begin{figure}
-		\centering
-		\caption{The student-facing interface of \TODO{de-stress}}
-		\includegraphics[width=.9\textwidth]{img/screenshots/StudentInterface-userIcon}
-		\label{fig:interface:student}
-	\end{figure}
-
-In addition to this student-facing interface, the tool also implements an interface through which a language teacher or a researcher of L2 language acquisition can create new exercises for students to complete, where each exercise features a specific combination of the various diagnostic methods and feedback types available in the system. By allowing fine-grained control over these features, \TODO{the tool} enables researchers to create CAPT exercises with different features for the purposes of in-vivo studies of the effectiveness of different feedback types, and allows teachers to create exercises matching the needs of their students. The teacher- or researcher-facing interface for exercise creation can be seen in \cref{fig:interface:teacher}.
-
-	\begin{figure}
-		\centering
-		\caption{The interface of \TODO{de-stress} for teachers/researchers}
-		\includegraphics[width=.9\textwidth]{img/screenshots/TeacherInterface-userIcon}
-		\label{fig:interface:teacher}
-	\end{figure}
-
-\TODO{This prototype tool} has thus been developed with both instructional and research applications in mind.
-Unlike with some existing tools for diagnosis and feedback on pronunciation errors, learners can interact with the tool and interpret its feedback independently, i.e. without the assistance of a human instructor at their side.
-At the same time, researchers can use this modular system to study the impact of various assessment and feedback types on learner outcomes, user engagement, and other factors impacting the success of a CAPT system. 
-%
-Once more is known about which diagnosis/feedback types should be delivered to which learners in which situations, this tool could become a useful component to a fully-fledged CAPT system, in which learner models and other intelligent components automatically decide which modules of the tool to activate. 
 
 
 
@@ -113,7 +130,10 @@ Once more is known about which diagnosis/feedback types should be delivered to w
 \label{sec:intro:overview}
 
 
-\myemph{\Cref{chap:background}: \nameref{chap:background}} introduces Computer-Assisted Pronunciation Training (CAPT) in the contexts of pronunciation teaching in foreign-language education and computer-based and intelligent tutoring systems, describing some relevant past work on CAPT systems. This chapter also briefly 
+\myemph{\Cref{chap:background}: \nameref{chap:background}} introduces Computer-Assisted Pronunciation Training (CAPT) 
+%in the contexts of pronunciation teaching in foreign-language education and computer-based and intelligent tutoring systems, describing 
+and describes some relevant past work on CAPT systems. 
+This chapter also briefly 
 %outlines the differences in the lexical stress systems of French and German as well as 
 introduces the phenomenon of lexical stress as it pertains to L1 French learners of German as L2, and outlines
 the motivation for focusing on lexical stress errors in this work.
@@ -127,17 +147,23 @@ describes
 %one of the major contributions of this thesis: 
 the annotation and analysis of lexical stress errors in 
 %the IFCASL sub-corpus of 
-nonnative German speech produced by native French speakers. 
-\TODO{remove? rewrite?} The annotation process and the resulting findings with respect to the distribution of lexical stress errors in L2 German speech are presented in detail.
+nonnative German speech produced by native French speakers, which constitutes an important contribution of this thesis. 
+The annotation process and the resulting findings with respect to the distribution of lexical stress errors in L2 German speech are presented in detail in this chapter.
 
-\myemph{\Cref{chap:diagnosis}: \nameref{chap:diagnosis}} details how \TODO{the prototype CAPT tool} diagnoses lexical stress errors in learner speech. It describes the methods used to automatically segment the learner's utterance, analyze the prosody of this utterance in terms of the relative pitch, duration, and intensity of the relevant syllables, and compare this analysis to one or more models of native pronunciation to produce a diagnosis.
+\myemph{\Cref{chap:diagnosis}: \nameref{chap:diagnosis}} details how \TODO{de-stress} diagnoses lexical stress errors in learner speech. It describes the methods used to automatically segment the learner's utterance, analyze the prosody of this utterance in terms of the relative pitch, duration, and intensity of the relevant syllables, and compare this analysis to one or more models of native pronunciation to produce a diagnosis. The novel diagnostic approaches described in this chapter comprise another major contribution of this work. 
+% described in this chapter include novel methods for error diagnosis by comparison with one or more reference utterances
 
 \myemph{\Cref{chap:feedback}: \nameref{chap:feedback}} describes the multimodal feedback options that the system can deliver, and how these feedback types are generated based on the analysis of the learner's speech described in the previous chapter. 
+describes the final contribution of this project: the feedback module of \TODO{de-stress}, which is capable of delivering a variety of feedback types simultaneously or in isolation. 
+This chapter explains the types of feedback available, and how these are generated from the diagnosis of the learner's speech described in \cref{chap:diagnosis}.
 
 %\myemph{\Cref{chap:system}} briefly introduces the tools that have been developed, and the technology used to build them. \TODO{skip this chapter?}
 
-\myemph{\Cref{chap:conclusion}: \nameref{chap:conclusion}} summarizes the contributions of this thesis project and outlines some 
-possible directions for future work.
+\myemph{\Cref{chap:conclusion}: \nameref{chap:conclusion}} summarizes the ways in which this thesis project has contributed to the advancement of CAPT for French learners of German,
+%This chapter also 
+and
+outlines some
+possibly promising directions for future extensions of this work.
 
 
 

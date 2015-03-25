@@ -157,14 +157,14 @@ has revealed that learners sometimes benefit from prosodically modified implicit
 		
 %		\TODO{Skill bars may be misleading in that a) the scores are discrete, ordinal and not interval (see \cref{sec:compare:single:jsnoori}), b) displaying bars seems to accord equal importance to all three features, while we know that duration is most important}
 		
-			\begin{figure}
+			\begin{figure}[p]
 			\centering
 			\caption[Skill bars as explicit feedback]{Screenshot of explicit feedback via skill bars, where all three skills (prosodic feature types) contribute equally to the overall score}
 			\includegraphics[width=\textwidth]{img/screenshots/skillBars-balanced-of10}
 			\label{fig:skillbars:balanced}
 			\end{figure}		
 			
-			\begin{figure}
+			\begin{figure}[p]
 			\centering
 			\caption[Skill bars with unequal skill weights]{Screenshot of explicit feedback via skill bars, where duration contributes more than F0, which contributes more than intensity (60\%, 30\% and 10\% of overall score, respectively) \TODO{learner should be informed of the weighting - take new screenshot}}
 			\includegraphics[width=\textwidth]{img/screenshots/skillBars-durPriority}
@@ -188,7 +188,7 @@ has revealed that learners sometimes benefit from prosodically modified implicit
 		\end{itemize}
 		
 		
-		\begin{table}
+		\begin{table}[p]
 			\centering
 			\caption{Messages used to deliver explicit verbal feedback of feature-specific scores}
 			
@@ -471,7 +471,11 @@ As mentioned in \cref{sec:diag:system} and illustrated in \cref{fig:diag:createe
 		\label{fig:fb:createfeedbackmethod}
 	\end{figure}
 	
-	Noticeable in \cref{fig:fb:createfeedbackmethod} is the FeedbackMethod parameter ``Requires Scorer Type''; this parameter captures the fact that not all feedback types are compatible with all of the diagnosis methods offered by the system (see \cref{chap:diagnosis}). For example, if the chosen classification method diagnoses learner errors by classification and outputs a single class label instead of individual scores for each of the three feature types (duration, F0, and intensity), it does not make sense to present feedback in the form of skill bars (\cref{sec:fb:explicit:skillbars}). Therefore, each FeedbackMethod is aware of which type of scores it requires, so that the researcher never accidentally chooses an incompatible pairing between DiagnosisMethod and FeedbackMethod when creating a new exercise. \Cref{tab:fb:compatibility} summarizes the (in)compatibility between the various types of diagnosis and feedback offered. 
+	Noticeable in \cref{fig:fb:createfeedbackmethod} is the FeedbackMethod parameter ``Requires Scorer Type''; this parameter captures the fact that not all feedback types are compatible with all of the diagnosis methods offered by the system (see \cref{chap:diagnosis}). For example, 
+	if the chosen classification method diagnoses learner errors by classification,
+	and not by comparison with a reference utterance, it is not possible to present learners with implicit auditory feedback, either in the form of an original reference utterance or that of a resynthesized version of the learner's utterance which has been prosodically modified to match that reference.
+	% and outputs a single class label instead of individual scores for each of the three feature types (duration, F0, and intensity), it does not make sense to present feedback in the form of skill bars (\cref{sec:fb:explicit:skillbars}). 
+	Therefore, each FeedbackMethod is aware of which type of DiagnosisMethod it requires, so that the researcher never accidentally chooses an incompatible pairing between DiagnosisMethod and FeedbackMethod when creating a new exercise. \Cref{tab:fb:compatibility} summarizes the (in)compatibility between the various types of diagnosis and feedback offered. 
 	
 	\begin{table}
 		\centering

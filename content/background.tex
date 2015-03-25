@@ -255,8 +255,7 @@ and leverages its feedback generation capabilities to deliver  a more diverse, a
 %
 	The first of these, the Fluency pronunciation trainer \citep{Eskenazi1998,Eskenazi2000}, is a CAPT system placing particular emphasis on
 %prosody and 
-user-adaptivity, corrective articulatory feedback, and the integration of perceptual training (e.g. listening exercises). As with the work at LORIA described above, the Fluency system evaluates learners' speech via comparison with that of a native reference speaker, and \textcite{Probst2002} found that selecting a ``golden speaker'' whose voice closely matched the learner's improved learning gains. 
-\TODO{more about golden speaker (how this work will build on it)} 
+user-adaptivity, corrective articulatory feedback, and the integration of perceptual training (e.g. listening exercises). As with the work at LORIA described above, the Fluency system evaluates learners' speech via comparison with that of a native reference speaker; \textcite{Probst2002} found that selecting a ``golden speaker'' whose voice closely matched the learner's improved learning gains, a finding which informed the implementation of various reference speaker selection methods in the diagnosis module of \TODO{de-stress} (see \cref{sec:compare:selection}).
 Fluency also implements an error-catching step to reject utterances which do not match the expected text \citep{Eskenazi2000}, in the same vein as that of \textcite{Mesbahi2011,Orosanu2012}. \textcite{Eskenazi2007} report that Fluency's commercial spin-off, NativeAccent\textsuperscript{TM}, has been shown to help real-world users significantly improve their pronunciation skills.
 	%In an early version of Fluency, an utterance is elicited from the learner using a targeted question, constraining the learner's response such that a speech recognizer can perform forced alignment on the utterance, while at the same time giving the learner the impression that they have decided what to say (as opposed to simply reading a given sentence out loud).
 	
@@ -272,9 +271,13 @@ However, as
 it analyzes the prosody of children's read speech to measure reading fluency, and offers feedback on this prosody, 
 it is nevertheless very relevant to CAPT and thus this thesis. 
 	Indeed, the potential for such a tool, and its underlying technologies, to enhance foreign-language education has already been demonstrated by 
-	\textcite{Weber2010}, who deployed the Reading Tutor in English as a second language classes in India with encouraging initial results \TODO{more?}. 
-	In the Reading Tutor, the child's read speech is automatically segmented and compared either to a reference utterance by an adult reader, analogous to the native speaker reference in many CAPT systems, or to a generalized model of adult prosody; \textcite{Duong2011} report better performance using the generalized model. Analysis of the pitch and intensity contours of the utterance(s), as well as the duration of words/syllables and the pauses between them, results in an assessment of the child's overall fluency as well as identification of words which have been pronounced (in)correctly, and feedback is delivered visually in real time by revealing the text of each word as it is spoken, with properties such as the position, color, and font size of each word reflecting various aspects of the reader's prosody \citep{Sitaram2011}. Ideas and techniques from the Reading Tutor have influenced both the diagnosis (see \cref{chap:diagnosis}) and feedback (see \cref{chap:feedback}) modules of the proposed CAPT tool. 
-	\TODO{which ideas, influenced how?}
+	\textcite{Weber2010}, who deployed the Reading Tutor in English as a second language classes in India with encouraging initial results. 
+	As this section explains, ideas and techniques from the Reading Tutor have influenced both the diagnosis and feedback modules of the proposed CAPT tool. 
+	
+	
+	In the Reading Tutor, the child's read speech is automatically segmented and compared either to a reference utterance by an adult reader, analogous to the native speaker reference in many CAPT systems, or to a generalized model of adult prosody. \textcite{Duong2011} report better performance using the generalized model, a result which motivated \TODO{de-stress}'s implementation of a classification-based alternative to the more typical comparison-based method of error diagnosis (see \cref{sec:diag:classification}).
+	
+	 The Reading Tutor's analysis of the pitch and intensity contours of the utterance(s), as well as the duration of words/syllables and the pauses between them, results in an assessment of the child's overall fluency as well as identification of words which have been pronounced (in)correctly, and feedback is delivered visually in real time by revealing the text of each word as it is spoken, with properties such as the position, color, and font size of each word reflecting various aspects of the reader's prosody \citep{Sitaram2011}. Inspired by this work, a similar method of feedback via text stylization has been implemented in \TODO{de-stress} (see \cref{sec:implicit:visual:text}). 
 	
 	\subsection{German and language-independent CAPT}
 	\label{sec:capt:german}

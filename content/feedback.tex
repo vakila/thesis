@@ -71,7 +71,7 @@ the learner is presented with relatively direct visualizations of the speech sig
 			
 			One type of alternative to direct visualizations of the speech signal is a more abstract graphical representation of the lexical stress pattern in the native reference speaker and/or the learner's speech. Classroom materials for pronunciation instruction sometimes represent lexical stress patterns using dots or other shapes, one for each syllable, whose relative sizes indicate each syllable's prominence in the word \citep{Hirschfeld1998}. By mapping the acoustic features of each syllable in the utterance(s) to graphical features (e.g. height, width) of a geometrical shape
 			%-- e.g. using width to represent duration, height to represent F0, \TODO{and opacity to represent intensity} -- 
-			it is possible to dynamically create a visual abstraction of the relevant properties of the learner's utterance as well as those of the reference utterance(s). This abstracted visual representation of prosody may be easier for the learner to interpret than the complex and possibly overwhelming signal visualizations more commonly used to give prosodic feedback in CAPT as mentioned in the previous section.
+			it is possible to dynamically create a visual abstraction of the relevant properties of the learner's utterance as well as those of the reference utterance(s). \TODO{Case of classification diagnosis} This abstracted visual representation of prosody may be easier for the learner to interpret than the complex and possibly overwhelming signal visualizations more commonly used to give prosodic feedback in CAPT as mentioned in the previous section.
 			
 			\Cref{fig:rectangles} illustrates the display of such graphical abstractions in \TODO{de-stress}. Each syllable in an utterance is represented by a rectangle, the length of which corresponds to the duration of that syllable (as a percentage of the total word duration), the height of which represents the mean F0 in that syllable (normalized by dividing the absolute mean F0 for the syllable by the overall mean in the word), and the opacity of which corresponds to the mean intensity of that syllable (again normalized by dividing by the mean in the entire word). If the learner hovers their mouse over one of the rectangles, they are presented with the exact values for each of these features in a tooltip overlay, which can be seen as the small yellow box in the central area of \cref{fig:rectangles}.
 			
@@ -81,6 +81,8 @@ the learner is presented with relatively direct visualizations of the speech sig
 					\includegraphics[width=\textwidth]{img/screenshots/rectanglesWithOpacity}
 					\label{fig:rectangles}
 				\end{figure}			
+				
+			\TODO{Case of classification diagnosis} 
 			
 			The mappings between graphical properties (width, height, and opacity of the rectangle) and prosodic features (duration, F0, and intensity, respectively) are currently hard-wired in \TODO{de-stress}. However, researchers using the system to experiment with different feedback methods should ideally be able to change the mapping or omit one of the features if necessary, so a more flexible feature-mapping mechanism would be a worthwhile improvement to the system (see \cref{sec:conclusion:future}).
 			
@@ -108,7 +110,7 @@ the learner is presented with relatively direct visualizations of the speech sig
 		
 		
 		Therefore, in the text-stylization feedback offered by \TODO{de-stress}, the text of a given syllable is reshaped with a simple mapping between font size (as a multiple of the default size) and duration (as a fraction of the word duration). Duration was chosen as the prosodic feature to visualize based on its relative importance for the perception of lexical stress in German (see \cref{chap:diagnosis}). Font size was chosen as the textual feature to manipulate because it can be changed without distorting the text, i.e. without risking decreased legibility. Of course, other mappings between prosodic and textual features could be imagined, and once again the addition of other options than those currently implemented in the system could be worthwhile (see \cref{sec:conclusion:future}), though this might be less useful for text stylization than for  graphical visualizations, for the reasons mentioned in the previous paragraph.
-		
+		\TODO{Case of classification diagnosis} 
 			
 			
 		\subsection{Auditory}

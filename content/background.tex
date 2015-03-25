@@ -84,7 +84,7 @@ system (see \cref{chap:feedback}); as described in the previous chapter, this sy
 
 
 
-\vfill
+\TODO{vfill?}
 
 
 \section{Computer-Assisted Pronunciation Training}
@@ -185,18 +185,18 @@ With this in mind, an overarching aim of this thesis is to take initial steps to
 	% \textcite{Bonneau2011}, 
 	who have used 
 	%\TODO{\textit{correct?} WinSnoori} 
-	this software to assess and deliver feedback on lexical stress in L1 French speakers' pronunciation of English words. 
+	this software to assess lexical stress in L1 French speakers' pronunciation of English words, and deliver feedback on learners' errors. 
 	%
 	%\TODO{transition}
-In its role as a CAPT tool, JSnoori 
+In its role as a CAPT tool, JSnoori (like its predecessor, WinSnoori)
 takes as input a learner utterance, a native reference utterance, and segmentations of each, performs an acoustic comparison of the two utterances, and delivers feedback 
 %on the learner's speech 
 in the form of e.g. annotated displays of the speech signal and spectrogram of each utterance. Moreover, auditory feedback can be delivered 
 %thanks to the capability of 
 by
-resynthesizing the learner's utterance to match the pitch contour and timing of the reference, without modifying the voice quality of the utterance, such that the learner can hear the ``correct'' pronunciation in their own voice (see \cref{sec:implicit:auditory:resynth}). 
-%
-	\TODO{more details about those papers} 
+resynthesizing the learner's utterance to match the pitch contour and timing of the reference, without modifying the voice quality of the utterance, such that the learner can hear the ``correct'' pronunciation in their own voice (see \cref{sec:implicit:auditory:resynth} for details). 
+
+	A pilot experiment conducted by \textcite{Bonneau2011} used WinSnoori to investigate the effect of these types of visual and auditory feedback on the prosodic realization of English lexical stress by L1 French learners, and seemed to indicate that this feedback has a beneficial effect for learners with a low proficiency level in the L2 (i.e. beginners), whereas more advanced learners seem to improve their pronunciation just as well when simply allowed to listen to a reference utterance recorded by a native speaker as a form of implicit feedback. However, as all of the feedback types available were presented simultaneously to learners in the experimental condition, further research is needed to determine whether there are differences in efficacy among the individual feedback types; enabling such research is the motivation behind the modular feedback component of \TODO{de-stress} (see \cref{chap:feedback}).
 
 	
 

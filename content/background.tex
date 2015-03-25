@@ -126,6 +126,7 @@ With this in mind, an overarching aim of this thesis is to take initial steps to
 	
 	%\subsubsection{Automatic processing of learner speech}
 	\subsection{Automatic processing of learner speech}
+	\label{sec:capt:auto}
 	
 	\TODO{rewrite this paragraph}
 		
@@ -136,31 +137,43 @@ With this in mind, an overarching aim of this thesis is to take initial steps to
 	%TODO {see \cref{chap:diagnosis} for a discussion of how this thesis will build upon that work. \textit{Details \& de-proposal-ize}}
 	
 	%\sub
-	\subsection{The \textit{Snorri} suite and \textit{JSnoori}}
+	\subsection{The Snorri suite and JSnoori}
 	\label{sec:capt:snoori}
 	
 	%Additionally, the group has developed
 	Another important contribution of the LORIA group is 
-	the \textit{Snorri/Snoori} suite of software, 
-	which includes the now-outdated original \textit{Snorri} developed in 1987 \citep{Fohr1989} and the Unix adaptation thereof developed shortly thereafter,
-	a later Windows port, \textit{WinSnorri} \citep{Laprie1999},
+	the Snorri/Snoori suite of software, 
+	which includes the now-outdated original Snorri developed in 1987 \citep{Fohr1989} and a Unix adaptation developed shortly thereafter,
+	a later Windows port of Snorri appropriately called WinSnorri \citep{Laprie1999},
 	%and its partial Java port, JSnoori {Parole2013}, 
-	and most recently a partial Java port of WinSnorri, \textit{JSnoori}\footnote{\url{http://jsnoori.loria.fr}} \citep{Parole2013}, which is still under active development, and is the version of the \textit{Snorri} suite most relevant to this work.
+	and most recently a partial Java port of WinSnorri, JSnoori\footnote{\url{http://jsnoori.loria.fr}} \citep{Parole2013}. 
+	JSnoori is the incarnation of the Snorri suite which is still under active development and is 
+	%the version of the Snorri suite 
+	most relevant to this work.
+
 	
-	\TODO{summary of speech processing capabilities of the Snooris \citep{Fohr1989,Laprie1999}
-	, without mention of application to L2 acquisition. Then...}
+	The screenshot in \cref{fig:jsnoori:screenshot} depicts JSnoori's interface for speech analysis. In this example, a recording of a native speaker utterance of the French sentence ``Mon ami a perdu ses bagages à la gare'' (\textit{My friend lost his luggage at the train station}) is under analysis, with only the portion of the signal corresponding to the word ``perdu'' (\textit{lost}) visible.  At the bottom of the screen, in grey, the phone-, word- and sentence-level segmentations of the utterance are displayed. The oscillogram (waveform) of the selected portion of the speech signal is visible as a red contour above the segmentations.  In the upper portion of the screen, a spectrogram of the selected signal segment is presented, with overlaid, colored contours corresponding to the fundamental frequency (blue dots) and intensity (green line) of the signal. Controls at the top of the window allow the user to listen to the selected recording and utilize the various speech analysis capabilities of the software.
 	
-	\TODO{reference \cref{fig:jsnoori:screenshot}}
+	Like its predecessors Snorri and WinSnorri, JSnoori offers users a wide array of signal processing and visualization features, as described by \textcite{Fohr1989,Laprie1999}. 
+	In addition to basic signal recording, editing, and playback, the software can also be used to segment and annotate speech recordings manually or automatically (see \cref{sec:capt:auto}). 
+	Users can choose among various types of spectral visualizations, including wide- or narrow-band spectrograms and cepstrally smoothed spectrograms. 
+	Sophisticated pitch detection algorithms (see \cref{sec:prosody:f0}) enable the analysis and visualization of fundamental frequency (F0) 
+	%and formant structure 
+	in the signal. 
+	JSnoori also allows users to prosodically modify a given speech signal by altering the duration or pitch contour of that signal or a portion thereof; see \cref{sec:implicit:auditory:resynth} for a more detailed explanation of the techniques used to accomplish this modification.
 	
 	
 	\begin{figure}
 		\centering
-		\caption[Screenshot of the speech-analysis interface of JSnoori]{Screenshot of the speech-analysis interface of JSnoori, depicting a segment of a French utterance corresponding to the word ``perdu'' (\textit{lost}). At the bottom of the screen, in grey, the phone-, word- and sentence-level segmentations of the utterance are seen. The oscillogram of the selected portion of the speech signal is visible as a red contour above the segmentations.  In the upper portion of the screen, a spectrogram of the selected signal segment is presented, with overlaid, colored contours corresponding to the signal's fundamental frequency (blue dots) and intensity (green line).}
+		\caption[Screenshot of the speech-analysis interface of JSnoori]{Screenshot of the speech-analysis interface of JSnoori.
+		%depicting a segment of a French utterance corresponding to the word ``perdu'' (\textit{lost}). 
+		%At the bottom of the screen, in grey, the phone-, word- and sentence-level segmentations of the utterance are displayed. The oscillogram (waveform) of the selected portion of the speech signal is visible as a red contour above the segmentations.  In the upper portion of the screen, a spectrogram of the selected signal segment is presented, with overlaid, colored contours corresponding to the signal's fundamental frequency (blue dots) and intensity (green line). Controls at the top of the window allow the user to listen to the selected recording and utilize the various speech analysis functions of the software.
+		}
 		\includegraphics[width=\textwidth]{img/screenshots/JsnooriScreenshot}
 		\label{fig:jsnoori:screenshot}
 	\end{figure}
 	
-	Though the \textit{Snorri} programs were originally developed primarily as research tools for speech scientists %\TODO{\textit{necessary to cite again so soon?} 
+	Though the Snorri programs were originally developed primarily as research tools for speech scientists %\TODO{\textit{necessary to cite again so soon?} 
 	\citep{Fohr1989,Laprie1999}, 
 	the utility of such software
 	%, and especially of resynthesized feedback, 
@@ -263,7 +276,7 @@ prosodically-modified recordings of their own speech and that of native speakers
 	
 	%Other systems mentioned by \textcite{Eskenazi2009,Delmonte2011,Witt2012} may also be briefly described, including tools developed at KTH \citep{Hincks2002,Hincks2009} to teach English prosody.
 	
-	\TODO{need an outro for this (sub)section?}
+	%\TODO{need an outro for this (sub)section?}
 	
 	
 % Alternative organization:

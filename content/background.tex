@@ -7,9 +7,9 @@
 
 %\cleanchapterquote{You can’t do better design with a computer, but you can speed up your work enormously.}{Wim Crouwel}{(Graphic designer and typographer)}
 
-\TODO{Intro sentences}
+As stated in the previous chapter, the work reported this thesis aims to make progress towards the development of Computer Assisted Pronunciation Training (CAPT) system for learners of German as a foreign language (L2), with a particular focus on learners whose native language (L1) is French. This work therefore draws from and builds upon research in diverse but related fields, including L2 education, language technology, and phonetics/phonology.
 
-This chapter sets the stage for the original work described in the remainder of this thesis by summarizing some relevant previous research on pronunciation in foreign language teaching and CAPT, describing the phenomenon of lexical stress as it relates to the comparative word prosody of German and French, and motivating this work's focus on lexical stress errors as a type of error well-suited to correction via CAPT.
+This chapter sets the stage for the original work described in the remainder of the thesis by summarizing some relevant previous research on pronunciation in foreign language teaching and CAPT, describing the phenomenon of lexical stress as it relates to the comparative word prosody of German and French, and motivating this work's focus on lexical stress errors as a type of error well-suited to correction via CAPT.
 
 
 	\section{Pronunciation in foreign language education}
@@ -84,7 +84,7 @@ system (see \cref{chap:feedback}); as described in the previous chapter, this sy
 
 
 
-\TODO{vfill?}
+%TODO \vfill?
 
 
 \section{Computer-Assisted Pronunciation Training}
@@ -145,7 +145,7 @@ With this in mind, an overarching aim of this thesis is to take initial steps to
 	%by not only adapting the L1 acoustic models for each phone but also 
 	by modeling nonnative pronunciation errors (e.g. the insertion, deletion, or substitution of a phoneme) via the automatic extraction of non-standard pronunciations from a corpus of L2 speech. Whereas \textcite{Bouselmi2012} explored the use of L2 pronunciation variants at the level of acoustic modeling, other research at LORIA has shown that augmenting the pronunciation lexicon with nonnative pronunciation variants can also be an effective way of improving the accuracy of L2 speech recognition \citep{Jouvet2011,Mesbahi2011,Bonneau2012}. \textcite{Mesbahi2011} evaluated the segmentation boundaries (i.e. starting and ending points of each phone in the utterance) automatically produced using a lexicon with nonnative pronunciation variants, and found that these were for the most part quite close to (within 15 milliseconds of) the boundaries placed manually by trained scientists, and concluded from this that such automatically-produced segmentations are reliable enough for use in CAPT. 
 	
-	\TODO{Remove this whole paragraph? Not necessarily relevant to my thesis}
+	\TODO{Remove this whole paragraph? Move to future work?}
 	Though these adaptation techniques thus reduce the number of errors in the automatic segmentation of L2 speech, some errors still remain as a result of more profound deviations between the expected utterance and that actually produced by the learner. For example, learners may insert or delete not only individual phones, but entire syllables; they may hesitate or repeat words or parts thereof; and they may pronounce words or phrases entirely different from the expected text. \textcite{Bonneau2012,Orosanu2012} explored methods for detecting errors like these by comparing two segmentations: one produced by forced alignment (see \cref{sec:diag:segmentation}), in which the recognition task is constrained by the text of the expected utterance, and the other produced by unconstrained phone-level recognition (phone decoding). 
 	By detecting deviations between these two segmentations in a pre-processing step, a CAPT system would be able to catch aberrant utterances before automatic segmentation is attempted, so that the learner can be asked to record their utterance again.
 	
@@ -356,7 +356,10 @@ in Czech and Hungarian, stress always falls on the initial syllable. Lexical str
  others argue that
  it may be more properly considered a language without lexical stress, insofar as there is no systematic way in which speakers distinguish a certain syllable from others in the word, aside from the fact that French exhibits phrasal accent, expressed as a lengthening of the final syllable in each prosodic group or phrase \citep{Dupoux2008,Michaux2013}.  
  %
- Regardless, stress at the word level does not serve any contrastive function in French \citep[p.~89]{Michaux2013}, which constitutes a significant difference between this language and a language with variable, contrastive lexical stress such as German or English.
+ Regardless, stress at the word level does not serve any contrastive function in French \citep[p.~89]{Michaux2013}, 
+ %and in fact there may be no feature of French prosody which performs a contrastive function \citep[p.~701]{Dupoux2008}. This 
+ which
+ constitutes a significant difference between this language and a language with variable, contrastive lexical stress such as German or English. 
  
 % 		\TODO{``French does not have contrastive stress: the standard final prominence in isolated words disappears when they are located in non-final position in a larger word group, leaving a word-group final accent... Rather than being contrastive, this `primary' accent has a demarcative function. \citep[p.~89]{Michaux2013}}
 			
@@ -365,7 +368,15 @@ in Czech and Hungarian, stress always falls on the initial syllable. Lexical str
 		As a result of this difference in the sound systems of the two languages,
 		native speakers of French may generally be expected to lack the sensitivity to stress patterns possessed by native speakers of German. Indeed, this has been borne out by research by \textcite{Dupoux2008},
 		%\citep{Dupoux2001,Dupoux2008},
-  who found that native French speakers are ``deaf'' to differences in stress patterns, such that they have great difficulty \TODO{\textit{JT comments} discriminating} between Spanish words which contrast only at the level of stress. This difficulty should also exist for French speakers when they are presented with German words in which the stress pattern is crucial to the word's meaning, as in the minimal pair above. 
+  who found that native French speakers seem to be ``deaf'' to 
+  lexical stress, 
+  %differences in stress patterns, 
+  insofar as they have significant and lasting difficulty
+  perceiving 
+  %and creating a lasting phonological representation of 
+  lexical stress in Spanish, another language in which stress serves a contrastive function.
+  %\TODO{\textit{JT comments} discriminating} between Spanish words which contrast only at the level of stress. 
+  This difficulty should also exist for French speakers when they are presented with German words in which the stress pattern is crucial to the word's meaning, as in the minimal pair above. 
   
   In addition to these difficulties with lexical stress perception, French learners of variable-stress languages such as English, German and Dutch have also been shown to have difficulties in producing stress patterns correctly. Research by \citeauthor{Michaux2012} et al. (\citeyear{Michaux2012,Michaux2013}) revealed that, as might be expected given the tendency for word- and/or phrase-final syllable prominence in French just discussed, French learners of Dutch  showed a tendency to stress the final syllables of Dutch words, even when not called for by the canonical stress pattern. 
   %\TODO{mention no-stress pattern? happens in English sentence stress with speakers of different L1s \citep{Hahn2004}} 

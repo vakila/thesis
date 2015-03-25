@@ -130,15 +130,17 @@ has revealed that learners sometimes benefit from prosodically modified implicit
 			
 			To modify the learner's utterance to match a reference utterance, JSnoori uses the technique of Time Domain Pitch Synchronous Overlap and Add, or TD-PSOLA \citep{Moulines1990}. This technique uses the general strategy of creating a new, modified version of the original signal by using a windowing function to break the signal into a series of overlapping frames, where the spacing between those frames is pitch-synchronous, i.e. corresponds to the F0 period of (that part of) the signal. The duration of a region of the signal  (e.g. a vowel) can then be decreased or increased by removing or duplicating frames in that region while keeping the spacing between frames consistent, and  the perceived pitch of a region can be lowered or raised by increasing or decreasing the spacing between frames. The implementation of this signal-transformation technique in JSnoori includes an improved method for detecting pitch marks in the original signal \citep{Laprie1998,Colotte2002}, as the accuracy of pitch marking is vitally important to the quality of resynthesis obtained via TD-PSOLA.
 			
-			To apply this technique in the context of prosody-oriented CAPT (see \cref{Henri2007,Bonneau2011}), the target prosody for that utterance is first established via analysis and comparison of F0 and duration in the learner and reference utterances, resulting in the computation of  target F0 contours and relative phone durations for (the relevant sections of) the learner's utterance. The learner's signal is then transformed to match the targets for F0 and duration by means of the removal/addition and re-spacing of frames, as described in the previous paragraph. The resulting signal maintains the individuality of the learner's voice, yet replaces their original ``incorrect'' prosody with the ``correct'' prosody of the reference speaker. 
+			To apply this technique in the context of prosody-oriented CAPT (see \cite{Henry2007,Bonneau2011}), the target prosody for that utterance is first established via analysis and comparison of F0 and duration in the learner and reference utterances, resulting in the computation of  target F0 contours and relative phone durations for (the relevant sections of) the learner's utterance. The learner's signal is then transformed to match the targets for F0 and duration by means of the removal/addition and re-spacing of frames, as described in the previous paragraph. The resulting signal maintains the individuality of the learner's voice, yet replaces their original ``incorrect'' prosody with the ``correct'' prosody of the reference speaker. 
 			
 			Like the JSnoori software itself, the prototype CAPT tool offers the learner the opportunity to listen to this resynthesized utterance alongside their original utterance and that of the the native speaker. The hope is that by offering this this implicit auditory feedback as one of the many feedback types teachers/researchers can choose to present to the learner, the CAPT tool will facilitate further research into the use of this type of speech resynthesis for L2 language teaching.
 			
 			
 	\section{Explicit feedback}
+	\label{sec:fb:explicit}
 		\TODO{intro, what is explicit fb, explicit FB may be more motivating in CAPT \citep{Dlaska2013}}	
 	
 		\subsection{Skill bars}
+		\label{sec:fb:explicit:skillbars}
 		
 		
 		One way in which 
@@ -147,7 +149,7 @@ has revealed that learners sometimes benefit from prosodically modified implicit
 		described in \cref{sec:compare:single}) is made explicit to the learner is by means of graphical skill bars of the type often used in tutoring systems (e.g. \cite{Long2011,Long2013}).
 		As illustrated in \cref{fig:skillbars:balanced,fig:skillbars:durpriority}, these bars provide explicit visual feedback for each ``skill'' (feature type) by displaying the score for that feature (as an integer out of 10, visible on the right hand side of the bar), as well as by graphically representing this score with both the length of the filled region of the bar (as a fraction of the total bar width corresponding to the score) and the color of that region (green for scores above 0.7, red for scores below 0.25, and yellow for intermediate scores).
 		%
-		 The bottom-most bar represents the overall score, computed as a weighted average of the three individual scores, using the weights assigned to each score by the researcher/teacher when configuring the diagnosis method \TODO{\cref{??}}.
+		 The bottom-most bar represents the overall score, computed as a weighted average of the three individual scores, using the weights assigned to each score by the researcher/teacher when configuring the diagnosis method (see \cref{sec:diag:system}).
 		 
 		  \Cref{fig:skillbars:balanced} illustrates a case where each of the three scores is given equal weighting, while \cref{fig:skillbars:durpriority} shows the same scores in the case where duration is prioritized over F0, which is in turn given a higher weight than intensity. \TODO{learner should be informed of the weighting - take new screenshot} Although the teacher or researcher setting up the exercise may (justifiably) choose to prioritize a feature, such as duration, in this way, one drawback of the skill bar visualization is that the equal size of the bars for each feature score seems to convey that all are equally important. Modifying the size of each bar based on the weight accorded to its feature may be a simple way to improve the effectiveness of this feedback type.% (see \cref{sec:conclusion:future})
 		  
@@ -276,7 +278,7 @@ has revealed that learners sometimes benefit from prosodically modified implicit
  	\begin{figure}
 		\centering
 		\caption{Self-assessment questionnaire presented to learner before feedback delivery}
-		\includegraphics[width=.7\textwidth]{img/screenshots/selfAssessment}
+		\includegraphics[width=\textwidth]{img/screenshots/selfAssessment}
 		\label{fig:selfassess}
 	\end{figure}
 		
@@ -459,7 +461,7 @@ has revealed that learners sometimes benefit from prosodically modified implicit
 \section{Controlling feedback in the system}
 \label{sec:fb:system}
 
-As mentioned in \cref{sec:diag:system} and illustrated in \cref{fig:createexercise}, a researcher (or teacher) creating a new exercise in the CAPT tool is asked to select a FeedbackMethod for that exercise, which captures the researcher's choices about which feedback types to present to a student after their utterance has been evaluated by the corresponding DiagnosisMethod. \Cref{fig:fb:createfeedbackmethod} presents a screenshot showing the various options available to the researcher, as have been described in this chapter.
+As mentioned in \cref{sec:diag:system} and illustrated in \cref{fig:diag:createexercise}, a researcher (or teacher) creating a new exercise in the CAPT tool is asked to select a FeedbackMethod for that exercise, which captures the researcher's choices about which feedback types to present to a student after their utterance has been evaluated by the corresponding DiagnosisMethod. \Cref{fig:fb:createfeedbackmethod} presents a screenshot showing the various options available to the researcher, as have been described in this chapter.
 
 
 	\begin{figure}

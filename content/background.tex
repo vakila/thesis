@@ -133,11 +133,23 @@ With this in mind, an overarching aim of this thesis is to take initial steps to
 	\subsection{Automatic processing of learner speech}
 	\label{sec:capt:auto}
 	
-	\TODO{rewrite this paragraph}
 	
 	An important prerequisite of any useful CAPT system is the capability to process learner speech automatically. This may be attempted via the application of general techniques for automatic speech recognition or automatic alignment of read speech, but given the drastic ways in which L2 speech typically differs from that of L1 speakers, additional measures must usually be taken to ensure that learners' utterances can be processed reliably and robustly.
+	%
+	Over the past decade or more, researchers at LORIA have been advancing the state of the art for nonnative speech processing, particularly in the context of CAPT applications 
+	(e.g. \cite{Bouselmi2005,Bouselmi2012,%
+	Mesbahi2011,Orosanu2012,Jouvet2011,Bonneau2012}); this section provides an overview of that work.
 	
-	Over the past decade or more, researchers at LORIA have been advancing the state of the art for nonnative speech processing, particularly in the context of CAPT applications (e.g. \cite{Bouselmi2005,Bouselmi2012,Mesbahi2011,Orosanu2012,Jouvet2011,Bonneau2012}).
+	
+	One approach to improving recognition accuracy on L2 speech explored by these researchers involves modifying or adapting the L1 acoustic models used for recognition to better cope with L2 speech data. \textcite{Bouselmi2005} found that merging acoustic models trained on native speech in the target language (English, in their evaluation) with models trained on speech in the learner's L1 (e.g. French) resulted in better recognition accuracy on L2 speech, and in later work (\citeyear{Bouselmi2012}) achieved additional improvements in accuracy 
+	%by not only adapting the L1 acoustic models for each phone but also 
+	by modeling nonnative pronunciation errors (e.g. the insertion, deletion, or substitution of a phoneme) via the automatic extraction of non-standard pronunciations from a corpus of L2 speech. Whereas \textcite{Bouselmi2012} explored the use of L2 pronunciation variants at the level of acoustic modeling, other research at LORIA has shown that augmenting the pronunciation lexicon with nonnative pronunciation variants can also be an effective way of improving the accuracy of L2 speech recognition \citep{Jouvet2011,Mesbahi2011,Bonneau2012}. \textcite{Mesbahi2011} evaluated the segmentation boundaries (i.e. starting and ending points of each phone in the utterance) automatically produced using a lexicon with nonnative pronunciation variants, and found that these were for the most part quite close to (within 15 milliseconds of) the boundaries placed manually by trained scientists, and concluded from this that such automatically-produced segmentations are reliable enough for use in CAPT. 
+	
+	\TODO{Remove this whole paragraph? Not necessarily relevant to my thesis}
+	Though these adaptation techniques thus reduce the number of errors in the automatic segmentation of L2 speech, some errors still remain as a result of more profound deviations between the expected utterance and that actually produced by the learner. For example, learners may insert or delete not only individual phones, but entire syllables; they may hesitate or repeat words or parts thereof; and they may pronounce words or phrases entirely different from the expected text. \textcite{Bonneau2012,Orosanu2012} explored methods for detecting errors like these by comparing two segmentations: one produced by forced alignment (see \cref{sec:diag:segmentation}), in which the recognition task is constrained by the text of the expected utterance, and the other produced by unconstrained phone-level recognition (phone decoding). 
+	By detecting deviations between these two segmentations in a pre-processing step, a CAPT system would be able to catch aberrant utterances before automatic segmentation is attempted, so that the learner can be asked to record their utterance again.
+	
+	
 		
 	%Both the diagnosis and feedback modules of \TODO{the CAPT tool} developed in this work build to a great extent on previous work by researchers in the speech group at LORIA\footnote{\url{http://www.loria.fr/}} in Nancy, France, many of whom are also involved in the IFCASL project (see \cref{sec:intro:ifcasl}). 
 	%

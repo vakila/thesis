@@ -52,9 +52,10 @@ Though there exists relatively little research on the impact of various pronunci
 To reduce these and other types of errors in learner speech,
 %training (e.g. in the form of listening exercises) which helps 
 listening exercises designed to help 
-learners perceive differences between correct and erroneous pronunciations
+learners perceive phonological phenomena in the target language
+%between correct and erroneous pronunciations
 %has 
-have been found to be valuable, with some work suggesting that perception training can have a positive impact on the intelligibility of L2 speech, even in the absence of exercises or feedback concerned with production \citep{Derwing2005,Hirschfeld2007}}.
+have been found to be valuable, with some work suggesting that perception training can have a positive impact on the intelligibility of L2 speech, even in the absence of exercises or feedback concerned with production \citep{Derwing2005,Hirschfeld2007}.
 %
 However, 
 %some researchers stress 
@@ -123,11 +124,13 @@ With this in mind, an overarching aim of this thesis is to take initial steps to
 	
 	%\subsubsection{Automatic processing of learner speech}
 	\subsection{Automatic processing of learner speech}
+	
+	\TODO{rewrite this paragraph}
 		
 	Both the diagnosis and feedback modules of the CAPT tool developed in this work build to a great extent on previous work by researchers in the speech group at LORIA\footnote{\url{http://www.loria.fr/}} in Nancy, France, many of whom are also involved in the IFCASL project (see \cref{sec:intro:ifcasl}). 
 	%
 	% \TODO{\textit{This part about segmentation doesn't really fit in with the prosody-in-CAPT discussion - find a better place for it.}}
-	 Their work has, on the one hand, investigated the task of automatically recognizing and segmenting learners' speech, and determining how this possibly incorrect automatic segmentation can be effectively utilized in the context of pronunciation tutoring, particularly at the prosodic level \citep{Mesbahi2011,Orosanu2012}; 
+	 Their work has, on the one hand, investigated the task of automatically recognizing and segmenting learners' speech, and determining how this possibly incorrect automatic segmentation can be effectively utilized in the context of pronunciation tutoring, particularly at the prosodic level \citep{Mesbahi2011,Orosanu2012}; \TODO{details}
 	%TODO {see \cref{chap:diagnosis} for a discussion of how this thesis will build upon that work. \textit{Details \& de-proposal-ize}}
 	
 	%\sub
@@ -203,7 +206,7 @@ and leverages its feedback generation capabilities to deliver  a more diverse, a
 	The first of these, the Fluency pronunciation trainer \citep{Eskenazi1998,Eskenazi2000}, is a CAPT system placing particular emphasis on
 %prosody and 
 user-adaptivity, corrective articulatory feedback, and the integration of perceptual training (e.g. listening exercises). As with the work at LORIA described above, the Fluency system evaluates learners' speech via comparison with that of a native reference speaker, and \textcite{Probst2002} found that selecting a ``golden speaker'' whose voice closely matched the learner's improved learning gains. 
-%TODO {more about golden speaker?} 
+\TODO{more about golden speaker (how this work will build on it)} 
 Fluency also implements an error-catching step to reject utterances which do not match the expected text \citep{Eskenazi2000}, in the same vein as that of \textcite{Mesbahi2011,Orosanu2012}. \textcite{Eskenazi2007} report that Fluency's commercial spin-off, NativeAccent\textsuperscript{TM}, has been shown to help real-world users significantly improve their pronunciation skills.
 	%In an early version of Fluency, an utterance is elicited from the learner using a targeted question, constraining the learner's response such that a speech recognizer can perform forced alignment on the utterance, while at the same time giving the learner the impression that they have decided what to say (as opposed to simply reading a given sentence out loud).
 	

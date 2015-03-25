@@ -123,28 +123,38 @@ With this in mind, an overarching aim of this thesis is to take initial steps to
 	The viability of CAPT has been demonstrated by a variety of systems and tools that have been developed in both academic and commercial contexts. Some focus on overall assessment of pronunciation or fluency, and others on the detection and correction of individual pronunciation errors \citep{Eskenazi2009}; the tool developed in this work falls into the latter category. In error-focused systems, a distinction has typically been drawn between phonemic errors, e.g. the substitution, insertion, or deletion of a segmental speech sound, and prosodic errors, such as those related to stress/accent, intonation, or rhythm \citep{Witt2012}. As discussed in the previous section, word-prosodic errors may have a larger impact on intelligibility than segmental errors, and are therefore the focus of this work (see \cref{sec:bkgd:targeting} below). 
 	\TODO{\textit{rewrite} With this in mind, a few prosody-aware CAPT systems relevant to this thesis are discussed below; comprehensive overviews and comparisons of these and many other systems are given by \textcite{Neri2002,Eskenazi2009,Delmonte2011,Witt2012}.  }
 	
+	
+		\TODO{
+		Both the diagnosis and feedback modules of \TODO{the CAPT tool} developed in this work build to a great extent on previous work by researchers in the speech group at LORIA\footnote{\url{http://www.loria.fr/}} in Nancy, France, many of whom are also involved in the IFCASL project (see \cref{sec:intro:ifcasl}). 
+		Their work has, on the one hand, investigated the task of automatically recognizing and segmenting learners' speech, and determining how this possibly incorrect automatic segmentation can be effectively utilized in the context of pronunciation tutoring, particularly at the prosodic level \citep{Mesbahi2011,Orosanu2012}; 
+		}
+	
 	%\subsubsection{Automatic processing of learner speech}
 	\subsection{Automatic processing of learner speech}
 	\label{sec:capt:auto}
 	
 	\TODO{rewrite this paragraph}
+	
+	An important prerequisite of any useful CAPT system is the capability to process learner speech automatically. This may be attempted via the application of general techniques for automatic speech recognition or automatic alignment of read speech, but given the drastic ways in which L2 speech typically differs from that of L1 speakers, additional measures must usually be taken to ensure that learners' utterances can be processed reliably and robustly.
+	
+	Over the past decade or more, researchers at LORIA have been advancing the state of the art for nonnative speech processing, particularly in the context of CAPT applications (e.g. \cite{Bouselmi2005,Bouselmi2012,Mesbahi2011,Orosanu2012,Jouvet2011,Bonneau2012}).
 		
-	Both the diagnosis and feedback modules of the CAPT tool developed in this work build to a great extent on previous work by researchers in the speech group at LORIA\footnote{\url{http://www.loria.fr/}} in Nancy, France, many of whom are also involved in the IFCASL project (see \cref{sec:intro:ifcasl}). 
+	%Both the diagnosis and feedback modules of \TODO{the CAPT tool} developed in this work build to a great extent on previous work by researchers in the speech group at LORIA\footnote{\url{http://www.loria.fr/}} in Nancy, France, many of whom are also involved in the IFCASL project (see \cref{sec:intro:ifcasl}). 
 	%
 	% \TODO{\textit{This part about segmentation doesn't really fit in with the prosody-in-CAPT discussion - find a better place for it.}}
-	 Their work has, on the one hand, investigated the task of automatically recognizing and segmenting learners' speech, and determining how this possibly incorrect automatic segmentation can be effectively utilized in the context of pronunciation tutoring, particularly at the prosodic level \citep{Mesbahi2011,Orosanu2012}; \TODO{details}
+%	 Their work has, on the one hand, investigated the task of automatically recognizing and segmenting learners' speech, and determining how this possibly incorrect automatic segmentation can be effectively utilized in the context of pronunciation tutoring, particularly at the prosodic level \citep{Mesbahi2011,Orosanu2012}; \TODO{details}
 	%TODO {see \cref{chap:diagnosis} for a discussion of how this thesis will build upon that work. \textit{Details \& de-proposal-ize}}
 	
-	\TODO{\citep{Bouselmi2005,Bouselmi2012}}
+	%\TODO{\citep{Bouselmi2005,Bouselmi2012}}
 	
-	\TODO{\citep{Bonneau2012}}
+	%\TODO{\citep{Bonneau2012}}
 	
 	%\sub
 	\subsection{The Snorri suite and JSnoori}
 	\label{sec:capt:snoori}
 	
 	%Additionally, the group has developed
-	Another important contribution of the LORIA group is 
+	Another contribution of the LORIA group vital to this thesis project is 
 	the Snorri suite of software, 
 	which includes the now-outdated original Snorri developed in 1987 \citep{Fohr1989} and a Unix adaptation developed shortly thereafter,
 	a later Windows port of Snorri appropriately called WinSnorri \citep{Laprie1999},

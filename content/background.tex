@@ -84,13 +84,12 @@ system (see \cref{chap:feedback}); as described in the previous chapter, this sy
 
 
 
-
+\vfill
 
 
 \section{Computer-Assisted Pronunciation Training}
 \label{sec:bkgd:capt}
 
-\TODO{REORGANIZE THIS SECTION}
 
 In recent decades, the educational value of speech technologies has been well demonstrated \citep{Eskenazi2009}, with 
 Computer-Assisted Pronunciation Training%
@@ -136,13 +135,17 @@ With this in mind, an overarching aim of this thesis is to take initial steps to
 	 Their work has, on the one hand, investigated the task of automatically recognizing and segmenting learners' speech, and determining how this possibly incorrect automatic segmentation can be effectively utilized in the context of pronunciation tutoring, particularly at the prosodic level \citep{Mesbahi2011,Orosanu2012}; \TODO{details}
 	%TODO {see \cref{chap:diagnosis} for a discussion of how this thesis will build upon that work. \textit{Details \& de-proposal-ize}}
 	
+	\TODO{\citep{Bouselmi2005,Bouselmi2012}}
+	
+	\TODO{\citep{Bonneau2012}}
+	
 	%\sub
 	\subsection{The Snorri suite and JSnoori}
 	\label{sec:capt:snoori}
 	
 	%Additionally, the group has developed
 	Another important contribution of the LORIA group is 
-	the Snorri/Snoori suite of software, 
+	the Snorri suite of software, 
 	which includes the now-outdated original Snorri developed in 1987 \citep{Fohr1989} and a Unix adaptation developed shortly thereafter,
 	a later Windows port of Snorri appropriately called WinSnorri \citep{Laprie1999},
 	%and its partial Java port, JSnoori {Parole2013}, 
@@ -186,10 +189,12 @@ With this in mind, an overarching aim of this thesis is to take initial steps to
 	%
 	%\TODO{transition}
 In its role as a CAPT tool, JSnoori 
-takes as input a learner utterance, a native reference utterance, and segmentations of each, perform an acoustic comparison of the two utterances, and deliver feedback on the learner's speech in the form of e.g. annotated displays of the speech signal and spectrogram of each. Moreover, auditory feedback can be delivered 
+takes as input a learner utterance, a native reference utterance, and segmentations of each, performs an acoustic comparison of the two utterances, and delivers feedback 
+%on the learner's speech 
+in the form of e.g. annotated displays of the speech signal and spectrogram of each utterance. Moreover, auditory feedback can be delivered 
 %thanks to the capability of 
 by
-resynthesizing the learner's utterance to match the pitch contour and timing of the reference, without modifying the voice quality of the utterance, such that the learner can hear the ``correct'' pronunciation in their own voice. 
+resynthesizing the learner's utterance to match the pitch contour and timing of the reference, without modifying the voice quality of the utterance, such that the learner can hear the ``correct'' pronunciation in their own voice (see \cref{sec:implicit:auditory:resynth}). 
 %
 	\TODO{more details about those papers} 
 
@@ -255,14 +260,14 @@ it is nevertheless very relevant to CAPT and thus this thesis.
 	The vast majority of CAPT systems which analyze learners' speech at the prosodic level have been developed with English as the target L2, and relatively little work has been done on German.
 	%Notable exceptions include
 	%\TODO{Delmonte's SLIM?}, 
-	In a notable exception particularly relevant to this thesis, 
+	In a notable exception, % particularly relevant to this thesis, 
 \citeauthor{Bissiri2006} 
 (\citeyear{%
 %\citep{%
 Bissiri2006,Bissiri2009%
 })
  found that L1 Italian speakers' realizations of lexical stress in German improved when they were allowed to listen to 
-prosodically-modified recordings of their own speech and that of native speakers (see \TODO{\cref{sec:fb:auditory}}).
+prosodically-modified recordings of their own speech and that of native speakers (see \cref{sec:implicit:auditory:resynth} for a discussion of how similar feedback is delivered by \TODO{de-stress}).
 %their own utterance resynthesized to reflect the prosody of a reference utterance by a native speaker, as well as when they could listen to an utterance by a native speaker that had been prosodically modified to place 
 %prosodically-modified auditory feedback useful for improving L1 Italian speakers' realizations of lexical stress in German \TODO{What did they find out?}.
 %

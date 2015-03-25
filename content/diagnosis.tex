@@ -103,10 +103,10 @@ any analysis of the learner's speech signal, including the preliminary step of s
 	%Given the expected text and the corresponding phone sequence, forced alignment consists of using the Viterbi algorithm and an acoustic Hidden Markov Model trained on the target language to determine the temporal locations of boundaries between each of the expected phones. The Viterbi algorithm is commonly used in automatic speech recognition to determine... 
 
 	
-	Given these resources, the Jsnoori software,
+	Given these resources, the JSnoori software,
 	\TODO{\textit{awkward:}} which the lexical stress CAPT tool developed in this work uses for speech processing,
 	%used to process speech in the lexical stress CAPT tool
-	is capable of automatically segmenting a learner's utterance almost instantly. Unfortunately, a disadvantage of forced alignment is that it requires the entire utterance (e.g. sentence), so real-time segmentation is not possible \TODO{true? should this go in a footnote?}. However, acoustic models and pronunciation lexicons for German have yet to be integrated into Jsnoori, which 
+	is capable of automatically segmenting a learner's utterance almost instantly. Unfortunately, a disadvantage of forced alignment is that it requires the entire utterance (e.g. sentence), so real-time segmentation is not possible \TODO{true? should this go in a footnote?}. However, acoustic models and pronunciation lexicons for German have yet to be integrated into JSnoori, which 
 	%is currently only capable of segmenting 
 	currently only has the resources to segment 
 	speech in English and French.
@@ -115,9 +115,9 @@ any analysis of the learner's speech signal, including the preliminary step of s
 	 the prototype CAPT tool developed in this thesis project presupposes the existence of a segmentation for a given utterance,
 	%the tool %thus takes 
 	taking a ``Wizard-of-Oz'' approach to the automatic segmentation step by demonstrating its error diagnosis and feedback capabilities using learner (L2) and reference (L1) read-speech utterances from the German-language subset of the IFCASL corpus \citep{Fauth2014,Trouvain2013}, all of which have been segmented at the phone and word levels using the forced alignment technique described above.
-	Once the requisite German-language resources are available in Jsnoori, the tool can easily be extended to perform on-the-fly segmentation of learner utterances (see \cref{sec:conclusion:future}).
+	Once the requisite German-language resources are available in JSnoori, the tool can easily be extended to perform on-the-fly segmentation of learner utterances (see \cref{sec:conclusion:future}).
 	
-	%\TODO{a real CAPT system would have to do this on the fly, and that can be done in Jsnoori, but the prototype assumes segmentation has been done and mocks that up by only using auto segmentations of IFCASL data}
+	%\TODO{a real CAPT system would have to do this on the fly, and that can be done in JSnoori, but the prototype assumes segmentation has been done and mocks that up by only using auto segmentations of IFCASL data}
 	%
 	
 	
@@ -199,7 +199,7 @@ any analysis of the learner's speech signal, including the preliminary step of s
 	%\TODO{Where possible, the diagnosis module of the CAPT tool will provide researchers control over the features used; for example, there may be an option to include all F0 and duration features but ignore intensity features.}
 %	
 
-%TODO {\textit{To go somewhere in this section:} Added German phonetic inventories to Jsnoori so that it could know e.g. which segments are vowels}
+%TODO {\textit{To go somewhere in this section:} Added German phonetic inventories to JSnoori so that it could know e.g. which segments are vowels}
 
 
 	Throughout this section, the features discussed are illustrated with their values for a word from \TODO{\textit{three?} two sample utterances} of a German word selected from the IFCASL corpus; one by a L1 French speaker and the other by a L1 German speaker. The oscillogram, waveform, and annotation for these samples are shown in \cref{fig:featuresexample}.
@@ -244,7 +244,7 @@ Following \textcite{Bonneau2011}, \TODO{we} take into account the %relative
  duration of each syllable in the word to be analyzed, and
  %as well as the %relative duration 
  of the vowels at the nucleus of each syllable. 
- 	\TODO{Mention that to find vowels I had to add German phonetic inventory to Jsnoori?}
+ 	\TODO{Mention that to find vowels I had to add German phonetic inventory to JSnoori?}
 	To account for inter-speaker variability, e.g. the fact that some speakers may have an overall slower or faster speech rate than others, relative rather than absolute durations are used.
 	The list of duration features computed for each word utterance is given in \cref{tab:durationfeatures}, 
 along with the values computed for each feature from the sample utterances shown in \cref{fig:featuresexample}. % from the IFCASL corpus \TODO{reference?}. 
@@ -304,7 +304,7 @@ along with the values computed for each feature from the sample utterances shown
 	the system's prosodic analysis. 
 	%
 	
-%		\TODO{Pitch in Jsnoori:
+%		\TODO{Pitch in JSnoori:
 %	\begin{itemize}
 %		%\item Martin's basic spectral comb algo
 %		\item Yves' improvement using parabolic interpolation
@@ -319,17 +319,17 @@ along with the values computed for each feature from the sample utterances shown
 	The F0 contour of a given utterance is determined using the pitch detection 
 	%algorithm(s) implemented in 
 	functionality of 
-	Jsnoori. At the heart of Jsnoori's approach to pitch detection lies the algorithm developed by \textcite{Martin1982}, a frequency-domain method of pitch detection which uses a comb function with teeth of decreasing magnitude to identify harmonics of F0 in the spectrum (spectra are extracted by Fast Fourier Transform using 32-millisecond Hamming windows set 8 milliseconds apart \TODO{double-check that}). Jsnoori also implements several improvements to pitch detection beyond Martin's algorithm \citep{DiMartino1999}, including \TODO{Yves' parabolic interpolation - citation?}, the voicing decision optimization of   \textcite{Secrest1983}, and the dynamic programming technique proposed by \textcite{Ney1981} for identifying and removing incorrect points in the contour. Further improvements to Jsnoori's pitch detection capabilities, including the implementation of additional detection algorithms, are currently in development (see \cref{sec:conclusion:future}).
+	JSnoori. At the heart of JSnoori's approach to pitch detection lies the algorithm developed by \textcite{Martin1982}, a frequency-domain method of pitch detection which uses a comb function with teeth of decreasing magnitude to identify harmonics of F0 in the spectrum (spectra are extracted by Fast Fourier Transform using 32-millisecond Hamming windows set 8 milliseconds apart \TODO{double-check that}). JSnoori also implements several improvements to pitch detection beyond Martin's algorithm \citep{DiMartino1999}, including \TODO{Yves' parabolic interpolation - citation?}, the voicing decision optimization of   \textcite{Secrest1983}, and the dynamic programming technique proposed by \textcite{Ney1981} for identifying and removing incorrect points in the contour. Further improvements to JSnoori's pitch detection capabilities, including the implementation of additional detection algorithms, are currently in development (see \cref{sec:conclusion:future}).
 	
-	Thanks to these techniques, Jsnoori is capable of efficient, generally accurate detection of F0 
+	Thanks to these techniques, JSnoori is capable of efficient, generally accurate detection of F0 
 	\TODO{\textit{keep?} within the range of 65-800 Hertz}. Each pitch point in the contour is subsequently converted from Hertz to semitones.
 	%, using the Bagshaw definition \citep{Bagshaw1994} (or \citep{Bonneau2004}?)
 	Using this contour, each of the relevant segments of the utterance -- i.e. the word of interest, each of its syllables, and their nuclei -- is analyzed in terms of its F0 mean, maximum, minimum, and range;
 	the full list of features computed is presented in \cref{tab:prosody:f0}.
 	Features only take into account the non-zero points in the contour, i.e. points corresponding to voiced sections of the utterance. The F0 mean is calculated as the average of all non-zero points within the start and end boundaries of the given segment; the maximum F0 is the highest value at any of these points, and the minimum the lowest non-zero value; and F0 range is computed as the difference between the maximum and minimum values. 
 	
-	\TODO{Jsnoori only looks at mean and max? or something? by way of transition to this next paragraph}
-	% Jsnoori diagnoses errors in the learner's pitch only with regard to 
+	\TODO{JSnoori only looks at mean and max? or something? by way of transition to this next paragraph}
+	% JSnoori diagnoses errors in the learner's pitch only with regard to 
 	
 	Much of the work on assessing non-native lexical stress has been conducted with English as the L2, and thus often makes the assumption that a stressed syllable should have a higher F0 than unstressed syllables \citep{Bonneau2011}. In German, the F0 of a stressed syllable also tends to differ from the surrounding contour, but the difference may be positive (the stressed syllable has a higher pitch than surrounding syllables) or negative (lower pitch) \citep[p.~267]{Cutler2005}. 		%``...in German utterances, stressed syllables could be signaled by any F0 obtrusion from the overall contour, so that a stressed syllable could be either higher or lower in pitch than its neighbors'' \citep[p.~267]{Cutler2005}
 	Therefore, the computed features
@@ -514,7 +514,7 @@ along with the values computed for each feature from the sample utterances shown
 		
 		Research on lexical stress prosody has generally indicated that intensity is the least important of the three features, i.e. corresponds least closely to lexical stress patterns \citep{Cutler2005}. 
 Indeed, existing lexical stress assessment tools may not take intensity into account, as 
-was the case with the prosodic diagnosis functionality of Jsnoori \TODO{at the start of this thesis project \textit{reword that}}.
+was the case with the prosodic diagnosis functionality of JSnoori \TODO{at the start of this thesis project \textit{reword that}}.
 %is the case in the system described by \textcite{Bonneau2011}.  
 However, intensity can nonetheless have an impact on the perception of lexical stress, especially in combination with pitch or duration, or both \citep{Cutler2005}; %TODO check this reference
 Therefore, in addition to duration and fundamental frequency, the intensity of relevant portions of an utterance are taken into account when performing prosodic analysis.
@@ -523,11 +523,11 @@ Therefore, in addition to duration and fundamental frequency, the intensity of r
 
 
 
-	The intensity contour of a given segment (word, syllable, or syllable nucleus) in the utterance is computed in Jsnoori, which calculates the total amount of energy at frequencies from 0 to 8000 Hertz in spectra extracted from the signal by Fast Fourier Transform, using Hamming windows 20 milliseconds long spaced 4 milliseconds apart \TODO{explain why I didn't use 32ms windows?}. Energies below a ``silence threshold'' of 60 decibels are not counted toward the total, as these are assumed to correspond to ambient or non-speech noise.  
+	The intensity contour of a given segment (word, syllable, or syllable nucleus) in the utterance is computed in JSnoori, which calculates the total amount of energy at frequencies from 0 to 8000 Hertz in spectra extracted from the signal by Fast Fourier Transform, using Hamming windows 20 milliseconds long spaced 4 milliseconds apart \TODO{explain why I didn't use 32ms windows?}. Energies below a ``silence threshold'' of 60 decibels are not counted toward the total, as these are assumed to correspond to ambient or non-speech noise.  
 	This intensity contour is then used to calculate the mean and maximum energy in the relevant segments of the speech signal; the list of features extracted is given in \cref{tab:intfeatures}.
 	
 	
-%	\TODO{Energy in Jsnoori:
+%	\TODO{Energy in JSnoori:
 %	\begin{itemize}
 %		\item Determined by FFT
 %		\item Which window size/spacing used? (20 ms window, spaced  4ms apart )
@@ -630,40 +630,40 @@ This section describes the various \textit{approaches} to such diagnosis by comp
 	\label{sec:compare:single}
 	
 	
-	The simplest type of diagnosis by direct comparison involves comparing a single learner utterance to a single reference (native-speaker) utterance; as mentioned in \cref{sec:capt:systems:loria}, this is the approach used to evaluate learner speech in Jsnoori and its predecessor WinSnoori \citep{Bonneau2004,Henry2007,Bonneau2011}. 
-	In the prototype CAPT tool, this method of comparison is implemented as a type of baseline, using the pre-existing capabilities of Jsnoori for processing and comparing the learner and reference utterances, which are described in the following section. 
+	The simplest type of diagnosis by direct comparison involves comparing a single learner utterance to a single reference (native-speaker) utterance; as mentioned in \cref{sec:capt:systems:loria}, this is the approach used to evaluate learner speech in JSnoori and its predecessor WinSnoori \citep{Bonneau2004,Henry2007,Bonneau2011}. 
+	In the prototype CAPT tool, this method of comparison is implemented as a type of baseline, using the pre-existing capabilities of JSnoori for processing and comparing the learner and reference utterances, which are described in the following section. 
 	
-%	\subsubsection{Diagnosis by comparison in Jsnoori \TODO{retitle?}}
+%	\subsubsection{Diagnosis by comparison in JSnoori \TODO{retitle?}}
 %	\label{sec:compare:single:jsnoori}
 	
-	In Jsnoori, comparison between a student's utterance and that of the reference speaker is effected through analysis of the duration (referred to as ``timing'' in Jsnoori), F0 (``pitch''), and intensity (``energy'') of relevant segments of each utterance. \TODO{At the beginning of this thesis project, intensity was not taken into account for the analysis of learner utterances; part of this project therefore involved adding intensity analysis to Jsnoori's learner-assessment module(s).} For each of these three feature types, a score between 0 and 1 is assigned to the learner utterance based on its correspondence with the reference, and an overall score is computed as the evenly-weighted average of the duration and F0 scores (intensity does not count towards the overall score). 
+	In JSnoori, comparison between a student's utterance and that of the reference speaker is effected through analysis of the duration (referred to as ``timing'' in JSnoori), F0 (``pitch''), and intensity (``energy'') of relevant segments of each utterance. \TODO{At the beginning of this thesis project, intensity was not taken into account for the analysis of learner utterances; part of this project therefore involved adding intensity analysis to JSnoori's learner-assessment module(s).} For each of these three feature types, a score between 0 and 1 is assigned to the learner utterance based on its correspondence with the reference, and an overall score is computed as the evenly-weighted average of the duration and F0 scores (intensity does not count towards the overall score). 
 	
-	\TODO{\textit{unnecessary?} As the diagnostic capabilities of Jsnoori were designed with isolated-word utterances in mind, and the data evaluated here consisted of utterances of entire sentences, the utterances could not be passed directly to Jsnoori for analysis; instead, the word under analysis in the utterance was first isolated in the segmentation by re-labeling all segments before and after that word as silence.}
+	\TODO{\textit{unnecessary?} As the diagnostic capabilities of JSnoori were designed with isolated-word utterances in mind, and the data evaluated here consisted of utterances of entire sentences, the utterances could not be passed directly to JSnoori for analysis; instead, the word under analysis in the utterance was first isolated in the segmentation by re-labeling all segments before and after that word as silence.}
 	
 	The following paragraphs describe how each of these three scores is calculated, with reference to the features listed in \cref{sec:diag:prosody}. It must be noted here that the range of possible values for each of the three scores is not continuous, but discrete, and that these values fall on an ordinal rather than an interval scale. Furthermore, the same values for different scores do not necessarily correspond; for example, it is possible to achieve a timing score of 0.3 or 0.5, but possible values for pitch scores jump from 0.1 directly to 0.8.
-	Therfore, Jsnoori's representation of scores with floating-point numbers between 0 and 1 is perhaps misleading, and the use of categorical labels might be more appropriate.
+	Therfore, JSnoori's representation of scores with floating-point numbers between 0 and 1 is perhaps misleading, and the use of categorical labels might be more appropriate.
 	
 	
 	
 	\paragraph{Timing (duration) score}
 	
-	If the number of syllables in the segmentation of the learner's word utterance matches that of the reference, Jsnoori assigns an arbitrary low timing score of 0.1; similarly, if there is a match in the number of syllables but a mismatch in the number of phones within one or more of those syllables, the assigned score is 0.3. 
+	If the number of syllables in the segmentation of the learner's word utterance matches that of the reference, JSnoori assigns an arbitrary low timing score of 0.1; similarly, if there is a match in the number of syllables but a mismatch in the number of phones within one or more of those syllables, the assigned score is 0.3. 
 	If both the number of syllables and the number of phones in each syllable match, a true analysis of the learner's timing is undertaken as follows.
 	
-	First, the location of stress placement in the word utterance is determined by comparing the lengths of each syllable's nucleus, usually a vowel, i.e. by comparing the features V0-DUR and V1-DUR. The syllable with the longest vowel is taken as the stressed syllable. If the stressed syllable differs between the learner and reference utterances, the learner is assigned a timing score of 0.5. If the stressed syllable is the same, Jsnoori then computes the difference between the length of the stressed vowel in the learner's utterance (normalized by dividing the vowel's duration by the sum of the durations of all vowels in the word) and that of the stressed vowel in the reference utterance; if that difference falls below a certain threshold \TODO{(-0.2)}, the stressed syllable is deemed not to have been stressed clearly enough, resulting in a score of 0.8. If the difference in relative vowel lengths exceeds the threshold, the learner is assigned a perfect score of 1.0.
+	First, the location of stress placement in the word utterance is determined by comparing the lengths of each syllable's nucleus, usually a vowel, i.e. by comparing the features V0-DUR and V1-DUR. The syllable with the longest vowel is taken as the stressed syllable. If the stressed syllable differs between the learner and reference utterances, the learner is assigned a timing score of 0.5. If the stressed syllable is the same, JSnoori then computes the difference between the length of the stressed vowel in the learner's utterance (normalized by dividing the vowel's duration by the sum of the durations of all vowels in the word) and that of the stressed vowel in the reference utterance; if that difference falls below a certain threshold \TODO{(-0.2)}, the stressed syllable is deemed not to have been stressed clearly enough, resulting in a score of 0.8. If the difference in relative vowel lengths exceeds the threshold, the learner is assigned a perfect score of 1.0.
 	
 	
 	\paragraph{Pitch (F0) score}
 	
-	To assign a pitch score, Jsnoori identifies the stressed syllable in an utterance  by comparing the F0 maxima in each syllable (i.e. SYLL0-F0-MAX and SYLL1-F0-MAX), assuming that the syllable with the highest F0 peak is the syllable that has been stressed. \TODO{this is not actually true for German - Jsnoori was developed for English}
+	To assign a pitch score, JSnoori identifies the stressed syllable in an utterance  by comparing the F0 maxima in each syllable (i.e. SYLL0-F0-MAX and SYLL1-F0-MAX), assuming that the syllable with the highest F0 peak is the syllable that has been stressed. \TODO{this is not actually true for German - JSnoori was developed for English}
 	 Having identified the syllables stressed by the learner and reference speaker, the two are compared;
 	% that to the syllable with the highest F0 in the reference utterance. I
-	if the syllable is the same in both utterances, stress is judged to have been placed on the correct syllable; otherwise, the learner is assessed as having placed stress on the wrong syllable and receives a score of 0.1. If the learner has stressed the correct syllable, Jsnoori assesses whether they have realized that stress clearly enough by comparing the difference between the mean pitch of the stressed and unstressed syllables in the learner's utterance (e.g. SYLL0-F0-MEAN $-$ SYLL1-F0-MEAN) with the analogous difference in the reference utterance; if the difference between these differences is greater than a threshold \TODO{(3)}, the learner is considered not to have expressed stress strongly enough, receiving a score of 0.8. If the difference exceeds the threshold, stress realization in terms of F0 is considered acceptable, and the learner's score is a perfect 1.0.
+	if the syllable is the same in both utterances, stress is judged to have been placed on the correct syllable; otherwise, the learner is assessed as having placed stress on the wrong syllable and receives a score of 0.1. If the learner has stressed the correct syllable, JSnoori assesses whether they have realized that stress clearly enough by comparing the difference between the mean pitch of the stressed and unstressed syllables in the learner's utterance (e.g. SYLL0-F0-MEAN $-$ SYLL1-F0-MEAN) with the analogous difference in the reference utterance; if the difference between these differences is greater than a threshold \TODO{(3)}, the learner is considered not to have expressed stress strongly enough, receiving a score of 0.8. If the difference exceeds the threshold, stress realization in terms of F0 is considered acceptable, and the learner's score is a perfect 1.0.
 	
 	
 	\paragraph{Energy (intensity) score}
 	
-	Jsnoori's method for assessing lexical stress realization in terms of energy is analogous to that for F0, with the exception that the location of the stressed placement in the utterance is determined with reference to the maximum, not mean, energy observed in each syllable (i.e. SYLL0-ENERGY-MAX vs. SYLL1-ENERGY-MAX), such that the syllable with the higher energy peak is assumed to contain the stress. \TODO{again, this is not actually true for German} 
+	JSnoori's method for assessing lexical stress realization in terms of energy is analogous to that for F0, with the exception that the location of the stressed placement in the utterance is determined with reference to the maximum, not mean, energy observed in each syllable (i.e. SYLL0-ENERGY-MAX vs. SYLL1-ENERGY-MAX), such that the syllable with the higher energy peak is assumed to contain the stress. \TODO{again, this is not actually true for German} 
 	As with pitch, if the learner has stressed the wrong syllable they are assigned a score of 0.1, whereas if they have stressed the correct syllable, their score depends on the difference in maximum intensity between the stressed and unstressed syllables, comparing their utterance to the reference: if the difference in differences exceeds a threshold, they are assessed as having not realized stress clearly enough, and receive a score of 0.8. Otherwise, they receive a perfect intensity score of 1.0.
 
 
@@ -684,7 +684,7 @@ This section describes the various \textit{approaches} to such diagnosis by comp
 	
 	When using a single native-speaker utterance for reference, even if the reference speaker has been chosen carefully (see \cref{sec:compare:selection} below), analysis of the learner's pronunciation may be ``over-fitting'' to speaker- or utterance-dependent characteristics of the reference utterance that do not accurately represent the ``nativeness'' of the reference speech. It is therefore advantageous not to limit the diagnosis to comparison with a single reference speaker, but to instead compare the learner's speech with a variety of native utterances, \TODO{\textit{remove?} the hope being that the variability between these reference utterances will capture more general traits of native pronunciation}.
 	
-	In the lexical stress CAPT tool, this is accomplished by conducting a series of one-on-one comparisons, pairing the learner utterance with a different reference utterance for each comparison, and then combining the results from all the comparisons. This is accomplished simply by averaging each of the duration, pitch, and energy scores assigned by Jsnoori in each one-on-one comparison; for example, the final pitch score for a learner's utterance when compared to three different reference utterances will be the average of those three one-on-one pitch scores as computed by Jsnoori. Other means for combining several single-reference scores into one multiple-reference score are certainly conceivable, and this could be an interesting direction for future work (see \cref{sec:conclusion:future}).
+	In the lexical stress CAPT tool, this is accomplished by conducting a series of one-on-one comparisons, pairing the learner utterance with a different reference utterance for each comparison, and then combining the results from all the comparisons. This is accomplished simply by averaging each of the duration, pitch, and energy scores assigned by JSnoori in each one-on-one comparison; for example, the final pitch score for a learner's utterance when compared to three different reference utterances will be the average of those three one-on-one pitch scores as computed by JSnoori. Other means for combining several single-reference scores into one multiple-reference score are certainly conceivable, and this could be an interesting direction for future work (see \cref{sec:conclusion:future}).
 	
 	
 	%MOVED TO FUTURE WORK

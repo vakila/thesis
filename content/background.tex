@@ -7,6 +7,10 @@
 
 %\cleanchapterquote{You can’t do better design with a computer, but you can speed up your work enormously.}{Wim Crouwel}{(Graphic designer and typographer)}
 
+\TODO{Intro sentences}
+
+This chapter sets the stage for the original work described in the remainder of this thesis by summarizing some relevant previous research on pronunciation in foreign language teaching and CAPT, describing the phenomenon of lexical stress as it relates to the comparative word prosody of German and French, and motivating this work's focus on lexical stress errors as a type of error well-suited to correction via CAPT.
+
 
 	\section{Pronunciation in foreign language education}
 	\label{sec:bkgd:l2ed}
@@ -35,12 +39,10 @@ here, let us follow \textcite[p.~289]{Munro1999} in understanding intelligibilit
 	
 
 Research on the impact of various types of pronunciation errors on intelligibility tends to indicate that errors on the prosodic (suprasegmental) level may hinder intelligibility more than segmental errors.
-%
-\TODO{\textit{transitions in this paragraph}}
 % 
 In a study of nonnative English speakers from various native language (L1) backgrounds, \textcite{Anderson-Hsieh1992} found that overall pronunciation ratings, which reflect intelligibility, correlated more strongly with measures of prosodic accuracy than with accuracy with respect to segmental sounds or syllable structure.
 %
-Research by \textcite{Hahn2004} points to the particular importance of primary sentence stress, e.g. the accentuation of new or contrasting words in a given sentence, to the intelligibility of L2 English speakers, especially with respect to the way in which these speakers (fail to) use intonation to convey stress.
+Later research by \textcite{Hahn2004} points to the particular importance of primary sentence stress, e.g. the accentuation of new or contrasting words in a given sentence, to the intelligibility of L2 English speakers, especially with respect to the way in which these speakers (fail to) use intonation to convey stress.
 %
 %\TODO{\citep{Derwing2005}}
 %
@@ -134,7 +136,7 @@ With this in mind, an overarching aim of this thesis is to take initial steps to
 	%TODO {see \cref{chap:diagnosis} for a discussion of how this thesis will build upon that work. \textit{Details \& de-proposal-ize}}
 	
 	%\sub
-	\subsection{The \textit{Snorri} suite and \textit{Jsnoori}}
+	\subsection{The \textit{Snorri} suite and \textit{JSnoori}}
 	\label{sec:capt:snoori}
 	
 	%Additionally, the group has developed
@@ -142,8 +144,8 @@ With this in mind, an overarching aim of this thesis is to take initial steps to
 	the \textit{Snorri/Snoori} suite of software, 
 	which includes the now-outdated original \textit{Snorri} developed in 1987 \citep{Fohr1989} and the Unix adaptation thereof developed shortly thereafter,
 	a later Windows port, \textit{WinSnorri} \citep{Laprie1999},
-	%and its partial Java port, Jsnoori {Parole2013}, 
-	and most recently a partial Java port of WinSnorri, \textit{Jsnoori}\footnote{\url{http://jsnoori.loria.fr}} \citep{Parole2013}, which is still under active development, and is the version of the \textit{Snorri} suite most relevant to this work.
+	%and its partial Java port, JSnoori {Parole2013}, 
+	and most recently a partial Java port of WinSnorri, \textit{JSnoori}\footnote{\url{http://jsnoori.loria.fr}} \citep{Parole2013}, which is still under active development, and is the version of the \textit{Snorri} suite most relevant to this work.
 	
 	\TODO{summary of speech processing capabilities of the Snooris \citep{Fohr1989,Laprie1999}}
 	%, without mention of application to L2 acquisition. Then...}
@@ -160,7 +162,7 @@ With this in mind, an overarching aim of this thesis is to take initial steps to
 	this software to assess and deliver feedback on lexical stress in L1 French speakers' pronunciation of English words. 
 	%
 	%\TODO{transition}
-In its role as a CAPT tool, Jsnoori 
+In its role as a CAPT tool, JSnoori 
 takes as input a learner utterance, a native reference utterance, and segmentations of each, perform an acoustic comparison of the two utterances, and deliver feedback on the learner's speech in the form of e.g. annotated displays of the speech signal and spectrogram of each. Moreover, auditory feedback can be delivered 
 %thanks to the capability of 
 by
@@ -169,19 +171,19 @@ resynthesizing the learner's utterance to match the pitch contour and timing of 
 	\TODO{more details about those papers} 
 	
 	
-	\TODO{Jsnoori screenshot}
+	\TODO{JSnoori screenshot}
 	
 
 As described in \cref{chap:diagnosis,chap:feedback}, 
-the Jsnoori software is vital to this thesis project;
+the JSnoori software is vital to this thesis project;
 the prototype CAPT tool developed in this work 
-utilizes the signal processing capabilities of Jsnoori 
+utilizes the signal processing capabilities of JSnoori 
 %and
-%builds on the error diagnosis functionality of Jsnoori 
+%builds on the error diagnosis functionality of JSnoori 
 for speech analysis and error diagnosis (see \cref{chap:diagnosis}), 
 and leverages its feedback generation capabilities to deliver  a more diverse, and potentially more effective, range of feedback types (see \cref{chap:feedback}). 
 	
-	% \citep{Bonneau2011,Fohr1996,Fohr2012,Mesbahi2011,Orosanu2012}. The Jsnoori/WinSnoori software \citep{Parole2013}
+	% \citep{Bonneau2011,Fohr1996,Fohr2012,Mesbahi2011,Orosanu2012}. The JSnoori/WinSnoori software \citep{Parole2013}
 %which this group has developed will be instrumental in the construction of the CAPT tool. 
 
 	%\sub

@@ -189,11 +189,11 @@ Woman	&	5	&	5	&	3	&	9	&	\textbf{22}	\\
 	
 	\begin{table}[p]
 		\centering
-		\caption{Annotators \TODO{caption}}
+		\caption[Annotators]{Annotators participating in the lexical stress error annotation. The anonymous identifier (ID), native language (L1) and expertise level of each annotator are presented, along with the word types each was asked to annotate and the number of usable token annotations by that participant for each word.}
 		
 		\begin{tabularx}{\textwidth}{lllX}
 		\toprule
-		ID & Native language & Expertise & Word types annotated (number of tokens) \\
+		ID & L1 & Expertise & Word types annotated (nb. of usable tokens) \\
 		\midrule
 		%Frank	FZ 
 		A	&	German	& expert & Flagge (55),  Ringen (55), Tschechen (56) \\
@@ -282,7 +282,7 @@ Woman	&	5	&	5	&	3	&	9	&	\textbf{22}	\\
 	
 	\begin{table}[p]
 		\centering
-		\caption{Number of annotators assigned to each word type}
+		\caption[Number of annotators assigned to each word type]{Number of annotators assigned to each word type, in terms of the native language and expertise groups described in this section. The rightmost column gives the total number of annotators assigned to each word type.}
 		\begin{tabular}{lcccccc}
 		\toprule
 		%Word type
@@ -416,7 +416,7 @@ A single annotation session consisted of annotating all tokens of three word typ
 	\TODO{Is this section even meaningful? Should it be left out?} It seems, then, that there may be stark differences in reliability from annotator to annotator. Analysis of the set of pairwise comparisons between a given annotator and all overlapping annotators provides more insight into that annotator's individual reliability; \cref{fig:agreement:annotators} illustrates the pairwise agreements involving each of the 15 annotators. These figures should be interpreted with caution because they do not account for differences in the number of overlapping annotators/tokens available for each annotator \TODO{reference overlap table}; nonetheless, it seems that there is indeed some noticeable variation from annotator to annotator. \TODO{finish this paragraph}
 		\TODO{table of percent/kappa min/avg/max by annotator, since graphs are difficult to read precisely?}
 		
-		\begin{figure}[phtb]
+		\begin{figure}[p]
 			\centering
 			
 %			\begin{subfigure}[b]{\textwidth}
@@ -433,6 +433,14 @@ A single annotation session consisted of annotating all tokens of three word typ
 %				\label{fig:agreement:annotators:k}
 %			\end{subfigure}%
 
+			\caption[Pairwise agreement statistics by annotator]{Each annotator's pairwise agreement with all other annotators with whom they overlapped.
+			Horizontal lines represent median values. Colored boxes extend from the first quartile to the third quartile, and thus represent the Inter Quartile Range (IQR). Whiskers extend to the minimum and maximum values within 1.58 IQR of the first and third quartiles, respectively, and roughly represent a 95\% confidence interval around the median. 
+			 Outliers that fall outside of the IQR by a distance of more than approximately 1.5$\times$IQR  are represented by circles.%
+			%Numbers in parentheses indicate the number of pairwise comparisons involving each annotator. The bottom of each vertical bar represents the minimum pairwise value, the top the maximum. Horizontal bars indicate mean pairwise values.
+			}
+
+			\vspace{1em}	
+			
 			\begin{subfigure}{\textwidth}
 				\centering
 				\caption{Pairwise percentage agreement by annotator}
@@ -440,20 +448,17 @@ A single annotation session consisted of annotating all tokens of three word typ
 				\label{fig:agreement:annotators:pct}
 			\end{subfigure}%
 
-			\vspace{1em}			
+			\vspace{2em}			
+			
 			
 			\begin{subfigure}{\textwidth}
 				\centering
-				\caption{Pairwise $\kappa$ by annotator \TODO{FIX X-AXIS}}
+				\caption{Pairwise $\kappa$ by annotator \TODO{FIX AXES}}
 				\includegraphics[width=.9\textwidth]{img/plots/pairwiseKappaByAnnotator-noTitle}
 				\label{fig:agreement:annotators:k}
 			\end{subfigure}%
 			
-			\caption[Pairwise agreement statistics by annotator]{Each annotator's pairwise agreement with all other annotators with whom they overlapped.
-			Horizontal lines represent median values. Colored boxes extend from the first quartile to the third quartile, and thus represent the Inter Quartile Range (IQR). Whiskers extend to the minimum and maximum values within 1.58 IQR of the first and third quartiles, respectively, and roughly represent a 95\% confidence interval around the median. 
-			 Outliers that fall outside of the IQR by a distance of more than approximately 1.5$\times$IQR  are represented by circles.%
-			%Numbers in parentheses indicate the number of pairwise comparisons involving each annotator. The bottom of each vertical bar represents the minimum pairwise value, the top the maximum. Horizontal bars indicate mean pairwise values.
-			}
+			
 			\label{fig:agreement:annotators}
 		\end{figure}
 		
@@ -476,6 +481,14 @@ A single annotation session consisted of annotating all tokens of three word typ
 %				\caption{Cohen's Kappa statistic}
 %				\label{fig:agreement:words:k}
 %			\end{subfigure}%
+
+			\caption[Pairwise agreement statistics by word type]{Pairwise agreement between annotators for each word type. 	
+			Horizontal lines represent median values. Colored boxes extend from the first quartile to the third quartile, and thus represent the Inter Quartile Range (IQR). Whiskers extend to the minimum and maximum values within 1.58 IQR of the first and third quartiles, respectively, and roughly represent a 95\% confidence interval around the median. 
+			 Outliers that fall outside of the IQR by a distance of more than approximately 1.5$\times$IQR  are represented by circles.
+			%Numbers in parentheses indicate the number of pairwise comparisons available for each word type. The bottom of each vertical bar represents the minimum pairwise value, the top the maximum. Horizontal bars indicate average pairwise values.
+			}
+
+			\vspace{1em}			
 			
 			\begin{subfigure}{\textwidth}
 				\centering
@@ -484,6 +497,8 @@ A single annotation session consisted of annotating all tokens of three word typ
 				\label{fig:agreement:words:pct}
 			\end{subfigure}%
 			
+			\vspace{2em}
+			
 			\begin{subfigure}{\textwidth}
 				\centering
 				\caption{Pairwise $\kappa$ by word type}
@@ -491,11 +506,7 @@ A single annotation session consisted of annotating all tokens of three word typ
 				\label{fig:agreement:words:k}
 			\end{subfigure}%
 			
-			\caption[Pairwise agreement statistics by word type]{Pairwise agreement between annotators for each word type. 	
-			Horizontal lines represent median values. Colored boxes extend from the first quartile to the third quartile, and thus represent the Inter Quartile Range (IQR). Whiskers extend to the minimum and maximum values within 1.58 IQR of the first and third quartiles, respectively, and roughly represent a 95\% confidence interval around the median. 
-			 Outliers that fall outside of the IQR by a distance of more than approximately 1.5$\times$IQR  are represented by circles.
-			%Numbers in parentheses indicate the number of pairwise comparisons available for each word type. The bottom of each vertical bar represents the minimum pairwise value, the top the maximum. Horizontal bars indicate average pairwise values.
-			}
+			
 			\label{fig:agreement:words}
 		\end{figure}
 		

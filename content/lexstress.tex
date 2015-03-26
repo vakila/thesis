@@ -177,7 +177,7 @@ Woman	&	5	&	5	&	3	&	9	&	\textbf{22}	\\
 	
 	% Expertise
 	In terms of expertise, the annotators can broadly be categorized into three groups: 
-	\begin{itemize}[itemsep=0pt, topsep=-1.2em, partopsep=0pt]
+	\begin{itemize}[itemsep=0pt, topsep=-1em, partopsep=0pt]
 	\item{\textit{expert} annotators are professional researchers with a thorough understanding of phonetics/phonology and extensive experience in annotating speech data}
 	\item{\textit{intermediate} annotators are university students enrolled in an experimental phonology course,
 	% \textit{is that true of Frankfurt students too?}}, 
@@ -335,19 +335,20 @@ is played once automatically; the annotator may then choose to click one of the 
 
 A single annotation session consisted of annotating all tokens of three word types, and lasted approximately 15 minutes. As mentioned in \cref{sec:lexstress:annotators} above, each annotator participated in one session, with the exception of annotator K who participated in two sessions (separated by several days) and annotated a total of six word types.
 	
-		\begin{figure}[bht]
+		\begin{figure}[t]
 			\centering
 			\includegraphics[width=\textwidth]{img/screenshots/AnnotationTool}
-			\caption[A screenshot of the graphical annotation tool scripted in Praat.]{A screenshot of the graphical annotation tool scripted in Praat. Green buttons allow the annotator to listen to  the word and sentence utterances. Gray buttons allow the annotator to record their judgment of stress accuracy; from top to bottom, the buttons correspond to the labels [correct], [incorrect], [none], [bad\_nsylls], and [bad\_audio]. \TODO{border around graphic}}
+			\caption[A screenshot of the graphical annotation tool scripted in Praat.]{A screenshot of the graphical annotation tool scripted in Praat. Green buttons allow the annotator to listen to  the word and sentence utterances. Gray buttons allow the annotator to record their judgment of stress accuracy; from top to bottom, the buttons correspond to the labels [correct], [incorrect], [none], [bad\_nsylls], and [bad\_audio].}
 			\label{fig:annotationtool}
 		\end{figure}
 		
 		
 		%\vspace{2em}
 		
-		The multiple 
-		%lexical stress error 
-		annotations collected in this manner for each token (utterance) in the dataset enable two important contributions of this thesis, described in the following sections: an analysis of inter-annotator agreement with regard to the identification of lexical stress errors (\cref{sec:lexstress:agreement}), and an analysis of the frequency with which lexical stress errors are produced by the French learners of German represented in this data (\cref{sec:lexstress:results}).
+		The lexical stress error 
+		annotations collected in this manner for each token (utterance) in the dataset enable two important contributions of this thesis, described in the following sections. 
+		First, the multiple annotations for each token from different annotators permit an analysis of inter-annotator agreement with regard to the identification of lexical stress errors; \cref{sec:lexstress:agreement} presents this analysis, along with statistics on the relative frequencies with which the five labels were selected by annotators from the different L1 and expertise groups described in \cref{sec:lexstress:annotators}.
+		Secondly, and perhaps more importantly, the errors identified by these annotators in the data extracted from the IFCASL corpus enable an analysis of the frequency of lexical stress errors in the speech of L1 French learners of German as L2; this is the subject of \cref{sec:lexstress:results}.
 		
 	
 	\section{Inter-annotator agreement}
@@ -359,14 +360,20 @@ A single annotation session consisted of annotating all tokens of three word typ
 	%\cref{sec:lexstress:data}, 
 	lexical stress realizations in a total of 
 	%669 
-	668 word utterances were each assigned to one of five classes by multiple annotators, based on whether the annotator judged the production to have correctly placed stress, incorrectly placed stress, no clear stress placement, or other problems which prevented the annotator from making a judgment about the lexical stress accuracy. The agreement between these judgments was calculated for each pair of annotators who overlapped, i.e. labeled any of the same tokens. 
+	668 word utterances were each assigned to one of five classes by multiple annotators, based on whether the annotator judged the production to have correctly placed stress, incorrectly placed stress, no clear stress placement, or other problems which prevented the annotator from making a judgment about the lexical stress accuracy. 
+	For 268 of these utterances, i.e. approximately 40\% of the dataset, there was perfect agreement among annotators as to which of the five possible labels was most appropriate. This means that for the majority of the dataset (400 utterances, or approximately 60\%), at least one annotator's judgment diverged from that of the other(s) who labeled the same utterance.
+	
+	
+	To make sense of these differences,  
+	%and obtain a clearer picture of inter-annotator agreement in the error-detection task, the agreement between these judgments 
+	agreement in label assignments was calculated for each pair of annotators who overlapped, i.e. labeled any of the same tokens. 
 	\TODO{matrix of pairwise tokens in common (or just x/o to show which annotators overlapped?}
 	%This section describes how this agreement was calculated, and the following sections \cref{sec:agreement:overall, sec:agreement:native, sec:agreement:expertise} present an analysis of the resulting inter-annotator agreement statistics. Finally, 
-		Two metrics were used to quantify agreement between a pair of annotators: the simple percentage of observed agreement, and Cohen's Kappa statistic ($\kappa$). 
+		Two metrics were used to quantify agreement between a pair of annotators: the simple percentage of observed agreement, and Cohen's Kappa ($\kappa$) statistic. 
 		
-		For a given pair of annotators, percentage agreement is calculated as the number of tokens to which both annotators assigned the same label, divided by the total number of tokens labeled by both annotators \TODO{as formula?}. Possible values for percentage agreement range from 0\%, representing complete disagreement between annotators, to 100\%, representing complete agreement. This simple metric ignores the probability of annotators agreeing by chance, and therefore may give a somewhat optimistic picture of inter-annotator agreement, but nevertheless serves as a basic, easy-to-interpret preliminary indication of the reliability of the collected judgments.
+		For a given pair of annotators, percentage agreement is calculated as the number of tokens to which both annotators assigned the same label, divided by the total number of tokens labeled by both annotators. Possible values for percentage agreement range from 0\%, representing complete disagreement between annotators, to 100\%, representing complete agreement. This simple metric ignores the probability of annotators agreeing by chance, and therefore may give a somewhat optimistic picture of inter-annotator agreement, but nevertheless serves as a basic, easy-to-interpret preliminary indication of the reliability of the collected judgments.
 		
-		To account for chance agreements not captured by the simple percentage of agreement, a second, more robust measure of inter-annotator agreement, Cohen's $\kappa$ \citep{Cohen1960}, was also calculated for each pair of annotators. For a given pair of annotators who have labeled the same tokens, $\kappa$ is computed as
+		To account for chance agreements not captured by the simple percentage of agreement, a second, more robust measure of inter-annotator agreement, Cohen's $\kappa$ statistic \citep{Cohen1960}, was also calculated for each pair of annotators. For a given pair of annotators who have labeled the same tokens, $\kappa$ is computed as
 		\[
 		\kappa = \frac{p_a-p_c}{1-p_c}
 		\]
@@ -378,30 +385,27 @@ A single annotation session consisted of annotating all tokens of three word typ
 		\[S = \{\text{[correct]}, \text{[incorrect]}, \text{[none]}, \text{[bad\_nsylls]}, \text{[bad\_audio]}\}\]
 		and $p_A(s)$ is the proportion of tokens assigned the label $s$ by annotator $A$, calculated as the number of tokens assigned label $s$ by annotator $A$ divided by the total number of tokens labeled by annotator $A$; $p_B(s)$ is calculated in the same way for annotator $B$.
 		%and $p_A(s)$ and $p_B(s)$ are the proportion of tokens assigned the label $s$ by annotators $A$ and $B$, respectively. The value of $p_A(s)$ is calculated as the number of tokens assigned label $s$ by annotator $A$ divided by the total number of tokens labeled by annotator $A$. 
-		As $\kappa$ thus accounts for the probability of two annotators assigning a token the same label purely by chance, it provides a more conservative representation of inter-annotator agreement. A $\kappa$ value of 0 indicates that the annotators do not agree any more than would be expected by chance. If agreement between annotators is less than chance, $\kappa$ will take a value below 0. The maximum possible value of $\kappa$ is 1.00, which indicates perfect agreement between annotators.
+		As $\kappa$ thus accounts for the probability of two annotators assigning a token the same label purely by chance, it provides a more conservative measure of inter-annotator agreement. A $\kappa$ value of 0 indicates that the annotators do not agree any more than would be expected by chance. If agreement between annotators is less than chance, $\kappa$ will take a value below 0. The maximum possible value of $\kappa$ is 1.00, which indicates perfect agreement between annotators.
 		
-		In the following sections, both measures are provided in the hopes of presenting a more comprehensive picture of inter-annotator agreement than either metric can convey alone.  
+		In the following sections, both metrics are provided in the hopes of presenting a more comprehensive picture of inter-annotator agreement than either can convey alone.  
 		
 		%\TODO{Anything else to say here?}
 		
 		\subsection{Overall agreement}
 		\label{sec:agreement:overall}
 		
-		
-		\TODO{mention the stats on how many utterances had perfect agreement from \cref{sec:agreement:gold}}
-		
 		To obtain an overall measure of inter-annotator agreement for this lexical stress assessment task, the agreement between each pair of overlapping annotators was quantified by the metrics discussed in the previous section, and the minimum, median, mean, and maximum values over all pairwise comparisons were computed; these values are given in \cref{tab:agreement:overall}.
-	Though this provides a rather coarse-grained picture of the overall agreement, this simple analysis already points to a few interesting observations. First of all, we observe that the mean and median percentage agreement are near 55\%, indicating that, roughly speaking, annotators agree just slightly more often than they disagree; \TODO{\textit{fix:} this is not necessarily an encouraging ratio}. 
+	Though this provides a rather coarse-grained picture of the overall agreement, this simple analysis already points to a few interesting observations. First of all, the mean and median percentage agreement are near 55\%, indicating that, roughly speaking, annotators agree just slightly more often than they disagree.
 	%The $\kappa$ values are somewhat more difficult to interpret, but i
-	Turning to the $\kappa$ values, if we consider that $\kappa = 0$ represents agreement purely by chance while $k = 1$ represents perfect, meaningful agreement, the fact that the mean and median $\kappa$ values between annotators are somewhere near 0.25 indicates that the agreement observed between annotators is closer to what would be expected simply by chance than to agreement that would indicate high reliability \TODO{\textit{remove?:} or some type of objective truth}. Looking next at the minimum and maximum values, we observe that while some pairs of annotators seem to exhibit relatively high agreement, 
+	Turning to the $\kappa$ values, given that $\kappa = 0$ represents agreement purely by chance while $k = 1$ represents perfect, meaningful agreement, the fact that the mean and median $\kappa$ values between annotators are somewhere near 0.25 indicates that the agreement observed between annotators is closer to what would be expected simply by chance than to agreement that would indicate highly reliable annotations, and signifies ``fair'' agreement between annotators according to the thresholds proposed by \textcite{Landis1977}. Examination of the minimum and maximum values reveals that while some pairs of annotators seem to exhibit ``substantial'' agreement, 
 	%removing this because it's not certain that these numbers correspond to the same pair:
 	%with one pair reaching over 80\% agreement and a $\kappa$ over 0.6, 
-	indicating \TODO{\textit{too fuzzy?} reasonably reliable} judgments, other pairs have very low agreement; in one case, with 23.21\% agreement, the annotators seem to be closer to perfect disagreement than perfect agreement, and the corresponding $\kappa$ being below zero indicates that they agreed even (slightly) less than one would expect if they were merely labeling utterances randomly. 
-	\TODO{Describe these in terms of \citep{Landis1977} - "fair" agreement?}
+	indicating reasonably reliable judgments, other pairs have ``poor'' agreement; in one case, with 23.21\% agreement, the annotators seem to be closer to perfect disagreement than perfect agreement, and the corresponding $\kappa$ being below zero indicates that they agreed even (slightly) less than one would expect if they were merely labeling utterances randomly. 
+	%\TODO{Describe these in terms of \citep{Landis1977} - "fair" agreement?}
 	\TODO{Compare Kappas to those in \citep{Michaux2013}? They got substantial agreement but only had 3 expert annotators }	
 	
 
-		\begin{table}[htb]
+		\begin{table}[tb]
 			\centering
 			\caption{Overall pairwise agreement between annotators  \TODO{transpose this table so it's consistent with \cref{tab:agreement:L1} and \cref{tab:agreement:expertise}}}
 			\begin{tabular}{lrrrr}
@@ -494,7 +498,7 @@ A single annotation session consisted of annotating all tokens of three word typ
 			
 			\begin{subfigure}{\textwidth}
 				\centering
-				\caption{Pairwise \% agreement by word type}
+				\caption{Pairwise percentage agreement by word type}
 				\includegraphics[width=.9\textwidth]{img/plots/pairwisePctByWord-noTitle}
 				\label{fig:agreement:words:pct}
 			\end{subfigure}%
@@ -686,7 +690,7 @@ Minimum	&32.65\%	 & 0.10 &  23.21\% &	-0.01\\
 			
 		
 		
-		\begin{table}[htb]
+		\begin{table}[tb]
 			\centering
 			\caption[Pairwise agreement statistics by annotator expertise]{Pairwise agreement between annotators based on their level of expertise: expert (Exp), intermediate (Int), or novice (Nov).
 			%{Pairwise agreement between expertise groups \TODO{explain abbreviations}
@@ -707,7 +711,7 @@ Minimum	& 23.21\%	& -0.01	& 33.93\%	& 0.10	& 35.71\%	& 0.08	& 28.57\%	&  0.04 \\
 			
 		
 		
-		\begin{figure}[phtb]
+		\begin{figure}[p]
 			\centering
 			
 %			\begin{subfigure}[b]{.5\textwidth}
@@ -753,7 +757,7 @@ Minimum	& 23.21\%	& -0.01	& 33.93\%	& 0.10	& 35.71\%	& 0.08	& 28.57\%	&  0.04 \\
 			
 			Another interesting difference can be observed between the intermediate and novice annotator groups: compared with the intermediate annotators, novices assign the \textbf{[none]} label less frequently (5.8\% of the time, versus 16.3\% for intermediates) and the \textbf{[bad\_nsylls]} label more frequently (8.4\% of the time, versus 2.1\% for intermediates). Still keeping in mind the discrepancy in sample sizes when comparing 10 intermediate annotators to three novices, \TODO{we might} speculate that if experts' extensive experience with nonnative speech could be an explanation for their ``generosity'' with the correct label, novice annotators' lack of experience with nonnative speech could in a similar way make them ``harsher'' in judging nonnative utterances as having an incorrect number of syllables. %\TODO{This paragraph sucks. Also too many scare quotes.}
 			
-			\begin{figure}[htb]
+			\begin{figure}[tb]
 				\centering
 				\caption[Distribution of labels by annotator expertise]{Distribution of labels assigned by annotators of different expertise levels,
 				as a percentage of the total number of utterances labeled by that annotator group
@@ -799,12 +803,13 @@ Minimum	& 23.21\%	& -0.01	& 33.93\%	& 0.10	& 35.71\%	& 0.08	& 28.57\%	&  0.04 \\
 			
 			\TODO{Conclusion}
 			
-		\subsection{Choosing gold-standard labels \TODO{put in own section?}}
+		\section{Choosing gold-standard labels}
 		\label{sec:agreement:gold}
 		
-		\TODO{Rephrase gold-standard  as ground truth or some other term?}
+		\TODO{Check for errors related to re-sectioning}
 		
-		As the previous sections have illustrated, having multiple annotators judge the accuracy of each lexical stress production was useful insofar as it led to some interesting observations about the difficulty of reliably assessing lexical stress accuracy and differences in how judgments by annotators with different native languages and levels of expertise compare. However, if the annotations are to be used for \TODO{training an automated error-diagnosis system}, each token in the sub-corpus must ultimately be assigned a single ``gold-standard'' label from the set of possible labels described in \cref{sec:lexstress:method}.
+		
+		As the previous sections have illustrated, having multiple annotators judge the accuracy of each lexical stress production was useful insofar as it led to some interesting observations about the difficulty of reliably assessing lexical stress accuracy, as well as insight into the differences in how judgments by annotators with different native languages and levels of expertise compare. However, if the annotations are to be used for \TODO{training an automated error-diagnosis system}, each token in the sub-corpus must ultimately be assigned a single ``gold-standard'' label from the set of possible labels described in \cref{sec:lexstress:method}.
 		% which will be referred to henceforth as  $S$: $\{$[correct],{[incorrect]},{[none]},{[bad\_nyslls]},{[bad\_audio]}$\}$. 
 		
 		In some cases, this assignment was trivial, while in others a decision had to be made between competing candidate labels. This section describes the procedure by which a single gold standard label was chosen for each word token (utterance) in the data set described in \cref{sec:lexstress:data}. In the remainder of this section, the gold-standard label chosen for a given word token $t$ will be referred to as $s_{\text{gold}}(t)$, where $s \in S = \{$[correct],{[incorrect]},{[none]},{[bad\_nyslls]},{[bad\_audio]}$\}$ stands for one of the possible labels.
@@ -872,9 +877,9 @@ Minimum	& 23.21\%	& -0.01	& 33.93\%	& 0.10	& 35.71\%	& 0.08	& 28.57\%	&  0.04 \\
 		
 		\TODO{Check following paragraphs for consistency of terms - shouldn't "Condition 1" be $C_1$, etc.?}
 		
-		For 268 of the 
+		As mentioned in \cref{sec:agreement:overall}, for 268 of the 
 		%669 
-		668 tokens annotated, there was no disagreement whatsoever between annotators: for each of these 268 tokens, all annotators who labeled the token made the same judgment \TODO{How does this fit in with \cref{sec:agreement:overall}? Should it be mentioned there?}, making it easy to assign this label as the gold standard for this utterance. Condition 1 in \cref{tab:agreement:goldrules} captures this category of tokens. 
+		668 tokens annotated, there was no disagreement whatsoever between annotators: for each of these 268 tokens, all annotators who labeled the token made the same judgment, making it easy to assign this label as the gold standard for this utterance. Condition 1 in \cref{tab:agreement:goldrules} captures this category of tokens. 
 		%
 		For another 265 tokens, a majority of annotators assigned the same label, though one or more annotators dissented, so assigning the majority-vote label as the gold standard is logical; these are captured by Condition 2 \TODO{$C_2$?} in the table. Therefore, for a total of 533 tokens (approximately 80\% of the word utterances in the sub-corpus), the choice of $s_{\text{gold}}(t)$ was uncontroversial.
 		
@@ -976,8 +981,10 @@ Minimum	& 23.21\%	& -0.01	& 33.93\%	& 0.10	& 35.71\%	& 0.08	& 28.57\%	&  0.04 \\
 %			\end{algorithmic}
 %		\end{algorithm}
 		
-		\TODO{check that clearpage works here}
-\clearpage
+		%\TODO{check that clearpage works here}
+%\clearpage
+
+
 	\section{Results}
 	\label{sec:lexstress:results}		
 	

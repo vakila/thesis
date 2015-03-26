@@ -48,7 +48,7 @@
 	(annotation experience or training in phonetics/phonology) identify lexical stress errors?  (\cref{sec:agreement:expert})} 
 	\end{itemize}
 	%
-	As \cref{sec:lexstress:agreement} will show, annotators did not always agree as to whether a given utterance exhibited a lexical stress error or not. Nevertheless, a ``gold-standard'' label for each utterance had to be determined; \cref{sec:agreement:gold} describes how this was accomplished in cases of disagreement.
+	As \cref{sec:lexstress:agreement} will show, annotators did not always agree as to whether a given utterance exhibited a lexical stress error or not. Nevertheless, a single ``gold-standard'' label for each utterance had to be selected; \cref{sec:agreement:gold} describes how this was accomplished in cases of disagreement.
 	
 	Finally, given the gold-standard labels for each utterance, the distribution of lexical stress errors in the annotated data was analyzed; the following questions guided this analysis, which is detailed in \cref{sec:lexstress:results}.
 	\begin{itemize}
@@ -58,12 +58,7 @@
 	%or in different contexts (e.g. after hearing a native speaker produce the word)?  (\cref{sec:results:level,sec:results:agegender,sec:results:condition})}
 	%\item{How frequently do technical problems interfere with determining whether an error was made?  (\cref{sec:results:techproblems})}
 	\end{itemize}
-	
-	%--moved to before questions--
-	%This chapter describes the annotation of this sub-corpus, and presents an analysis of the annotated data that provides tentative answers to the above questions. \TODO{rephrase that?}
-	%This chapter presents the data and method used for this annotation, and an analysis of the annotated sub-corpus \TODO{\textit{rephrase}: in light of these guiding questions}.
- 
-	
+	%	
 	In addition to enabling this error distribution analysis, the annotated data compiled as described in this chapter also enables the use of supervised machine learning methods for the automatic detection of lexical stress errors, which is the subject of \cref{sec:diag:classification}).
 	
 	%\subsection{Data}
@@ -115,7 +110,11 @@ Woman	&	5	&	5	&	3	&	9	&	\textbf{22}	\\
 	
 	\begin{table}[htb]
 		\centering
-		\caption[Word types annotated for lexical stress errors]{The twelve bisyllabic initial-stress words types selected from the IFCASL corpus for stress error annotation \TODO{column details}%, and the number of distinct tokens annotated (each produced by a different speaker)
+		\caption[Word types annotated for lexical stress errors]{The twelve bisyllabic initial-stress words types selected from the IFCASL corpus for lexical stress error annotation. 
+		%The orthographic form (text) of each word type is presented in the leftmost column, followed by its canonical pronunciation (e.g. as found in a pronunciation dictionary). 
+		Canonical pronunciations for each word type are given in SAMPA notation (\url{http://www.phon.ucl.ac.uk/home/sampa}), with phonemes separated by a space and syllables separated by a period (\texttt{.}); canonical lexical stress is not marked, as all of the listed word types have primary stress on the initial syllable. 
+		%Parts of speech are abbreviated as n. (noun), v. (verb) and pro. (pronoun). 
+		The rightmost column lists the number of tokens (utterances) of each word type included in the annotated dataset.
 		}
 %		\begin{tabular}{llll}
 %		Flagge & Ringen & Tschechen & halten \\
@@ -123,46 +122,59 @@ Woman	&	5	&	5	&	3	&	9	&	\textbf{22}	\\
 %		Pollen & manche & E-mail & tragen \\
 %		\end{tabular}
 		
-		\begin{tabularx}{\textwidth}{llXXXX}
+		%\begin{tabularx}{\textwidth}{llXlX}
+		\begin{tabular}{llllc}
 		\toprule
 		
 		Orthography & 
 		%Canonical \linebreak 
-		\TODO{Pronunciation} & 
+		Pronunciation & 
 		Part of speech & 
-		English \linebreak meaning & 
-		Recording condition \TODO{remove?}& 
-		Number \linebreak of tokens\\%\linebreak annotated\\
+		English meaning & 
+		%Recording condition \TODO{remove?}& 
+		Tokens\\%\linebreak annotated\\
 		
 		\midrule
-		E-mail	&	\texttt{i: - m eI l} &	noun &	e-mail &	SR 	&	56	\\
-		Flagge	&	\texttt{f l a - g @} &	noun &	 flag &	SH	&	55	\\
-		fliegen	&	\texttt{f l i: - g \TODO{@ n}} &	verb &	to fly &	SR		& 56	\\
-		Frühling	&	& noun	&	spring \newline (season) &	SR		&	56	\\
-		halten	&	&	verb &	to hold &	SR 	&	56	\\
-		manche	&	&	pronoun &	some & 	SR 	&	56	\\
-		Mörder	&	&	noun &	murderer &	SR 	&	56	\\
-		Pollen	&	&	noun &	pollen &	SR 	& 	55	\\
-		Ringen	&	&	noun &	rings &	SH	&	55	\\
-		Tatort	&	&	noun &	crime scene & 	SR 	&		56	\\
-		tragen	&	&	verb &	to wear &	SH	&	55	\\
-		Tschechen	&	& noun	&	Czechs	&	SR		& 56	\\
+		E-mail		&	\texttt{i:~.~m eI l} 		&	noun &	e-mail %&	SR 	
+			&	56	\\
+		Flagge		&	\texttt{f l a~.~g @} 		&	noun &	 flag %&	SH	
+			&	55	\\
+		fliegen		&	\texttt{f l i:~.~g =n} 	&	verb &	to fly %&	SR		
+			& 56	\\
+		Frühling	&	\texttt{f r y:~.~l I N} 		& noun	&	spring \newline (season) %&	SR		
+			&	56	\\
+		halten		&	\texttt{h a l~.~t =n}		&	verb &	to hold %&	SR 	
+			&	56	\\
+		manche	&	\texttt{m a n~.~C @} 		&	pronoun &	some %& 	SR 	
+			&	56	\\
+		Mörder		&	\texttt{m 96~.~d 6}		&	noun &	murderer %&	SR 	
+			&	56	\\
+		Pollen		&	\texttt{p O~.~l @ n} 		&	noun &	pollen %&	SR 	
+			& 	55	\\
+		Ringen		&	\texttt{r I N~.~@ n}		&	noun &	rings %&	SH	
+			&	55	\\
+		Tatort		&	\texttt{t a:~t~.~?~O6 t}	&	noun &	crime scene %& 	SR 	
+			&	56	\\
+		tragen		&	\texttt{t r a:~.~g =n} 	&	verb &	to wear %&	SH	
+			&	55	\\
+		Tschechen	& \texttt{tS E~.~C =n}	& noun	&	Czechs	%&	SR		
+			& 56	\\
 		\bottomrule
-		\end{tabularx}
+		\end{tabular}
 		\label{tab:bisyllwords}
 	\end{table}
 	
 	\section{Annotators}
 	\label{sec:lexstress:annotators}
 	
-	A total of 15 annotators participated in the annotation of this IFCASL sub-corpus ,
+	A total of 15 annotators participated in the annotation of this dataset,
 	%\TODO{\textit{remove?:} over the course of 2 months}, 
 	each of whom is listed in \cref{tab:annotators} (by an arbitrary identifier, to preserve anonymity).
 	As \cref{tab:annotators} shows, the annotators varied with respect to their native language, as well as with respect to their level of expertise in phonetics/phonology/linguistic annotation. 
 	 
 	 % Nativeness
-	Of the 15 annotators, the majority (12) were native German speakers, two were native speakers of American English, and one annotator's first language was Hebrew. The nonnative speakers all have \TODO{\textit{more specific?:} some knowledge}  of German as L2.
-	%
+	Of the 15 annotators, the majority (12) are native German speakers, and three are nonnative (L2) speakers: two are native speakers of American English, and one is a native Hebrew speaker. The L2 German speakers all have some knowledge of German as L2, though the exact German proficiency levels of these annotators are unknown.
+	
 	% Expertise
 	In terms of expertise, the annotators can broadly be categorized into three groups: 
 	\begin{itemize}
@@ -170,7 +182,7 @@ Woman	&	5	&	5	&	3	&	9	&	\textbf{22}	\\
 	\item{\textit{intermediate} annotators are university students enrolled in an experimental phonology course,
 	% \textit{is that true of Frankfurt students too?}}, 
 	and have some training in phonetics/phonology and/or experience annotating speech data}
-	\item{\textit{novice} annotators have negligible training in phonetics/phonology and lack experience annotating speech data}
+	\item{\textit{novice} annotators have negligible training in phonetics/phonology and little, if any, experience annotating speech data}
 	\end{itemize}
 	As shown in \cref{tab:annotators}, the majority of annotators (10 out of 15) fall into the \textit{intermediate} group; two annotators can be considered \textit{expert}, and there are three \textit{novice} annotators.
 	
@@ -432,7 +444,7 @@ A single annotation session consisted of annotating all tokens of three word typ
 			
 			\begin{subfigure}{\textwidth}
 				\centering
-				\caption{Pairwise $\kappa$ by annotator}
+				\caption{Pairwise $\kappa$ by annotator \TODO{FIX X-AXIS}}
 				\includegraphics[width=.9\textwidth]{img/plots/pairwiseKappaByAnnotator-noTitle}
 				\label{fig:agreement:annotators:k}
 			\end{subfigure}%

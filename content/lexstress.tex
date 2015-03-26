@@ -321,20 +321,19 @@ Woman	&	5	&	5	&	3	&	9	&	\textbf{22}	\\
 	%the lexical stress realization in 
 	each token of the selected word types, i.e. each utterance of each word by each L1 French speaker in the corpus:
 	
-	\TODO{decide on format for labels (\textbf{[this]}?)}
 	\begin{itemize}
-	\item{\textbf{correct}: the speaker audibly stressed the lexically stressed (initial) syllable}
-	\item{\textbf{incorrect}:the speaker audibly stressed the lexically unstressed (final) syllable}
-	\item{\textbf{none}: the speaker did not clearly stress either syllable, i.e. did not audibly differentiate stressed and unstressed syllables, or the annotator was unable to determine which syllable was stressed}
-	\item{\textbf{bad\_nsylls}: the speaker pronounced the word with an incorrect number of syllables (i.e. by inserting or deleting a syllable), rendering it impossible to judge whether stress was realized correctly or not}
-	\item{\textbf{bad\_audio}: a problem with the audio file (e.g. noise in the signal or very inaccurate segmentation) interfered with the annotator's ability to judge the stress realization}
+	\item{[correct]: the speaker audibly stressed the lexically stressed (initial) syllable}
+	\item{[incorrect]: the speaker audibly stressed the lexically unstressed (final) syllable}
+	\item{[none]: the speaker did not clearly stress either syllable, i.e. did not audibly differentiate stressed and unstressed syllables, or the annotator was unable to determine which syllable was stressed}
+	\item{[bad\_nsylls]: the speaker pronounced the word with an incorrect number of syllables (i.e. by inserting or deleting a syllable), rendering it impossible to judge whether stress was realized correctly or not}
+	\item{[bad\_audio]: a problem with the audio file (e.g. noise in the signal or very inaccurate segmentation) interfered with the annotator's ability to judge the stress realization}
 	 \end{itemize}
 	
 	Annotation proceeded by means of a graphical tool scripted in Praat \parencite{Boersma2014}, the main interface of which is shown in \cref{fig:annotationtool}. At the top, a word's text is displayed, along with the IFCASL corpus ID number of the speaker whose utterance of that word will be annotated (this number is only relevant for the annotator insofar as changes in its value inform the annotator that the speaker is changing from utterance to utterance). The recording of the word
 %, extracted automatically from the utterance of the entire sentence using the boundaries of the forced-alignment segmentation, 
 is played once automatically; the annotator may then choose to click one of the green buttons to play the word again, or play the recording of the entire sentence, as many times as they wish. Once the annotator has judged the accuracy of the lexical stress realization in this utterance, they log that judgment by clicking one of the gray buttons. The annotator is then automatically advanced to the next utterance, with the counts in the lower right corner tracking their progress towards the total number of tokens to be annotated. 
 
-A single annotation session consisted of annotating all tokens of three word types, and lasted approximately 15 minutes. As mentioned in \cref{sec:lexstress:annotators} above, each annotator participated in one session, with the exception of annotator L who participated in two sessions (separated by several days) and annotated a total of six word types.
+A single annotation session consisted of annotating all tokens of three word types, and lasted approximately 15 minutes. As mentioned in \cref{sec:lexstress:annotators} above, each annotator participated in one session, with the exception of annotator K who participated in two sessions (separated by several days) and annotated a total of six word types.
 	
 		\begin{figure}[bht]
 			\centering
@@ -343,7 +342,12 @@ A single annotation session consisted of annotating all tokens of three word typ
 			\label{fig:annotationtool}
 		\end{figure}
 		
-		\TODO{some kind of section wrap-up?}
+		
+		%\vspace{2em}
+		
+		The multiple 
+		%lexical stress error 
+		annotations collected in this manner for each token (utterance) in the dataset enable two important contributions of this thesis, described in the following sections: an analysis of inter-annotator agreement with regard to the identification of lexical stress errors (\cref{sec:lexstress:agreement}), and an analysis of the frequency with which lexical stress errors are produced by the French learners of German represented in this data (\cref{sec:lexstress:results}).
 		
 	
 	\section{Inter-annotator agreement}

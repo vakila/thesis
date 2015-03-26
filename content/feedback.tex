@@ -48,6 +48,7 @@ guided by the notion that to maximize its utility in future feedback research, \
 
 
 	\section{Implicit feedback}
+	\label{sec:fb:implicit}
 	
 		\TODO{ what is implicit feedback \citep{Dlaska2013}}
 		
@@ -56,6 +57,7 @@ guided by the notion that to maximize its utility in future feedback research, \
 		
 	
 		\subsection{Visual }
+		\label{sec:implicit:visual}
 		
 		Visual delivery of feedback on learner errors (or lack thereof) is a widely used technique in CAPT.
 %	\subsection{Visualizations of the speech signal}
@@ -142,7 +144,7 @@ has revealed that learners sometimes benefit from prosodically modified implicit
 		\TODO{intro, what is explicit fb, explicit FB may be more motivating in CAPT \citep{Dlaska2013}}	
 	
 		\subsection{Skill bars}
-		\label{sec:fb:explicit:skillbars}
+		\label{sec:explicit:skillbars}
 		
 		
 		One way in which 
@@ -188,6 +190,7 @@ has revealed that learners sometimes benefit from prosodically modified implicit
 		%TODO
 		
 		\subsection{Verbal feedback}
+		\label{sec:explicit:verbal}
 		
 		Another way to explicitly deliver feedback on the learner's diagnosis is by verbalizing this diagnosis with one or more appropriate messages. 
 		%
@@ -271,7 +274,7 @@ has revealed that learners sometimes benefit from prosodically modified implicit
 	
 		%\subsection{Self-assessment}
 		\section{Self-assessment}
-		\label{sec:other:selfassess}
+		\label{sec:fb:selfassess}
 		
 		%\TODO{mention somewhere (or in future work?) that there might be an interaction between self-assessment and implicit/explicit FB types? \citep{Dlaska2013}? }
 		
@@ -488,7 +491,7 @@ As mentioned in \cref{sec:diag:system} and illustrated in \cref{fig:diag:createe
 	Noticeable in \cref{fig:fb:createfeedbackmethod} is the FeedbackMethod parameter ``Requires Scorer Type''; this parameter captures the fact that not all feedback types are compatible with all of the diagnosis methods offered by the system (see \cref{chap:diagnosis}). For example, 
 	if the chosen classification method diagnoses learner errors by classification,
 	and not by comparison with a reference utterance, it is not possible to present learners with implicit auditory feedback, either in the form of an original reference utterance or that of a resynthesized version of the learner's utterance which has been prosodically modified to match that reference.
-	% and outputs a single class label instead of individual scores for each of the three feature types (duration, F0, and intensity), it does not make sense to present feedback in the form of skill bars (\cref{sec:fb:explicit:skillbars}). 
+	% and outputs a single class label instead of individual scores for each of the three feature types (duration, F0, and intensity), it does not make sense to present feedback in the form of skill bars (\cref{sec:explicit:skillbars}). 
 	Therefore, each FeedbackMethod is aware of which type of DiagnosisMethod it requires, so that the researcher never accidentally chooses an incompatible pairing between DiagnosisMethod and FeedbackMethod when creating a new exercise. \Cref{tab:fb:compatibility} summarizes the (in)compatibility between the various types of diagnosis and feedback offered. 
 	
 	\begin{table}
@@ -516,4 +519,12 @@ As mentioned in \cref{sec:diag:system} and illustrated in \cref{fig:diag:createe
 
 \section{Summary}
 \label{sec:fb:summary}
-\TODO{}
+
+
+This chapter has presented the diverse array of feedback methods offered by \TODO{de-stress}. The system can present learners with both explicit {\cref{sec:fb:explicit}) as well as implicit (\cref{sec:fb:implicit}) feedback on their lexical stress errors. The latter may be delivered visually (\cref{sec:implicit:visual}), in the form of graphical  or textual representations of prosody which may be easier to interpret than the more direct representations of speech signals more frequently seen in CAPT systems (see \cref{sec:bkgd:capt}), or via the auditory channel (\cref{sec:implicit:auditory}) in the form of original or prosodically modified utterances. Explicit feedback options include skill bars (\cref{sec:explicit:skillbars}) informing learners of the correctness of their pronunciation with regard to duration (timing), fundamental frequency (pitch), and intensity (loudness), as well as verbal feedback on this information via a series of error/success messages (\cref{sec:explicit:verbal}). An additional feedback option offers learners the opportunity to self-assess their pronunciation (\cref{sec:fb:selfassess}), in the hopes of encouraging them to develop a metacognitive understanding of their own learning process and take autonomous control of their learning.
+
+
+Thanks to its modular implementation of the various feedback types, in combination with a simple configuration interface that allows researchers and/or instructors to easily pick and choose from the available options (\cref{sec:fb:system}), \TODO{de-stress} is therefore a valuable platform for future empirical investigations into the impacts of these feedback types on the 
+acquisition of L2 word prosody 
+%prosodic realization of lexical stress 
+by L1 French learners of German. As established in \cref{chap:background} and further discussed in the following chapter, much work remains to be done to determine which feedback types are most effective in which learning contexts; by presenting a tool to facilitate such research, ostensibly the first of its kind for this type of error and aimed at this group of learners, this thesis has thus made an important contribution towards a more detailed understanding of the relative efficacy of feedback types in CAPT.

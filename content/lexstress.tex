@@ -369,7 +369,8 @@ A single annotation session consisted of annotating all tokens of three word typ
 	agreement in label assignments was calculated for each pair of annotators who overlapped, i.e. labeled any of the same tokens. 
 	\TODO{matrix of pairwise tokens in common (or just x/o to show which annotators overlapped?}
 	%This section describes how this agreement was calculated, and the following sections \cref{sec:agreement:overall, sec:agreement:native, sec:agreement:expertise} present an analysis of the resulting inter-annotator agreement statistics. Finally, 
-		Two metrics were used to quantify agreement between a pair of annotators: the simple percentage of observed agreement, and Cohen's Kappa ($\kappa$) statistic. 
+		Two metrics were used to quantify agreement between a pair of annotators: the simple percentage of observed agreement, and Cohen's Kappa ($\kappa$) statistic; the following paragraphs describe how these are computed. In the analysis presented in \cref{sec:agreement:overall,sec:agreement:native,sec:agreement:expert}, both metrics are presented together in the hopes of providing a more comprehensive picture of inter-annotator agreement than either can convey alone.  
+		
 		
 		For a given pair of annotators, percentage agreement is calculated as the number of tokens to which both annotators assigned the same label, divided by the total number of tokens labeled by both annotators. Possible values for percentage agreement range from 0\%, representing complete disagreement between annotators, to 100\%, representing complete agreement. This simple metric ignores the probability of annotators agreeing by chance, and therefore may give a somewhat optimistic picture of inter-annotator agreement, but nevertheless serves as a basic, easy-to-interpret preliminary indication of the reliability of the collected judgments.
 		
@@ -387,8 +388,7 @@ A single annotation session consisted of annotating all tokens of three word typ
 		%and $p_A(s)$ and $p_B(s)$ are the proportion of tokens assigned the label $s$ by annotators $A$ and $B$, respectively. The value of $p_A(s)$ is calculated as the number of tokens assigned label $s$ by annotator $A$ divided by the total number of tokens labeled by annotator $A$. 
 		As $\kappa$ thus accounts for the probability of two annotators assigning a token the same label purely by chance, it provides a more conservative measure of inter-annotator agreement. A $\kappa$ value of 0 indicates that the annotators do not agree any more than would be expected by chance. If agreement between annotators is less than chance, $\kappa$ will take a value below 0. The maximum possible value of $\kappa$ is 1.00, which indicates perfect agreement between annotators.
 		
-		In the following sections, both metrics are provided in the hopes of presenting a more comprehensive picture of inter-annotator agreement than either can convey alone.  
-		
+
 		%\TODO{Anything else to say here?}
 		
 		\subsection{Overall agreement}
@@ -432,8 +432,9 @@ Minimum	&	23.21\%	&	-0.01	\\
 	
 	
 	
-	It seems, then, that there may be stark differences in reliability from annotator to annotator. Analysis of the set of pairwise comparisons between a given annotator and all overlapping annotators provides more insight into that annotator's individual reliability; \cref{fig:agreement:annotators} illustrates the pairwise agreements involving each of the 15 annotators. These figures should be interpreted with caution because they do not account for differences in the number of overlapping annotators/tokens available for each annotator \TODO{reference overlap table}; nonetheless, it seems that there is indeed some noticeable variation from annotator to annotator. \TODO{finish this paragraph}
-		\TODO{table of percent/kappa min/avg/max by annotator, since graphs are difficult to read precisely?}
+	It seems, then, that there may be stark differences in reliability from annotator to annotator. Analysis of the set of pairwise comparisons between a given annotator and all overlapping annotators provides more insight into that annotator's individual reliability. \Cref{fig:agreement:annotators} illustrates the pairwise agreements involving each of the 15 annotators. \TODO{table of percent/kappa min/avg/max by annotator, since graphs are difficult to read precisely?} Evidently, there is noticeable variation from annotator to annotator, with some annotators (e.g. C, with a mean percentage agreement of \TODO{X} and a mean $\kappa$ of \TODO{Y}) appearing generally more reliable than others (e.g. F, with mean \%=\TODO{X} and mean $\kappa$=\TODO{Y}).  \TODO{stat. significance?} However, these figures should be interpreted with caution because they do not account for differences in the number of overlapping annotators/tokens available for each annotator \TODO{reference overlap table}. 
+	%nonetheless, it seems that there is indeed some noticeable variation from annotator to annotator. \TODO{finish this paragraph}
+		
 		
 		\begin{figure}[p]
 			\centering
@@ -464,7 +465,6 @@ Minimum	&	23.21\%	&	-0.01	\\
 
 			\vspace{2em}			
 			
-			
 			\begin{subfigure}{\textwidth}
 				\centering
 				\caption{Pairwise $\kappa$ by annotator}
@@ -474,18 +474,16 @@ Minimum	&	23.21\%	&	-0.01	\\
 			
 			\vspace{1em}	
 
-			
 			\caption[Pairwise agreement statistics by annotator]{Each annotator's pairwise agreement with all other annotators with whom they overlapped.
 			Horizontal lines represent median values. Colored boxes extend from the first quartile to the third quartile, and thus represent the Inter Quartile Range (IQR). Whiskers extend to the minimum and maximum values within 1.58 IQR of the first and third quartiles, respectively, and roughly represent a 95\% confidence interval around the median. 
 			 Outliers that fall outside of the IQR by a distance of more than approximately 1.5$\times$IQR  are represented by circles.%
 			%Numbers in parentheses indicate the number of pairwise comparisons involving each annotator. The bottom of each vertical bar represents the minimum pairwise value, the top the maximum. Horizontal bars indicate mean pairwise values.
 			}
 			
-			
 			\label{fig:agreement:annotators}
 		\end{figure}
 		
-		It is also of interest to analyze the overall inter-annotator agreement for each word type in the annotated sub-corpus. As \cref{fig:agreement:words} illustrates, there are noticeable differences between word types, with annotators exhibiting relatively high agreement on certain words (e.g. \textit{E-mail}, \textit{halten}, and \textit{Pollen}), and on other words (e.g. \textit{manche} and \textit{Ringen}) exhibiting agreement values closer to chance. \TODO{DISCUSSION (reference error breakdown by word in sec:results:overall}
+		It is also of interest to analyze the overall inter-annotator agreement for each word type in the dataset (see \cref{tab:bisyllwords} for the list of annotated word types). \TODO{table of  min/med/max/mean by word?} As \cref{fig:agreement:words} illustrates, there are noticeable differences between word types, with annotators exhibiting relatively high agreement on certain words (e.g. \textit{E-mail}, \textit{halten}, and \textit{Pollen}), while for other words (e.g. \textit{manche} and \textit{Ringen}) agreement values are closer to chance. \TODO{DISCUSSION (reference error breakdown by word in sec:results:overall}
 		
 		
 		\begin{figure}[phtb]
@@ -617,7 +615,7 @@ Minimum	&32.65\%	 & 0.10 &  23.21\% &	-0.01\\
 				\label{fig:agreement:L1:k}
 			\end{subfigure}%
 			
-			\caption[Pairwise agreement statistics by annotator L1 group]{Pairwise agreement between annotators based on L1 group (L1 = native German speaker, L2 = nonnative speaker). 
+			\caption[Pairwise agreement statistics by annotator L1 group]{\TODO{larger labels?} Pairwise agreement between annotators based on L1 group (L1 = native German speaker, L2 = nonnative speaker). 
 			Horizontal lines represent median values. Colored boxes extend from the first quartile to the third quartile, and thus represent the Inter Quartile Range (IQR). Whiskers extend to the minimum and maximum values within 1.58 IQR of the first and third quartiles, respectively, and roughly represent a 95\% confidence interval around the median. 
 			 Outliers that fall outside of the IQR by a distance of more than approximately 1.5$\times$IQR  are represented by circles.
 			%The bottom of each vertical bar represents the minimum pairwise value, the top the maximum. Horizontal bars indicate average pairwise values.
@@ -627,7 +625,7 @@ Minimum	&32.65\%	 & 0.10 &  23.21\% &	-0.01\\
 		
 		
 
-		However, in comparing the relative frequencies of the different labels assigned by annotators in these two L1 groups, a more noticeable difference between the groups begin to emerge. As illustrated in \cref{fig:l1pies}, we observe that the native and nonnative speakers judge utterances as having correct lexical stress with approximately the same frequency: 52.7\% of native annotators' judgments are \textbf{[correct]}, vs. 57.3\% for nonnative annotators. However, nonnative speakers seem to choose the \textbf{[none]}
+		However, in comparing the relative frequencies of the different labels assigned by annotators in these two L1 groups, a more noticeable difference between the groups begin to emerge. As illustrated in \TODO{\cref{fig:l1pies}}, we observe that the native and nonnative speakers judge utterances as having correct lexical stress with approximately the same frequency: 52.7\% of native annotators' judgments are [correct], vs. 57.3\% for nonnative annotators. However, nonnative speakers seem to choose the [none]
 		%``no clear stress/I can't tell'' 
 		label somewhat more frequently than native speakers (21.3\% vs. 11\%); this could indicate that nonnative speakers are less confident about how stress should be realized in German, resulting in less certainty about whether a given utterance is correct or not. \TODO{update/verify this paragraph}
 		
@@ -635,7 +633,7 @@ Minimum	&32.65\%	 & 0.10 &  23.21\% &	-0.01\\
 			\begin{figure}[htb]
 				\centering
 				\caption[Distribution of labels by annotator L1]{Distribution of labels assigned by native and nonnative annotators,
-				as a percentage of the total number of utterances labeled by that annotator group
+				as a percentage of the total number of utterances labeled by that annotator group \TODO{add exact values?}
 				}
 				\includegraphics[width=\textwidth]{img/plots/pctJudgmentsByL1-notStacked}
 				\label{fig:agreement:l1bars}

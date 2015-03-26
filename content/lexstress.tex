@@ -21,7 +21,7 @@
 %\section{Lexical stress errors in the IFCASL corpus} 
 
 	
-	As the previous chapter has shown, lexical stress is a challenging phenomenon for L1 French speakers to realize correctly in their L2 German prosody, such that pronunciation errors with respect to lexical stress are expected to be produced frequently by this group of German learners.
+	As the previous chapter has shown, lexical stress is a challenging phenomenon for native (L1) French speakers to realize correctly in their nonnative (L2) German prosody, such that pronunciation errors with respect to lexical stress are expected to be produced frequently by this group of German learners.
 %
 	However, empirical studies of this type of error as produced by French learners of German are quite few in number (see \cref{sec:stress:expected,sec:targeting:frequency}), so one objective of this thesis project was to research to what extent the expected types of lexical stress errors by French speakers of German are actually produced.
 	 As the IFCASL corpus (see \cref{sec:intro:ifcasl}) provides valuable data on L2 German speech produced by L1 French speakers, it is a perfect starting point for such investigations; however, given that the existing corpus annotation does not include information on lexical stress errors,
@@ -70,13 +70,12 @@
 	\section{Data}
 	\label{sec:lexstress:data}
 	
-	\TODO{describe IFCASL corpus}
-	\TODO{Reference table of speakers in corpus by age/gender/level -  \cref{tab:data:speakers}}
+	The IFCASL corpus \citep{Trouvain2013,Fauth2014}, introduced in \cref{sec:intro:ifcasl}, contains recordings of native and nonnative speech in French and German, and is thus a invaluable resource for research on pronunciation errors in this language pair, with the subset of the corpus containing L2 German speech by L1 French speakers (henceforth IFCASL-FG) being most relevant to the work reported in this thesis. As described in \cref{sec:intro:ifcasl}, speakers of varying ages, genders, and German proficiency levels are represented in the IFCASL-FG corpus; the exact number and characteristics of these speakers are presented in \cref{tab:data:speakers}.
 	
 	
 		\begin{table}
 			\centering
-			\caption[Speakers in the annotated IFCASL sub-corpus]{Number of speakers in the IFCASL sub-corpus annotated for lexical stress, in terms of speakers' age, gender, and proficiency level}
+			\caption[Speakers in the annotated dataset]{Number of speakers in the portion of the IFCASL-FG corpus annotated for lexical stress, in terms of speakers' age, gender, and proficiency level}
 			\begin{tabular}{lrrrrr}
 			\toprule
 			\multirow{2}{*}{Age/gender}	&	\multicolumn{4}{c}{Proficiency level} &\multirow{2}{*}{\textbf{Totals}}\\
@@ -95,20 +94,24 @@ Woman	&	5	&	5	&	3	&	9	&	\textbf{22}	\\
 		\end{table}
 	
 	
-	The IFCASL sub-corpus annotated for lexical stress errors consists of utterances of twelve word types (see \cref{tab:bisyllwords}), each of which is bisyllabic and canonically has its primary stress on the initial syllable. These characteristics were chosen deliberately: the selected words are bisyllabic because this simplifies comparison between stressed and unstressed syllables, and they are initial-stress because this is the stress pattern which native (L1) French speakers are expected to have the most difficulty producing in German, given the fixed final-position stress and final lengthening in French (see \cref{sec:stress:expected}). 
+	The subset of IFCASL-FG selected for the lexical stress error annotation undertaken in this work, henceforth referred to simply as ``the dataset,''
+	 consists of utterances of twelve word types (see \cref{tab:bisyllwords}), each of which is bisyllabic and canonically has its primary stress on the initial syllable. These characteristics were chosen deliberately: the selected words are bisyllabic because this simplifies comparison between stressed and unstressed syllables, and they are initial-stress because this is the stress pattern which native (L1) French speakers are expected to have the most difficulty producing in German, given the fixed final-position stress and final lengthening in French (see \cref{sec:stress:expected}). 
 	
-	\TODO{Though previous work on lexical stress errors in L2 speech has often dealt with words uttered in isolation (e.g. JSnoori, \citep{Bonneau2011}, other citations?), this work deals with word utterances extracted from longer utterances of complete sentences; as \textcite[p.~6]{Neri2002} point out, for relevance to real communication it is important that CAPT systems address connected speech.} \TODO{\textit{take out?}} The word's position in the carrier phrase/sentence was not taken into account; although it could be hypothesized that phrase position would have an effect on lexical stress realization by native French speakers, given the phenomenon of phrasal accent in French (see \cref{sec:stress:french}), \textcite{Michaux2013} found no effect of phrase position on French speakers' realization of words in Dutch. Given the similarities in the lexical stress systems of Dutch and German with respect to French, no such phrase-level effect is therefore expected here, though investigation of the effect of phrase or sentence position on stress realization could be an interesting direction for future work.
+	Though previous work on lexical stress errors in L2 speech has often dealt with words uttered in isolation (e.g. \cite{Bonneau2011}), this work deals with word utterances extracted from longer utterances of complete sentences; as \textcite[p.~6]{Neri2002} point out, for relevance to real communication it is important that CAPT systems address connected speech. The word's position in the carrier phrase/sentence was not taken into account; although it could be hypothesized that phrase position would have an effect on lexical stress realization by native French speakers, given the phenomenon of phrasal accent in French (see \cref{sec:stress:french}), \textcite{Michaux2013} found no effect of phrase position on French speakers' realization of words in Dutch. Given the similarities in the lexical stress systems of Dutch and German with respect to French, no such phrase-level effect is therefore expected here, though investigation of the effect of phrase or sentence position on stress realization could be an interesting direction for future work.
 	
-	In the IFCASL corpus recordings, sentences containing these words were read aloud by L1 and L2 (L1 French) speakers. Here, only the L2 utterances were manually annotated; it is assumed that the L1 German speakers always realize lexical stress correctly.
+	In the IFCASL corpus recordings, sentences containing these words were read aloud by both L1 and L2 (L1 French) German speakers, as mentioned in \cref{sec:intro:ifcasl}. Here, only the L2 utterances were manually annotated; it is assumed that the L1 German speakers always realize lexical stress correctly, so the utterances of the selected word types in the native German subset of the IFCASL corpus (IFCASL-GG) were not manually annotated, but rather automatically labeled as correct realizations (see \cref{sec:classification:datamethod}).
 	
-	\TODO{\textit{take out?}} As mentioned in \cref{sec:intro:ifcasl}, the IFCASL recordings were performed under two conditions: the ``Sentence Read'' (SR) condition, in which the L2 speaker is simply  presented with the text of the sentence and asked to record themselves reading it aloud, and the ``Sentence Heard'' (SH) condition, in which the L2 speaker is asked to listen to an utterance of the sentence by an L1 German speaker before recording their own utterance. The sub-corpus for annotation includes recordings from both conditions, though the majority are from the SR condition. \TODO{reason for imbalance}
+%	\TODO{\textit{take out?}} As mentioned in \cref{sec:intro:ifcasl}, the IFCASL recordings were performed under two conditions: the ``Sentence Read'' (SR) condition, in which the L2 speaker is simply  presented with the text of the sentence and asked to record themselves reading it aloud, and the ``Sentence Heard'' (SH) condition, in which the L2 speaker is asked to listen to an utterance of the sentence by an L1 German speaker before recording their own utterance. The sub-corpus for annotation includes recordings from both conditions, though the majority are from the SR condition. \TODO{reason for imbalance}
 	
-	To compile the sub-corpus for annotation, utterances (tokens) of each word as produced by over 50 L2 speakers were extracted from the recordings automatically with Praat \parencite{Boersma2014}, using extraction times (start and end points of word utterances) taken from the word-level segmentation of each sentence utterance automatically obtained by forced alignment (see \cref{sec:diag:segmentation}).
+	To compile the dataset, utterances (tokens) of each word as produced by over 50 L2 speakers were extracted from the recordings automatically with Praat \parencite{Boersma2014}, using extraction times (start and end points of word utterances) taken from the word-level segmentation of each sentence utterance automatically obtained by forced alignment (see \cref{sec:diag:segmentation}).
 	\Cref{tab:bisyllwords} lists the exact number of tokens available for each word type. In total, 
 	%669 
 	668 word tokens were annotated for lexical stress errors. 
 	%Four 
-	Five tokens had to be excluded from the data, as disfluencies in the sentence utterance (e.g. false starts or repetitions of the target word) prevented the automatic extraction of the word utterance from the sentence as a whole. In a fully-fledged student-facing CAPT system, such disfluencies would need to be dealt with accordingly, e.g. by means of a pre-processing step which analyzes the student's utterance for possible disfluencies and compensates for any that are detected by, for example, prompting the student to re-record their utterance. However, detecting disfluencies in speech, especially nonnative speech, is a challenging area of active research (see e.g. \cite{Bonneau2012,Orosanu2012}), and the development of a  disfluency-aware system is outside the scope of this thesis project; therefore, this work presupposes that no disfluencies exist in the student's utterance, and the handful of disfluent tokens have been excluded from the error-annotated sub-corpus described here.
+	Five tokens had to be excluded from the data, as disfluencies in the sentence utterance (e.g. false starts or repetitions of the target word) prevented the automatic extraction of the word utterance from the sentence as a whole. In a fully-fledged student-facing CAPT system, such disfluencies would need to be dealt with accordingly, e.g. by means of a pre-processing step which analyzes the student's utterance for possible disfluencies and compensates for any that are detected by, for example, prompting the student to re-record their utterance. However, detecting disfluencies in speech, especially nonnative speech, is a challenging problem under active research 
+	(see \cref{sec:capt:auto}),
+	%(see e.g. \cite{Bonneau2012,Orosanu2012}), 
+	and the development of a  disfluency-aware system is outside the scope of this thesis project; therefore, this work presupposes that no disfluencies exist in the student's utterance, and the handful of disfluent tokens have been excluded from the error-annotated sub-corpus described here.
 	
 	\begin{table}[htb]
 		\centering
@@ -368,6 +371,8 @@ A single annotation session consisted of annotating all tokens of three word typ
 		\subsection{Overall agreement}
 		\label{sec:agreement:overall}
 		
+		
+		\TODO{mention the stats on how many utterances had perfect agreement from \cref{sec:agreement:gold}}
 		
 		To obtain an overall measure of inter-annotator agreement for this lexical stress assessment task, the agreement between each pair of overlapping annotators was quantified by the metrics discussed in the previous section, and the minimum, median, mean, and maximum values over all pairwise comparisons were computed; these values are given in \cref{tab:agreement:overall}.
 	Though this provides a rather coarse-grained picture of the overall agreement, this simple analysis already points to a few interesting observations. First of all, we observe that the mean and median percentage agreement are near 55\%, indicating that, roughly speaking, annotators agree just slightly more often than they disagree; \TODO{\textit{fix:} this is not necessarily an encouraging ratio}. 

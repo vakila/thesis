@@ -433,13 +433,8 @@ A single annotation session consisted of annotating all tokens of three word typ
 %				\label{fig:agreement:annotators:k}
 %			\end{subfigure}%
 
-			\caption[Pairwise agreement statistics by annotator]{Each annotator's pairwise agreement with all other annotators with whom they overlapped.
-			Horizontal lines represent median values. Colored boxes extend from the first quartile to the third quartile, and thus represent the Inter Quartile Range (IQR). Whiskers extend to the minimum and maximum values within 1.58 IQR of the first and third quartiles, respectively, and roughly represent a 95\% confidence interval around the median. 
-			 Outliers that fall outside of the IQR by a distance of more than approximately 1.5$\times$IQR  are represented by circles.%
-			%Numbers in parentheses indicate the number of pairwise comparisons involving each annotator. The bottom of each vertical bar represents the minimum pairwise value, the top the maximum. Horizontal bars indicate mean pairwise values.
-			}
+			
 
-			\vspace{1em}	
 			
 			\begin{subfigure}{\textwidth}
 				\centering
@@ -453,10 +448,19 @@ A single annotation session consisted of annotating all tokens of three word typ
 			
 			\begin{subfigure}{\textwidth}
 				\centering
-				\caption{Pairwise $\kappa$ by annotator \TODO{FIX AXES}}
+				\caption{Pairwise $\kappa$ by annotator}
 				\includegraphics[width=.9\textwidth]{img/plots/pairwiseKappaByAnnotator-noTitle}
 				\label{fig:agreement:annotators:k}
 			\end{subfigure}%
+			
+			\vspace{1em}	
+
+			
+			\caption[Pairwise agreement statistics by annotator]{Each annotator's pairwise agreement with all other annotators with whom they overlapped.
+			Horizontal lines represent median values. Colored boxes extend from the first quartile to the third quartile, and thus represent the Inter Quartile Range (IQR). Whiskers extend to the minimum and maximum values within 1.58 IQR of the first and third quartiles, respectively, and roughly represent a 95\% confidence interval around the median. 
+			 Outliers that fall outside of the IQR by a distance of more than approximately 1.5$\times$IQR  are represented by circles.%
+			%Numbers in parentheses indicate the number of pairwise comparisons involving each annotator. The bottom of each vertical bar represents the minimum pairwise value, the top the maximum. Horizontal bars indicate mean pairwise values.
+			}
 			
 			
 			\label{fig:agreement:annotators}
@@ -482,13 +486,7 @@ A single annotation session consisted of annotating all tokens of three word typ
 %				\label{fig:agreement:words:k}
 %			\end{subfigure}%
 
-			\caption[Pairwise agreement statistics by word type]{Pairwise agreement between annotators for each word type. 	
-			Horizontal lines represent median values. Colored boxes extend from the first quartile to the third quartile, and thus represent the Inter Quartile Range (IQR). Whiskers extend to the minimum and maximum values within 1.58 IQR of the first and third quartiles, respectively, and roughly represent a 95\% confidence interval around the median. 
-			 Outliers that fall outside of the IQR by a distance of more than approximately 1.5$\times$IQR  are represented by circles.
-			%Numbers in parentheses indicate the number of pairwise comparisons available for each word type. The bottom of each vertical bar represents the minimum pairwise value, the top the maximum. Horizontal bars indicate average pairwise values.
-			}
-
-			\vspace{1em}			
+					
 			
 			\begin{subfigure}{\textwidth}
 				\centering
@@ -505,6 +503,16 @@ A single annotation session consisted of annotating all tokens of three word typ
 				\includegraphics[width=.9\textwidth]{img/plots/pairwiseKappaByWord-noTitle}
 				\label{fig:agreement:words:k}
 			\end{subfigure}%
+			
+			\vspace{1em}	
+			
+			
+			\caption[Pairwise agreement statistics by word type]{Pairwise agreement between annotators for each word type. 	
+			Horizontal lines represent median values. Colored boxes extend from the first quartile to the third quartile, and thus represent the Inter Quartile Range (IQR). Whiskers extend to the minimum and maximum values within 1.58 IQR of the first and third quartiles, respectively, and roughly represent a 95\% confidence interval around the median. 
+			 Outliers that fall outside of the IQR by a distance of more than approximately 1.5$\times$IQR  are represented by circles.
+			%Numbers in parentheses indicate the number of pairwise comparisons available for each word type. The bottom of each vertical bar represents the minimum pairwise value, the top the maximum. Horizontal bars indicate average pairwise values.
+			}
+
 			
 			
 			\label{fig:agreement:words}

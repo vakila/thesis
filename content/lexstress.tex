@@ -573,7 +573,7 @@ Minimum	&	23.21\%	&	-0.01	\\
 		
 		\Cref{fig:agreement:L1} illustrates the inter-annotator agreement for all pairs in which one annotator was a native German speaker and the other a nonnative speaker, as well as agreement between pairs in which both annotators were native speakers. Due to the small size of the nonnative group (3 annotators) and the aforementioned technical problems with annotator G's data (see \cref{sec:lexstress:annotators}), there was very little overlap between nonnative annotators (only one pairwise comparison), preventing meaningful analysis of agreement within the nonnative group. The precise mean, maximum, median, and minimum pairwise values for the two agreement metrics are listed in \cref{tab:agreement:L1}, for both  native-nonnative pairs and native-native pairs. 
 		
-		Looking at these statistics, we see little difference between the two types of pairs; in particular, the mean percentage agreement and $\kappa$ values for native-nonnative and native-native pairs are quite close. \TODO{Stat significance?} If anything, it would appear that agreement within the native annotator group is slightly lower and more varied than agreement between the native and nonnative groups, though this may be explained by the larger number of native-native pairs compared to native-nonnative. It would therefore seem that these inter-annotator statistics do not tell us much about difference between how the two groups of annotators judge lexical stress accuracy.
+		Looking at these statistics, we see little difference between the two types of pairs; in particular, the mean percentage agreement and $\kappa$ values for native-nonnative and native-native pairs are quite close. \TODO{Stat significance?} If anything, it would appear that agreement within the native annotator group is slightly lower and more varied than agreement between the native and nonnative groups, though this may be explained by the larger number of native-native pairs compared to native-nonnative. It would therefore seem that these agreement statistics do not tell us much about difference between how the two groups of annotators judge lexical stress accuracy.
 		
 		
 		\begin{table}[tb]
@@ -1798,4 +1798,26 @@ Total (\% of corpus)	&	383	&	(57.34\%)	&	285	&	(42.66\%)	\\
 	
 	\section{Summary}
 	\label{sec:lexstress:summary}
-	\TODO{}
+
+	In an effort to shed light on the nature of lexical stress errors in the speech of L1 French learners of German as L2, this chapter has described original efforts to 
+	annotate such errors in a small corpus of learner speech, 
+	%with this error-annotated data being used not only to 
+	study the frequency and type of errors made by learners \TODO{(\cref{sec:lexstress:results})},
+	%but also to 
+	and analyze differences in how these errors are perceived by L1 and L2 German speakers with varying levels of phonetics/phonology expertise \TODO{(\cref{sec:lexstress:agreement})}.
+	
+	As described in \cref{sec:lexstress:data,sec:lexstress:annotators,sec:lexstress:method},
+	lexical stress realizations in utterances of bisyllabic, initial-stress words (see \cref{sec:lexstress:data})
+	%taken from the IFCASL corpus (\cite{Trouvain2013,Fauth2014}; see also \cref{sec:intro:ifcasl}) 
+	were evaluated by multiple annotators from different L1 and phonetic training backgrounds (see \cref{sec:lexstress:annotators}).
+	Annotators were asked to use a graphical annotation tool to label each recorded word utterance
+	as correctly or incorrectly realizing lexical stress (i.e. the speaker clearly stressed the correct or incorrect syllable), failing to clearly realize stress (i.e. the speaker did not seem to stress either syllable), or having technical or other problems which prevented the assessment of lexical stress (see \cref{sec:lexstress:method}). 
+	
+	
+	Analysis of the labels assigned by different annotators to the same utterances (\cref{sec:lexstress:agreement}) revealed that inter-annotator agreement was relatively low, with only ``fair'' agreement \citep{Landis1977}, on average, between each pair of annotators who labeled the same utterances. Considerable variation was observed among individual annotators (\cref{sec:agreement:overall}), which did not seem to be explained by differences among annotators in terms of their L1 (\cref{sec:lexstress:native}) or level of experience with phonetics/phonology or speech data annotation (\cref{sec:lexstress:native}). \TODO{Stat significance?} 
+	However, some other differences were observed in how different groups of annotators labeled lexical stress errors; specifically, L2 German speakers annotated a higher proportion of utterances as having unclear stress compared to L1 speakers (\cref{sec:agreement:native}), and expert annotators judged substantially higher proportion of utterances as correctly realizing stress compared to intermediate or novice annotators (\cref{sec:agreement:expert}).
+	As described in \cref{sec:agreement:overall}, there also seemed to be variability in inter-annotator agreement with respect to the different word types represented in the dataset, though further work is needed to discern the factors responsible for this observation \TODO{(see \cref{sec:conclusion:future})}.
+	
+	The multiple, often conflicting, error annotations from different annotators were consolidated into a single gold-standard annotation for each utterance in the dataset (\cref{sec:agreement:gold}), which served as the basis for an analysis of the frequency and type of errors produced by learners, as presented in \cref{sec:lexstress:results}. This analysis seemed to confirm the expectation set out in \cref{sec:stress:expected,sec:targeting:frequency} that lexical stress errors are quite frequent in the speech of French speakers of German, with correct lexical stress realizations observed in only approximately two-thirds of utterances, on average (\cref{sec:results:overall}). A finer-grained analysis revealed that the frequency of such errors was considerably lower in the speech of advanced learners than that of beginners (\cref{sec:results:level}), and that children seemed to make more errors than adult beginners (\cref{sec:results:agegender}); no substantial difference was observed between speakers of different genders. \TODO{stat significance?}
+	
+	

@@ -106,7 +106,7 @@ Woman	&	5	&	5	&	3	&	9	&	\textbf{22}	\\
 	Five tokens had to be excluded from the data, as disfluencies in the sentence utterance (e.g. false starts or repetitions of the target word) prevented the automatic extraction of the word utterance from the sentence as a whole. In a fully-fledged student-facing CAPT system, such disfluencies would need to be dealt with accordingly, e.g. by means of a pre-processing step which analyzes the student's utterance for possible disfluencies and compensates for any that are detected by, for example, prompting the student to re-record their utterance. However, detecting disfluencies in speech, especially nonnative speech, is a challenging problem under active research 
 	(see \cref{sec:capt:auto}),
 	%(see e.g. \cite{Bonneau2012,Orosanu2012}), 
-	and the development of a  disfluency-aware system is outside the scope of this thesis project; therefore, this work presupposes that no disfluencies exist in the student's utterance, and the handful of disfluent tokens have been excluded from the error-annotated sub-corpus described here.
+	and the development of a  disfluency-aware system is outside the scope of this thesis project; therefore, this work presupposes that no disfluencies exist in the student's utterance, and the handful of disfluent tokens have been excluded from the dataset described here.
 	
 	\begin{table}[htb]
 		\centering
@@ -846,19 +846,22 @@ Minimum	& 23.21\%	& -0.01	& 33.93\%	& 0.10	& 35.71\%	& 0.08	& 28.57\%	&  0.04 \\
 		making it possible to determine which label(s) received the highest number of votes and may thus be considered the best candidate(s) for $s_{\text{gold}}(t)$. The set of highest-voted candidate labels will be referred to as $S_{t\text{-max}} \subseteq S_t$.
 		%henceforth \TODO{\textit{need better notation for maxvotes set: }$S_{\text{max}} \subseteq S_t$} will refer to the set of labels for $t$ with the highest number of votes \TODO{reword?}.
 		
-		Given the observed labels and their vote counts, a rule-based procedure was followed to assign a gold-standard label $s_{\text{gold}}(t)$ to each token $t$ in the annotated sub-corpus; this procedure is outlined in \cref{tab:agreement:goldrules}. At each step $i$ in the procedure, any tokens whose set $S_t$ of observed labels fits condition $C_i$ are assigned the gold-standard label described in column $s_{\text{gold}}(t)$; the number of tokens matching $C_i$ is given as $N(C_i)$, and 
+		Given the observed labels and their vote counts, a rule-based procedure was followed to assign a gold-standard label $s_{\text{gold}}(t)$ to each token $t$ in the dataset; this procedure is outlined in \cref{tab:agreement:goldrules}. At each step $i$ in the procedure, any tokens whose set $S_t$ of observed labels fits condition $C_i$ are assigned the gold-standard label described in column $s_{\text{gold}}(t)$; the number of tokens matching $C_i$ is given as $N(C_i)$, and 
 		% gives the number of tokens labeled at this step, i.e. the number matching $C_i$. The rightmost column 
 		$N(C_{1 \dots i})$ represents the total number of tokens which have been assigned a gold-standard label at the end of step $i$ in the labeling procedure (i.e. the number of tokens matching $C_i$ or any previous condition).
 		
 		
 
 		\begin{table}[tb]
+		\centering
 		\caption[Procedure for choosing a gold-standard label for a given token]{Procedure for choosing a gold-standard label $s_{\text{gold}}(t)$ for a given token $t$. At step $i$, tokens matching $C_i$ are assigned the label in column $s_{\text{gold}}(t)$. The rightmost columns $N(C_i)$ and $N(C_{1 \dots i})$ list the number of tokens labeled in step $i$ and the total number that have been labeled at the end of step $i$, respectively.}
+		
+			\renewcommand{\arraystretch}{2}
 			\begin{tabularx}{\textwidth}{rXlrr}
 			\toprule
 			Step ($i$)
 			& Condition ($C_i$) 
-			\TODO{reword w/ $S_t$\&$S_{t\text{-max}}$} 
+			%\TODO{reword w/ $S_t$\&$S_{t\text{-max}}$} 
 			& $s_{\text{gold}}(t)$ 
 			& $N(C_i)$ 
 			& $N(C_{1 \dots i})$ 
@@ -866,18 +869,20 @@ Minimum	& 23.21\%	& -0.01	& 33.93\%	& 0.10	& 35.71\%	& 0.08	& 28.57\%	&  0.04 \\
 			\midrule
 			
 			1.& 
-			$S_t = \{s_{\text{only}}\}$ (i.e. $|S_t|=1$)
+			$S_t = \{s_a\}$ %(i.e. $|S_t|=1$)
+			%$S_t = \{s_{\text{only}}\}$ (i.e. $|S_t|=1$)
 			%There is only one label $s_{\text{only}}$ with any votes 
 			& 
-			%$s_{\text{gold}}(t) \gets 
-			$s_{\text{only}}$ & 268 & 268 \\
+			$s_a$
+			%$s_{\text{only}}$ 
+			& 268 & 268 \\
 			 
 			2.& 
-			$S_{t\text{-max}} = \{s_{\text{max}}\}$ (i.e. $|S_{t\text{-max}}|=1$)
-			%One label $s_{\text{max}}$ has more votes than any other labels 
+			$S_{t\text{-max}} = \{s_m\}$ %(i.e. $|S_{t\text{-max}}|=1$)
+			%One label $s_m$ has more votes than any other labels 
 			& 
 			%$s_{\text{gold}}(t) \gets 
-			$s_{\text{max}}$ & 265 & 533 \\
+			$s_m$ & 265 & 533 \\
 			
 			3.& 
 			$s_{\text{exp}} \in S_{t\text{-max}}$
@@ -886,29 +891,42 @@ Minimum	& 23.21\%	& -0.01	& 33.93\%	& 0.10	& 35.71\%	& 0.08	& 28.57\%	&  0.04 \\
 			%$s_{\text{gold}}(t) \gets 
 			$s_{\text{exp}}$ & 51 & 584 \\
 			
-			4.& \mbox{[bad\_nsylls]} is one of the competing labels, 
+			4.& 
+			$S_{t\text{-max}} = \{\text{[bad\_nsylls]}, s_o\}$
+			%\newline
+			%($|S_{t\text{-max}}| = 2$, \mbox{[bad\_nsylls]} $\in S_{t\text{-max}}$)
+			%\mbox{[bad\_nsylls]} is one of the competing labels, 
 			%ignore it; \newline if 
-			and there is only one other competing label $s_{\text{only}}$  \TODO{reword}
+			%and there is only one other competing label $s_{\text{only}}$  \TODO{reword}
 			%remains 
 			& 
 			%$s_{\text{gold}}(t) \gets 
-			$s_{\text{only}}$ & 17 & 601 \\
+			$s_o$ & 17 & 601 \\
 			
-			5.& There is a three-way tie between labels
+			5.& 
+			$|S_{t\text{-max}}| = 3$
+			%There is a three-way tie between labels
 			%, indicating that the accuracy of the lexical stress realization is not clear 
 			&
 			% [correct], [none], and [incorrect] & 
 			%$s_{\text{gold}}(t) \gets$ 
 			\mbox{[none]} & 6 & 607\\
 			
-			6.& There are two competing labels: 
+			6.& 
+			$S_{t\text{-max}} = \{\text{[none]}, s_{\text{cert}}\}$, %with
+			\newline
+			%There are two competing labels: 
 			%one of which is 
-			\mbox{[none]} and 
+			%\mbox{[none]} and 
 			%the other of which is 
-			$s_{\text{cert}} \in \{$[correct],[incorrect]$\}$ &
+			$s_{\text{cert}} \in \{$[correct],[incorrect]$\}$ 
+			&
 			$s_{\text{cert}}$ & 21 & 628\\
 			
-			7.& There are two competing labels: \mbox{[correct]} and \mbox{[incorrect]} &
+			7.& 
+			$S_{t\text{-max}} = \{\text{[correct]},\text{[incorrect]}\}$
+			%There are two competing labels: \mbox{[correct]} and \mbox{[incorrect]} 
+			&
 			\mbox{[correct]} & 40 & 668\\
 	
 			\bottomrule
@@ -922,25 +940,32 @@ Minimum	& 23.21\%	& -0.01	& 33.93\%	& 0.10	& 35.71\%	& 0.08	& 28.57\%	&  0.04 \\
 		
 		\TODO{Check following paragraphs for consistency of terms - shouldn't "Condition 1" be $C_1$, etc.?}
 		
+		%1
 		As mentioned in \cref{sec:agreement:overall}, for 268 of the 
 		%669 
-		668 tokens annotated, there was no disagreement whatsoever between annotators: for each of these 268 tokens, all annotators who labeled the token made the same judgment, making it easy to assign this label as the gold standard for this utterance. Condition 1 in \cref{tab:agreement:goldrules} captures this category of tokens. 
-		%
-		For another 265 tokens, a majority of annotators assigned the same label, though one or more annotators dissented, so assigning the majority-vote label as the gold standard is logical; these are captured by Condition 2 \TODO{$C_2$?} in the table. Therefore, for a total of 533 tokens (approximately 80\% of the word utterances in the sub-corpus), the choice of $s_{\text{gold}}(t)$ was uncontroversial.
+		668 tokens annotated, there was no disagreement whatsoever between annotators: for each of these 268 tokens, all annotators who labeled the token made the same judgment, making it easy to assign this label ($s_a$) as the gold standard for the utterance. Condition 1 ($C_1$) in \cref{tab:agreement:goldrules} captures this category of tokens. 
+		%2
+		For another 265 tokens, a majority of annotators assigned the same label, though one or more annotators dissented, so assigning the majority-vote label ($s_m$) as $s_{\text{gold}}(t)$ is logical; these are captured by $C_2$. 
 		
-		\TODO{Break up this paragraph?}
+		Therefore, for a total of 533 tokens (approximately 80\% of the word utterances in the dataset), the choice of $s_{\text{gold}}(t)$ was essentially uncontroversial.
+		%
 		For the remaining 
 		%116 
-		utterances, choosing gold-standard labels was a less straightforward task,
+		utterances, however, choosing gold-standard labels was a less straightforward task,
 		and the decisions made in steps 3-7 are somewhat more controversial.
+		
 		%3
 		In a third step, if either of the two expert annotators had labeled one of the remaining tokens, the expert's judgment ($s_{\text{exp}}$) was taken as $s_{\text{gold}}(t)$; 51 tokens met this condition ($C_3$). 
+		
 		%4
-		Next, in step 4, if there were exactly two labels in $S_t{\text{-max}}$ and one of them was [bad\_nsylls], the other label was chosen as $s_{\text{gold}}(t)$. The reasoning behind this step is that since the label [bad\_nsylls] was intended to be applied to utterances for which no stress judgment was possible, then if at least one annotator was able to make a judgment, the [bad\_nsylls] label must not be appropriate and should be rejected. This condition ($C_4$) applied to 17 tokens. 
+		Next, in step 4, if there were exactly two labels in $S_t{\text{-max}}$ and one of them was [bad\_nsylls], the other label ($s_o$) was chosen as $s_{\text{gold}}(t)$. The reasoning behind this step is that since the label [bad\_nsylls] was intended to be applied to utterances for which no stress judgment was possible, then if at least one annotator was able to make a judgment, the [bad\_nsylls] label must not be appropriate and should be rejected. This condition ($C_4$) applied to 17 tokens. 
+		
 		%5
 		The following step (5) addressed tokens for which the set of competing labels $S_t{\text{-max}}$ had three members, i.e. for which there was a three-way tie between labels. The fact that so many different labels were assigned to each of these tokens was taken as an indication that the accuracy of the lexical stress realization in this utterance was quite difficult to judge, i.e. it is unclear which syllable in the uttered word has been stressed; as the label [none] is intended to capture such cases, this label was chosen as the gold standard for the 6 utterances matching this condition ($C_5$).
+		
 		%6
 		The next condition ($C_6$) captured the 21 cases in which $S_t{\text{-max}}$ contained exactly two labels competing for gold-standard status, with one of the labels being [none] and the other being one of the two labels associated with certainty about the accuracy of the lexical stress realization, i.e. [correct] or [incorrect]. In these cases, [none] was rejected in favor of the certain label ($s_{\text{cert}}$), based on the assumption that if at least one annotator was able to categorically classify the given utterance as correct or incorrect in terms of lexical stress, other native-speaking listeners might be inclined to make the same judgment \TODO{fix that sentence}.
+		
 		%7
 		The remaining 40 utterances were captured by the seventh and final condition, $C_7$, in which $S_t{\text{-max}}$ contained exactly two labels: [correct] and [incorrect]. In these cases, the learner's utterance was assessed generously and the [correct] label was chosen as $s_{\text{gold}}(t)$, to capture the fact that as mentioned in \cref{sec:agreement:overall}, assessing the accuracy of a lexical stress realization seems to be a somewhat difficult task, and if at least one of the native speakers who heard the given utterance were willing to accept its stress realization as correct, the learner should not be \TODO{``penalized''} by an [incorrect] label.
 		
@@ -1048,13 +1073,13 @@ Minimum	& 23.21\%	& -0.01	& 33.93\%	& 0.10	& 35.71\%	& 0.08	& 28.57\%	&  0.04 \\
 	%\item{How frequently do technical problems interfere with determining whether an error was made?  (\cref{sec:results:techproblems})}
 	\end{itemize}
 	
-		In the hope of providing tentative answers to these questions, this section describes and analyzes the distribution of errors in the IFCASL sub-corpus of 668 word tokens of 12 bisyllabic initial-stress word types as pronounced by L1 French speakers learning German as L2 (see \cref{sec:lexstress:data}), given the assessment of these errors made by native German speakers as described in \cref{sec:lexstress:annotators,sec:lexstress:method,sec:agreement:gold}.
+		In the hope of providing tentative answers to these questions, this section describes and analyzes the distribution of errors in the dataset of 668 word tokens of 12 bisyllabic initial-stress word types as pronounced by L1 French speakers learning German as L2 (see \cref{sec:lexstress:data}), given the assessment of these errors made by native German speakers as described in \cref{sec:lexstress:annotators,sec:lexstress:method,sec:agreement:gold}.
 			
 		\subsection{Overall frequency of lexical stress errors}
 		\label{sec:results:overall}
 		
 		
-		The overall distribution of the lexical stress accuracy judgments observed in the annotated IFCASL sub-corpus is detailed in \cref{tab:results:overall} and illustrated in \cref{fig:results:overallbars}. Evidently, the majority (63.77\%) of learners' lexical stress productions were judged to be correct; in other words, almost two-thirds of the time, learners 
+		The overall distribution of the lexical stress accuracy judgments observed in the annotated dataset is detailed in \cref{tab:results:overall} and illustrated in \cref{fig:results:overallbars}. Evidently, the majority (63.77\%) of learners' lexical stress productions were judged to be correct; in other words, almost two-thirds of the time, learners 
 		clearly stressed the correct (initial) syllable in the uttered word.
 		%were able to convey, \TODO{\textit{true?} by means of the acoustic features of their utterance}, the correct placement of stress in the uttered word.  
 		However, incorrect productions (productions in which the learner clearly stressed the incorrect syllable) and productions in which the learner did not clearly stress either syllable (corresponding to the [none] stress judgment, as described in \cref{sec:lexstress:method}), also occurred regularly: 29.64\% of the productions were judged incorrect and 5.24\% were labeled [none]. If we consider both of these types of productions as types of lexical stress errors, then errors were observed in just over one-third (34.88\%) of the  utterances annotated. 
@@ -1185,7 +1210,7 @@ Tschechen 	&	40 (71.4\%)	&	9 (16.1\%)	 &	6 (10.7\%)	&	1 (1.8\%) 	&	0  				\\
 			- & x & - &  x & - & x & - & x & - & x \\
 			\end{tabular}
 			\end{center}
-			As a result of this regularity, correctly realizing the prosody of each word in this sentence may present less of a challenge to L1 French speakers than a less regular sentence, and may thus explain their uncharacteristically flawless productions of the words therein. The fact that no fewer than the expected proportion of errors were observed in utterance of \textit{Pollen} would seem to contradict this speculative explanation; however, unlike the other words, \textit{Pollen} is doubly challenging for L1 French speakers, insofar as its first vowel is a short \textipa{O}, as opposed to the long \textipa{o:} in the word \textit{Polen} (meaning \textit{Poland} in English), with which \textit{Pollen} forms a minimal pair.\footnote{This minimal pair was of interest to the researchers who constructed the IFCASL corpus, and \textit{Polen} also appears in the corpus, though it was not selected for inclusion in the sub-corpus to be annotated for lexical stress errors.}  Differentiating between long and short vowels when speaking German is a notorious hurdle for French speakers \TODO{reference(s)}. It may be the case that the short vowel in \textit{Pollen}, and the existence of another similar-sounding word, is responsible for some of the errors observed in the data, even though \textit{Pollen} and \textit{Polen} share the same stress pattern (stress on the initial syllable), for one of two reasons: either the added challenge of producing a difficult vowel in \textit{Pollen} distracts French speakers from the simple, regular prosody of the sentence, causing them to produce more prosodic errors with this word, or the native German annotators (most of whom, as discussed in \cref{sec:lexstress:annotators}, are not trained in phonetics or phonology) who are tasked with assessing the correctness of the word's prosody are distracted by the incorrect vowel quantity/quality in French speakers' productions of this word, and erroneously interpret the flaw(s) that they detect in the word's pronunciation as having to do with lexical stress, when in fact they are segmental errors. 
+			As a result of this regularity, correctly realizing the prosody of each word in this sentence may present less of a challenge to L1 French speakers than a less regular sentence, and may thus explain their uncharacteristically flawless productions of the words therein. The fact that no fewer than the expected proportion of errors were observed in utterance of \textit{Pollen} would seem to contradict this speculative explanation; however, unlike the other words, \textit{Pollen} is doubly challenging for L1 French speakers, insofar as its first vowel is a short \textipa{O}, as opposed to the long \textipa{o:} in the word \textit{Polen} (meaning \textit{Poland} in English), with which \textit{Pollen} forms a minimal pair.\footnote{This minimal pair was of interest to the researchers who constructed the IFCASL corpus, and \textit{Polen} also appears in the corpus, though it was not selected for inclusion in the dataset to be annotated for lexical stress errors.}  Differentiating between long and short vowels when speaking German is a notorious hurdle for French speakers \TODO{reference(s)}. It may be the case that the short vowel in \textit{Pollen}, and the existence of another similar-sounding word, is responsible for some of the errors observed in the data, even though \textit{Pollen} and \textit{Polen} share the same stress pattern (stress on the initial syllable), for one of two reasons: either the added challenge of producing a difficult vowel in \textit{Pollen} distracts French speakers from the simple, regular prosody of the sentence, causing them to produce more prosodic errors with this word, or the native German annotators (most of whom, as discussed in \cref{sec:lexstress:annotators}, are not trained in phonetics or phonology) who are tasked with assessing the correctness of the word's prosody are distracted by the incorrect vowel quantity/quality in French speakers' productions of this word, and erroneously interpret the flaw(s) that they detect in the word's pronunciation as having to do with lexical stress, when in fact they are segmental errors. 
 			\TODO{...or it could be word frequency (Pollen less frequent), or maybe influence of phrase position or interpreted phrase position, cf. \citep{Michaux2013}?}
 			
 			As for the uncharacteristically large proportion of errors in \textit{Tatort}, it may be the case that this word's resemblance to the common French words \textit{ta} (\textit{your}) and \textit{tort} (\textit{wrong}) interferes with French speakers' production, such that they realize the word as the plausible French word sequence \textit{ta tort} (\textit{your wrong(doing)} or \textit{your mistake}), in which \textit{tort} would unmistakably be the focus \TODO{is that inaccurate?}, instead of realizing it correctly as a compound of the German words \textit{Tat} (\textit{act}) and \textit{Ort} (\textit{place}).
@@ -1209,7 +1234,7 @@ Tschechen 	&	40 (71.4\%)	&	9 (16.1\%)	 &	6 (10.7\%)	&	1 (1.8\%) 	&	0  				\\
 		
 			\TODO{Be consistent with skill/proficiency or OK to use them interchangeably?}
 			
-			As \cref{sec:lexstress:data} stated, the L1 French speakers whose recordings comprise the annotated IFCASL sub-corpus span four levels of L2 German proficiency: A2 (elementary), B1 (intermediate), B2 (upper intermediate), and C1 (advanced). The rightmost column of \cref{tab:results:levels} gives the number and proportion of utterances from speakers of each level in the annotated sub-corpus, along with the number of utterances from speakers of each level that were assigned to each of the five possible stress-accuracy labels, and these figures are illustrated in \cref{fig:levelbars:4}. Because the total number of utterances by speakers of each of the two intermediate (B) levels in the corpus is lower than the number by speakers of the lowest (A2) and highest (C1) levels, the judgments have also been grouped into two broader categories for easier comparison: beginners (A2 and B1) and advanced speakers (B2 and C1). The breakdown of stress errors by these groups is given in the lower portion of \cref{tab:results:levels} and illustrated in \cref{fig:levelbars:groups}.
+			As \cref{sec:lexstress:data} stated, the L1 French speakers whose recordings comprise the dataset span four levels of L2 German proficiency: A2 (elementary), B1 (intermediate), B2 (upper intermediate), and C1 (advanced). The rightmost column of \cref{tab:results:levels} gives the number and proportion of utterances from speakers of each level in the dataset, along with the number of utterances from speakers of each level that were assigned to each of the five possible stress-accuracy labels, and these figures are illustrated in \cref{fig:levelbars:4}. Because the total number of utterances by speakers of each of the two intermediate (B) levels in the corpus is lower than the number by speakers of the lowest (A2) and highest (C1) levels, the judgments have also been grouped into two broader categories for easier comparison: beginners (A2 and B1) and advanced speakers (B2 and C1). The breakdown of stress errors by these groups is given in the lower portion of \cref{tab:results:levels} and illustrated in \cref{fig:levelbars:groups}.
 			
 			
 			
@@ -1409,7 +1434,7 @@ Total (\% of dataset)	&	407	&	(60.93\%) & 261	&	(39.07\%)	\\
 		\label{sec:results:agegender}
 			
 			
-			Given that the IFCASL corpus, and by extension the sub-corpus annotated for lexical stress errors, contains recordings from speakers of both genders and from adult speakers (those over age 18 \TODO{check that}) as well as children (see \cref{sec:lexstress:data}), an analysis of the errors observed in terms of the age and gender of the speakers is of interest, to determine whether any discernible differences exist between the different groups of speakers. The breakdown of errors for each of these groups is presented in \cref{tab:results:agegender} and illustrated in \TODO{\cref{fig:results:agepies,fig:results:genderpies}}.
+			Given that the IFCASL corpus, and by extension the dataset annotated for lexical stress errors, contains recordings from speakers of both genders and from adult speakers (those over age 18 \TODO{check that}) as well as children (see \cref{sec:lexstress:data}), an analysis of the errors observed in terms of the age and gender of the speakers is of interest, to determine whether any discernible differences exist between the different groups of speakers. The breakdown of errors for each of these groups is presented in \cref{tab:results:agegender} and illustrated in \TODO{\cref{fig:results:agepies,fig:results:genderpies}}.
 			
 			
 			\begin{table}[p]
@@ -1499,7 +1524,7 @@ Total (\% of corpus)	&	383	&	(57.34\%)	&	285	&	(42.66\%)	\\
 				Comparing the distribution of children's errors to that of adult beginners, the difference is less drastic but still noticeable, as adult beginners realize lexical stress correctly in the majority (approximately 60\%) of their utterances. Considering the comparatively high proportion of lexical stress errors in children's speech, therefore, it seems that just as \TODO{we} concluded in the previous section that beginners may benefit more from a CAPT system targeting lexical stress errors than advanced learners would, so also may children stand to gain more from such a system than adult beginners. \TODO{anything else to say about age?}
 				
 				
-					Coming now to the question of whether there is any difference in error distribution between speakers of different genders, a brief glance at \TODO{\cref{fig:results:genderpies}} reveals that there does not seem to be a drastic difference in the distribution of errors between the two genders. Males seem to make slightly more errors in lexical stress realization than females, with 60.7\% correct productions for males and 68.1\% for women, though this might be explained by the fact that as noted in \cref{sec:lexstress:data} above (see \cref{tab:data:speakers}), the group of male speakers has a higher proportion of elementary (A2) learners (18 out of 32 males, or 56.25\%) than the group of female speakers (6 A2 speakers out of 24 females, or 25\%). \TODO{do we need an apples-to-apples comparison based on level, as we did in the age discussion?} Therefore, it would seem that the error distribution observed in the annotated sub-corpus provides no indication of a meaningful difference in the way speakers of different genders realize lexical stress in their L2 German.
+					Coming now to the question of whether there is any difference in error distribution between speakers of different genders, a brief glance at \TODO{\cref{fig:results:genderpies}} reveals that there does not seem to be a drastic difference in the distribution of errors between the two genders. Males seem to make slightly more errors in lexical stress realization than females, with 60.7\% correct productions for males and 68.1\% for women, though this might be explained by the fact that as noted in \cref{sec:lexstress:data} above (see \cref{tab:data:speakers}), the group of male speakers has a higher proportion of elementary (A2) learners (18 out of 32 males, or 56.25\%) than the group of female speakers (6 A2 speakers out of 24 females, or 25\%). \TODO{do we need an apples-to-apples comparison based on level, as we did in the age discussion?} Therefore, it would seem that the error distribution observed in the annotated dataset provides no indication of a meaningful difference in the way speakers of different genders realize lexical stress in their L2 German.
 				
 					
 			

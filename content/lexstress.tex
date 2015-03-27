@@ -432,7 +432,8 @@ Minimum	&	23.21\%	&	-0.01	\\
 	
 		%%%%%% ANNOTATORS
 	
-	It seems, then, that there may be stark differences in reliability from annotator to annotator. Analysis of the set of pairwise comparisons between a given annotator and all overlapping annotators provides more insight into that annotator's individual reliability. \Cref{fig:agreement:annotators} illustrates the pairwise agreements involving each of the 15 annotators. \TODO{table of percent/kappa min/avg/max by annotator, since graphs are difficult to read precisely?} Evidently, there is noticeable variation from annotator to annotator, with some annotators (e.g. C, with a mean percentage agreement of \TODO{X} and a mean $\kappa$ of \TODO{Y}) appearing generally more reliable than others (e.g. F, with mean \%=\TODO{X} and mean $\kappa$=\TODO{Y}).  \TODO{stat. significance?} However, these figures should be interpreted with caution because they do not account for differences in the number of overlapping annotators/tokens available for each annotator. %TODO {reference overlap table}. 
+	It seems, then, that there may be stark differences in reliability from annotator to annotator. Analysis of the set of pairwise comparisons between a given annotator and all overlapping annotators provides more insight into that annotator's individual reliability. \Cref{fig:agreement:annotators} illustrates the pairwise agreements involving each of the 15 annotators.
+	 \TODO{table of percent/kappa min/avg/max by annotator, since graphs are difficult to read precisely?} Evidently, there is noticeable variation from annotator to annotator, with some annotators (e.g. C, with a mean percentage agreement of \TODO{X} and a mean $\kappa$ of \TODO{Y}) appearing generally more reliable than others (e.g. F, with mean \%=\TODO{X} and mean $\kappa$=\TODO{Y}).  \TODO{stat. significance?} However, these figures should be interpreted with caution because they do not account for differences in the number of overlapping annotators/tokens available for each annotator. %TODO {reference overlap table}. 
 	Nonetheless, the observed variability among annotators cannot be ignored, and \cref{sec:agreement:native,sec:agreement:expert} attempt to investigate whether differences in annotators' L1 and level of expertise could potentially explain some of this variability.
 		
 		
@@ -474,7 +475,9 @@ Minimum	&	23.21\%	&	-0.01	\\
 			
 			\vspace{1em}	
 
-			\caption[Pairwise agreement statistics by annotator]{Each annotator's pairwise agreement with all other annotators with whom they overlapped.
+			\caption[Pairwise agreement statistics by annotator]{
+			\TODO{Redo with bigger labels \& diff box styles so that the L1/expertise of each annotator is visible?} 
+			Each annotator's pairwise agreement with all other annotators with whom they overlapped.
 			Horizontal lines represent median values. Colored boxes extend from the first quartile to the third quartile, and thus represent the Inter Quartile Range (IQR). Whiskers extend to the minimum and maximum values within 1.58 IQR of the first and third quartiles, respectively, and roughly represent a 95\% confidence interval around the median. 
 			 Outliers that fall outside of the IQR by a distance of more than approximately 1.5$\times$IQR  are represented by circles.%
 			%Numbers in parentheses indicate the number of pairwise comparisons involving each annotator. The bottom of each vertical bar represents the minimum pairwise value, the top the maximum. Horizontal bars indicate mean pairwise values.
@@ -530,9 +533,9 @@ Minimum	&	23.21\%	&	-0.01	\\
 			\vspace{1em}	
 			
 			
-			\caption[Pairwise agreement statistics by word type]{Pairwise agreement between annotators for each word type. 	
-			Horizontal lines represent median values. Colored boxes extend from the first quartile to the third quartile, and thus represent the Inter Quartile Range (IQR). Whiskers extend to the minimum and maximum values within 1.58 IQR of the first and third quartiles, respectively, and roughly represent a 95\% confidence interval around the median. 
-			 Outliers that fall outside of the IQR by a distance of more than approximately 1.5$\times$IQR  are represented by circles.
+			\caption[Pairwise agreement statistics by word type]{Pairwise agreement between annotators for each word type. 
+			(See \cref{fig:agreement:annotators} on \cpageref{fig:agreement:annotators} for an explanation of the box-and-whisker plots displayed here.)	
+			%Horizontal lines represent median values. Colored boxes extend from the first quartile to the third quartile, and thus represent the Inter Quartile Range (IQR). Whiskers extend to the minimum and maximum values within 1.58 IQR of the first and third quartiles, respectively, and roughly represent a 95\% confidence interval around the median. Outliers that fall outside of the IQR by a distance of more than approximately 1.5$\times$IQR  are represented by circles.
 			%Numbers in parentheses indicate the number of pairwise comparisons available for each word type. The bottom of each vertical bar represents the minimum pairwise value, the top the maximum. Horizontal bars indicate average pairwise values.
 			}
 
@@ -544,7 +547,8 @@ Minimum	&	23.21\%	&	-0.01	\\
 		
 		
 		
-	To put the agreement values reported in this section in context, it is worthwhile to compare them with those obtained in recent work by \textcite{Michaux2013} on L2 Dutch speech by L1 French speakers. In this study, three expert annotators were asked to indicate which syllable they perceived as stressed in Dutch word utterances by the L1 French speakers. Two of the annotators were L1 Dutch speakers, the other an L1 French speaker who was nevertheless ``highly proficient'' in Dutch (p.~90). The authors report an average $\kappa$ of 0.71 between annotators, representing ``substantial'' agreement in the schema of \textcite{Landis1977}, and a much higher value than those observed in the present work. One plausible explanation for this difference may be the fact that while the three annotators participating in the \textcite{Michaux2013} study were all ``phonetically trained'' (p.~90), i.e. experts (see \cref{sec:lexstress:annotators}),
+	To put the agreement values reported in this section in context, it is worthwhile to compare them with those obtained in recent work by \textcite{Michaux2013} on L2 Dutch speech by L1 French speakers. In this study, three expert annotators were asked to indicate which
+	 syllable they perceived as stressed in Dutch word utterances by the L1 French speakers. Two of the annotators were L1 Dutch speakers, the other an L1 French speaker who was nevertheless ``highly proficient'' in Dutch (p.~90). The authors report an average $\kappa$ of 0.71 between annotators, representing ``substantial'' agreement in the schema of \textcite{Landis1977}, and a much higher value than those observed in the present work. One plausible explanation for this difference may be the fact that while the three annotators participating in the \textcite{Michaux2013} study were all ``phonetically trained'' (p.~90), i.e. experts (see \cref{sec:lexstress:annotators}),
 	the annotation project described here collected judgments from a larger number of annotators, and only two of the 15 participating annotators had extensive phonetic training. The relationship between annotator expertise and inter-annotator agreement is explored further in \cref{sec:agreement:expert}. 
 		
 			The following sections present detailed analyses of the agreement between annotators with different native languages (\cref{sec:agreement:native}) and different levels of expertise (\cref{sec:agreement:expert}).  However, on the whole, it already seems evident that inter-annotator agreement in this lexical stress error annotation task is relatively low. This may simply signal low reliability among the particular annotators participating in this study, but it may also be a preliminary indication of the considerable difficulty of the task of diagnosing errors in L1 French speakers' realizations of lexical stress in German; this notion will be revisited in \cref{sec:diag:classification}. 
@@ -568,7 +572,7 @@ Minimum	&	23.21\%	&	-0.01	\\
 		
 		\Cref{fig:agreement:L1} illustrates the inter-annotator agreement for all pairs in which one annotator was a native German speaker and the other a nonnative speaker, as well as agreement between pairs in which both annotators were native speakers. Due to the small size of the nonnative group (3 annotators) and the aforementioned technical problems with annotator G's data (see \cref{sec:lexstress:annotators}), there was very little overlap between nonnative annotators (only one pairwise comparison), preventing meaningful analysis of agreement within the nonnative group. The precise mean, maximum, median, and minimum pairwise values for the two agreement metrics are listed in \cref{tab:agreement:L1}, for both  native-nonnative pairs and native-native pairs. 
 		
-		Looking at these statistics, we see little difference between the two types of pairs; in particular, the mean percentage agreement and $\kappa$ values for native-nonnative and native-native pairs are quite close. If anything, it would appear that agreement within the native annotator group is slightly lower and more varied than agreement between the native and nonnative groups, though this may be explained by the larger number of native-native pairs compared to native-nonnative. It would therefore seem that these inter-annotator statistics do not tell us much about difference between how the two groups of annotators judge lexical stress accuracy.
+		Looking at these statistics, we see little difference between the two types of pairs; in particular, the mean percentage agreement and $\kappa$ values for native-nonnative and native-native pairs are quite close. \TODO{Stat significance?} If anything, it would appear that agreement within the native annotator group is slightly lower and more varied than agreement between the native and nonnative groups, though this may be explained by the larger number of native-native pairs compared to native-nonnative. It would therefore seem that these inter-annotator statistics do not tell us much about difference between how the two groups of annotators judge lexical stress accuracy.
 		
 		
 		\begin{table}[tb]
@@ -633,7 +637,7 @@ Minimum	&32.65\%	 & 0.10 &  23.21\% &	-0.01\\
 
 		However, in comparing the relative frequencies of the different labels assigned by annotators in these two L1 groups, a more noticeable difference between the groups begin to emerge. As illustrated in \cref{fig:agreement:l1bars}, the native and nonnative speakers judged utterances as having correct lexical stress with approximately the same frequency: 52.7\% of native annotators' judgments were [correct], vs. 57.3\% for nonnative annotators. However, nonnative speakers seemed to choose the [none]
 		%``no clear stress/I can't tell'' 
-		label somewhat more frequently than native speakers (21.3\% vs. 11\%); this could indicate that nonnative speakers are less confident about how stress should be realized in German, resulting in less certainty about whether a given utterance is correct or not. \TODO{update/verify this paragraph}
+		label somewhat more frequently than native speakers (21.3\% vs. 11\%); this could indicate that nonnative speakers are less confident about how stress should be realized in German, resulting in less certainty about whether a given utterance is correct or not. 
 		
 		
 			\begin{figure}[htb]
@@ -690,7 +694,7 @@ Minimum	&32.65\%	 & 0.10 &  23.21\% &	-0.01\\
 	
 	%\TODO{mention that we're trying to train nonnative speakers to communicate in the L2, which means their speech will be ``evaluated'' by novices (native speakers), so we don't want to limit ourselves to expert judgments}
 
-	\TODO{Better transition needed here?}
+	%\TODO{Better transition needed here?}
 	
 	Just as the previous section analyzed native vs. nonnative annotations in terms of inter-annotator agreement and differences in label distributions between those groups, this section uses analogous data to investigate the differences between annotators of the three different expertise levels -- expert (exp.), intermediate (int.), and novice (nov.) -- described in \cref{sec:lexstress:annotators} above.
 	
@@ -702,9 +706,11 @@ Minimum	&32.65\%	 & 0.10 &  23.21\% &	-0.01\\
 	\item{Novice annotator vs. intermediate annotator (Nov vs. Int)}
 	\end{itemize}
 	%
-	Additionally, pairwise agreement was tallied for pairings between two intermediate annotators (Int vs. Int), as a measure of inter-annotator agreement within this expertise group. Due to the small size of the expert and novice groups (two and three annotators, respectively), as well as the fact that expert annotators were deliberately not assigned overlapping tokens to label in an effort to maximize the number of tokens labeled by at least one expert \TODO{does that contradict the above statement about novice judgments being just as important as expert ones?}, overlap within these groups was insufficient to calculate meaningful intra-group agreement statistics, so none are reported here. The small size of these two groups should also be kept in mind throughout the following analysis, as we should hesitate to draw firm conclusions from such small samples. 
+	Additionally, pairwise agreement was tallied for pairings between two intermediate annotators (Int vs. Int), as a measure of inter-annotator agreement within this expertise group. Due to the small size of the expert and novice groups (two and three annotators, respectively), as well as the fact that expert annotators were deliberately not assigned overlapping tokens to label in an effort to maximize the number of tokens labeled by at least one expert,
+	%\TODO{does that contradict the above statement about novice judgments being just as important as expert ones?}, 
+	overlap within these groups was insufficient to calculate meaningful intra-group agreement statistics, so none are reported here. The small size of these two groups should also be kept in mind throughout the following analysis, as we should hesitate to draw firm conclusions from such small samples. 
 		
-		The agreement measures between groups and within the intermediate group are presented in \cref{tab:agreement:expertise} and illustrated in \cref{fig:agreement:expertise}. As these figures show, the mean values of both percentage agreement and $\kappa$ between the different expertise groups are quite close, and close to the overall means for all annotator pairs;  interestingly, the highest mean percentage agreement observed in this comparison (though only by a small margin) is that of expert-novice pairings, which might be a preliminary indication that there is no relevant difference in reliability between expertise levels. 
+		The agreement measures between groups and within the intermediate group are presented in \cref{tab:agreement:expertise} and illustrated in \cref{fig:agreement:expertise}. As these figures show, the mean values of both percentage agreement and $\kappa$ between the different expertise groups are quite close, and close to the overall means for all annotator pairs \TODO{Stat significance?};  interestingly, the highest mean percentage agreement observed in this comparison (though only by a small margin) is that of expert-novice pairings, which might be a preliminary indication that there is no relevant difference in reliability between expertise levels. 
 			
 		
 		

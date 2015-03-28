@@ -310,7 +310,6 @@ along with the values computed for each feature from the sample utterances shown
 	\subsection{Fundamental frequency}
 	\label{sec:prosody:f0}
 	
-	\TODO{consistency in terminology: F0 vs. pitch?}
 	
 	As described in \cref{sec:bkgd:stress}, the fundamental frequency (F0) of an utterance, which corresponds at the perceptual level to its pitch, also provides a strong indication of how lexical stress is realized in that utterance, and F0 features 
 	%should therefore also contribute to 
@@ -330,121 +329,134 @@ along with the values computed for each feature from the sample utterances shown
 %	\end{itemize}	
 %	}	
 	
-	The F0 contour of a given utterance is determined using the pitch detection 
+	The pitch (F0)%
+	\footnote{ As stated previously, pitch and F0 are not identical, 
+	the latter being an acoustic (objective) property of the speech signal and the former the perceptual (subjective) correlate thereof. 
+	However, in JSnoori and much of the literature, the term ``pitch'' is often used to refer to an aspect of the speech signal which can be measured objectively.
+	For consistency with JSnoori's terminology, in this section the terms will be used somewhat interchageably.}
+	 contour of a given utterance is estimated using the pitch detection 
 	%algorithm(s) implemented in 
 	functionality of 
-	JSnoori. At the heart of JSnoori's approach to pitch detection lies the algorithm developed by \textcite{Martin1982}, a frequency-domain method of pitch detection which uses a comb function with teeth of decreasing magnitude to identify harmonics of F0 in the spectrum (spectra are extracted by Fast Fourier Transform using 32-millisecond Hamming windows set 8 milliseconds apart \TODO{double-check that}). JSnoori also implements several improvements to pitch detection beyond Martin's algorithm \citep{DiMartino1999}, including \TODO{Yves' parabolic interpolation - citation?}, the voicing decision optimization of   \textcite{Secrest1983}, and the dynamic programming technique proposed by \textcite{Ney1981} for identifying and removing incorrect points in the contour. Further improvements to JSnoori's pitch detection capabilities, including the implementation of additional detection algorithms, are currently in development (see \cref{sec:conclusion:future}).
+	JSnoori. At the heart of JSnoori's approach to pitch detection lies the algorithm developed by \textcite{Martin1982}, a frequency-domain method of pitch detection which uses a comb function with teeth of decreasing magnitude to identify harmonics of F0 in the spectrum (spectra are extracted by Fast Fourier Transform using 32-millisecond Hamming windows offset by 8 milliseconds). JSnoori also implements several improvements to pitch detection beyond Martin's algorithm \citep{DiMartino1999}, including
+	 %\TODO{Yves' parabolic interpolation - citation?}, 
+	 the voicing decision optimization of   \textcite{Secrest1983} 
+	 and the dynamic programming technique proposed by \textcite{Ney1981} for identifying and removing incorrect points in the contour. Further improvements to JSnoori's pitch detection capabilities, including the implementation of additional detection algorithms, are currently in development (see \cref{sec:conclusion:future}).
 	
 	Thanks to these techniques, JSnoori is capable of efficient, generally accurate detection of F0 
-	\TODO{\textit{keep?} within the range of 65-800 Hertz}. Each pitch point in the contour is subsequently converted from Hertz to semitones.
+	within the range of 65-800 Hertz, with each pitch point in the contour being subsequently converted from Hertz to semitones.
 	%, using the Bagshaw definition \citep{Bagshaw1994} (or \citep{Bonneau2004}?)
 	Using this contour, each of the relevant segments of the utterance -- i.e. the word of interest, each of its syllables, and their nuclei -- is analyzed in terms of its F0 mean, maximum, minimum, and range;
-	the full list of features computed is presented in \cref{tab:prosody:f0}.
+	the full list of features computed is presented in \cref{tab:f0features}.
 	Features only take into account the non-zero points in the contour, i.e. points corresponding to voiced sections of the utterance. The F0 mean is calculated as the average of all non-zero points within the start and end boundaries of the given segment; the maximum F0 is the highest value at any of these points, and the minimum the lowest non-zero value; and F0 range is computed as the difference between the maximum and minimum values. 
 	
-	\TODO{JSnoori only looks at mean and max? or something? by way of transition to this next paragraph}
+	%\TODO{JSnoori only looks at mean and max? or something? by way of transition to this next paragraph}
 	% JSnoori diagnoses errors in the learner's pitch only with regard to 
 	
 	Much of the work on assessing nonnative lexical stress has been conducted with English as the L2, and thus often makes the assumption that a stressed syllable should have a higher F0 than unstressed syllables \citep{Bonneau2011}. In German, the F0 of a stressed syllable also tends to differ from the surrounding contour, but the difference may be positive (the stressed syllable has a higher pitch than surrounding syllables) or negative (lower pitch) \citep[p.~267]{Cutler2005}. 		%``...in German utterances, stressed syllables could be signaled by any F0 obtrusion from the overall contour, so that a stressed syllable could be either higher or lower in pitch than its neighbors'' \citep[p.~267]{Cutler2005}
 	Therefore, the computed features
 	%include not only the difference in F0 maxima between syllables in the word and the location (syllable index) of the word's F0 maximum, but also the analogous features for F0 minima and ranges.
-	capture not only the F0 maximum of each syllable, but also the minimum and range (difference between maximum and minimum) \TODO{more/separate discussion of why range might be important?}.
+	capture not only the F0 maximum of each syllable, but also the minimum and range (difference between maximum and minimum). %\TODO{more/separate discussion of why range might be important?}.
 	 
 	%To guard against unvoiced segments interfering with the F0 analysis, syllables may be represented by the vowels that form their nuclei. Relative differences between syllables may be more helpful than absolute differences. The F0 variation (range) over the entire word might also be informative of whether or not the speaker failed to stress any syllable.%, although it would not tell us which syllable were stressed. 
 	%Other features may be drawn from related work on lexical stress in learner speech, such as \textcite{Bonneau2011}.
 	
 
 
-		%\setlength\extrarowheight{5pt}
-\begin{table}[h!]
-		\centering
-		\caption[Features computed for fundamental frequency (F0) analysis]{Features computed for fundamental frequency (F0) analysis, and their values for the sample utterances of ``Flagge'' in \cref{fig:featuresexample}.% Values are given in semitones.
+%		%\setlength\extrarowheight{5pt}
+%\begin{table}[h!]
+%		\centering
+%		\caption[Features computed for fundamental frequency (F0) analysis]{Features computed for fundamental frequency (F0) analysis, and their values for the sample utterances of ``Flagge'' in \cref{fig:featuresexample}.% Values are given in semitones.
+%		}
+%		{\renewcommand{\arraystretch}{1.25}%
+%		
+%		\begin{subtable}[h]{\textwidth}
+%		\caption{Absolute features}
+%		\begin{tabularx}{\textwidth}{p{.225\textwidth}Xrr}
+%		\toprule
+%		\multirow{3}{*}{Feature name} 
+%									& \multirow{3}{*}{Description}
+%																	& \multicolumn{2}{c}{Value} \\
+%									&								& \multicolumn{2}{c}{(semitones)} \\							
+%					  				&																	&  (a) F		
+%					  																											& (b) G
+%					  																																\\
+%		\midrule
+%		%%%% WORD FEATURES 
+%		WORD-F0-MEAN	& Average (Avg.) F0, entire word	 				& 8.78		& 16.36\\
+%		WORD-F0-MAX	& Maximum (Max.) F0, entire word				& 10.73	& 20.08\\
+%		WORD-F0-MIN		& Minimum (Min.) F0, entire word				& 6.27		& 13.65\\
+%		WORD-F0-RANGE & WORD-F0-MAX$-$WORD-F0-MIN			& 4.46		& 6.43\\
+%%		WORD-F0-RANGE & {\renewcommand{\arraystretch}{.9}%
+%%										$\displaystyle\begin{array}{l}%
+%%										\phantom{-}\mbox{WORD-F0-MAX}\\%
+%%										-\mbox{WORD-F0-MIN}\\\end{array}$}	& 4.46	& 6.43\\
+%%		\multirow{2}{*}{WORD-F0-RANGE}	
+%%									& $\phantom{- }\text{WORD-F0-MAX}$
+%%																			& \multirow{2}{*}{4.459217}		
+%%																									& \multirow{2}{*}{6.425775}\\
+%%									& $- \text{WORD-F0-MIN}$						& 						& 					\\		
+%
+%		%\addlinespace
+%		%%%% SYLL* FEATURES 
+%		SYLL0-F0-MEAN	& Avg. F0, 1st syllable					& 9.29		& 15.81\\	
+%		V0-F0-MEAN		& Avg. F0, 1st syllable	nucleus				& \color{red}{TD}		& \color{red}{TD}\\
+%		SYLL0-F0-MAX		& Max. F0, 1st syllable					& 10.73		& 18.25\\
+%		V0-F0-MAX		& Max. F0, 1st syllable	nucleus				& \color{red}{TD}		& \color{red}{TD}\\
+%		SYLL0-F0-MIN		& Min. F0, 1st syllable					& \color{red}{TD}		& \color{red}{TD}\\
+%		V0-F0-MIN		& Min. F0, 1st syllable	nucleus				& \color{red}{TD}		& \color{red}{TD}\\
+%		SYLL0-F0-RANGE & SYLL0-F0-MAX$-$SYLL0-F0-MIN	& 1.45		& 4.60\\
+%		V0-F0-RANGE		& V0-F0-MAX$-$V0-F0-MIN				& \color{red}{TD}		& \color{red}{TD}\\
+%%		SYLL0-F0-RANGE	& {\renewcommand{\arraystretch}{.9}%
+%%										$\displaystyle\begin{array}{l}%
+%%										\phantom{-}\mbox{SYLL0-F0-MAX}\\%
+%%										-\mbox{SYLL0-F0-MIN}\\\end{array}$} 		& 1.45		& 4.60\\
+%%		\multirow{2}{*}{SYLL0-F0-RANGE}	
+%%									& $\phantom{- }\text{SYLL0-F0-MAX}$%-$SYLL0-F0-MIN	
+%%																			& \multirow{2}{*}{1.44952}		
+%%																										& \multirow{2}{*}{4.600318}\\
+%%									& $- \text{SYLL0-F0-MIN}$					& 						& 					\\		
+%
+%		SYLL1-F0-MEAN	& Avg. F0, 2nd syllable						& 8.24		& 17.51\\
+%		V1-F0-MEAN		& Avg. F0, 2nd syllable	nucleus				& \color{red}{TD}		& \color{red}{TD}\\
+%		SYLL1-F0-MAX		& Max. F0, 2nd syllable						& 9.93		& 20.08\\
+%		V1-F0-MAX		& Max. F0, 2nd syllable	nucleus				& \color{red}{TD}		& \color{red}{TD}\\
+%		SYLL1-F0-MIN		& Min. F0, 2nd syllable			& \color{red}{TD}	& \color{red}{TD}\\
+%		V1-F0-MIN		& Min. F0, 2nd syllable 	nucleus				& \color{red}{TD}		& \color{red}{TD}\\
+%		SYLL1-F0-RANGE	& SYLL1-F0-MAX$-$SYLL1-F0-MIN 	& 3.66		& 5.86 \\
+%		V1-F0-RANGE		& V1-F0-MAX$-$V1-F0-MIN				& \color{red}{TD}		& \color{red}{TD}\\
+%%		SYLL1-F0-RANGE	& {\renewcommand{\arraystretch}{.9}%
+%%										$\displaystyle\begin{array}{l}%
+%%										\phantom{-}\mbox{SYLL1-F0-MAX}\\%
+%%										-\mbox{SYLL1-F0-MIN}\\\end{array}$} 		& 3.66	& 5.86 \\
+%%		\multirow{2}{*}{SYLL1-F0-RANGE}	
+%%									& $\phantom{- }\text{SYLL1-F0-MAX}$%-$SYLL1-F0-MIN	
+%%																			& \multirow{2}{*}{3.65978}		
+%%																										& \multirow{2}{*}{5.862722}\\
+%%									& $- \text{SYLL1-F0-MIN}$					& 						& 					\\		
+%		
+%		%\addlinespace
+%		\bottomrule
+%		\end{tabularx}
+%		\end{subtable}
+%		}
+%		\label{tab:f0features}
+%		\end{table}
+%		%\vspace{1em}
+		
+		\begin{table}%[h!]
+		
+		%\ContinuedFloat
+		\caption[Features computed for fundamental frequency (F0) analysis% (cont.)
+		]{%(continued) 
+		Features computed for fundamental frequency (F0) analysis, and their values for the sample utterances of ``Flagge'' in \cref{fig:featuresexample}. 
+		S0 refers to the word's first syllable, S1 to the second syllable; similarly, V0 and V1 refer to the nucleus (vowel) of the first and second syllable, respectively.
+		Values are given in semitones, except for the index features, which use integer values.
 		}
 		{\renewcommand{\arraystretch}{1.25}%
-		
-		\begin{subtable}[h]{\textwidth}
-		\caption{Absolute features}
-		\begin{tabularx}{\textwidth}{p{.225\textwidth}Xrr}
-		\toprule
-		\multirow{3}{*}{Feature name} 
-									& \multirow{3}{*}{Description}
-																	& \multicolumn{2}{c}{Value} \\
-									&								& \multicolumn{2}{c}{(semitones)} \\							
-					  				&																	&  (a) F		
-					  																											& (b) G
-					  																																\\
-		\midrule
-		%%%% WORD FEATURES 
-		WORD-F0-MEAN	& Average (Avg.) F0, entire word	 				& 8.78		& 16.36\\
-		WORD-F0-MAX	& Maximum (Max.) F0, entire word				& 10.73	& 20.08\\
-		WORD-F0-MIN		& Minimum (Min.) F0, entire word				& 6.27		& 13.65\\
-		WORD-F0-RANGE & WORD-F0-MAX$-$WORD-F0-MIN			& 4.46		& 6.43\\
-%		WORD-F0-RANGE & {\renewcommand{\arraystretch}{.9}%
-%										$\displaystyle\begin{array}{l}%
-%										\phantom{-}\mbox{WORD-F0-MAX}\\%
-%										-\mbox{WORD-F0-MIN}\\\end{array}$}	& 4.46	& 6.43\\
-%		\multirow{2}{*}{WORD-F0-RANGE}	
-%									& $\phantom{- }\text{WORD-F0-MAX}$
-%																			& \multirow{2}{*}{4.459217}		
-%																									& \multirow{2}{*}{6.425775}\\
-%									& $- \text{WORD-F0-MIN}$						& 						& 					\\		
-
-		%\addlinespace
-		%%%% SYLL* FEATURES 
-		SYLL0-F0-MEAN	& Avg. F0, 1st syllable					& 9.29		& 15.81\\	
-		V0-F0-MEAN		& Avg. F0, 1st syllable	nucleus				& \color{red}{TD}		& \color{red}{TD}\\
-		SYLL0-F0-MAX		& Max. F0, 1st syllable					& 10.73		& 18.25\\
-		V0-F0-MAX		& Max. F0, 1st syllable	nucleus				& \color{red}{TD}		& \color{red}{TD}\\
-		SYLL0-F0-MIN		& Min. F0, 1st syllable					& \color{red}{TD}		& \color{red}{TD}\\
-		V0-F0-MIN		& Min. F0, 1st syllable	nucleus				& \color{red}{TD}		& \color{red}{TD}\\
-		SYLL0-F0-RANGE & SYLL0-F0-MAX$-$SYLL0-F0-MIN	& 1.45		& 4.60\\
-		V0-F0-RANGE		& V0-F0-MAX$-$V0-F0-MIN				& \color{red}{TD}		& \color{red}{TD}\\
-%		SYLL0-F0-RANGE	& {\renewcommand{\arraystretch}{.9}%
-%										$\displaystyle\begin{array}{l}%
-%										\phantom{-}\mbox{SYLL0-F0-MAX}\\%
-%										-\mbox{SYLL0-F0-MIN}\\\end{array}$} 		& 1.45		& 4.60\\
-%		\multirow{2}{*}{SYLL0-F0-RANGE}	
-%									& $\phantom{- }\text{SYLL0-F0-MAX}$%-$SYLL0-F0-MIN	
-%																			& \multirow{2}{*}{1.44952}		
-%																										& \multirow{2}{*}{4.600318}\\
-%									& $- \text{SYLL0-F0-MIN}$					& 						& 					\\		
-
-		SYLL1-F0-MEAN	& Avg. F0, 2nd syllable						& 8.24		& 17.51\\
-		V1-F0-MEAN		& Avg. F0, 2nd syllable	nucleus				& \color{red}{TD}		& \color{red}{TD}\\
-		SYLL1-F0-MAX		& Max. F0, 2nd syllable						& 9.93		& 20.08\\
-		V1-F0-MAX		& Max. F0, 2nd syllable	nucleus				& \color{red}{TD}		& \color{red}{TD}\\
-		SYLL1-F0-MIN		& Min. F0, 2nd syllable			& \color{red}{TD}	& \color{red}{TD}\\
-		V1-F0-MIN		& Min. F0, 2nd syllable 	nucleus				& \color{red}{TD}		& \color{red}{TD}\\
-		SYLL1-F0-RANGE	& SYLL1-F0-MAX$-$SYLL1-F0-MIN 	& 3.66		& 5.86 \\
-		V1-F0-RANGE		& V1-F0-MAX$-$V1-F0-MIN				& \color{red}{TD}		& \color{red}{TD}\\
-%		SYLL1-F0-RANGE	& {\renewcommand{\arraystretch}{.9}%
-%										$\displaystyle\begin{array}{l}%
-%										\phantom{-}\mbox{SYLL1-F0-MAX}\\%
-%										-\mbox{SYLL1-F0-MIN}\\\end{array}$} 		& 3.66	& 5.86 \\
-%		\multirow{2}{*}{SYLL1-F0-RANGE}	
-%									& $\phantom{- }\text{SYLL1-F0-MAX}$%-$SYLL1-F0-MIN	
-%																			& \multirow{2}{*}{3.65978}		
-%																										& \multirow{2}{*}{5.862722}\\
-%									& $- \text{SYLL1-F0-MIN}$					& 						& 					\\		
-		
-		%\addlinespace
-		\bottomrule
-		\end{tabularx}
-		\end{subtable}
-		}
-		\label{tab:f0features}
-		\end{table}
-		%\vspace{1em}
-		
-		\begin{table}[h!]
-		
-		\ContinuedFloat
-		\caption[Features computed for fundamental frequency (F0) analysis (cont.)]{(continued) Features computed for fundamental frequency (F0) analysis, and their values for the sample utterances of ``Flagge'' in \cref{fig:featuresexample}.% Values are given in semitones.
-		}
-		{\renewcommand{\arraystretch}{1.25}%
-		\begin{subtable}[h]{\textwidth}
-		\caption{Relative features}
-		\begin{tabularx}{\textwidth}{p{.225\textwidth}Xrr}
+		%\begin{subtable}[h]{\textwidth}
+		%\caption{Relative features}
+		\begin{tabularx}{\textwidth}%{p{.25\textwidth}Xrr}
+			{lXrr}
 		\toprule
 		\multirow{2}{*}{Feature name} 
 									& \multirow{2}{*}{Description}
@@ -460,64 +472,96 @@ along with the values computed for each feature from the sample utterances shown
 %									 \mbox{SYLL1-F0-MEAN}\\
 %									 \end{array}$}			
 %																				& 1.12688     & 0.903218 \\		
-		REL-SYLL-F0-MEAN & SYLL0-F0-MEAN$/$SYLL1-F0-MEAN 	& 1.13    & 0.90 \\
-		REL-V-F0-MEAN & V1-F0-MEAN$/$V0-F0-MEAN &  \color{red}{TD}	& \color{red}{TD}\\
+		REL-SYLL-F0-MEAN 
+			& Mean F0 in S1$/$mean F0 in S0
+			%& Mean F0 in 2nd syllable$/$mean F0, 1st syll.
+			%& SYLL0-F0-MEAN$/$SYLL1-F0-MEAN 	
+			& 1.13    & 0.90 \\
+		REL-V-F0-MEAN 
+			& Mean F0 in V1$/$mean F0 in V0
+			%& Mean F0, 2nd syll. nucleus$/$mean F0,1st syll. nuc.
+			%& V1-F0-MEAN$/$V0-F0-MEAN 
+			&  \color{red}{TD}	& \color{red}{TD}\\
 %		SYLL-REL-MEAN
 %							& $\displaystyle\frac{\mbox{SYLL0-F0-MEAN}}{\mbox{SYLL1-F0-MEAN}}$			
 %																									& 1.13    & 0.90 \\
 		%\addlinespace
-		REL-SYLL-F0-MAX & SYLL1-F0-MAX$/$SYLL0-F0-MAX 			& 1.08		& 0.91 \\
-		REL-V-F0-MAX & V1-F0-MAX$/$V0-F0-MAX &  \color{red}{TD}	& \color{red}{TD}\\
+		REL-SYLL-F0-MAX 
+			& Maximum F0 in S1$/$max. F0 in S0
+			%& SYLL1-F0-MAX$/$SYLL0-F0-MAX 			
+			& 1.08		& 0.91 \\
+		REL-V-F0-MAX 
+			& Max. F0 in V1$/$max. F0 in V0
+			%& V1-F0-MAX$/$V0-F0-MAX 
+			&  \color{red}{TD}	& \color{red}{TD}\\
 %		SYLL-REL-MAX
 %							& $\displaystyle\frac{\mbox{SYLL0-F0-MAX}}{\mbox{SYLL1-F0-MAX}}$
 %																									& 1.08		& 0.91 \\
-		REL-SYLL-F0-MIN & SYLL1-F0-MIN$/$SYLL0-F0-MIN &\color{red}{TD}&\color{red}{TD}\\
-		REL-V-F0-MIN & V1-F0-MIN$/$V0-F0-MIN &  \color{red}{TD}	& \color{red}{TD}\\
+		REL-SYLL-F0-MIN 
+			& Minimum F0 ($>0$) in S1$/$min. F0 in S0
+			%& SYLL1-F0-MIN$/$SYLL0-F0-MIN 
+			&\color{red}{TD}&\color{red}{TD}\\
+		REL-V-F0-MIN 
+			& Min. F0 in V1$/$min. F0 in V0
+			%& V1-F0-MIN$/$V0-F0-MIN 
+			&  \color{red}{TD}	& \color{red}{TD}\\
 		
 		%\addlinespace
 %		SYLL-REL-MIN		
 %							& $\displaystyle\frac{\mbox{SYLL0-F0-MIN}}{\mbox{SYLL1-F0-MIN}}$	
 %																		& \color{red}{TD}		& \color{red}{TD}\\
 		%\addlinespace
-		REL-SYLL-F0-RANGE & SYLL1-F0-RANGE$/$SYLL0-F0-RANGE & 0.40%0.396068		
+		REL-SYLL-F0-RANGE
+			& F0 Range (max. F0$-$min. F0) in S1$/$ \newline F0 range in S0
+			 %& SYLL1-F0-RANGE$/$SYLL0-F0-RANGE 
+			 & 0.40%0.396068		
 																															& 0.78\\
-																															REL-V-F0-RANGE & V1-F0-RANGE$/$V0-F0-RANGE &  \color{red}{TD}	& \color{red}{TD}\\
+																													REL-V-F0-RANGE 
+			& F0 Range in V1$/$F0 range in V0
+			%& V1-F0-RANGE$/$V0-F0-RANGE 
+			&  \color{red}{TD}	& \color{red}{TD}\\
 %		SYLL-REL-RANGE	
 %							& $\displaystyle\frac{\mbox{SYLL0-F0-RANGE}}{\mbox{SYLL1-F0-RANGE}}$
 %																									& 0.40%0.396068		
 %																															& 0.78\\
 		%\addlinespace
 		F0-MAX-INDEX	
-							& 	$\begin{cases} 
-								0, & \text{if SYLL0-F0-MAX}>\text{SYLL1-F0-MAX}\\
-								1, & \text{if SYLL0-F0-MAX}<\text{SYLL1-F0-MAX}\\
-								\end{cases}$
-%							& 0 if  SYLL0-F0-MAX$>$SYLL1-F0-MAX,
-%								1 if  SYLL0-F0-MAX$<$SYLL1-F0-MAX		
-																									& 0					& 1				\\
+			& $\begin{cases}
+					0 & \text{if max. F0 in S0}>\text{max. F0 in S1}\\
+					1 & \text{otherwise}\\
+				\end{cases}$
+%			& 	$\begin{cases} 
+%				0, & \text{if SYLL0-F0-MAX}>\text{SYLL1-F0-MAX}\\
+%				1, & \text{if SYLL0-F0-MAX}<\text{SYLL1-F0-MAX}\\
+%				\end{cases}$
+			& 0					& 1				\\
+				
 		F0-MIN-INDEX	
-							& 	$\begin{cases} 
-								0, & \text{if SYLL0-F0-MIN}<\text{SYLL1-F0-MIN}\\
-								1, & \text{if SYLL0-F0-MIN}>\text{SYLL1-F0-MIN}\\
-								\end{cases}$
-%							& 0 if  SYLL0-F0-MIN$<$SYLL1-F0-MIN,
-%								1 if  SYLL0-F0-MIN$>$SYLL1-F0-MIN		
-																									& 1					& 0				\\
+			& $\begin{cases}
+					0 & \text{if min. F0 in S0}<\text{min. F0 in S1}\\
+					1 & \text{otherwise}\\
+				\end{cases}$
+%			& 	$\begin{cases} 
+%				0, & \text{if SYLL0-F0-MIN}<\text{SYLL1-F0-MIN}\\
+%				1, & \text{if SYLL0-F0-MIN}>\text{SYLL1-F0-MIN}\\
+%				\end{cases}$
+			& 1					& 0				\\
 																									
 		F0-MAXRANGE-INDEX	
-					& $\begin{cases} 
-								0, & \text{if SYLL0-F0-RANGE}>\text{SYLL1-F0-RANGE}\\
-								1, & \text{if SYLL0-F0-RANGE}<\text{SYLL1-F0-RANGE}\\
-							\end{cases}$
-%					& 0 if  SYLL0-F0-RANGE$>$SYLL1-F0-RANGE,
-%						1 if  SYLL0-F0-RANGE$<$SYLL1-F0-RANGE		
-																									& 1					& 1				\\
+			& $\begin{cases}
+					0 & \text{if F0 range in S0}>\text{F0 range in S1}\\
+					1 & \text{otherwise}\\
+				\end{cases}$
+%			& $\begin{cases} 
+%						0, & \text{if SYLL0-F0-RANGE}>\text{SYLL1-F0-RANGE}\\
+%						1, & \text{if SYLL0-F0-RANGE}<\text{SYLL1-F0-RANGE}\\
+%					\end{cases}$
+			& 1					& 1				\\
 		\bottomrule
 		\end{tabularx}
-		\end{subtable}
-		
+		%\end{subtable}
+		\label{tab:f0features}
 		} % end arraystretch
-		\label{tab:durationfeatures}
 \end{table}
 
 

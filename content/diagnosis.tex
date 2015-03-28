@@ -7,17 +7,18 @@
 
 %\cleanchapterquote{You can’t do better design with a computer, but you can speed up your work enormously.}{Wim Crouwel}{(Graphic designer and typographer)}
 
-In order to provide learners with useful feedback on their lexical stress errors in the L2, 
-the prototype CAPT tool developed in this thesis project 
+In order to provide learners with useful feedback on their lexical stress errors, % in the L2, 
+a Computer-Assisted Pronunciation Training (CAPT) system
+%the prototype CAPT tool developed in this thesis project 
 must first be able to automatically detect and diagnose such errors in a learner's utterance. This requires at least:
-\begin{enumerate}[label=(\alph*)]
-\item Reasonably accurate word-, syllable- and phone-level segmentation of the learner's L2 utterance; 
+\begin{enumerate}[label=(\alph*),topsep=-.5em]
+\item Reasonably accurate word-, syllable- and phone-level segmentation of the learner's nonnative (L2) utterance; 
 \item %A means of analyzing
 An analysis of how lexical stress is realized in the
 % prosody of the segmented 
 given
 utterance;
-\item A representation of how native speakers of the target language (would) realize lexical stress in the given sentence; and
+\item A representation of how native (L1) speakers of the target language (would) realize lexical stress in the given sentence; and
 \item %A way of comparing
 A comparison of the learner's prosody to this representation. 
 \end{enumerate}
@@ -34,18 +35,18 @@ how (a) is achieved using
  and 
  %finally, 
  the various approaches to (c) and (d) that are implemented in the prototype tool (\cref{sec:diag:compare,sec:diag:classification}).
- Finally, it describes how the system's modular architecture allows researchers and teachers control over which of these approaches are used \TODO{(\cref{sec:diag:system})}.
+ Finally, it describes how the system's modular architecture allows researchers and teachers control over which of these approaches are used (\cref{sec:diag:system}).
 
 
 
 \section{Automatic segmentation of nonnative speech}
 \label{sec:diag:segmentation}
 
-\TODO{Should this become a subsection of \cref{sec:diag:prosody}?}
+%\TODO{Should this become a subsection of \cref{sec:diag:prosody}?}
 
 %Automatic 
 Segmentation
-%, or labeling, 
+and labeling
 of a recorded utterance is the task of annotating the speech signal with boundaries that demarcate individual phones, syllables, words, sentences, and/or other units of speech; see \cref{fig:GGsegmentation} for an example of a multi-level segmentation of a German utterance. 
 	
 	\begin{figure}
@@ -56,10 +57,10 @@ of a recorded utterance is the task of annotating the speech signal with boundar
 	\end{figure}
 
 
-A reasonably accurate segmentation of an L2 learner's utterance is indispensable for an analysis of the accuracy of their pronunciation; 
-\TODO{mention that there are methods which don't need segmentation, but they're more limited?}
+A reasonably accurate segmentation of an L2 learner's utterance is indispensable for an analysis of the accuracy of their pronunciation, 
+%\TODO{mention that there are methods which don't need segmentation, but they're more limited?}
 as it allows comparison between relevant units of the learner's utterance -- e.g. words, syllables, and phones -- and corresponding units in native speech. 
-The most accurate segmentation would of course be one produced by hand by a trained phonetician. However, hand-labeling is not feasible in most scenarios because of its high cost in terms of time and wages; moreover, because the ultimate goal of this work is the development of a CAPT tool which can give L2 learners helpful automatic feedback on their pronunciation, 
+The most accurate segmentation would of course be one produced by hand by a trained phonetician; however, hand-labeling is not feasible in most scenarios because of its high cost in terms of time and wages. Moreover, because the ultimate goal of this work is the development of a CAPT tool which can give L2 learners helpful automatic feedback on their pronunciation, 
 %even when they do not have access to a language teacher, 
 any analysis of the learner's speech signal, including the preliminary step of segmentation, must proceed fully automatically. Therefore, a means of automatically segmenting a given utterance is required.
 
@@ -72,13 +73,12 @@ any analysis of the learner's speech signal, including the preliminary step of s
 	An effective and widely-used technique for this is 
 	forced
 	% (Viterbi) 
-	alignment \citep{Fohr1996,Mesbahi2011,Fohr2012,Fauth2014}.
+	alignment \citep{Fohr1996,Mesbahi2011,Fohr2012,Fauth2014},
+	a constrained type of speech recognition in which the task is not to determine what was said (i.e. the best phone or word sequence corresponding to a recorded utterance),  but rather to find the best alignment between the phone/word sequence, known in advance, and the corresponding segments of the given speech signal.
 	%which uses the Viterbi algorithm to 
 	%
-	This technique,
-	\TODO{\textit{remove?} a type of speech recognition,}
-	requires:
-	\begin{itemize}
+	This technique	requires:
+	\begin{itemize}[topsep=-1em]
 %knowledge of the text of the given utterance (known beforehand in the IFCASL case), 
 	\item the expected text (word sequence) of the given utterance, 
 	\item a pronunciation lexicon containing the sequence of phones expected for each word, and
@@ -89,9 +89,9 @@ any analysis of the learner's speech signal, including the preliminary step of s
 	The first of these requirements, the text of the utterance, is trivial when the speaker has been asked to read a given sentence aloud, which is the case in \TODO{this context \textit{is that unclear?}}.
 	%
 	A lexicon of canonical word pronunciations, i.e. the pronunciations that might be given in a standard dictionary, is also relatively easy to obtain for a well-researched language such as German, for which many digital linguistic resources exist.
-	 To account for differences in how different speakers (especially non-native speakers) may pronounce the given sentence, 
-	%the lexicon is supplemented with a lexicon of non-native pronunciation variants 
-	the lexicon should contain not only the canonical pronunciation for each word, but also any alternate or non-standard pronunciation variants (native or non-native) that might be encountered. Research \TODO{at LORIA} has found the inclusion of non-native pronunciation variants to lead to improvements in the accuracy of automatic segmentation of non-native speech \citep{Jouvet2011,Mesbahi2011,Bonneau2012,Orosanu2012}, and one of the intended outcomes of the IFCASL project is the extraction of a non-native variant lexicon from the L2 speech in the corpus \TODO{ref?}.
+	 To account for differences in how different speakers (especially nonnative speakers) may pronounce the given sentence, 
+	%the lexicon is supplemented with a lexicon of nonnative pronunciation variants 
+	the lexicon should contain not only the canonical pronunciation for each word, but also any alternate or non-standard pronunciation variants (native or nonnative) that might be encountered. Research \TODO{at LORIA} has found the inclusion of nonnative pronunciation variants to lead to improvements in the accuracy of automatic segmentation of nonnative speech \citep{Jouvet2011,Mesbahi2011,Bonneau2012,Orosanu2012}, and one of the intended outcomes of the IFCASL project is the extraction of a nonnative variant lexicon from the L2 speech in the corpus \TODO{ref?}.
 	
 	The final requirement for segmentation via forced alignment is an acoustic model, i.e. a statistical model 
 	%(typically a Hidden Markov Model) 
@@ -99,7 +99,7 @@ any analysis of the learner's speech signal, including the preliminary step of s
 	which captures the correspondence between acoustic features extracted from the speech signal and phones in the target language. 
 	To accurately capture this correspondence, the model must be trained on a large amount of speech data in the target language; 
 	the acoustic model used to align the German IFCASL data was trained on native German speech from the Kiel corpus \TODO{ref, verify}.
-	However, research by \citeauthor{Bouselmi2005} (\citeyear{Bouselmi2005,Bouselmi2012}) has shown that even more accurate segmentation of learners' utterances an be obtained by using acoustic models adapted to non-native speech in the target language and/or speech in the learner's L1; refining the automatic segmentation functionality using such adapted models would therefore be a logical extension of this work (see \cref{sec:conclusion:future}) \TODO{does that clause work?}.
+	However, research by \citeauthor{Bouselmi2005} (\citeyear{Bouselmi2005,Bouselmi2012}) has shown that even more accurate segmentation of learners' utterances an be obtained by using acoustic models adapted to nonnative speech in the target language and/or speech in the learner's L1; refining the automatic segmentation functionality using such adapted models would therefore be a logical extension of this work (see \cref{sec:conclusion:future}) \TODO{does that clause work?}.
 	
 	\TODO{Details about how forced Viterbi alignment works?}
 	%Given the expected text and the corresponding phone sequence, forced alignment consists of using the Viterbi algorithm and an acoustic Hidden Markov Model trained on the target language to determine the temporal locations of boundaries between each of the expected phones. The Viterbi algorithm is commonly used in automatic speech recognition to determine... 
@@ -131,13 +131,13 @@ any analysis of the learner's speech signal, including the preliminary step of s
 	fully-automatic CAPT system,
 	which 
 	would need to perform segmentation on the fly without recourse to manual verification.
-	%The native and non-native read speech recordings comprising the German-language subset of the IFCASL corpus \citep{Fauth2014,Trouvain2013} have already been automatically segmented via forced alignment, as described above.
+	%The native and nonnative read speech recordings comprising the German-language subset of the IFCASL corpus \citep{Fauth2014,Trouvain2013} have already been automatically segmented via forced alignment, as described above.
 	%\TODO{paragraph break?}
 	Indeed, 
 	%segmentations obtained by forced alignment 
 	forced alignment is not a perfect method; \TODO{\textit{unclear?:} because of the constraints put on the recognition system,} the aligner will always find a match between the given text and audio, even if they do not correspond.  
-	Therefore, inaccuracies in the phone boundaries determined using this technique should be expected, especially when the alignment is performed on non-native utterances using an acoustic model trained on native speech.
-		\TODO{Reliability of non-native speech automatic segmentation for prosodic feedback. \citep{Mesbahi2011}}
+	Therefore, inaccuracies in the phone boundaries determined using this technique should be expected, especially when the alignment is performed on nonnative utterances using an acoustic model trained on native speech.
+		\TODO{Reliability of nonnative speech automatic segmentation for prosodic feedback. \citep{Mesbahi2011}}
 		\TODO{\textit{work this sentence in somewhere:}} A fully-fledged CAPT system extending this thesis project would have to cope with any problems that may result from using imperfect automatic segmentations as a starting point for analysis.
 	
 	
@@ -333,7 +333,7 @@ along with the values computed for each feature from the sample utterances shown
 	\TODO{JSnoori only looks at mean and max? or something? by way of transition to this next paragraph}
 	% JSnoori diagnoses errors in the learner's pitch only with regard to 
 	
-	Much of the work on assessing non-native lexical stress has been conducted with English as the L2, and thus often makes the assumption that a stressed syllable should have a higher F0 than unstressed syllables \citep{Bonneau2011}. In German, the F0 of a stressed syllable also tends to differ from the surrounding contour, but the difference may be positive (the stressed syllable has a higher pitch than surrounding syllables) or negative (lower pitch) \citep[p.~267]{Cutler2005}. 		%``...in German utterances, stressed syllables could be signaled by any F0 obtrusion from the overall contour, so that a stressed syllable could be either higher or lower in pitch than its neighbors'' \citep[p.~267]{Cutler2005}
+	Much of the work on assessing nonnative lexical stress has been conducted with English as the L2, and thus often makes the assumption that a stressed syllable should have a higher F0 than unstressed syllables \citep{Bonneau2011}. In German, the F0 of a stressed syllable also tends to differ from the surrounding contour, but the difference may be positive (the stressed syllable has a higher pitch than surrounding syllables) or negative (lower pitch) \citep[p.~267]{Cutler2005}. 		%``...in German utterances, stressed syllables could be signaled by any F0 obtrusion from the overall contour, so that a stressed syllable could be either higher or lower in pitch than its neighbors'' \citep[p.~267]{Cutler2005}
 	Therefore, the computed features
 	%include not only the difference in F0 maxima between syllables in the word and the location (syllable index) of the word's F0 maximum, but also the analogous features for F0 minima and ranges.
 	capture not only the F0 maximum of each syllable, but also the minimum and range (difference between maximum and minimum) \TODO{more/separate discussion of why range might be important?}.
@@ -605,7 +605,7 @@ ENERGY-MAX-INDEX & \color{red}{TD} &  \color{red}{TD}	& \color{red}{TD}\\
 	
 \vspace{2em}
 	
-Using the prosodic features thus computed, the prototype CAPT tool analyzes a given learner utterance and diagnoses their lexical stress error(s) (or lack thereof) by comparing this non-native speech to that of L1 German speakers using one of several possible methods. The following section describes the various diagnostic methods explored in this thesis project, and how they make use of (subsets of) the duration, F0, and intensity features described above. 
+Using the prosodic features thus computed, the prototype CAPT tool analyzes a given learner utterance and diagnoses their lexical stress error(s) (or lack thereof) by comparing this nonnative speech to that of L1 German speakers using one of several possible methods. The following section describes the various diagnostic methods explored in this thesis project, and how they make use of (subsets of) the duration, F0, and intensity features described above. 
 	
 	
 \section{Diagnosis by direct comparison}
@@ -766,7 +766,7 @@ that of the learner; as described in \cref{sec:capt:fluency}, research by \textc
 	
 	\TODO{use IFCASL-FG and IFCASL-GG if appropriate}
 		
-		In addition to the motivation of analyzing the frequency and distribution of lexical stress errors in L2 German speech by L1 French speakers, another motivation behind the annotation of these errors in a subset of the IFCASL corpus (described in \cref{chap:lexstress}) was the creation of labeled data for a supervised machine learning approach to diagnosing learner errors. In addition to the non-native utterances and their gold-standard labels from the annotated sub-corpus (see \cref{sec:agreement:gold}), the corresponding utterances of the selected word types from the \TODO{L1-German portion of the IFCASL corpus} were also included in training data, with each native utterance labeled as [correct] based on the assumption that native speakers always realize lexical stress correctly.
+		In addition to the motivation of analyzing the frequency and distribution of lexical stress errors in L2 German speech by L1 French speakers, another motivation behind the annotation of these errors in a subset of the IFCASL corpus (described in \cref{chap:lexstress}) was the creation of labeled data for a supervised machine learning approach to diagnosing learner errors. In addition to the nonnative utterances and their gold-standard labels from the annotated sub-corpus (see \cref{sec:agreement:gold}), the corresponding utterances of the selected word types from the \TODO{L1-German portion of the IFCASL corpus} were also included in training data, with each native utterance labeled as [correct] based on the assumption that native speakers always realize lexical stress correctly.
 		
 		\TODO{\textit{awkward}} Using a classifier trained on (a subset of) this data, it is possible to predict a label (e.g. [correct] or [incorrect]) for a given learner utterance based on the values of (a subset of) the features described in \cref{sec:diag:prosody}, and then compare the predicted label to the label assigned to that instance in the gold-standard data to evaluate the accuracy of the prediction. 
 		%
@@ -812,9 +812,9 @@ For the two most frequently observed classes in the data, [correct] and [incorre
 	\subsection{Feature performance \TODO{\textit{retitle?}}}
 	\label{sec:classification:features}
 	
-		As mentioned above, a series of experiments was carried out in an effort to determine which of the prosodic features described in \cref{sec:diag:prosody} give the best accuracy in the task of classifying lexical stress errors. Determining the best-performing features not only enables the creation of the most accurate diagnosis-by-classification system possible, but may also have implications for the way these acoustic features of the speech signal correspond (or fail to correspond) with the perception of lexical stress in non-native speech. 
+		As mentioned above, a series of experiments was carried out in an effort to determine which of the prosodic features described in \cref{sec:diag:prosody} give the best accuracy in the task of classifying lexical stress errors. Determining the best-performing features not only enables the creation of the most accurate diagnosis-by-classification system possible, but may also have implications for the way these acoustic features of the speech signal correspond (or fail to correspond) with the perception of lexical stress in nonnative speech. 
 		
-		A 10-fold cross-validation was performed on the entire set of available training data, i.e. the utterances of 12 German word types produced by L1 French speakers which had been annotated for lexical stress errors as described in \cref{chap:lexstress}, along with the	utterances of these word types by native German speakers, labeled as correct. As the goal of  error diagnosis by classification in the CAPT context is to classify non-native, and not native, speech, including native utterances in the test data was not appropriate; therefore, for each of the 10 folds of the cross-validation, one tenth of the non-native utterances were randomly selected to be held out as the test data set, and the other nine-tenths were combined with the native utterances to create the training data set. 
+		A 10-fold cross-validation was performed on the entire set of available training data, i.e. the utterances of 12 German word types produced by L1 French speakers which had been annotated for lexical stress errors as described in \cref{chap:lexstress}, along with the	utterances of these word types by native German speakers, labeled as correct. As the goal of  error diagnosis by classification in the CAPT context is to classify nonnative, and not native, speech, including native utterances in the test data was not appropriate; therefore, for each of the 10 folds of the cross-validation, one tenth of the nonnative utterances were randomly selected to be held out as the test data set, and the other nine-tenths were combined with the native utterances to create the training data set. 
 		
 		To evaluate feature performance, classifiers were trained using various subsets of the complete feature set,
 		%;  the various feature sets used in the experiments 
@@ -1045,12 +1045,12 @@ diagnose lexical stress errors,
 	
 	\TODO{No need to have these in the same section - split into 2 separate subsections}	
 	
-	In the feature experiments described in the previous section, each speaker and word type in the testing data had already been seen in the training data, i.e. the training data included utterances by that speaker or of that word type (uttered by both native and non-native speakers). However, as stated in \TODO{\cref{??}}, one motivation for a classification-based approach to error diagnosis is that the abstraction from concrete reference utterances afforded by such a method can theoretically enable the diagnosis of errors in new word types without requiring additional recordings of native speakers pronouncing these words; to assess the feasibility of diagnosing utterances of new words, the classifier's performance on words not seen in the training data must be evaluated and compared with the performance observed on seen words, with the hypothesis that the former will be better than the latter. Furthermore, in order for a CAPT tool to be useful in practice, it must be able to diagnose the speech of a learner from their very first time using the system. In the experiments reported above, it is possible that the training data's inclusion of other utterances by the speaker in question resulted in higher performance than would be observed if such utterances were not available as training instances, so the classifier's performance on unseen speakers must be compared to the performance reported above, once again with the hypothesis that the classifier will perform more poorly on unseen test data. To test these hypotheses, another series of experiments was carried out using different configurations of testing and training data sets. 
+	In the feature experiments described in the previous section, each speaker and word type in the testing data had already been seen in the training data, i.e. the training data included utterances by that speaker or of that word type (uttered by both native and nonnative speakers). However, as stated in \TODO{\cref{??}}, one motivation for a classification-based approach to error diagnosis is that the abstraction from concrete reference utterances afforded by such a method can theoretically enable the diagnosis of errors in new word types without requiring additional recordings of native speakers pronouncing these words; to assess the feasibility of diagnosing utterances of new words, the classifier's performance on words not seen in the training data must be evaluated and compared with the performance observed on seen words, with the hypothesis that the former will be better than the latter. Furthermore, in order for a CAPT tool to be useful in practice, it must be able to diagnose the speech of a learner from their very first time using the system. In the experiments reported above, it is possible that the training data's inclusion of other utterances by the speaker in question resulted in higher performance than would be observed if such utterances were not available as training instances, so the classifier's performance on unseen speakers must be compared to the performance reported above, once again with the hypothesis that the classifier will perform more poorly on unseen test data. To test these hypotheses, another series of experiments was carried out using different configurations of testing and training data sets. 
 	
 	
 	\subsubsection{Unseen speakers}	
 	
-	To create training and testing data for experiments with utterances from unseen speakers, the entire set of labeled non-native utterances (see \cref{sec:classification:datamethod}) was divided into 56 subsets, each containing all utterances from one of the 56 unique non-native speakers. Using a classifier trained on the native German utterances as well as those of the other 55 speakers, performance on each of these 56 test sets was evaluated. To investigate whether adding features related to speaker or word characteristics is more helpful than prosodic features alone when diagnosing unseen speakers' errors, a comparison was made between classifiers trained using several combinations of the best features from the experiments described in \cref{sec:classification:features} above. The results of the unseen-speaker experiments, and the different feature sets used for training, are given in \cref{tab:results:speakers}.
+	To create training and testing data for experiments with utterances from unseen speakers, the entire set of labeled nonnative utterances (see \cref{sec:classification:datamethod}) was divided into 56 subsets, each containing all utterances from one of the 56 unique nonnative speakers. Using a classifier trained on the native German utterances as well as those of the other 55 speakers, performance on each of these 56 test sets was evaluated. To investigate whether adding features related to speaker or word characteristics is more helpful than prosodic features alone when diagnosing unseen speakers' errors, a comparison was made between classifiers trained using several combinations of the best features from the experiments described in \cref{sec:classification:features} above. The results of the unseen-speaker experiments, and the different feature sets used for training, are given in \cref{tab:results:speakers}.
 		
 	
 	\begin{table}
@@ -1077,7 +1077,7 @@ DUR-F0	&	69.16	&	0.19	&	0.68	&	0.90	&	0.74	&	0.85	\\
 		\subsubsection{Unseen words}
 	
 	
-	To evaluate classification performance on unseen word types, the non-native utterances annotated for lexical stress (see \cref{sec:classification:datamethod}) were divided by their word type, resulting in twelve different data sets to be used for testing. To construct the training set for each test set, utterances of the target word type  were removed from the complete set of native German utterances, and the resulting set of 11 word types uttered by L1 German speakers was combined with the utterances of those 11 word types by L2 speakers. Given the improvement in performance observed with the inclusion of speaker-related features (see \cref{sec:classification:features:spkrword}), along with the apparent \TODO{interaction \textit{in the everyday, not scientific sense}} between such features and the prosodic feature set (such that overall performance improved when all prosodic features were included, not just the best-performing prosodic features of duration and F0), classifiers were trained using a few  different combinations of features, to ascertain how these features affect performance when the test data consists of unseen words. It might be the case that including information about the speaker, i.e. their age/gender and proficiency level, may be more helpful when there are no training instances available for the given word type. 
+	To evaluate classification performance on unseen word types, the nonnative utterances annotated for lexical stress (see \cref{sec:classification:datamethod}) were divided by their word type, resulting in twelve different data sets to be used for testing. To construct the training set for each test set, utterances of the target word type  were removed from the complete set of native German utterances, and the resulting set of 11 word types uttered by L1 German speakers was combined with the utterances of those 11 word types by L2 speakers. Given the improvement in performance observed with the inclusion of speaker-related features (see \cref{sec:classification:features:spkrword}), along with the apparent \TODO{interaction \textit{in the everyday, not scientific sense}} between such features and the prosodic feature set (such that overall performance improved when all prosodic features were included, not just the best-performing prosodic features of duration and F0), classifiers were trained using a few  different combinations of features, to ascertain how these features affect performance when the test data consists of unseen words. It might be the case that including information about the speaker, i.e. their age/gender and proficiency level, may be more helpful when there are no training instances available for the given word type. 
 	
 	The results of these experiments are presented in \cref{tab:results:words}. As that table shows, the best average performance on all twelve unseen word types was achieved using classifiers trained only on the best-performing prosodic features,(DUR+F0), and not taking either of the speaker-related features into consideration: this yielded an accuracy of 66.85\%, $\kappa$ of 0.17, and F$_1$ and F$_2$ measures of 0.77 and 0.84, respectively. 
 	
@@ -1214,7 +1214,7 @@ Average	&	66.85	&	0.17	&	0.69	&	0.88	&	0.77	&	0.83	\\
 \section{Controlling diagnosis in the system}
 \label{sec:diag:system}
 
-	In the prototype CAPT tool developed in this thesis project, a  researcher (or teacher) can choose between the various possible approaches for diagnosing lexical stress errors in learner's speech which have been discussed in this chapter. The choices available in the tool are illustrated in \cref{fig:diag:system}. When creating a new exercise, in which a learner is asked to read one of the sentences extracted from the IFCASL corpus \TODO{(see \cref{??}} in order to receive feedback on their realization of lexical stress in a target word in that sentence, the researcher is asked to select a DiagnosisMethod for that exercise. The Diagnosis method captures the researchers' choices among the various diagnostic options offered by the system; a screenshot showing the creation of a simple example is presented in \cref{fig:diag:creatediagnosismethod}. As illustrated in \cref{fig:createexercise}, this DiagnosisMethod is combined with a (compatible) FeedbackMethod when the exercise is created; see \cref{sec:fb:system} for a description of FeedbackMethods and their compatibility with the various possible DiagnosisMethods. 
+	In the prototype CAPT tool developed in this thesis project, a  researcher (or teacher) can choose between the various possible approaches for diagnosing lexical stress errors in learner's speech which have been discussed in this chapter. The choices available in the tool are illustrated in \cref{fig:diag:system}. When creating a new exercise, in which a learner is asked to read one of the sentences extracted from the IFCASL corpus \TODO{(see \cref{??}} in order to receive feedback on their realization of lexical stress in a target word in that sentence, the researcher is asked to select a DiagnosisMethod for that exercise. The Diagnosis method captures the researchers' choices among the various diagnostic options offered by the system; a screenshot showing the creation of a simple example is presented in \cref{fig:diag:creatediagnosismethod}. As illustrated in \TODO{\cref{fig:createexercise}}, this DiagnosisMethod is combined with a (compatible) FeedbackMethod when the exercise is created; see \cref{sec:fb:system} for a description of FeedbackMethods and their compatibility with the various possible DiagnosisMethods. 
 	
 	\begin{figure}
 		\centering

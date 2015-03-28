@@ -260,7 +260,10 @@ along with the values computed for each feature from the sample utterances shown
 
 \begin{table}%[ht]
 		\centering
-		\caption[Features computed for duration analysis]{Features computed for duration analysis, and their values for the sample utterances of ``Flagge'' in \cref{fig:featuresexample}. Values are given in seconds. }
+		\caption[Features computed for duration analysis]{Features computed for duration analysis, and their values for the sample utterances of ``Flagge'' in \cref{fig:featuresexample}. 
+		S0 refers to the word's first syllable, S1 to the second syllable; similarly, V0 and V1 refer to the nucleus (vowel) of the first and second syllable, respectively.
+		Values are given in seconds. 
+		}
 		
 %		\begin{subtable}[h]{\textwidth}
 %		\caption{Absolute features}
@@ -288,15 +291,15 @@ along with the values computed for each feature from the sample utterances shown
 		\toprule
 		\multirow{2}{*}{Feature name} 
 									& \multirow{2}{*}{Description}
-														& \multicolumn{2}{c}{Value} \\
+														& \multicolumn{2}{c}{Value (s.)} \\
 	&												&  (a) F		& (b) G \\
 		\midrule
 		REL-SYLL-DUR 	
-			& Duration of 2nd syllable$/$dur. of 1st syll.
+			& Duration of S1$/$duration of S0
 			%&	SYLL1-DUR$/$SYLL0-DUR 		
 			& 1.00			& 2.00			\\
 		REL-V-DUR 		
-			& Dur. of 2nd syll. nucleus$/$dur. of 1st syll. nucleus
+			& Duration of V1$/$duration of V0
 			%&	V1-DUR$/$V0-DUR					
 			& 0.67			& 1.80 			\\
 		\bottomrule	
@@ -343,7 +346,7 @@ along with the values computed for each feature from the sample utterances shown
 	 and the dynamic programming technique proposed by \textcite{Ney1981} for identifying and removing incorrect points in the contour. Further improvements to JSnoori's pitch detection capabilities, including the implementation of additional detection algorithms, are currently in development (see \cref{sec:conclusion:future}).
 	
 	Thanks to these techniques, JSnoori is capable of efficient, generally accurate detection of F0 
-	within the range of 65-800 Hertz, with each pitch point in the contour being subsequently converted from Hertz to semitones.
+	within the range of 65-800 Hertz (Hz), with each pitch point in the contour being subsequently converted from Hz to semitones.
 	%, using the Bagshaw definition \citep{Bagshaw1994} (or \citep{Bonneau2004}?)
 	Using this contour, each of the relevant segments of the utterance -- i.e. the word of interest, each of its syllables, and their nuclei -- is analyzed in terms of its F0 mean, maximum, minimum, and range;
 	the full list of features computed is presented in \cref{tab:f0features}.
@@ -568,20 +571,25 @@ along with the values computed for each feature from the sample utterances shown
 	\subsection{Intensity}
 	\label{sec:prosody:intensity}
 	
-	\TODO{intensity and energy are used interchangeably - fix or explain}
+	%\TODO{intensity and energy are used interchangeably - fix or explain}
 		
 		Research on lexical stress prosody has generally indicated that intensity is the least important of the three features, i.e. corresponds least closely to lexical stress patterns \citep{Cutler2005}. 
 Indeed, existing lexical stress assessment tools may not take intensity into account, as 
-was the case with the prosodic diagnosis functionality of JSnoori \TODO{at the start of this thesis project \textit{reword that}}.
+was the case with the prosodic diagnosis functionality of JSnoori at the start of this thesis project.
 %is the case in the system described by \textcite{Bonneau2011}.  
 However, intensity can nonetheless have an impact on the perception of lexical stress, especially in combination with pitch or duration, or both \citep{Cutler2005}; %TODO check this reference
-Therefore, in addition to duration and fundamental frequency, the intensity of relevant portions of an utterance are taken into account when performing prosodic analysis.
+Therefore, in addition to duration and fundamental frequency,
+ JSnoori's learner speech analysis module was modified to take intensity (energy)%
+ \footnote{ For compatibility with the terminology used in JSnoori, these terms will be used interchangeably in this section.} 
+ into account.
+ %the intensity of relevant portions of an utterance are taken into account when performing prosodic analysis.
 % This could be as simple as computing the total energy of the part of the signal corresponding to each syllable of the word in question, although more complex measures may be explored if time allows.
 
 
 
 
-	The intensity contour of a given segment (word, syllable, or syllable nucleus) in the utterance is computed in JSnoori, which calculates the total amount of energy at frequencies from 0 to 8000 Hertz in spectra extracted from the signal by Fast Fourier Transform, using Hamming windows 20 milliseconds long spaced 4 milliseconds apart \TODO{explain why I didn't use 32ms windows?}. Energies below a ``silence threshold'' of 60 decibels are not counted toward the total, as these are assumed to correspond to ambient or non-speech noise.  
+	The intensity contour of a given segment (word, syllable, or syllable nucleus) in the utterance is computed in JSnoori, which calculates the total amount of energy at frequencies from 0 to 8000 Hz in spectra extracted from the signal by Fast Fourier Transform, using Hamming windows 20 milliseconds long offset by 4 milliseconds.
+	Energies below a ``silence threshold'' of 60 decibels are not counted toward the total, as these are assumed to correspond to ambient or non-speech noise.  
 	This intensity contour is then used to calculate the mean and maximum energy in the relevant segments of the speech signal; the list of features extracted is given in \cref{tab:intfeatures}.
 	
 	
@@ -596,49 +604,53 @@ Therefore, in addition to duration and fundamental frequency, the intensity of r
 %	}		
 	
 	
-\begin{table}[h!]
+\begin{table}%[h!]
 		\centering
-		\caption[Features computed for intensity  analysis]{Features computed for intensity analysis, and their values for the sample utterances of ``Flagge'' in \cref{fig:featuresexample}. Values are given in dB over 60dB}	
+		\caption[Features computed for intensity  analysis]{Features computed for intensity analysis, and their values for the sample utterances of ``Flagge'' in \cref{fig:featuresexample}. 
+		S0 refers to the word's first syllable, S1 to the second syllable; similarly, V0 and V1 refer to the nucleus (vowel) of the first and second syllable, respectively.
+		Values are given in decibels (dB) over 60 dB, except for the index feature, which uses integer values.
+		}	
 		
 		
-		\begin{subtable}[h]{\textwidth}
-		\caption{Absolute features}
-		\begin{tabularx}{\textwidth}{p{.3\textwidth}Xrr}
-		\toprule
-		\multirow{3}{*}{Feature name} 
-							& \multirow{3}{*}{Description}
-									& \multicolumn{2}{c}{Value} \\
-							&		& \multicolumn{2}{c}{(dB$>$60)} \\							
-					  		&		&  (a) F		& (b) G\\
-		\midrule
-		
-	
-WORD-ENERGY-MEAN & \color{red}{TD} &  \color{red}{TD}	& \color{red}{TD}\\
-WORD-ENERGY-MAX & \color{red}{TD} &  \color{red}{TD}	& \color{red}{TD}\\
-SYLL0-ENERGY-MEAN & \color{red}{TD} &  \color{red}{TD}	& \color{red}{TD}\\
-SYLL0-ENERGY-MAX & \color{red}{TD} &  \color{red}{TD}	& \color{red}{TD}\\
-SYLL1-ENERGY-MEAN & \color{red}{TD} &  \color{red}{TD}	& \color{red}{TD}\\
-SYLL1-ENERGY-MAX & \color{red}{TD} &  \color{red}{TD}	& \color{red}{TD}\\
-V0-ENERGY-MEAN & \color{red}{TD} &  \color{red}{TD}	& \color{red}{TD}\\
-V0-ENERGY-MAX & \color{red}{TD} &  \color{red}{TD}	& \color{red}{TD}\\
-V1-ENERGY-MEAN & \color{red}{TD} &  \color{red}{TD}	& \color{red}{TD}\\
-V1-ENERGY-MAX & \color{red}{TD} &  \color{red}{TD}	& \color{red}{TD}\\
-	
-	\bottomrule
-	\end{tabularx}
-	\end{subtable}
-	\vspace{2em}	
-	
-%	\label{tab:intfeatures}
-%\end{table}
-%
-%\begin{table}[ht]
-%	\ContinuedFloat
-%	\caption[Features computed for intensity analysis (cont.)]{(continued) Features computed for intensity analysis, and their values for the sample utterances of ``Flagge'' in \cref{fig:featuresexample}.}	
-		
-	\begin{subtable}[h]{\textwidth}
-	\caption{Relative features}
-	\begin{tabularx}{\textwidth}{p{.35\textwidth}Xrr}
+%		\begin{subtable}[h]{\textwidth}
+%		\caption{Absolute features}
+%		\begin{tabularx}{\textwidth}{p{.3\textwidth}Xrr}
+%		\toprule
+%		\multirow{3}{*}{Feature name} 
+%							& \multirow{3}{*}{Description}
+%									& \multicolumn{2}{c}{Value} \\
+%							&		& \multicolumn{2}{c}{(dB$>$60)} \\							
+%					  		&		&  (a) F		& (b) G\\
+%		\midrule
+%		
+%	
+%WORD-ENERGY-MEAN & \color{red}{TD} &  \color{red}{TD}	& \color{red}{TD}\\
+%WORD-ENERGY-MAX & \color{red}{TD} &  \color{red}{TD}	& \color{red}{TD}\\
+%SYLL0-ENERGY-MEAN & \color{red}{TD} &  \color{red}{TD}	& \color{red}{TD}\\
+%SYLL0-ENERGY-MAX & \color{red}{TD} &  \color{red}{TD}	& \color{red}{TD}\\
+%SYLL1-ENERGY-MEAN & \color{red}{TD} &  \color{red}{TD}	& \color{red}{TD}\\
+%SYLL1-ENERGY-MAX & \color{red}{TD} &  \color{red}{TD}	& \color{red}{TD}\\
+%V0-ENERGY-MEAN & \color{red}{TD} &  \color{red}{TD}	& \color{red}{TD}\\
+%V0-ENERGY-MAX & \color{red}{TD} &  \color{red}{TD}	& \color{red}{TD}\\
+%V1-ENERGY-MEAN & \color{red}{TD} &  \color{red}{TD}	& \color{red}{TD}\\
+%V1-ENERGY-MAX & \color{red}{TD} &  \color{red}{TD}	& \color{red}{TD}\\
+%	
+%	\bottomrule
+%	\end{tabularx}
+%	\end{subtable}
+%	\vspace{2em}	
+%	
+%%	\label{tab:intfeatures}
+%%\end{table}
+%%
+%%\begin{table}[ht]
+%%	\ContinuedFloat
+%%	\caption[Features computed for intensity analysis (cont.)]{(continued) Features computed for intensity analysis, and their values for the sample utterances of ``Flagge'' in \cref{fig:featuresexample}.}	
+%		
+%	\begin{subtable}[h]{\textwidth}
+%	\caption{Relative features}
+	\begin{tabularx}{\textwidth}%{p{.35\textwidth}Xrr}
+		{lXrr}
 	\toprule
 	\multirow{2}{*}{Feature name} 
 					& \multirow{2}{*}{Description}
@@ -646,22 +658,35 @@ V1-ENERGY-MAX & \color{red}{TD} &  \color{red}{TD}	& \color{red}{TD}\\
 				  	&							&  (a) F		& (b) G			\\
 	\midrule
 	
-REL-SYLL-ENERGY-MEAN & \color{red}{TD} &  \color{red}{TD}	& \color{red}{TD}\\
-REL-SYLL-ENERGY-MAX & \color{red}{TD} &  \color{red}{TD}	& \color{red}{TD}\\
-REL-VOWEL-ENERGY-MEAN & \color{red}{TD} &  \color{red}{TD}	& \color{red}{TD}\\
-REL-VOWEL-ENERGY-MAX & \color{red}{TD} &  \color{red}{TD}	& \color{red}{TD}\\
-ENERGY-MAX-INDEX & \color{red}{TD} &  \color{red}{TD}	& \color{red}{TD}\\
+REL-SYLL-ENERGY-MEAN 
+	& Mean energy in S1$/$S0 mean en.
+	&  \color{red}{TD}	& \color{red}{TD}\\
+REL-SYLL-ENERGY-MAX 
+	& Maximum en. in S1$/$S0 max. en.
+	&  \color{red}{TD}	& \color{red}{TD}\\
+REL-VOWEL-ENERGY-MEAN 
+	& Mean en. in V1$/$mean en. in V0
+	&  \color{red}{TD}	& \color{red}{TD}\\
+REL-VOWEL-ENERGY-MAX 
+	& Max. en. in S1$/$max. en. in S0
+	&  \color{red}{TD}	& \color{red}{TD}\\
+ENERGY-MAX-INDEX 
+	& $\begin{cases}
+			0 & \text{if S0 max. en.}>\text{S1 max. en.}\\
+			1 & \text{otherwise}\\
+		\end{cases}$
+	&  \color{red}{TD}	& \color{red}{TD}\\
 	
 	\bottomrule
 	\end{tabularx}
-	\end{subtable}
+	%\end{subtable}
 \label{tab:intfeatures}
 \end{table}
 	
 	
 \vspace{2em}
 	
-Using the prosodic features thus computed, the prototype CAPT tool analyzes a given learner utterance and diagnoses their lexical stress error(s) (or lack thereof) by comparing this nonnative speech to that of L1 German speakers using one of several possible methods. The following section describes the various diagnostic methods explored in this thesis project, and how they make use of (subsets of) the duration, F0, and intensity features described above. 
+Using the prosodic features thus computed using JSnoori, \TODO{de-stress} analyzes a given learner utterance and diagnoses their lexical stress error(s) (or lack thereof) by comparing this L2 speech to that of L1 German speakers using one of several possible methods. The following section describes the various diagnostic methods explored in this thesis project, and how they make use of (subsets of) the duration, F0, and intensity features described above. 
 	
 	
 \section{Diagnosis by direct comparison}
@@ -670,7 +695,7 @@ Using the prosodic features thus computed, the prototype CAPT tool analyzes a gi
 
 \TODO{intro}
 
-A typical approach to assessing L2 prosody involves comparing a learner's utterance to the utterance(s) of the same word or sentence as produced by one or more native speaker of the target language; this is the approach commonly taken in CAPT systems and research
+One approach to assessing L2 prosody involves comparing a learner's utterance to the utterance(s) of the same word or sentence as produced by one or more native speaker of the target language; this is an approach commonly taken in CAPT systems and research
 (e.g. \TODO{refs}),  %taken by \textcite{Bonneau2011} and others.% \citep{Eskenazi2009, Delmonte2011}. 
 In this comparison-based approach, the L1 utterance serves as a direct representation of how the word/sentence would be realized by a native speaker; errors are diagnosed when there are stark enough differences between the L2 learner's utterance and that of the native speaker with respect to the relevant features \TODO{\textit{is that sentence awkward?}}.
 

@@ -693,14 +693,14 @@ Using the prosodic features thus computed using JSnoori, \TODO{de-stress} analyz
 %\section{Comparison of native and nonnative speech}
 \label{sec:diag:compare}
 
-\TODO{intro}
+%\TODO{intro}
 
 One approach to assessing L2 prosody involves comparing a learner's utterance to the utterance(s) of the same word or sentence as produced by one or more native speaker of the target language; this is an approach commonly taken in CAPT systems and research
-(e.g. \TODO{refs}),  %taken by \textcite{Bonneau2011} and others.% \citep{Eskenazi2009, Delmonte2011}. 
-In this comparison-based approach, the L1 utterance serves as a direct representation of how the word/sentence would be realized by a native speaker; errors are diagnosed when there are stark enough differences between the L2 learner's utterance and that of the native speaker with respect to the relevant features \TODO{\textit{is that sentence awkward?}}.
-
-This section describes the various \textit{approaches} to such diagnosis by comparison taken in the prototype CAPT tool developed in this thesis project. 
-	\TODO{is more intro/summary of upcoming sections needed here?}
+(see e.g. \cite{Eskenazi2009,Delmonte2011,Bonneau2011}). 
+In this comparison-based approach, the L1 utterance serves as a direct representation of how the word/sentence would be realized by a native speaker; an error can then be diagnosed when the L2 learner's utterance and that of the native speaker differ substantially with respect to the relevant features.
+%
+This section describes the various techniques for diagnosis by comparison implemented in \TODO{de-stress}.
+	%\TODO{is more intro/summary of upcoming sections needed here?}
 	%In addition to the simplest type of comparison, in which a single
   
 
@@ -713,15 +713,17 @@ This section describes the various \textit{approaches} to such diagnosis by comp
 	\label{sec:compare:single}
 	
 	
-	The simplest type of diagnosis by direct comparison involves comparing a single learner utterance to a single reference (native-speaker) utterance; as mentioned in \cref{sec:capt:systems:loria}, this is the approach used to evaluate learner speech in JSnoori and its predecessor WinSnoori \citep{Bonneau2004,Henry2007,Bonneau2011}. 
-	In the prototype CAPT tool, this method of comparison is implemented as a type of baseline, using the pre-existing capabilities of JSnoori for processing and comparing the learner and reference utterances, which are described in the following section. 
+	The simplest type of diagnosis by direct comparison involves comparing a single learner utterance to a single reference (native-speaker) utterance; as mentioned in \cref{sec:capt:snoori}, this is the approach used to evaluate learner speech in JSnoori and its predecessor WinSnoori \citep{Bonneau2004,Henry2007,Bonneau2011}. 
+	In \TODO{de-stress}, this method of comparison is implemented as a type of baseline, using the pre-existing capabilities of JSnoori for processing and comparing the learner and reference utterances, which are described in the following section. 
 	
 %	\subsubsection{Diagnosis by comparison in JSnoori \TODO{retitle?}}
 %	\label{sec:compare:single:jsnoori}
 	
-	In JSnoori, comparison between a student's utterance and that of the reference speaker is effected through analysis of the duration (referred to as ``timing'' in JSnoori), F0 (``pitch''), and intensity (``energy'') of relevant segments of each utterance. \TODO{At the beginning of this thesis project, intensity was not taken into account for the analysis of learner utterances; part of this project therefore involved adding intensity analysis to JSnoori's learner-assessment module(s).} For each of these three feature types, a score between 0 and 1 is assigned to the learner utterance based on its correspondence with the reference, and an overall score is computed as the evenly-weighted average of the duration and F0 scores (intensity does not count towards the overall score). 
+	In JSnoori, comparison between a student's utterance and that of the reference speaker is effected through analysis of the duration (referred to as ``timing'' in JSnoori), F0 (``pitch''), and intensity (``energy'') of relevant segments of each utterance. 
+	%\TODO{At the beginning of this thesis project, intensity was not taken into account for the analysis of learner utterances; part of this project therefore involved adding intensity analysis to JSnoori's learner-assessment module(s).} 
+	For each of these three feature types, a score between 0 and 1 is assigned to the learner utterance based on its correspondence with the reference, and an overall score is computed as the evenly-weighted average of the duration and F0 scores (intensity does not count towards the overall score). 
 	
-	\TODO{\textit{unnecessary?} As the diagnostic capabilities of JSnoori were designed with isolated-word utterances in mind, and the data evaluated here consisted of utterances of entire sentences, the utterances could not be passed directly to JSnoori for analysis; instead, the word under analysis in the utterance was first isolated in the segmentation by re-labeling all segments before and after that word as silence.}
+	%\TODO{\textit{unnecessary?} As the diagnostic capabilities of JSnoori were designed with isolated-word utterances in mind, and the data evaluated here consisted of utterances of entire sentences, the utterances could not be passed directly to JSnoori for analysis; instead, the word under analysis in the utterance was first isolated in the segmentation by re-labeling all segments before and after that word as silence.}
 	
 	The following paragraphs describe how each of these three scores is calculated, with reference to the features listed in \cref{sec:diag:prosody}. It must be noted here that the range of possible values for each of the three scores is not continuous, but discrete, and that these values fall on an ordinal rather than an interval scale. Furthermore, the same values for different scores do not necessarily correspond; for example, it is possible to achieve a timing score of 0.3 or 0.5, but possible values for pitch scores jump from 0.1 directly to 0.8.
 	Therfore, JSnoori's representation of scores with floating-point numbers between 0 and 1 is perhaps misleading, and the use of categorical labels might be more appropriate.
@@ -733,20 +735,34 @@ This section describes the various \textit{approaches} to such diagnosis by comp
 	If the number of syllables in the segmentation of the learner's word utterance matches that of the reference, JSnoori assigns an arbitrary low timing score of 0.1; similarly, if there is a match in the number of syllables but a mismatch in the number of phones within one or more of those syllables, the assigned score is 0.3. 
 	If both the number of syllables and the number of phones in each syllable match, a true analysis of the learner's timing is undertaken as follows.
 	
-	First, the location of stress placement in the word utterance is determined by comparing the lengths of each syllable's nucleus, usually a vowel, i.e. by comparing the features V0-DUR and V1-DUR. The syllable with the longest vowel is taken as the stressed syllable. If the stressed syllable differs between the learner and reference utterances, the learner is assigned a timing score of 0.5. If the stressed syllable is the same, JSnoori then computes the difference between the length of the stressed vowel in the learner's utterance (normalized by dividing the vowel's duration by the sum of the durations of all vowels in the word) and that of the stressed vowel in the reference utterance; if that difference falls below a certain threshold \TODO{(-0.2)}, the stressed syllable is deemed not to have been stressed clearly enough, resulting in a score of 0.8. If the difference in relative vowel lengths exceeds the threshold, the learner is assigned a perfect score of 1.0.
+	First, the location of stress placement in the word utterance is determined by comparing the lengths of each syllable's nucleus (usually a vowel).
+	%, i.e. by comparing the features V0-DUR and V1-DUR. 
+	The syllable with the longest vowel is taken as the stressed syllable. If the stressed syllable differs between the learner and reference utterances, the learner is assigned a timing score of 0.5. If the stressed syllable is the same, JSnoori then computes the difference between the length of the stressed vowel in the learner's utterance (normalized by dividing the vowel's duration by the sum of the durations of all vowels in the word) and that of the stressed vowel in the reference utterance; if that difference falls below a certain threshold,
+	% \TODO{(-0.2)}, 
+	the stressed syllable is deemed not to have been stressed clearly enough, resulting in a score of 0.8. If the difference in relative vowel lengths exceeds the threshold, the learner is assigned a perfect score of 1.0.
 	
 	
 	\paragraph{Pitch (F0) score}
 	
-	To assign a pitch score, JSnoori identifies the stressed syllable in an utterance  by comparing the F0 maxima in each syllable (i.e. SYLL0-F0-MAX and SYLL1-F0-MAX), assuming that the syllable with the highest F0 peak is the syllable that has been stressed. \TODO{this is not actually true for German - JSnoori was developed for English}
+	To assign a pitch score, JSnoori identifies the stressed syllable in an utterance  by comparing the F0 maxima in each syllable,
+	 %(i.e. SYLL0-F0-MAX and SYLL1-F0-MAX), 
+	 assuming that the syllable with the highest F0 peak is the syllable that has been stressed;
+	 as noted in \cref{sec:prosody:f0}, this assumption may be less controversial for English, the target language in mind during development of JSnoori, than for German, in which the stressed syllable may be realized with a higher or lower F0 than the unstressed one.
 	 Having identified the syllables stressed by the learner and reference speaker, the two are compared;
 	% that to the syllable with the highest F0 in the reference utterance. I
-	if the syllable is the same in both utterances, stress is judged to have been placed on the correct syllable; otherwise, the learner is assessed as having placed stress on the wrong syllable and receives a score of 0.1. If the learner has stressed the correct syllable, JSnoori assesses whether they have realized that stress clearly enough by comparing the difference between the mean pitch of the stressed and unstressed syllables in the learner's utterance (e.g. SYLL0-F0-MEAN $-$ SYLL1-F0-MEAN) with the analogous difference in the reference utterance; if the difference between these differences is greater than a threshold \TODO{(3)}, the learner is considered not to have expressed stress strongly enough, receiving a score of 0.8. If the difference exceeds the threshold, stress realization in terms of F0 is considered acceptable, and the learner's score is a perfect 1.0.
+	if the syllable is the same in both utterances, stress is judged to have been placed on the correct syllable; otherwise, the learner is assessed as having placed stress on the wrong syllable and receives a score of 0.1. If the learner has stressed the correct syllable, JSnoori assesses whether they have realized that stress clearly enough by comparing the difference between the mean pitch of the stressed and unstressed syllables in the learner's utterance
+	 %(e.g. SYLL0-F0-MEAN $-$ SYLL1-F0-MEAN) 
+	 with the analogous difference in the reference utterance; if the difference between these differences is greater than a threshold,
+	  %\TODO{(3)}, 
+	  the learner is considered not to have expressed stress strongly enough, receiving a score of 0.8. Otherwise, stress realization in terms of F0 is considered acceptable, and the learner's score is a perfect 1.0.
 	
 	
 	\paragraph{Energy (intensity) score}
 	
-	JSnoori's method for assessing lexical stress realization in terms of energy is analogous to that for F0, with the exception that the location of the stressed placement in the utterance is determined with reference to the maximum, not mean, energy observed in each syllable (i.e. SYLL0-ENERGY-MAX vs. SYLL1-ENERGY-MAX), such that the syllable with the higher energy peak is assumed to contain the stress. \TODO{again, this is not actually true for German} 
+	JSnoori's method for assessing lexical stress realization in terms of energy is analogous to that for F0, with the exception that the location of the stressed placement in the utterance is determined with reference to the maximum, not mean, energy observed in each syllable, 
+	%(i.e. SYLL0-ENERGY-MAX vs. SYLL1-ENERGY-MAX), 
+	such that the syllable with the higher energy peak is assumed to contain the stress. 
+	%\TODO{again, this is not actually true for German} 
 	As with pitch, if the learner has stressed the wrong syllable they are assigned a score of 0.1, whereas if they have stressed the correct syllable, their score depends on the difference in maximum intensity between the stressed and unstressed syllables, comparing their utterance to the reference: if the difference in differences exceeds a threshold, they are assessed as having not realized stress clearly enough, and receive a score of 0.8. Otherwise, they receive a perfect intensity score of 1.0.
 
 
@@ -759,15 +775,15 @@ This section describes the various \textit{approaches} to such diagnosis by comp
 
 	\vspace{2em}
 	
-	The scores calculated thus for each of the three feature types are used in the prototype CAPT tool to generate various types of feedback for the learner, including the explicit feedback of reporting their scores directly; see \cref{chap:feedback} for a detailed discussion of the use of these diagnoses in feedback delivery.
+	The scores calculated thus for each of the three feature types are used in \TODO{de-stress} to generate various types of feedback for the learner, including the explicit feedback of reporting their scores directly; see \cref{chap:feedback} for a detailed discussion of the use of these diagnoses in feedback delivery.
 
 
 	\subsection{Using multiple reference speakers}
 	\label{sec:compare:multi}
 	
-	When using a single native-speaker utterance for reference, even if the reference speaker has been chosen carefully (see \cref{sec:compare:selection} below), analysis of the learner's pronunciation may be ``over-fitting'' to speaker- or utterance-dependent characteristics of the reference utterance that do not accurately represent the ``nativeness'' of the reference speech. It is therefore advantageous not to limit the diagnosis to comparison with a single reference speaker, but to instead compare the learner's speech with a variety of native utterances, \TODO{\textit{remove?} the hope being that the variability between these reference utterances will capture more general traits of native pronunciation}.
+	When using a single native-speaker utterance for reference, even if the reference speaker has been chosen carefully (see \cref{sec:compare:selection} below), analysis of the learner's pronunciation may be ``over-fitting'' to speaker- or utterance-dependent characteristics of the reference utterance that do not accurately represent the ``nativeness'' of the reference speech. It is therefore advantageous not to limit the diagnosis to comparison with a single reference speaker, but to instead compare the learner's speech with a variety of native utterances, the hope being that the variability between these reference utterances will capture more general traits of native pronunciation.
 	
-	In the lexical stress CAPT tool, this is accomplished by conducting a series of one-on-one comparisons, pairing the learner utterance with a different reference utterance for each comparison, and then combining the results from all the comparisons. This is accomplished simply by averaging each of the duration, pitch, and energy scores assigned by JSnoori in each one-on-one comparison; for example, the final pitch score for a learner's utterance when compared to three different reference utterances will be the average of those three one-on-one pitch scores as computed by JSnoori. Other means for combining several single-reference scores into one multiple-reference score are certainly conceivable, and this could be an interesting direction for future work (see \cref{sec:conclusion:future}).
+	In \TODO{de-stress}, this is accomplished by conducting a series of one-on-one comparisons, pairing the learner utterance with a different reference utterance for each comparison, and then combining the results from all the comparisons. This is accomplished simply by averaging each of the duration, pitch, and energy scores assigned by JSnoori in each one-on-one comparison; for example, the final pitch score for a learner's utterance when compared to three different reference utterances will be the average of those three one-on-one pitch scores as computed by JSnoori. Other means for combining several single-reference scores into one multiple-reference score are certainly conceivable, and this could be an interesting direction for future work (see \cref{sec:conclusion:future}).
 	
 	
 	%MOVED TO FUTURE WORK
@@ -786,7 +802,12 @@ This section describes the various \textit{approaches} to such diagnosis by comp
 		
 		The most basic way of selecting a reference speaker is to choose one manually.
 %manually specify which speaker should be used for comparison. 
-As a type of baseline, the CAPT tool therefore enables the choice of a reference from a set of available speakers, \TODO{with that set optionally being constrained by one or more properties of the speaker (e.g. gender, age)}. When designing an exercise, the researcher can either manually select a reference utterance for all students who will complete that exercise \TODO{FIXED}, or enable each student to manually select their own reference \TODO{MANUAL}
+As a type of baseline, \TODO{de-stress} therefore enables the choice of a reference from a set of available speakers.
+	%, \TODO{with that set optionally being constrained by one or more properties of the speaker (e.g. gender, age)}.
+	 When designing an exercise, the researcher can either manually select a reference utterance for all students who will complete that exercise,
+	 %\TODO{FIXED}, 
+	 or enable each student to manually select their own reference. 
+	 %\TODO{MANUAL}
 		
 	
 		\subsubsection{Automatically selecting a reference}
@@ -795,7 +816,7 @@ As a type of baseline, the CAPT tool therefore enables the choice of a reference
 		
 		A different and perhaps more interesting means of selecting a reference speaker is to automatically choose a speaker whose voice resembles
 that of the learner; as described in \cref{sec:capt:fluency}, research by \textcite{Probst2002} seems to indicate that using an carefully-selected reference speaker can help learners improve their pronunciation. 
-	This requires some representation of the relevant features of each speaker's voice; the prototype CAPT tool follows \textcite{Probst2002} in using F0 mean and range for that representation, where ach speaker's overall F0 mean and range are computed as the average of each of these features across all available whole-sentence utterances by that speaker. To determine the best reference speaker for a given learner, the respective absolute differences between that learner's overall F0 mean and range and those of each of the available native speakers are calculated and added together, and the native speaker with the lowest total difference from the learner is selected as the reference. While this accomplishes the goal of providing automatic reference selection as an alternative to the more common manual selection of the reference speaker, it remains a rather simplistic way of representing each speaker's voice, and an exploration of how speakers can be compared using other representations would be a worthwhile future endeavor (see \cref{sec:conclusion:future}).
+	This requires some representation of the relevant features of each speaker's voice; \TODO{de-stress} follows \textcite{Probst2002} in using F0 mean and range for that representation, where each speaker's overall F0 mean and range are computed as the average of each of these features across all available whole-sentence utterances by that speaker. To determine the best reference speaker for a given learner, the respective absolute differences between that learner's overall F0 mean and range and those of each of the available native speakers are calculated and added together, and the native speaker with the lowest total difference from the learner is selected as the reference. While this accomplishes the goal of providing automatic reference selection as an alternative to the more common manual selection of the reference speaker, it remains a rather simplistic way of representing each speaker's voice, and an exploration of how speakers can be compared using other representations would be a worthwhile future endeavor (see \cref{sec:conclusion:future}).
 
 
 % MOVED TO FUTURE WORK

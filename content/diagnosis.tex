@@ -86,12 +86,12 @@ any analysis of the learner's speech signal, including the preliminary step of s
 	%which captures how phones in the target language (and potentially other phenomena, e.g. breathing or silence) are realized acoustically.
 	\end{itemize}
 	
-	The first of these requirements, the text of the utterance, is trivial when the speaker has been asked to read a given sentence aloud, which is the case in \TODO{this context \textit{is that unclear?}}.
+	The first of these requirements, the text of the utterance, is trivial when the speaker has been asked to read a given sentence aloud, which is the case in this context.
 	%
-	A lexicon of canonical word pronunciations, i.e. the pronunciations that might be given in a standard dictionary, is also relatively easy to obtain for a well-researched language such as German, for which many digital linguistic resources exist.
+	A lexicon of canonical word pronunciations, i.e. the pronunciations that might be given in a standard dictionary, is also relatively easy to obtain for a well-researched language such as German, for which many digital linguistic resources exist; one example is the lexicon of the MARY text-to-speech synthesis system \citep{Schroeder2003}.
 	 To account for differences in how different speakers (especially nonnative speakers) may pronounce the given sentence, 
 	%the lexicon is supplemented with a lexicon of nonnative pronunciation variants 
-	the lexicon should contain not only the canonical pronunciation for each word, but also any alternate or non-standard pronunciation variants (native or nonnative) that might be encountered. Research \TODO{at LORIA} has found the inclusion of nonnative pronunciation variants to lead to improvements in the accuracy of automatic segmentation of nonnative speech \citep{Jouvet2011,Mesbahi2011,Bonneau2012,Orosanu2012}, and one of the intended outcomes of the IFCASL project is the extraction of a nonnative variant lexicon from the L2 speech in the corpus \TODO{ref?}.
+	the lexicon should contain not only the canonical pronunciation for each word, but also any alternate or non-standard pronunciation variants (native or nonnative) that might be encountered. As stated in \cref{sec:capt:auto} researchers at LORIA have found the inclusion of nonnative pronunciation variants to lead to improvements in the accuracy of automatic segmentation of nonnative speech \citep{Jouvet2011,Mesbahi2011,Bonneau2012,Orosanu2012}, and one of the intended outcomes of the IFCASL project is the extraction of a nonnative variant lexicon from the L2 speech in the corpus \TODO{ref?}.
 	
 	The final requirement for segmentation via forced alignment is an acoustic model, i.e. a statistical model 
 	%(typically a Hidden Markov Model) 
@@ -99,9 +99,9 @@ any analysis of the learner's speech signal, including the preliminary step of s
 	which captures the correspondence between acoustic features extracted from the speech signal and phones in the target language. 
 	To accurately capture this correspondence, the model must be trained on a large amount of speech data in the target language; 
 	the acoustic model used to align the German IFCASL data was trained on native German speech from the Kiel corpus \TODO{ref, verify}.
-	However, research by \citeauthor{Bouselmi2005} (\citeyear{Bouselmi2005,Bouselmi2012}) has shown that even more accurate segmentation of learners' utterances an be obtained by using acoustic models adapted to nonnative speech in the target language and/or speech in the learner's L1; refining the automatic segmentation functionality using such adapted models would therefore be a logical extension of this work (see \cref{sec:conclusion:future}) \TODO{does that clause work?}.
+	However, research by \citeauthor{Bouselmi2005} (\citeyear{Bouselmi2005,Bouselmi2012}) has shown that even more accurate segmentation of learners' utterances can be obtained by using acoustic models adapted to L2 speech in the target language and/or speech in the learner's L1; refining the automatic segmentation functionality using such adapted models would therefore be a logical extension of this work (see \cref{sec:conclusion:future}). % \TODO{does that clause work?}.
 	
-	\TODO{Details about how forced Viterbi alignment works?}
+	%\TODO{Details about how forced Viterbi alignment works?}
 	%Given the expected text and the corresponding phone sequence, forced alignment consists of using the Viterbi algorithm and an acoustic Hidden Markov Model trained on the target language to determine the temporal locations of boundaries between each of the expected phones. The Viterbi algorithm is commonly used in automatic speech recognition to determine... 
 
 	

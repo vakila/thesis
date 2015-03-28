@@ -483,11 +483,16 @@ errors were observed at all skill levels, though beginners made many more errors
 		\subsection{Feasibility of automatic detection}
 		\label{sec:targeting:autodetect}
 
-Finally, although much research still needs to be done on automatic detection and diagnosis of lexical stress errors (one of the main motivations behind this work; see \cref{chap:diagnosis}), recent work on this problem has shown encouraging results. As mentioned above, several existing CAPT tools incorporate treatment of lexical stress errors (e.g. \cite{Wik2009,Bonneau2011}), and \textcite{Shahin2012a,Kim2011} have reported success in applying machine learning methods to the classification of lexical stress patterns in English words. 
+Finally, although much research still needs to be done on automatic detection and diagnosis of lexical stress errors (one of the main motivations behind this work; see \cref{chap:diagnosis}), recent work on this problem has shown encouraging results. As mentioned above, several existing CAPT tools incorporate treatment of lexical stress errors (e.g. \cite{Wik2009,Bonneau2011}). 
+
+	Furthermore, in recent years some researchers have reported success in applying machine learning methods to the classification of lexical stress patterns in English words. 
+		\textcite{Kim2011} experimented with various classifiers to identify  stress patterns in 3- and 4-syllable English words, and reported accuracy in the 80-90\% range for high-quality recordings of L1 English speech; in pilot experiments with low-quality recordings, however, the authors obtained lower accuracy: 70-80\% on L1 speech and 50-60\% on utterances by L2 speakers.
+	\textcite{Shahin2012a} trained Neural Networks to classify stress patterns in bisyllabic words uttered by L1 English children, with the intended application of treating childhood dysprosody, and reported classification accuracy over 90\% for some stress patterns. 
+
 
 		%Detecting syllable- or word-level errors may be more feasible than detecting phone-level errors: ``One additional challenge in pronunciation error detection is that a phoneme represents the smallest possible unit compared to the syllable, word, and sentence level. The shorter the unit, the higher will be the variability in the judgment of the pronunciation quality.'' \citep[p.~2]{Witt2012}
 
-
+	\vspace{2em}
 
 
 	As lexical stress errors thus fulfill the aforementioned criteria for targeting with CAPT, such errors are the focus of the proposed CAPT system. The following sections describe how this thesis project explores automatic diagnosis (\cref{chap:diagnosis}) and feedback generation (\cref{chap:feedback}) for this type of error.		

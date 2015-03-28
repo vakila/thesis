@@ -929,7 +929,7 @@ For the two most frequently observed classes in the data, [correct] and [incorre
 	
 
 		
-	\subsection{Feature performance \TODO{\textit{retitle?}}}
+	\subsection{Feature performance}
 	\label{sec:classification:features}
 	
 		As mentioned above, a series of experiments was carried out in an effort to determine which of the prosodic features described in \cref{sec:diag:prosody} give the best accuracy in the task of classifying lexical stress errors. Determining the best-performing features not only enables the creation of the most accurate diagnosis-by-classification system possible, but may also have implications for the way these acoustic features of the speech signal correspond (or fail to correspond) with the perception of lexical stress in nonnative speech. 
@@ -943,12 +943,14 @@ For the two most frequently observed classes in the data, [correct] and [incorre
 		
 		\begin{table}
 			\centering
-			\caption[Feature sets used in classification experiments]{Feature sets used in classification experiments \TODO{replace ``-'' in feature sets with ``+'', to avoid confusion}}
+			\caption[Feature sets used in classification experiments]{Feature sets used in classification experiments}
+			
+			\vspace{1em}
 			
 			\begin{subtable}[h]{\textwidth}
 				\centering
 				\caption{Prosodic features (see \cref{sec:diag:prosody})}
-				\begin{tabularx}{.65\textwidth}{lX}
+				\begin{tabularx}{.9\textwidth}{lX}
 				\toprule
 				Set name & Features \\
 				\midrule
@@ -972,34 +974,34 @@ For the two most frequently observed classes in the data, [correct] and [incorre
 								REL-VOWEL-ENERGY-MAX, \newline
 								ENERGY-MAX-INDEX \\
 				\addlinespace
-				DUR-F0 & DURATION + F0 \\
-				DUR-ENER & DURATION + ENERGY \\
-				ENER-F0 & ENERGY + F0 \\
+				DUR+F0 & DURATION + F0 \\
+				DUR+ENER & DURATION + ENERGY \\
+				ENER+F0 & ENERGY + F0 \\
 				ALL & DURATION + F0 + ENERGY \\
 				\bottomrule
 				\end{tabularx}
 				\label{tab:features:sets:prosody}
 			\end{subtable}
 			
-			\vspace{1.5em}			
+			\vspace{2em}			
 			
 			\begin{subtable}[h]{\textwidth}
 				\centering
-				\caption{Speaker/word features \TODO{move to separate table in \cref{sec:classification:features:spkrword}?} }
-				%\begin{tabularx}{\textwidth}{lX}
-				\begin{tabular}{ll}
+				\caption{Speaker/word features}
+				\begin{tabularx}{.9\textwidth}{lX}
+				%\begin{tabular}{ll}
 				\toprule
 				Set name & Feature(s) \\
 				\midrule
 				WORD & The word being uttered (e.g. \textit{Tatort}) \\
-				LEVEL & Speaker's L2 German skill level (e.g. A2)\\
+				LEVEL & Speaker's L2 German skill level (A2/B1/B2/C1)\\
 				GENDER & Speaker's age/gender category (Girl/Boy/Woman/Man)\\
-				LVL-GEN & LEVEL, GENDER \\
-				WD-LVL & WORD, LEVEL \\
-				WD-GEN & WORD, GENDER \\
-				WD-SPKR & WORD, LEVEL, GENDER \\
+				LVL+GEN & LEVEL, GENDER \\
+				WD+LVL & WORD, LEVEL \\
+				WD+GEN & WORD, GENDER \\
+				WD+SPKR & WORD, LEVEL, GENDER \\
 				\bottomrule
-				\end{tabular}
+				\end{tabularx}
 				\label{tab:features:sets:spkrword}		
 			\end{subtable}
 				
@@ -1010,9 +1012,13 @@ For the two most frequently observed classes in the data, [correct] and [incorre
 		\subsubsection{Prosodic features}
 		\label{sec:classification:features:prosodic}
 		
-		\TODO{Hypothesis: Dur>F0>Intensity}
+		%\TODO{Hypothesis: Dur>F0>Intensity}
 		
-		\Cref{tab:results:prosody} lists the results of experiments with the prosodic features described in \cref{tab:features:sets:prosody}. The results obtained using features representing each of the three acoustic correlates of lexical stress, duration, F0, and intensity (energy), which are displayed in the first three rows of \cref{tab:results:prosody}, conform with findings from other research regarding the correspondence between these three \TODO{features} and lexical stress (see \cref{sec:bkgd:stress}): of the three feature sets, duration seems to be the best predictor of lexical stress errors, insofar as a classifier trained on duration features alone has higher accuracy, $\kappa$, and F-scores than one trained on F0 features alone, which in turn outperforms a classifier trained using only features related to intensity. However, it should be noted that the F0 and intensity features do seem to be at an advantage over the duration features in one respect: the latter has an average recall of only 0.91 for [correct] utterances, while the other two features exhibit perfect recall (1.0). As mentioned earlier (\cref{sec:classification:datamethod}), lower [correct] recall means that correct pronunciations are being misclassified as incorrect, which is a dangerous type of mistake for the CAPT system to make. Therefore, it is worth bearing in mind that while F0 and intensity features may not lead to the best overall accuracy in error diagnosis, they may constitute ``safer'' alternatives to the duration features, in that they tend to make classifiers more conservative in labeling utterances as [incorrect]. \TODO{\textit{rewrite that sentence?}}
+		\Cref{tab:results:prosody} lists the results of experiments with the prosodic features described in \cref{tab:features:sets:prosody}. As seen in the first three rows of\cref{tab:results:prosody}, the results obtained using features representing each of the three acoustic correlates of lexical stress, duration, F0, and intensity (energy), 
+		%which are displayed in the first three rows of \cref{tab:results:prosody}, 
+		conform with findings from other research 
+		%regarding the correspondence between these three \TODO{features} and lexical stress 
+		(see \cref{sec:bkgd:stress}): of the three feature sets, duration seems to be the best predictor of lexical stress errors, insofar as a classifier trained on duration features alone has higher accuracy, $\kappa$, and F-scores than one trained on F0 features alone, which in turn outperforms a classifier trained using only features related to intensity. However, it should be noted that the F0 and intensity features do seem to be at an advantage over the duration features in one respect: the latter has an average recall of only 0.91 for [correct] utterances, while the other two features exhibit perfect recall (1.0). As mentioned earlier (\cref{sec:classification:datamethod}), lower [correct] recall means that correct pronunciations are being misclassified as incorrect, which is a dangerous type of mistake for a CAPT system to make. Therefore, it is worth bearing in mind that while F0 and intensity features may not lead to the best overall accuracy in error diagnosis, they may constitute ``safer'' alternatives to the duration features, in that they tend to make classifiers more conservative in labeling utterances as [incorrect]. 
 		
 		Compared to using each of the three prosodic feature sets in isolation, it is clear from the figures in the lower rows of \cref{tab:results:prosody} that even better performance can be achieved by combining these features. Interestingly, however, 
 		better performance was observed with classifiers trained only on duration and F0 features (omitting intensity features) than with those trained on features of all three types.
@@ -1022,7 +1028,10 @@ For the two most frequently observed classes in the data, [correct] and [incorre
 		
 		\begin{table}
 			\centering
-			\caption{Results of experiments with prosodic features \TODO{explain stats} \TODO{bold best values}}
+			\caption[Results of experiments with prosodic features]{Results of experiments with prosodic features,
+			quantified by percent accuracy (\% acc.) and Kappa agreement ($\kappa$) with respect to the gold-standard labels, as well as precision (P), recall (R) and F$_1$ and F$_2$ measures for the [correct] class. 
+			\TODO{bold best values}
+			}
 			\begin{tabularx}{\textwidth}{lXXXXXXXX}			
 			
 			\toprule
@@ -1036,9 +1045,9 @@ DURATION	&	66.78	&	0.19	&	0.69	&	0.91	&	0.79	&	0.86	\\
 F0	&	64.37	&	0.02	&	0.64	&	1.00	&	0.78	&	0.90	\\
 ENERGY	&	63.77	&	0.00	&	0.64	&	1.00	&	0.78	&	0.90	\\
 \addlinespace											
-ENER-F0	&	64.52	&	0.04	&	0.65	&	0.98	&	0.78	&	0.89	\\
-DUR-ENER	&	67.68	&	0.25	&	0.71	&	0.89	&	0.79	&	0.85	\\
-DUR-F0	&	69.77	&	0.29	&	0.72	&	0.91	&	0.80	&	0.86	\\
+ENER+F0	&	64.52	&	0.04	&	0.65	&	0.98	&	0.78	&	0.89	\\
+DUR+ENER	&	67.68	&	0.25	&	0.71	&	0.89	&	0.79	&	0.85	\\
+DUR+F0	&	69.77	&	0.29	&	0.72	&	0.91	&	0.80	&	0.86	\\
 \addlinespace											
 ALL	&	67.52	&	0.25	&	0.71	&	0.89	&	0.79	&	0.85	\\		
 			\bottomrule
@@ -1063,9 +1072,9 @@ ALL	&	67.52	&	0.25	&	0.71	&	0.89	&	0.79	&	0.85	\\
 %F0			&	64.37	&	0.02	&	0.64	&	\textbf{1.00}	&	0.78	&	0.08	&	0.02	&	0.03	\\
 %ENERGY	&	63.77	&	0.00	&	0.64	&	\textbf{1.00}	&	0.78	&	0.00	&	0.00	&	0.00	\\
 %			\addlinespace
-%ENER-F0	&	64.52	&	0.04	&	0.65	&	0.98	&	0.78	&	0.17	&	0.07	&	0.09	\\
-%DUR-ENER	&	67.68	&	0.25	&	0.71	&	0.89	&	0.79	&	0.56	&	0.37	&	0.42	\\
-%DUR-F0	&	\textbf{69.77}	&	\textbf{0.29}	&	\textbf{0.72}	&	0.91	&	\textbf{0.80}	&	\textbf{0.64}	&	\textbf{0.41}	&	\textbf{0.48}	\\
+%ENER+F0	&	64.52	&	0.04	&	0.65	&	0.98	&	0.78	&	0.17	&	0.07	&	0.09	\\
+%DUR+ENER	&	67.68	&	0.25	&	0.71	&	0.89	&	0.79	&	0.56	&	0.37	&	0.42	\\
+%DUR+F0	&	\textbf{69.77}	&	\textbf{0.29}	&	\textbf{0.72}	&	0.91	&	\textbf{0.80}	&	\textbf{0.64}	&	\textbf{0.41}	&	\textbf{0.48}	\\
 %			%\addlinespace
 %ALL 	&	67.52	&	0.25	&	0.71	&	0.89	&	0.79	&	0.58	&	0.37	&	0.43	\\
 %			\bottomrule
@@ -1080,9 +1089,37 @@ ALL	&	67.52	&	0.25	&	0.71	&	0.89	&	0.79	&	0.85	\\
 		
 		
 		
-		\begin{table}[htb]
+		\begin{table}[tb]
 			\centering
-			\caption[Results of experiments with speaker and word features]{Results of experiments with speaker and word features \TODO{Reorder subtables?} \TODO{fix width} \TODO{bold best values}}
+			\caption[Results of experiments with speaker and word features]{Results of experiments with speaker and word features,
+			quantified by percent accuracy (\% acc.) and Kappa agreement ($\kappa$) with respect to the gold-standard labels, as well as precision (P), recall (R) and F$_1$ and F$_2$ measures for the [correct] class. 
+			\TODO{fix width} 
+			\TODO{bold best values}
+			}
+			
+					\begin{subtable}{\textwidth}
+			\centering
+			\caption{In combination with DUR+F0 feature set}
+			\begin{tabularx}{\textwidth}{lXXXXXX}			
+			\toprule
+			Feature set & \multirow{2}{*}{\% acc.} & \multirow{2}{*}{$\kappa$} & \multicolumn{4}{c}{[correct] class} \\
+			 %& acc. & inacc. 
+			 \cmidrule(lr){4-7}
+			(+DUR+F0)& & & P & R & F$_1$ & F$_2$ \\
+			\midrule
+WORD	&	70.52	&	0.30	&	0.72	&	0.92	&	0.81	&	0.87	\\
+LEVEL	&	68.72	&	0.27	&	0.71	&	0.91	&	0.79	&	0.86	\\
+GENDER	&	68.26	&	0.22	&	0.69	&	0.94	&	0.80	&	0.88	\\
+\addlinespace											
+LVL+GEN	&	69.77	&	0.29	&	0.72	&	0.91	&	0.80	&	0.86	\\
+WD+GEN	&	68.86	&	0.27	&	0.71	&	0.91	&	0.80	&	0.86	\\
+WD+LVL	&	70.65	&	0.31	&	0.72	&	0.92	&	0.81	&	0.87	\\
+\addlinespace											
+WD+SPKR	&	68.41	&	0.26	&	0.71	&	0.91	&	0.79	&	0.86	\\
+			\bottomrule
+			\label{tab:results:spkrword:durF0}
+			\end{tabularx}
+		\end{subtable}
 			
 			\begin{subtable}{\textwidth}
 			\centering
@@ -1099,38 +1136,15 @@ WORD	&	68.41	&	0.28	&	0.72	&	0.88	&	0.79	&	0.84	\\
 LEVEL	&	70.07	&	0.29	&	0.71	&	0.92	&	0.80	&	0.87	\\
 GENDER	&	66.93	&	0.24	&	0.71	&	0.88	&	0.78	&	0.84	\\
 \addlinespace													
-LVL-GEN	&	68.57	&	0.27	&	0.72	&	0.89	&	0.79	&	0.85	\\
-WD-GEN	&	68.87	&	0.30	&	0.73	&	0.87	&	0.79	&	0.83	\\
-WD-LVL	&	71.87	&	0.34	&	0.73	&	0.92	&	0.81	&	0.87	\\		\addlinespace								
-WD-SPKR	&	70.52	&	0.31	&	0.72	&	0.91	&	0.80	&	0.86	\\
+LVL+GEN	&	68.57	&	0.27	&	0.72	&	0.89	&	0.79	&	0.85	\\
+WD+GEN	&	68.87	&	0.30	&	0.73	&	0.87	&	0.79	&	0.83	\\
+WD+LVL	&	71.87	&	0.34	&	0.73	&	0.92	&	0.81	&	0.87	\\		\addlinespace								
+WD+SPKR	&	70.52	&	0.31	&	0.72	&	0.91	&	0.80	&	0.86	\\
 			\bottomrule
 			\label{tab:results:spkrword:all}
 			\end{tabularx}
 		\end{subtable}
 		
-		\begin{subtable}{\textwidth}
-			\centering
-			\caption{In combination with DUR-F0 feature set}
-			\begin{tabularx}{\textwidth}{lXXXXXX}			
-			\toprule
-			Feature set & \multirow{2}{*}{\% acc.} & \multirow{2}{*}{$\kappa$} & \multicolumn{4}{c}{[correct] class} \\
-			 %& acc. & inacc. 
-			 \cmidrule(lr){4-7}
-			(+DUR-F0)& & & P & R & F$_1$ & F$_2$ \\
-			\midrule
-WORD	&	70.52	&	0.30	&	0.72	&	0.92	&	0.81	&	0.87	\\
-LEVEL	&	68.72	&	0.27	&	0.71	&	0.91	&	0.79	&	0.86	\\
-GENDER	&	68.26	&	0.22	&	0.69	&	0.94	&	0.80	&	0.88	\\
-\addlinespace											
-LVL-GEN	&	69.77	&	0.29	&	0.72	&	0.91	&	0.80	&	0.86	\\
-WD-GEN	&	68.86	&	0.27	&	0.71	&	0.91	&	0.80	&	0.86	\\
-WD-LVL	&	70.65	&	0.31	&	0.72	&	0.92	&	0.81	&	0.87	\\
-\addlinespace											
-WD-SPKR	&	68.41	&	0.26	&	0.71	&	0.91	&	0.79	&	0.86	\\
-			\bottomrule
-			\label{tab:results:spkrword:durF0}
-			\end{tabularx}
-		\end{subtable}
 		\label{tab:results:spkrword}
 	\end{table}
 	
@@ -1143,7 +1157,9 @@ WD-SPKR	&	68.41	&	0.26	&	0.71	&	0.91	&	0.79	&	0.86	\\
 		Interestingly, for many of the word/speaker feature combinations tried, 
 		slightly %higher accuracy was 
 		different results were
-		obtained when these features were combined with the full set of prosodic features (ALL) than with the best-performing subset of the prosodic features, DUR+F0 \TODO{\textit{What can we infer from that?}}. For example, when combined with the feature set ALL, the feature LEVEL slightly outperformed the word of the utterance (WORD) as a predictor of stress accuracy, yet when combined with only the duration and F0 features (DUR+F0), WORD outperformed LEVEL. In both situations, the combination of these two features, WD+LVL, seemed to give better results than any combination involving GENDER, including the combination using all three word/speaker features. In fact, the best-performing classifiers 
+		obtained when these features were combined with the full set of prosodic features (ALL) than with the best-performing subset of the prosodic features, DUR+F0.
+		 %\TODO{\textit{What can we infer from that?}} 
+		For example, when combined with the feature set ALL, the feature LEVEL slightly outperformed the word of the utterance (WORD) as a predictor of stress accuracy, yet when combined with only the duration and F0 features (DUR+F0), WORD outperformed LEVEL. In both situations, the combination of these two features, WD+LVL, seemed to give better results than any combination involving GENDER, including the combination using all three word/speaker features. In fact, the best-performing classifiers 
 		%of any of the experiments reported in this section 
 		resulted from using the word of the utterance, the speaker's proficiency level, and the entire set of prosodic features (WD+LVL+ALL), yielding an average accuracy of 71.87\%, $\kappa$ of 0.34, and F$_1$ and F$_2$ measures of 0.81 and 0.87, respectively.
 		
@@ -1163,7 +1179,7 @@ the classification accuracy and $\kappa$ scores do not seem so unimpressive. Ind
 
 
 
-	\subsection{Unseen speakers and words}
+	\subsection{Performance on unseen speakers and words}
 	\label{sec:classification:unseen}
 	
 	\TODO{No need to have these in the same section - split into 2 separate subsections}	
@@ -1185,9 +1201,9 @@ the classification accuracy and $\kappa$ scores do not seem so unimpressive. Ind
 			\cmidrule(lr){4-7}
 			& & & P & R & F$_1$ & F$_2$ \\
 			\midrule
-DUR-F0	&	69.16	&	0.19	&	0.68	&	0.90	&	0.74	&	0.85	\\
-{LEVEL+DUR-F0}	&	69.33	&	0.22	&	0.69	&	0.87	&	0.74	&	0.82	\\
-{WD-LVL+DUR-F0}	&	70.22	&	0.24	&	0.68	&	0.90	&	0.75	&	0.84	\\							
+DUR+F0	&	69.16	&	0.19	&	0.68	&	0.90	&	0.74	&	0.85	\\
+{LEVEL+DUR+F0}	&	69.33	&	0.22	&	0.69	&	0.87	&	0.74	&	0.82	\\
+{WD+LVL+DUR+F0}	&	70.22	&	0.24	&	0.68	&	0.90	&	0.75	&	0.84	\\							
 			\bottomrule
 			\label{tab:results:speakers}
 			\end{tabularx}
@@ -1214,13 +1230,13 @@ DUR-F0	&	69.16	&	0.19	&	0.68	&	0.90	&	0.74	&	0.85	\\
 			\cmidrule(lr){4-7}
 			& & & P & R & F$_1$ & F$_2$ \\
 			\midrule
-DUR-F0	&	66.85	&	0.17	&	0.69	&	0.88	&	0.77	&	0.84	\\
-{LEVEL+DUR-F0}	&	65.51	&	0.16	&	0.69	&	0.89	&	0.77	&	0.84	\\
-{LVL-GEN+DUR-F0}	&	65.05	&	0.16	&	0.69	&	0.88	&	0.76	&	0.84	\\
+DUR+F0	&	66.85	&	0.17	&	0.69	&	0.88	&	0.77	&	0.84	\\
+{LEVEL+DUR+F0}	&	65.51	&	0.16	&	0.69	&	0.89	&	0.77	&	0.84	\\
+{LVL+GEN+DUR+F0}	&	65.05	&	0.16	&	0.69	&	0.88	&	0.76	&	0.84	\\
 			\midrule								
 ALL	&	65.66	&	0.19	&	0.70	&	0.85	&	0.76	&	0.82	\\
 {LEVEL+ALL}	&	64.16	&	0.11	&	0.67	&	0.88	&	0.75	&	0.83	\\
-{LVL-GEN+ALL}	&	64.31	&	0.12	&	0.68	&	0.90	&	0.77	&	0.85	\\
+{LVL+GEN+ALL}	&	64.31	&	0.12	&	0.68	&	0.90	&	0.77	&	0.85	\\
 
 		\bottomrule
 			\label{tab:results:words}

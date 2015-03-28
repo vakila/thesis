@@ -91,14 +91,16 @@ any analysis of the learner's speech signal, including the preliminary step of s
 	A lexicon of canonical word pronunciations, i.e. the pronunciations that might be given in a standard dictionary, is also relatively easy to obtain for a well-researched language such as German, for which many digital linguistic resources exist; one example is the lexicon of the MARY text-to-speech synthesis system \citep{Schroeder2003}.
 	 To account for differences in how different speakers (especially nonnative speakers) may pronounce the given sentence, 
 	%the lexicon is supplemented with a lexicon of nonnative pronunciation variants 
-	the lexicon should contain not only the canonical pronunciation for each word, but also any alternate or non-standard pronunciation variants (native or nonnative) that might be encountered. As stated in \cref{sec:capt:auto} researchers at LORIA have found the inclusion of nonnative pronunciation variants to lead to improvements in the accuracy of automatic segmentation of nonnative speech \citep{Jouvet2011,Mesbahi2011,Bonneau2012,Orosanu2012}, and one of the intended outcomes of the IFCASL project is the extraction of a nonnative variant lexicon from the L2 speech in the corpus \TODO{ref?}.
+	the lexicon should contain not only the canonical pronunciation for each word, but also any alternate or non-standard pronunciation variants (native or nonnative) that might be encountered. As stated in \cref{sec:capt:auto} researchers at LORIA have found the inclusion of nonnative pronunciation variants to lead to improvements in the accuracy of automatic segmentation of nonnative speech \citep{Jouvet2011,Mesbahi2011,Bonneau2012,Orosanu2012}.
+	%and the IFCASL corpus has been segmented using model
+	%and one of the intended outcomes of the IFCASL project is the extraction of a nonnative variant lexicon from the L2 speech in the corpus \TODO{ref?}.
 	
 	The final requirement for segmentation via forced alignment is an acoustic model, i.e. a statistical model 
 	%(typically a Hidden Markov Model) 
 	%trained on speech in the target language 
 	which captures the correspondence between acoustic features extracted from the speech signal and phones in the target language. 
 	To accurately capture this correspondence, the model must be trained on a large amount of speech data in the target language; 
-	the acoustic model used to align the German IFCASL data was trained on native German speech from the Kiel corpus \TODO{ref, verify}.
+	the acoustic model used to align the German IFCASL data was trained on native German speech from the Kiel corpus \citep{Kohler1996}.
 	However, research by \citeauthor{Bouselmi2005} (\citeyear{Bouselmi2005,Bouselmi2012}) has shown that even more accurate segmentation of learners' utterances can be obtained by using acoustic models adapted to L2 speech in the target language and/or speech in the learner's L1; refining the automatic segmentation functionality using such adapted models would therefore be a logical extension of this work (see \cref{sec:conclusion:future}). % \TODO{does that clause work?}.
 	
 	%\TODO{Details about how forced Viterbi alignment works?}
@@ -106,46 +108,50 @@ any analysis of the learner's speech signal, including the preliminary step of s
 
 	
 	Given these resources, the JSnoori software,
-	\TODO{\textit{awkward:}} which the lexical stress CAPT tool developed in this work uses for speech processing,
+	which \TODO{de-stress} uses for speech processing,
 	%used to process speech in the lexical stress CAPT tool
-	is capable of automatically segmenting a learner's utterance almost instantly. Unfortunately, a disadvantage of forced alignment is that it requires the entire utterance (e.g. sentence), so real-time segmentation is not possible \TODO{true? should this go in a footnote?}. However, acoustic models and pronunciation lexicons for German have yet to be integrated into JSnoori, which 
+	is capable of automatically segmenting a learner's utterance almost instantly. 
+	%Unfortunately, a disadvantage of forced alignment is that it requires the entire utterance (e.g. sentence), so real-time segmentation is not possible \TODO{true? should this go in a footnote?}. 
+	However, acoustic models and pronunciation lexicons for German have yet to be integrated into JSnoori, which 
 	%is currently only capable of segmenting 
 	currently only has the resources to segment 
 	speech in English and French.
 	 %In the absence of automatic segmentation capabilities for German,
 	 Therefore,
-	 the prototype CAPT tool developed in this thesis project presupposes the existence of a segmentation for a given utterance,
+	 In its current implementation, \TODO{de-stress}
+	 presupposes the existence of a segmentation for a given utterance,
 	%the tool %thus takes 
 	taking a ``Wizard-of-Oz'' approach to the automatic segmentation step by demonstrating its error diagnosis and feedback capabilities using learner (L2) and reference (L1) read-speech utterances from the German-language subset of the IFCASL corpus \citep{Fauth2014,Trouvain2013}, all of which have been segmented at the phone and word levels using the forced alignment technique described above.
-	Once the requisite German-language resources are available in JSnoori, the tool can easily be extended to perform on-the-fly segmentation of learner utterances (see \cref{sec:conclusion:future}).
+	Once the requisite German-language resources are available in JSnoori, \TODO{de-stress} can easily be extended to perform on-the-fly segmentation of learner utterances (see \cref{sec:conclusion:future}).
 	
 	%\TODO{a real CAPT system would have to do this on the fly, and that can be done in JSnoori, but the prototype assumes segmentation has been done and mocks that up by only using auto segmentations of IFCASL data}
 	%
 	
 	
-	\TODO{\textit{awkward clause:}} Although the IFCASL corpus also contains manually-corrected versions of the majority of the forced-alignment segmentations,
-	the CAPT tool only makes use of the automatically-determined determined boundaries, even though these are potentially less accurate; 
+	Although the IFCASL corpus also contains manually-corrected versions of the majority of the forced-alignment segmentations,
+	\TODO{de-stress} only makes use of the automatically-determined determined boundaries, even though these are potentially less accurate; 
 	this is to more accurately 
 	%reflect the fact that any 
 	simulate the conditions of a 
-	fully-automatic CAPT system,
+	fully-fledged CAPT system,
 	which 
 	would need to perform segmentation on the fly without recourse to manual verification.
 	%The native and nonnative read speech recordings comprising the German-language subset of the IFCASL corpus \citep{Fauth2014,Trouvain2013} have already been automatically segmented via forced alignment, as described above.
 	%\TODO{paragraph break?}
 	Indeed, 
 	%segmentations obtained by forced alignment 
-	forced alignment is not a perfect method; \TODO{\textit{unclear?:} because of the constraints put on the recognition system,} the aligner will always find a match between the given text and audio, even if they do not correspond.  
-	Therefore, inaccuracies in the phone boundaries determined using this technique should be expected, especially when the alignment is performed on nonnative utterances using an acoustic model trained on native speech.
-		\TODO{Reliability of nonnative speech automatic segmentation for prosodic feedback. \citep{Mesbahi2011}}
-		\TODO{\textit{work this sentence in somewhere:}} A fully-fledged CAPT system extending this thesis project would have to cope with any problems that may result from using imperfect automatic segmentations as a starting point for analysis.
+	forced alignment is not a perfect method; because of the constraints put on the recognition system, it will always find a match between the given text and audio, even if they do not correspond (e.g. if a completely different sentence/word was uttered).  
+	Therefore, inaccuracies in the phone boundaries determined using this technique must be expected, especially when the alignment is performed on nonnative utterances using an acoustic model trained on native speech.
+	As discussed in \cref{sec:capt:auto}, however, \textcite{Mesbahi2011} compared manual segmentations of L2 speech with automatic segmentations produced via these techniques, and concluded that the automatically-produced segment boundaries were accurate enough to be useful in CAPT for prosodic feedback.
+		Nonetheless, a fully-fledged CAPT system extending \TODO{de-stress} would ultimately have to cope with any problems that may result from using imperfect automatic segmentations as a starting point for analysis; this could be accomplished using techniques for detecting incorrect utterances such as those developed by \textcite{Bonneau2012,Orosanu2012}, as discussed in \cref{sec:capt:auto}.
 	
 	
 	As mentioned above, the utterances in the IFCASL corpus have %pre-existing 
 	segmentations at the phone and word levels; however, the corpus does not contain syllable-level segmentations.
 	%but not at the syllable level.
 	%and a subset of these automatic segmentations has been manually verified.
-	As the syllable is arguably the most important unit for analysis of lexical stress realization \TODO{reference/justification}, syllable-level segmentations had to be created for each utterance. This was accomplished by 
+	%As the syllable is arguably the most important unit for analysis of lexical stress realization \TODO{reference/justification},
+	As syllable-level analysis is important for the diagnosis of lexical stress errors, syllable segmentations had to be created for each utterance. This was accomplished by 
 	 %However, segmentation at the syllable level still needs to be performed. This may be accomplished based on the word- and phone-level annotations by automatically or 
 	 manually determining the locations of syllable boundaries in the phone sequence for each word, 		%(i.e. the locations in the phone sequence where syllable boundaries are expected) 
 	 %using the text of each sentence and a syllabified phonetic lexicon from the speech synthesis system MaryTTS \citep{Schroeder2003}, 
@@ -187,14 +193,14 @@ any analysis of the learner's speech signal, including the preliminary step of s
 \section{Analysis of word prosody}
 \label{sec:diag:prosody}
 
-	\TODO{Technically these features aren't all relevant to comparison-based diagnosis, only classification - so I guess this whole section needs to be rewritten :/}
+	%\TODO{Technically these features aren't all relevant to comparison-based diagnosis, only classification - so I guess this whole section needs to be rewritten :/}
 	
 	The automatically-determined word, syllable, and phone boundaries obtained as described in the previous section 
 	%were used to 
 	enable the CAPT tool to locate and analyze segments of the speech signal relevant to the realization of lexical stress.
 	%, enabling analysis of these  
 	%in terms of the acoustic correlates of word prosody described in \cref{sec:background:stress}.  
-	This section describes the features by which the system analyzes the lexical stress prosody of an utterance, be it the utterance of a learner or of a native speaker. These features relate to the three \TODO{acoustic properties (and by extension their perceptual correlates)} described in \cref{sec:bkgd:stress}, namely duration (timing), fundamental frequency (pitch), and intensity (loudness). 
+	This section describes the features by which the system analyzes the lexical stress prosody of an utterance, be it the utterance of a learner or of a native speaker. These features relate to the three acoustic properties (and by extension their perceptual correlates) described in \cref{sec:bkgd:stress}, namely duration (timing), fundamental frequency (pitch), and intensity (loudness). 
 	The relative utility of these features in automatically diagnosing lexical stress errors is discussed further in \cref{sec:diag:classification}.
 		%The features computed for each property are described in the corresponding sections below.
 %
@@ -227,9 +233,9 @@ any analysis of the learner's speech signal, including the preliminary step of s
 	
 Once again it should be stressed that the features described below are computed from the automatically generated segmentation of a given utterance, and not from a hand-corrected segmentation; as a result, the computed values may be slightly (or in some cases, significantly) inaccurate due to errors in the forced-alignment segmentation process, as just discussed in \cref{sec:diag:segmentation}. %MOVED ABOVE This reliance only on automatically-detected segment boundaries is intentional, as it simulates the conditions of an automatic, real-time tutoring system, which would need to perform segmentation on the fly and would not have recourse to human verification of segment boundary locations.
 	%
-	\TODO{\textit{Worth mentioning? Seems a bit out of place}} 
+	%\TODO{\textit{Worth mentioning? Seems a bit out of place}} 
 	%A potential complication of this analysis that should be pointed out relates to 
-	Also worth noting is the fact that we are here dealing exclusively with read, and not sponaneous, speech. As \textcite[p.~275]{Cutler2005} remarks, ``acoustic differences between stressed and unstressed syllables are relatively large in spontaneous speech. With laboratory-read materials, however, such differences do not always arise''. Therefore, the task of recognizing prosodic deviations in learners' read speech may be somewhat different than the corresponding task for spontaneous speech, and this difference should be kept in mind in the discussion that follows.
+	Another potential complication worth noting is the fact that we are here dealing exclusively with read, and not spontaneous, speech. As \textcite[p.~275]{Cutler2005} remarks, ``acoustic differences between stressed and unstressed syllables are relatively large in spontaneous speech. With laboratory-read materials, however, such differences do not always arise.'' Therefore, the task of recognizing prosodic deviations in learners' read speech may be somewhat different than the corresponding task for spontaneous speech, and this difference should be kept in mind in the discussion that follows.
 
 	\subsection{Duration}
 	\label{sec:prosody:duration}
@@ -242,42 +248,42 @@ Duration analysis therefore figures prominently in the analysis and assessment o
 
 
 Given the word-, syllable- and phone-level segmentations of an utterance (see \cref{sec:diag:segmentation}), the extraction of duration features for that utterance is trivial, as it consists simply of noting the duration of each relevant segment. % in the appropriate segmentation. 
-Following \textcite{Bonneau2011}, \TODO{we} take into account the %relative
+Following \textcite{Bonneau2011}, duration analysis in this work takes into account the %relative
  duration of each syllable in the word to be analyzed, and
  %as well as the %relative duration 
  of the vowels at the nucleus of each syllable. 
- 	\TODO{Mention that to find vowels I had to add German phonetic inventory to JSnoori?}
+ 	%\TODO{Mention that to find vowels I had to add German phonetic inventory to JSnoori?}
 	To account for inter-speaker variability, e.g. the fact that some speakers may have an overall slower or faster speech rate than others, relative rather than absolute durations are used.
 	The list of duration features computed for each word utterance is given in \cref{tab:durationfeatures}, 
 along with the values computed for each feature from the sample utterances shown in \cref{fig:featuresexample}. % from the IFCASL corpus \TODO{reference?}. 
 
 
-\begin{table}[ht]
+\begin{table}%[ht]
 		\centering
-		\caption[Features computed for duration analysis]{Features computed for duration analysis, and their values for the sample utterances of ``Flagge'' in \cref{fig:featuresexample}. Values are given in seconds. \TODO{remove absolutes?}}
+		\caption[Features computed for duration analysis]{Features computed for duration analysis, and their values for the sample utterances of ``Flagge'' in \cref{fig:featuresexample}. Values are given in seconds. }
 		
-		\begin{subtable}[h]{\textwidth}
-		\caption{Absolute features}
-		\begin{tabularx}{\textwidth}{lXcc}
-		\toprule
-		\multirow{2}{*}{Feature name} 
-									& \multirow{2}{*}{Description}
-																	& \multicolumn{2}{c}{Value (seconds)} \\
-					  				&												&  (a) F		& (b) G \\
-		\midrule
-		WORD-DUR 		&	Duration of entire word \TODO{remove?}				& 0.32			& 0.33			\\
-		SYLL0-DUR 		&	Dur. of 1st syllable						& 0.16			& 0.22			\\
-		SYLL1-DUR 		&	Dur. of 2nd syllable				& 0.16			& 0.11			\\
-		V0-DUR 				&	Dur. of vowel in 1st syllable		& 0.04			& 0.09			\\
-		V1-DUR 				&	Dur. of vowel in 2nd syllable	& 0.06			& 0.05			\\
-		\bottomrule
-		\end{tabularx}
-		\end{subtable}
-
-		\vspace{1em}		
-		
-		\begin{subtable}[h]{\textwidth}
-		\caption{Relative features}
+%		\begin{subtable}[h]{\textwidth}
+%		\caption{Absolute features}
+%		\begin{tabularx}{\textwidth}{lXcc}
+%		\toprule
+%		\multirow{2}{*}{Feature name} 
+%									& \multirow{2}{*}{Description}
+%																	& \multicolumn{2}{c}{Value (seconds)} \\
+%					  				&												&  (a) F		& (b) G \\
+%		\midrule
+%		WORD-DUR 		&	Duration of entire word \TODO{remove?}				& 0.32			& 0.33			\\
+%		SYLL0-DUR 		&	Dur. of 1st syllable						& 0.16			& 0.22			\\
+%		SYLL1-DUR 		&	Dur. of 2nd syllable				& 0.16			& 0.11			\\
+%		V0-DUR 				&	Dur. of vowel in 1st syllable		& 0.04			& 0.09			\\
+%		V1-DUR 				&	Dur. of vowel in 2nd syllable	& 0.06			& 0.05			\\
+%		\bottomrule
+%		\end{tabularx}
+%		\end{subtable}
+%
+%		\vspace{1em}		
+%		
+%		\begin{subtable}[h]{\textwidth}
+%		\caption{Relative features}
 		\begin{tabularx}{\textwidth}{lXcc}
 		\toprule
 		\multirow{2}{*}{Feature name} 
@@ -285,11 +291,17 @@ along with the values computed for each feature from the sample utterances shown
 														& \multicolumn{2}{c}{Value} \\
 	&												&  (a) F		& (b) G \\
 		\midrule
-		REL-SYLL-DUR 	&	SYLL1-DUR$/$SYLL0-DUR 		& 1.00			& 2.00			\\
-		REL-V-DUR 		&	V1-DUR$/$V0-DUR					& 0.67			& 1.80 			\\
+		REL-SYLL-DUR 	
+			& Duration of 2nd syllable$/$dur. of 1st syll.
+			%&	SYLL1-DUR$/$SYLL0-DUR 		
+			& 1.00			& 2.00			\\
+		REL-V-DUR 		
+			& Dur. of 2nd syll. nucleus$/$dur. of 1st syll. nucleus
+			%&	V1-DUR$/$V0-DUR					
+			& 0.67			& 1.80 			\\
 		\bottomrule	
 		\end{tabularx}
-		\end{subtable}
+%		\end{subtable}
 		\label{tab:durationfeatures}
 \end{table}
 

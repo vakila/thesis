@@ -213,24 +213,33 @@ any analysis of the learner's speech signal, including the preliminary step of s
 %TODO {\textit{To go somewhere in this section:} Added German phonetic inventories to JSnoori so that it could know e.g. which segments are vowels}
 
 
-	Throughout this section, the features discussed are illustrated with their values for a word from \TODO{\textit{three?} two sample utterances} of a German word selected from the IFCASL corpus; one by a L1 French speaker and the other by a L1 German speaker. The oscillogram, waveform, and annotation for these samples are shown in \cref{fig:featuresexample}.
+	Throughout this section, the features discussed are illustrated with their values for a word from two sample utterances of a German word selected from the IFCASL corpus:
+	one by a native German speaker (assumed to represent a correct realization of lexical stress), the other an utterance from an L1 French speaker which was assigned a gold-standard label of [incorrect] (see \cref{chap:lexstress}).
+%one by a L1 French speaker and the other by a L1 German speaker.
+ The oscillogram, waveform, and segmentations for these samples are shown in \cref{fig:featuresexample}.
 	
 	\begin{figure}
 		\centering
-		\begin{subfigure}[t]{\textwidth}
-                \includegraphics[width=\textwidth]{img/screenshots/2SH05_FGMB1_527-flagge}
-                \caption{L1 French speaker (F)}
-                \label{fig:featuresexample:fg}
-        \end{subfigure}%
-        \vspace{1.5em}
-        \TODO{Add incorrect FG example?}        \vspace{1.5em}
-
-        \begin{subfigure}[b]{\textwidth}
+		
+		 \begin{subfigure}{\textwidth}
                 \includegraphics[width=\textwidth]{img/screenshots/2SH05_GGMB2_035-flagge}
                 \caption{L1 German speaker (G)}
                 \label{fig:featuresexample:gg}
         \end{subfigure}%
-		\caption{Two sample utterances of the word "Flagge" from the IFCASL corpus, used to illustrate the features discussed in this section. \TODO{description}}
+        
+        \vspace{1.5em}
+
+        
+		\begin{subfigure}{\textwidth}
+                %\includegraphics[width=\textwidth]{img/screenshots/2SH05_FGMB1_527-flagge}
+                \includegraphics[width=\textwidth]{img/screenshots/2SH05_FGMA2_526-flagge}
+                \caption{L1 French speaker (F)}
+                \label{fig:featuresexample:fg}
+        \end{subfigure}%
+        
+        \vspace{1.5em}
+
+		\caption[Sample L1 and L2 word utterances]{Two sample utterances of the word "Flagge" from the IFCASL corpus, used to illustrate the features discussed in this section. In these Praat screenshots, the oscillogram and spectrogram of the signal are visible in the top portion of the image, while the bottom portion displays the corresponding segmentations. Segmentations at the phone, syllable, and word level are displayed, along with the canonical phone sequence and orthographic form of the uttered sentence.}
 		\label{fig:featuresexample}
 	\end{figure}
 	
@@ -295,16 +304,16 @@ along with the values computed for each feature from the sample utterances shown
 		\multirow{2}{*}{Feature name} 
 									& \multirow{2}{*}{Description}
 														& \multicolumn{2}{c}{Value (s.)} \\
-	&												&  (a) F		& (b) G \\
+	&												&  (a) G		& (b) F \\
 		\midrule
 		REL-SYLL-DUR 	
 			& Duration of S1$/$duration of S0
 			%&	SYLL1-DUR$/$SYLL0-DUR 		
-			& 1.00			& 2.00			\\
+			& 			& 		\\
 		REL-V-DUR 		
 			& Duration of V1$/$duration of V0
 			%&	V1-DUR$/$V0-DUR					
-			& 0.67			& 1.80 			\\
+			& 			& 			\\
 		\bottomrule	
 		\end{tabularx}
 %		\end{subtable}
@@ -467,7 +476,7 @@ along with the values computed for each feature from the sample utterances shown
 		\multirow{2}{*}{Feature name} 
 									& \multirow{2}{*}{Description}
 													& \multicolumn{2}{c}{Value} \\						
-					  				&							&  (a) F		& (b) G
+					  				&							&  (a) G		& (b) F
 					  																																\\
 		\midrule
 		%%%% RELATIVE FEATURES 
@@ -482,7 +491,7 @@ along with the values computed for each feature from the sample utterances shown
 			& Mean F0 in S1$/$mean F0 in S0
 			%& Mean F0 in 2nd syllable$/$mean F0, 1st syll.
 			%& SYLL0-F0-MEAN$/$SYLL1-F0-MEAN 	
-			& 1.13    & 0.90 \\
+			& \color{red}{TD}    & \color{red}{TD} \\
 		REL-V-F0-MEAN 
 			& Mean F0 in V1$/$mean F0 in V0
 			%& Mean F0, 2nd syll. nucleus$/$mean F0,1st syll. nuc.
@@ -495,7 +504,7 @@ along with the values computed for each feature from the sample utterances shown
 		REL-SYLL-F0-MAX 
 			& Maximum F0 in S1$/$max. F0 in S0
 			%& SYLL1-F0-MAX$/$SYLL0-F0-MAX 			
-			& 1.08		& 0.91 \\
+			& \color{red}{TD}    & \color{red}{TD} \\
 		REL-V-F0-MAX 
 			& Max. F0 in V1$/$max. F0 in V0
 			%& V1-F0-MAX$/$V0-F0-MAX 
@@ -520,8 +529,8 @@ along with the values computed for each feature from the sample utterances shown
 		REL-SYLL-F0-RANGE
 			& F0 Range (max. F0$-$min. F0) in S1$/$ \newline F0 range in S0
 			 %& SYLL1-F0-RANGE$/$SYLL0-F0-RANGE 
-			 & 0.40%0.396068		
-																															& 0.78\\
+			& \color{red}{TD}    & \color{red}{TD} \\
+
 																													REL-V-F0-RANGE 
 			& F0 Range in V1$/$F0 range in V0
 			%& V1-F0-RANGE$/$V0-F0-RANGE 
@@ -540,7 +549,7 @@ along with the values computed for each feature from the sample utterances shown
 %				0, & \text{if SYLL0-F0-MAX}>\text{SYLL1-F0-MAX}\\
 %				1, & \text{if SYLL0-F0-MAX}<\text{SYLL1-F0-MAX}\\
 %				\end{cases}$
-			& 0					& 1				\\
+			& \color{red}{TD}    & \color{red}{TD} \\
 				
 		F0-MIN-INDEX	
 			& $\begin{cases}
@@ -551,7 +560,7 @@ along with the values computed for each feature from the sample utterances shown
 %				0, & \text{if SYLL0-F0-MIN}<\text{SYLL1-F0-MIN}\\
 %				1, & \text{if SYLL0-F0-MIN}>\text{SYLL1-F0-MIN}\\
 %				\end{cases}$
-			& 1					& 0				\\
+			& \color{red}{TD}    & \color{red}{TD} \\
 																									
 		F0-MAXRANGE-INDEX	
 			& $\begin{cases}
@@ -562,7 +571,7 @@ along with the values computed for each feature from the sample utterances shown
 %						0, & \text{if SYLL0-F0-RANGE}>\text{SYLL1-F0-RANGE}\\
 %						1, & \text{if SYLL0-F0-RANGE}<\text{SYLL1-F0-RANGE}\\
 %					\end{cases}$
-			& 1					& 1				\\
+			& \color{red}{TD}    & \color{red}{TD} \\
 		\bottomrule
 		\end{tabularx}
 		%\end{subtable}
@@ -658,7 +667,7 @@ Therefore, in addition to duration and fundamental frequency,
 	\multirow{2}{*}{Feature name} 
 					& \multirow{2}{*}{Description}
 										& \multicolumn{2}{c}{Value} \\	
-				  	&							&  (a) F		& (b) G			\\
+				  	&							&  (a) G		& (b) F			\\
 	\midrule
 	
 REL-SYLL-ENERGY-MEAN 

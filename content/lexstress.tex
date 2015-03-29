@@ -579,23 +579,57 @@ O	&	6	&	40.5\%	&	47.4\%	&	53.6\%	&	0.13	&	0.20	&	0.28	\\
 		It is also of interest to analyze the overall inter-annotator agreement for each word type in the dataset (see \cref{tab:bisyllwords} for the list of annotated word types). \TODO{table of  min/med/max/mean by word?} As \cref{fig:agreement:words} illustrates, there are noticeable differences in agreement among word types. Annotators exhibit relatively high agreement (``moderate'' according to \cite{Landis1977}) on certain words, such as \textit{E-mail}, \textit{halten}, and \textit{Pollen}), while for other words (e.g. \textit{manche} and \textit{Tschechen}) agreement values are closer to chance (``slight'' agreement in \citeauthor{Landis1977}'s schema). 
 		No clear explanation for these variations readily presents itself, but one reasonable hypothesis might be that annotators may agree more often for words which are particularly easy or difficult for learners, i.e. words for which learners tend to make few/many errors, as a result of a high imbalance between correct and erroneous utterances. However, as the error distribution analysis in \cref{sec:results:wordtype} will show, this does not seem borne out by the data. The highest-agreement word types do not seem to have particularly imbalanced proportions of [correct] utterances; for \textit{E-mail}, \textit{halten}, and \textit{Pollen} approximately 60-65\% of utterances were [correct], which is close to the overall average of 63.77\%. Furthermore, some of the word types with unusually high or low proportions of [correct] utterances (e.g. \textit{Frühling}, with over 85\%, or \textit{Tatort}, with under 40\%), seem to have agreement relatively close to the overall average. Therefore, further work will be needed to shed light on whether the agreement differences observed among different word types might simply be a consequence of individual variation among the annotators assigned to each type, or whether other phenomena (e.g. frequency effects, segmental pronunciation errors, or interference from French) might be at play.
 		
+		\begin{table}%[p]
+			\centering
+			\caption[Pairwise agreement statistics by word type]{Pairwise agreement between annotators for each word type.  The number of pairwise comparisons (pairs) available for each word is listed, along with the minimum, mean, and maximum values across all pairs for that word.}
+			
+			\begin{tabularx}{\textwidth}{lXXXXXXX}			
+			\toprule		
+
+\multirow{2}{*}{Word type}	&	\multirow{2}{*}{Pairs}	&	\multicolumn{3}{c}{Pairwise \% Agreement}					&	\multicolumn{3}{c}{Pairwise $\kappa$}					\\
+				\cmidrule(lr){3-5}						\cmidrule(lr){6-8}					
+	&		&	Min.	&	Mean	&	Max.	&	Min.	&	Mean	&	Max.	\\
+\midrule															
+E-mail	&	3	&	57.1\%	&	66.1\%	&	75.0\%	&	0.34	&	0.45	&	0.54	\\
+Flagge	&	10	&	32.7\%	&	50.9\%	&	67.3\%	&	0.10	&	0.24	&	0.47	\\
+fliegen	&	6	&	37.5\%	&	56.6\%	&	73.2\%	&	0.12	&	0.23	&	0.38	\\
+Frühling	&	6	&	28.6\%	&	55.1\%	&	83.9\%	&	0.04	&	0.18	&	0.30	\\
+halten	&	6	&	57.1\%	&	67.9\%	&	80.4\%	&	0.28	&	0.42	&	0.61	\\
+manche	&	3	&	41.1\%	&	44.1\%	&	46.4\%	&	0.10	&	0.14	&	0.19	\\
+Mörder	&	6	&	46.4\%	&	55.4\%	&	67.9\%	&	0.12	&	0.20	&	0.38	\\
+Pollen	&	6	&	58.5\%	&	67.1\%	&	76.8\%	&	0.32	&	0.42	&	0.56	\\
+Ringen	&	6	&	42.9\%	&	47.1\%	&	50.9\%	&	0.22	&	0.24	&	0.28	\\
+Tatort	&	6	&	37.5\%	&	52.7\%	&	69.6\%	&	0.04	&	0.22	&	0.45	\\
+tragen	&	3	&	40.0\%	&	53.3\%	&	69.1\%	&	0.25	&	0.35	&	0.51	\\
+Tscheschen	&	6	&	23.2\%	&	44.9\%	&	66.1\%	&	-0.01	&	0.14	&	0.27	\\		
+
+			\bottomrule
+			\end{tabularx}
+			
+			\label{tab:agreement:annotators}
+		\end{table}
+		
 		
 		\begin{figure}[p]
 			\centering
 			
 			\begin{subfigure}{\textwidth}
 				\centering
-				\includegraphics[width=\textwidth]{img/annotation/pairAgreeWords-noTitle}
 				\caption{Pairwise percentage agreement by word type}
+				\includegraphics[width=\textwidth]{img/annotation/pairAgreeWords-noTitle2}
 				\label{fig:agreement:words:pct}
 			\end{subfigure}%
 			
+			\vspace{1.5em}
+			
 			\begin{subfigure}{\textwidth}
 				\centering
-				\includegraphics[width=\textwidth]{img/annotation/pairKappaWords-noTitle}
 				\caption{Pairwise $\kappa$ by word type}
+				\includegraphics[width=\textwidth]{img/annotation/pairKappaWords-noTitle2}
 				\label{fig:agreement:words:k}
 			\end{subfigure}%
+			
+			\vspace{1.5em}
 			
 			\caption[Pairwise agreement statistics by word type]{Pairwise agreement between annotators for each word type. 
 			The bottom of each vertical bar represents the minimum pairwise value, the top the maximum. Horizontal bars indicate average pairwise values.

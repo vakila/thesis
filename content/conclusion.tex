@@ -67,8 +67,7 @@ As described in \cref{chap:feedback}, another important contribution of this wor
 
 %%%% CONCLUSION
 %
-\TODO{concluding paragraph}
-
+This thesis has thus presented original work taking steps towards the development of a comprehensive, intelligent CAPT system for French learners of German. Drawing from previous research on foreign-language pedagogy, phonetics/phonology, and speech technology, as well as original research on the frequency of lexical stress errors in learner speech and novel methods for diagnosing such errors, the \TODO{de-stress} system developed in this thesis project is the first known CAPT tool dedicated to helping L1 French speakers improve their realization of lexical stress in German, and to facilitating research on the use of automatic, individualized feedback to help learners correct such errors. The following section suggests some possible directions for future work on improving \TODO{de-stress} and using it to make further advancements in CAPT for German.
 
 
 %%% OLD
@@ -87,72 +86,86 @@ As described in \cref{chap:feedback}, another important contribution of this wor
 \section{Future work}
 \label{sec:conclusion:future}
 
-\TODO{}
+Although carrying out in-vivo experiments with L2 German learners was outside the scope of this thesis project, the facilitation of such studies has been the primary motivation behind the development of the \TODO{de-stress} CAPT tool described in this thesis. Therefore, the most logical and important extension of the work described here will be to conduct studies with L1 French learners of German using different combinations of diagnostic and feedback types, to determine if and when these types are effective in helping learners overcome difficulties with lexical stress prosody in German. 
+	Based on the findings of the error analysis described in \cref{sec:lexstress:results}, it may be prudent to focus studies on learners with low German proficiency, as they seemingly stand to benefit most from such training.
+
+\TODO{transition?}
+
+Following on from the inter-annotator agreement analysis in \cref{sec:lexstress:agreement}, it would be interesting to analyze the utterances that had low inter-annotator agreement (and those that were misclassified by the automatic system) to find features that differentiate ``clear'' utterances (i.e. those labeled [correct] or [incorrect]) from ``unclear'' ones ([none]); \textcite{Michaux2013} plan to undertake a similar analysis in their future work on L2 Dutch spoken by L1 French speakers. Additionally, further work is needed to shed light on the factors underlying the individual differences in reliability observed among annotators, as well as whether the differences in agreement on different word types might simply be a consequence of individual variation among the annotators assigned to each type, or whether other phenomena (e.g. frequency effects, segmental pronunciation errors, or interference from similar French words) might be at play.
 
 
-further work will be needed to shed light on whether the agreement differences observed among different word types might simply be a consequence of individual variation among the annotators assigned to each type, or whether other phenomena (e.g. frequency effects, segmental pronunciation errors, or interference from similar French words) might be at play.
 
 
-	\subsection{Processing non-native speech}
+	%\subsection{Processing non-native speech}
 
-	\subsubsection{Evaluation of segmentation accuracy}
+	%\subsubsection{Evaluation of segmentation accuracy}
 	
-		\TODO{}
+		%\TODO{}
 
-The accuracy of the forced-alignment segmentation can be assessed by computing inter-annotator agreement between the automatically produced segmentation and one or more manually-verified segmentations. The team at LORIA in Nancy has already completed this evaluation for the French IFCASL sub-corpus using the CoALT tool \citep{Fohr2012}. In cooperation with that team, the German sub-corpus (or a subset thereof) will be evaluated in the same way.
-	A similar evaluation will be carried out for the syllable-level segmentations, a subset of which will be manually verified.
+%The accuracy of the forced-alignment segmentation can be assessed by computing inter-annotator agreement between the automatically produced segmentation and one or more manually-verified segmentations. The team at LORIA in Nancy has already completed this evaluation for the French IFCASL sub-corpus using the CoALT tool \citep{Fohr2012}. In cooperation with that team, the German sub-corpus (or a subset thereof) will be evaluated in the same way.
+%	A similar evaluation will be carried out for the syllable-level segmentations, a subset of which will be manually verified.
 
 %	Error analysis will be performed for each boundary type, to enable identification of the types of boundaries at which the system tends (not) to make many errors. This detailed analysis will contribute to error management in the system, as described 
 %in \cref{sec:segmentation:errors}.
 %below.
 
-	\subsubsection{Coping with segmentation errors}
+	%\subsubsection{Coping with segmentation errors}
 
-	\TODO{}
+	%\TODO{}
 	
-		
+	\TODO{transition?}	
 	
 	%ALREADY USED THIS SENTENCE IN DIAGNOSIS:Forced alignment is not a perfect method; because of the constraints put on the recognition system, the aligner will always find a match between the given text and audio, even if they do not correspond. 
 	As mentioned in \cref{sec:diag:segmentation}, 
 	Incorrect segmentation can lead to mistakes in diagnosis, so CAPT systems must have a means of reducing, or at least monitoring, the amount of error introduced by inaccurate segmentation \citep{Eskenazi2009}. 
-	
-	In the proposed CAPT tool, this function may be served by the development of a simple sentence- and/or word-level confidence measure. 
-	While it is very difficult to compute such a measure directly from the decoding scores of the forced aligner, it may be possible to determine from the aforementioned accuracy evaluation which types of boundaries (e.g. between a sonorant and a vowel) the aligner typically has trouble detecting accurately, and then to calculate, for a given utterance, the proportion of error-prone boundaries. While a very simplistic measure, this could nevertheless provide some indication of when (not) to trust the automatic alignment, thus impacting decisions on how and whether to attempt error diagnosis (or feedback).
+	%
+	In a future version of \TODO{de-stress}, this function could be served by the use of a simple sentence- and/or word-level confidence measure for the segmentation of a given utterance. 
+	While it is very difficult to compute such a measure directly from the decoding scores of the forced aligner, it may be possible to evaluate the accuracy of the forced-alignment segmentations (cf. \cite{Mesbahi2011}) to determine 
+	%from an evaluation of the accuracy of the boundaries placed by the aligner,  
+	which types of boundaries the aligner typically has trouble detecting accurately (e.g. between a sonorant and a vowel), and then to calculate, for a given utterance, the proportion of error-prone boundaries. While a very simplistic measure, this could nevertheless provide some indication of when (not) to trust the automatic alignment, thus impacting decisions on how and whether to attempt error diagnosis/feedback.
 	% based on the boundary error rates found in \cref{sec:segmentation:eval}. 
-	Other error-management strategies may also be explored, such as the type of error-filtering methods described by \textcite{Mesbahi2011,Bonneau2012,Orosanu2012}, in which utterances which do not correspond to the expected text are detected and rejected before alignment is attempted.
+	Another useful extension of \TODO{de-stress} could be the inclusion of the type of error-filtering methods described by \textcite{Bonneau2012,Orosanu2012}, which detect and reject utterances which do not correspond to the expected text before alignment is attempted.
 	
 	
 	
 	
 	
-	\subsubsection{Features of difficult-to-classify utterances}
-	Would be a good idea to analyze the utterances that had low inter-annotator agreement (and those that were misclassified by the automatic system) to find features that differentiate ``clear'' utterances from ``unclear'' ones. (cf what \textcite{Michaux2013} plan to do)
-	
-	\subsubsection{Pitch in JSnoori}
-	Soon to implement YIN \citep{Cheveigne2002} temporal method, and then combine results with those of Martin's or another spectral method such as SWIPE \citep{Camacho2007} (combining with NNs or something else)
 	
 	
+	%\subsubsection{Pitch in JSnoori}
+	%Soon to implement YIN \citep{Cheveigne2002} temporal method, and then combine results with those of Martin's or another spectral method such as SWIPE \citep{Camacho2007} (combining with NNs or something else)
 	
-	\subsection{Diagnosis}
 	
-	\subsubsection{Multiple references}
-	Factors to explore in this approach might include whether the set of reference speakers should be more or less constrained (e.g. by gender), and which metrics can be used to synthesize the one-on-one comparisons into a single diagnosis.
-	Alternatively, the learner's utterance could perhaps be compared directly with some unified representation of all the reference utterances; for example, if we represent each reference utterance as a point in n-dimensional space, with each dimension representing a relevant feature, the references will form a cluster which can serve as a representation of the variation permissible in native speech. By plotting the learner's utterance in the same space, it could be possible to distinguish how well (or poorly) this utterance fits into that cluster, and thereby produce a diagnosis.
+
 	
-	\subsubsection{Auto reference selection}
-	.... speaker-dependent features of the speech of each reference candidate and of the learner -- possibly in their L1 (French) as well as the L2 (German) 
 	
-	 Relevant features may include.... spectral and duration-based features, and/or other features informed by research on speaker identification (e.g. \cite{Shriberg2005}). \TODO{examples of speaker ID features}
+	%\subsection{Diagnosis}
+	
+	
+	With respect to the diagnosis module of \TODO{de-capt}, multiple directions for future improvements present themselves. 
+	First of all, for the selection of reference speaker(s) used in the comparison-based diagnosis approach, additional metrics of speaker similarity could be included, beyond the simple F0 mean/range comparison used in the current implementation. More complex speaker representations could be constructed using duration or intensity features, spectral features, and/or other features informed by research on speaker identification (e.g. \cite{Shriberg2005}); analysis of speech in the learner's L1 (French) could also be beneficial. Additionally, more complex approaches for combining the results from multiple individual learner-reference comparisons could be explored, e.g. incorporating the speaker selection metrics to weight comparisons with ``closer'' references more highly. 
+	Much work also remains to be done with respect to classification-based diagnosis, including evaluations using different machine learning algorithms and additional features which may be related to lexical stress in German (e.g. spectral features capturing aspects of vowel quality). To obtain a more fine-grained analysis of the learner's utterance in the classification approach, and thus enable the generation of additional types of feedback (e.g. skill bars) from classification-based diagnoses, different classifiers trained on only subsets of the available features could be combined in an ensemble configuration; for example, a classifier trained exclusively using duration features could be used to produce a duration score for an utterance, which could be combined with similar scores for F0 and intensity, analogous to the three-dimensional pronunciation scores resulting from JSnoori's comparison-based diagnosis (see \cref{sec:compare:single}). It may also be of interest to explore techniques for online, semi-supervised learning, which could enable the classifier to improve its predictions by updating itself with new training instances resulting from the learner's continued use of the system over time.
+	%; it also seems conceivable that the learner's self-assessments could be taken into account to teach the classifier 
+	
+	%\subsubsection{Multiple references}
+	%Factors to explore in this approach might include whether the set of reference speakers should be more or less constrained (e.g. by gender), and which metrics can be used to synthesize the one-on-one comparisons into a single diagnosis.
+	%Alternatively, the learner's utterance could perhaps be compared directly with some unified representation of all the reference utterances; for example, if we represent each reference utterance as a point in n-dimensional space, with each dimension representing a relevant feature, the references will form a cluster which can serve as a representation of the variation permissible in native speech. By plotting the learner's utterance in the same space, it could be possible to distinguish how well (or poorly) this utterance fits into that cluster, and thereby produce a diagnosis.
+	
+%	\subsubsection{Auto reference selection}
+%	.... speaker-dependent features of the speech of each reference candidate and of the learner -- possibly in their L1 (French) as well as the L2 (German) 
+%	
+%	 Relevant features may include.... spectral and duration-based features, and/or other features informed by research on speaker identification (e.g. \cite{Shriberg2005}). \TODO{examples of speaker ID features}
 	 
-	 \subsubsection{No-reference diagnosis}
-	 
-	 Produce individual dur/F0/int scores by using ensemble of different classifiers
-	 
-	 Other possibilities for generalized lexical stress modeling include using word-prosody predictions from a text-to-speech synthesizer such as MARY \citep{Schroeder2003}, as well as \TODO{fancier}
-classification-based machine learning approaches 
-%such as those used by \textcite{Shahin2012a,Kim2011} to categorize English words based on their stress patterns.
-   ...online, semi-supervised learning which could allow the system to benefit from each new utterance recorded as a learner continues to use the system.
+%	 \subsubsection{No-reference diagnosis}
+%	 
+%	 Produce individual dur/F0/int scores by using ensemble of different classifiers
+%	 
+%	 Other possibilities for generalized lexical stress modeling include using word-prosody predictions from a text-to-speech synthesizer such as MARY \citep{Schroeder2003}, as well as \TODO{fancier}
+%classification-based machine learning approaches 
+%%such as those used by \textcite{Shahin2012a,Kim2011} to categorize English words based on their stress patterns.
+%   ...online, semi-supervised learning which could allow the system to benefit from each new utterance recorded as a learner continues to use the system.
 	
+	\TODO{------------------------------------}
 
 
 	\subsection{Feedback}

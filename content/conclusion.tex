@@ -17,10 +17,14 @@
  %While lexical stress is a notoriously difficult phenomenon for L1 French speakers to come to terms with (see \cref{sec:stress:expected}), it 
  Lexical stress is very important in German, and may have a large impact on the intelligibility of L2 German speech (see \cref{sec:targeting:intelligibility}); however, given that lexical stress is realized extremely differently (or not at all) in French (see \cref{sec:stress:french}), the correct prosodic realization of lexical stress in German is notoriously difficult for L1 French speakers (see \cref{sec:stress:expected}). 
  
- Indeed, analysis of lexical stress errors in a small corpus of L2 German speech by L1 French speakers, described in \cref{chap:lexstress}, seemed to confirm that such errors are frequent in the speech of these learners. On the whole, errors were observed in approximately one-third of learner utterances (see \cref{sec:results:overall}), though such errors were produced much more frequently by learners of lower German proficiency than those with more advanced skills (see \cref{sec:results:level}), with children making more errors than adult beginners (see \cref{sec:results:agegender}). 
+ 
+%%%% LEXSTRESS 
+ Indeed, analysis of lexical stress errors in a small corpus of L2 German words uttered by L1 French speakers, described in \cref{chap:lexstress}, seemed to confirm that such errors are frequent in the speech of these learners. On the whole, errors were observed in approximately one-third of learner utterances (see \cref{sec:results:overall}), though such errors were produced much more frequently by learners of lower German proficiency than those with more advanced skills (see \cref{sec:results:level}), with children making more errors than adult beginners (see \cref{sec:results:agegender}). 
  This evidence of a high frequency of production of lexical stress errors in the speech of such learners provides some justification for the selection of this type of error as the target of the prototype CAPT system developed in this work (see \cref{sec:targeting:frequency}).
  However, the analysis of such errors must take into account the fact that when asked to annotate lexical stress errors in learner utterances, human annotators of varying backgrounds with respect to L1 and phonetics/phonology expertise exhibited generally low agreement (see \cref{sec:lexstress:agreement}); this may indicate that identifying such errors in learner speech is not a straightforward task, and may involve an element of subjectivity. 
  If this is the case, it has important implications for treatment of such errors in CAPT, as reliable automatic detection is a requirement for a type of error to be addressed in a CAPT system (see \cref{sec:targeting:autodetect}), and the reliability of an automatic error diagnosis system should be evaluated in the context of the reliability of humans asked to perform the same task (see \cref{sec:classification:features}).
+ 
+ 
  
  
  The evident difficulty of correct realization of lexical stress for L1 French speakers, combined with its importance to intelligibility in L2 German, seem to imply that this phenomenon is a particularly important one for such learners to work on when seeking to improve their pronunciation.
@@ -31,7 +35,37 @@
 a human German instructor, it is therefore advantageous to have CAPT tools which can automatically identify lexical stress errors in learners' L2 German utterances, and provide individualized corrective feedback on such errors to help learners overcome the hurdle this phenomenon presents. 
 %
 With this underlying motivation, this thesis has explored the ways in which lexical stress errors can be automatically diagnosed in learner speech, and in which explicit and implicit feedback on these errors can be delivered to learners. It has also described the development of a prototype CAPT tool, \TODO{de-stress}, which implements these diverse diagnosis and feedback methods in a modular architecture, in the hopes of facilitating future research on which of these are most beneficial to learners in which contexts.
- 
+
+
+%%%% DIAGNOSIS
+%
+%This thesis project explores a variety of approaches to modeling the lexical stress prosody of native speech in such a way that the learner's utterance can be automatically compared to that native model. This investigation, and the creation of a CAPT tool that allows researchers to easily switch between different diagnostic approaches to study their effects, is one of the primary contributions of this work.
+%
+\Cref{chap:diagnosis} presented the approaches to diagnosis that have been explored in this thesis project and implemented in \TODO{de-stress}. All diagnosis starts from a prosodic analysis of the learner's utterance in terms of duration, fundamental frequency (F0), and intensity (see \cref{sec:diag:prosody}), based on a segmentation of that utterance produced automatically by forced alignment (see \cref{sec:diag:segmentation}). 
+	In a comparison-based diagnostic approach, the prosody of the learner's utterance is then be compared to that of a reference (L1) utterance of the same word, and scored with respect to each of these three dimensions (see \cref{sec:compare:single}). 
+	To capture the variability inherent in L1 pronunciations of the target word, comparison scores from multiple references can be combined (see \cref{sec:compare:multi}), and the best reference speaker(s) for a given learner can be chosen automatically to ensure the closest match possible between the learner's voice (F0) and that of the reference(s) (see \cref{sec:compare:selection}). 
+	However, even when using multiple, intelligently selected reference speakers, the comparison-based approach potentially suffers from producing a diagnosis too closely linked to speaker- or utterance-dependent features of the reference(s). Therefore, an alternative diagnostic approach using classification by machine learning was investigated (see \cref{sec:diag:classification}). 
+	Experiments with CART classifiers trained using different feature sets (see \cref{sec:classification:features}) revealed that duration features seem to be more useful for classification of L2 German stress errors than F0 features, which are in turn more useful than features representing intensity; however, the best results were obtained by  combining prosodic features with features capturing the word type uttered and the German proficiency level of the learner. 
+	The overall agreement between the error diagnoses produced by the classifier and the gold-standard annotation being comparable to, if not slightly better than, the agreement observed between human annotators in the error annotation task, the results of these experiments seem encouraging with respect to the feasibility of reliable, automatic detection of such errors (see \cref{sec:classification:features:spkrword}). 
+	Furthermore, the fact that utterances of word types which had been held out of the training data could be classified with only slightly lower accuracy (see \cref{sec:classification:unseen}) seems to \TODO{confirm} the potential of a classification-based approach to enable the creation of CAPT systems which are not limited to only those words/sentences for which recorded L1 utterances are available.
+	\TODO{As the first known work using classification to diagnose lexical stress errors in the L2 German speech of L1 French speakers, these investigations constitute an important contribution of this thesis project to the existing body of research related to German CAPT.}
+
+
+
+
+%%%% FEEDBACK
+%
+\TODO{paragraph about feedback}
+
+
+
+%%%% CONCLUSION
+%
+\TODO{concluding paragraph}
+
+
+
+%%% OLD
 % 
 % Lexical stress errors are an ideal target for a CAPT system for such learners, because these errors fulfill the three criteria set out in \cref{sec:bkgd:targeting}:
 % 
@@ -42,8 +76,7 @@ With this underlying motivation, this thesis has explored the ways in which lexi
 % 	\end{itemize}
  
  
- \TODO{here or in intro? or somewhere else?}
- This thesis project explores a variety of approaches to modeling the lexical stress prosody of native speech in such a way that the learner's utterance can be automatically compared to that native model. This investigation, and the creation of a CAPT tool that allows researchers to easily switch between different diagnostic approaches to study their effects, is one of the primary contributions of this work.
+
 
 \section{Future work}
 \label{sec:conclusion:future}
@@ -106,6 +139,8 @@ The accuracy of the forced-alignment segmentation can be assessed by computing i
 	 Relevant features may include.... spectral and duration-based features, and/or other features informed by research on speaker identification (e.g. \cite{Shriberg2005}). \TODO{examples of speaker ID features}
 	 
 	 \subsubsection{No-reference diagnosis}
+	 
+	 Produce individual dur/F0/int scores by using ensemble of different classifiers
 	 
 	 Other possibilities for generalized lexical stress modeling include using word-prosody predictions from a text-to-speech synthesizer such as MARY \citep{Schroeder2003}, as well as \TODO{fancier}
 classification-based machine learning approaches 

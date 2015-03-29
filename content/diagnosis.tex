@@ -104,7 +104,10 @@ any analysis of the learner's speech signal, including the preliminary step of s
 	which captures the correspondence between acoustic features extracted from the speech signal and phones in the target language. 
 	To accurately capture this correspondence, the model must be trained on a large amount of speech data in the target language; 
 	the acoustic model used to align the German IFCASL data was trained on native German speech from the Kiel corpus \citep{Kohler1996}.
-	However, research by \citeauthor{Bouselmi2005} (\citeyear{Bouselmi2005,Bouselmi2012}) has shown that even more accurate segmentation of learners' utterances can be obtained by using acoustic models adapted to L2 speech in the target language and/or speech in the learner's L1; refining the automatic segmentation functionality using such adapted models would therefore be a logical extension of this work (see \cref{sec:conclusion:future}). % \TODO{does that clause work?}.
+	However, research by \textcite{Bouselmi2005,Bouselmi2012} 	
+	%\citeauthor{Bouselmi2005} (\citeyear{Bouselmi2005,Bouselmi2012}) 
+	has shown that even more accurate segmentation of learners' utterances can be obtained by using acoustic models adapted to L2 speech in the target language and/or speech in the learner's L1; refining the automatic segmentation functionality using such adapted models would therefore be a logical extension of this work.
+	%\TODO{\textit{remove} (see \cref{sec:conclusion:future})}. % \TODO{does that clause work?}.
 	
 	%\TODO{Details about how forced Viterbi alignment works?}
 	%Given the expected text and the corresponding phone sequence, forced alignment consists of using the Viterbi algorithm and an acoustic Hidden Markov Model trained on the target language to determine the temporal locations of boundaries between each of the expected phones. The Viterbi algorithm is commonly used in automatic speech recognition to determine... 
@@ -125,7 +128,7 @@ any analysis of the learner's speech signal, including the preliminary step of s
 	 presupposes the existence of a segmentation for a given utterance,
 	%the tool %thus takes 
 	taking a ``Wizard-of-Oz'' approach to the automatic segmentation step by demonstrating its error diagnosis and feedback capabilities using learner (L2) and reference (L1) read-speech utterances from the German-language subset of the IFCASL corpus \citep{Fauth2014,Trouvain2013}, all of which have been segmented at the phone and word levels using the forced alignment technique described above.
-	Once the requisite German-language resources are available in JSnoori, \TODO{de-stress} can easily be extended to perform on-the-fly segmentation of learner utterances (see \cref{sec:conclusion:future}).
+	Once the requisite German-language resources are available in JSnoori, \TODO{de-stress} can easily be extended to perform on-the-fly segmentation of learner utterances. % (see \cref{sec:conclusion:future}).
 	
 	%\TODO{a real CAPT system would have to do this on the fly, and that can be done in JSnoori, but the prototype assumes segmentation has been done and mocks that up by only using auto segmentations of IFCASL data}
 	%
@@ -354,7 +357,8 @@ along with the values computed for each feature from the sample utterances shown
 	JSnoori. At the heart of JSnoori's approach to pitch detection lies the algorithm developed by \textcite{Martin1982}, a frequency-domain method of pitch detection which uses a comb function with teeth of decreasing magnitude to identify harmonics of F0 in the spectrum (spectra are extracted by Fast Fourier Transform using 32-millisecond Hamming windows offset by 8 milliseconds). JSnoori also implements several improvements to pitch detection beyond Martin's algorithm \citep{DiMartino1999}, including
 	 %\TODO{Yves' parabolic interpolation - citation?}, 
 	 the voicing decision optimization of   \textcite{Secrest1983} 
-	 and the dynamic programming technique proposed by \textcite{Ney1981} for identifying and removing incorrect points in the contour. Further improvements to JSnoori's pitch detection capabilities, including the implementation of additional detection algorithms, are currently in development (see \cref{sec:conclusion:future}).
+	 and the dynamic programming technique proposed by \textcite{Ney1981} for identifying and removing incorrect points in the contour. 
+	 %Further improvements to JSnoori's pitch detection capabilities, including the implementation of additional detection algorithms, are currently in development (see \cref{sec:conclusion:future}).
 	
 	Thanks to these techniques, JSnoori is capable of efficient, generally accurate detection of F0 
 	within the range of 65-800 Hertz (Hz), with each pitch point in the contour being subsequently converted from Hz to semitones.
@@ -802,9 +806,9 @@ This section describes the various techniques for diagnosis by comparison implem
 	When using a single native-speaker utterance for reference, even if the reference speaker has been chosen carefully (see \cref{sec:compare:selection} below), analysis of the learner's pronunciation may be ``over-fitting'' to speaker- or utterance-dependent characteristics of the reference utterance that do not accurately represent the ``nativeness'' of the reference speech. It is therefore advantageous not to limit the diagnosis to comparison with a single reference speaker, but to instead compare the learner's speech with a variety of native utterances, the hope being that the variability between these reference utterances will capture more general traits of native pronunciation.
 	
 	In \TODO{de-stress}, this is accomplished by conducting a series of one-on-one comparisons, pairing the learner utterance with a different reference utterance for each comparison, and then combining the results from all the comparisons. 
-	In the current implementation, this combination consists of simply 
+	In the current implementation, this combination consists of simply averaging
 	%This is accomplished simply by averaging 
-	each of the duration, pitch, and energy scores assigned by JSnoori in each one-on-one comparison; for example, the final pitch score for a learner's utterance when compared to three different reference utterances will be the average of those three one-on-one pitch scores as computed by JSnoori. Other means for combining several single-reference scores into one multiple-reference score are certainly conceivable, and this could be an interesting direction for future work (see \cref{sec:conclusion:future}).
+	each of the duration, pitch, and energy scores assigned by JSnoori in each one-on-one comparison; for example, the final pitch score for a learner's utterance when compared to three different reference utterances will be the average of those three one-on-one pitch scores as computed by JSnoori. More sophisticated ways of combining several single-reference scores into one multiple-reference score are certainly conceivable, and this could be an interesting direction for future work. % (see \cref{sec:conclusion:future}).
 	
 	
 	%MOVED TO FUTURE WORK
@@ -1271,7 +1275,7 @@ ALL	&	65.66	&	\textbf{0.19}	&	\textbf{0.70}	&	0.85	&	0.76	&	0.82	\\
 		\end{table}	
 	
 	
-	A more detailed breakdown of classification performance, using these best-performing features, for each of the twelve held-out word types, is presented in \cref{tab:results:wordtypes}. As this table shows, there are relatively large differences in accuracy from word to word. Accuracy ranges from 83.93\% (on the word \textit{fliegen}) to 50.91\% (\textit{Tatort}), $\kappa$ from -0.10 (\textit{Fr\"uhling}) to 0.47 (\textit{Tschechen}), and F$_1$ and F$_2$ from 0.91/0.96 (\textit{fliegen}) to 0.49/0.55 (\textit{Tatort}). This recalls the large differences in human-human annotator agreement observed from word type to word type, as described in \cref{sec:agreement:overall}, reinforces the impression that lexical stress realizations are more difficult to assess for some word types than for others, and provides an additional motivation for future investigations into the acoustic-phonetic features responsible for this observed difference in accuracy among word types (see cref{sec:conclusion:future}).
+	A more detailed breakdown of classification performance, using these best-performing features, for each of the twelve held-out word types, is presented in \cref{tab:results:wordtypes}. As this table shows, there are relatively large differences in accuracy from word to word. Accuracy ranges from 83.93\% (on the word \textit{fliegen}) to 50.91\% (\textit{Tatort}), $\kappa$ from -0.10 (\textit{Fr\"uhling}) to 0.47 (\textit{Tschechen}), and F$_1$ and F$_2$ from 0.91/0.96 (\textit{fliegen}) to 0.49/0.55 (\textit{Tatort}). This recalls the large differences in human-human annotator agreement observed from word type to word type, as described in \cref{sec:agreement:overall}, reinforces the impression that lexical stress realizations are more difficult to assess for some word types than for others, and provides an additional motivation for future investigations into the acoustic-phonetic features responsible for this observed difference in accuracy among word types. % (see cref{sec:conclusion:future}).
 	
 	%\TODO{Graph or table comparing the classifier accuracy/kappa for each word type to the human-human stats?}
 	

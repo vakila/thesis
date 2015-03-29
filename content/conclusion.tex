@@ -88,6 +88,7 @@ This thesis has thus presented original work taking steps towards the developmen
 
 Although carrying out in-vivo experiments with L2 German learners was outside the scope of this thesis project, the facilitation of such studies has been the primary motivation behind the development of the \TODO{de-stress} CAPT tool described in this thesis. Therefore, the most logical and important extension of the work described here will be to conduct studies with L1 French learners of German using different combinations of diagnostic and feedback types, to determine if and when these types are effective in helping learners overcome difficulties with lexical stress prosody in German. 
 	Based on the findings of the error analysis described in \cref{sec:lexstress:results}, it may be prudent to focus studies on learners with low German proficiency, as they seemingly stand to benefit most from such training.
+	Once more is known about the conditions under which certain types of diagnosis/feedback are most effective, \TODO{de-stress} could theoretically be transformed into a true Intelligent Tutoring System (ITS), in which models of the relevant aspects of the learning context could be used to automatically choose the best diagnostic/feedback method(s) for a given situation.
 
 \TODO{transition?}
 
@@ -165,22 +166,26 @@ Following on from the inter-annotator agreement analysis in \cref{sec:lexstress:
 %%such as those used by \textcite{Shahin2012a,Kim2011} to categorize English words based on their stress patterns.
 %   ...online, semi-supervised learning which could allow the system to benefit from each new utterance recorded as a learner continues to use the system.
 	
-	\TODO{------------------------------------}
 
 
-	\subsection{Feedback}
+	The possibilities for future extensions of the feedback module are also numerous. First of all, the graphical and text-based visualizations of prosody could be made more flexible with respect to the mapping(s) between prosodic features and graphical properties (e.g. size, opacity, color, etc.), with researchers and instructors being able to configure the mapping as they see fit, as in the system developed by \textcite{Sitaram2011} (see \cref{sec:capt:listen}). Another possible extension of these visualization methods could be to add animation effects highlighting the difference between the learner's prosody and that of the reference(s) or target (e.g. by growing or shrinking a shape to convey the desired change in duration for that syllable), which might help the learner realize which corrections are necessary to make their speech more closely resemble the target. 
+	Regarding auditory feedback, it would be interesting to add a feedback option in which the L1 reference which is modified to emphasize or exaggerate the difference in stress between syllables in the word, as in the work of \citep{Bissiri2006,Bissiri2009}.
+	Finally, several additional types of feedback could be added to the variety currently implemented in \TODO{de-stress}; possibilities may include metalinguistic feedback (e.g. reminders of stress placement rules in German), ``gamification'' (e.g. awarding points for correct realizations), or interactivity (e.g. allowing the learner to manipulate the prosody of an utterance via resynthesis). 
+
+
+	%\subsection{Feedback}
 	
-	\subsubsection{Mapping prosodic features to graphical properties}
-	Shapes: To facilitate studies on which mappings, if any, make this feedback useful to the learner, the researcher-facing GUI should offer control over the different possible mappings.
+	%\subsubsection{Mapping prosodic features to graphical properties}
+	%Shapes: To facilitate studies on which mappings, if any, make this feedback useful to the learner, the researcher-facing GUI should offer control over the different possible mappings.
 	
-	Text: As with the shapes mentioned above, and following \textcite{Sitaram2011}, it would be interesting to explore the possible mappings between acoustic features and properties of the text of each syllable (e.g. size, weight, underlining/decoration, etc.), with these mappings controllable by the researcher via the GUI.
+	%Text: As with the shapes mentioned above, and following \textcite{Sitaram2011}, it would be interesting to explore the possible mappings between acoustic features and properties of the text of each syllable (e.g. size, weight, underlining/decoration, etc.), with these mappings controllable by the researcher via the GUI.
 	
-	\subsubsection{Animation to convey pronunciation targets}
-	...use of animation to transform the visualization of the learner's (incorrectly realized) utterance into a corresponding visualization of the correct realization, e.g. by growing or shrinking the size of the dot or text for each syllable to visualize the desired change in duration, or showing it moving up or down to convey the desired change in pitch.
+	%\subsubsection{Animation to convey pronunciation targets}
+	%...use of animation to transform the visualization of the learner's (incorrectly realized) utterance into a corresponding visualization of the correct realization, e.g. by growing or shrinking the size of the dot or text for each syllable to visualize the desired change in duration, or showing it moving up or down to convey the desired change in pitch.
 	
-	\subsubsection{Alternative prosodic modifications of learner speech}
+	%\subsubsection{Alternative prosodic modifications of learner speech}
 	
-	\begin{itemize}
-	\item{Based on generalized contours instead of a concrete example - possible?}
-	\item{Resynthesis of native reference utterance to emphasize/exaggerate stressed syllables, cf. \citep{Bissiri2006,Bissiri2009}}
-	\end{itemize}
+%	\begin{itemize}
+%	\item{Based on generalized contours instead of a concrete example - possible?}
+%	\item{Resynthesis of native reference utterance to emphasize/exaggerate stressed syllables, cf. \citep{Bissiri2006,Bissiri2009}}
+%	\end{itemize}

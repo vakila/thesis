@@ -1032,7 +1032,8 @@ For the two most frequently observed classes in the data, [correct] and [incorre
 			quantified by percent accuracy (\% acc.) and Kappa agreement ($\kappa$) with respect to the gold-standard labels, as well as precision (P), recall (R) and F$_1$ and F$_2$ measures for the [correct] class. 
 			\TODO{bold best values}
 			}
-			\begin{tabularx}{\textwidth}{lXXXXXXXX}			
+			%\begin{tabularx}{\textwidth}{lXXXXXXXX}		
+			\begin{tabularx}{.8\textwidth}{lXXXXXX}			
 			
 			\toprule
 			\multirow{2}{*}{Feature set} & \multirow{2}{*}{\% acc.} & \multirow{2}{*}{$\kappa$} & \multicolumn{4}{c}{[correct] class} \\
@@ -1100,7 +1101,8 @@ ALL	&	67.52	&	0.25	&	0.71	&	0.89	&	0.79	&	0.85	\\
 					\begin{subtable}{\textwidth}
 			\centering
 			\caption{In combination with DUR+F0 feature set}
-			\begin{tabularx}{\textwidth}{lXXXXXX}			
+			\begin{tabularx}{.8\textwidth}{lXXXXXX}		
+			%\begin{tabular}{lcccccc}	
 			\toprule
 			Feature set & \multirow{2}{*}{\% acc.} & \multirow{2}{*}{$\kappa$} & \multicolumn{4}{c}{[correct] class} \\
 			 %& acc. & inacc. 
@@ -1124,8 +1126,8 @@ WD+SPKR	&	68.41	&	0.26	&	0.71	&	0.91	&	0.79	&	0.86	\\
 			\begin{subtable}{\textwidth}
 			\centering
 			\caption{In combination with ALL feature set}
-			\begin{tabularx}{\textwidth}{lXXXXXXXX}			
-			
+			\begin{tabularx}{.8\textwidth}{lXXXXXX}			
+			%\begin{tabular}{lcccccc}
 			\toprule
 			Feature set & \multirow{2}{*}{\% acc.} & \multirow{2}{*}{$\kappa$} & \multicolumn{4}{c}{[correct] class} \\
 			 %& acc. & inacc. 
@@ -1182,9 +1184,8 @@ the classification accuracy and $\kappa$ scores do not seem so unimpressive. Ind
 	\subsection{Performance on unseen speakers and words}
 	\label{sec:classification:unseen}
 	
-	\TODO{No need to have these in the same section - split into 2 separate subsections}	
 	
-	In the feature experiments described in the previous section, each speaker and word type in the testing data had already been seen in the training data, i.e. the training data included utterances by that speaker or of that word type (uttered by both native and nonnative speakers). However, as stated in \TODO{\cref{??}}, one motivation for a classification-based approach to error diagnosis is that the abstraction from concrete reference utterances afforded by such a method can theoretically enable the diagnosis of errors in new word types without requiring additional recordings of native speakers pronouncing these words; to assess the feasibility of diagnosing utterances of new words, the classifier's performance on words not seen in the training data must be evaluated and compared with the performance observed on seen words, with the hypothesis that the former will be better than the latter. Furthermore, in order for a CAPT tool to be useful in practice, it must be able to diagnose the speech of a learner from their very first time using the system. In the experiments reported above, it is possible that the training data's inclusion of other utterances by the speaker in question resulted in higher performance than would be observed if such utterances were not available as training instances, so the classifier's performance on unseen speakers must be compared to the performance reported above, once again with the hypothesis that the classifier will perform more poorly on unseen test data. To test these hypotheses, another series of experiments was carried out using different configurations of testing and training data sets. 
+	In the feature experiments described in the previous section, each speaker and word type in the testing data had already been seen in the training data, i.e. the training data included utterances by that speaker or of that word type (uttered by both native and nonnative speakers). However, as stated at the beginning of \cref{sec:diag:classification}, one motivation for a classification-based approach to error diagnosis is that the abstraction from concrete reference utterances afforded by such a method can theoretically enable the diagnosis of errors in new word types without requiring additional recordings of native speakers pronouncing these words; to assess the feasibility of diagnosing utterances of new words, the classifier's performance on words not seen in the training data must be evaluated and compared with the performance observed on seen words, with the hypothesis that the former will be better than the latter. Furthermore, in order for a CAPT tool to be useful in practice, it must be able to diagnose the speech of a learner from their very first time using the system. In the experiments reported above, it is possible that the training data's inclusion of other utterances by the speaker in question resulted in higher performance than would be observed if such utterances were not available as training instances, so the classifier's performance on unseen speakers must be compared to the performance reported above, once again with the hypothesis that the classifier will perform more poorly on unseen test data. To test these hypotheses, another series of experiments was carried out using different configurations of testing and training data sets. 
 	
 	
 	\subsubsection{Unseen speakers}	
@@ -1194,8 +1195,11 @@ the classification accuracy and $\kappa$ scores do not seem so unimpressive. Ind
 	
 	\begin{table}
 			\centering
-			\caption[Results of experiments with unseen speakers]{Results of experiments with unseen speakers, averaged over all 56 held-out speakers \TODO{explain stats} \TODO{fix width} \TODO{bold best values}}
-			\begin{tabularx}{\textwidth}{lXXXXXX}			
+			\caption[Results of experiments with unseen speakers]{Results of experiments with unseen speakers, averaged over all 56 held-out speakers.
+			Performance is quantified by percent accuracy (\% acc.) and Kappa agreement ($\kappa$) with respect to the gold-standard labels, as well as precision (P), recall (R) and F$_1$ and F$_2$ measures for the [correct] class. 
+			 \TODO{bold best values}
+			 }
+			\begin{tabularx}{.8\textwidth}{lXXXXXX}		
 			\toprule
 			\multirow{2}{*}{Feature set} & \multirow{2}{*}{\% acc.} & \multirow{2}{*}{$\kappa$} & \multicolumn{4}{c}{[correct] class} \\
 			\cmidrule(lr){4-7}
@@ -1209,22 +1213,25 @@ DUR+F0	&	69.16	&	0.19	&	0.68	&	0.90	&	0.74	&	0.85	\\
 			\end{tabularx}
 		\end{table}
 		
-		As expected, the best performance on unseen speakers, achieved using the word and proficiency level features in addition to the duration/F0 features, is slightly lower than the overall best performance when utterances from each speaker are available as training instances (using word, level, and all prosodic features, as described in \cref{sec:classification:features:spkrword}). Specifically, \TODO{we} observe a drop in accuracy from 71.87\% to 70.22\%, in $\kappa$ from 0.34 to 0.24, and in F$_1$ and F$_2$ measures from 0.80/0.86 to 0.75/0.84, respectively. While these performance losses do not seem drastic, they do seem to indicate that the system has greater success evaluating the accuracy of a learner's lexical stress production when it has seen  labeled utterances from that speaker before; in future work it would be interesting to explore techniques for enabling improvements in accuracy as a new learner continues to use the system (see \cref{sec:conclusion:future}).
+		As expected, the best performance on unseen speakers, achieved using the word and proficiency level features in addition to the duration/F0 features, is slightly lower than the overall best performance when utterances from each speaker are available as training instances (using word, level, and all prosodic features, as described in \cref{sec:classification:features:spkrword}). Specifically, accuracy drops from 71.87\% to 70.22\%, in $\kappa$ from 0.34 to 0.24, and F$_1$ and F$_2$ measures from 0.80/0.86 to 0.75/0.84, respectively. While these performance losses do not seem drastic, they do seem to indicate that the system has greater success evaluating the accuracy of a learner's lexical stress production when it has seen  labeled utterances from that speaker before; in future work it would be interesting to explore techniques for enabling improvements in accuracy as a new learner continues to use the system (see \cref{sec:conclusion:future}).
 		
 		
 		
 		\subsubsection{Unseen words}
 	
 	
-	To evaluate classification performance on unseen word types, the nonnative utterances annotated for lexical stress (see \cref{sec:classification:datamethod}) were divided by their word type, resulting in twelve different data sets to be used for testing. To construct the training set for each test set, utterances of the target word type  were removed from the complete set of native German utterances, and the resulting set of 11 word types uttered by L1 German speakers was combined with the utterances of those 11 word types by L2 speakers. Given the improvement in performance observed with the inclusion of speaker-related features (see \cref{sec:classification:features:spkrword}), along with the apparent \TODO{interaction \textit{in the everyday, not scientific sense}} between such features and the prosodic feature set (such that overall performance improved when all prosodic features were included, not just the best-performing prosodic features of duration and F0), classifiers were trained using a few  different combinations of features, to ascertain how these features affect performance when the test data consists of unseen words. It might be the case that including information about the speaker, i.e. their age/gender and proficiency level, may be more helpful when there are no training instances available for the given word type. 
+	To evaluate classification performance on unseen word types, the nonnative utterances annotated for lexical stress (see \cref{sec:classification:datamethod}) were divided by their word type, resulting in twelve different data sets to be used for testing. To construct the training set for each test set, utterances of the target word type  were removed from the complete set of native German utterances, and the resulting set of 11 word types uttered by L1 German speakers was combined with the utterances of those 11 word types by L2 speakers. Given the improvement in performance observed with the inclusion of speaker-related features (see \cref{sec:classification:features:spkrword}), along with the apparent interplay between such features and the prosodic feature set (such that overall performance improved when all prosodic features were included, not just the best-performing prosodic features of duration and F0), classifiers were trained using a few  different combinations of features, to ascertain how these features affect performance when the test data consists of unseen words. It might be the case that including information about the speaker, i.e. their age/gender and proficiency level, may be more helpful when there are no training instances available for the given word type. 
 	
 	The results of these experiments are presented in \cref{tab:results:words}. As that table shows, the best average performance on all twelve unseen word types was achieved using classifiers trained only on the best-performing prosodic features,(DUR+F0), and not taking either of the speaker-related features into consideration: this yielded an accuracy of 66.85\%, $\kappa$ of 0.17, and F$_1$ and F$_2$ measures of 0.77 and 0.84, respectively. 
 	
 	
 	\begin{table}
 			\centering
-			\caption[Results of experiments with unseen words]{Results of experiments with unseen words, averaged over all 12 held-out word types \TODO{explain stats} \TODO{fix width} \TODO{bold best values}}
-			\begin{tabularx}{\textwidth}{lXXXXXX}		
+			\caption[Results of experiments with unseen words]{Results of experiments with unseen words, averaged over all 12 held-out word types.
+			Performance is quantified by percent accuracy (\% acc.) and Kappa agreement ($\kappa$) with respect to the gold-standard labels, as well as precision (P), recall (R) and F$_1$ and F$_2$ measures for the [correct] class. 
+			\TODO{bold best values}
+			}
+			\begin{tabularx}{.8\textwidth}{lXXXXXX}		
 			\toprule
 			\multirow{2}{*}{Feature set} & \multirow{2}{*}{\% acc.} & \multirow{2}{*}{$\kappa$} & \multicolumn{4}{c}{[correct] class} \\
 			\cmidrule(lr){4-7}
@@ -1245,14 +1252,18 @@ ALL	&	65.66	&	0.19	&	0.70	&	0.85	&	0.76	&	0.82	\\
 	
 	
 	A more detailed breakdown of classification performance, using these best-performing features, for each of the twelve held-out word types, is presented in \cref{tab:results:wordtypes}. As this table shows, there are relatively large differences in accuracy from word to word. Accuracy ranges from 83.93\% (on the word \textit{fliegen}) to 50.91\% (\textit{Tatort}), $\kappa$ from -0.10 (\textit{Fr\"uhling}) to 0.47 (\textit{Tschechen}), and F$_1$ and F$_2$ from 0.91/0.96 (\textit{fliegen}) to 0.49/0.55 (\textit{Tatort}). This recalls the large differences in human-human annotator agreement observed from word type to word type, as described in \cref{sec:agreement:overall}, reinforces the impression that lexical stress realizations are more difficult to assess for some word types than for others, and provides an additional motivation for future investigations into the acoustic-phonetic features responsible for this observed difference in accuracy among word types (see cref{sec:conclusion:future}).
-	\TODO{Graph or table comparing the classifier accuracy/kappa for each word type to the human-human stats?}
+	
+	%\TODO{Graph or table comparing the classifier accuracy/kappa for each word type to the human-human stats?}
 	
 	
 	
 		\begin{table}
 			\centering
-			\caption[Best classification results on unseen words, by word type]{Best classification results (using feature set DUR+F0) on unseen words, by word type \TODO{explain stats} \TODO{fix width} \TODO{bold best values}}
-			\begin{tabularx}{\textwidth}{lXXXXXX}			
+			\caption[Best classification results on unseen words, by word type]{Best classification results (using feature set DUR+F0) on unseen words, by word type. 
+			Performance is quantified by percent accuracy (\% acc.) and Kappa agreement ($\kappa$) with respect to the gold-standard labels, as well as precision (P), recall (R) and F$_1$ and F$_2$ measures for the [correct] class.			
+			\TODO{bold best values}
+			}
+			\begin{tabularx}{.8\textwidth}{lXXXXXX}			
 			\toprule
 			\multirow{2}{*}{Held-out word} & \multirow{2}{*}{\% acc.} & \multirow{2}{*}{$\kappa$} & \multicolumn{4}{c}{[correct] class} \\
 			\cmidrule(lr){4-7}
@@ -1265,7 +1276,7 @@ Pollen	&	64.29	&	0.03	&	0.65	&	0.97	&	0.78	&	0.88	\\
 Ringen	&	47.27	&	0.14	&	0.65	&	0.53	&	0.59	&	0.55	\\
 Tschechen	&	76.79	&	0.47	&	0.85	&	0.88	&	0.86	&	0.87	\\
 Flagge	&	60.00	&	0.00	&	0.60	&	1.00	&	0.75	&	0.88	\\
-Fr\"uhling	&	78.57	&	-0.10	&	0.85	&	0.92	&	0.88	&	0.90	\\
+Fr\"uhling	&	78.57	&	$-$0.1	&	0.85	&	0.92	&	0.88	&	0.90	\\
 tragen	&	63.64	&	0.15	&	0.62	&	1.00	&	0.76	&	0.89	\\
 halten	&	71.43	&	0.33	&	0.72	&	0.94	&	0.81	&	0.89	\\
 E-mail	&	71.43	&	0.30	&	0.69	&	0.97	&	0.81	&	0.90	\\
@@ -1280,7 +1291,9 @@ Average	&	66.85	&	0.17	&	0.69	&	0.88	&	0.77	&	0.83	\\
 	
 	
 	
-	In comparison with the best results obtained on seen words as reported in the previous section (\TODO{recap results for DUR+F0 and WD+LVL+ALL}), these statistics seem to confirm the hypothesis that performance would be lower on words not seen in the training data. Perhaps most striking is the difference in $\kappa$, which constitutes a drop from fair to slight agreement with the gold-standard labels (using the \textcite{Landis1977} thresholds), which also constitutes a fall below the average inter-annotator $\kappa$ of 0.23 observed between human annotations (see \cref{sec:agreement:overall}). However, the drop in the overall accuracy percentage, as well as in the two F-measures, seems less drastic, which seems encouraging from the perspective of extending the diagnostic capabilities of the CAPT tool to novel word types using a classification-based approach, especially considering the possibilities for improving classification performance by other means, e.g. using additional features or more powerful machine learning algorithms (see \cref{sec:conclusion:future}).
+	In comparison with the best results obtained on seen words as reported in the previous section 
+	(69.77\% accuracy and $\kappa=$0.29 for the DUR+F0 feature set, and 71.87\%/$\kappa=$0.34 for WD+LVL+ALL),
+	 these statistics seem to confirm the hypothesis that performance would be lower on words not seen in the training data. Perhaps most striking is the difference in $\kappa$, which constitutes a drop from fair to slight agreement with the gold-standard labels (using the \textcite{Landis1977} thresholds), which also constitutes a fall below the average inter-annotator $\kappa$ of 0.23 observed between human annotations (see \cref{sec:agreement:overall}). However, the drop in the overall accuracy percentage, as well as in the two F-measures, seems less drastic, which seems encouraging from the perspective of extending the diagnostic capabilities of \TODO{de-stress} to novel word types using a classification-based approach, especially considering the possibilities for improving classification performance by other means, e.g. using additional features or more powerful machine learning algorithms (see \cref{sec:conclusion:future}).
 	
 	
 		
@@ -1350,14 +1363,14 @@ Average	&	66.85	&	0.17	&	0.69	&	0.88	&	0.77	&	0.83	\\
 %\subsubsection{Feature selection?}
 %\subsubsection{Comparing diagnostic approaches?} 
 
-\section{Controlling diagnosis in the system}
+\section{Controlling diagnosis in \TODO{de-stress}}
 \label{sec:diag:system}
 
-	In the prototype CAPT tool developed in this thesis project, a  researcher (or teacher) can choose between the various possible approaches for diagnosing lexical stress errors in learner's speech which have been discussed in this chapter. The choices available in the tool are illustrated in \cref{fig:diag:system}. When creating a new exercise, in which a learner is asked to read one of the sentences extracted from the IFCASL corpus \TODO{(see \cref{??}} in order to receive feedback on their realization of lexical stress in a target word in that sentence, the researcher is asked to select a DiagnosisMethod for that exercise. The Diagnosis method captures the researchers' choices among the various diagnostic options offered by the system; a screenshot showing the creation of a simple example is presented in \cref{fig:diag:creatediagnosismethod}. As illustrated in \TODO{\cref{fig:createexercise}}, this DiagnosisMethod is combined with a (compatible) FeedbackMethod when the exercise is created; see \cref{sec:fb:system} for a description of FeedbackMethods and their compatibility with the various possible DiagnosisMethods. 
+	In the \TODO{de-stress} CAPT tool, a  researcher (or teacher) can choose between the various possible approaches for diagnosing lexical stress errors in learner's speech which have been discussed in this chapter. The choices available in the tool are illustrated in \cref{fig:diag:system}. When creating a new exercise, in which a learner is asked to read one of the sentences from the IFCASL corpus (see \cref{sec:intro:ifcasl}) in order to receive feedback on their realization of lexical stress in a target word in that sentence, the researcher is asked to select a DiagnosisMethod object for that exercise (see \cref{fig:interface:teacher} on \cpageref{fig:interface:teacher}). The DiagnosisMethod captures the researchers' choices among the various diagnostic options offered by the system; a screenshot showing the creation of a simple example is presented in \cref{fig:diag:creatediagnosismethod}. As illustrated in \cref{fig:interface:teacher}, this DiagnosisMethod is combined with a (compatible) FeedbackMethod when the exercise is created; see \cref{sec:fb:system} for a description of FeedbackMethod options and their compatibility with the various possible DiagnosisMethod options. 
 	
 	\begin{figure}
 		\centering
-		\caption[Overview of diagnosis options]{Overview of diagnosis options in the prototype CAPT tool \TODO{Make workflow clearer}}
+		\caption[Overview of diagnosis options]{Overview of diagnosis options in \TODO{de-stress} \TODO{Redo as Tikz flowchart}}
 		\includegraphics[width=\textwidth]{img/DiagnosisMethod}
 		\label{fig:diag:system}
 	\end{figure}
@@ -1370,12 +1383,12 @@ Average	&	66.85	&	0.17	&	0.69	&	0.88	&	0.77	&	0.83	\\
 	\end{figure}
 	
 	
-	\begin{figure}
-		\centering
-		\caption[Creating an Exercise]{Screenshot of the researcher-facing interface to create an Exercise}
-		\includegraphics[width=\textwidth]{img/screenshots/createExercise}
-		\label{fig:diag:createexercise}
-	\end{figure}
+%	\begin{figure}
+%		\centering
+%		\caption[Creating an Exercise]{Screenshot of the researcher-facing interface to create an Exercise}
+%		\includegraphics[width=\textwidth]{img/screenshots/createExercise}
+%		\label{fig:diag:createexercise}
+%	\end{figure}
 
 \section{Summary}
 \label{sec:diag:summary}

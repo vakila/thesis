@@ -471,12 +471,15 @@ Minimum	&	23.21\%	&	-0.01	\\
 	
 		%%%%%% ANNOTATORS
 	
-	It seems, then, that there may be stark differences in reliability from annotator to annotator. Analysis of the set of pairwise comparisons between a given annotator and all overlapping annotators provides more insight into that annotator's individual reliability. \Cref{fig:agreement:annotators} illustrates the pairwise agreements involving each of the 15 annotators.
-	 \TODO{table of percent/kappa min/avg/max by annotator, since graphs are difficult to read precisely?} Evidently, there is noticeable variation from annotator to annotator, with some annotators (e.g. C, with a mean percentage agreement of \TODO{X} and a mean $\kappa$ of \TODO{Y}) appearing generally more reliable than others (e.g. F, with mean \%=\TODO{X} and mean $\kappa$=\TODO{Y}).  \TODO{stat. significance?} However, these figures should be interpreted with caution because they do not account for differences in the number of overlapping annotators/tokens available for each annotator. %TODO {reference overlap table}. 
+	It seems, then, that there may be stark differences in reliability from annotator to annotator. Analysis of the set of pairwise comparisons between a given annotator and all overlapping annotators provides more insight into that annotator's individual reliability. 
+	\TODO{\Cref{tab:agreement:annotators} lists the minimum, mean, and maximum pairwise agreement statistics for each of the 15 annotators.
+	\Cref{fig:agreement:annotators} illustrates the pairwise agreements involving each of the 15 annotators.}
+	 %\TODO{table of percent/kappa min/avg/max by annotator, since graphs are difficult to read precisely?} 
+	 Evidently, there is noticeable variation from annotator to annotator, with some annotators (e.g. C, with a mean percentage agreement of 65.5\% and a mean $\kappa$ of 0.39) appearing generally more reliable than others (e.g. F, with mean \%=41.2\% and mean $\kappa$=0.13).  \TODO{stat. significance?} However, these figures should be interpreted with caution because they do not account for differences in the number of overlapping annotators/tokens available for each annotator. %TODO {reference overlap table}. 
 	Nonetheless, the observed variability among annotators cannot be ignored, and \cref{sec:agreement:native,sec:agreement:expert} attempt to investigate whether differences in annotators' L1 and level of expertise could potentially explain some of this variability.
 		
 		
-		\begin{table}
+		\begin{table}[p]
 			\centering
 			\caption{\TODO{caption}}
 			
@@ -485,7 +488,7 @@ Minimum	&	23.21\%	&	-0.01	\\
 
 \multirow{2}{*}{ID}	&	\multirow{2}{*}{Pairs}	&	\multicolumn{3}{c}{Pairwise \% Agreement}					&	\multicolumn{3}{c}{Pairwise $\kappa$}					\\
 				\cmidrule(lr){3-5}						\cmidrule(lr){6-8}					
-	&		&	Min.	&	Avg.	&	Max.	&	Min.	&	Avg.	&	Max.	\\
+	&		&	Min.	&	Mean	&	Max.	&	Min.	&	Mean&	Max.	\\
 \midrule															
 A	&	8	&	23.2\%	&	51.4\%	&	67.3\%	&	-0.01	&	0.22	&	0.34	\\
 B	&	7	&	48.2\%	&	62.4\%	&	80.4\%	&	0.17	&	0.33	&	0.61	\\
@@ -512,49 +515,64 @@ O	&	6	&	40.5\%	&	47.4\%	&	53.6\%	&	0.13	&	0.20	&	0.28	\\
 		\begin{figure}[p]
 			\centering
 			
-%			\begin{subfigure}[b]{\textwidth}
-%				\centering
-%				\includegraphics[width=\textwidth]{img/annotation/pairAgreeAnnotators}
-%				\caption{Percent agreement}
-%				\label{fig:agreement:annotators:pct}
-%			\end{subfigure}%
-			
-%			\begin{subfigure}[b]{\textwidth}
-%				\centering
-%				\includegraphics[width=\textwidth]{img/annotation/pairKappaAnnotators}
-%				\caption{Cohen's Kappa statistic}
-%				\label{fig:agreement:annotators:k}
-%			\end{subfigure}%
-
 			\begin{subfigure}{\textwidth}
 				\centering
+				
+				\includegraphics[width=\textwidth]{img/annotation/pairAgreeAnnotators-noTitle}
+%				\caption{Percent agreement}
 				\caption{Pairwise percentage agreement by annotator}
-				\includegraphics[width=\textwidth]{img/plots/pairwisePercentageByAnnotator-noTitle}
 				\label{fig:agreement:annotators:pct}
 			\end{subfigure}%
 
-			\vspace{1em}			
+			%\vspace{1em}			
 			
 			\begin{subfigure}{\textwidth}
 				\centering
+				
+				\includegraphics[width=\textwidth]{img/annotation/pairKappaAnnotators-noTitle}
+%				\caption{Cohen's Kappa statistic}
 				\caption{Pairwise $\kappa$ by annotator}
-				\includegraphics[width=\textwidth]{img/plots/pairwiseKappaByAnnotator-noTitle}
 				\label{fig:agreement:annotators:k}
-			\end{subfigure}%
+			\end{subfigure}%			
 			
-			%\vspace{1em}	
-
-			\caption[Pairwise agreement statistics by annotator]{
-			\TODO{Redo: smaller height, bigger labels, diff box styles to show L1/expertise of each annotator?} 
-			Each annotator's pairwise agreement with all other annotators with whom they overlapped.
-			In these box-and-whisker plots, black horizontal lines represent median values, and boxes extend from the first quartile to the third quartile, thus representing the Inter Quartile Range (IQR). Whiskers (dashed lines) extend to the minimum and maximum values within 1.58 IQR of the first and third quartiles, respectively, and roughly represent a 95\% confidence interval around the median. 
-			 Circles depict outlying values that fall outside of the IQR by a distance of more than approximately 1.5$\times$IQR.%
-			%Numbers in parentheses indicate the number of pairwise comparisons involving each annotator. The bottom of each vertical bar represents the minimum pairwise value, the top the maximum. Horizontal bars indicate mean pairwise values.
+			%\vspace{1em}			
 			
-			}
-			
+			\caption[Pairwise agreement statistics by annotator]{Pairwise agreement statistics by annotator. The bottom of each vertical bar represents the minimum pairwise value, the top the maximum. Horizontal bars indicate mean pairwise values.}
 			\label{fig:agreement:annotators}
 		\end{figure}
+		
+%		\begin{figure}[p]
+%			\centering
+%			
+%			\begin{subfigure}{\textwidth}
+%				\centering
+%				\caption{Pairwise percentage agreement by annotator}
+%				\includegraphics[width=\textwidth]{img/plots/pairwisePercentageByAnnotator-noTitle}
+%				\label{fig:agreement:annotators:pct}
+%			\end{subfigure}%
+%
+%			\vspace{1em}			
+%			
+%			\begin{subfigure}{\textwidth}
+%				\centering
+%				\caption{Pairwise $\kappa$ by annotator}
+%				\includegraphics[width=\textwidth]{img/plots/pairwiseKappaByAnnotator-noTitle}
+%				\label{fig:agreement:annotators:k}
+%			\end{subfigure}%
+%			
+%			%\vspace{1em}	
+%
+%			\caption[Pairwise agreement statistics by annotator]{
+%			\TODO{Redo: smaller height, bigger labels, diff box styles to show L1/expertise of each annotator?} 
+%			Each annotator's pairwise agreement with all other annotators with whom they overlapped.
+%			In these box-and-whisker plots, black horizontal lines represent median values, and boxes extend from the first quartile to the third quartile, thus representing the Inter Quartile Range (IQR). Whiskers (dashed lines) extend to the minimum and maximum values within 1.58 IQR of the first and third quartiles, respectively, and roughly represent a 95\% confidence interval around the median. 
+%			 Circles depict outlying values that fall outside of the IQR by a distance of more than approximately 1.5$\times$IQR.%
+%			%Numbers in parentheses indicate the number of pairwise comparisons involving each annotator. The bottom of each vertical bar represents the minimum pairwise value, the top the maximum. Horizontal bars indicate mean pairwise values.
+%			
+%			}
+%			
+%			\label{fig:agreement:annotators}
+%		\end{figure}
 		
 		
 		

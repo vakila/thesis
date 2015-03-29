@@ -124,7 +124,7 @@ any analysis of the learner's speech signal, including the preliminary step of s
 	speech in English and French.
 	 %In the absence of automatic segmentation capabilities for German,
 	 Therefore,
-	 In its current implementation, \TODO{de-stress}
+	 in its current implementation, \TODO{de-stress}
 	 presupposes the existence of a segmentation for a given utterance,
 	%the tool %thus takes 
 	taking a ``Wizard-of-Oz'' approach to the automatic segmentation step by demonstrating its error diagnosis and feedback capabilities using learner (L2) and reference (L1) read-speech utterances from the German-language subset of the IFCASL corpus \citep{Fauth2014,Trouvain2013}, all of which have been segmented at the phone and word levels using the forced alignment technique described above.
@@ -135,7 +135,7 @@ any analysis of the learner's speech signal, including the preliminary step of s
 	
 	
 	Although the IFCASL corpus also contains manually-corrected versions of the majority of the forced-alignment segmentations,
-	\TODO{de-stress} only makes use of the automatically-determined determined boundaries, even though these are potentially less accurate; 
+	\TODO{de-stress} only makes use of the automatically-determined boundaries, even though these are potentially less accurate; 
 	this is to more accurately 
 	%reflect the fact that any 
 	simulate the conditions of a 
@@ -350,7 +350,7 @@ along with the values computed for each feature from the sample utterances shown
 	\footnote{ As stated previously, pitch and F0 are not identical, 
 	the latter being an acoustic (objective) property of the speech signal and the former the perceptual (subjective) correlate thereof. 
 	However, in JSnoori and much of the literature, the term ``pitch'' is often used to refer to an aspect of the speech signal which can be measured objectively.
-	For consistency with JSnoori's terminology, in this section the terms will be used somewhat interchageably.}
+	For consistency with JSnoori's terminology, in this section the terms will be used somewhat interchangeably.}
 	 contour of a given utterance is estimated using the pitch detection 
 	%algorithm(s) implemented in 
 	functionality of 
@@ -840,7 +840,7 @@ As a type of baseline, \TODO{de-stress} therefore enables the choice of a refere
 		%\label{sec:compare:single:auto}
 		
 		A different and perhaps more interesting means of selecting a reference speaker is to automatically choose a speaker whose voice resembles
-that of the learner; as described in \cref{sec:capt:fluency}, research by \textcite{Probst2002} seems to indicate that using an carefully-selected reference speaker can help learners improve their pronunciation. 
+that of the learner; as described in \cref{sec:capt:fluency}, research by \textcite{Probst2002} seems to indicate that using a carefully-selected reference speaker can help learners improve their pronunciation. 
 	This requires some representation of the relevant features of each speaker's voice; \TODO{de-stress} follows \textcite{Probst2002} in using F0 mean and range for that representation, where each speaker's overall F0 mean and range are computed as the average of each of these features across all available whole-sentence utterances by that speaker. To determine the best reference speaker for a given learner, the respective absolute differences between that learner's overall F0 mean and range and those of each of the available native speakers are calculated and added together, and the native speaker with the lowest total difference from the learner is selected as the reference. While this accomplishes the goal of providing automatic reference selection as an alternative to the more common manual selection of the reference speaker, it remains a rather simplistic way of representing each speaker's voice, and an exploration of how speakers can be compared using other representations would be a worthwhile future endeavor (see \cref{sec:conclusion:future}).
 
 
@@ -870,7 +870,7 @@ that of the learner; as described in \cref{sec:capt:fluency}, research by \textc
 	%
 	A second limitation of the comparison-based approach is that 
 	%it requires recordings of L1 speakers uttering each word or sentence on which the learner is evaluated, 
-	and therefore 
+	%and therefore 
 	it limits the exercises available in a CAPT system to those using only words/sentences for which recordings by L1 speakers are available.
 	
 	Constructing a more general model of native lexical stress realization, and comparing the learner's utterance directly to this model instead of to one or more reference utterances, 
@@ -902,7 +902,7 @@ that of the learner; as described in \cref{sec:capt:fluency}, research by \textc
 	\subsection{Data and method}
 	\label{sec:classification:datamethod}
 	
-	\TODO{use dataset, IFCASL-FG and IFCASL-GG if appropriate}
+	%\TODO{use dataset, IFCASL-FG and IFCASL-GG if appropriate}
 		
 		In addition to the motivation of analyzing the frequency and distribution of lexical stress errors in L2 German speech by L1 French speakers, another motivation behind the annotation of these errors in a subset of the IFCASL-FG corpus (described in \cref{chap:lexstress}) was the creation of labeled data for a supervised machine learning approach to diagnosing learner errors. In addition to the L2 utterances and their gold-standard labels from the annotated dataset (see \cref{sec:agreement:gold}), the corresponding L1 utterances of the selected word types from the the IFCASL-GG corpus were also included in training data, with each native utterance labeled as [correct] based on the assumption that native speakers always realize lexical stress correctly.
 		
@@ -959,7 +959,7 @@ For the two most frequently observed classes in the data, [correct] and [incorre
 	
 		As mentioned above, a series of experiments was carried out in an effort to determine which of the prosodic features described in \cref{sec:diag:prosody} give the best accuracy in the task of classifying lexical stress errors. Determining the best-performing features not only enables the creation of the most accurate diagnosis-by-classification system possible, but may also have implications for the way these acoustic features of the speech signal correspond (or fail to correspond) with the perception of lexical stress in nonnative speech. 
 		
-		A 10-fold cross-validation was performed on the entire set of available training data, i.e. the utterances of 12 German word types produced by L1 French speakers which had been annotated for lexical stress errors as described in \cref{chap:lexstress}, along with the	utterances of these word types by native German speakers, labeled as correct. As the goal of  error diagnosis by classification in the CAPT context is to classify nonnative, and not native, speech, including native utterances in the test data was not appropriate; therefore, for each of the 10 folds of the cross-validation, one tenth of the nonnative utterances were randomly selected to be held out as the test data set, and the other nine-tenths were combined with the native utterances to create the training data set. 
+		A 10-fold cross-validation was performed on the entire set of available training data, i.e. the utterances of 12 German word types produced by L1 French speakers which had been annotated for lexical stress errors as described in \cref{chap:lexstress}, along with the	utterances of these word types by native German speakers, labeled as correct. As the goal of  error diagnosis by classification in the CAPT context is to classify nonnative speech, including native utterances in the test data was not appropriate; therefore, for each of the 10 folds of the cross-validation, one tenth of the nonnative utterances were randomly selected to be held out as the test data set, and the other nine-tenths were combined with the native utterances to create the training data set. 
 		
 		To evaluate feature performance, classifiers were trained using various subsets of the complete feature set,
 		%;  the various feature sets used in the experiments 
@@ -1039,7 +1039,7 @@ For the two most frequently observed classes in the data, [correct] and [incorre
 		
 		%\TODO{Hypothesis: Dur>F0>Intensity}
 		
-		\Cref{tab:results:prosody} lists the results of experiments with the prosodic features described in \cref{tab:features:sets:prosody}. As seen in the first three rows of\cref{tab:results:prosody}, the results obtained using features representing each of the three acoustic correlates of lexical stress, duration, F0, and intensity (energy), 
+		\Cref{tab:results:prosody} lists the results of experiments with the prosodic features described in \cref{tab:features:sets:prosody}. As seen in the first three rows of \cref{tab:results:prosody}, the results obtained using features representing each of the three acoustic correlates of lexical stress, duration, F0, and intensity (energy), 
 		%which are displayed in the first three rows of \cref{tab:results:prosody}, 
 		conform with findings from other research 
 		%regarding the correspondence between these three \TODO{features} and lexical stress 
@@ -1111,7 +1111,8 @@ ALL	&	67.52	&	0.25	&	0.71	&	0.89	&	0.79	&	0.85	\\
 		\subsubsection{Speaker- and word-related features}
 		\label{sec:classification:features:spkrword}
 		
-		As discussed in \cref{sec:lexstress:results}, differences in the realization of lexical stress can sometimes arise due to features not specific to the utterance itself, but rather to the speaker making the utterance or to the word type uttered. Therefore, in addition to the prosodic features described in \cref{sec:diag:prosody}, another series of experiments included features related to the speaker and word of a given utterance (listed in \cref{tab:features:sets:spkrword}), to ascertain whether the inclusion of such features could lead to any performance gains. \Cref{tab:results:spkrword} presents the results of those experiments. \TODO{Hypothesis: all are helpful}
+		As discussed in \cref{sec:lexstress:results}, differences in the realization of lexical stress can sometimes arise due to features not specific to the utterance itself, but rather to the speaker making the utterance or to the word type uttered. Therefore, in addition to the prosodic features described in \cref{sec:diag:prosody}, another series of experiments included features related to the speaker and word of a given utterance (listed in \cref{tab:features:sets:spkrword}), to ascertain whether the inclusion of such features could lead to any performance gains. \Cref{tab:results:spkrword} presents the results of those experiments. 
+		%\TODO{Hypothesis: all are helpful}
 		
 		
 		
@@ -1246,7 +1247,7 @@ DUR+F0	&	69.16	&	0.19	&	0.68	&	\textbf{0.90}	&	0.74	&	\textbf{0.85}	\\
 	
 	To evaluate classification performance on unseen word types, the nonnative utterances annotated for lexical stress (see \cref{sec:classification:datamethod}) were divided by their word type, resulting in twelve different data sets to be used for testing. To construct the training set for each test set, utterances of the target word type  were removed from the complete set of native German utterances, and the resulting set of 11 word types uttered by L1 German speakers was combined with the utterances of those 11 word types by L2 speakers. Given the improvement in performance observed with the inclusion of speaker-related features (see \cref{sec:classification:features:spkrword}), along with the apparent interplay between such features and the prosodic feature set (such that overall performance improved when all prosodic features were included, not just the best-performing prosodic features of duration and F0), classifiers were trained using a few  different combinations of features, to ascertain how these features affect performance when the test data consists of unseen words. It might be the case that including information about the speaker, i.e. their age/gender and proficiency level, may be more helpful when there are no training instances available for the given word type. 
 	
-	The results of these experiments are presented in \cref{tab:results:words}. As that table shows, the best average performance on all twelve unseen word types was achieved using classifiers trained only on the best-performing prosodic features,(DUR+F0), and not taking either of the speaker-related features into consideration: this yielded an accuracy of 66.85\%, $\kappa$ of 0.17, and F$_1$ and F$_2$ measures of 0.77 and 0.84, respectively. 
+	The results of these experiments are presented in \cref{tab:results:words}. As that table shows, the best average performance on all twelve unseen word types was achieved using classifiers trained only on the best-performing prosodic features (DUR+F0), and not taking either of the speaker-related features into consideration: this yielded an accuracy of 66.85\%, $\kappa$ of 0.17, and F$_1$ and F$_2$ measures of 0.77 and 0.84, respectively. 
 	
 	
 	\begin{table}
@@ -1285,7 +1286,7 @@ ALL	&	65.66	&	\textbf{0.19}	&	\textbf{0.70}	&	0.85	&	0.76	&	0.82	\\
 			\centering
 			\caption[Best classification results on unseen words, by word type]{Best classification results (using feature set DUR+F0) on unseen words, by word type. 
 			Performance is quantified by percent accuracy (\% acc.) and Kappa agreement ($\kappa$) with respect to the gold-standard labels, as well as precision (P), recall (R) and F$_1$ and F$_2$ measures for the [correct] class.			
-			\TODO{bold best values}
+			%\TODO{bold best values}
 			}
 			\begin{tabularx}{.8\textwidth}{lXXXXXX}			
 			\toprule

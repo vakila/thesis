@@ -274,7 +274,6 @@ along with the values computed for each feature from the sample utterances shown
 		\centering
 		\caption[Features used for duration analysis]{Features used for duration analysis, and their values for the sample utterances of ``Flagge'' in \cref{fig:featuresexample}. 
 		S0 refers to the word's first syllable, S1 to the second syllable; similarly, V0 and V1 refer to the nucleus (vowel) of the first and second syllable, respectively.
-		Values are given in seconds. 
 		}
 		
 %		\begin{subtable}[h]{\textwidth}
@@ -303,17 +302,17 @@ along with the values computed for each feature from the sample utterances shown
 		\toprule
 		\multirow{2}{*}{Feature name} 
 									& \multirow{2}{*}{Description}
-														& \multicolumn{2}{c}{Value (s.)} \\
+														& \multicolumn{2}{c}{Value} \\
 	&												&  (a) G		& (b) F \\
 		\midrule
 		REL-SYLL-DUR 	
 			& Duration of S1$/$duration of S0
 			%&	SYLL1-DUR$/$SYLL0-DUR 		
-			& 			& 		\\
+			& 	0.50		& 	1.00	\\
 		REL-V-DUR 		
 			& Duration of V1$/$duration of V0
 			%&	V1-DUR$/$V0-DUR					
-			& 			& 			\\
+			& 	0.56		& 	1.71	\\
 		\bottomrule	
 		\end{tabularx}
 %		\end{subtable}
@@ -465,7 +464,6 @@ along with the values computed for each feature from the sample utterances shown
 		]{%(continued) 
 		Features used for fundamental frequency (F0) analysis, and their values for the sample utterances of ``Flagge'' in \cref{fig:featuresexample}. 
 		S0 refers to the word's first syllable, S1 to the second syllable; similarly, V0 and V1 refer to the nucleus (vowel) of the first and second syllable, respectively.
-		Values are given in semitones, except for the index features, which use integer values.
 		}
 		{\renewcommand{\arraystretch}{1.25}%
 		%\begin{subtable}[h]{\textwidth}
@@ -491,35 +489,40 @@ along with the values computed for each feature from the sample utterances shown
 			& Mean F0 in S1$/$mean F0 in S0
 			%& Mean F0 in 2nd syllable$/$mean F0, 1st syll.
 			%& SYLL0-F0-MEAN$/$SYLL1-F0-MEAN 	
-			& \color{red}{TD}    & \color{red}{TD} \\
+			& 1.11    & 1.09 \\
+			
 		REL-V-F0-MEAN 
 			& Mean F0 in V1$/$mean F0 in V0
 			%& Mean F0, 2nd syll. nucleus$/$mean F0,1st syll. nuc.
 			%& V1-F0-MEAN$/$V0-F0-MEAN 
-			&  \color{red}{TD}	& \color{red}{TD}\\
+			&  0.95		& 1.10 \\
 %		SYLL-REL-MEAN
 %							& $\displaystyle\frac{\mbox{SYLL0-F0-MEAN}}{\mbox{SYLL1-F0-MEAN}}$			
 %																									& 1.13    & 0.90 \\
 		%\addlinespace
+		
 		REL-SYLL-F0-MAX 
 			& Maximum F0 in S1$/$max. F0 in S0
 			%& SYLL1-F0-MAX$/$SYLL0-F0-MAX 			
-			& \color{red}{TD}    & \color{red}{TD} \\
+			& 1.10    & 1.12 \\
+			
 		REL-V-F0-MAX 
 			& Max. F0 in V1$/$max. F0 in V0
 			%& V1-F0-MAX$/$V0-F0-MAX 
-			&  \color{red}{TD}	& \color{red}{TD}\\
+			&  0.96	& 1.12\\
 %		SYLL-REL-MAX
 %							& $\displaystyle\frac{\mbox{SYLL0-F0-MAX}}{\mbox{SYLL1-F0-MAX}}$
 %																									& 1.08		& 0.91 \\
+
 		REL-SYLL-F0-MIN 
 			& Minimum F0 ($>0$) in S1$/$min. F0 in S0
 			%& SYLL1-F0-MIN$/$SYLL0-F0-MIN 
-			&\color{red}{TD}&\color{red}{TD}\\
+			&	1.04		&	1.04	\\
+			
 		REL-V-F0-MIN 
 			& Min. F0 in V1$/$min. F0 in V0
 			%& V1-F0-MIN$/$V0-F0-MIN 
-			&  \color{red}{TD}	& \color{red}{TD}\\
+			&  0.97	&  1.18	\\
 		
 		%\addlinespace
 %		SYLL-REL-MIN		
@@ -529,12 +532,12 @@ along with the values computed for each feature from the sample utterances shown
 		REL-SYLL-F0-RANGE
 			& F0 Range (max. F0$-$min. F0) in S1$/$ \newline F0 range in S0
 			 %& SYLL1-F0-RANGE$/$SYLL0-F0-RANGE 
-			& \color{red}{TD}    & \color{red}{TD} \\
+			& 1.27	    & 1.43 \\
 
 																													REL-V-F0-RANGE 
 			& F0 Range in V1$/$F0 range in V0
 			%& V1-F0-RANGE$/$V0-F0-RANGE 
-			&  \color{red}{TD}	& \color{red}{TD}\\
+			&  0.91	& 0.82	\\
 %		SYLL-REL-RANGE	
 %							& $\displaystyle\frac{\mbox{SYLL0-F0-RANGE}}{\mbox{SYLL1-F0-RANGE}}$
 %																									& 0.40%0.396068		
@@ -549,7 +552,7 @@ along with the values computed for each feature from the sample utterances shown
 %				0, & \text{if SYLL0-F0-MAX}>\text{SYLL1-F0-MAX}\\
 %				1, & \text{if SYLL0-F0-MAX}<\text{SYLL1-F0-MAX}\\
 %				\end{cases}$
-			& \color{red}{TD}    & \color{red}{TD} \\
+			& 1    & 1	\\
 				
 		F0-MIN-INDEX	
 			& $\begin{cases}
@@ -560,7 +563,7 @@ along with the values computed for each feature from the sample utterances shown
 %				0, & \text{if SYLL0-F0-MIN}<\text{SYLL1-F0-MIN}\\
 %				1, & \text{if SYLL0-F0-MIN}>\text{SYLL1-F0-MIN}\\
 %				\end{cases}$
-			& \color{red}{TD}    & \color{red}{TD} \\
+			& 0    & 0	\\
 																									
 		F0-MAXRANGE-INDEX	
 			& $\begin{cases}
@@ -571,7 +574,7 @@ along with the values computed for each feature from the sample utterances shown
 %						0, & \text{if SYLL0-F0-RANGE}>\text{SYLL1-F0-RANGE}\\
 %						1, & \text{if SYLL0-F0-RANGE}<\text{SYLL1-F0-RANGE}\\
 %					\end{cases}$
-			& \color{red}{TD}    & \color{red}{TD} \\
+			& 1   & 1 \\
 		\bottomrule
 		\end{tabularx}
 		%\end{subtable}
@@ -620,7 +623,6 @@ Therefore, in addition to duration and fundamental frequency,
 		\centering
 		\caption[Features used for intensity  analysis]{Features used for intensity analysis, and their values for the sample utterances of ``Flagge'' in \cref{fig:featuresexample}. 
 		S0 refers to the word's first syllable, S1 to the second syllable; similarly, V0 and V1 refer to the nucleus (vowel) of the first and second syllable, respectively.
-		Values are given in decibels (dB) over 60 dB, except for the index feature, which uses integer values.
 		}	
 		
 		
@@ -672,22 +674,26 @@ Therefore, in addition to duration and fundamental frequency,
 	
 REL-SYLL-ENERGY-MEAN 
 	& Mean energy in S1$/$S0 mean en.
-	&  \color{red}{TD}	& \color{red}{TD}\\
+	&  0.39 & 0.38 \\
+	
 REL-SYLL-ENERGY-MAX 
 	& Maximum en. in S1$/$S0 max. en.
-	&  \color{red}{TD}	& \color{red}{TD}\\
+	&  0.52 & 0.45\\
+	
 REL-VOWEL-ENERGY-MEAN 
 	& Mean en. in V1$/$mean en. in V0
-	&  \color{red}{TD}	& \color{red}{TD}\\
+	&  0.43 	& 0.43\\
+	
 REL-VOWEL-ENERGY-MAX 
 	& Max. en. in S1$/$max. en. in S0
-	&  \color{red}{TD}	& \color{red}{TD}\\
+	&  0.53 	& 0.61\\
+	
 ENERGY-MAX-INDEX 
 	& $\begin{cases}
 			0 & \text{if S0 max. en.}>\text{S1 max. en.}\\
 			1 & \text{otherwise}\\
 		\end{cases}$
-	&  \color{red}{TD}	& \color{red}{TD}\\
+	& 0	& 0\\
 	
 	\bottomrule
 	\end{tabularx}

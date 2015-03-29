@@ -703,7 +703,7 @@ Tscheschen	&	6	&	23.2\%	&	44.9\%	&	66.1\%	&	-0.01	&	0.14	&	0.27	\\
 		Looking at these statistics, we see little difference between the two types of pairs; in particular, the mean percentage agreement and $\kappa$ values for native-nonnative and native-native pairs are quite close. \TODO{Stat significance?} If anything, it would appear that agreement within the native annotator group is slightly lower and more varied than agreement between the native and nonnative groups, though this may be explained by the larger number of native-native pairs compared to native-nonnative. It would therefore seem that these agreement statistics do not tell us much about difference between how the two groups of annotators judge lexical stress accuracy.
 		
 		
-		\begin{table}[tb]
+		\begin{table}[p]%[tb]
 			\centering
 			\caption{Inter-annotator agreement between native and nonnative annotators (pairwise)}
 			%\begin{tabularr}{\textwidth}{lXXXX}
@@ -722,44 +722,58 @@ Minimum	&32.65\%	 & 0.10 &  23.21\% &	-0.01\\
 			\label{tab:agreement:L1}
 		\end{table} 
 		
-		\begin{figure}[h!]
+
+		\begin{figure}[p]
 			\centering
-			
-%			\begin{subfigure}[b]{.5\textwidth}
-%				\centering
-%				\includegraphics[width=\textwidth]{img/annotation/pairAgreeL1}
-%				\caption{Percent agreement}
-%				\label{fig:agreement:L1:pct}
-%			\end{subfigure}%
-%			~
-%			\begin{subfigure}[b]{.5\textwidth}
-%				\centering
-%				\includegraphics[width=\textwidth]{img/annotation/pairKappaL1}
-%				\caption{Cohen's Kappa statistic}
-%				\label{fig:agreement:L1:k}
-%			\end{subfigure}%
-			
-			\begin{subfigure}{.5\textwidth}
+			\begin{subfigure}{.7\textwidth}
 				\centering
+				\includegraphics[width=\textwidth]{img/annotation/pairAgreeL1-noTitle}
 				\caption{Pairwise \% agreement by L1 group}
-				\includegraphics[width=\textwidth]{img/plots/pairwisePctByL1-noTitle}
 				\label{fig:agreement:L1:pct}
 			\end{subfigure}%
-			~
-			\begin{subfigure}{.5\textwidth}
-				\centering
-				\caption{Pairwise $\kappa$ by L1 group}
-				\includegraphics[width=\textwidth]{img/plots/pairwiseKappaByL1-noTitle}
-				\label{fig:agreement:L1:k}
-			\end{subfigure}%
+
+			\vspace{2em}			
 			
-			\caption[Pairwise agreement statistics by annotator L1 group]{\TODO{larger labels?} Pairwise agreement between annotators based on L1 group (L1 = native German speaker, L2 = nonnative speaker). 
-			See \cref{fig:agreement:annotators} on \cpageref{fig:agreement:annotators} for an explanation of the box-and-whisker plots displayed here.
-			%Horizontal lines represent median values. Colored boxes extend from the first quartile to the third quartile, and thus represent the Inter Quartile Range (IQR). Whiskers extend to the minimum and maximum values within 1.58 IQR of the first and third quartiles, respectively, and roughly represent a 95\% confidence interval around the median. Outliers that fall outside of the IQR by a distance of more than approximately 1.5$\times$IQR  are represented by circles.
-			%The bottom of each vertical bar represents the minimum pairwise value, the top the maximum. Horizontal bars indicate average pairwise values.
+			\begin{subfigure}{.7\textwidth}
+				\centering
+				\includegraphics[width=\textwidth]{img/annotation/pairKappaL1-noTitle}
+				\caption{Pairwise $\kappa$ by L1 group}
+				\label{fig:agreement:L1:k}
+			\end{subfigure}%		
+			
+			\vspace{1.5em}
+			
+			\caption[Pairwise agreement statistics by annotator L1 group]{Pairwise agreement between annotators based on L1 group (native or nonnative German speakers).
+	The bottom of each vertical bar represents the minimum pairwise value, the top the maximum. Horizontal bars indicate average pairwise values.
 			}
 			\label{fig:agreement:L1}
 		\end{figure}
+		
+		
+%		\begin{figure}[h!]
+%			\centering
+%			
+%			\begin{subfigure}{.5\textwidth}
+%				\centering
+%				\caption{Pairwise \% agreement by L1 group}
+%				\includegraphics[width=\textwidth]{img/plots/pairwisePctByL1-noTitle}
+%				\label{fig:agreement:L1:pct}
+%			\end{subfigure}%
+%			~
+%			\begin{subfigure}{.5\textwidth}
+%				\centering
+%				\caption{Pairwise $\kappa$ by L1 group}
+%				\includegraphics[width=\textwidth]{img/plots/pairwiseKappaByL1-noTitle}
+%				\label{fig:agreement:L1:k}
+%			\end{subfigure}%
+%			
+%			\caption[Pairwise agreement statistics by annotator L1 group]{\TODO{larger labels?} Pairwise agreement between annotators based on L1 group (L1 = native German speaker, L2 = nonnative speaker). 
+%			See \cref{fig:agreement:annotators} on \cpageref{fig:agreement:annotators} for an explanation of the box-and-whisker plots displayed here.
+%			%Horizontal lines represent median values. Colored boxes extend from the first quartile to the third quartile, and thus represent the Inter Quartile Range (IQR). Whiskers extend to the minimum and maximum values within 1.58 IQR of the first and third quartiles, respectively, and roughly represent a 95\% confidence interval around the median. Outliers that fall outside of the IQR by a distance of more than approximately 1.5$\times$IQR  are represented by circles.
+%			%The bottom of each vertical bar represents the minimum pairwise value, the top the maximum. Horizontal bars indicate average pairwise values.
+%			}
+%			\label{fig:agreement:L1}
+%		\end{figure}
 		
 		
 

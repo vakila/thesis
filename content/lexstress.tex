@@ -782,7 +782,7 @@ Minimum	&32.65\%	 & 0.10 &  23.21\% &	-0.01\\
 		label somewhat more frequently than native speakers (21.3\% vs. 11\%); this could indicate that nonnative speakers are less confident about how stress should be realized in German, resulting in less certainty about whether a given utterance is correct or not. 
 		
 		
-			\begin{figure}[htb]
+			\begin{figure}[tb]
 				\centering
 				\caption[Distribution of labels by annotator L1]{Distribution of labels assigned by native and nonnative annotators,
 				as a percentage of the total number of utterances labeled by that annotator group \TODO{add exact values?}
@@ -856,7 +856,7 @@ Minimum	&32.65\%	 & 0.10 &  23.21\% &	-0.01\\
 			
 		
 		
-		\begin{table}[tb]
+		\begin{table}[p]%[tb]
 			\centering
 			\caption[Pairwise agreement statistics by annotator expertise]{Pairwise agreement between annotators based on their level of expertise: expert (Exp), intermediate (Int), or novice (Nov).
 			%{Pairwise agreement between expertise groups \TODO{explain abbreviations}
@@ -875,47 +875,61 @@ Minimum	& 23.21\%	& -0.01	& 33.93\%	& 0.10	& 35.71\%	& 0.08	& 28.57\%	&  0.04 \\
 			\label{tab:agreement:expertise}
 		\end{table}
 			
-		
-		
+			
 		\begin{figure}[p]
 			\centering
-			
-%			\begin{subfigure}[b]{.5\textwidth}
-%				\centering
-%				\includegraphics[width=\textwidth]{img/annotation/pairAgreeExpertise}
-%				\caption{Percent agreement}
-%				\label{fig:agreement:expertise:pct}
-%			\end{subfigure}%
-%			~
-%			\begin{subfigure}[b]{.5\textwidth}
-%				\centering
-%				\includegraphics[width=\textwidth]{img/annotation/pairKappaExpertise}
-%				\caption{Cohen's Kappa statistic}
-%				\label{fig:agreement:expertise:k}
-%			\end{subfigure}%
-			
-			\begin{subfigure}{\textwidth}
+
+			\begin{subfigure}{.7\textwidth}
 				\centering
+				\includegraphics[width=\textwidth]{img/annotation/pairAgreeExpertise-noTitle}
 				\caption{Pairwise \% agreement by expertise group}
-				\includegraphics[width=\textwidth]{img/plots/pairwisePctByExpertise-noTitle}
 				\label{fig:agreement:expertise:pct}
 			\end{subfigure}%
+
+			\vspace{2em}			
 			
-			\vspace{1em}			
-			
-			\begin{subfigure}{\textwidth}
+			\begin{subfigure}{.7\textwidth}
 				\centering
+				\includegraphics[width=\textwidth]{img/annotation/pairKappaExpertise-noTitle}
 				\caption{Pairwise $\kappa$ by expertise group}
-				\includegraphics[width=\textwidth]{img/plots/pairwisePctByExpertise-noTitle}
 				\label{fig:agreement:expertise:k}
 			\end{subfigure}%
 			
-			\caption[Pairwise agreement statistics by annotator expertise]{Pairwise agreement between annotators based on their level of expertise: expert (Exp), intermediate (Int), or novice (Nov). 
-			See \cref{fig:agreement:annotators} on \cpageref{fig:agreement:annotators} for an explanation of the box-and-whisker plots displayed here.
-			%The bottom of each vertical bar represents the minimum pairwise value, the top the maximum. Horizontal bars indicate average pairwise values.
+			\vspace{1.5em}
+					
+			\caption[Pairwise agreement statistics by annotator expertise group]{Pairwise agreement between annotators based on their level of expertise: expert (Exp), intermediate (Int), or novice (Nov). 
+			The bottom of each vertical bar represents the minimum pairwise value, the top the maximum. Horizontal bars indicate average pairwise values.
 			}
-			\label{fig:agreement:expertise}
+			\label{fig:agreement:expertise}		
+
 		\end{figure}
+		
+		
+%		\begin{figure}[p]
+%			\centering
+%	
+%			\begin{subfigure}{\textwidth}
+%				\centering
+%				\caption{Pairwise \% agreement by expertise group}
+%				\includegraphics[width=\textwidth]{img/plots/pairwisePctByExpertise-noTitle}
+%				\label{fig:agreement:expertise:pct}
+%			\end{subfigure}%
+%			
+%			\vspace{1em}			
+%			
+%			\begin{subfigure}{\textwidth}
+%				\centering
+%				\caption{Pairwise $\kappa$ by expertise group}
+%				\includegraphics[width=\textwidth]{img/plots/pairwisePctByExpertise-noTitle}
+%				\label{fig:agreement:expertise:k}
+%			\end{subfigure}%
+%			
+%			\caption[Pairwise agreement statistics by annotator expertise]{Pairwise agreement between annotators based on their level of expertise: expert (Exp), intermediate (Int), or novice (Nov). 
+%			See \cref{fig:agreement:annotators} on \cpageref{fig:agreement:annotators} for an explanation of the box-and-whisker plots displayed here.
+%			%The bottom of each vertical bar represents the minimum pairwise value, the top the maximum. Horizontal bars indicate average pairwise values.
+%			}
+%			\label{fig:agreement:expertise}
+%		\end{figure}
 		
 			\Cref{fig:agreement:expertisebars} illustrates the relative number of each label type as assigned by annotators of the three expertise levels described in \cref{sec:lexstress:annotators} above, and while any analysis of this data should bear in mind the small sample sizes of the expert and novice groups (two and three annotators, respectively), it does appear that some interesting differences may exist between the three groups. 
 			

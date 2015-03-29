@@ -112,7 +112,8 @@ Woman	 (female, 18-30)&	5	&	5	&	3	&	9	&	\textbf{22}	\\
 		\centering
 		\caption[Word types annotated for lexical stress errors]{The twelve bisyllabic initial-stress words types selected from the IFCASL corpus for lexical stress error annotation. 
 		%The orthographic form (text) of each word type is presented in the leftmost column, followed by its canonical pronunciation (e.g. as found in a pronunciation dictionary). 
-		Canonical pronunciations for each word type are given in SAMPA notation (\url{http://www.phon.ucl.ac.uk/home/sampa}), with phonemes separated by a space and syllables separated by a period (\texttt{.}); canonical lexical stress is not marked, as all of the listed word types have primary stress on the initial syllable. 
+		Canonical pronunciations for each word type are given in IPA notation.
+		% SAMPA notation (\url{http://www.phon.ucl.ac.uk/home/sampa}), with phonemes separated by a space and syllables separated by a period (\texttt{.}); canonical lexical stress is not marked, as all of the listed word types have primary stress on the initial syllable. 
 		%Parts of speech are abbreviated as n. (noun), v. (verb) and pro. (pronoun). 
 		The rightmost column lists the number of tokens (utterances) of each word type included in the annotated dataset.
 		}
@@ -122,6 +123,7 @@ Woman	 (female, 18-30)&	5	&	5	&	3	&	9	&	\textbf{22}	\\
 %		Pollen & manche & E-mail & tragen \\
 %		\end{tabular}
 		
+		{\renewcommand{\arraystretch}{1.1}
 		%\begin{tabularx}{\textwidth}{llXlX}
 		\begin{tabular}{llllc}
 		\toprule
@@ -135,32 +137,69 @@ Woman	 (female, 18-30)&	5	&	5	&	3	&	9	&	\textbf{22}	\\
 		Tokens\\%\linebreak annotated\\
 		
 		\midrule
-		E-mail		&	\texttt{i:~.~m eI l} 		&	noun &	e-mail %&	SR 	
+		E-mail		
+			&	\textipa{/"i:.meIl/} %\texttt{i:~.~m eI l} 		
+			&	noun &	e-mail %&	SR 	
 			&	56	\\
-		Flagge		&	\texttt{f l a~.~g @} 		&	noun &	 flag %&	SH	
+			
+		Flagge		
+			&	\textipa{/"fla.g@/} %\texttt{f l a~.~g @} 		
+			&	noun &	 flag %&	SH	
 			&	55	\\
-		fliegen		&	\texttt{f l i:~.~g =n} 	&	verb &	to fly %&	SR		
+			
+		fliegen		
+			&	\textipa{/"fli:.g\s{n}/} %\texttt{f l i:~.~g =n} 	
+			&	verb &	to fly %&	SR		
 			& 56	\\
-		Frühling	&	\texttt{f r y:~.~l I N} 		& noun	&	spring \newline (season) %&	SR		
+			
+		Frühling	
+			&	\textipa{/"fry:.lIN/}	%\texttt{f r y:~.~l I N} 		
+			& noun	&	spring \newline (season) %&	SR		
 			&	56	\\
-		halten		&	\texttt{h a l~.~t =n}		&	verb &	to hold %&	SR 	
+			
+		halten		
+			&	\textipa{/"hal.t\s{n}/}	%\texttt{h a l~.~t =n}		
+			&	verb &	to hold %&	SR 	
 			&	56	\\
-		manche	&	\texttt{m a n~.~C @} 		&	pronoun &	some %& 	SR 	
+			
+		manche	
+			&	\textipa{/"man.\c{c}@/}	%\texttt{m a n~.~C @} 		
+			&	pronoun &	some %& 	SR 	
 			&	56	\\
-		Mörder		&	\texttt{m 96~.~d 6}		&	noun &	murderer %&	SR 	
+			
+		Mörder		
+			&	\textipa{/"m\oe5.d5/}	%\texttt{m 96~.~d 6}		
+			&	noun &	murderer %&	SR 	
 			&	56	\\
-		Pollen		&	\texttt{p O~.~l @ n} 		&	noun &	pollen %&	SR 	
+			
+		Pollen		
+			&	\textipa{/"pO.l@n/}	%\texttt{p O~.~l @ n} 		
+			&	noun &	pollen %&	SR 	
 			& 	55	\\
-		Ringen		&	\texttt{r I N~.~@ n}		&	noun &	rings %&	SH	
+			
+		Ringen		
+			&	\textipa{/"KIN.@n/}	%\texttt{r I N~.~@ n}		
+			&	noun &	rings %&	SH	
 			&	55	\\
-		Tatort		&	\texttt{t a:~t~.~?~O6 t}	&	noun &	crime scene %& 	SR 	
+			
+		Tatort		
+			&	\textipa{/"ta:t.PO5t/}	%\texttt{t a:~t~.~?~O6 t}	
+			&	noun &	crime scene %& 	SR 	
 			&	56	\\
-		tragen		&	\texttt{t r a:~.~g =n} 	&	verb &	to wear %&	SH	
+			
+		tragen		
+			&	\textipa{/"tKa:.g\s{n}/}	%\texttt{t r a:~.~g =n} 	
+			&	verb &	to wear %&	SH	
 			&	55	\\
-		Tschechen	& \texttt{tS E~.~C =n}	& noun	&	Czechs	%&	SR		
+			
+		Tschechen	
+			& \textipa{/"tSE.\c{c}\s{n}/}	%\texttt{tS E~.~C =n}	
+			& noun	&	Czechs	%&	SR		
 			& 56	\\
+			
 		\bottomrule
 		\end{tabular}
+		}
 		\label{tab:bisyllwords}
 	\end{table}
 	

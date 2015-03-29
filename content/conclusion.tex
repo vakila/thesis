@@ -48,14 +48,20 @@ With this underlying motivation, this thesis has explored the ways in which lexi
 	Experiments with CART classifiers trained using different feature sets (see \cref{sec:classification:features}) revealed that duration features seem to be more useful for classification of L2 German stress errors than F0 features, which are in turn more useful than features representing intensity; however, the best results were obtained by  combining prosodic features with features capturing the word type uttered and the German proficiency level of the learner. 
 	The overall agreement between the error diagnoses produced by the classifier and the gold-standard annotation being comparable to, if not slightly better than, the agreement observed between human annotators in the error annotation task, the results of these experiments seem encouraging with respect to the feasibility of reliable, automatic detection of such errors (see \cref{sec:classification:features:spkrword}). 
 	Furthermore, the fact that utterances of word types which had been held out of the training data could be classified with only slightly lower accuracy (see \cref{sec:classification:unseen}) seems to \TODO{confirm} the potential of a classification-based approach to enable the creation of CAPT systems which are not limited to only those words/sentences for which recorded L1 utterances are available.
-	\TODO{As the first known work using classification to diagnose lexical stress errors in the L2 German speech of L1 French speakers, these investigations constitute an important contribution of this thesis project to the existing body of research related to German CAPT.}
+	\TODO{As the first known work using classification to diagnose lexical stress errors in the L2 German speech of L1 French speakers, these investigations constitute 
+	a novel contribution
+	%an important contribution of this thesis project 
+	to research on German CAPT.}
 
 
 
 
 %%%% FEEDBACK
 %
-\TODO{paragraph about feedback}
+As described in \cref{chap:feedback}, another important contribution of this work is an exploration of the various types of feedback that can be presented to the learner, based on a comparison- or classification-based diagnosis of the learner's utterance using one of the methods described in \cref{chap:diagnosis}. 
+	Inspired by both classroom pronunciation teaching materials and existing prosody-aware CAPT systems, \TODO{de-stress} offers a diverse array of feedback options. Learners can be given implicit feedback on their pronunciation in the form of graphical or textual visual representations of the prosody of the given utterance(s) (see \cref{sec:implicit:visual}), and via the auditory channel through the playback of original and prosodically-modified utterances (see \cref{sec:implicit:auditory}
+	Explicit feedback can also be delivered, in the form of skill bars visualizing pronunciation scores or verbal messages conveying the error(s) diagnosed and corrective suggestions (see \cref{sec:fb:explicit}).
+	A simple web interface gives  instructors and researchers control over which feedback types are presented in a given exercise (see \cref{sec:fb:system}), thus making \TODO{de-stress} a valuable new tool for research into the comparative efficacy of various feedback types on pronunciation improvement, learner motivation, and other factors influencing the success of a CAPT system. 
 
 
 

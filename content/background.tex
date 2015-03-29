@@ -7,7 +7,7 @@
 
 %\cleanchapterquote{You can’t do better design with a computer, but you can speed up your work enormously.}{Wim Crouwel}{(Graphic designer and typographer)}
 
-As stated in the previous chapter, the work reported this thesis aims to make progress towards the development of Computer Assisted Pronunciation Training (CAPT) system for learners of German as a foreign language (L2), with a particular focus on learners whose native language (L1) is French. This work therefore draws from and builds upon research in diverse but related fields, including L2 education, language technology, and phonetics/phonology.
+As stated in the previous chapter, the work reported in this thesis aims to make progress towards the development of a Computer Assisted Pronunciation Training (CAPT) system for learners of German as a foreign language (L2), with a particular focus on learners whose native language (L1) is French. This work therefore draws from and builds upon research in diverse but related fields, including L2 education, language technology, and phonetics/phonology.
 
 This chapter sets the stage for the original work described in the remainder of the thesis by summarizing some relevant previous research on pronunciation in foreign language teaching and CAPT, describing the phenomenon of lexical stress as it relates to the comparative word prosody of German and French, and motivating this work's focus on lexical stress errors as a type of error well-suited to correction via CAPT.
 
@@ -145,7 +145,7 @@ With this in mind, an overarching aim of this thesis is to take initial steps to
 	%by not only adapting the L1 acoustic models for each phone but also 
 	by modeling nonnative pronunciation errors (e.g. the insertion, deletion, or substitution of a phoneme) via the automatic extraction of non-standard pronunciations from a corpus of L2 speech. Whereas \textcite{Bouselmi2012} explored the use of L2 pronunciation variants at the level of acoustic modeling, other research at LORIA has shown that augmenting the pronunciation lexicon with nonnative pronunciation variants can also be an effective way of improving the accuracy of L2 speech recognition \citep{Jouvet2011,Mesbahi2011,Bonneau2012}. \textcite{Mesbahi2011} evaluated the segmentation boundaries (i.e. starting and ending points of each phone in the utterance) automatically produced using a lexicon with nonnative pronunciation variants, and found that these were for the most part quite close to (within 15 milliseconds of) the boundaries placed manually by trained scientists, and concluded from this that such automatically-produced segmentations are reliable enough for use in CAPT. 
 	
-	\TODO{Remove this whole paragraph? Move to future work?}
+	%\TODO{Remove this whole paragraph? Move to future work?}
 	Though these adaptation techniques thus reduce the number of errors in the automatic segmentation of L2 speech, some errors still remain as a result of more profound deviations between the expected utterance and that actually produced by the learner. For example, learners may insert or delete not only individual phones, but entire syllables; they may hesitate or repeat words or parts thereof; and they may pronounce words or phrases entirely different from the expected text. \textcite{Bonneau2012,Orosanu2012} explored methods for detecting errors like these by comparing two segmentations: one produced by forced alignment (see \cref{sec:diag:segmentation}), in which the recognition task is constrained by the text of the expected utterance, and the other produced by unconstrained phone-level recognition (phone decoding). 
 	By detecting deviations between these two segmentations in a pre-processing step, a CAPT system would be able to catch aberrant utterances before automatic segmentation is attempted, so that the learner can be asked to record their utterance again.
 	
@@ -307,7 +307,7 @@ prosodically-modified recordings of their own speech and that of native speakers
 
 	Language-independent tools have also been developed for teaching prosody, such as WinPitch LTL \citep{Martin2004}, which enables speech signal visualization of prosodic features such as pitch contours as well as manipulation of prosody and comparison to reference utterances, with the intent that a human instructor will guide the learner in using the software and interpreting the visualizations. Unfortunately, as \textcite{Neri2002} point out, the necessity of having an instructor help the learner interpret the visual and auditory feedback provided by this software negates one primary advantage of CAPT:
 	%, mentioned in \cref{sec:bkgd:capt}: 
-	the ability to offer learners feedback in situations where individualized attention from a human instructor is limited, which is often the case in foreign language classrooms, as explained \cref{sec:bkgd:l2ed}.
+	the ability to offer learners feedback in situations where individualized attention from a human instructor is limited, which is often the case in foreign language classrooms, as explained in  \cref{sec:bkgd:l2ed}.
 	%\TODO{anything else?}
 	
 	%Other systems mentioned by \textcite{Eskenazi2009,Delmonte2011,Witt2012} may also be briefly described, including tools developed at KTH \citep{Hincks2002,Hincks2009} to teach English prosody.
@@ -448,7 +448,7 @@ As illustrated in \cref{fig:errors}, the best error to target with the CAPT syst
 	First, as mentioned in \cref{sec:bkgd:l2ed} above, errors related to prosody have 
 	often
 	%generally
-	 been found to have a larger impact on the perceived intelligibility of L2 speakers than segmental errors \citep{Hahn2004,Derwing2005,Witt2012}, and several studies have found lexical stress errors in particular to have in impact on L2 intelligibility
+	 been found to have a larger impact on the perceived intelligibility of L2 speakers than segmental errors \citep{Hahn2004,Derwing2005,Witt2012}, and several studies have found lexical stress errors in particular to have an impact on L2 intelligibility
 	 % to be particularly important for comprehension 
 	 in free-stress languages like English, Dutch, and 
 	 %our target language, 

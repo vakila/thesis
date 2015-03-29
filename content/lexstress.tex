@@ -472,8 +472,7 @@ Minimum	&	23.21\%	&	-0.01	\\
 		%%%%%% ANNOTATORS
 	
 	It seems, then, that there may be stark differences in reliability from annotator to annotator. Analysis of the set of pairwise comparisons between a given annotator and all overlapping annotators provides more insight into that annotator's individual reliability. 
-	\TODO{\Cref{tab:agreement:annotators} lists the minimum, mean, and maximum pairwise agreement statistics for each of the 15 annotators.
-	\Cref{fig:agreement:annotators} illustrates the pairwise agreements involving each of the 15 annotators.}
+	\Cref{fig:agreement:annotators} illustrates the pairwise agreements involving each of the 15 annotators, listed in \cref{tab:agreement:annotators}.
 	 %\TODO{table of percent/kappa min/avg/max by annotator, since graphs are difficult to read precisely?} 
 	 Evidently, there is noticeable variation from annotator to annotator, with some annotators (e.g. C, with a mean percentage agreement of 65.5\% and a mean $\kappa$ of 0.39) appearing generally more reliable than others (e.g. F, with mean \%=41.2\% and mean $\kappa$=0.13).  \TODO{stat. significance?} However, these figures should be interpreted with caution because they do not account for differences in the number of overlapping annotators/tokens available for each annotator. %TODO {reference overlap table}. 
 	Nonetheless, the observed variability among annotators cannot be ignored, and \cref{sec:agreement:native,sec:agreement:expert} attempt to investigate whether differences in annotators' L1 and level of expertise could potentially explain some of this variability.
@@ -581,54 +580,63 @@ O	&	6	&	40.5\%	&	47.4\%	&	53.6\%	&	0.13	&	0.20	&	0.28	\\
 		No clear explanation for these variations readily presents itself, but one reasonable hypothesis might be that annotators may agree more often for words which are particularly easy or difficult for learners, i.e. words for which learners tend to make few/many errors, as a result of a high imbalance between correct and erroneous utterances. However, as the error distribution analysis in \cref{sec:results:wordtype} will show, this does not seem borne out by the data. The highest-agreement word types do not seem to have particularly imbalanced proportions of [correct] utterances; for \textit{E-mail}, \textit{halten}, and \textit{Pollen} approximately 60-65\% of utterances were [correct], which is close to the overall average of 63.77\%. Furthermore, some of the word types with unusually high or low proportions of [correct] utterances (e.g. \textit{Frühling}, with over 85\%, or \textit{Tatort}, with under 40\%), seem to have agreement relatively close to the overall average. Therefore, further work will be needed to shed light on whether the agreement differences observed among different word types might simply be a consequence of individual variation among the annotators assigned to each type, or whether other phenomena (e.g. frequency effects, segmental pronunciation errors, or interference from French) might be at play.
 		
 		
-		\begin{figure}[phtb]
+		\begin{figure}[p]
 			\centering
-			
-%			\begin{subfigure}[b]{\textwidth}
-%				\centering
-%				\includegraphics[width=\textwidth]{img/annotation/pairAgreeWords}
-%				\caption{Percent agreement}
-%				\label{fig:agreement:words:pct}
-%			\end{subfigure}%
-%			
-%			\begin{subfigure}[b]{\textwidth}
-%				\centering
-%				\includegraphics[width=\textwidth]{img/annotation/pairKappaWords}
-%				\caption{Cohen's Kappa statistic}
-%				\label{fig:agreement:words:k}
-%			\end{subfigure}%
-
-					
 			
 			\begin{subfigure}{\textwidth}
 				\centering
+				\includegraphics[width=\textwidth]{img/annotation/pairAgreeWords-noTitle}
 				\caption{Pairwise percentage agreement by word type}
-				\includegraphics[width=\textwidth]{img/plots/pairwisePctByWord-noTitle}
 				\label{fig:agreement:words:pct}
 			\end{subfigure}%
 			
-			\vspace{1em}
-			
 			\begin{subfigure}{\textwidth}
 				\centering
+				\includegraphics[width=\textwidth]{img/annotation/pairKappaWords-noTitle}
 				\caption{Pairwise $\kappa$ by word type}
-				\includegraphics[width=\textwidth]{img/plots/pairwiseKappaByWord-noTitle}
 				\label{fig:agreement:words:k}
 			\end{subfigure}%
 			
-			%\vspace{1em}	
-			
-			
 			\caption[Pairwise agreement statistics by word type]{Pairwise agreement between annotators for each word type. 
-			See \cref{fig:agreement:annotators} on \cpageref{fig:agreement:annotators} for an explanation of the box-and-whisker plots displayed here.
-			%Horizontal lines represent median values. Colored boxes extend from the first quartile to the third quartile, and thus represent the Inter Quartile Range (IQR). Whiskers extend to the minimum and maximum values within 1.58 IQR of the first and third quartiles, respectively, and roughly represent a 95\% confidence interval around the median. Outliers that fall outside of the IQR by a distance of more than approximately 1.5$\times$IQR  are represented by circles.
-			%Numbers in parentheses indicate the number of pairwise comparisons available for each word type. The bottom of each vertical bar represents the minimum pairwise value, the top the maximum. Horizontal bars indicate average pairwise values.
+			The bottom of each vertical bar represents the minimum pairwise value, the top the maximum. Horizontal bars indicate average pairwise values.
 			}
-
-			
-			
 			\label{fig:agreement:words}
-		\end{figure}
+		\end{figure}				
+		
+		
+%		\begin{figure}[phtb]
+%			\centering
+%							
+%			
+%			\begin{subfigure}{\textwidth}
+%				\centering
+%				\caption{Pairwise percentage agreement by word type}
+%				\includegraphics[width=\textwidth]{img/plots/pairwisePctByWord-noTitle}
+%				\label{fig:agreement:words:pct}
+%			\end{subfigure}%
+%			
+%			\vspace{1em}
+%			
+%			\begin{subfigure}{\textwidth}
+%				\centering
+%				\caption{Pairwise $\kappa$ by word type}
+%				\includegraphics[width=\textwidth]{img/plots/pairwiseKappaByWord-noTitle}
+%				\label{fig:agreement:words:k}
+%			\end{subfigure}%
+%			
+%			%\vspace{1em}	
+%			
+%			
+%			\caption[Pairwise agreement statistics by word type]{Pairwise agreement between annotators for each word type. 
+%			See \cref{fig:agreement:annotators} on \cpageref{fig:agreement:annotators} for an explanation of the box-and-whisker plots displayed here.
+%			%Horizontal lines represent median values. Colored boxes extend from the first quartile to the third quartile, and thus represent the Inter Quartile Range (IQR). Whiskers extend to the minimum and maximum values within 1.58 IQR of the first and third quartiles, respectively, and roughly represent a 95\% confidence interval around the median. Outliers that fall outside of the IQR by a distance of more than approximately 1.5$\times$IQR  are represented by circles.
+%			%Numbers in parentheses indicate the number of pairwise comparisons available for each word type. The bottom of each vertical bar represents the minimum pairwise value, the top the maximum. Horizontal bars indicate average pairwise values.
+%			}
+%
+%			
+%			
+%			\label{fig:agreement:words}
+%		\end{figure}
 		
 		
 		

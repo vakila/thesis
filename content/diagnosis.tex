@@ -748,7 +748,7 @@ This section describes the various techniques for diagnosis by comparison implem
 	%\TODO{\textit{unnecessary?} As the diagnostic capabilities of JSnoori were designed with isolated-word utterances in mind, and the data evaluated here consisted of utterances of entire sentences, the utterances could not be passed directly to JSnoori for analysis; instead, the word under analysis in the utterance was first isolated in the segmentation by re-labeling all segments before and after that word as silence.}
 	
 	The following paragraphs describe how each of these three scores is calculated, with reference to the features listed in \cref{sec:diag:prosody}. It must be noted here that the range of possible values for each of the three scores is not continuous, but discrete, and that these values fall on an ordinal rather than an interval scale. Furthermore, the same values for different scores do not necessarily correspond; for example, it is possible to achieve a timing score of 0.3 or 0.5, but possible values for pitch scores jump from 0.1 directly to 0.8.
-	Therfore, JSnoori's representation of scores with floating-point numbers between 0 and 1 is perhaps misleading, and the use of categorical labels might be more appropriate.
+	Therefore, JSnoori's representation of scores with floating-point numbers between 0 and 1 is perhaps misleading, and the use of categorical labels might be more appropriate.
 	
 	
 	

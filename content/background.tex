@@ -77,7 +77,7 @@ In a study of L2 German speakers from a variety of L1 backgrounds, \textcite{Dla
 
 It is thus generally evident that individualized corrective feedback is quite important for L2 pronunciation learning, including L2 German learning specifically; however, there remains much to be learned about exactly when and how feedback can be most effective. This is the motivation behind the 
 %feedback generation module of the proposed tool 
-diversity of feedback types implemented in the \TODO{de-stress} 
+diversity of feedback types implemented in the de-stress 
 %Computer-Assisted Pronunciation Training (CAPT) 
 system (see \cref{chap:feedback}); as described in the previous chapter, this system is intended to facilitate finer-grained research on the effects of such feedback on the acquisition of L2 German word prosody by L1 French speakers.
 
@@ -125,8 +125,8 @@ With this in mind, an overarching aim of this thesis is to take initial steps to
 	
 	
 		Additionally,
-		both the diagnosis and feedback modules of the \TODO{de-stress} CAPT tool developed in this thesis project build to a great extent on previous work by researchers in the speech group at LORIA\footnote{\url{http://www.loria.fr/}} in Nancy, France, many of whom are also involved in the IFCASL project (see \cref{sec:intro:ifcasl}). 
-		One relevant body of work at LORIA has investigated the task of automatically recognizing and segmenting learners' speech, and determining how this possibly incorrect automatic segmentation can be effectively utilized in the context of pronunciation tutoring; this work is summarized in \cref{sec:capt:auto}. Furthermore, the group has developed the Snorri suite of speech analysis software, described in \cref{sec:capt:snoori}, the most current version of which, JSnoori, has provided the foundation for many elements of \TODO{de-stress}.
+		both the diagnosis and feedback modules of the de-stress CAPT tool developed in this thesis project build to a great extent on previous work by researchers in the speech group at LORIA\footnote{\url{http://www.loria.fr/}} in Nancy, France, many of whom are also involved in the IFCASL project (see \cref{sec:intro:ifcasl}). 
+		One relevant body of work at LORIA has investigated the task of automatically recognizing and segmenting learners' speech, and determining how this possibly incorrect automatic segmentation can be effectively utilized in the context of pronunciation tutoring; this work is summarized in \cref{sec:capt:auto}. Furthermore, the group has developed the Snorri suite of speech analysis software, described in \cref{sec:capt:snoori}, the most current version of which, JSnoori, has provided the foundation for many elements of de-stress.
 		
 	
 	%\subsubsection{Automatic processing of learner speech}
@@ -190,11 +190,11 @@ With this in mind, an overarching aim of this thesis is to take initial steps to
 	
 	\begin{figure}
 		\centering
+		\includegraphics[width=\textwidth]{img/screenshots/JsnooriScreenshot}
 		\caption[Screenshot of the speech-analysis interface of JSnoori]{Screenshot of the speech-analysis interface of JSnoori.
 		%depicting a segment of a French utterance corresponding to the word ``perdu'' (\textit{lost}). 
 		%At the bottom of the screen, in grey, the phone-, word- and sentence-level segmentations of the utterance are displayed. The oscillogram (waveform) of the selected portion of the speech signal is visible as a red contour above the segmentations.  In the upper portion of the screen, a spectrogram of the selected signal segment is presented, with overlaid, colored contours corresponding to the signal's fundamental frequency (blue dots) and intensity (green line). Controls at the top of the window allow the user to listen to the selected recording and utilize the various speech analysis functions of the software.
 		}
-		\includegraphics[width=\textwidth]{img/screenshots/JsnooriScreenshot}
 		\label{fig:jsnoori:screenshot}
 	\end{figure}
 	
@@ -218,13 +218,13 @@ in the form of e.g. annotated displays of the speech signal and spectrogram of e
 by
 resynthesizing the learner's utterance to match the pitch contour and timing of the reference, without modifying the voice quality of the utterance, such that the learner can hear the ``correct'' pronunciation in their own voice (see \cref{sec:implicit:auditory:resynth} for details). 
 
-	A pilot experiment conducted by \textcite{Bonneau2011} used WinSnoori to investigate the effect of these types of visual and auditory feedback on the prosodic realization of English lexical stress by L1 French learners, and seemed to indicate that this feedback has a beneficial effect for learners with a low proficiency level in the L2 (i.e. beginners), whereas more advanced learners seem to improve their pronunciation just as well when simply allowed to listen to a reference utterance recorded by a native speaker as a form of implicit feedback. However, as all of the feedback types available were presented simultaneously to learners in the experimental condition, further research is needed to determine whether there are differences in efficacy among the individual feedback types; enabling such research is the motivation behind the modular feedback component of \TODO{de-stress} (see \cref{chap:feedback}).
+	A pilot experiment conducted by \textcite{Bonneau2011} used WinSnoori to investigate the effect of these types of visual and auditory feedback on the prosodic realization of English lexical stress by L1 French learners, and seemed to indicate that this feedback has a beneficial effect for learners with a low proficiency level in the L2 (i.e. beginners), whereas more advanced learners seem to improve their pronunciation just as well when simply allowed to listen to a reference utterance recorded by a native speaker as a form of implicit feedback. However, as all of the feedback types available were presented simultaneously to learners in the experimental condition, further research is needed to determine whether there are differences in efficacy among the individual feedback types; enabling such research is the motivation behind the modular feedback component of de-stress (see \cref{chap:feedback}).
 
 	
 
 As described in \cref{chap:diagnosis,chap:feedback}, 
 the JSnoori software is vital to this thesis project;
-\TODO{de-stress}
+de-stress
 %the prototype CAPT tool developed in this work 
 utilizes the signal processing capabilities of JSnoori 
 %and
@@ -256,7 +256,7 @@ and leverages its feedback generation capabilities to deliver  a more diverse, a
 %
 	The first of these, the Fluency pronunciation trainer \citep{Eskenazi1998,Eskenazi2000}, is a CAPT system placing particular emphasis on
 %prosody and 
-user-adaptivity, corrective articulatory feedback, and the integration of perceptual training (e.g. listening exercises). As with the work at LORIA described above, the Fluency system evaluates learners' speech via comparison with that of a native reference speaker; \textcite{Probst2002} found that selecting a ``golden speaker'' whose voice closely matched the learner's improved learning gains, a finding which informed the implementation of various reference speaker selection methods in the diagnosis module of \TODO{de-stress} (see \cref{sec:compare:selection}).
+user-adaptivity, corrective articulatory feedback, and the integration of perceptual training (e.g. listening exercises). As with the work at LORIA described above, the Fluency system evaluates learners' speech via comparison with that of a native reference speaker; \textcite{Probst2002} found that selecting a ``golden speaker'' whose voice closely matched the learner's improved learning gains, a finding which informed the implementation of various reference speaker selection methods in the diagnosis module of de-stress (see \cref{sec:compare:selection}).
 Fluency also implements an error-catching step to reject utterances which do not match the expected text \citep{Eskenazi2000}, in the same vein as that of \textcite{Mesbahi2011,Orosanu2012}. \textcite{Eskenazi2007} report that Fluency's commercial spin-off, NativeAccent\textsuperscript{TM}, has been shown to help real-world users significantly improve their pronunciation skills.
 	%In an early version of Fluency, an utterance is elicited from the learner using a targeted question, constraining the learner's response such that a speech recognizer can perform forced alignment on the utterance, while at the same time giving the learner the impression that they have decided what to say (as opposed to simply reading a given sentence out loud).
 	
@@ -276,9 +276,9 @@ it is nevertheless very relevant to CAPT and thus this thesis.
 	As this section explains, ideas and techniques from the Reading Tutor have influenced both the diagnosis and feedback modules of the proposed CAPT tool. 
 	
 	
-	In the Reading Tutor, the child's read speech is automatically segmented and compared either to a reference utterance by an adult reader, analogous to the native speaker reference in many CAPT systems, or to a generalized model of adult prosody. \textcite{Duong2011} report better performance using the generalized model, a result which motivated \TODO{de-stress}'s implementation of a classification-based alternative to the more typical comparison-based method of error diagnosis (see \cref{sec:diag:classification}).
+	In the Reading Tutor, the child's read speech is automatically segmented and compared either to a reference utterance by an adult reader, analogous to the native speaker reference in many CAPT systems, or to a generalized model of adult prosody. \textcite{Duong2011} report better performance using the generalized model, a result which motivated de-stress's implementation of a classification-based alternative to the more typical comparison-based method of error diagnosis (see \cref{sec:diag:classification}).
 	
-	 The Reading Tutor's analysis of the pitch and intensity contours of the utterance(s), as well as the duration of words/syllables and the pauses between them, results in an assessment of the child's overall fluency as well as identification of words which have been pronounced (in)correctly, and feedback is delivered visually in real time by revealing the text of each word as it is spoken, with properties such as the position, color, and font size of each word reflecting various aspects of the reader's prosody \citep{Sitaram2011}. Inspired by this work, a similar method of feedback via text stylization has been implemented in \TODO{de-stress} (see \cref{sec:implicit:visual:text}). 
+	 The Reading Tutor's analysis of the pitch and intensity contours of the utterance(s), as well as the duration of words/syllables and the pauses between them, results in an assessment of the child's overall fluency as well as identification of words which have been pronounced (in)correctly, and feedback is delivered visually in real time by revealing the text of each word as it is spoken, with properties such as the position, color, and font size of each word reflecting various aspects of the reader's prosody \citep{Sitaram2011}. Inspired by this work, a similar method of feedback via text stylization has been implemented in de-stress (see \cref{sec:implicit:visual:text}). 
 	
 	\subsection{German and language-independent CAPT}
 	\label{sec:capt:german}
@@ -293,7 +293,7 @@ Bissiri2006,Bissiri2009%
 })
  found that L1 Italian speakers' realizations of lexical stress in German improved when they were allowed to listen to 
 prosodically-modified recordings of their own speech and that of native speakers. 
-	Based on these findings, feedback via resynthesis may be a very useful element of a German CAPT system, and such feedback is therefore one of the types implemented in \TODO{de-stress} (see \cref{sec:implicit:auditory:resynth}).
+	Based on these findings, feedback via resynthesis may be a very useful element of a German CAPT system, and such feedback is therefore one of the types implemented in de-stress (see \cref{sec:implicit:auditory:resynth}).
 %their own utterance resynthesized to reflect the prosody of a reference utterance by a native speaker, as well as when they could listen to an utterance by a native speaker that had been prosodically modified to place 
 %prosodically-modified auditory feedback useful for improving L1 Italian speakers' realizations of lexical stress in German \TODO{What did they find out?}.
 %
@@ -535,6 +535,6 @@ Finally, although much research still needs to be done on automatic detection an
 As this chapter has shown, CAPT is an important application of speech technology for language learning, as it can help overcome typical difficulties with regard to the teaching of L2 pronunciation, and especially prosody, in the German language classroom (\cref{sec:bkgd:l2ed}). The previous research on CAPT and related technologies summarized in \cref{sec:bkgd:capt} has demonstrated numerous ways in which prosodic errors in L2 speech can be automatically detected, 
 setting the stage for the exploration of diagnostic methods presented in \cref{chap:diagnosis}.
 %
-Similarly, the diverse feedback methods explored in the work described in this chapter have provided the inspiration and technological foundations underlying the modular feedback functionality of \TODO{de-stress}, which is the subject of \cref{chap:feedback}.
+Similarly, the diverse feedback methods explored in the work described in this chapter have provided the inspiration and technological foundations underlying the modular feedback functionality of de-stress, which is the subject of \cref{chap:feedback}.
 
  Furthermore, this chapter has introduced the phenomenon of lexical stress in the context of L2 German acquisition by L1 French speakers (\cref{sec:bkgd:stress}), and has motivated the selection of this phenomenon as the focus of this thesis project (\cref{sec:bkgd:targeting}). This discussion of lexical stress provides the context for the original work presented in the following chapter, which investigates the prosodic realization of lexical stress by French learners of German in more detail.

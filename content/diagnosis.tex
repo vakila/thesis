@@ -1391,34 +1391,108 @@ Average	&	66.85	&	0.17	&	0.69	&	0.88	&	0.77	&	0.83	\\
 \section{Controlling diagnosis in \TODO{de-stress}}
 \label{sec:diag:system}
 
-	In the \TODO{de-stress} CAPT tool, a  researcher (or teacher) can choose between the various possible approaches for diagnosing lexical stress errors in learner's speech which have been discussed in this chapter. The choices available in the tool are illustrated in \cref{fig:diag:system}. When creating a new exercise, in which a learner is asked to read one of the sentences from the IFCASL corpus (see \cref{sec:intro:ifcasl}) in order to receive feedback on their realization of lexical stress in a target word in that sentence, the researcher is asked to select a DiagnosisMethod object for that exercise (see \cref{fig:interface:teacher} on \cpageref{fig:interface:teacher}). The DiagnosisMethod captures the researchers' choices among the various diagnostic options offered by the system; a screenshot showing the creation of a simple example is presented in \cref{fig:diag:creatediagnosismethod}. As illustrated in \cref{fig:interface:teacher}, this DiagnosisMethod is combined with a (compatible) FeedbackMethod when the exercise is created; see \cref{sec:fb:system} for a description of FeedbackMethod options and their compatibility with the various possible DiagnosisMethod options. 
+	In the \TODO{de-stress} CAPT tool, a  researcher (or teacher) can choose between the various possible approaches for diagnosing lexical stress errors in learner's speech which have been discussed in this chapter. 
+	%\TODO{The choices available in the tool are illustrated in \cref{fig:diag:system}. }
+	When creating a new exercise, in which a learner is asked to read one of the sentences from the IFCASL corpus (see \cref{sec:intro:ifcasl}) in order to receive feedback on their realization of lexical stress in a target word in that sentence, the researcher is asked to select a DiagnosisMethod object for that exercise (see \cref{fig:interface:teacher} on \cpageref{fig:interface:teacher}). The DiagnosisMethod captures the researchers' choices among the various diagnostic options offered by the system; a screenshot showing the creation of a simple example is presented in \cref{fig:diag:creatediagnosismethod}. As illustrated in \cref{fig:interface:teacher}, this DiagnosisMethod is combined with a (compatible) FeedbackMethod when the exercise is created; see \cref{sec:fb:system} for a description of FeedbackMethod options and their compatibility with the various possible DiagnosisMethod options. 
 	
+%	\begin{itemize}
+%		\item{
+%		\textit{Which diagnosis approach?}
+%			\begin{itemize}
+%				\item{COMPARISON
+%					\begin{itemize}
+%						\item{\textit{Which reference selection method?}
+%							\begin{itemize}
+%								\item{MANUAL
+%									\begin{itemize}
+%										\item{\textit{Whose choice?}
+%											\begin{itemize}
+%											\item TEACHER
+%											\item STUDENT
+%											\end{itemize}
+%										}
+%									\end{itemize}
+%								}
+%								\item{AUTOMATIC}
+%							\end{itemize}
+%						}
+%						\item{\textit{How many references?}
+%							\begin{itemize}
+%								\item{SINGLE}
+%								\item{MULTIPLE}
+%							\end{itemize}
+%						}
+%					\end{itemize}
+%				}
+%				\item{CLASSIFICATION
+%					\begin{itemize}
+%						\item{\textit{Which features?}
+%						\begin{itemize}
+%							\item DUR
+%							\item F0
+%							\item ENER
+%							\item WORD
+%							\item LEVEL
+%							\item GENDER
+%						\end{itemize}
+%						}
+%					\end{itemize}
+%				}
+%			\end{itemize}
+%		}
+%	\end{itemize}
+%		
 	
-	\begin{figure}
-		\centering
-		
-		%\includegraphics[width=\textwidth]{img/DiagnosisMethod}
-		
-		\begin{tikzpicture}[node distance=2cm]
-
-			
-			\node (q1) [decision] {Which diagnosis approach?};
-			\node (comp) [process, below of=q1, xshift=-3cm] {COMPARISON};
-			\node (class) [process, below of=q1, xshift=3cm] {CLASSIFICATION};
-			\draw [arrow] (q1) -- (comp);
-			\draw [arrow] (q1) -- (class);
-			
-			\node (q2) [decision, below of=comp] {Which reference selection method?};
-			\node (man) [process, below of=q2, xshift=-2cm] {MANUAL}
-			\node (auto) [process, below of=q2, xshift=2cm] {AUTOMATIC}
-			\draw [arrow] (q2) -- (man);
-			\draw [arrow] (q2) -- (auto);
-
-		\end{tikzpicture}		
-		
-		\caption[Overview of diagnosis options]{Overview of diagnosis options in \TODO{de-stress} \TODO{Redo as Tikz flowchart}}
-		\label{fig:diag:system}
-	\end{figure}
+%	\begin{figure}
+%		\centering
+%		
+%		
+%		
+%		\begin{tikzpicture}[node distance=3cm]
+%
+%			
+%			\node (approach) [decision] {Which diagnosis approach?};
+%			%\node (comp) [process, below of=q1, xshift=-3cm] {COMPARISON};
+%			%\node (class) [process, below of=q1, xshift=3cm] {CLASSIFICATION};
+%			%\draw [arrow] (q1) -- (comp);
+%			%\draw [arrow] (q1) -- (class);
+%			
+%			\node (ref) [decision, below of=approach, xshift=-3cm] {Which reference selection method?};
+%			\node (features) [decision, below of=approach, xshift=3cm] {Which features?};
+%			\draw [arrow] (approach) -- node[anchor=east, scale=1.3, xshift=-1mm] {COMPARISON} (ref);			
+%			\draw [arrow] (approach) -- node[anchor=west, scale=1.3, xshift=1mm] {CLASSIFICATION} (features);
+%			
+%			
+%%			\draw [arrow] (comp) -- (q2);
+%%			\node (man) [process, below of=q2, xshift=-2cm] {MANUAL};
+%%			\node (auto) [process, below of=q2, xshift=2cm] {AUTOMATIC};
+%%			\draw [arrow] (q2) -- (man);
+%%			\draw [arrow] (q2) -- (auto);
+%%			
+%
+%			\node (choice) [decision, below of=ref, xshift=-3cm] {Whose choice?};
+%			\draw [arrow] (ref) -- node[anchor=east, scale=1.3, xshift=-1mm] {MANUAL} (choice);
+%
+%			\node (nrefs) [decision, below of=choice, xshift=3cm] {How many references?};	
+%
+%			
+%			\draw [arrow] (choice) to [bend left] node[anchor=east, scale=1.3] {STUDENT} (nrefs);
+%			\draw [arrow] (choice) to [bend right] node [anchor=east, scale=1.3, xshift=-1mm] {TEACHER} (nrefs);
+%			
+%			\draw [arrow] (ref) to [bend left=60] node[anchor=west, scale=1.3, xshift=1mm] {AUTOMATIC} (nrefs);
+%%			\draw [arrow] (man) -- (q3);
+%%			\node (teach) [process, below of=q3, xshift=-2cm] {TEACHER};
+%%			\node (stud) [process, below of=q3, xshift=2cm] {STUDENT};
+%%			\draw [arrow] (q3) -- (teach);
+%%			\draw [arrow] (q3) -- (stud);
+%
+%		\end{tikzpicture}		
+%		
+%		\includegraphics[width=\textwidth]{img/DiagnosisMethod}		
+%		
+%		\caption[Overview of diagnosis options]{Overview of diagnosis options in \TODO{de-stress} \TODO{Redo as Tikz flowchart}}
+%		\label{fig:diag:system}
+%	\end{figure}
 	
 	\begin{figure}
 		\centering

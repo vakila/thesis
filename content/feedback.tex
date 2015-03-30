@@ -85,25 +85,27 @@ the learner is presented with relatively direct visualizations of the speech sig
 			
 				\begin{figure}[p]
 					\centering
-					\caption[Feedback via graphical abstractions of prosody]{Screenshots of feedback via graphical abstractions of prosody}
 					
-					\vfill					
 					
 					\begin{subfigure}{\textwidth}
 					\centering
-					\caption[Comparison-based diagnosis]{Graphical feedback generated from a comparison-based diagnosis using two reference utterances.}
 					\includegraphics[width=\textwidth]{img/screenshots/graphicalFB-comparison-2ref}
+					\caption[Comparison-based diagnosis]{Graphical feedback generated from a comparison-based diagnosis using two reference utterances.}
 					\label{fig:rectangles:compare}
 					\end{subfigure}
 					
-					\vfill
+					\vspace{1.5em}
 					
 					\begin{subfigure}{\textwidth}
 					\centering
-					\caption[Classification-based diagnosis]{Graphical feedback generated from a classification-based diagnosis. Also visible in this screenshot is the combination of graphical abstractions with the stylized text feedback described in \cref{sec:implicit:visual:text}}
 					\includegraphics[width=\textwidth]{img/screenshots/graphicalFB-weka-plusTextStyle}
+					\caption[Classification-based diagnosis]{Graphical feedback generated from a classification-based diagnosis. Also visible in this screenshot is the combination of graphical abstractions with the stylized text feedback described in \cref{sec:implicit:visual:text}}
 					\label{fig:rectangles:weka}
 					\end{subfigure}	
+					
+					\vspace{1em}				
+
+					\caption[Feedback via graphical abstractions of prosody]{Screenshots of feedback via graphical abstractions of prosody}
 					
 					\label{fig:rectangles}
 				\end{figure}			
@@ -119,20 +121,20 @@ the learner is presented with relatively direct visualizations of the speech sig
 			\label{sec:implicit:visual:text}
 			
 			A related approach to the abstract graphical representations just described involves stylizing, or reshaping, the text of the word(s) pronounced  to match the prosodic features of the learner's utterance.
-	This is essentially the approach used by the work \textcite{Sitaram2011}, who used text stylization to help visualize prosody in the Project LISTEN reading tutor (see \cref{sec:capt:listen}). 
+	This is essentially the approach taken by \textcite{Sitaram2011}, who used text stylization to help visualize prosody in the Project LISTEN reading tutor (see \cref{sec:capt:listen}). 
 	Such text stylization is also often used to convey canonical prosody in pronunciation instruction materials \citep{Behme-Gissel2005,Hirschfeld2007a}, e.g. by using larger text for the  stressed syllable than for the unstressed syllable(s) in a given word.
 	Familiarity with this type of presentation might make feedback via stylized text easier for learners to comprehend, so text stylization was another form of implicit visual feedback implemented in the system, as illustrated in \cref{fig:textstylization}.
 			
 			
 			\begin{figure}
 			\centering
-			\caption[Feedback on syllable duration via text stylization]{Screenshot of feedback on syllable duration via text stylization}
 			\includegraphics[width=\textwidth]{img/screenshots/textStylization}
+			\caption[Feedback on syllable duration via text stylization]{Screenshot of feedback on syllable duration via text stylization}
 			\label{fig:textstylization}
 			\end{figure}
 		
 		
-		When using geometric shapes to visualize prosody, different prosodic features can be conveyed simultaneously by mapping each to a different geometric property, as described in \cref{sec:implicit:visual:graphical} However, when dealing with text, visualizing multiple prosodic features at the same time is more difficult.
+		When using geometric shapes to visualize prosody, different prosodic features can be conveyed simultaneously by mapping each to a different geometric property, as described in \cref{sec:implicit:visual:graphical}. However, when dealing with text, visualizing multiple prosodic features at the same time is more difficult.
 		First of all, noticing a clear difference between two syllables in terms of textual features such as height, font weight, or letter spacing is not as easy as comparing the height and width of two rectangles, given the inherent geometric variability of the different letters of the alphabet.
 		Secondly, if text is stretched or skewed too dramatically, it becomes more difficult to read, which may be distracting for learners using the system. 
 		
@@ -153,7 +155,8 @@ allowing the learner to listen to a native speaker's production of the target ut
 			\label{sec:implicit:auditory:resynth}
 			
 			As described in \cref{sec:capt:systems}, previous work on delivering lexical stress feedback 
-has revealed that learners sometimes benefit from prosodically modified implicit auditory feedback, either in the form of a learner utterance  modified to reflect the ``correct'' prosody of a native reference utterance \citep{Bonneau2011}.
+has revealed that learners sometimes benefit from prosodically modified implicit auditory feedback %, either 
+ in the form of a learner utterance  modified to reflect the ``correct'' prosody of a native reference utterance \citep{Bonneau2011}.
 %TODO or a native utterance modified to place exaggerated emphasis on the stressed syllable \citep{Bissiri2006,Bissiri2009}.
 			Thanks to the speech resynthesis capabilities of JSnoori, this is another feedback option available in \TODO{de-stress}.
 			
@@ -190,14 +193,11 @@ has revealed that learners sometimes benefit from prosodically modified implicit
 		
 			\begin{figure}[p]
 			\centering
-			\caption{Screenshots of explicit feedback via skill bars}
-			
-			\vspace{1em}
 			
 			\begin{subfigure}{\textwidth}
 			\centering
-			\caption{Where all three skills (prosodic feature types) contribute equally to the overall score}
 			\includegraphics[width=\textwidth]{img/screenshots/skillBars-balanced}
+			\caption{Where all three skills (prosodic feature types) contribute equally to the overall score}
 			\label{fig:skillbars:balanced}
 			\end{subfigure}		
 			
@@ -205,11 +205,14 @@ has revealed that learners sometimes benefit from prosodically modified implicit
 			
 			\begin{subfigure}{\textwidth}
 			\centering
-			\caption{Where duration contributes more than F0, which contributes more than intensity (60\%, 30\% and 10\% of overall score, respectively)}
 			\includegraphics[width=\textwidth]{img/screenshots/skillBars-durPriority}
+			\caption{Where duration contributes more than F0, which contributes more than intensity (60\%, 30\% and 10\% of overall score, respectively)}
 			\label{fig:skillbars:durpriority}
 			\end{subfigure}
 			
+			\vspace{1em}
+
+			\caption{Screenshots of explicit feedback via skill bars}			
 			\label{fig:skillbars}
 			\end{figure}	
 		
@@ -321,8 +324,8 @@ has revealed that learners sometimes benefit from prosodically modified implicit
  	
  	\begin{figure}
 		\centering
-		\caption{Self-assessment questionnaire presented to learner before feedback delivery}
 		\includegraphics[width=\textwidth]{img/screenshots/selfAssessment}
+		\caption{Self-assessment questionnaire presented to learner before feedback delivery}
 		\label{fig:selfassess}
 	\end{figure}
 		
@@ -510,8 +513,8 @@ As mentioned in \cref{sec:diag:system} and illustrated in \cref{fig:interface:te
 
 	\begin{figure}
 		\centering
-		\caption[Creating a FeedbackMethod]{Screenshot of the researcher-facing interface to create a FeedbackMethod}
 		\includegraphics[width=.8\textwidth]{img/screenshots/createFeedbackMethod}
+		\caption[Creating a FeedbackMethod]{Screenshot of the researcher-facing interface to create a FeedbackMethod}
 		\label{fig:fb:createfeedbackmethod}
 	\end{figure}
 	
@@ -548,7 +551,7 @@ As mentioned in \cref{sec:diag:system} and illustrated in \cref{fig:interface:te
 \label{sec:fb:summary}
 
 
-This chapter has presented the diverse array of feedback methods offered by \TODO{de-stress}. The system can present learners with both explicit {\cref{sec:fb:explicit}) as well as implicit (\cref{sec:fb:implicit}) feedback on their lexical stress errors. The latter may be delivered visually (\cref{sec:implicit:visual}), in the form of graphical  or textual representations of prosody which may be easier to interpret than the more direct representations of speech signals more frequently seen in CAPT systems (see \cref{sec:bkgd:capt}), or via the auditory channel (\cref{sec:implicit:auditory}) in the form of original or prosodically modified utterances. Explicit feedback options include skill bars (\cref{sec:explicit:skillbars}) informing learners of the correctness of their pronunciation with regard to duration (timing), fundamental frequency (pitch), and intensity (loudness), as well as verbal feedback on this information via a series of error/success messages (\cref{sec:explicit:verbal}). An additional feedback option offers learners the opportunity to self-assess their pronunciation (\cref{sec:fb:selfassess}), in the hopes of encouraging them to develop a metacognitive understanding of their own learning process and take autonomous control of their learning.
+This chapter has presented the diverse array of feedback methods offered by \TODO{de-stress}. The system can present learners with both explicit ({\cref{sec:fb:explicit}) and implicit (\cref{sec:fb:implicit}) feedback on their lexical stress errors. The latter may be delivered visually (\cref{sec:implicit:visual}), in the form of graphical  or textual representations of prosody which may be easier to interpret than the more direct representations of speech signals more frequently seen in CAPT systems (see \cref{sec:bkgd:capt}), or via the auditory channel (\cref{sec:implicit:auditory}) in the form of original or prosodically modified utterances. Explicit feedback options include skill bars (\cref{sec:explicit:skillbars}) informing learners of the correctness of their pronunciation with regard to duration (timing), fundamental frequency (pitch), and intensity (loudness), as well as verbal feedback on this information via a series of error/success messages (\cref{sec:explicit:verbal}). An additional feedback option offers learners the opportunity to self-assess their pronunciation (\cref{sec:fb:selfassess}), in the hopes of encouraging them to develop a metacognitive understanding of their own learning process and take autonomous control of their learning.
 
 
 Thanks to its modular implementation of the various feedback types, in combination with a simple configuration interface that allows researchers and/or instructors to easily pick and choose from the available options (\cref{sec:fb:system}), \TODO{de-stress} is therefore a valuable platform for future empirical investigations into the impacts of these feedback types on the 

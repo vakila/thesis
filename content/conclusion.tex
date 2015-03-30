@@ -65,7 +65,7 @@ With this underlying motivation, this thesis has explored the ways in which lexi
 %%%% FEEDBACK
 %
 As described in \cref{chap:feedback}, another important contribution of this work is an exploration of the various types of feedback that can be presented to the learner, based on a comparison- or classification-based diagnosis of the learner's utterance using one of the methods described in \cref{chap:diagnosis}. 
-	Inspired by both classroom teaching materials and existing prosody-aware CAPT systems, \TODO{de-stress} offers a diverse array of feedback options. Learners can be given implicit feedback on their pronunciation in the form of graphical or textual visual representations of the prosody of the given utterance(s) (see \cref{sec:implicit:visual}), and via the auditory channel through the playback of original and prosodically-modified utterances (see \cref{sec:implicit:auditory}
+	Inspired by both classroom teaching materials and existing prosody-aware CAPT systems, \TODO{de-stress} offers a diverse array of feedback options. Learners can be given implicit feedback on their pronunciation in the form of graphical or textual visual representations of the prosody of the given utterance(s) (see \cref{sec:implicit:visual}), and via the auditory channel through the playback of original and prosodically-modified utterances (see \cref{sec:implicit:auditory}).
 	Explicit feedback can also be delivered, in the form of skill bars %visualizing pronunciation scores 
 	or verbal messages %conveying the error(s) diagnosed and corrective suggestions 
 	(see \cref{sec:fb:explicit}).
@@ -155,12 +155,12 @@ As an extension of the inter-annotator agreement analysis in \cref{sec:lexstress
 	
 	With respect to the diagnosis module of \TODO{de-stress}, multiple directions for future improvements present themselves. 
 	First of all, for the selection of reference speaker(s) used in the comparison-based diagnosis approach, additional, more complex metrics of speaker similarity could be 
-	i%ncluded, beyond the simple F0 mean/range comparison used in the current implementation. More complex speaker representations could be 
+	%included, beyond the simple F0 mean/range comparison used in the current implementation. More complex speaker representations could be 
 	constructed using duration or intensity features, spectral features, and/or other features informed by research on speaker identification (e.g. \cite{Shriberg2005}).
 	%; features from speech in the learner's L1 (French) could also be beneficial. 
 	%More complex approaches for combining the results from multiple individual learner-reference comparisons could be explored, e.g. incorporating the speaker selection metrics to weight comparisons with ``closer'' references more highly. 
 	Much work also remains to be done with respect to classification-based diagnosis, including evaluations using different machine learning algorithms and additional features which may be related to lexical stress in German (e.g. spectral features capturing aspects of vowel quality). To obtain a more fine-grained analysis of the learner's utterance in the classification approach, and thus enable the generation of additional types of feedback (e.g. skill bars) from classification-based diagnoses, different classifiers trained on only subsets of the available features could be combined in an ensemble configuration;
-	for example, an ensemble of three classifiers trained exclusively on duration, F0, and intensity features respectively could produce scores analogous to JSnoori's three-dimensional pronunciation scores \cref{sec:compare:single}).
+	for example, an ensemble of three classifiers trained exclusively on duration, F0, and intensity features respectively could produce scores analogous to JSnoori's three-dimensional pronunciation scores (\cref{sec:compare:single}).
 	 %for example, a classifier trained exclusively using duration features could be used to produce a duration score for an utterance, which could be combined with similar scores for F0 and intensity, analogous to the three-dimensional pronunciation scores resulting from JSnoori's comparison-based diagnosis (see \cref{sec:compare:single}). 
 	 It may also be of interest to explore techniques for online, semi-supervised learning, which could enable the classifier to improve its predictions by updating itself with new training instances resulting from the learner's continued use of the system over time.
 	%; it also seems conceivable that the learner's self-assessments could be taken into account to teach the classifier 

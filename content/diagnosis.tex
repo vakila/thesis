@@ -114,7 +114,7 @@ any analysis of the learner's speech signal, including the preliminary step of s
 
 	
 	Given these resources, the JSnoori software,
-	which \TODO{de-stress} uses for speech processing,
+	which de-stress uses for speech processing,
 	%used to process speech in the lexical stress CAPT tool
 	is capable of automatically segmenting a learner's utterance almost instantly. 
 	%Unfortunately, a disadvantage of forced alignment is that it requires the entire utterance (e.g. sentence), so real-time segmentation is not possible \TODO{true? should this go in a footnote?}. 
@@ -124,18 +124,18 @@ any analysis of the learner's speech signal, including the preliminary step of s
 	speech in English and French.
 	 %In the absence of automatic segmentation capabilities for German,
 	 Therefore,
-	 in its current implementation, \TODO{de-stress}
+	 in its current implementation, de-stress
 	 presupposes the existence of a segmentation for a given utterance,
 	%the tool %thus takes 
 	taking a ``Wizard-of-Oz'' approach to the automatic segmentation step by demonstrating its error diagnosis and feedback capabilities using learner (L2) and reference (L1) read-speech utterances from the German-language subset of the IFCASL corpus \citep{Fauth2014,Trouvain2013}, all of which have been segmented at the phone and word levels using the forced alignment technique described above.
-	Once the requisite German-language resources are available in JSnoori, \TODO{de-stress} can easily be extended to perform on-the-fly segmentation of learner utterances. % (see \cref{sec:conclusion:future}).
+	Once the requisite German-language resources are available in JSnoori, de-stress can easily be extended to perform on-the-fly segmentation of learner utterances. % (see \cref{sec:conclusion:future}).
 	
 	%\TODO{a real CAPT system would have to do this on the fly, and that can be done in JSnoori, but the prototype assumes segmentation has been done and mocks that up by only using auto segmentations of IFCASL data}
 	%
 	
 	
 	Although the IFCASL corpus also contains manually-corrected versions of the majority of the forced-alignment segmentations,
-	\TODO{de-stress} only makes use of the automatically-determined boundaries, even though these are potentially less accurate; 
+	de-stress only makes use of the automatically-determined boundaries, even though these are potentially less accurate; 
 	this is to more accurately 
 	%reflect the fact that any 
 	simulate the conditions of a 
@@ -149,7 +149,7 @@ any analysis of the learner's speech signal, including the preliminary step of s
 	forced alignment is not a perfect method; because of the constraints put on the recognition system, it will always find a match between the given text and audio, even if they do not correspond (e.g. if a completely different sentence/word was uttered).  
 	Therefore, inaccuracies in the phone boundaries determined using this technique must be expected, especially when the alignment is performed on nonnative utterances using an acoustic model trained on native speech.
 	As discussed in \cref{sec:capt:auto}, however, \textcite{Mesbahi2011} compared manual segmentations of L2 speech with automatic segmentations produced via these techniques, and concluded that the automatically-produced segment boundaries were accurate enough to be useful in CAPT for prosodic feedback.
-		Nonetheless, a fully-fledged CAPT system extending \TODO{de-stress} would ultimately have to cope with any problems that may result from using imperfect automatic segmentations as a starting point for analysis; this could be accomplished using techniques for detecting incorrect utterances such as those developed by \textcite{Bonneau2012,Orosanu2012}, as discussed in \cref{sec:capt:auto}.
+		Nonetheless, a fully-fledged CAPT system extending de-stress would ultimately have to cope with any problems that may result from using imperfect automatic segmentations as a starting point for analysis; this could be accomplished using techniques for detecting incorrect utterances such as those developed by \textcite{Bonneau2012,Orosanu2012}, as discussed in \cref{sec:capt:auto}.
 	
 	
 	As mentioned above, the utterances in the IFCASL corpus have %pre-existing 
@@ -708,7 +708,7 @@ ENERGY-MAX-INDEX
 	
 \vspace{2em}
 	
-Using the prosodic features thus computed using JSnoori, \TODO{de-stress} analyzes a given learner utterance and diagnoses their lexical stress error(s) (or lack thereof) by comparing this L2 speech to that of L1 German speakers using one of several possible methods. The following section describes the various diagnostic methods explored in this thesis project, and how they make use of (subsets of) the duration, F0, and intensity features described above. 
+Using the prosodic features thus computed using JSnoori, de-stress analyzes a given learner utterance and diagnoses their lexical stress error(s) (or lack thereof) by comparing this L2 speech to that of L1 German speakers using one of several possible methods. The following section describes the various diagnostic methods explored in this thesis project, and how they make use of (subsets of) the duration, F0, and intensity features described above. 
 	
 	
 \section{Diagnosis by direct comparison}
@@ -721,7 +721,7 @@ One approach to assessing L2 prosody involves comparing a learner's utterance to
 (see e.g. \cite{Eskenazi2009,Delmonte2011,Bonneau2011}). 
 In this comparison-based approach, the L1 utterance serves as a direct representation of how the word/sentence would be realized by a native speaker; an error can then be diagnosed when the L2 learner's utterance and that of the native speaker differ substantially with respect to the relevant features.
 %
-This section describes the various techniques for diagnosis by comparison implemented in \TODO{de-stress}.
+This section describes the various techniques for diagnosis by comparison implemented in de-stress.
 	%\TODO{is more intro/summary of upcoming sections needed here?}
 	%In addition to the simplest type of comparison, in which a single
   
@@ -736,7 +736,7 @@ This section describes the various techniques for diagnosis by comparison implem
 	
 	
 	The simplest type of diagnosis by direct comparison involves comparing a single learner utterance to a single reference (native-speaker) utterance; as mentioned in \cref{sec:capt:snoori}, this is the approach used to evaluate learner speech in JSnoori and its predecessor WinSnoori \citep{Bonneau2004,Henry2007,Bonneau2011}. 
-	In \TODO{de-stress}, this method of comparison is implemented as a type of baseline, using the pre-existing capabilities of JSnoori for processing and comparing the learner and reference utterances, which are described in the following section. 
+	In de-stress, this method of comparison is implemented as a type of baseline, using the pre-existing capabilities of JSnoori for processing and comparing the learner and reference utterances, which are described in the following section. 
 	
 %	\subsubsection{Diagnosis by comparison in JSnoori \TODO{retitle?}}
 %	\label{sec:compare:single:jsnoori}
@@ -797,7 +797,7 @@ This section describes the various techniques for diagnosis by comparison implem
 
 	\vspace{2em}
 	
-	The scores calculated thus for each of the three feature types are used in \TODO{de-stress} to generate various types of feedback for the learner, including the explicit feedback of reporting their scores directly; see \cref{chap:feedback} for a detailed discussion of the use of these diagnoses in feedback delivery.
+	The scores calculated thus for each of the three feature types are used in de-stress to generate various types of feedback for the learner, including the explicit feedback of reporting their scores directly; see \cref{chap:feedback} for a detailed discussion of the use of these diagnoses in feedback delivery.
 
 
 	\subsection{Using multiple reference speakers}
@@ -805,7 +805,7 @@ This section describes the various techniques for diagnosis by comparison implem
 	
 	When using a single native-speaker utterance for reference, even if the reference speaker has been chosen carefully (see \cref{sec:compare:selection} below), analysis of the learner's pronunciation may be ``over-fitting'' to speaker- or utterance-dependent characteristics of the reference utterance that do not accurately represent the ``nativeness'' of the reference speech. It is therefore advantageous not to limit the diagnosis to comparison with a single reference speaker, but to instead compare the learner's speech with a variety of native utterances, the hope being that the variability between these reference utterances will capture more general traits of native pronunciation.
 	
-	In \TODO{de-stress}, this is accomplished by conducting a series of one-on-one comparisons, pairing the learner utterance with a different reference utterance for each comparison, and then combining the results from all the comparisons. 
+	In de-stress, this is accomplished by conducting a series of one-on-one comparisons, pairing the learner utterance with a different reference utterance for each comparison, and then combining the results from all the comparisons. 
 	In the current implementation, this combination consists of simply averaging
 	%This is accomplished simply by averaging 
 	each of the duration, pitch, and energy scores assigned by JSnoori in each one-on-one comparison; for example, the final pitch score for a learner's utterance when compared to three different reference utterances will be the average of those three one-on-one pitch scores as computed by JSnoori. More sophisticated ways of combining several single-reference scores into one multiple-reference score are certainly conceivable, and this could be an interesting direction for future work. % (see \cref{sec:conclusion:future}).
@@ -827,7 +827,7 @@ This section describes the various techniques for diagnosis by comparison implem
 		
 		The most basic way of selecting a reference speaker is to choose one manually.
 %manually specify which speaker should be used for comparison. 
-As a type of baseline, \TODO{de-stress} therefore enables the choice of a reference from a set of available speakers.
+As a type of baseline, de-stress therefore enables the choice of a reference from a set of available speakers.
 	%, \TODO{with that set optionally being constrained by one or more properties of the speaker (e.g. gender, age)}.
 	 When designing an exercise, the researcher can either manually select a reference utterance for all students who will complete that exercise,
 	 %\TODO{FIXED}, 
@@ -841,7 +841,7 @@ As a type of baseline, \TODO{de-stress} therefore enables the choice of a refere
 		
 		A different and perhaps more interesting means of selecting a reference speaker is to automatically choose a speaker whose voice resembles
 that of the learner; as described in \cref{sec:capt:fluency}, research by \textcite{Probst2002} seems to indicate that using a carefully-selected reference speaker can help learners improve their pronunciation. 
-	This requires some representation of the relevant features of each speaker's voice; \TODO{de-stress} follows \textcite{Probst2002} in using F0 mean and range for that representation, where each speaker's overall F0 mean and range are computed as the average of each of these features across all available whole-sentence utterances by that speaker. To determine the best reference speaker for a given learner, the respective absolute differences between that learner's overall F0 mean and range and those of each of the available native speakers are calculated and added together, and the native speaker with the lowest total difference from the learner is selected as the reference. While this accomplishes the goal of providing automatic reference selection as an alternative to the more common manual selection of the reference speaker, it remains a rather simplistic way of representing each speaker's voice, and an exploration of how speakers can be compared using other representations would be a worthwhile future endeavor (see \cref{sec:conclusion:future}).
+	This requires some representation of the relevant features of each speaker's voice; de-stress follows \textcite{Probst2002} in using F0 mean and range for that representation, where each speaker's overall F0 mean and range are computed as the average of each of these features across all available whole-sentence utterances by that speaker. To determine the best reference speaker for a given learner, the respective absolute differences between that learner's overall F0 mean and range and those of each of the available native speakers are calculated and added together, and the native speaker with the lowest total difference from the learner is selected as the reference. While this accomplishes the goal of providing automatic reference selection as an alternative to the more common manual selection of the reference speaker, it remains a rather simplistic way of representing each speaker's voice, and an exploration of how speakers can be compared using other representations would be a worthwhile future endeavor (see \cref{sec:conclusion:future}).
 
 
 % MOVED TO FUTURE WORK
@@ -1318,7 +1318,7 @@ Average	&	66.85	&	0.17	&	0.69	&	0.88	&	0.77	&	0.83	\\
 	
 	In comparison with the best results obtained on seen words as reported in the previous section 
 	(69.77\% accuracy and $\kappa=$0.29 for the DUR+F0 feature set, and 71.87\%/$\kappa=$0.34 for WD+LVL+ALL),
-	 these statistics seem to confirm the hypothesis that performance would be lower on words not seen in the training data. Perhaps most striking is the difference in $\kappa$, which constitutes a drop from fair to slight agreement with the gold-standard labels (using the \textcite{Landis1977} thresholds), which also constitutes a fall below the average inter-annotator $\kappa$ of 0.23 observed between human annotations (see \cref{sec:agreement:overall}). However, the drop in the overall accuracy percentage, as well as in the two F-measures, seems less drastic, which seems encouraging from the perspective of extending the diagnostic capabilities of \TODO{de-stress} to novel word types using a classification-based approach, especially considering the possibilities for improving classification performance by other means, e.g. using additional features or more powerful machine learning algorithms (see \cref{sec:conclusion:future}).
+	 these statistics seem to confirm the hypothesis that performance would be lower on words not seen in the training data. Perhaps most striking is the difference in $\kappa$, which constitutes a drop from fair to slight agreement with the gold-standard labels (using the \textcite{Landis1977} thresholds), which also constitutes a fall below the average inter-annotator $\kappa$ of 0.23 observed between human annotations (see \cref{sec:agreement:overall}). However, the drop in the overall accuracy percentage, as well as in the two F-measures, seems less drastic, which seems encouraging from the perspective of extending the diagnostic capabilities of de-stress to novel word types using a classification-based approach, especially considering the possibilities for improving classification performance by other means, e.g. using additional features or more powerful machine learning algorithms (see \cref{sec:conclusion:future}).
 	
 	
 		
@@ -1388,10 +1388,10 @@ Average	&	66.85	&	0.17	&	0.69	&	0.88	&	0.77	&	0.83	\\
 %\subsubsection{Feature selection?}
 %\subsubsection{Comparing diagnostic approaches?} 
 
-\section{Controlling diagnosis in \TODO{de-stress}}
+\section{Controlling diagnosis in de-stress}
 \label{sec:diag:system}
 
-	In the \TODO{de-stress} CAPT tool, a  researcher (or teacher) can choose between the various possible approaches for diagnosing lexical stress errors in learner's speech which have been discussed in this chapter. 
+	In the de-stress CAPT tool, a  researcher (or teacher) can choose between the various possible approaches for diagnosing lexical stress errors in learner's speech which have been discussed in this chapter. 
 	%\TODO{The choices available in the tool are illustrated in \cref{fig:diag:system}. }
 	When creating a new exercise, in which a learner is asked to read one of the sentences from the IFCASL corpus (see \cref{sec:intro:ifcasl}) in order to receive feedback on their realization of lexical stress in a target word in that sentence, the researcher is asked to select a DiagnosisMethod object for that exercise (see \cref{fig:interface:teacher} on \cpageref{fig:interface:teacher}). The DiagnosisMethod captures the researchers' choices among the various diagnostic options offered by the system; a screenshot showing the creation of a simple example is presented in \cref{fig:diag:creatediagnosismethod}. As illustrated in \cref{fig:interface:teacher}, this DiagnosisMethod is combined with a (compatible) FeedbackMethod when the exercise is created; see \cref{sec:fb:system} for a description of FeedbackMethod options and their compatibility with the various possible DiagnosisMethod options. 
 	
@@ -1490,7 +1490,7 @@ Average	&	66.85	&	0.17	&	0.69	&	0.88	&	0.77	&	0.83	\\
 %		
 %		\includegraphics[width=\textwidth]{img/DiagnosisMethod}		
 %		
-%		\caption[Overview of diagnosis options]{Overview of diagnosis options in \TODO{de-stress} \TODO{Redo as Tikz flowchart}}
+%		\caption[Overview of diagnosis options]{Overview of diagnosis options in de-stress \TODO{Redo as Tikz flowchart}}
 %		\label{fig:diag:system}
 %	\end{figure}
 	
@@ -1513,16 +1513,16 @@ Average	&	66.85	&	0.17	&	0.69	&	0.88	&	0.77	&	0.83	\\
 \label{sec:diag:summary}
 
 
-	This chapter has explored an array of methods by which lexical stress errors in the speech of French learners of German can be automatically diagnosed, as implemented in the modular diagnostic component of the \TODO{de-stress} CAPT tool.
+	This chapter has explored an array of methods by which lexical stress errors in the speech of French learners of German can be automatically diagnosed, as implemented in the modular diagnostic component of the de-stress CAPT tool.
 	
 	
-	The first requirement for error diagnosis, accurate automatically-produced segmentations of the words, syllables, and phones of a learner's utterance (or that of a native speaker), can be obtained through forced alignment with the text of the utterance, as described in \cref{sec:diag:segmentation}. Forced alignment for German utterances being currently under development in the JSnoori software used by \TODO{de-stress} for speech processing, the current version of \TODO{de-stress} mocks this alignment step by using automatically-produced segmentations for utterances from the IFCASL corpus (\cite{Fauth2014,Trouvain2013}; see also \cref{sec:intro:ifcasl}).
+	The first requirement for error diagnosis, accurate automatically-produced segmentations of the words, syllables, and phones of a learner's utterance (or that of a native speaker), can be obtained through forced alignment with the text of the utterance, as described in \cref{sec:diag:segmentation}. Forced alignment for German utterances being currently under development in the JSnoori software used by de-stress for speech processing, the current version of de-stress mocks this alignment step by using automatically-produced segmentations for utterances from the IFCASL corpus (\cite{Fauth2014,Trouvain2013}; see also \cref{sec:intro:ifcasl}).
 	
-	Analysis of the lexical stress realization of a given utterance, based on a set of prosodic features, is a second requirement for diagnosis, and \cref{sec:diag:prosody} has presented the set of features which can be used for such analysis in \TODO{de-stress}. These features capture the three acoustic properties most strongly correlated with the prosodic realization of lexical stress, namely duration, F0, and intensity. In \TODO{de-stress}, such features are extracted from a given utterance using the forced-alignment segmentations of that utterance and the speech processing capabilities of JSnoori.
+	Analysis of the lexical stress realization of a given utterance, based on a set of prosodic features, is a second requirement for diagnosis, and \cref{sec:diag:prosody} has presented the set of features which can be used for such analysis in de-stress. These features capture the three acoustic properties most strongly correlated with the prosodic realization of lexical stress, namely duration, F0, and intensity. In de-stress, such features are extracted from a given utterance using the forced-alignment segmentations of that utterance and the speech processing capabilities of JSnoori.
 	
-	Using these features to represent a given L2 utterance as well as corresponding utterance(s) by L1 speakers, it is possible to assess the learner's utterance via one of two primary strategies: comparison or classification. \Cref{sec:diag:compare} has explored the possibilities for comparison-based diagnosis, in which features of the relevant segments of a learner's utterance are compared to the analogous features in a L1 utterance, and an error is diagnosed when the utterances differ considerably with respect to the relevant features. As described in \cref{sec:compare:single}, JSnoori uses this comparison-based approach to score each L2 utterance with respect to duration, F0, and prosody, and \TODO{de-stress} can use these scores as one form of diagnosis and a starting point for the delivery of certain types of feedback, as will be discussed in \cref{chap:feedback}. In addition to diagnosing an L2 utterance in comparison with a single L1 utterance, \TODO{de-stress} can combine scores with respect to multiple L1 utterances into a single score (see \cref{sec:compare:multi}), thus helping to reduce some of the risk of the diagnosis ``over-fitting'' to speaker- or utterance-dependent features of a single reference. Another option available in \TODO{de-stress} relates to the method of choosing the reference utterance(s) for a given learner utterance (see \cref{sec:compare:selection}); though many existing CAPT systems, including JSnoori, require manual selection of reference utterances, \TODO{de-stress} also offers an automatic selection option in which the reference is selected by choosing the L1 speaker(s) whose voice most closely resembles that of the learner in terms of F0 mean and range. 
+	Using these features to represent a given L2 utterance as well as corresponding utterance(s) by L1 speakers, it is possible to assess the learner's utterance via one of two primary strategies: comparison or classification. \Cref{sec:diag:compare} has explored the possibilities for comparison-based diagnosis, in which features of the relevant segments of a learner's utterance are compared to the analogous features in a L1 utterance, and an error is diagnosed when the utterances differ considerably with respect to the relevant features. As described in \cref{sec:compare:single}, JSnoori uses this comparison-based approach to score each L2 utterance with respect to duration, F0, and prosody, and de-stress can use these scores as one form of diagnosis and a starting point for the delivery of certain types of feedback, as will be discussed in \cref{chap:feedback}. In addition to diagnosing an L2 utterance in comparison with a single L1 utterance, de-stress can combine scores with respect to multiple L1 utterances into a single score (see \cref{sec:compare:multi}), thus helping to reduce some of the risk of the diagnosis ``over-fitting'' to speaker- or utterance-dependent features of a single reference. Another option available in de-stress relates to the method of choosing the reference utterance(s) for a given learner utterance (see \cref{sec:compare:selection}); though many existing CAPT systems, including JSnoori, require manual selection of reference utterances, de-stress also offers an automatic selection option in which the reference is selected by choosing the L1 speaker(s) whose voice most closely resembles that of the learner in terms of F0 mean and range. 
 	
 	The second diagnosis strategy explored in this chapter (\cref{sec:diag:classification}), classification of lexical stress errors using machine learning algorithms, is a more novel approach to lexical stress error identification in CAPT, in which a learner's utterance is compared to the more abstract model of L1 speech represented by a classifier trained on a large number of L1 utterances. The experiments described in \cref{sec:classification:features,sec:classification:unseen} constitute original contributions to the understanding of how, and how effectively, classification-based diagnosis can be used to identify (in)correct realizations of lexical stress. As described in \cref{sec:classification:features}, the features seemingly most useful for classification relate to the duration and F0 of the utterance(s), unsurprising considering that these have been shown to be most closely linked to lexical stress in German \citep{Cutler2005,Dogil1999}. Features capturing the word type of the utterance as well as the age, gender and proficiency level of the speaker were also found to be quite valuable for error classification; combining these features with all three prosodic feature types resulted in the highest overall accuracy observed on this dataset (70.65\% accuracy, $\kappa=$0.31). As the observed agreement between the classifier's labels and the gold standard slightly exceeded the overall inter-annotator agreement observed when humans were asked to perform this error diagnosis task (see \cref{sec:lexstress:agreement}), these results seem encouraging. Unsurprisingly, slightly lower accuracy was observed when classifying utterances of word types or speakers not represented in the training data; however, the fact that accuracy on unseen words still remained comparable to the human inter-annotator agreement statistics seems to confirm the expectation that classification-based diagnosis may be a useful way to create CAPT systems which are are not limited to words/sentences for which recorded L1 utterances are available.
 	
 	
-	While comparison-based diagnosis is not a new approach to identifying lexical stress errors in CAPT, the availability of multiple-reference comparison and automatic selection of reference speakers in the system, as well as the ability for researchers or instructors to configure the comparison method, make \TODO{de-stress} an important addition to the current CAPT landscape. The inclusion of a classification-based alternative to diagnosis is also a novelty for such a CAPT system, and this chapter's investigation of how L2 lexical stress errors can be diagnosed by classification is one of the major contributions of this thesis. By enabling researchers and instructors to choose among the various diagnosis options described in this chapter, \TODO{de-stress} will facilitate much needed future work exploring which diagnostic methods are most useful in which learning contexts, and which types of feedback (described in the following chapter) can best convey these diagnoses to the learner.
+	While comparison-based diagnosis is not a new approach to identifying lexical stress errors in CAPT, the availability of multiple-reference comparison and automatic selection of reference speakers in the system, as well as the ability for researchers or instructors to configure the comparison method, make de-stress an important addition to the current CAPT landscape. The inclusion of a classification-based alternative to diagnosis is also a novelty for such a CAPT system, and this chapter's investigation of how L2 lexical stress errors can be diagnosed by classification is one of the major contributions of this thesis. By enabling researchers and instructors to choose among the various diagnosis options described in this chapter, de-stress will facilitate much needed future work exploring which diagnostic methods are most useful in which learning contexts, and which types of feedback (described in the following chapter) can best convey these diagnoses to the learner.

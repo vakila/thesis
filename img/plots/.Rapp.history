@@ -1,0 +1,256 @@
+par(mar=c(3,5,4,11)+0.1, xpd=TRUE)
+plot(range(c(0.75,3.25)), range(crossnew2$Accuracy), type="n", main="Cross-Speaker Accuracy", xlab="", ylab="Word Recognition Accuracy (%)", xaxt="n", yaxt="n", cex.main=2, cex.lab=1.5, cex.axis=1.5)
+axis(2, lty=3, tck=1, col="gray", cex.axis=1.5)
+axis(2, lty=1, cex.axis=1.5)
+axis(1, at=c(1,2,3), labels=c("1 pron.", "3 prons.", "5 prons."), cex.axis=1.5)
+newCrossPlot = recordplot()
+newCrossPlot = recordPlot()
+lines(crossnew2[crossnew2$TestSpeaker == "A" & crossnew2$Recognizer == "English", ]$Accuracy, col=myDarkBlue, type="b", pch=17, lty=1, cex=2)
+lines(crossnew2[crossnew2$TestSpeaker == "B" & crossnew2$Recognizer == "English", ]$Accuracy, col=myDarkBlue, type="b", pch=15, lty=2, cex=2)
+lines(crossnew2[crossnew2$TestSpeaker == "A" & crossnew2$Recognizer == "French ", ]$Accuracy, col=myDarkPink, type="b", pch=17, lty=1, cex=2)
+lines(crossnew2[crossnew2$TestSpeaker == "B" & crossnew2$Recognizer == "French ", ]$Accuracy, col=myDarkPink, type="b", pch=15, lty=2, cex=2)
+newCrossPlot = recordPlot()
+legend("topright", legend=c("M > F","F > M","English", "French"), col=c("black", "black", myDarkBlue, myDarkPink), inset=c(-0.3,0), lty=c(1,2,3,3), pch=c(17,15,19,19), bg="white", cex=1.5)
+replayPlot(newCrossPlot)
+legend("topright", legend=c("M > F","F > M","English", "French"), col=c("black", "black", myDarkBlue, myDarkPink), inset=c(-0.3,0), lty=c(1,2,3,3), pch=c(17,15,NULL,19), bg="white", cex=1.5)
+legend("topright", legend=c("M > F","F > M","English", "French"), col=c("black", "black", myDarkBlue, myDarkPink), inset=c(-0.3,0), lty=c(1,2,3,3), pch=c(17,15,-,19), bg="white", cex=1.5)
+legend("topright", legend=c("M > F","F > M","English", "French"), col=c("black", "black", myDarkBlue, myDarkPink), inset=c(-0.3,0), lty=c(1,2,3,3), pch=c(17,15,"-",19), bg="white", cex=1.5)
+legend("topright", legend=c("M > F","F > M","English", "French"), col=c("black", "black", myDarkBlue, myDarkPink), inset=c(-0.3,0), lty=c(1,2,3,3), pch=c(17,15,,19), bg="white", cex=1.5)
+legend("topright", legend=c("M > F","F > M","English", "French"), col=c("black", "black", myDarkBlue, myDarkPink), inset=c(-0.3,0), lty=c(1,2,3,3), pch=c(17,15,.,19), bg="white", cex=1.5)
+legend("topright", legend=c("M > F","F > M","English", "French"), col=c("black", "black", myDarkBlue, myDarkPink), inset=c(-0.3,0), lty=c(1,2,3,3), pch=c(17,15,45,19), bg="white", cex=1.5)
+legend("topright", legend=c("M > F","F > M","English", "French"), col=c("black", "black", myDarkBlue, myDarkPink), inset=c(-0.3,0), lty=c(1,2,3,3), pch=c(17,15,194,19), bg="white", cex=1.5)
+legend("topright", legend=c("M > F","F > M","English", "French"), col=c("black", "black", myDarkBlue, myDarkPink), inset=c(-0.3,0), lty=c(1,2,3,3), pch=c(17,15,00,19), bg="white", cex=1.5)
+legend("topright", legend=c("M > F","F > M","English", "French"), col=c("black", "black", myDarkBlue, myDarkPink), inset=c(-0.3,0), lty=c(1,2,3,3), pch=c(17,15,45,19), bg="white", cex=1.5)
+legend("topright", legend=c("M > F","F > M","English", "French"), col=c("black", "black", myDarkBlue, myDarkPink), inset=c(-0.3,0), lty=c(1,2,3,3), pch=c(17,15,420,19), bg="white", cex=1.5)
+legend("topright", legend=c("M > F","F > M","English", "French"), col=c("black", "black", myDarkBlue, myDarkPink), inset=c(-0.3,0), lty=c(1,2,3,3), pch=c(17,15,619,19), bg="white", cex=1.5)
+legend("topright", legend=c("M > F","F > M","English", "French"), col=c("black", "black", myDarkBlue, myDarkPink), inset=c(-0.3,0), lty=c(1,2,3,3), pch=c(17,15,50,19), bg="white", cex=1.5)
+legend("topright", legend=c("M > F","F > M","English", "French"), col=c("black", "black", myDarkBlue, myDarkPink), inset=c(-0.3,0), lty=c(1,2,3,3), pch=c(17,15,19,19), bg="white", cex=1.5)
+legend("topright", legend=c("M > F","F > M","English", "French"), col=c("black", "black", myDarkBlue, myDarkPink), col.lab=c("black", "black", myDarkBlue, myDarkPink), inset=c(-0.3,0), lty=c(1,2,3,3), pch=c(17,15,19,19), bg="white", cex=1.5)
+legend("topright", legend=c("M > F","F > M","English", "French"), col=c("black", "black", myDarkBlue, myDarkPink), text.col=c("black", "black", myDarkBlue, myDarkPink), inset=c(-0.3,0), lty=c(1,2,3,3), pch=c(17,15,19,19), bg="white", cex=1.5)
+legend("topright", legend=c("M > F","F > M","English", "French"), col=c("black", "black", myDarkBlue, myDarkPink), text.col=c("black", "black", myDarkBlue, myDarkPink), inset=c(-0.3,0), lty=c(1,2,3,0), pch=c(17,15,19,19), bg="white", cex=1.5)
+legend("topright", legend=c("M > F","F > M","English", "French"), col=c("black", "black", myDarkBlue, myDarkPink), text.col=c("black", "black", myDarkBlue, myDarkPink), inset=c(-0.3,0), lty=c(1,2,0,0), pch=c(17,15,19,19), bg="white", cex=1.5)
+replayPlot(newCrossPlot)
+legend("topright", legend=c("M > F","F > M","English", "French"), col=c("black", "black", myDarkBlue, myDarkPink), text.col=c("black", "black", myDarkBlue, myDarkPink), inset=c(-0.3,0), lty=c(1,2,0,0), pch=c(17,15,19,19), bg="white", cex=1.5)
+ls()
+finalCrossPlot = recordPlot()
+finalCrossPlot
+crossnew2
+plot(range(c(0.75,3.25)), range(c(55,80)), type="n", main="Cross-Speaker Accuracy", xlab="", ylab="Word Recognition Accuracy (%)", xaxt="n", yaxt="n", cex.main=2, cex.lab=1.5, cex.axis=1.5)
+axis(2, lty=3, tck=1, col="gray", cex.axis=1.5)
+axis(2, lty=1, cex.axis=1.5)
+axis(1, at=c(1,2,3), labels=c("1 pron.", "3 prons.", "5 prons."), cex.axis=1.5)
+betterRangeCross = recordPlot()
+lines(crossnew2[crossnew2$TestSpeaker == "A" & crossnew2$Recognizer == "English", ]$Accuracy, col=myDarkBlue, type="b", pch=17, lty=1, cex=2)
+lines(crossnew2[crossnew2$TestSpeaker == "B" & crossnew2$Recognizer == "English", ]$Accuracy, col=myDarkBlue, type="b", pch=15, lty=2, cex=2)
+lines(crossnew2[crossnew2$TestSpeaker == "A" & crossnew2$Recognizer == "French ", ]$Accuracy, col=myDarkPink, type="b", pch=17, lty=1, cex=2)
+lines(crossnew2[crossnew2$TestSpeaker == "B" & crossnew2$Recognizer == "French ", ]$Accuracy, col=myDarkPink, type="b", pch=15, lty=2, cex=2)
+betterRangeCross = recordPlot()
+legend("topright", legend=c("M > F","F > M","English", "French"), col=c("black", "black", myDarkBlue, myDarkPink), text.col=c("black", "black", myDarkBlue, myDarkPink), inset=c(-0.3,0), lty=c(1,2,0,0), pch=c(17,15,19,19), bg="white", cex=1.5)
+legend("topleft", legend=c("M > F","F > M","English", "French"), col=c("black", "black", myDarkBlue, myDarkPink), text.col=c("black", "black", myDarkBlue, myDarkPink), lty=c(1,2,0,0), pch=c(17,15,19,19), bg="white", cex=1.5)
+replayPlot(betterRangeCross)
+legend("topleft", legend=c("M > F","F > M","English", "French"), col=c("black", "black", myDarkBlue, myDarkPink), text.col=c("black", "black", myDarkBlue, myDarkPink), lty=c(1,2,0,0), pch=c(17,15,19,19), bg="white", cex=1.5)
+replayPlot(betterRangeCross)
+legend("topleft", legend=c("M > F","F > M","English", "French"), col=c("black", "black", myDarkBlue, myDarkPink), text.col=c("black", "black", myDarkBlue, myDarkPink), lty=c(1,2,0,0), pch=c(17,15,19,19), bg="white", cex=1.3)
+legend("topleft", legend=c("M > F","F > M","English", "French"), col=c("black", "black", myDarkBlue, myDarkPink), text.col=c("black", "black", myDarkBlue, myDarkPink), lty=c(1,2,0,0), pch=c(17,15,19,19), bg="white", cex=1.4)
+legend("topleft", legend=c("M > F","F > M","English", "French"), col=c("black", "black", myDarkBlue, myDarkPink), text.col=c("black", "black", myDarkBlue, myDarkPink), lty=c(1,2,0,0), pch=c(17,15,19,19), bg="white", cex=1.35)
+replayPlot(betterRangeCross)
+legend("topleft", legend=c("M > F","F > M","English", "French"), col=c("black", "black", myDarkBlue, myDarkPink), text.col=c("black", "black", myDarkBlue, myDarkPink), lty=c(1,2,0,0), pch=c(17,15,19,19), bg="white", cex=1.35)
+par(mar=c(3,5,4,5)+0.1, xpd=TRUE)
+replayPlot(betterRangeCross)
+legend("topright", legend=c("M > F","F > M","English", "French"), col=c("black", "black", myDarkBlue, myDarkPink), text.col=c("black", "black", myDarkBlue, myDarkPink), inset=c(-0.3,0), lty=c(1,2,0,0), pch=c(17,15,19,19), bg="white", cex=1.5)
+mydata <- read.table(file.choose(), header=TRUE, #
+  	sep=",", row.names="id")
+mydata <- read.table(file.choose(), header=TRUE, #
+  	sep="\t", row.names="id")
+mydata
+mydata <- read.table(file.choose(), header=TRUE, #
+  	sep=",")
+mydata <- read.table(file.choose(), header=TRUE, #
+  	sep=",", encoding="UTF-8")
+mydata <- read.csv(file.choose(), header=TRUE, #
+  	sep=",", encoding="UTF-8")
+mydata <- read.csv(file.choose(), header=TRUE, #
+  	sep=",", encoding="UTF-16")
+mydata <- read.csv(file.choose(), header=TRUE, encoding="UTF-16")
+mydata <- read.csv(file.choose(), header=TRUE, encoding="UTF-8")
+mydata
+attach(mydata)
+names(mydata)
+newdata <- mydata[ which(N.SYLLS>1 & SYLLABLE==1 & STRESS==1),]
+newdata
+newdata <- mydata[ which(N.SYLLS>1 & SYLLABLE=='1' & STRESS=='1'),]
+newdata
+as.numeric(levels(N.SYLLS)
+)
+levels(N.SYLLS)
+levels(mydata$N.SYLLS)
+levels(mydata$SYLLABLE)
+newdata <- mydata[ which(WORD == "ich"),]
+newdata
+newdata <- mydata[ which(WORD == "ich" & SENTENCE == "SR01"),]
+newdata
+newdata <- mydata[ which(SYLLABLE == "1" & STRESS=="1"), ]
+newdata
+nrows(newdata)
+nrow(newdata)
+nrow(mydata)
+SYLLABLE
+N.SYLLS
+is.factor(N.SYLLS)
+is.numberic(N.SYLLS)
+is.numeric(N.SYLLS)
+newdata <- mydata[ which(N.SYLLS > 1 & SYLLABLE == "1" & STRESS=="1"), ]
+nrow(newdata)
+newdata
+write.csv(newdata, file=file.choose(), row.names=FALSE, col.names=TRUE, fileEncoding="UTF-8")
+write.csv(newdata, file=file.choose(new=TRUE), row.names=FALSE, col.names=TRUE, fileEncoding="UTF-8")
+write.csv(newdata, file=file.choose(new=TRUE), row.names=FALSE, quote=FALSE, fileEncoding="UTF-8")
+bisyllInitial <- mydata[which(N.SYLLS == 2 & SYLLABLE == 1 & STRESS==1),]
+nrows(bisyllInitial)
+nrow(bisyllInitial)
+nrow(newdata)
+trisyllInitial <- mydata[which(N.SYLLS == 3 & SYLLABLE == 1 & STRESS==1),]
+nrow(trisyllInitial)
+write.csv(bisyllInitial, file=file.choose(new=TRUE), row.names=FALSE, quote=FALSE, fileEncoding="UTF-8")
+write.csv(trisyllInitial, file=file.choose(new=TRUE), row.names=FALSE, quote=FALSE, fileEncoding="UTF-8")
+detach(mydata)
+levels(bisyllInitial$SENTENCE)
+margin.table(bisyllInitial, 1)
+summary(bisyllInitial)
+summary(bisyllInitial$SENTENCE)
+bisyllInitial
+summary(bisyllInitial$SENTENCE)
+names(bisyllInitial[order(bisyllInitial$SENTENCE, decreasing=TRUE)])
+names(bisyllInitial[order(bisyllInitial$SENTENCE, decreasing=TRUE)],)
+names(bisyllInitial[order(bisyllInitial$SENTENCE, decreasing=TRUE),])
+levels(bisyllInitial$SENTENCE[order(bisyllInitial$SENTENCE, decreasing=TRUE),])
+levels(bisyllInitial$SENTENCE)
+sentences = table(bisyllInitial$SENTENCE)
+sentences
+sentences = as.data.frame(sentences)
+sentences
+sentences[which(Freq>2)]
+sentences[which(sentences$Freq>2),]
+sents345Wds <- sentences[which(sentences$Freq>2),]
+sents345Wds
+sum(sents345Wds$Freq)
+names(sents345Wds)
+names(sents345Wds)[1] <- "Sentence"
+names(sents345Wds)
+sents345Wds
+write.csv(sents345Wds, file=file.choose(new=TRUE), row.names=FALSE, quote=FALSE, fileEncoding="UTF-8")
+nrow(bisyllInitial)
+table(bisyllInitial$WORD)
+as.table(table(bisyllInitial$WORD))
+as.data.frame(table(bisyllInitial$WORD))
+bisyllInitialWds <- as.data.frame(table(bisyllInitial$WORD))
+bisyllInitialWds <- bisyllInitialWds[which(bisyllInitialWds$Freq > 0),]
+bisyllInitialWds
+nrow(bisyllInitialWds)
+bisyllInitial
+nrow(bisyllInitial)
+sh29words <- bisyllInitial[which(bisyllInitial$SENTENCE == "SH29"), bisyllInitial$WORD]
+sh29words <- bisyllInitial[which(bisyllInitial$SENTENCE == "SH29"), bisyllInitial$WORD)]
+sh29words <- bisyllInitial[which(bisyllInitial$SENTENCE == "SH29"),]
+sh29words
+sh29words <- bisyllInitial$WORD[which(bisyllInitial$SENTENCE == "SH29"),]
+sh29words <- bisyllInitial$WORD[which(bisyllInitial$SENTENCE == "SH29")]
+sh29words
+aggregate(WORD ~ SENTENCE, bisyllInitial, paste)
+wdsBySent <- aggregate(WORD ~ SENTENCE, bisyllInitial, paste)
+wdsBySent[20]
+wdsBySent[20,]
+wdsBySent[20,]$WORD
+length(wdsBySent[20,]$WORD)
+length(wdsBySent[20,2])
+wdsBySent[20,2]
+write.csv(wdsBySent, file=file.choose(new=TRUE), row.names=FALSE, quote=FALSE, fileEncoding="UTF-8")
+wdsBySent2 <- aggregate(WORD ~ SENTENCE, bisyllInitial, c)
+wdsBySent2
+wdsBySent
+is.factor(wordsBySent$WORD)
+is.factor(wdsBySent$WORD)
+wdsBySent$WORD <- vapply(wdsBySent$WORD, paste, collapse = ", ", character(1L))
+wdsBySent
+write.csv(wdsBySent, file=file.choose(new=TRUE), row.names=FALSE, quote=FALSE, fileEncoding="UTF-8")
+data = read.csv(file.choose())
+data
+flagge_data = data["WORD"="flagge",]
+flagge_data = data[data$WORD="flagge",]
+setwd("/Users/Anjana/Dropbox/School/THESIS/DOCUMENT/thesis/img/plots/")
+par(mar=c(6,7,3,3))
+boxplot.matrix(km3, col="lightblue1", cex.axis=1.5, las=1)
+boxplot.matrix(km3, col="lightblue1", cex.axis=1.5, las=1, axes=FALSE)
+boxplot.matrix(km3, col="lightblue1", cex.axis=1.5, las=1)
+title(xlab="Annotator ID", ylab="Kappa statistic", cex.lab=2, line=4)
+png(filename="pairwiseKappaByAnnotator-noTitle.png", width=800, height=600, units="px")
+par(mar=c(6,7,3,3))
+boxplot.matrix(km3, col="lightblue1", cex.axis=1.5, las=1)
+title(xlab="Annotator ID", ylab="Kappa statistic", cex.lab=2, line=4)
+dev.off()
+png(filename="pairwiseKappaByAnnotator-noTitle.png", width=800, height=600, units="px")
+par(mar=c(6,7,1,3))
+title(xlab="Annotator ID", ylab="Kappa statistic", cex.lab=2, line=4)
+boxplot.matrix(km3, col="lightblue1", cex.axis=1.5, las=1)
+title(xlab="Annotator ID", ylab="Kappa statistic", cex.lab=2, line=4)
+dev.off()
+png(filename="pairwisePercentageByAnnotator-noTitle.png", width=800, height=600, units="px")
+par(mar=c(6,7,1,3))
+boxplot.matrix(pm2, col="lightblue1", cex.axis=1.5, las=1)
+title(xlab="Annotator ID", ylab="Percentage agreement (%)", cex.lab=2, line=4)
+dev.off()
+png(filename="pairwisePctByWord-noTitle.png", width=800, height=600, units="px")
+par(mar=c(8,7,1,3))
+boxplot(PR_AGREE~WORD, data=byWord, col=c("lightblue1"), cex.axis=1.5, las=1, xaxt="n")
+axis(1, at=seq_along(wds), labels=wds, las=2, cex=1.5)
+title(ylab="Percentage agreement (%)", cex.lab=2, line=4)
+title(xlab="Word type", cex.lab=2, line=6)
+dev.off()
+png(filename="pairwisePctByWord-noTitle.png", width=800, height=600, units="px")
+par(mar=c(8,7,1,3))
+boxplot(PR_AGREE~WORD, data=byWord, col=c("lightblue1"), cex.axis=1.5, las=1, xaxt="n")
+axis(1, at=seq_along(wds), labels=wds, las=2, cex=2)
+title(ylab="Percentage agreement (%)", cex.lab=2, line=4)
+title(xlab="Word type", cex.lab=2, line=6)
+dev.off()
+?axis
+png(filename="pairwisePctByWord-noTitle.png", width=800, height=600, units="px")
+par(mar=c(8,7,1,3))
+boxplot(PR_AGREE~WORD, data=byWord, col=c("lightblue1"), cex.axis=1.5, las=1, xaxt="n")
+axis(1, at=seq_along(wds), labels=wds, las=2, cex.axis=2)
+title(ylab="Percentage agreement (%)", cex.lab=2, line=4)
+title(xlab="Word type", cex.lab=2, line=6)
+dev.off()
+png(filename="pairwisePctByWord-noTitle.png", width=800, height=600, units="px")
+par(mar=c(8,7,1,3))
+boxplot(PR_AGREE~WORD, data=byWord, col=c("lightblue1"), cex.axis=1.5, las=1, xaxt="n")
+axis(1, at=seq_along(wds), labels=wds, las=2, cex.axis=1.5)
+title(xlab="Word type", cex.lab=2, line=6)
+title(ylab="Percentage agreement (%)", cex.lab=2, line=4)
+dev.off()
+png(filename="pairwisePctByWord-noTitle.png", width=800, height=600, units="px")
+par(mar=c(10,7,1,3))
+boxplot(PR_AGREE~WORD, data=byWord, col=c("lightblue1"), cex.axis=1.5, las=1, xaxt="n")
+axis(1, at=seq_along(wds), labels=wds, las=2, cex.axis=1.5)
+title(xlab="Word type", cex.lab=2, line=8)
+title(ylab="Percentage agreement (%)", cex.lab=2, line=4)
+dev.off()
+png(filename="pairwiseKappaByWord-noTitle.png", width=800, height=600, units="px")
+par(mar=c(10,7,1,3))
+par(mar=c(10,7,1,3))
+boxplot(KAPPA~WORD, data=byWord, col=c("lightblue1"), cex.axis=1.5, las=1, xaxt="n")
+axis(1, at=seq_along(wds), labels=wds, las=2, cex.axis=1.5)
+title(xlab="Word type", cex.lab=2, line=8)
+title(ylab="Kappa statistic", cex.lab=2, line=4)
+dev.off()
+l1l2
+l1Matrix
+colnames(l1Matrix) = c("Non-native\nannotators", "Native\nannotators")
+l1Matrix
+png(filename="pctJudgmentsByL1-notStacked.png", width=800, height=400, units="px")
+par(mar=c(4,8,6,6))
+barplot(l1Matrix, col=rev(c("lightgreen", "lightpink1", "lightgoldenrod1", "lightblue1", "mediumpurple1")), horiz=TRUE, beside=TRUE, cex.axis=1.5, cex.names=1.5, las=1, xlim=c(0,60), axes=FALSE)
+axis(3, at=c(0:6)*10, labels=paste(c(0:6)*10, "%", sep=""), cex.axis=1.3)
+mtext("Percentage of labeled word utterances", side=3, line=3, cex=1.5)
+legend("bottom", inset=-0.2, legend=rev(row.names(wordMatrix)), fill=c("lightgreen", "lightpink1", "lightgoldenrod1", "lightblue1", "mediumpurple1"), cex=1.3, horiz=TRUE, xpd=TRUE)
+dev.off()

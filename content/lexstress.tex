@@ -98,7 +98,7 @@ Woman	 (female, 18-30)&	5	&	5	&	3	&	9	&	\textbf{22}	\\
 	
 %	\TODO{\textit{take out?}} As mentioned in \cref{sec:intro:ifcasl}, the IFCASL recordings were performed under two conditions: the ``Sentence Read'' (SR) condition, in which the L2 speaker is simply  presented with the text of the sentence and asked to record themselves reading it aloud, and the ``Sentence Heard'' (SH) condition, in which the L2 speaker is asked to listen to an utterance of the sentence by an L1 German speaker before recording their own utterance. The sub-corpus for annotation includes recordings from both conditions, though the majority are from the SR condition. \TODO{reason for imbalance}
 	
-	To compile the dataset, utterances (tokens) of each word as produced by over 50 L2 speakers were extracted from the recordings automatically with Praat \parencite{Boersma2014}, using extraction times (start and end points of word utterances) taken from the word-level segmentation of each sentence utterance automatically obtained by forced alignment (see \cref{sec:diag:segmentation}).
+	To compile the dataset, utterances (tokens) of each word as produced by over 50 L2 speakers were extracted from the recordings automatically with Praat\footnote{\url{praat.org}} \parencite{Boersma2014}, using extraction times (start and end points of word utterances) taken from the word-level segmentation of each sentence utterance automatically obtained by forced alignment (see \cref{sec:diag:segmentation}).
 	\Cref{tab:bisyllwords} lists the exact number of tokens available for each word type. In total, 
 	%669 
 	668 word tokens were annotated for lexical stress errors. 
@@ -518,23 +518,23 @@ O	&	6	&	40.5\%	&	47.4\%	&	53.6\%	&	0.13	&	0.20	&	0.28	\\
 			
 			\begin{subfigure}{\textwidth}
 				\centering
-				\caption{Pairwise percentage agreement by annotator}
 				\includegraphics[width=\textwidth]{img/annotation/pairAgreeAnnotators-noTitle}
 %				\caption{Percent agreement}
+				\caption{Pairwise percentage agreement by annotator}
 				\label{fig:agreement:annotators:pct}
 			\end{subfigure}%
 
-			%\vspace{1em}			
+			\vspace{1em}			
 			
 			\begin{subfigure}{\textwidth}
 				\centering
-				\caption{Pairwise $\kappa$ by annotator}
 				\includegraphics[width=\textwidth]{img/annotation/pairKappaAnnotators-noTitle}
 %				\caption{Cohen's Kappa statistic}
+				\caption{Pairwise $\kappa$ by annotator}
 				\label{fig:agreement:annotators:k}
 			\end{subfigure}%			
 			
-			%\vspace{1em}			
+			\vspace{1em}			
 			
 			\caption[Pairwise agreement statistics by annotator]{Pairwise agreement statistics by annotator. The bottom of each vertical bar represents the minimum pairwise value, the top the maximum. Horizontal bars indicate mean pairwise values.}
 			\label{fig:agreement:annotators}
@@ -621,8 +621,8 @@ Tscheschen	&	6	&	23.2\%	&	44.9\%	&	66.1\%	&	-0.01	&	0.14	&	0.27	\\
 			
 			\begin{subfigure}{\textwidth}
 				\centering
-				\caption{Pairwise percentage agreement by word type}
 				\includegraphics[width=\textwidth]{img/annotation/pairAgreeWords-noTitle2}
+				\caption{Pairwise percentage agreement by word type}
 				\label{fig:agreement:words:pct}
 			\end{subfigure}%
 			
@@ -630,8 +630,8 @@ Tscheschen	&	6	&	23.2\%	&	44.9\%	&	66.1\%	&	-0.01	&	0.14	&	0.27	\\
 			
 			\begin{subfigure}{\textwidth}
 				\centering
-				\caption{Pairwise $\kappa$ by word type}
 				\includegraphics[width=\textwidth]{img/annotation/pairKappaWords-noTitle2}
+				\caption{Pairwise $\kappa$ by word type}
 				\label{fig:agreement:words:k}
 			\end{subfigure}%
 			

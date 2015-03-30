@@ -34,14 +34,14 @@
 % from 
 a human German instructor, it is therefore advantageous to have CAPT tools which can automatically identify lexical stress errors in learners' L2 German utterances, and provide individualized corrective feedback on such errors to help learners overcome the hurdle this phenomenon presents. 
 %
-With this underlying motivation, this thesis has explored the ways in which lexical stress errors can be automatically diagnosed in learner speech, and in which explicit and implicit feedback on these errors can be delivered to learners. It has also described the development of a prototype CAPT tool, \TODO{de-stress}, which implements these diverse diagnosis and feedback methods in a modular architecture, in the hopes of facilitating future research on which of these are most beneficial to learners in which contexts.
+With this underlying motivation, this thesis has explored the ways in which lexical stress errors can be automatically diagnosed in learner speech, and in which explicit and implicit feedback on these errors can be delivered to learners. It has also described the development of a prototype CAPT tool, de-stress, which implements these diverse diagnosis and feedback methods in a modular architecture, in the hopes of facilitating future research on which of these are most beneficial to learners in which contexts.
 
 
 %%%% DIAGNOSIS
 %
 %This thesis project explores a variety of approaches to modeling the lexical stress prosody of native speech in such a way that the learner's utterance can be automatically compared to that native model. This investigation, and the creation of a CAPT tool that allows researchers to easily switch between different diagnostic approaches to study their effects, is one of the primary contributions of this work.
 %
-\Cref{chap:diagnosis} presented the approaches to diagnosis that have been explored in this thesis project and implemented in \TODO{de-stress}. All diagnosis starts from a prosodic analysis of the learner's utterance in terms of duration, fundamental frequency (F0), and intensity (see \cref{sec:diag:prosody}), based on a segmentation of that utterance produced automatically by forced alignment (see \cref{sec:diag:segmentation}). 
+\Cref{chap:diagnosis} presented the approaches to diagnosis that have been explored in this thesis project and implemented in de-stress. All diagnosis starts from a prosodic analysis of the learner's utterance in terms of duration, fundamental frequency (F0), and intensity (see \cref{sec:diag:prosody}), based on a segmentation of that utterance produced automatically by forced alignment (see \cref{sec:diag:segmentation}). 
 	In a comparison-based diagnostic approach, the prosody of the learner's utterance is compared to that of a reference (L1) utterance of the same word, and scored with respect to each of the three dimensions (see \cref{sec:compare:single}). 
 	To capture the variability inherent in L1 pronunciations of the target word, multiple comparison scores 
 	%from multiple references 
@@ -65,17 +65,17 @@ With this underlying motivation, this thesis has explored the ways in which lexi
 %%%% FEEDBACK
 %
 As described in \cref{chap:feedback}, another important contribution of this work is an exploration of the various types of feedback that can be presented to the learner, based on a comparison- or classification-based diagnosis of the learner's utterance using one of the methods described in \cref{chap:diagnosis}. 
-	Inspired by both classroom teaching materials and existing prosody-aware CAPT systems, \TODO{de-stress} offers a diverse array of feedback options. Learners can be given implicit feedback on their pronunciation in the form of graphical or textual visual representations of the prosody of the given utterance(s) (see \cref{sec:implicit:visual}), and via the auditory channel through the playback of original and prosodically-modified utterances (see \cref{sec:implicit:auditory}).
+	Inspired by both classroom teaching materials and existing prosody-aware CAPT systems, de-stress offers a diverse array of feedback options. Learners can be given implicit feedback on their pronunciation in the form of graphical or textual visual representations of the prosody of the given utterance(s) (see \cref{sec:implicit:visual}), and via the auditory channel through the playback of original and prosodically-modified utterances (see \cref{sec:implicit:auditory}).
 	Explicit feedback can also be delivered, in the form of skill bars %visualizing pronunciation scores 
 	or verbal messages %conveying the error(s) diagnosed and corrective suggestions 
 	(see \cref{sec:fb:explicit}).
-	A simple web interface gives  instructors and researchers control over which feedback types are presented in a given exercise (see \cref{sec:fb:system}), thus making \TODO{de-stress} a valuable new tool for research into the comparative efficacy of various feedback types on pronunciation improvement, learner motivation, and other factors influencing the success of a CAPT system. 
+	A simple web interface gives  instructors and researchers control over which feedback types are presented in a given exercise (see \cref{sec:fb:system}), thus making de-stress a valuable new tool for research into the comparative efficacy of various feedback types on pronunciation improvement, learner motivation, and other factors influencing the success of a CAPT system. 
 
 
 
 %%%% CONCLUSION
 %
-This thesis has thus presented original work taking steps towards the development of a comprehensive, intelligent CAPT system for French learners of German. Drawing from previous research on foreign-language pedagogy, phonetics/phonology, and speech technology, as well as original research on the frequency of lexical stress errors in learner speech and novel methods for diagnosing such errors, the \TODO{de-stress} system developed in this thesis project is the first known CAPT tool dedicated to helping L1 French speakers improve their realization of lexical stress in German, and to facilitating research on the use of automatic, individualized feedback to help learners correct such errors. The following section suggests some possible directions for future work on improving \TODO{de-stress} and using it to make further advancements in CAPT for German.
+This thesis has thus presented original work taking steps towards the development of a comprehensive, intelligent CAPT system for French learners of German. Drawing from previous research on foreign-language pedagogy, phonetics/phonology, and speech technology, as well as original research on the frequency of lexical stress errors in learner speech and novel methods for diagnosing such errors, the de-stress system developed in this thesis project is the first known CAPT tool dedicated to helping L1 French speakers improve their realization of lexical stress in German, and to facilitating research on the use of automatic, individualized feedback to help learners correct such errors. The following section suggests some possible directions for future work on improving de-stress and using it to make further advancements in CAPT for German.
 
 
 %%% OLD
@@ -94,9 +94,9 @@ This thesis has thus presented original work taking steps towards the developmen
 \section{Future work}
 \label{sec:conclusion:future}
 
-Although carrying out in vivo experiments with L2 German learners was outside the scope of this thesis project, the facilitation of such studies has been the primary motivation behind the development of the \TODO{de-stress} CAPT tool described in this thesis. Therefore, the most logical and important extension of the work described here would be to conduct studies with L1 French learners of German using different combinations of diagnostic and feedback types, to determine if and when these types are effective in helping learners overcome difficulties with lexical stress prosody. 
+Although carrying out in vivo experiments with L2 German learners was outside the scope of this thesis project, the facilitation of such studies has been the primary motivation behind the development of the de-stress CAPT tool described in this thesis. Therefore, the most logical and important extension of the work described here would be to conduct studies with L1 French learners of German using different combinations of diagnostic and feedback types, to determine if and when these types are effective in helping learners overcome difficulties with lexical stress prosody. 
 	Based on the findings of the error analysis described in \cref{sec:lexstress:results}, it may be prudent to focus studies on low-proficiency learners (especially children), as they seemingly stand to benefit most from such training.
-	Once more is known about the conditions under which certain types of diagnosis/feedback are most effective, \TODO{de-stress} could theoretically be transformed into a true Intelligent Tutoring System (ITS), in which models of the relevant aspects of the learning context could be used to automatically choose the best diagnostic/feedback method(s) for a given situation.
+	Once more is known about the conditions under which certain types of diagnosis/feedback are most effective, de-stress could theoretically be transformed into a true Intelligent Tutoring System (ITS), in which models of the relevant aspects of the learning context could be used to automatically choose the best diagnostic/feedback method(s) for a given situation.
 
 %\TODO{transition?}
 
@@ -130,7 +130,7 @@ As an extension of the inter-annotator agreement analysis in \cref{sec:lexstress
 	As mentioned in \cref{sec:diag:segmentation}, 
 	incorrect segmentation can lead to mistakes in diagnosis, so CAPT systems must have a means of reducing, or at least monitoring, the amount of error introduced by inaccurate segmentation \citep{Eskenazi2009}. 
 	%
-	In a future version of \TODO{de-stress}, a simple sentence- and/or word-level confidence measure for the segmentation of a given utterance could serve this function. 
+	In a future version of de-stress, a simple sentence- and/or word-level confidence measure for the segmentation of a given utterance could serve this function. 
 	While it is very difficult to compute such a measure directly from the decoding scores of the forced aligner, it may be possible to evaluate the accuracy of the forced-alignment segmentations (cf. \cite{Mesbahi2011}) to determine 
 	%from an evaluation of the accuracy of the boundaries placed by the aligner,  
 	which types of boundaries the aligner typically places inaccurately (e.g. between a sonorant and a vowel), and then to calculate the proportion of error-prone boundaries in the given segmentation. Such a measure, while simplistic, could nevertheless provide some indication of when (not) to trust the automatic alignment, thus impacting decisions on how and whether to attempt error diagnosis/feedback.
@@ -153,7 +153,7 @@ As an extension of the inter-annotator agreement analysis in \cref{sec:lexstress
 	%\subsection{Diagnosis}
 	
 	
-	With respect to the diagnosis module of \TODO{de-stress}, multiple directions for future improvements present themselves. 
+	With respect to the diagnosis module of de-stress, multiple directions for future improvements present themselves. 
 	First of all, for the selection of reference speaker(s) used in the comparison-based diagnosis approach, additional, more complex metrics of speaker similarity could be 
 	%included, beyond the simple F0 mean/range comparison used in the current implementation. More complex speaker representations could be 
 	constructed using duration or intensity features, spectral features, and/or other features informed by research on speaker identification (e.g. \cite{Shriberg2005}).
@@ -188,7 +188,7 @@ As an extension of the inter-annotator agreement analysis in \cref{sec:lexstress
 	Regarding future extensions of the feedback module, the graphical and text-based visualizations of prosody could be made more flexible with respect to the mapping(s) between prosodic features and graphical properties (e.g. size, opacity, color, etc.), with researchers and instructors being able to configure the mapping as they see fit, as in the system developed by \textcite{Sitaram2011} (see \cref{sec:capt:listen}). Another possible enhancement of these visualizations could be to add animation highlighting the difference between the learner's prosody and that of the reference(s) or target (e.g. by growing/shrinking a shape to convey a desired lengthening/shortening of that syllable), which might help the learner realize which corrections are necessary to make their speech more closely resemble the target. 
 	Regarding auditory feedback, it would be interesting to add a feedback option in which the L1 reference is modified to exaggerate the difference between stressed and unstressed syllables (cf. \cite{Bissiri2006,Bissiri2009}).
 	%, as in the work of \textcite{Bissiri2006,Bissiri2009}.
-	Finally, several additional types of feedback could be added to the variety currently implemented in \TODO{de-stress}, such as  metalinguistic feedback (e.g. reminders of stress placement rules in German), ``gamification'' (e.g. awarding points for correct realizations), or interactivity (e.g. allowing the learner to manipulate the prosody of an utterance via resynthesis). 
+	Finally, several additional types of feedback could be added to the variety currently implemented in de-stress, such as  metalinguistic feedback (e.g. reminders of stress placement rules in German), ``gamification'' (e.g. awarding points for correct realizations), or interactivity (e.g. allowing the learner to manipulate the prosody of an utterance via resynthesis). 
 
 
 	%\subsection{Feedback}

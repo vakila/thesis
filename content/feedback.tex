@@ -7,9 +7,9 @@
 
 %\cleanchapterquote{You can’t do better design with a computer, but you can speed up your work enormously.}{Wim Crouwel}{(Graphic designer and typographer)}
 
-Since the focus of this thesis is on pronunciation training, not pronunciation assessment (see \cref{sec:capt:systems}), feedback on the errors diagnosed via the methods described in \cref{chap:diagnosis} is an important component of \TODO{de-stress}. As mentioned in \cref{sec:bkgd:l2ed}, the particular importance of corrective feedback in pronunciation training is generally acknowledged,
+Since the focus of this thesis is on pronunciation training, not pronunciation assessment (see \cref{sec:capt:systems}), feedback on the errors diagnosed via the methods described in \cref{chap:diagnosis} is an important component of de-stress. As mentioned in \cref{sec:bkgd:l2ed}, the particular importance of corrective feedback in pronunciation training is generally acknowledged,
 %\citep{Neri2002,Dlaska2013}, 
-though much remains to be learned about when and how feedback can be most effective. Therefore, an important contribution of this thesis is the creation of a feedback module for \TODO{de-stress} which offers a variety of possible feedback types, and a Graphical User Interface (GUI) allowing a researcher or instructor to easily switch between feedback types. The hope is that researchers can use this modular tool in in vivo studies with language learners to compare the effects of various feedback types on the acquisition of L2 German prosody by L1 French speakers (or perhaps even speakers of other L1s); though it is outside the scope of the thesis to carry out 
+though much remains to be learned about when and how feedback can be most effective. Therefore, an important contribution of this thesis is the creation of a feedback module for de-stress which offers a variety of possible feedback types, and a Graphical User Interface (GUI) allowing a researcher or instructor to easily switch between feedback types. The hope is that researchers can use this modular tool in in vivo studies with language learners to compare the effects of various feedback types on the acquisition of L2 German prosody by L1 French speakers (or perhaps even speakers of other L1s); though it is outside the scope of the thesis to carry out 
 such studies,
 %in vivo studies with learners to determine which feedback types are most effective in which situations, 
 the tool has been designed 
@@ -19,7 +19,7 @@ Ultimately, once research has given us a better understanding of which feedback 
 %,fig:feedback}.
 
 This chapter presents the various options for the types of feedback that can be generated given a diagnosis of the learner's lexical stress realization, 
-guided by the notion that to maximize its utility in future feedback research, \TODO{de-stress} should offer as wide a variety of feedback options as possible, especially those offering types of feedback not commonly seen in existing CAPT systems. 
+guided by the notion that to maximize its utility in future feedback research, de-stress should offer as wide a variety of feedback options as possible, especially those offering types of feedback not commonly seen in existing CAPT systems. 
 	%\TODO{Some of these feedback options are visual \cref{sec:fb:visual}, some auditory \cref{sec:fb:auditory}, \TODO{\textit{reword:} and others constitute alternative feedback types} \cref{sec:fb:alternative}, as illustrated in \cref{fig:feedback}. }
 
 %\textcite{Hattie2007} suggest that feedback in education should help the learner recognize their current learning goals (``Where am I going?''), assess their progress towards them (``How am I going?''), and identify next steps for achieving and moving beyond these goals (``Where to next?'').
@@ -55,7 +55,7 @@ guided by the notion that to maximize its utility in future feedback research, \
 		Some past research on the use of implicit feedback in L2 pronunciation training suggests that this type of feedback may be sufficient to help (some types of) learners notice and correct their errors (e.g. \cite[p.~8]{Neri2002}; \cite{Bonneau2011}; see also \cref{chap:background}),
 		%\TODO{ implicit FB (recasts) might be sufficient: ``Lyster’s study suggests that a simple reformulation of the mispronounced utterance immediately following the student’s turn might be sufficient to successfully correct it.'' \citep[p.~8]{Neri2002}}
 		%
-		As implicit feedback is generally simpler to deliver automatically than explicit corrective feedback, it is an attractive option for CAPT, and has therefore been included among the feedback options offered by \TODO{de-stress}. The remainder of this section describes the various types of visual and implicit feedback available, and how they are generated.
+		As implicit feedback is generally simpler to deliver automatically than explicit corrective feedback, it is an attractive option for CAPT, and has therefore been included among the feedback options offered by de-stress. The remainder of this section describes the various types of visual and implicit feedback available, and how they are generated.
 	
 		
 
@@ -72,7 +72,7 @@ guided by the notion that to maximize its utility in future feedback research, \
 	(e.g. \cite{Martin2004,Henry2007}),
 the learner is presented with relatively direct visualizations of the speech signal, such as its waveform (oscillogram) and spectrogram, often with overlays highlighting perceptually relevant properties such as the pitch contour and durations of various parts of the utterance. 
 	Indeed, this is the case in JSnoori, as seen in \cref{fig:jsnoori:screenshot} in \cref{sec:capt:snoori}.
-	However, as \textcite{Neri2002} point out, waveforms and spectrograms are signal representations designed for speech researchers, not language learners, and the latter may have difficulty understanding these visualizations without the proper training. To research whether this conjecture holds, these direct visualizations must be compared with alternatives in user studies with learners; to this end, visual feedback in \TODO{de-stress} focuses on alternatives to direct signal visualizations, as described in this section.	
+	However, as \textcite{Neri2002} point out, waveforms and spectrograms are signal representations designed for speech researchers, not language learners, and the latter may have difficulty understanding these visualizations without the proper training. To research whether this conjecture holds, these direct visualizations must be compared with alternatives in user studies with learners; to this end, visual feedback in de-stress focuses on alternatives to direct signal visualizations, as described in this section.	
 		
 			\subsubsection{Graphical abstractions of prosody}
 			\label{sec:implicit:visual:graphical}
@@ -81,7 +81,7 @@ the learner is presented with relatively direct visualizations of the speech sig
 			%-- e.g. using width to represent duration, height to represent F0, \TODO{and opacity to represent intensity} -- 
 			it is possible to dynamically create a visual abstraction of the relevant properties of the learner's utterance as well as those of the reference utterance(s). This abstracted visual representation of prosody may be easier for the learner to interpret than the complex and possibly overwhelming signal visualizations more commonly used to give prosodic feedback in CAPT as mentioned in the previous section.
 			
-			\Cref{fig:rectangles} illustrates the display of such graphical abstractions in \TODO{de-stress}. Each syllable in an utterance is represented by a rectangle, the length of which corresponds to the duration of that syllable (as a percentage of the total word duration), the height of which represents the mean F0 in that syllable (normalized by dividing the absolute mean F0 for the syllable by the overall mean in the word), and the opacity of which corresponds to the mean intensity of that syllable (again normalized by dividing by the mean in the entire word). If the learner hovers their mouse over one of the rectangles, they are presented with the exact values for each of these features in a tooltip overlay, which can be seen as a small yellow box in \cref{fig:rectangles:compare}.
+			\Cref{fig:rectangles} illustrates the display of such graphical abstractions in de-stress. Each syllable in an utterance is represented by a rectangle, the length of which corresponds to the duration of that syllable (as a percentage of the total word duration), the height of which represents the mean F0 in that syllable (normalized by dividing the absolute mean F0 for the syllable by the overall mean in the word), and the opacity of which corresponds to the mean intensity of that syllable (again normalized by dividing by the mean in the entire word). If the learner hovers their mouse over one of the rectangles, they are presented with the exact values for each of these features in a tooltip overlay, which can be seen as a small yellow box in \cref{fig:rectangles:compare}.
 			
 				\begin{figure}[p]
 					\centering
@@ -114,7 +114,7 @@ the learner is presented with relatively direct visualizations of the speech sig
 			
 	
 			
-			The mappings between graphical properties (width, height, and opacity of the rectangle) and prosodic features (duration, F0, and intensity, respectively) are currently hard-wired in \TODO{de-stress}. However, researchers using the system to experiment with different feedback methods should ideally be able to change the mapping or omit one of the features if necessary, so a more flexible feature-mapping mechanism would be a worthwhile improvement to the system (see \cref{sec:conclusion:future}).
+			The mappings between graphical properties (width, height, and opacity of the rectangle) and prosodic features (duration, F0, and intensity, respectively) are currently hard-wired in de-stress. However, researchers using the system to experiment with different feedback methods should ideally be able to change the mapping or omit one of the features if necessary, so a more flexible feature-mapping mechanism would be a worthwhile improvement to the system (see \cref{sec:conclusion:future}).
 			
 			
 			\subsubsection{Stylized text}
@@ -139,7 +139,7 @@ the learner is presented with relatively direct visualizations of the speech sig
 		Secondly, if text is stretched or skewed too dramatically, it becomes more difficult to read, which may be distracting for learners using the system. 
 		
 		
-		Therefore, in the text-stylization feedback offered by \TODO{de-stress}, the text of a given syllable is reshaped with a simple mapping between font size (as a multiple of the default size) and duration (as a fraction of the word duration); duration features for the learner and reference visualizations are computed in exactly the same way as for the graphical abstraction feedback described in the previous section. Duration was chosen as the prosodic feature to visualize based on its relative importance for the perception of lexical stress in German (see \cref{chap:diagnosis}). Font size was chosen as the textual feature to manipulate because it can be changed without distorting the text, i.e. without risking decreased legibility. Of course, other mappings between prosodic and textual features could be imagined, and once again the addition of other options than those currently implemented in the system could be worthwhile (see \cref{sec:conclusion:future}), though this might be less useful for text stylization than for  graphical visualizations, for the reasons mentioned in the previous paragraph.
+		Therefore, in the text-stylization feedback offered by de-stress, the text of a given syllable is reshaped with a simple mapping between font size (as a multiple of the default size) and duration (as a fraction of the word duration); duration features for the learner and reference visualizations are computed in exactly the same way as for the graphical abstraction feedback described in the previous section. Duration was chosen as the prosodic feature to visualize based on its relative importance for the perception of lexical stress in German (see \cref{chap:diagnosis}). Font size was chosen as the textual feature to manipulate because it can be changed without distorting the text, i.e. without risking decreased legibility. Of course, other mappings between prosodic and textual features could be imagined, and once again the addition of other options than those currently implemented in the system could be worthwhile (see \cref{sec:conclusion:future}), though this might be less useful for text stylization than for  graphical visualizations, for the reasons mentioned in the previous paragraph.
 			
 			
 		\subsection{Auditory}
@@ -149,7 +149,7 @@ the learner is presented with relatively direct visualizations of the speech sig
 			\subsubsection{Student \& reference audio}
 			\label{sec:implicit:auditory:basic}
 			In foreign language classrooms, feedback on correct pronunciation is often given implicitly by
-allowing the learner to listen to a native speaker's production of the target utterance and/or a recording of their own production. This type of implicit auditory feedback is perhaps the most simple feedback type to deliver, so \TODO{de-stress} naturally offers learners the ability to listen to their own utterance as well as the reference utterance(s), and to download a wave file of any utterance for later reference if they so choose. Though learners may not always be able to detect errors in their pronunciation or possibilities for improvement from such implicit feedback alone, in conjunction with visual feedback of the types mentioned above this auditory feedback may help them improve their sensitivity to the stress patterns audible in the utterance(s). Therefore, as seen in \cref{fig:rectangles,fig:textstylization}, these audio recordings are always accessible alongside the visual (and other types of) feedback presented.
+allowing the learner to listen to a native speaker's production of the target utterance and/or a recording of their own production. This type of implicit auditory feedback is perhaps the most simple feedback type to deliver, so de-stress naturally offers learners the ability to listen to their own utterance as well as the reference utterance(s), and to download a wave file of any utterance for later reference if they so choose. Though learners may not always be able to detect errors in their pronunciation or possibilities for improvement from such implicit feedback alone, in conjunction with visual feedback of the types mentioned above this auditory feedback may help them improve their sensitivity to the stress patterns audible in the utterance(s). Therefore, as seen in \cref{fig:rectangles,fig:textstylization}, these audio recordings are always accessible alongside the visual (and other types of) feedback presented.
 			
 			\subsubsection{Resynthesized audio}
 			\label{sec:implicit:auditory:resynth}
@@ -158,19 +158,19 @@ allowing the learner to listen to a native speaker's production of the target ut
 has revealed that learners sometimes benefit from prosodically modified implicit auditory feedback %, either 
  in the form of a learner utterance  modified to reflect the ``correct'' prosody of a native reference utterance \citep{Bonneau2011}.
 %TODO or a native utterance modified to place exaggerated emphasis on the stressed syllable \citep{Bissiri2006,Bissiri2009}.
-			Thanks to the speech resynthesis capabilities of JSnoori, this is another feedback option available in \TODO{de-stress}.
+			Thanks to the speech resynthesis capabilities of JSnoori, this is another feedback option available in de-stress.
 			
 			To modify the learner's utterance to match a reference utterance, JSnoori uses the technique of Time Domain Pitch Synchronous Overlap and Add, or TD-PSOLA \citep{Moulines1990}. This technique uses the general strategy of creating a new, modified version of the original signal by using a windowing function to break the signal into a series of overlapping frames, where the spacing between those frames is pitch-synchronous, i.e. corresponds to the F0 period of (that part of) the signal. The duration of a region of the signal  (e.g. a vowel) can then be decreased or increased by removing or duplicating frames in that region while keeping the spacing between frames consistent, and  the perceived pitch of a region can be lowered or raised by increasing or decreasing the spacing between frames. The implementation of this signal-transformation technique in JSnoori includes an improved method for detecting pitch marks in the original signal \citep{Laprie1998,Colotte2002}, as the accuracy of pitch marking is vitally important to the quality of resynthesis obtained via TD-PSOLA.
 			
 			To apply this technique in the context of prosody-oriented CAPT (see \cite{Henry2007,Bonneau2011}), the target prosody for that utterance is first established via analysis and comparison of F0 and duration in the learner and reference utterances, resulting in the computation of  target F0 contours and relative phone durations for (the relevant sections of) the learner's utterance. The learner's signal is then transformed to match the targets for F0 and duration by means of the removal/addition and re-spacing of frames, as described in the previous paragraph. The resulting signal maintains the individuality of the learner's voice, yet replaces their original ``incorrect'' prosody with the ``correct'' prosody of the reference speaker. 
 			
-			Like JSnoori itself, \TODO{de-stress} offers the learner the opportunity to listen to this resynthesized utterance alongside their original utterance and that of the the native speaker. The hope is that by offering this implicit auditory feedback as one of the many feedback types teachers/researchers can choose to present to the learner, \TODO{de-stress} will facilitate further research into the use of this type of speech resynthesis for L2 language teaching.
+			Like JSnoori itself, de-stress offers the learner the opportunity to listen to this resynthesized utterance alongside their original utterance and that of the the native speaker. The hope is that by offering this implicit auditory feedback as one of the many feedback types teachers/researchers can choose to present to the learner, de-stress will facilitate further research into the use of this type of speech resynthesis for L2 language teaching.
 			
 			
 	\section{Explicit feedback}
 	\label{sec:fb:explicit}
 	
-		In contrast to implicit feedback, explicit feedback involves not only presenting the learner with the erroneous (L2) or target (L1) pronunciation, but directly calling the learner's attention to the errors in their production and possibly giving them clear instructions on how to correct those errors. In some situations, explicit corrective feedback has been empirically shown to help learners improve their pronunciation more than implicit feedback (e.g. \cite{Dlaska2013}). Furthermore, this type of feedback may be more motivating for learners, encouraging them to continue working on their pronunciation, and thus indirectly contributing even further to learning gains \citep{Dlaska2013}.  Therefore, any CAPT system should ideally be able to provide such feedback, and \TODO{de-stress} is no exception; this section describes the explicit feedback options offered by the system, and how these are generated based on the error analysis provided by the tool's diagnostic module (see \cref{chap:diagnosis}).
+		In contrast to implicit feedback, explicit feedback involves not only presenting the learner with the erroneous (L2) or target (L1) pronunciation, but directly calling the learner's attention to the errors in their production and possibly giving them clear instructions on how to correct those errors. In some situations, explicit corrective feedback has been empirically shown to help learners improve their pronunciation more than implicit feedback (e.g. \cite{Dlaska2013}). Furthermore, this type of feedback may be more motivating for learners, encouraging them to continue working on their pronunciation, and thus indirectly contributing even further to learning gains \citep{Dlaska2013}.  Therefore, any CAPT system should ideally be able to provide such feedback, and de-stress is no exception; this section describes the explicit feedback options offered by the system, and how these are generated based on the error analysis provided by the tool's diagnostic module (see \cref{chap:diagnosis}).
 
 	
 		\subsection{Skill bars}
@@ -187,7 +187,7 @@ has revealed that learners sometimes benefit from prosodically modified implicit
 		 
 		  \Cref{fig:skillbars:balanced} illustrates a case where each of the three scores is given equal weighting, while \cref{fig:skillbars:durpriority} shows the same scores in the case where duration is prioritized over F0, which is in turn given a higher weight than intensity. Although the teacher or researcher setting up the exercise may (justifiably) choose to prioritize a feature, such as duration, in this way, one drawback of the skill bar visualization is that the equal size of the bars for each feature score seems to convey that all are equally important. Modifying the size of each bar based on the weight accorded to its feature may be a simple way to improve the effectiveness of this feedback type.% (see \cref{sec:conclusion:future})
 		  
-		  A potential problem with this feedback method relates to the fact, discussed in \cref{sec:compare:single}, that the scores output by JSnoori's diagnostic tools are actually discrete, ordinal values, despite the use of numbers between 0 and 1 to represent these values. Therefore, the visual representation of these scores as if they belonged to a true interval or continuous variable is not necessarily justified, and this feedback may be somewhat confusing to the learner. It would be worthwhile to investigate this hypothesis through the type of in vivo studies \TODO{de-stress} has been designed to facilitate. 
+		  A potential problem with this feedback method relates to the fact, discussed in \cref{sec:compare:single}, that the scores output by JSnoori's diagnostic tools are actually discrete, ordinal values, despite the use of numbers between 0 and 1 to represent these values. Therefore, the visual representation of these scores as if they belonged to a true interval or continuous variable is not necessarily justified, and this feedback may be somewhat confusing to the learner. It would be worthwhile to investigate this hypothesis through the type of in vivo studies de-stress has been designed to facilitate. 
 		
 %		\TODO{Skill bars may be misleading in that a) the scores are discrete, ordinal and not interval (see \cref{sec:compare:single:jsnoori}), b) displaying bars seems to accord equal importance to all three features, while we know that duration is most important}
 		
@@ -197,20 +197,20 @@ has revealed that learners sometimes benefit from prosodically modified implicit
 			\begin{subfigure}{\textwidth}
 			\centering
 			\includegraphics[width=\textwidth]{img/screenshots/skillBars-balanced}
-			\caption{Where all three skills (prosodic feature types) contribute equally to the overall score}
+			\caption{All three skills (prosodic feature types) contribute equally to the overall score}
 			\label{fig:skillbars:balanced}
 			\end{subfigure}		
 			
-			\vspace{2em}
+			\vspace{3em}
 			
 			\begin{subfigure}{\textwidth}
 			\centering
 			\includegraphics[width=\textwidth]{img/screenshots/skillBars-durPriority}
-			\caption{Where duration contributes more than F0, which contributes more than intensity (60\%, 30\% and 10\% of overall score, respectively)}
+			\caption{Duration contributes more than F0, which contributes more than intensity (60\%, 30\% and 10\% of overall score, respectively)}
 			\label{fig:skillbars:durpriority}
 			\end{subfigure}
 			
-			\vspace{1em}
+			\vspace{2em}
 
 			\caption{Screenshots of explicit feedback via skill bars}			
 			\label{fig:skillbars}
@@ -310,12 +310,12 @@ has revealed that learners sometimes benefit from prosodically modified implicit
 		
 
 		
-		Research on the efficacy of computer-based and intelligent tutoring systems has \TODO{often} pointed to the fact that encouraging and assisting learners to develop their metacognition, i.e. their understanding of their own learning habits, goals, challenges, etc., can lead to greater engagement and thus to increased motivation to continue using the tutoring system, and may also help learners reach their educational goals faster by optimizing their own learning strategies (see e.g. \cite{Long2011,Long2013}). One important metacognitive process is that of self-assessment, i.e. a learner's own evaluation of their work (in this context, their pronunciation) without reference to feedback from a human or machine tutor. Self-assessment is a valuable way for learners to give themselves feedback on their own performance, and its benefits in the CAPT context specifically have been pointed out by \textcite{Neri2002} and \textcite{Mehlhorn2005}.
+		Research on the efficacy of computer-based and intelligent tutoring systems has pointed to the fact that encouraging and assisting learners to develop their metacognition, i.e. their understanding of their own learning habits, goals, challenges, etc., can lead to greater engagement and thus to increased motivation to continue using the tutoring system, and may also help learners reach their educational goals faster by optimizing their own learning strategies (see e.g. \cite{Long2011,Long2013}). One important metacognitive process is that of self-assessment, i.e. a learner's own evaluation of their work (in this context, their pronunciation) without reference to feedback from a human or machine tutor. Self-assessment is a valuable way for learners to give themselves feedback on their own performance, and its benefits in the CAPT context specifically have been pointed out by \textcite{Neri2002} and \textcite{Mehlhorn2005}.
 		Asking learners to self-assess before presenting any feedback from the system may help them to internalize the system's feedback as well as to improve their own self-assessment skills over time. 
 
  
  	
- 	In a \TODO{de-stress} exercise, learners can optionally be asked to assess their own pronunciation by filling out a short questionnaire  before any feedback is delivered. This questionnaire, seen in \cref{fig:selfassess}, asks learners to listen to their utterance and that of the reference speaker(s) and assess whether they have placed stress on the correct syllable, whether stress is clearly realized in their utterance, and how they can improve their stress production going forward. The learner's responses to these questions are not evaluated in any way, but are logged in the system so that they can later reflect on their self-assessed progress and refer to their self-directed advice. 
+ 	In a de-stress exercise, learners can optionally be asked to assess their own pronunciation by filling out a short questionnaire  before any feedback is delivered. This questionnaire, seen in \cref{fig:selfassess}, asks learners to listen to their utterance and that of the reference speaker(s) and assess whether they have placed stress on the correct syllable, whether stress is clearly realized in their utterance, and how they can improve their stress production going forward. The learner's responses to these questions are not evaluated in any way, but are logged in the system so that they can later reflect on their self-assessed progress and refer to their self-directed advice. 
  	
  	The hope is that the inclusion of the self-assessment option alongside the other feedback options will facilitate research on
  	%t would be interesting to study 
@@ -505,10 +505,10 @@ has revealed that learners sometimes benefit from prosodically modified implicit
 %	\label{sec:alternative:implicit}
 
 
-\section{Controlling feedback in \TODO{de-stress}}
+\section{Controlling feedback in de-stress}
 \label{sec:fb:system}
 
-As mentioned in \cref{sec:diag:system} and illustrated in \cref{fig:interface:teacher}, a researcher (or teacher) creating a new exercise in \TODO{de-stress} is asked to select a FeedbackMethod for that exercise, which captures the researcher's choices about which feedback types to present to a student after their utterance has been evaluated by the corresponding DiagnosisMethod. \Cref{fig:fb:createfeedbackmethod} presents a screenshot showing the various options available to the researcher, as have been described in this chapter.
+As mentioned in \cref{sec:diag:system} and illustrated in \cref{fig:interface:teacher}, a researcher (or teacher) creating a new exercise in de-stress is asked to select a FeedbackMethod for that exercise, which captures the researcher's choices about which feedback types to present to a student after their utterance has been evaluated by the corresponding DiagnosisMethod. \Cref{fig:fb:createfeedbackmethod} presents a screenshot showing the various options available to the researcher, as have been described in this chapter.
 
 
 	\begin{figure}
@@ -526,7 +526,7 @@ As mentioned in \cref{sec:diag:system} and illustrated in \cref{fig:interface:te
 	
 	\begin{table}
 		\centering
-		\caption[Compatibility of available diagnosis and feedback types]{Compatibility of the various diagnosis and feedback types available in \TODO{de-stress}. Compatible combinations are indicated with ``$+$'', incompatible combinations with ``$-$''.}
+		\caption[Compatibility of available diagnosis and feedback types]{Compatibility of the various diagnosis and feedback types available in de-stress. Compatible combinations are indicated with ``$+$'', incompatible combinations with ``$-$''.}
 		\begin{tabular}{lcc}
 		\toprule
 		& \multicolumn{2}{c}{Diagnosis method} \\
@@ -551,10 +551,10 @@ As mentioned in \cref{sec:diag:system} and illustrated in \cref{fig:interface:te
 \label{sec:fb:summary}
 
 
-This chapter has presented the diverse array of feedback methods offered by \TODO{de-stress}. The system can present learners with both explicit ({\cref{sec:fb:explicit}) and implicit (\cref{sec:fb:implicit}) feedback on their lexical stress errors. The latter may be delivered visually (\cref{sec:implicit:visual}), in the form of graphical  or textual representations of prosody which may be easier to interpret than the more direct representations of speech signals more frequently seen in CAPT systems (see \cref{sec:bkgd:capt}), or via the auditory channel (\cref{sec:implicit:auditory}) in the form of original or prosodically modified utterances. Explicit feedback options include skill bars (\cref{sec:explicit:skillbars}) informing learners of the correctness of their pronunciation with regard to duration (timing), fundamental frequency (pitch), and intensity (loudness), as well as verbal feedback on this information via a series of error/success messages (\cref{sec:explicit:verbal}). An additional feedback option offers learners the opportunity to self-assess their pronunciation (\cref{sec:fb:selfassess}), in the hopes of encouraging them to develop a metacognitive understanding of their own learning process and take autonomous control of their learning.
+This chapter has presented the diverse array of feedback methods offered by de-stress. The system can present learners with both explicit ({\cref{sec:fb:explicit}) and implicit (\cref{sec:fb:implicit}) feedback on their lexical stress errors. The latter may be delivered visually (\cref{sec:implicit:visual}), in the form of graphical  or textual representations of prosody which may be easier to interpret than the more direct representations of speech signals more frequently seen in CAPT systems (see \cref{sec:bkgd:capt}), or via the auditory channel (\cref{sec:implicit:auditory}) in the form of original or prosodically modified utterances. Explicit feedback options include skill bars (\cref{sec:explicit:skillbars}) informing learners of the correctness of their pronunciation with regard to duration (timing), fundamental frequency (pitch), and intensity (loudness), as well as verbal feedback on this information via a series of error/success messages (\cref{sec:explicit:verbal}). An additional feedback option offers learners the opportunity to self-assess their pronunciation (\cref{sec:fb:selfassess}), in the hopes of encouraging them to develop a metacognitive understanding of their own learning process and take autonomous control of their learning.
 
 
-Thanks to its modular implementation of the various feedback types, in combination with a simple configuration interface that allows researchers and/or instructors to easily pick and choose from the available options (\cref{sec:fb:system}), \TODO{de-stress} is therefore a valuable platform for future empirical investigations into the impacts of these feedback types on the 
+Thanks to its modular implementation of the various feedback types, in combination with a simple configuration interface that allows researchers and/or instructors to easily pick and choose from the available options (\cref{sec:fb:system}), de-stress is therefore a valuable platform for future empirical investigations into the impacts of these feedback types on the 
 acquisition of L2 word prosody 
 %prosodic realization of lexical stress 
 by L1 French learners of German. As established in \cref{chap:background} and further discussed in the following chapter, much work remains to be done to determine which feedback types are most effective in which learning contexts; by presenting a tool to facilitate such research, ostensibly the first of its kind for this type of error and aimed at this group of learners, this thesis has thus made an important contribution towards a more detailed understanding of the relative efficacy of feedback types in CAPT.

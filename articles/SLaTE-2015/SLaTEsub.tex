@@ -1,0 +1,131 @@
+\documentclass[a4paper]{article}
+
+\usepackage{INTERSPEECH2015}
+
+\usepackage{graphicx}
+\usepackage{amssymb,amsmath,bm}
+\usepackage{textcomp}
+
+\def\vec#1{\ensuremath{\bm{{#1}}}}
+\def\mat#1{\vec{#1}}
+
+
+\sloppy % better line breaks
+\ninept
+
+\title{Automatic classification of lexical stress realizations in non-native German speech}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% If multiple authors, uncomment and edit the lines shown below.       %%
+%% Note that each line must be emphasized {\em } by itself.             %%
+%% (by Stephen Martucci, author of spconf.sty).                         %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\makeatletter
+%\def\name#1{\gdef\@name{#1\\}}
+%\makeatother
+%\name{{\em Firstname1 Lastname1, Firstname2 Lastname2, Firstname3 Lastname3,}\\
+%      {\em Firstname4 Lastname4, Firstname5 Lastname5, Firstname6 Lastname6,
+%      Firstname7 Lastname7}}
+%%%%%%%%%%%%%%% End of required multiple authors changes %%%%%%%%%%%%%%%%%
+
+\makeatletter
+\def\name#1{\gdef\@name{#1\\}}
+\makeatother \name{{\em%
+  Anjana Sofia Vakil, J\"{u}rgen Trouvain
+  %Author Name$^1$, Co-author Name$^2$
+  }}
+
+\address{%
+  %$^1$Author Affiliation \\
+  %$^2$Co-author Affiliation \\
+  Department of Computational Linguistics \& Phonetics\\
+  Saarland University, Saarbr\"{u}cken, Germany\\
+  {\small \tt [anjanav,trouvain]@coli.uni-saarland.de}
+}
+
+%\twoauthors{Karen Sp\"{a}rck Jones.}{Department of Speech and Hearing \\
+%  Brittania University, Ambridge, Voiceland \\
+%  {\small \tt Karen@sh.brittania.edu} }
+%  {Rose Tyler}{Department of Linguistics \\
+%  University of Speechcity, Speechland \\
+%  {\small \tt RTyler@ling.speech.edu} }
+
+%
+\begin{document}
+
+  \maketitle
+  %
+  \begin{abstract}
+  
+    (200 word limit) 
+  
+    
+    
+    
+  \end{abstract}
+  %
+  \noindent{\bf Index Terms}: computer-assisted pronunciation training, CAPT, word prosody, German
+
+
+  \section{Introduction}
+  
+  \cite{Vakil2015}
+
+
+	\section{Background and related work}
+	
+	\section{Data}
+		\subsection{The IFCASL corpus}
+		\subsection{Annotation of lexical stress realizations}
+		\subsection{Inter-annotator agreement}
+		\subsection{Error distribution}
+	
+	\section{Evaluation method}
+	    \subsection{Feature sets}
+	    \subsection{Datasets for training and testing}
+
+	\section{Results}
+		\subsection{Feature performance}
+		\subsection{Performance on unknown words}
+		\subsection{Performance on unknown speakers}
+	
+	%\section{Alternative error diagnosis methods}
+
+
+	%\section{Discussion}
+
+	\section{Conclusions}
+
+
+
+  \section{Acknowledgements}
+  
+
+
+
+  \newpage
+  \eightpt
+  \bibliographystyle{IEEEtran}
+
+  \bibliography{../../library.bib}
+
+%  \begin{thebibliography}{9}
+%    \bibitem[1]{Davis80-COP}
+%      S.\ B.\ Davis and P.\ Mermelstein,
+%      ``Comparison of parametric representation for monosyllabic word recognition in continuously spoken sentences,''
+%      \textit{IEEE Transactions on Acoustics, Speech and Signal Processing}, vol.~28, no.~4, pp.~357--366, 1980.
+%    \bibitem[2]{Rabiner89-ATO}
+%      L.\ R.\ Rabiner,
+%      ``A tutorial on hidden Markov models and selected applications in speech recognition,''
+%      \textit{Proceedings of the IEEE}, vol.~77, no.~2, pp.~257-286, 1989.
+%    \bibitem[3]{Hastie09-TEO}
+%      T.\ Hastie, R.\ Tibshirani, and J.\ Friedman,
+%      \textit{The Elements of Statistical Learning -- Data Mining, Inference, and Prediction}.
+%      New York: Springer, 2009.
+%    \bibitem[4]{YourName15-XXX}
+%      F.\ Lastname1, F.\ Lastname2, and F.\ Lastname3,
+%      ``Title of your INTERSPEECH 2015 publication,''
+%      in \textit{Interspeech 2015 -- 16\textsuperscript{th} Annual Conference of the International Speech Communication Association, September 06--10, Dresden, Germany, Proceedings}, 2015, pp.~100--104.
+%  \end{thebibliography}
+
+\end{document}

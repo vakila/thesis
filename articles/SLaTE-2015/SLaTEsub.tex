@@ -352,7 +352,46 @@ Woman	 (female, 18-30)&	5	&	5	&	3	&	9	&	\textbf{22}	\\
 	%To compile the dataset, utterances (tokens) of each word as produced by over 50 L2 speakers were extracted from the recordings automatically with Praat\TODO{footnote url}, using extraction times (start and end points of word utterances) taken from the word-level segmentation of each sentence utterance automatically obtained by forced alignment (see Section 4.1). Table 3.2 lists the exact number of tokens available for each word type. In total, 668 word tokens were annotated for lexical stress errors. Five tokens had to be excluded from the data, as disfluencies in the sentence utterance (e.g. false starts or repetitions of the target word) prevented the automatic extraction of the word utterance from the sentence as a whole. In a fully-fledged student-facing CAPT system, such disfluencies would need to be dealt with accordingly, e.g. by means of a pre-processing step which analyzes the student’s utterance for possible disfluencies and compensates for any that are detected by, for example, prompting the student to re-record their utterance. However, detecting disfluencies in speech, especially non-native speech, is a challenging problem under active research (see Section 2.2.1), and the development of a disfluency-aware system is outside the scope of this thesis project; therefore, this work presupposes that no disfluencies exist in the student’s utterance, and the handful of disfluent tokens have been excluded from the dataset described here.
 		
 		\subsection{Annotation method}
-		\label{sec:data:annotation}		
+		\label{sec:data:annotation}	
+		
+		The annotation task consisted of assigning one of the following labels to each word token (utterance) in the dataset described in the previous section:
+		\begin{itemize}
+	\item{[correct]: the speaker clearly stressed the correct (initial) syllable}
+	\item{[incorrect]: the speaker clearly stressed the incorrect (final) syllable}
+	\item{[none]: the speaker did not clearly stress either syllable, 
+	%i.e. did not audibly differentiate stressed and unstressed syllables, 
+	or the annotator was unable to determine which syllable was stressed}
+	\item{[bad\_nsylls]: the speaker pronounced an incorrect number of syllables (e.g. inserted an extra syllable), making it impossible to judge if stress was realized correctly}
+	\item{[bad\_audio]: a problem with the audio file (e.g. noise or inaccurate segmentation) interfered with the annotator's ability to judge the stress realization}
+	 \end{itemize}
+	 
+	 Annotation was performed using a graphical tool scripted in Praat. This tool displayed the given word's text, and allowed the annotator to listen to the given word utterance and the sentence utterance from which it was extracted as many times as they wished. Once they had reached a judgment about the lexical stress realization of the utterance, the annotator had to click one of five buttons, corresponding to the possible labels, to record their judgment.
+	 %Annotation proceeded by means of a graphical tool scripted in Praat (Boersma and Weenink, 2014), the main interface of which is shown in Figure 3.1. At the top, a word’s text is displayed, along with the IFCASL corpus ID number of the speaker whose utterance of that word will be annotated (this number is only relevant for the annotator insofar as changes in its value inform the annotator that the speaker is changing from utterance to utterance). The recording of the word is played once automatically; the annotator may then choose to click one of the green buttons to play the word again, or play the recording of the entire sentence, as many times as they wish. Once the annotator has judged the accuracy of the lexical stress realization in this utterance, they log that judgment by clicking one of the gray buttons. The annotator is then automatically advanced to the next utterance, with the counts in the lower right corner tracking their progress towards the total number of tokens to be annotated.
+		
+		A total of 15 annotators participated, varying with respect to their L1 and level of phonetics/phonology expertise. 
+		The native languages represented included German (12 annotators), English (2), and Hebrew (1); the L1 English and Hebrew speakers all have some L2 knowledge of German. 
+		In terms of expertise, the annotators were broadly categorized as \textit{experts} (professional phonetics/phonology researchers), \textit{intermediates} (university students enrolled in an experimental phonology course), or \textit{novices} (those with negligible phonetics/phonology training or experience annotating speech data). Among the 15 annotators, there were two experts, 10 intermediates, and three novices. 		
+		%
+		%A total of 15 annotators participated in the annotation of this dataset, each of whom is listed in Table 3.3 (by an arbitrary identifier, to preserve anonymity). As Table 3.3 shows, the annotators varied with respect to their native language, as well as with respect to their level of expertise in phonetics/phonology/linguistic annotation.
+		%
+		%Of the 15 annotators, the majority (12) are native German speakers, and three are non-native (L2) speakers: two are native speakers of American English, and one is a native Hebrew speaker. The L2 German speakers all have some knowledge of German as L2, though the exact German proficiency levels of these annotators are unknown.
+		%
+		%In terms of expertise, the annotators can broadly be categorized into three groups:
+%• expert annotators are professional researchers with a thorough understanding of phonetics/phonology and extensive experience in annotating speech data
+%• intermediate annotators are university students enrolled in an experimental phonology course, and have some training in phonetics/phonology and/or experience annotating speech data
+%• novice annotators have negligible training in phonetics/phonology and little, if any, experience annotating speech data
+%As shown in Table 3.3, the majority of annotators (10 out of 15) fall into the intermediate group; two annotators can be considered expert, and there are three novice annotators.
+		
+		%Each annotator was assigned three word types to annotate in a single session, with the exception of one annotator who was assigned six word types over two sessions (see Sec- tion 3.3 for a description of an annotation session). Table 3.3 lists the word types assigned to each annotator, along with the number of tokens labeled for each type. Some judgments by annotators D and G had to be excluded from the analysis due to technical problems; the token counts for each annotator in Table 3.3 reflect only their usable judgments.
+		%Word types were assigned to ensure that each was annotated by at least two native German speakers, and to maximize the amount of overlap between annotators in order to obtain as many pairwise measures of annotator agreement as possible (see Section 3.4 for a discussion of inter-annotator agreement); Table 3.4 lists the number of annotators for each word type.
+		
+		
+
+	
+
+	%A single annotation session consisted of annotating all tokens of three word types, and lasted approximately 15 minutes. As mentioned in Section 3.2 above, each annotator participated in one session, with the exception of annotator K who participated in two sessions (separated by several days) and annotated a total of six word types.
+
+	%The lexical stress error annotations collected in this manner for each token (utterance) in the dataset enable two important contributions of this thesis, described in the following sections. First, the multiple annotations for each token from different annotators permit an analysis of inter-annotator agreement with regard to the identification of lexical stress errors; Section 3.4 presents this analysis, along with statistics on the relative frequencies with which the five labels were selected by annotators from the different L1 and expertise groups described in Section 3.2. Secondly, and perhaps more importantly, the errors identified by these annotators in the data extracted from the IFCASL corpus enable an analysis of the frequency of lexical stress errors in the speech of L1 French learners of German as L2; this is the subject of Section 3.6.
 		
 		\subsection{Inter-annotator agreement}
 		\label{sec:data:agreement}		
@@ -366,7 +405,7 @@ Woman	 (female, 18-30)&	5	&	5	&	3	&	9	&	\textbf{22}	\\
 	\section{Method}
 	\label{sec:method}
 	
-		\subsection{Machine learning algorithm}
+		\subsection{Classification algorithm}
 		\label{sec:method:algorithm}
 	
 	    \subsection{Feature sets}

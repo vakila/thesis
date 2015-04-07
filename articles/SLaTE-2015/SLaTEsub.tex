@@ -162,6 +162,18 @@ With respect to production, studies of L2 Dutch have shown that French speakers,
 	may hinder intelligibility of L2 German speech more than other types of errors \cite{Hirschfeld1994,Hirschfeld2007}.
 	Stress errors may also affect perception of segmental errors in the L2 learner’s speech; for example, segmental errors occurring in stressed syllables may be more noticeable than those in unstressed syllables \cite{Cutler2005,Michaux2012}. 
 	%Additionally, some research indicates that prosodic errors such as lexical stress errors may have more of an impact on perceived foreign accent than segmental errors (Hahn, 2004; Witt, 2012); though it must again be stressed that intelligibility is a more important goal than lack of a foreign accent, insofar as perceived accent may contribute to difficulties being understood by native speakers, this relationship between prosody and accentedness also deserves mentioning.
+	It would therefore seem that there may be a strong connection between lexical stress errors and intelligibility in L2 German speech, though more research is needed to clarify the nature of this relationship. \TODO{remove that sentence?}
+	
+	Though the frequency and impact of lexical stress errors in the speech of French learners of German thus constitute strong reasons to develop CAPT tools to treat such errors, in order for such systems to be viable, the feasibility of reliable automatic detection of this type of error must be demonstrated. 
+	\TODO{Make rest of this par about how comparison-based diagnosis is usually used, then start new par with following sentence?}
+	To our knowledge, no work has been reported on automatic classification-based diagnosis of lexical stress errors in L2 German speech, 
+	%yet related work on other target languages seems encouraging. 
+	but in recent years machine learning methods have been applied with apparent success to the classification of lexical stress patterns in English words. 
+	Kim and Beutnagel \cite{Kim2011} experimented with various classifiers to identify stress patterns in high-quality recordings of 3- and 4-syllable English words, reporting accuracy in the 80-90\% range; in pilot experiments with low-quality recordings, however, the authors report lower accuracy: 70-80\% on L1 speech and 50-60\% on utterances by L2 speakers. 
+	Similarly, Shahin et al. \cite{Shahin2012} trained Neural Networks to classify stress patterns in bisyllabic words uttered by L1 English children, 
+	%with the intended application of treating childhood dysprosody, 
+	and reported classification accuracy over 90\% for some stress patterns; though this work was conducted with a view to treating childhood L1 dysprosody, its relevance to our intended application of L2 CAPT is nonetheless clear.
+	Building on such investigations, the work reported in this paper seeks to further investigate the viability of automatic detection of lexical stress errors, with a particular focus on those made by French speakers of German.
 	
 	
 	\section{Data}
@@ -202,7 +214,7 @@ With respect to production, studies of L2 Dutch have shown that French speakers,
 
   \newpage
   \eightpt
-  \bibliographystyle{IEEEtran}
+  \bibliographystyle{IEEEtran-nourl}
 
   \bibliography{../../library.bib}
   %\bibliography{slaterefs.bib}

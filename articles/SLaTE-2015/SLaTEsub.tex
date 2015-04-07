@@ -72,14 +72,14 @@
   %
   \begin{abstract}
   
-    (200 word limit) 
+    \TODO{Abstract (200 word limit)}
   
     
     
     
   \end{abstract}
   %
-  \noindent{\bf Index Terms}: computer-assisted pronunciation training, CAPT, word prosody, German
+  \noindent{\bf Index Terms}: computer-assisted pronunciation training, CAPT, word prosody, German \TODO{are these OK?}
 
 
   \section{Introduction}
@@ -173,20 +173,41 @@ With respect to production, studies of L2 Dutch have shown that French speakers,
 	Similarly, Shahin et al. \cite{Shahin2012} trained Neural Networks to classify stress patterns in bisyllabic words uttered by L1 English children, 
 	%with the intended application of treating childhood dysprosody, 
 	and reported classification accuracy over 90\% for some stress patterns; though this work was conducted with a view to treating childhood L1 dysprosody, its relevance to our intended application of L2 CAPT is nonetheless clear.
-	Building on such investigations, the work reported in this paper seeks to further investigate the viability of automatic detection of lexical stress errors, with a particular focus on those made by French speakers of German.
+	%
+	Building on these related investigations, this paper seeks to further explore the viability of automatic classification-based detection of lexical stress errors, with a particular focus on those made by French speakers of German.
+	%
+	To this end, a small corpus of learner speech was manually annotated for lexical stress errors, as described in \cref{sec:data}.
+	Using the resulting labeled L2 data, in addition to data from L1 German speakers, a series of supervised machine learners were trained using a variety of representations of the prosodic and other features of each word utterance (see \cref{sec:method:featuresets}, and these classifiers were evaluated with reference to the manually-produced labels of held-out test data (see \cref{sec:method:datasets}). \Cref{sec:results} presents and analyzes the results of these evaluations.
 	
 	
 	\section{Data}
 	\label{sec:data}
-		\subsection{The IFCASL corpus}
-		\subsection{Annotation of lexical stress realizations}
-		\subsection{Inter-annotator agreement}
-		\subsection{Error distribution}
 	
-	\section{Evaluation method}
+	Error-annotated speech data from German learners is a prerequisite for the supervised training and evaluation of classifiers for  lexical stress realizations in L2 German speech, yet to our knowledge no corpus of learner German with such annotation is publicly available. To fill this need, as well as to shed light on the perception of lexical stress errors in L2 German speech, a small corpus of speech by L1 French learners of German was manually annotated for such errors by native and non-native German speakers with varying levels of phonetics/phonology expertise. This section describes the data selected for annotation (\cref{sec:data:corpus}) and the method by which lexical stress realizations in this data were annotated (\cref{sec:data:annotation}), and presents an analysis of the observed inter-annotator agreement (\cref{sec:data:agreement}) and distribution of errors (\cref{sec:data:errors}) in the annotated dataset.
+	
+		\subsection{The IFCASL corpus of learner speech}
+		\label{sec:data:corpus}		
+		
+		\subsection{Annotation method}
+		\label{sec:data:annotation}		
+		
+		\subsection{Inter-annotator agreement}
+		\label{sec:data:agreement}		
+		
+		\subsection{Error distribution}
+		\label{sec:data:errors}
+	
+	
+	
+	
+	\section{Method}
 	\label{sec:method}
+	
 	    \subsection{Feature sets}
+	    \label{sec:method:featuresets}
+	    
 	    \subsection{Datasets for training and testing}
+	    \label{sec:method:datasets}
 
 	\section{Results}
 	\label{sec:results}

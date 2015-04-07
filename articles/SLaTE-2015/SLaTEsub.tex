@@ -10,8 +10,10 @@
 \def\vec#1{\ensuremath{\bm{{#1}}}}
 \def\mat#1{\vec{#1}}
 
-\RequirePackage[dvipsnames]{xcolor}
+\usepackage[dvipsnames]{xcolor}
 \newcommand{\TODO}[1]{{\color{red}\textbf{[TODO #1]}}}
+
+\usepackage{enumitem}
 
 
 
@@ -84,6 +86,12 @@
   
   %\cite{Vakil2015}
   
+    
+  %Lexical stress, the phenomenon by which a given syllable is accorded a higher level of prominence than other syllables in a given word, serves a contrastive function in some languages (e.g. German) but not others (e.g. French). Lexical stress is very important in German, and may have a large impact on the intelligibility of L2 German speech (see Section 2.4.1); however, given that lexical stress is realized extremely differently (or not at all) in French (see Section 2.3.2), the correct prosodic realization of lexical stress in German is notoriously difficult for L1 French speakers (see Section 2.3.3).
+  %
+%Computer-Assisted Pronunciation Training (CAPT) systems have the potential to automati- cally provide highly individualized analysis of such learner errors, as well as feedback on how to correct them, and thus to help learners achieve more intelligible pronunciation in the target language (Witt, 2012). The thesis project described here aims to advance German CAPT by creating a tool which will diagnose and offer feedback on lexical stress errors in the L2 German speech of L1 French speakers, in the hopes of ultimately helping these learners become more intelligible when speaking German.
+  
+  
   For adult learners of a second language (L2), the phonological system of the L2 can pose a variety of difficulties. For certain L2s, such as German or English, one important difficulty involves the accurate prosodic realization of lexical stress, i.e. the accentuation of certain syllable(s) in a given word, with the placement of stress within a word varying freely and carrying a contrastive function in such languages \TODO{cite}. Lexical stress is an important part of German word prosody, and has been found to have an impact on the intelligibility of non-native German speech \TODO{cite}. Coping with this phenomenon in German is especially challenging for native (L1) French speakers, because lexical stress is realized very differently (or perhaps not at all) in the French language \TODO{cite}.
   
   To overcome this difficulty and improve their L2 word prosody, learners typically need to have their pronunciation errors pointed out and corrected by a language instructor; unfortunately, the lack of attention typically given to pronunciation in the foreign language classroom, 
@@ -91,16 +99,48 @@
   %coupled with the historic lack of instructor training in phonetics/phonology, 
   make this level of individualized attention not always feasible in a classroom setting \cite{Neri2002,Derwing2005,Hirschfeld2007}. Fortunately, advances in Computer-Assisted Pronunciation Training (CAPT) over recent decades have made it possible to automatically provide highly individualized analysis of learners' prosodic errors, as well as feedback on how to correct them, and thus to help learners achieve more intelligible pronunciation in the target language. However, while much research has gone into the creation and improvement of CAPT systems for English (see e.g. \cite{Eskenazi2009,Witt2012}), relatively little work has been done on the development of CAPT systems for German, especially on those targeting errors in German prosody.
   
-  This paper describes work that advances the state of German CAPT by applying machine learning methods to the task of diagnosing lexical stress errors in non-native German speech, a necessary prerequisite for delivering individualized corrective feedback on such errors in a CAPT system. The paper is organized as follows: \Cref{sec:bkgd} provides background on the phenomenon of lexical stress as it is realized in German and French word prosody, motivates the creation of CAPT systems that address this error specifically, and summarizes some past work related to this topic. \Cref{sec:data} describes the manual annotation of lexical stress errors in a small corpus of L2 German speech, carried out to create labeled training and test data for the classification experiments explained in \cref{sec:method}. \Cref{sec:results} presents and analyzes the results of these experiments. Finally, \cref{sec:conc} offers some concluding remarks and outlines possible directions for future extensions of this work.
-  
-  %Lexical stress, the phenomenon by which a given syllable is accorded a higher level of prominence than other syllables in a given word, serves a contrastive function in some languages (e.g. German) but not others (e.g. French). Lexical stress is very important in German, and may have a large impact on the intelligibility of L2 German speech (see Section 2.4.1); however, given that lexical stress is realized extremely differently (or not at all) in French (see Section 2.3.2), the correct prosodic realization of lexical stress in German is notoriously difficult for L1 French speakers (see Section 2.3.3).
-  %
-%Computer-Assisted Pronunciation Training (CAPT) systems have the potential to automati- cally provide highly individualized analysis of such learner errors, as well as feedback on how to correct them, and thus to help learners achieve more intelligible pronunciation in the target language (Witt, 2012). The thesis project described here aims to advance German CAPT by creating a tool which will diagnose and offer feedback on lexical stress errors in the L2 German speech of L1 French speakers, in the hopes of ultimately helping these learners become more intelligible when speaking German.
-  
+  This paper describes work that advances the state of German CAPT by applying machine learning methods to the task of diagnosing lexical stress errors in non-native German speech, a necessary prerequisite for delivering individualized corrective feedback on such errors in a CAPT system. The paper is organized as follows: \Cref{sec:bkgd} provides background on the phenomenon of lexical stress as it is realized in German and French word prosody, motivates the creation of CAPT systems that address this error specifically, and summarizes some past work related to this topic. \Cref{sec:data} describes the manual annotation of lexical stress errors in a small corpus of L2 German speech, carried out to create labeled training and test data for the classification experiments explained in \cref{sec:method}. \Cref{sec:results} presents and analyzes the results of these experiments. Finally, \cref{sec:conc} offers some concluding remarks and outlines possible directions for future work.
+
 
 
 	\section{Background and related work}
 	\label{sec:bkgd}
+	
+%When there is a typological difference between some segmental or prosodic feature(s) of a language learner’s L1 compared to the target L2, there is a particular need for pronunciation training to bridge this gap. In the case of the French-German language pair, the prosodic realization of lexical stress is one feature which marks a striking difference between the languages.
+
+Broadly speaking, lexical stress is the phenomenon of how a given syllable is accentuated within a word \cite{Cutler2005}, i.e. how a syllable is given a more prominent role such that this syllable is perceived as ``standing out'' \cite{Dogil1999}. This perceived prominence of a syllable is a function not merely of the segmental characteristics of the uttered syllable, i.e. the speech sounds it contains, but rather of its (relative) suprasegmental properties, namely:
+\begin{itemize}[topsep=0em,itemsep=-1em]
+\item duration, which equates on the perceptual level to length;
+\item fundamental frequency (F0), which corresponds to perceived pitch; and 
+\item intensity (energy or amplitude), which perceptually equates to loudness.
+\end{itemize}
+
+%As Cutler (2005) points out, different languages make use of this suprasegmental information in different ways. 
+In variable-stress languages, such as German and English, 
+the location of lexical stress in a word is not always predictable,
+%it is not always possible to predict which syllable in a word will carry the stress, 
+and therefore knowing a word requires, in part, knowing its stress pattern. This allows lexical stress to serve a contrastive function in these languages, 
+%such that two words may share exactly the same sequence of phones and nevertheless be distinguished exclusively by their stress pattern, as is the case with 
+e.g. distinguishing \textit{UMfahren} (to drive around) from \textit{umFAHRen} (to run over with a car) in German. 
+%Because stress carries meaning thus, native speakers of such languages are sensitive to stress patterns, and readily able to perceive differences in stress. 
+Furthermore, in German, misplaced stress can disrupt understanding even in cases where there is no stress-based minimal pair \cite{Hirschfeld1994}.
+%, supporting the theory that speakers of free-stress languages rely to a large extent on stress information in the recognition of spoken words (Cutler, 2005).
+
+However, in fixed-stress languages, stress is completely predictable, as it always falls on a certain position in the word (e.g. the final syllable), making the lexical stress pattern less crucial to the knowledge of a word than in variable-stress languages. 
+%Lexical stress may not be as crucial to the knowledge of a word in these languages as in the variable-stress languages. 
+Furthermore, 
+%although lexical stress is realized in these languages, 
+in fixed-stress languages there may be a weaker distinction between stressed and unstressed syllables.
+While French has often been categorized as a fixed-stress language, given that word-final syllables are given prominence when a French word is pronounced in isolation, some argue that it may be more properly considered a language without lexical stress, in that speakers do not seem to accentuate any syllable within the word, with word-final lengthening effects explained by interactions with the realization of phrasal accent (lengthening of the final syllable in each prosodic group or phrase) \cite{Dupoux2008,Michaux2013}. 
+Regardless, French has no contrastive word-level stress \cite[p.~89]{Michaux2013}, 
+and in this respect differs considerably from German.
+%which constitutes a significant difference between this language and a language with variable, contrastive lexical stress such as German or English.
+
+%As a result of this difference in the sound systems of the two languages, native speakers of French may generally be expected to lack the sensitivity to stress patterns possessed by native speakers of German. Indeed, this has been borne out by research by Dupoux et al. (2008), who found that native French speakers seem to be “deaf” to lexical stress, insofar as they have significant and lasting difficulty perceiving lexical stress in Spanish, another language in which stress serves a contrastive function. This difficulty should also exist for French speakers when they are presented with German words in which the stress pattern is crucial to the word’s meaning, as in the minimal pair above.
+%In addition to these difficulties with lexical stress perception, French learners of variable- stress languages such as English, German and Dutch have also been shown to have difficulties in producing stress patterns correctly. Research by Michaux et al. (2012; 2013) revealed that, as might be expected given the tendency for word- and/or phrase-final syllable prominence in French just discussed, French learners of Dutch showed a tendency to stress the final syllables of Dutch words, even when not called for by the canonical stress pattern. Indeed, with regard to German specifically, Hirschfeld and Trouvain (2007) report that lexical stress errors are commonly observed among L2 speakers with French as L1.
+%In short, based on prior work on French learners of variable-stress languages, it can reason- ably be expected that L1 French learners of German as L2 will face challenges with both the perception and production of lexical stress, and that the (lack of) lexical stress system in their native language will influence their realization of lexical stress patterns in German words.	
+	
+	
 	
 	\section{Data}
 	\label{sec:data}
@@ -138,11 +178,12 @@
 
 
 
-  %\newpage
+  \newpage
   \eightpt
   \bibliographystyle{IEEEtran}
 
   \bibliography{../../library.bib}
+  %\bibliography{slaterefs.bib}
 
 %  \begin{thebibliography}{9}
 %    \bibitem[1]{Davis80-COP}

@@ -14,6 +14,8 @@
 \newcommand{\TODO}[1]{{\color{red}\textbf{[TODO #1]}}}
 
 \usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage{multirow}
 
 
 
@@ -189,10 +191,49 @@ With respect to production, studies of L2 Dutch have shown that French speakers,
 		\subsection{The IFCASL corpus of learner speech}
 		\label{sec:data:corpus}		
 		
-		%Comprising phonetically diverse utterances in French and German spoken by both native speakers and non-native speakers with the other language as L1 (Fauth et al., 2014; Trouvain et al., 2013), this is the first known corpus of L2 speech in both directions of this language pair.
+		The learner speech data used in this work has been excerpted from the IFCASL corpus \cite{Trouvain2013,Fauth2014}, a collection of 
+	phonetically diverse utterances in French and German spoken by both native speakers and non-native speakers with the other language as L1. This is the first known corpus of L2 speech in both directions of the French-German language pair, 
+	and is thus an invaluable resource for research on pronunciation errors \TODO{between these languages}.
+	
+	The IFCASL corpus contains recordings of approximately 50 L1 speakers of each language reading carefully constructed sentences (and a short text) in both languages, such that both L1 and L2 speech was recorded for each speaker. Each L1 speaker group has an even gender distribution, and contains approximately 10 children (adolescents of 15-16 years of age) and 40 adults. A variety of self-reported L2 proficiency levels are also represented in the corpus: the recorded adults span levels A2 (beginner) through C1 (advanced) of the Common European Framework of Reference \TODO{footnote url}, the children levels A2 (beginner) and B1 (low intermediate).
 	%As described by Fauth et al. (2014) and Trouvain et al. (2013), the IFCASL corpus contains recordings of approximately 100 speakers (50 native speakers of each of the two languages) uttering carefully constructed stimuli in both languages, such that speech in both the L1 and L2 was recorded for each speaker. In recording sessions, subjects were asked to read aloud a given sentence or longer text, and for approximately half of the L2 stimuli, subjects were allowed to listen to a recording of the text as uttered by a native speaker before recording their utterance. An even gender distribution was maintained among the speakers recorded, and both children (adolescents under 18 years of age) and adults participated in the recordings, the majority of participants being adults. While children were uniformly of beginner proficiency in their L2, adults of both beginner and advanced levels in the L2 were recorded. 
+		%
+	%The IFCASL corpus \citep{Trouvain2013,Fauth2014}, introduced in \cref{sec:intro:ifcasl}, contains recordings of native and non-native speech in French and German, and is thus a invaluable resource for research on pronunciation errors in this language pair, with the subset of the corpus containing L2 German speech by L1 French speakers (henceforth IFCASL-FG) being most relevant to the work reported in this thesis. As described in \cref{sec:intro:ifcasl}, speakers of varying ages, genders, and German proficiency levels are represented in the IFCASL-FG corpus; the exact number and characteristics of these speakers are presented in \cref{tab:data:speakers}.	
+	
+	%The subsets of the corpus most relevant to the work reported here are those containing German speech, both by L1 French speakers (henceforth IFCASL-FG) as well as by native German speakers (IFCASL-GG) \TODO{confusing sentence?}. 
+	While L2 French speech is thus also captured in the IFCASL corpus, the annotation effort described here focuses exclusively on the German-language subset of the corpus. Only utterances from the sub-corpus of L2 German speech by L1 French speakers (henceforth IFCASL-FG) were manually annotated; native utterances from the L1 German sub-corpus (IFCASL-GG) were assumed to contain only correct lexical stress realizations.
+	Details about the speakers included in the IFCASL-FG sub-corpus are given in \cref{tab:data:speakers}.
+	
+	\begin{table}
+			\centering
+			\caption[Speakers in the annotated dataset]{Number of speakers in the portion of the IFCASL-FG corpus annotated for lexical stress, in terms of speakers' age, gender, and proficiency level \cite{Fauth2014}}
+			\begin{tabular}{lrrrrr}
+			\toprule
+			\multirow{2}{*}{Age/gender}	&	\multicolumn{4}{c}{Proficiency level} &\multirow{2}{*}{\textbf{Totals}}\\
+			\cmidrule(lr){2-5}
+		& A2	&	B1	&	B2	&	C1	&		\\
+			\midrule
+Boy (male, 15-16 yrs.)	&	11	&	0	&	0	&	0	&	\textbf{11}	\\
+Girl (female, 15-16)&	1	&	1	&	0	&	0	&	\textbf{2}	\\
+Man	(male, 18-30) &	7	&	4	&	3	&	7	&	\textbf{21}	\\
+Woman	 (female, 18-30)&	5	&	5	&	3	&	9	&	\textbf{22}	\\
+			%\midrule
+\textbf{Totals}	&	\textbf{24}	&	\textbf{10}	&	\textbf{6}	&	\textbf{16}	&	\textbf{56}	\\
+			\bottomrule
+			\end{tabular}
+			\label{tab:data:speakers}
+		\end{table}
+	
+	
 		
-	%The IFCASL corpus \citep{Trouvain2013,Fauth2014}, introduced in \cref{sec:intro:ifcasl}, contains recordings of native and non-native speech in French and German, and is thus a invaluable resource for research on pronunciation errors in this language pair, with the subset of the corpus containing L2 German speech by L1 French speakers (henceforth IFCASL-FG) being most relevant to the work reported in this thesis. As described in \cref{sec:intro:ifcasl}, speakers of varying ages, genders, and German proficiency levels are represented in the IFCASL-FG corpus; the exact number and characteristics of these speakers are presented in \cref{tab:data:speakers}.		
+	%The subset of IFCASL-FG selected for the lexical stress error annotation undertaken in this work, henceforth referred to simply as “the dataset,” consists of utterances of twelve word types (see Table 3.2), each of which is bisyllabic and canonically has its primary stress on the initial syllable. These characteristics were chosen deliberately: the selected words are bisyllabic because this simplifies comparison between stressed and unstressed syllables, and they are initial-stress because this is the stress pattern which native (L1) French speakers are expected to have the most difficulty producing in German, given the fixed final-position stress and final lengthening in French (see Section 2.3.3).
+	%Though previous work on lexical stress errors in L2 speech has often dealt with words uttered in isolation (e.g. Bonneau and Colotte, 2011), this work deals with word utterances extracted from longer utterances of complete sentences; as Neri et al. (2002, p. 6) point out, for relevance to real communication it is important that CAPT systems address connected speech. The word’s position in the carrier phrase/sentence was not taken into account; although it could be hypothesized that phrase position would have an effect on lexical stress realization by native French speakers, given the phenomenon of phrasal accent in French (see Section 2.3.2), Michaux and Caspers (2013) found no effect of phrase position on French speakers’ realization of words in Dutch. Given the similarities in the lexical stress systems of Dutch and German with respect to French, no such phrase-level effect is therefore expected here, though investigation of the effect of phrase or sentence position on stress realization could be an interesting direction for future work.
+	
+
+	
+	%In the IFCASL corpus recordings, sentences containing these words were read aloud by both L1 and L2 (L1 French) German speakers, as mentioned in Section 1.2. Here, only the L2 utterances were manually annotated; it is assumed that the L1 German speakers always realize lexical stress correctly, so the utterances of the selected word types in the native German subset of the IFCASL corpus (IFCASL-GG) were not manually annotated, but rather automatically labeled as correct realizations (see Section 4.4.1).
+	
+	%To compile the dataset, utterances (tokens) of each word as produced by over 50 L2 speakers were extracted from the recordings automatically with Praat1 (Boersma and Weenink, 2014), using extraction times (start and end points of word utterances) taken from the word-level segmentation of each sentence utterance automatically obtained by forced alignment (see Section 4.1). Table 3.2 lists the exact number of tokens available for each word type. In total, 668 word tokens were annotated for lexical stress errors. Five tokens had to be excluded from the data, as disfluencies in the sentence utterance (e.g. false starts or repetitions of the target word) prevented the automatic extraction of the word utterance from the sentence as a whole. In a fully-fledged student-facing CAPT system, such disfluencies would need to be dealt with accordingly, e.g. by means of a pre-processing step which analyzes the student’s utterance for possible disfluencies and compensates for any that are detected by, for example, prompting the student to re-record their utterance. However, detecting disfluencies in speech, especially non-native speech, is a challenging problem under active research (see Section 2.2.1), and the development of a disfluency-aware system is outside the scope of this thesis project; therefore, this work presupposes that no disfluencies exist in the student’s utterance, and the handful of disfluent tokens have been excluded from the dataset described here.
 		
 		\subsection{Annotation method}
 		\label{sec:data:annotation}		

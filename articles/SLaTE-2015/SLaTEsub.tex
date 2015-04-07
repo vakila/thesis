@@ -37,7 +37,7 @@
 \makeatletter
 \def\name#1{\gdef\@name{#1\\}}
 \makeatother \name{{\em%
-  Anjana Sofia Vakil, J\"{u}rgen Trouvain
+  Anjana Sofia Vakil%, J\"{u}rgen Trouvain
   %Author Name$^1$, Co-author Name$^2$
   }}
 
@@ -46,7 +46,12 @@
   %$^2$Co-author Affiliation \\
   Department of Computational Linguistics \& Phonetics\\
   Saarland University, Saarbr\"{u}cken, Germany\\
-  {\small \tt [anjanav,trouvain]@coli.uni-saarland.de}
+  {\small \tt 
+  %[%
+  anjanav%
+  %,trouvain%
+  %]%
+  @coli.uni-saarland.de}
 }
 
 %\twoauthors{Karen Sp\"{a}rck Jones.}{Department of Speech and Hearing \\
@@ -77,11 +82,14 @@
 
   \section{Introduction}
   
-  \cite{Vakil2015}
+  %\cite{Vakil2015}
   
   For adult learners of a second language (L2), the phonological system of the L2 can pose a variety of difficulties. For certain L2s, such as German or English, one important difficulty involves the accurate prosodic realization of lexical stress, i.e. the accentuation of certain syllable(s) in a given word, with the placement of stress within a word varying freely and carrying a contrastive function in such languages \TODO{cite}. Lexical stress is an important part of German word prosody, and has been found to have an impact on the intelligibility of non-native German speech \TODO{cite}. Coping with this phenomenon in German is especially challenging for native (L1) French speakers, because lexical stress is realized very differently (or perhaps not at all) in the French language \TODO{cite}.
   
-  To overcome this difficulty and improve their L2 word prosody, learners typically need to have their pronunciation errors pointed out and corrected by a language instructor; unfortunately, the lack of attention typically given to pronunciation in the foreign language classroom, coupled with the historic lack of instructor training in phonetics/phonology, make this level of individualized attention not always feasible in a classroom setting \TODO{cite}. Fortunately, advances in Computer-Assisted Pronunciation Training (CAPT) over recent decades have made it possible to automatically provide highly individualized analysis of learners' prosodic errors, as well as feedback on how to correct them, and thus to help learners achieve more intelligible pronunciation in the target language (Witt, 2012). However, while much research has gone into the creation and improvement of CAPT systems for English, relatively little work has been done on the development of CAPT systems for German, and even less on the treatment of prosodic errors in such systems \TODO{cite (Hirschfeld?)}.
+  To overcome this difficulty and improve their L2 word prosody, learners typically need to have their pronunciation errors pointed out and corrected by a language instructor; unfortunately, the lack of attention typically given to pronunciation in the foreign language classroom, 
+  along with other factors such as high student-to-teacher ratios,
+  %coupled with the historic lack of instructor training in phonetics/phonology, 
+  make this level of individualized attention not always feasible in a classroom setting \cite{Neri2002,Derwing2005,Hirschfeld2007}. Fortunately, advances in Computer-Assisted Pronunciation Training (CAPT) over recent decades have made it possible to automatically provide highly individualized analysis of learners' prosodic errors, as well as feedback on how to correct them, and thus to help learners achieve more intelligible pronunciation in the target language. However, while much research has gone into the creation and improvement of CAPT systems for English (see e.g. \cite{Eskenazi2009,Witt2012}), relatively little work has been done on the development of CAPT systems for German, especially on those targeting errors in German prosody.
   
   This paper describes work that advances the state of German CAPT by applying machine learning methods to the task of diagnosing lexical stress errors in non-native German speech, a necessary prerequisite for delivering individualized corrective feedback on such errors in a CAPT system. The paper is organized as follows: \Cref{sec:bkgd} provides background on the phenomenon of lexical stress as it is realized in German and French word prosody, motivates the creation of CAPT systems that address this error specifically, and summarizes some past work related to this topic. \Cref{sec:data} describes the manual annotation of lexical stress errors in a small corpus of L2 German speech, carried out to create labeled training and test data for the classification experiments explained in \cref{sec:method}. \Cref{sec:results} presents and analyzes the results of these experiments. Finally, \cref{sec:conc} offers some concluding remarks and outlines possible directions for future extensions of this work.
   
@@ -130,7 +138,7 @@
 
 
 
-  \newpage
+  %\newpage
   \eightpt
   \bibliographystyle{IEEEtran}
 

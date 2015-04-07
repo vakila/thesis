@@ -392,16 +392,22 @@ Woman	 (female, 18-30)&	5	&	5	&	3	&	9	&	\textbf{22}	\\
 		(see \cref{sec:data:agreement}).
 		%(see Section 3.4 for a discussion of inter-annotator agreement); Table 3.4 lists the number of annotators for each word type.
 		
-		
+		%A single annotation session consisted of annotating all tokens of three word types, and lasted approximately 15 minutes. As mentioned in Section 3.2 above, each annotator participated in one session, with the exception of annotator K who participated in two sessions (separated by several days) and annotated a total of six word types.
 
 	
-
-	%A single annotation session consisted of annotating all tokens of three word types, and lasted approximately 15 minutes. As mentioned in Section 3.2 above, each annotator participated in one session, with the exception of annotator K who participated in two sessions (separated by several days) and annotated a total of six word types.
-
-	%The lexical stress error annotations collected in this manner for each token (utterance) in the dataset enable two important contributions of this thesis, described in the following sections. First, the multiple annotations for each token from different annotators permit an analysis of inter-annotator agreement with regard to the identification of lexical stress errors; Section 3.4 presents this analysis, along with statistics on the relative frequencies with which the five labels were selected by annotators from the different L1 and expertise groups described in Section 3.2. Secondly, and perhaps more importantly, the errors identified by these annotators in the data extracted from the IFCASL corpus enable an analysis of the frequency of lexical stress errors in the speech of L1 French learners of German as L2; this is the subject of Section 3.6.
+		%The lexical stress error annotations collected in this manner for each token (utterance) in the dataset enable two important contributions of this thesis, described in the following sections. First, the multiple annotations for each token from different annotators permit an analysis of inter-annotator agreement with regard to the identification of lexical stress errors; Section 3.4 presents this analysis, along with statistics on the relative frequencies with which the five labels were selected by annotators from the different L1 and expertise groups described in Section 3.2. Secondly, and perhaps more importantly, the errors identified by these annotators in the data extracted from the IFCASL corpus enable an analysis of the frequency of lexical stress errors in the speech of L1 French learners of German as L2; this is the subject of Section 3.6.
+		
 		
 		\subsection{Inter-annotator agreement}
 		\label{sec:data:agreement}		
+		
+		Any evaluation of an automatic error detection system, including that described in this work, should be performed with an understanding of the difficulty of the error-detection task for human listeners. To obtain a clearer picture of this task, we therefore conducted an analysis of the inter-annotator agreement observed in the annotations collected as described in the previous section. If human annotators often disagree about whether a given L2 utterance contains a lexical stress error, this may indicate that the task is a difficult one, thus encouraging a more lenient evaluation of an automatic error-detection system. However, if humans are generally in strong agreement, this may reflect a lower level of difficulty, and give reason to judge the performance of an automatic system by a higher standard. 
+		%To create a useful CAPT system for lexical stress errors in L2 German, i.e. to automatically detect whether a student has made a lexical stress error in a given utterance, it is helpful to have an understanding of the difficulty of the error-detection task, not only for machines but for humans. It is therefore useful to analyze the collected stress accuracy judgments in terms of inter-annotator agreement, in order to gain insight into the nature of the challenge this task presents. If it is uncommon for human annotators to agree about whether a given lexical stress realization is correct or incorrect, this may indicate that identifying lexical stress errors is a challenging task, and one which an automatic system should also be expected to have difficulty with. If, on the other hand, human annotators are generally in strong agreement, this may reflect a lower level of difficulty, and give reason to judge the performance of an automatic system by a higher standard.
+		
+		
+		For 268 of the 668 utterances annotated, i.e. approximately 40\% of the dataset, annotators were unanimous in their label assignments; for the other 400 utterances (60\%), at least one annotator chose a different label than the other(s) who annotated the same utterance.
+		To make sense of these differences, agreement in label assignments was calculated for each pair of annotators who overlapped, i.e. labeled any of the same tokens. 
+		Pairwise agreement was quantified in terms of percentage agreement (i.e. the number of tokens to which the two annotators assigned the same label, divided by the total number of tokens they both annotated), and Cohen’s Kappa ($\kappa$) statistic \cite{Cohen1960}.
 		
 		\subsection{Error distribution}
 		\label{sec:data:errors}

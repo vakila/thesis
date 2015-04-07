@@ -204,27 +204,28 @@ With respect to production, studies of L2 Dutch have shown that French speakers,
 	
 	%The subsets of the corpus most relevant to the work reported here are those containing German speech, both by L1 French speakers (henceforth IFCASL-FG) as well as by native German speakers (IFCASL-GG) \TODO{confusing sentence?}. 
 	While L2 French speech is thus also captured in the IFCASL corpus, the annotation effort described here focuses exclusively on the German-language subset of the corpus. Only utterances from the sub-corpus of L2 German speech by L1 French speakers (henceforth IFCASL-FG) were manually annotated; native utterances from the L1 German sub-corpus (IFCASL-GG) were assumed to contain only correct lexical stress realizations.
-	Details about the speakers included in the IFCASL-FG sub-corpus are given in \cref{tab:data:speakers}.
-	
-	\begin{table}
-			\centering
-			\caption[Speakers in the annotated dataset]{\TODO{remove?} Number of speakers in the portion of the IFCASL-FG corpus annotated for lexical stress, in terms of speakers' age, gender, and proficiency level \cite{Fauth2014}.}
-			\begin{tabular}{lrrrrr}
-			\toprule
-			\multirow{2}{*}{Age/gender}	&	\multicolumn{4}{c}{Proficiency level} &\multirow{2}{*}{\textbf{Totals}}\\
-			\cmidrule(lr){2-5}
-		& A2	&	B1	&	B2	&	C1	&		\\
-			\midrule
-Boy (male, 15-16 yrs.)	&	11	&	0	&	0	&	0	&	\textbf{11}	\\
-Girl (female, 15-16)&	1	&	1	&	0	&	0	&	\textbf{2}	\\
-Man	(male, 18-30) &	7	&	4	&	3	&	7	&	\textbf{21}	\\
-Woman	 (female, 18-30)&	5	&	5	&	3	&	9	&	\textbf{22}	\\
-			%\midrule
-\textbf{Totals}	&	\textbf{24}	&	\textbf{10}	&	\textbf{6}	&	\textbf{16}	&	\textbf{56}	\\
-			\bottomrule
-			\end{tabular}
-			\label{tab:data:speakers}
-		\end{table}
+	%TODO replace?
+%	Details about the speakers included in the IFCASL-FG sub-corpus are given in \cref{tab:data:speakers}.
+%	
+%	\begin{table}
+%			\centering
+%			\caption[Speakers in the annotated dataset]{\TODO{remove?} Number of speakers in the portion of the IFCASL-FG corpus annotated for lexical stress, in terms of speakers' age, gender, and proficiency level \cite{Fauth2014}.}
+%			\begin{tabular}{lrrrrr}
+%			\toprule
+%			\multirow{2}{*}{Age/gender}	&	\multicolumn{4}{c}{Proficiency level} &\multirow{2}{*}{\textbf{Totals}}\\
+%			\cmidrule(lr){2-5}
+%		& A2	&	B1	&	B2	&	C1	&		\\
+%			\midrule
+%Boy (male, 15-16 yrs.)	&	11	&	0	&	0	&	0	&	\textbf{11}	\\
+%Girl (female, 15-16)&	1	&	1	&	0	&	0	&	\textbf{2}	\\
+%Man	(male, 18-30) &	7	&	4	&	3	&	7	&	\textbf{21}	\\
+%Woman	 (female, 18-30)&	5	&	5	&	3	&	9	&	\textbf{22}	\\
+%			%\midrule
+%\textbf{Totals}	&	\textbf{24}	&	\textbf{10}	&	\textbf{6}	&	\textbf{16}	&	\textbf{56}	\\
+%			\bottomrule
+%			\end{tabular}
+%			\label{tab:data:speakers}
+%		\end{table}
 	
 	
 		
@@ -348,7 +349,9 @@ Woman	 (female, 18-30)&	5	&	5	&	3	&	9	&	\textbf{22}	\\
 	
 	In addition to the recordings themselves, the IFCASL corpus contains phone- and word-level segmentations of each utterance, produced automatically by forced alignment with the corresponding text prompts \cite{Fauth2014}. Although the corpus also contains manual corrections of these segmentations, the work reported here relies exclusively on the automatically-generated segmentations to more accurately represent the conditions of a real-world CAPT system, which would not have recourse to manual verification of the phone or word boundaries identified by the aligner. 
 	Using these segmentations, tokens (utterances) of each selected word type were extracted from the recorded segmentations automatically using Praat\TODO{footnote url}; counts of the available tokens for each word type are listed in \cref{tab:words}. 
-	The dataset annotated for lexical stress errors comprises 668 word tokens in total. Five tokens had to be excluded from the dataset, as sentence-level disfluencies (e.g. false starts or repetitions of phrases) prevented accurate automatic extraction of the word utterance; a fully-fledged CAPT system would need to deal with such disfluencies automatically, e.g. with a pre-processing step  which detects disfluencies and prompts the learner to re-record their utterance if needed (see \cite{Bonneau2012,Orosanu2012}).
+	The dataset annotated for lexical stress errors comprises 668 word tokens in total. Five tokens had to be excluded from the dataset, as sentence-level disfluencies (e.g. false starts or repetitions of phrases) prevented accurate automatic extraction of the word utterance; a fully-fledged CAPT system would need to deal with such disfluencies automatically, e.g. with a pre-processing step  which detects disfluencies and prompts the learner to re-record their utterance if needed 
+	(see e.g. %Bonneau2012
+	\cite{Orosanu2012}).
 	%To compile the dataset, utterances (tokens) of each word as produced by over 50 L2 speakers were extracted from the recordings automatically with Praat\TODO{footnote url}, using extraction times (start and end points of word utterances) taken from the word-level segmentation of each sentence utterance automatically obtained by forced alignment (see Section 4.1). Table 3.2 lists the exact number of tokens available for each word type. In total, 668 word tokens were annotated for lexical stress errors. Five tokens had to be excluded from the data, as disfluencies in the sentence utterance (e.g. false starts or repetitions of the target word) prevented the automatic extraction of the word utterance from the sentence as a whole. In a fully-fledged student-facing CAPT system, such disfluencies would need to be dealt with accordingly, e.g. by means of a pre-processing step which analyzes the student’s utterance for possible disfluencies and compensates for any that are detected by, for example, prompting the student to re-record their utterance. However, detecting disfluencies in speech, especially non-native speech, is a challenging problem under active research (see Section 2.2.1), and the development of a disfluency-aware system is outside the scope of this thesis project; therefore, this work presupposes that no disfluencies exist in the student’s utterance, and the handful of disfluent tokens have been excluded from the dataset described here.
 		
 		\subsection{Annotation method}

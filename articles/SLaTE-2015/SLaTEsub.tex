@@ -444,7 +444,39 @@ Minimum	&	23.21\%	&	-0.01	\\
 		\subsection{Error distribution}
 		\label{sec:data:errors}
 		
-		\TODO{something about choosing gold-standard labels}
+		\TODO{How gold-standard labels were chosen (briefly)}
+	
+		%The overall distribution of the lexical stress accuracy judgments observed in the annotated dataset is detailed in \cref{tab:errors} and illustrated in \cref{fig:errors}. Evidently, the majority (63.77\%) of learners' lexical stress productions were judged to be correct; in other words, almost two-thirds of the time, learners clearly stressed the correct (initial) syllable in the uttered word.
+		%However, incorrect productions (productions in which the learner clearly stressed the incorrect syllable) and productions in which the learner did not clearly stress either syllable (corresponding to the [none] label, as described in \cref{sec:lexstress:method}), also occurred regularly: 29.64\% of the productions were judged incorrect and 5.24\% were labeled [none]. If we consider both of these types of productions as types of lexical stress errors, then errors were observed in just over one-third (34.88\%) of the  utterances annotated. 
+		
+			%This sizable proportion of errors seems to give an affirmative answer to the question of whether lexical stress errors are observed frequently in L2 German speech by L1 French speakers. Bearing in mind that frequency of production is one of the criteria mentioned in \cref{sec:targeting:frequency} above for choosing a good error to target with CAPT, this provides further justification of the choice of lexical stress errors as the error type to focus on in this thesis project.
+		
+		\begin{table}
+			\centering
+			\caption{Overall frequency of lexical stress errors in the annotated data}
+			\begin{tabular}{lrr}
+			\toprule
+			Label & Tokens & \% of corpus \\
+			\midrule
+			correct	& 426	& 63.77\% \\
+			incorrect &	198	& 29.64\% \\
+			none	 &35 &	5.24\% \\
+			bad\_nsylls	& 8	& 1.20\% \\
+			bad\_audio	& 1	& 0.15\%\\
+			\midrule
+			%\addlinespace
+			Total & 668 & 100\%\\
+			\bottomrule
+			\end{tabular}
+			\label{tab:errors}
+		\end{table}
+		
+		\begin{figure}
+			\centering
+			\includegraphics[width=\columnwidth]{../../img/plots/overallJudgments-axisTop-noLabels}
+			\caption{Overall distribution of lexical stress errors in the annotated data}
+			\label{fig:errors}
+		\end{figure}
 	
 	
 	
@@ -460,6 +492,8 @@ Minimum	&	23.21\%	&	-0.01	\\
 	    
 	    \subsection{Datasets for training and testing}
 	    \label{sec:method:datasets}
+
+
 
 	\section{Results}
 	\label{sec:results}

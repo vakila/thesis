@@ -447,12 +447,21 @@ Minimum	&	23.21\%	&	-0.01	\\
 		\subsection{Error distribution}
 		\label{sec:data:errors}
 		
-		\TODO{How gold-standard labels were chosen (briefly)}
+		Though the comparison of the (potentially different) labels assigned to each word utterance by different annotators is interesting, a single ``gold-standard'' label for each utterance ultimately had to be determined, as a representation of the ground truth with which to train and evaluate the automatic error classifier(s) \TODO{rewrite that sentence}.
+		In some cases, assigning a gold-standard label was trivial, e.g. when all or a majority of annotators agreed. However, in other cases a choice had to be made between competing candidate labels. 
+		%In these cases the gold-standard label was chosen via a rule-based procedure which 
+		\TODO{The decision-making procedure} prioritized experts' judgments, favored certain  judgments ([correct] or [incorrect]) over uncertain ([none]), and gave learners the benefit of the doubt when annotators disagreed as to whether the utterance was [correct] or [incorrect].
 	
-		%The overall distribution of the lexical stress accuracy judgments observed in the annotated dataset is detailed in \cref{tab:errors} and illustrated in \cref{fig:errors}. Evidently, the majority (63.77\%) of learners' lexical stress productions were judged to be correct; in other words, almost two-thirds of the time, learners clearly stressed the correct (initial) syllable in the uttered word.
-		%However, incorrect productions (productions in which the learner clearly stressed the incorrect syllable) and productions in which the learner did not clearly stress either syllable (corresponding to the [none] label, as described in \cref{sec:lexstress:method}), also occurred regularly: 29.64\% of the productions were judged incorrect and 5.24\% were labeled [none]. If we consider both of these types of productions as types of lexical stress errors, then errors were observed in just over one-third (34.88\%) of the  utterances annotated. 
-		
-			%This sizable proportion of errors seems to give an affirmative answer to the question of whether lexical stress errors are observed frequently in L2 German speech by L1 French speakers. Bearing in mind that frequency of production is one of the criteria mentioned in \cref{sec:targeting:frequency} above for choosing a good error to target with CAPT, this provides further justification of the choice of lexical stress errors as the error type to focus on in this thesis project.
+		To shed further light on the error classification task, the overall distribution of lexical stress errors in the annotated dataset 
+		was analyzed with reference to the gold-standard labels thus determined.
+		As seen in \cref{tab:errors} and illustrated in \cref{fig:errors}, 
+		%Evidently, 
+		most (63.77\%) of learners' lexical stress productions were judged to be correct; in other words, almost two-thirds of the time, learners clearly stressed the correct (initial) syllable in the uttered word.
+		However, learners also seemed to make mistakes regularly, with 29.64\% of their word utterances labeled [incorrect] and another 5.24\% labeled [none].
+		%However, incorrect productions (productions in which the learner clearly stressed the incorrect syllable) and productions in which the learner did not clearly stress either syllable (corresponding to the [none] label, as described in \cref{sec:lexstress:method}), also occurred regularly: 29.64\% of the productions were judged incorrect and 5.24\% were labeled [none]. 	
+		If we consider both [incorrect] and [none] utterances as types of lexical stress errors, then errors were observed in just over one-third of utterances. %(34.88\%) of the  utterances annotated. 
+		%
+		This considerable proportion of errors seems to confirm the expectation (mentioned in \cref{sec:bkgd}) that French learners of German frequently make lexical stress errors.
 		
 		\begin{table}
 			\centering

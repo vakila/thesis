@@ -16,6 +16,8 @@
 \usepackage{enumitem}
 \usepackage{booktabs}
 \usepackage{multirow}
+\usepackage{tipa}
+\usepackage{tabularx}
 
 
 
@@ -206,7 +208,7 @@ With respect to production, studies of L2 Dutch have shown that French speakers,
 	
 	\begin{table}
 			\centering
-			\caption[Speakers in the annotated dataset]{Number of speakers in the portion of the IFCASL-FG corpus annotated for lexical stress, in terms of speakers' age, gender, and proficiency level \cite{Fauth2014}}
+			\caption[Speakers in the annotated dataset]{Number of speakers in the portion of the IFCASL-FG corpus annotated for lexical stress, in terms of speakers' age, gender, and proficiency level \cite{Fauth2014}.}
 			\begin{tabular}{lrrrrr}
 			\toprule
 			\multirow{2}{*}{Age/gender}	&	\multicolumn{4}{c}{Proficiency level} &\multirow{2}{*}{\textbf{Totals}}\\
@@ -226,12 +228,123 @@ Woman	 (female, 18-30)&	5	&	5	&	3	&	9	&	\textbf{22}	\\
 	
 	
 		
-	%The subset of IFCASL-FG selected for the lexical stress error annotation undertaken in this work, henceforth referred to simply as “the dataset,” consists of utterances of twelve word types (see Table 3.2), each of which is bisyllabic and canonically has its primary stress on the initial syllable. These characteristics were chosen deliberately: the selected words are bisyllabic because this simplifies comparison between stressed and unstressed syllables, and they are initial-stress because this is the stress pattern which native (L1) French speakers are expected to have the most difficulty producing in German, given the fixed final-position stress and final lengthening in French (see Section 2.3.3).
+	The subset of IFCASL-FG selected for manual error annotation, (henceforth simply “the dataset”) consists of utterances of twelve bisyllabic word types (see \cref{tab:words}), each of which has primary stress on the initial syllable. 
+	%These characteristics were chosen deliberately: the selected words are bisyllabic 
+	Only bisyllabic words were selected to simplify comparison between stressed and unstressed syllables, and only initial-stress words because this is the stress pattern which native (L1) French speakers are expected to have the most difficulty producing in German, given the phenomenon of final lengthening in French (see \cref{sec:bkgd}).
 	%Though previous work on lexical stress errors in L2 speech has often dealt with words uttered in isolation (e.g. Bonneau and Colotte, 2011), this work deals with word utterances extracted from longer utterances of complete sentences; as Neri et al. (2002, p. 6) point out, for relevance to real communication it is important that CAPT systems address connected speech. The word’s position in the carrier phrase/sentence was not taken into account; although it could be hypothesized that phrase position would have an effect on lexical stress realization by native French speakers, given the phenomenon of phrasal accent in French (see Section 2.3.2), Michaux and Caspers (2013) found no effect of phrase position on French speakers’ realization of words in Dutch. Given the similarities in the lexical stress systems of Dutch and German with respect to French, no such phrase-level effect is therefore expected here, though investigation of the effect of phrase or sentence position on stress realization could be an interesting direction for future work.
 	
 
 	
-	%In the IFCASL corpus recordings, sentences containing these words were read aloud by both L1 and L2 (L1 French) German speakers, as mentioned in Section 1.2. Here, only the L2 utterances were manually annotated; it is assumed that the L1 German speakers always realize lexical stress correctly, so the utterances of the selected word types in the native German subset of the IFCASL corpus (IFCASL-GG) were not manually annotated, but rather automatically labeled as correct realizations (see Section 4.4.1).
+\begin{table}
+		\centering
+		\caption[Word types annotated for lexical stress errors]{%
+		%The twelve bisyllabic initial-stress 
+		Word types selected from the IFCASL corpus for lexical stress error annotation. 
+		%The orthographic form (text) of each word type is presented in the leftmost column, followed by its canonical pronunciation (e.g. as found in a pronunciation dictionary). 
+		Canonical pronunciations for each word type are given in IPA notation.
+		% SAMPA notation (\url{http://www.phon.ucl.ac.uk/home/sampa}), with phonemes separated by a space and syllables separated by a period (\texttt{.}); canonical lexical stress is not marked, as all of the listed word types have primary stress on the initial syllable. 
+		%Parts of speech are abbreviated as n. (noun), v. (verb) and pro. (pronoun). 
+		The rightmost column lists the number of tokens (utterances) of each word type in the annotated dataset.
+		}
+%		\begin{tabular}{llll}
+%		Flagge & Ringen & Tschechen & halten \\
+%		M\"{o}rder & Tatort & Fr\"{u}hling & fliegen \\
+%		Pollen & manche & E-mail & tragen \\
+%		\end{tabular}
+		
+		{\renewcommand{\arraystretch}{1.1}
+		\begin{tabularx}{\columnwidth}{lXXXl}
+		%\begin{tabular}{llllc}
+		\toprule
+		
+		Word & 
+		%Canonical \linebreak 
+		Pronun-ciation & 
+		%Pron. &
+		Part of speech & 
+		%P.O.S. &
+		English meaning & 
+		%Recording condition \TODO{remove?}& 
+		Tokens\\%\linebreak annotated\\
+		
+		\midrule
+		E-mail		
+			&	\textipa{/"i:.meIl/} %\texttt{i:~.~m eI l} 		
+			&	noun
+			&	e-mail %&	SR 	
+			&	56	\\
+			
+		Flagge		
+			&	\textipa{/"fla.g@/} %\texttt{f l a~.~g @} 		
+			&	noun 
+			&	 flag %&	SH	
+			&	55	\\
+			
+		fliegen		
+			&	\textipa{/"fli:.g\s{n}/} %\texttt{f l i:~.~g =n} 	
+			&	verb 
+			&	to fly %&	SR		
+			& 56	\\
+			
+		Frühling	
+			&	\textipa{/"fry:.lIN/}	%\texttt{f r y:~.~l I N} 		
+			& noun	
+			&	spring \newline (season) %&	SR		
+			&	56	\\
+			
+		halten		
+			&	\textipa{/"hal.t\s{n}/}	%\texttt{h a l~.~t =n}		
+			&	verb 
+			&	to hold %&	SR 	
+			&	56	\\
+			
+		manche	
+			&	\textipa{/"man.\c{c}@/}	%\texttt{m a n~.~C @} 		
+			&	pronoun 
+			&	some %& 	SR 	
+			&	56	\\
+			
+		Mörder		
+			&	\textipa{/"m\oe5.d5/}	%\texttt{m 96~.~d 6}		
+			&	noun 
+			&	murderer %&	SR 	
+			&	56	\\
+			
+		Pollen		
+			&	\textipa{/"pO.l@n/}	%\texttt{p O~.~l @ n} 		
+			&	noun 
+			&	pollen %&	SR 	
+			& 	55	\\
+			
+		Ringen		
+			&	\textipa{/"KIN.@n/}	%\texttt{r I N~.~@ n}		
+			&	noun 
+			&	rings %&	SH	
+			&	55	\\
+			
+		Tatort		
+			&	\textipa{/"ta:t.PO5t/}	%\texttt{t a:~t~.~?~O6 t}	
+			&	noun 
+			&	crime scene %& 	SR 	
+			&	56	\\
+			
+		tragen		
+			&	\textipa{/"tKa:.g\s{n}/}	%\texttt{t r a:~.~g =n} 	
+			&	verb 
+			&	to wear %&	SH	
+			&	55	\\
+			
+		Tschechen	
+			& \textipa{/"tSE.\c{c}\s{n}/}	%\texttt{tS E~.~C =n}	
+			& noun	
+			&	Czechs	%&	SR		
+			& 56	\\
+			
+		\bottomrule
+		\end{tabularx}
+		}
+		\label{tab:words}
+	\end{table}
 	
 	%To compile the dataset, utterances (tokens) of each word as produced by over 50 L2 speakers were extracted from the recordings automatically with Praat1 (Boersma and Weenink, 2014), using extraction times (start and end points of word utterances) taken from the word-level segmentation of each sentence utterance automatically obtained by forced alignment (see Section 4.1). Table 3.2 lists the exact number of tokens available for each word type. In total, 668 word tokens were annotated for lexical stress errors. Five tokens had to be excluded from the data, as disfluencies in the sentence utterance (e.g. false starts or repetitions of the target word) prevented the automatic extraction of the word utterance from the sentence as a whole. In a fully-fledged student-facing CAPT system, such disfluencies would need to be dealt with accordingly, e.g. by means of a pre-processing step which analyzes the student’s utterance for possible disfluencies and compensates for any that are detected by, for example, prompting the student to re-record their utterance. However, detecting disfluencies in speech, especially non-native speech, is a challenging problem under active research (see Section 2.2.1), and the development of a disfluency-aware system is outside the scope of this thesis project; therefore, this work presupposes that no disfluencies exist in the student’s utterance, and the handful of disfluent tokens have been excluded from the dataset described here.
 		

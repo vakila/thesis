@@ -119,7 +119,7 @@ Broadly speaking, lexical stress is the phenomenon of how a given syllable is ac
 \begin{itemize}[topsep=.5em,noitemsep]
 \item duration, which equates on the perceptual level to length;
 \item fundamental frequency (F0), which corresponds to perceived pitch; and 
-\item intensity (energy or amplitude), which perceptually equates to loudness.
+\item \TODO{intensity (\textbf{energy?} or amplitude)}, which perceptually equates to loudness.
 \end{itemize}
 
 %As Cutler (2005) points out, different languages make use of this suprasegmental information in different ways. 
@@ -350,7 +350,9 @@ With respect to production, studies of L2 Dutch have shown that French speakers,
 	\end{table}
 	
 	In addition to the recordings themselves, the IFCASL corpus contains phone- and word-level segmentations of each utterance, produced automatically by forced alignment with the corresponding text prompts \cite{Fauth2014}. Although the corpus also contains manual corrections of these segmentations, the work reported here relies exclusively on the automatically-generated segmentations to more accurately represent the conditions of a real-world CAPT system, which would not have recourse to manual verification of the phone or word boundaries identified by the aligner. 
-	Using these segmentations, tokens (utterances) of each selected word type were extracted from the recorded segmentations automatically using Praat\TODO{footnote url}; counts of the available tokens for each word type are listed in \cref{tab:words}. 
+	As the IFCASL corpus does not include syllable-level segmentations, boundaries between syllables were determined automatically from the phone- and word-level segmentations of each utterance.
+	
+	Using the automatic segmentations, tokens (utterances) of each selected word type were extracted from the recorded segmentations automatically using Praat\TODO{footnote url}; counts of the available tokens for each word type are listed in \cref{tab:words}. 
 	The dataset annotated for lexical stress errors comprises 668 word tokens in total. Five tokens had to be excluded from the dataset, as sentence-level disfluencies (e.g. false starts or repetitions of phrases) prevented accurate automatic extraction of the word utterance; a fully-fledged CAPT system would need to deal with such disfluencies automatically, e.g. with a pre-processing step  which detects disfluencies and prompts the learner to re-record their utterance if needed 
 	(see e.g. %Bonneau2012
 	\cite{Orosanu2012}).
@@ -524,10 +526,11 @@ Minimum	&	23.21\%	&	-0.01	\\
 	    \subsection{Feature sets}
 	    \label{sec:method:featuresets}
 	    
+	    To represent the lexical stress prosody of an utterance, the automatically-determined word, syllable, and phone segmentations were used to isolate relevant segments of the speech signal, and extract features related to the three acoustic properties mentioned in \cref{sec:bkgd} above: duration, fundamental frequency (F0), and energy. To account for inter-speaker variability, e.g. the fact that some speakers may have a faster speech rate or higher F0 than others, relative rather than absolute features were used. This section explains how these prosodic features, listed in \cref{tab:prosfeatures}, were selected and computed.
 	    %The automatically-determined word, syllable, and phone boundaries obtained as described in the previous section enable the CAPT tool to locate and analyze segments of the speech signal relevant to the realization of lexical stress. This section describes the features by which the system analyzes the lexical stress prosody of an utterance, be it the utterance of a learner or of a native speaker. These features relate to the three acoustic properties (and by extension their perceptual correlates) described in Section 2.3, namely duration (timing), fundamental frequency (pitch), and intensity (loudness). The relative utility of these features in automatically diagnosing lexical stress errors is discussed further in Section 4.4.
-	    %
-	    %Throughout this section, the features discussed are illustrated with their values for a word from two sample utterances of a German word selected from the IFCASL corpus: one by a native German speaker (assumed to represent a correct realization of lexical stress), the other an utterance from an L1 French speaker which was assigned a gold-standard label of [incorrect] (see Chapter 3).
 	    
+	    Research on the phonetic realization of lexical stress has often indicated that duration may be the most important, if not the only, acoustic correlate of this phenomenon in German, with the duration of stressed syllables being relatively long in comparison with unstressed syllables \cite{Dogil1999}. 
+	    Therefore, features representing duration were computed, simply by noting the relative durations of relevant segments. Following Bonneau and Colotte~\cite{Bonneau2011}, these features take into account the durations of entire syllables, as well as of their nuclei (vowels or syllabic consonants such as /\textipa{\s{n}}/), as described in \cref{tab:durfeatures}.
 	    %Analysis of duration (timing) is extremely important for detecting stress patterns; indeed, some research indicates that syllable duration may be the most important, if not the only acoustic correlate of lexical stress in German (e.g. \cite{Dogil1999}). Duration analysis therefore figures prominently in the analysis and assessment of learners' lexical stress in this work. 
 	    %
 	    %Given the word-, syllable- and phone-level segmentations of an utterance (see \cref{sec:diag:segmentation}), the extraction of duration features for that utterance is trivial, as it consists simply of noting the duration of each relevant segment. % in the appropriate segmentation. Following \textcite{Bonneau2011}, duration analysis in this work takes into account the  duration of each syllable in the word to be analyzed, and of the vowels at the nucleus of each syllable. 	To account for inter-speaker variability, e.g. the fact that some speakers may have an overall slower or faster speech rate than others, relative rather than absolute durations are used. The list of duration features computed for each word utterance is given in \cref{tab:durationfeatures}, along with the values computed for each feature from the sample utterances shown in \cref{fig:featuresexample}.
@@ -540,7 +543,9 @@ Minimum	&	23.21\%	&	-0.01	\\
 	    \begin{table}
 		\centering
 		%\caption[Features used for duration analysis]{Features used for duration analysis, and their values for the sample utterances of ``Flagge'' in \cref{fig:featuresexample}. 
-		\caption{Features used to represent lexical stress prosody. 
+		\caption{%
+		Prosodic features.
+		%Features used to represent lexical stress prosody. 
 		S0 refers to the word's first syllable, S1 to the second syllable; similarly, V0 and V1 refer to the nucleus (vowel) of the first and second syllable, respectively.
 		}
 		
@@ -565,7 +570,7 @@ Minimum	&	23.21\%	&	-0.01	\\
 			\\
 		\bottomrule	
 		\end{tabularx}
-		\label{tab:durationfeatures}
+		\label{tab:durfeatures}
 		\end{subtable}
 		
 		\vspace{1em}
@@ -656,11 +661,37 @@ Minimum	&	23.21\%	&	-0.01	\\
 			
 		\bottomrule
 		\end{tabularx}
-		\label{tab:intfeatures}
+		\label{tab:enerfeatures}
 		\end{subtable}
 		
 		
-		\label{tab:features}
+		\label{tab:prosfeatures}
+		\end{table}
+		
+		
+		 In addition to these prosodic features, features representing the word type uttered and characteristics of the speaker were also taken into account, as described in \cref{tab:spkrfeatures}.
+		
+		\begin{table}
+			\centering
+			\caption{Speaker/word features}
+			\begin{tabularx}{\columnwidth}{lX}
+			%\begin{tabular}{ll}
+			\toprule
+			Feature name & Description \\
+			\midrule
+			WD %WORD 
+				& Word type uttered (e.g. \textit{Tatort}) \\
+			LVL % LEVEL 
+				& Speaker's L2 German skill level \newline (A2$|$B1$|$B2$|$C1)\\
+			GEN %GENDER 
+				& Speaker's age/gender category \newline (Girl$|$Boy$|$Woman$|$Man)\\
+%			LVL+GEN & LEVEL, GENDER \\
+%			WD+LVL & WORD, LEVEL \\
+%			WD+GEN & WORD, GENDER \\
+%			WD+SPKR & WORD, LEVEL, GENDER \\
+			\bottomrule
+			\end{tabularx}
+			\label{tab:spkrfeatures}		
 		\end{table}
 	    
 	    

@@ -18,6 +18,8 @@
 \usepackage{multirow}
 \usepackage{tipa}
 \usepackage{tabularx}
+\usepackage{caption}
+\usepackage{subcaption}
 
 
 
@@ -498,15 +500,17 @@ Minimum	&	23.21\%	&	-0.01	\\
 	
 	As mentioned in \cref{sec:bkgd}, the classification-based approach to identifying lexical stress errors has not been sufficiently explored in CAPT research, especially research on CAPT for German. 
 	By way of a preliminary investigation of the feasibility of this type of error diagnosis, a series of classification experiments were conducted in an effort to determine:
+	\TODO{
 	\begin{itemize}%[topsep=-.5em]
-	 \item how well lexical errors can be identified by a classification-based approach, in comparison to the accuracy of human listeners in identifying such errors, 
-	 \item \TODO{which of the prosodic features discussed in \cref{sec:diag:prosody}} are most useful for classification, and
-	 \item whether a classification-based approach can lead to reasonably accurate diagnosis for words or speakers not seen in the training data. \TODO{explain}
+	 \item{how accurately lexical errors can be automatically classified, in comparison to the accuracy of human listeners in identifying such errors,}
+	 \item{which of the prosodic features discussed in \cref{sec:diag:prosody} are most useful for classification, and}
+	 \item{whether a classification-based approach can lead to reasonably accurate diagnosis for words or speakers not seen in the training data.}
 	 \end{itemize}
+	}
 	% The remainder of this section describes these experiments, and \cref{sec:results} presents their findings. 
 	
 	 
-	 The WEKA machine learning toolkit\TODO{footnote URL} was used to train and evaluate classifiers for these experiments. In this work, only simple Classification And Regression Tree (CART) classifiers were used.
+	 The WEKA machine learning toolkit\TODO{footnote URL} was used to train and evaluate classifiers for these experiments. In this work, only simple Classification And Regression Tree (CART) classifiers \TODO{Breiman1984?} were used.
 	 Many other classification algorithms are implemented in WEKA, some of which could  conceivably offer better performance; here, CARTs were chosen for their simple training process and their ease of interpretation by humans. 
 	 In future work (see \cref{sec:conc}), it would be interesting to compare different classification algorithms to see if other classifiers are more effective for this type of data, along the lines of the experiments by Kim and Beutnagel \cite{Kim2011}.
 
@@ -516,11 +520,64 @@ Minimum	&	23.21\%	&	-0.01	\\
 		In practice, however, these trees classify every utterance as either [correct] or [incorrect], neglecting [none] and the other labels due to their comparatively low frequency in the data. 
 		Overall classification accuracy on the annotated sub-corpus was assessed by using held-out portions of the annotated data as test sets, and performing cross-evaluation on multiple train/test splits of the data. The features and divisions of data used in each experiment are described in the sections below.
 	
-		%\subsection{Classification algorithm}
-		%\label{sec:method:algorithm}
 	
 	    \subsection{Feature sets}
 	    \label{sec:method:featuresets}
+	    
+	    %The automatically-determined word, syllable, and phone boundaries obtained as described in the previous section enable the CAPT tool to locate and analyze segments of the speech signal relevant to the realization of lexical stress. This section describes the features by which the system analyzes the lexical stress prosody of an utterance, be it the utterance of a learner or of a native speaker. These features relate to the three acoustic properties (and by extension their perceptual correlates) described in Section 2.3, namely duration (timing), fundamental frequency (pitch), and intensity (loudness). The relative utility of these features in automatically diagnosing lexical stress errors is discussed further in Section 4.4.
+	    %
+	    %Throughout this section, the features discussed are illustrated with their values for a word from two sample utterances of a German word selected from the IFCASL corpus: one by a native German speaker (assumed to represent a correct realization of lexical stress), the other an utterance from an L1 French speaker which was assigned a gold-standard label of [incorrect] (see Chapter 3).
+	    
+	    %Analysis of duration (timing) is extremely important for detecting stress patterns; indeed, some research indicates that syllable duration may be the most important, if not the only acoustic correlate of lexical stress in German (e.g. \cite{Dogil1999}). Duration analysis therefore figures prominently in the analysis and assessment of learners' lexical stress in this work. 
+	    %
+	    %Given the word-, syllable- and phone-level segmentations of an utterance (see \cref{sec:diag:segmentation}), the extraction of duration features for that utterance is trivial, as it consists simply of noting the duration of each relevant segment. % in the appropriate segmentation. Following \textcite{Bonneau2011}, duration analysis in this work takes into account the  duration of each syllable in the word to be analyzed, and of the vowels at the nucleus of each syllable. 	To account for inter-speaker variability, e.g. the fact that some speakers may have an overall slower or faster speech rate than others, relative rather than absolute durations are used. The list of duration features computed for each word utterance is given in \cref{tab:durationfeatures}, along with the values computed for each feature from the sample utterances shown in \cref{fig:featuresexample}.
+	    %
+	    
+	    
+	    
+	    
+	    
+	    \begin{table}
+		\centering
+		%\caption[Features used for duration analysis]{Features used for duration analysis, and their values for the sample utterances of ``Flagge'' in \cref{fig:featuresexample}. 
+		\caption{Features used to represent lexical stress prosody. 
+		S0 refers to the word's first syllable, S1 to the second syllable; similarly, V0 and V1 refer to the nucleus (vowel) of the first and second syllable, respectively.
+		}
+		
+		\begin{subtable}{\columnwidth}
+		\centering
+		\caption{Duration feature set (DUR)}
+		 \begin{tabularx}{\columnwidth}{lX}%{lXcc}
+		\toprule
+		Feature name & Description
+		%\multirow{2}{*}{Feature name} 
+		%& \multirow{2}{*}{Description}
+		%& \multicolumn{2}{c}{Value} 
+		\\
+		%&		 &  (a) G		& (b) F \\
+		\midrule
+		REL-SYLL-DUR 	
+			& \mbox{Duration of S1}$/$\mbox{duration of S0}
+			%& 	0.50		& 	1.00	
+			\\
+		REL-V-DUR 		
+			& \mbox{Duration of V1}$/$\mbox{duration of V0}
+			%& 	0.56		& 	1.71	
+			\\
+		\bottomrule	
+		\end{tabularx}
+		\label{tab:durationfeatures}
+		\end{subtable}
+		
+		
+				
+		
+		
+		
+		
+		\label{tab:features}
+		\end{table}
+	    
 	    
 	    \subsection{Datasets for training and testing}
 	    \label{sec:method:datasets}

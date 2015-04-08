@@ -755,7 +755,7 @@ Minimum	&	23.21\%	&	-0.01	\\
 			\[F_2 = (1+2^2) \cdot PR/(2^2 \cdot P+R) = 5PR/(4P+R)\]
 			}
 	\end{itemize}
-	These are reported to account for the fact that in the intended application of CAPT, telling a student that they have made a mistake when in fact they have not can be more damaging to their motivation and willingness to continue learning with the system than telling them that they have stressed a word correctly when in fact they have made a mistake \cite{Neri2002}. Therefore, [correct] R should be as high to 1 as possible, while still maintaining a balance with P such that the system does not trivially classify all utterances as [correct], which would render it useless. To keep this in perspective, the results in this section report both the commonly used F$_1$ measure, which weights P and R evenly, as well as F$_2$, which prioritizes R over P.
+	These are reported to account for the fact that in the intended application of CAPT, telling a student that they have made a mistake when in fact they have not can be more damaging to their motivation and willingness to continue learning with the system than telling them that they have stressed a word correctly when in fact they have made a mistake \cite{Neri2002}. Therefore, [correct] R should be as close to 1 as possible, while still maintaining a balance with P such that the system does not trivially classify all utterances as [correct], which would render it useless. To keep this in perspective, the results in this section report both the commonly used F$_1$ measure, which weights P and R evenly, as well as F$_2$, which prioritizes R over P.
 		
 
 	\section{Results}
@@ -766,7 +766,44 @@ Minimum	&	23.21\%	&	-0.01	\\
 		\subsection{Feature performance}
 		\label{sec:results:features}		
 		
-		%Table 4.5 lists the results of experiments with the prosodic features described in Table 4.4a. As seen in the first three rows of Table 4.5, the results obtained using features representing each of the three acoustic correlates of lexical stress, duration, F0, and intensity (energy), conform with findings from other research (see Section 2.3): of the three feature sets, duration seems to be the best predictor of lexical stress errors, insofar as a classifier trained on duration features alone has higher accuracy, κ, and F-scores than one trained on F0 features alone, which in turn outperforms a classifier trained using only features related to intensity. However, it should be noted that the F0 and intensity features do seem to be at an advantage over the duration features in one respect: the latter has an average recall of only 0.91 for [correct] utterances, while the other two features exhibit perfect recall (1.0). As mentioned earlier (Section 4.4.1), lower [correct] recall means that correct pronunciations are being misclassified as incorrect, which is a dangerous type of mistake for a CAPT system to make.
+		\begin{table}
+			\centering
+			\caption[Results of experiments with prosodic features]{Results of experiments with prosodic features.%,
+			%quantified by percent accuracy (\% acc.) and Kappa agreement ($\kappa$) with respect to the gold-standard labels, as well as precision (P), recall (R) and F$_1$ and F$_2$ measures for the [correct] class. 
+			The best values achieved for each metric are displayed in \textbf{bold}.
+			}
+			%\begin{tabularx}{\textwidth}{lXXXXXXXX}		
+			\begin{tabularx}{\columnwidth}{lccXXXX}			
+			
+			\toprule
+			\multirow{2}{*}{Feature set} & \multirow{2}{*}{\% acc.} & \multirow{2}{*}{$\kappa$} & \multicolumn{4}{c}{[correct] class} \\
+			 %& acc. & inacc. 
+			 \cmidrule(lr){4-7}
+			& & & P & R & F$_1$ & F$_2$ \\
+			\midrule
+		
+DUR	&	66.78	&	0.19	&	0.69	&	0.91	&	0.79	&	0.86	\\
+F0		&	64.37	&	0.02	&	0.64	&	\textbf{1.00}	&	0.78	&	\textbf{0.90}	\\
+ENER		&	63.77	&	0.00	&	0.64	&	\textbf{1.00}	&	0.78	&	\textbf{0.90}	\\
+\addlinespace											
+ENER+F0		&	64.52	&	0.04	&	0.65	&	0.98	&	0.78	&	0.89	\\
+DUR+ENER	&	67.68	&	0.25	&	0.71	&	0.89	&	0.79	&	0.85	\\
+DUR+F0		&	\textbf{69.77}	&	\textbf{0.29}	&	\textbf{0.72}	&	0.91	&	\textbf{0.80}	&	0.86	\\
+\addlinespace											
+%ALL	
+DUR+F0+ENER &	67.52	&	0.25	&	0.71	&	0.89	&	0.79	&	0.85	\\		
+			\bottomrule
+			\label{tab:results:prosody}
+			\end{tabularx}
+		\end{table}
+		
+		\Cref{tab:results:prosody} lists the results of experiments with the prosodic features described in \cref{tab:prosfeatures}. As seen in the first three rows of \cref{tab:results:prosody}, the results obtained using features representing each of the three acoustic correlates of lexical stress, duration, F0, and intensity (energy), confirm that duration features seem to be the best predictor of lexical stress errors.%, followed by F0 and then energy. 
+		In fact, the perfect (1.00) R values and $\kappa$ at or near 0 for F0 and energy features seem to indicate that these feature sets do not enable the system to discriminate between error classes at all, resulting in classifiers that are useless for CAPT insofar as they simply classify all utterances as [correct].
+		%(indeed, for these feature sets P for the [incorrect] class was 0.0). 
+		%However, it should be noted that the F0 and intensity features do seem to be at an advantage over the duration features in one respect: the latter has an average recall of only 0.91 for [correct] utterances, while the other two features exhibit perfect recall (1.0). As mentioned earlier (Section 4.4.1), lower [correct] recall means that correct pronunciations are being misclassified as incorrect, which is a dangerous type of mistake for a CAPT system to make.
+		
+		However, as the lower rows of \cref{tab:results:prosody} show, better performance was obtained with classifiers trained on a combination of these features than using each set in isolation. The pairing of duration and F0 features, with energy features omitted, resulted in the best overall performance using only prosodic features: 
+		69.77\% accuracy, $\kappa$ = 0.29, and [correct] F$_1$ = 0.8.
 		%Compared to using each of the three prosodic feature sets in isolation, it is clear from the figures in the lower rows of Table 4.5 that even better performance can be achieved by combining these features. Interestingly, however, better performance was observed with classifiers trained only on duration and F0 features (omitting intensity features) than with those trained on features of all three types. This duration-F0 pairing resulted in the best- overall averages for any of the prosodic feature combinations: 69.77% accuracy, κ = 0.29, and F1 = 0.8 for the [correct] class.
 		
 		%Comparing the performance of the two speaker-related features, the speaker’s proficiency level (LEVEL) seems to be a better predictor of stress accuracy than their age/gender category (GENDER, which refers to whether the speaker is a girl, boy, woman, or man, and not exclusively to whether they are a male or a female; see Table 4.4b). This is not surprising, considering the large discrepancy between skill level groups observed in the error distribution analysis (see Section 3.6.3). If the intended application of the classifier were the assessment of a learner’s proficiency level, including this feature would obviously be nonsensical; however, in this context the application is not assessment but training, and in that case it makes sense to allow the system to take the learner’s level into account.

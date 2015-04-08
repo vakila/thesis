@@ -730,9 +730,38 @@ Minimum	&	23.21\%	&	-0.01	\\
 		%Furthermore, in order for a CAPT tool to be useful in practice, it must be able to diagnose the speech of a learner from their very first time using the system. In the experiments reported above, it is possible that the training data’s inclusion of other utterances by the speaker in question resulted in higher performance than would be observed if such utterances were not available as training instances, so the classifier’s performance on unseen speakers must be compared to the performance reported above, once again with the hypothesis that the classifier will perform more poorly on unseen test data. To test these hypotheses, another series of experiments was carried out using different configurations of testing and training data sets.
 		%To create training and testing data for experiments with utterances from unseen speakers, the entire set of labeled non-native utterances (see Section 4.4.1) was divided into 56 subsets, each containing all utterances from one of the 56 unique non-native speakers. Using a classifier trained on the native German utterances as well as those of the other 55 speakers, performance on each of these 56 test sets was evaluated. To investigate whether adding features related to speaker or word characteristics is more helpful than prosodic features alone when diagnosing unseen speakers’ errors, a comparison was made between classifiers trained using several combinations of the best features from the experiments described in Section 4.4.2 above. The results of the unseen-speaker experiments, and the different feature sets used for training, are given in Table 4.7.
 		
+		\subsection{Evaluation metrics}
+		\label{sec:method:eval}
+		
+		Classifier performance is quantified in terms of percent accuracy (\% acc.) and Kappa agreement ($\kappa$) with respect to the gold-standard labels. For the [correct] class, 
+	%precision (P), recall (R) and F$_1$ and F$_2$ measures are also reported
+	the following measures are also reported:
+	\begin{itemize}
+			\item{Precision (P): number of utterances correctly classified as [correct] $/$ total no. classified as [correct]
+			%the number of instances the classifier correctly assigned to this class (i.e. the number labeled as this class that were truly of this class), divided by the total number of instances it assigned to this class
+			}
+			\item{Recall (R): no. correctly classified as [correct] $/$ total no. of [correct] utterances in the gold-standard dataset
+			%the number of instances the classifier correctly assigned to this class, divided by the number of instances which truly belong to this class
+			}
+			\item{F$_1$ measure:
+			harmonic mean of P and R (where both are weighted equally), i.e. $F_1 = 2PR/(P+R)$
+			%, also known simply as F-measure or F-score: a metric which combines Precision and Recall by taking their harmonic mean, weighting both equally. It is computed with the formula:
+			%\[F_1 = 2PR/(P+R)\]
+			%\[\frac{2PR}{P+R}\]
+			}
+			\item{F$_2$ measure: 
+			similar to F$_1$ measure, but with R given twice as much weight as P: %
+			% F$_2$ is computed as:
+			\[F_2 = (1+2^2) \cdot PR/(2^2 \cdot P+R) = 5PR/(4P+R)\]
+			}
+	\end{itemize}
+	These are reported to account for the fact that in the intended application of CAPT, telling a student that they have made a mistake when in fact they have not can be more damaging to their motivation and willingness to continue learning with the system than telling them that they have stressed a word correctly when in fact they have made a mistake \cite{Neri2002}. Therefore, [correct] R should be as high to 1 as possible, while still maintaining a balance with P such that the system does not trivially classify all utterances as [correct], which would render it useless. To keep this in perspective, the results in this section report both the commonly used F$_1$ measure, which weights P and R evenly, as well as F$_2$, which prioritizes R over P.
+		
 
 	\section{Results}
 	\label{sec:results}
+	
+	This section describes the results of the classification experiments conducted by training CART classifiers using various configurations of the feature sets and train/test data splits described in \cref{sec:method}. 
 	
 		\subsection{Feature performance}
 		\label{sec:results:features}		

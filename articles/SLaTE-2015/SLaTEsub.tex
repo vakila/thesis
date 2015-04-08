@@ -456,6 +456,7 @@ Minimum	&	23.21\%	&	-0.01	\\
 		%In these cases the gold-standard label was chosen via a rule-based procedure which 
 		\TODO{The decision-making procedure} prioritized experts' judgments, favored certain  judgments ([correct] or [incorrect]) over uncertain ([none]), and gave learners the benefit of the doubt when annotators disagreed as to whether the utterance was [correct] or [incorrect].
 	
+		\TODO{Add exact token/\% numbers, so \cref{tab:errors} can go}
 		To shed further light on the error classification task, the overall distribution of lexical stress errors in the annotated dataset 
 		was analyzed with reference to the gold-standard labels thus determined.
 		As seen in \cref{tab:errors} and illustrated in \cref{fig:errors}, 
@@ -469,7 +470,7 @@ Minimum	&	23.21\%	&	-0.01	\\
 		
 		\begin{table}
 			\centering
-			\caption{Overall frequency of lexical stress errors in the annotated data}
+			\caption{Overall frequency of lexical stress errors in the annotated data \TODO{remove}}
 			\begin{tabular}{lrr}
 			\toprule
 			Label & Tokens & \% of corpus \\
@@ -673,8 +674,9 @@ Minimum	&	23.21\%	&	-0.01	\\
 		\label{tab:prosfeatures}
 		\end{table}
 		
-		
-		 In addition to these prosodic features, features representing the word type uttered and characteristics of the speaker were also taken into account, as described in \cref{tab:spkrfeatures}.
+		 Using different combinations of these feature sets, a series of experiments was conducted to determine which features give the best accuracy in the error-classification task. Establishing which features perform best not only enables the creation of the most accurate classification-based error diagnosis system possible, but may also clarify whether and how strongly these acoustic properties correspond with perceived lexical stress errors in L2 German.
+		 In addition to the prosodic features (\cref{tab:prosfeatures}), features representing the word type uttered and characteristics of the speaker (see \cref{tab:spkrfeatures}) were also included in the experiments, to ascertain whether including such features could improve performance.
+		The results of these feature experiments are presented in \cref{sec:results:features}.
 		
 		\begin{table}
 			\centering
@@ -706,9 +708,21 @@ Minimum	&	23.21\%	&	-0.01	\\
 		%In addition to the L2 utterances and their gold-standard labels from the annotated dataset (see Section 3.5), the corresponding L1 utterances of the selected word types from the the IFCASL-GG corpus were also included in training data, with each native utterance labeled as [correct] based on the assumption that native speakers always realize lexical stress correctly.
 
 
+		
+		%A 10-fold cross-validation was performed on the entire set of available training data, i.e. the utterances of 12 German word types produced by L1 French speakers which had been annotated for lexical stress errors as described in Chapter 3, along with the utterances of these word types by native German speakers, labeled as correct. As the goal of error diagnosis by classification in the CAPT context is to classify non-native speech, including native utterances in the test data was not appropriate; therefore, for each of the 10 folds of the cross-validation, one tenth of the non-native utterances were randomly selected to be held out as the test data set, and the other nine-tenths were combined with the native utterances to create the training data set.
+		%To evaluate feature performance, classifiers were trained using various subsets of the com- plete feature set, which are listed in Table 4.4. For each of these feature combinations, classifiers were trained on each of the 10 training sets created as just described, and tested on the corresponding test set. The averages of each of the aforementioned evaluation metrics (see Section 4.4.1) across all 10 folds are reported.
+		
+		
+		%one motivation for a classification-based approach to error diagnosis is that the abstraction from concrete reference utterances afforded by such a method can theoretically enable the diagnosis of errors in new word types without requiring additional recordings of native speakers pronouncing these words; to assess the feasibility of diagnosing utterances of new words, the classifier’s performance on words not seen in the training data must be evaluated and compared with the performance observed on seen words, with the hypothesis that the former will be better than the latter. Furthermore, in order for a CAPT tool to be useful in practice, it must be able to diagnose the speech of a learner from their very first time using the system. In the experiments reported above, it is possible that the training data’s inclusion of other utterances by the speaker in question resulted in higher performance than would be observed if such utterances were not available as training instances, so the classifier’s performance on unseen speakers must be compared to the performance reported above, once again with the hypothesis that the classifier will perform more poorly on unseen test data. To test these hypotheses, another series of experiments was carried out using different configurations of testing and training data sets.
+		%To create training and testing data for experiments with utterances from unseen speakers, the entire set of labeled non-native utterances (see Section 4.4.1) was divided into 56 subsets, each containing all utterances from one of the 56 unique non-native speakers. Using a classifier trained on the native German utterances as well as those of the other 55 speakers, performance on each of these 56 test sets was evaluated. To investigate whether adding features related to speaker or word characteristics is more helpful than prosodic features alone when diagnosing unseen speakers’ errors, a comparison was made between classifiers trained using several combinations of the best features from the experiments described in Section 4.4.2 above. The results of the unseen-speaker experiments, and the different feature sets used for training, are given in Table 4.7.
+		%To evaluate classification performance on unseen word types, the non-native utterances annotated for lexical stress (see Section 4.4.1) were divided by their word type, resulting in twelve different data sets to be used for testing. To construct the training set for each test set, utterances of the target word type were removed from the complete set of native German utterances, and the resulting set of 11 word types uttered by L1 German speakers was combined with the utterances of those 11 word types by L2 speakers. Given the improvement in performance observed with the inclusion of speaker-related features (see Section 4.4.2), along with the apparent interplay between such features and the prosodic feature set (such that overall performance improved when all prosodic features were included, not just the best-performing prosodic features of duration and F0), classifiers were trained using a few different combinations of features, to ascertain how these features affect performance when the test data consists of unseen words. It might be the case that including information about the speaker, i.e. their age/gender and proficiency level, may be more helpful when there are no training instances available for the given word type.
+
 	\section{Results}
 	\label{sec:results}
+	
 		\subsection{Feature performance}
+		\label{sec:results:features}		
+		
 		\subsection{Performance on unknown words}
 		\subsection{Performance on unknown speakers}
 	

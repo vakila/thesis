@@ -496,8 +496,28 @@ Minimum	&	23.21\%	&	-0.01	\\
 	\section{Method}
 	\label{sec:method}
 	
-		\subsection{Classification algorithm}
-		\label{sec:method:algorithm}
+	As mentioned in \cref{sec:bkgd}, the classification-based approach to identifying lexical stress errors has not been sufficiently explored in CAPT research, especially research on CAPT for German. 
+	By way of a preliminary investigation of the feasibility of this type of error diagnosis, a series of classification experiments were conducted in an effort to determine:
+	\begin{itemize}%[topsep=-.5em]
+	 \item how well lexical errors can be identified by a classification-based approach, in comparison to the accuracy of human listeners in identifying such errors, 
+	 \item \TODO{which of the prosodic features discussed in \cref{sec:diag:prosody}} are most useful for classification, and
+	 \item whether a classification-based approach can lead to reasonably accurate diagnosis for words or speakers not seen in the training data. \TODO{explain}
+	 \end{itemize}
+	% The remainder of this section describes these experiments, and \cref{sec:results} presents their findings. 
+	
+	 
+	 The WEKA machine learning toolkit\TODO{footnote URL} was used to train and evaluate classifiers for these experiments. In this work, only simple Classification And Regression Tree (CART) classifiers were used.
+	 Many other classification algorithms are implemented in WEKA, some of which could  conceivably offer better performance; here, CARTs were chosen for their simple training process and their ease of interpretation by humans. 
+	 In future work (see \cref{sec:conc}), it would be interesting to compare different classification algorithms to see if other classifiers are more effective for this type of data, along the lines of the experiments by Kim and Beutnagel \cite{Kim2011}.
+
+		\TODO{paraphrase the below}
+
+		For each relevant configuration (see \cref{sec:method:featuresets,sec:method:datasets}), a CART is trained to classify utterances as belonging to one of the five label categories described in \cref{sec:data:annotation}. 
+		In practice, however, these trees classify every utterance as either [correct] or [incorrect], neglecting [none] and the other labels due to their comparatively low frequency in the data. 
+		Overall classification accuracy on the annotated sub-corpus was assessed by using held-out portions of the annotated data as test sets, and performing cross-evaluation on multiple train/test splits of the data. The features and divisions of data used in each experiment are described in the sections below.
+	
+		%\subsection{Classification algorithm}
+		%\label{sec:method:algorithm}
 	
 	    \subsection{Feature sets}
 	    \label{sec:method:featuresets}
@@ -505,6 +525,7 @@ Minimum	&	23.21\%	&	-0.01	\\
 	    \subsection{Datasets for training and testing}
 	    \label{sec:method:datasets}
 
+		%In addition to the L2 utterances and their gold-standard labels from the annotated dataset (see Section 3.5), the corresponding L1 utterances of the selected word types from the the IFCASL-GG corpus were also included in training data, with each native utterance labeled as [correct] based on the assumption that native speakers always realize lexical stress correctly.
 
 
 	\section{Results}

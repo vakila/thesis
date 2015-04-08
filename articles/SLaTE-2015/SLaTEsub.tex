@@ -159,7 +159,9 @@ With respect to production, studies of L2 Dutch have shown that French speakers,
 	Intelligibility, as opposed to lack of a “foreign accent,” is generally considered to be the most important goal of pronunciation training \cite{Munro1999,Neri2002,Derwing2005,Field2005,Witt2012}. The exact definition of \textit{intelligibility} is a topic of debate,
 	% in the literature, as is the question of whether and how it differs from the notion of comprehensibility; here, let us follow
 	but here we will follow Munro and Derwing \cite[p.~289]{Munro1999} in understanding it broadly as ``the extent to which a speaker’s message is actually understood by a listener.''
-	Generally speaking, prosodic errors have often been found to have a larger impact on the perceived intelligibility of L2 speakers than segmental errors (Derwing and Munro, 2005; Hahn, 2004; Witt, 2012), and several studies have found lexical stress errors to have a particularly strong impact on intelligibility in free-stress languages like English and Dutch \cite{Cutler2005,Field2005} 
+	Generally speaking, prosodic errors have often been found to have a larger impact on the perceived intelligibility of L2 speakers than segmental errors 
+	%Hahn2004
+	\cite{Derwing2005,Witt2012}, and several studies have found lexical stress errors to have a particularly strong impact on intelligibility in free-stress languages like English and Dutch \cite{Cutler2005,Field2005} 
 	%and German \cite{Hirschfeld1994}, 
 	%Dutch, and German (Cutler, 2005; Field, 2005; Hirschfeld, 1994). Indeed, studies on perception of German L2 speech have found that among a variety of pronunciation error types, lexical stress errors have one of the most drastic impacts on intelligibility (Hirschfeld, 1994). 
 	Though relatively little research has been done on how various pronunciation errors affect intelligibility in L2 German specifically, some studies suggest that 
@@ -195,7 +197,9 @@ With respect to production, studies of L2 Dutch have shown that French speakers,
 		\subsection{The IFCASL corpus of learner speech}
 		\label{sec:data:corpus}		
 		
-		The learner speech data used in this work has been excerpted from the IFCASL corpus \cite{Trouvain2013,Fauth2014}, a collection of 
+		The learner speech data used in this work has been excerpted from the IFCASL corpus 
+		%Trouvain2013,
+		\cite{Fauth2014}, a collection of 
 	phonetically diverse utterances in French and German spoken by both native speakers and non-native speakers with the other language as L1. This is the first known corpus of L2 speech in both directions of the French-German language pair, 
 	and is thus an invaluable resource for research on pronunciation errors \TODO{between these languages}.
 	
@@ -456,37 +460,42 @@ Minimum	&	23.21\%	&	-0.01	\\
 		%In these cases the gold-standard label was chosen via a rule-based procedure which 
 		\TODO{The decision-making procedure} prioritized experts' judgments, favored certain  judgments ([correct] or [incorrect]) over uncertain ([none]), and gave learners the benefit of the doubt when annotators disagreed as to whether the utterance was [correct] or [incorrect].
 	
-		\TODO{Add exact token/\% numbers, so \cref{tab:errors} can go}
+		
 		To shed further light on the error classification task, the overall distribution of lexical stress errors in the annotated dataset 
 		was analyzed with reference to the gold-standard labels thus determined.
-		As seen in \cref{tab:errors} and illustrated in \cref{fig:errors}, 
+		As 
+		%seen in \cref{tab:errors} and 
+		illustrated in \cref{fig:errors}, 
 		%Evidently, 
-		most (63.77\%) of learners' lexical stress productions were judged to be correct; in other words, almost two-thirds of the time, learners clearly stressed the correct (initial) syllable in the uttered word.
-		However, learners also seemed to make mistakes regularly, with 29.64\% of their word utterances labeled [incorrect] and another 5.24\% labeled [none].
+		most of learners' lexical stress realizations were judged to be correct (426 utterances, i.e. 63.8\% of the 668 labeled utterances);
+		%most (63.77\%) of learners' lexical stress productions were judged to be correct; 
+		in other words, almost two-thirds of the time, learners clearly stressed the correct (initial) syllable in the uttered word.
+		However, learners also seemed to make mistakes regularly, with 29.6\% (198) of their word utterances labeled [incorrect] and another 5.2\% (35) labeled [none].
 		%However, incorrect productions (productions in which the learner clearly stressed the incorrect syllable) and productions in which the learner did not clearly stress either syllable (corresponding to the [none] label, as described in \cref{sec:lexstress:method}), also occurred regularly: 29.64\% of the productions were judged incorrect and 5.24\% were labeled [none]. 	
 		If we consider both [incorrect] and [none] utterances as types of lexical stress errors, then errors were observed in just over one-third of utterances. %(34.88\%) of the  utterances annotated. 
 		%
 		This considerable proportion of errors seems to confirm the expectation (mentioned in \cref{sec:bkgd}) that French learners of German frequently make lexical stress errors.
+		Only 1.2\% (8) of the word utterances were deemed to have an incorrect number of syllables, and a problem with the audio was indicated in only one utterance; this small proportion of impossible-to-evaluate utterances seems to bode well for an automatic error detection system, \TODO{which will have to cope with such errors}.
 		
-		\begin{table}
-			\centering
-			\caption{Overall frequency of lexical stress errors in the annotated data \TODO{remove}}
-			\begin{tabular}{lrr}
-			\toprule
-			Label & Tokens & \% of corpus \\
-			\midrule
-			correct	& 426	& 63.77\% \\
-			incorrect &	198	& 29.64\% \\
-			none	 &35 &	5.24\% \\
-			bad\_nsylls	& 8	& 1.20\% \\
-			bad\_audio	& 1	& 0.15\%\\
-			\midrule
-			%\addlinespace
-			Total & 668 & 100\%\\
-			\bottomrule
-			\end{tabular}
-			\label{tab:errors}
-		\end{table}
+%		\begin{table}
+%			\centering
+%			\caption{Overall frequency of lexical stress errors in the annotated data \TODO{remove}}
+%			\begin{tabular}{lrr}
+%			\toprule
+%			Label & Tokens & \% of corpus \\
+%			\midrule
+%			correct	& 426	& 63.77\% \\
+%			incorrect &	198	& 29.64\% \\
+%			none	 &35 &	5.24\% \\
+%			bad\_nsylls	& 8	& 1.20\% \\
+%			bad\_audio	& 1	& 0.15\%\\
+%			\midrule
+%			%\addlinespace
+%			Total & 668 & 100\%\\
+%			\bottomrule
+%			\end{tabular}
+%			\label{tab:errors}
+%		\end{table}
 		
 		\begin{figure}
 			\centering

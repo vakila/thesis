@@ -871,10 +871,10 @@ WD+LV+AG	&	70.52	&	0.31	&	0.72	&	0.91	&	0.80	&	0.86	\\
 		%and learners of different levels may make different  have different training needs; therefore, 
 		so in this case it is reasonable to allow the system to take LV into account. }		
 		 seemed to be most helpful, while including the speaker's age/gender category (AG) appeared to have a negative, if any, impact on performance. 
-		%Comparing the performance of the two speaker-related features, the speaker’s proficiency level (LEVEL) seems to be a better predictor of stress accuracy than their age/gender category (GENDER, which refers to whether the speaker is a girl, boy, woman, or man, and not exclusively to whether they are a male or a female; see Table 4.4b). This is not surprising, considering the large discrepancy between skill level groups observed in the error distribution analysis (see Section 3.6.3). If the intended application of the classifier were the assessment of a learner’s proficiency level, including this feature would obviously be nonsensical; however, in this context the application is not assessment but training, and in that case it makes sense to allow the system to take the learner’s level into account.
+		%Comparing the performance of the two speaker-related features, the speaker’s proficiency level (LV) seems to be a better predictor of stress accuracy than their age/gender category (GENDER, which refers to whether the speaker is a girl, boy, woman, or man, and not exclusively to whether they are a male or a female; see Table 4.4b). This is not surprising, considering the large discrepancy between skill level groups observed in the error distribution analysis (see Section 3.6.3). If the intended application of the classifier were the assessment of a learner’s proficiency level, including this feature would obviously be nonsensical; however, in this context the application is not assessment but training, and in that case it makes sense to allow the system to take the learner’s level into account.
 		%Interestingly, for many of the word/speaker feature combinations tried, slightly different results were obtained when these features were combined with the full set of prosodic features (DR+F0+EN) than with the best-performing subset of the prosodic features, DR+F0. 
-		Adding WD and LV to the best-performing prosodic features (DUR+F0) improved classification accuracy slightly across all metrics; interestingly, however, the overall best performance on this dataset was achieved by combining WD and LV with the entire set of prosodic features (DR+F0+EN), yielding average accuracy of 71.87\%, $\kappa$ of 0.34, and [correct] F$_1$ and F$_2$ measures of 0.81 and 0.87, respectively.
-		%For example, when combined with the feature set DR+F0+EN, the feature LEVEL slightly outperformed the word of the utterance (WORD) as a predictor of stress accuracy, yet when combined with only the duration and F0 features (DR+F0), WORD outperformed LEVEL. In both situations, the combination of these two features, WD+LV, seemed to give better results than any combination involving GENDER, including the combination using all three word/speaker features. In fact, the best-performing classifiers resulted from using the word of the utterance, the speaker’s proficiency level, and the entire set of prosodic features (WD+LV+DR+F0+EN), yielding an average accuracy of 71.87%, κ of 0.34, and F1 and F2 measures of 0.81 and 0.87, respectively.
+		Adding WD and LV to the best-performing prosodic features (DR+F0) improved classification accuracy slightly across all metrics; interestingly, however, the overall best performance on this dataset was achieved by combining WD and LV with the entire set of prosodic features (DR+F0+EN), yielding average accuracy of 71.87\%, $\kappa$ of 0.34, and [correct] F$_1$ and F$_2$ measures of 0.81 and 0.87, respectively.
+		%For example, when combined with the feature set DR+F0+EN, the feature LV slightly outperformed the word of the utterance (WD) as a predictor of stress accuracy, yet when combined with only the duration and F0 features (DR+F0), WD outperformed LV. In both situations, the combination of these two features, WD+LV, seemed to give better results than any combination involving GENDER, including the combination using all three word/speaker features. In fact, the best-performing classifiers resulted from using the word of the utterance, the speaker’s proficiency level, and the entire set of prosodic features (WD+LV+DR+F0+EN), yielding an average accuracy of 71.87%, κ of 0.34, and F1 and F2 measures of 0.81 and 0.87, respectively.
 		
 		Though these statistics are the best of any of the experiments reported in this section, we would perhaps like to see better accuracy and F-measures, and higher than ``fair'' agreement \cite{Landis1977} with the gold-standard labels, before placing such an error-diagnosis system in front of actual students.
 		% However, these results should be interpreted in the context of the particular task at hand, and as Neri et al. (2002, pp. 15-16) point out, for any automatic pronunciation scoring system to be useful, there must be a strong correlation between how the system evaluates a given utterance and how human raters would evaluate it. Here, classification performance was evaluated against the gold-standard annotation of the dataset; yet, as described in Section 3.5, the gold-standard labels represent a consolidation of multiple, often conflicting labels from different annotators (see Section 3.4). 		
@@ -886,6 +886,35 @@ WD+LV+AG	&	70.52	&	0.31	&	0.72	&	0.91	&	0.80	&	0.86	\\
 		
 		\subsection{Performance on unseen words}
 		\label{sec:results:words}
+		
+		\begin{table}
+			\centering
+			\caption[Results of experiments with unseen words]{Results of experiments with unseen words. %, averaged over all 12 held-out word types.
+			%Performance is quantified by percent accuracy (\% acc.) and Kappa agreement ($\kappa$) with respect to the gold-standard labels, as well as precision (P), recall (R) and F$_1$ and F$_2$ measures for the [correct] class. 
+			The best values achieved for each metric are displayed in \textbf{bold}.
+			}
+			\begin{tabularx}{\columnwidth}{lccXXXX}		
+			\toprule
+			\multirow{2}{*}{Feature set} & \multirow{2}{*}{\% acc.} & \multirow{2}{*}{$\kappa$} & \multicolumn{4}{c}{[correct] class} \\
+			\cmidrule(lr){4-7}
+			& & & P & R & F$_1$ & F$_2$ \\
+			\midrule
+DR+F0	&	\textbf{66.85}	&	0.17	&	0.69	&	0.88	&	\textbf{0.77}	&	0.84	\\
++LV %{LV+DR+F0}	
+	&	65.51	&	0.16	&	0.69	&	0.89	&	\textbf{0.77}	&	0.84	\\
++AG %{LVL+AG+DR+F0}	
+	&	65.05	&	0.16	&	0.69	&	0.88	&	0.76	&	0.84	\\
+			\midrule								
+DR+F0+EN	&	65.66	&	\textbf{0.19}	&	\textbf{0.70}	&	0.85	&	0.76	&	0.82	\\
++LV %{LV+DR+F0+EN}	
+	&	64.16	&	0.11	&	0.67	&	0.88	&	0.75	&	0.83	\\
++AG %{LVL+AG+DR+F0+EN}	
+	&	64.31	&	0.12	&	0.68	&	\textbf{0.90}	&	\textbf{0.77}	&	\textbf{0.85}	\\
+
+		\bottomrule
+			\label{tab:results:words}
+			\end{tabularx}
+		\end{table}	
 		
 		%As that table shows, the best average performance on all twelve unseen word types was achieved using classifiers trained only on the best-performing prosodic features (DR+F0), and not taking either of the speaker-related features into consideration: this yielded an accuracy of 66.85%, κ of 0.17, and F1 and F2 measures of 0.77 and 0.84, respectively.
 		%In comparison with the best results obtained on seen words as reported in the previous section (69.77% accuracy and κ =0.29 for the DR+F0 feature set, and 71.87%/κ =0.34 for WD+LV+DR+F0+EN), these statistics seem to support the hypothesis that performance would be lower on words not seen in the training data. Perhaps most striking is the difference in κ, which constitutes a drop from fair to slight agreement with the gold-standard labels (using the Landis and Koch (1977) thresholds), which also constitutes a fall below the average inter-annotator κ of 0.23 observed between human annotations (see Section 3.4.1). However, the drop in the overall accuracy percentage, as well as in the two F-measures, seems less drastic, which seems encouraging from the perspective of extending the diagnostic capabilities of de-stress to novel word types using a classification-based approach, especially considering the possibilities for improving classification performance by other means, e.g. using additional features or more powerful machine learning algorithms (see Section 6.2).

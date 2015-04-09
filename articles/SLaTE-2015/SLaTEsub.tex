@@ -289,14 +289,16 @@ Studies of French learners of Dutch \cite{Michaux2013} and English \cite{Bonneau
 	
 \begin{table}
 		\centering
-		\caption[Word types annotated for lexical stress errors]{%
+		\caption{
+		Word types annotated for lexical stress errors
+		%]{%
 		%The twelve bisyllabic initial-stress 
-		Word types selected from the IFCASL corpus for lexical stress error annotation. 
+		%Word types selected from the IFCASL corpus for lexical stress error annotation. 
 		%The orthographic form (text) of each word type is presented in the leftmost column, followed by its canonical pronunciation (e.g. as found in a pronunciation dictionary). 
-		Canonical pronunciations for each word type are given in IPA notation.
+		Canonical pronunciations are given in IPA notation.
 		% SAMPA notation (\url{http://www.phon.ucl.ac.uk/home/sampa}), with phonemes separated by a space and syllables separated by a period (\texttt{.}); canonical lexical stress is not marked, as all of the listed word types have primary stress on the initial syllable. 
 		%Parts of speech are abbreviated as n. (noun), v. (verb) and pro. (pronoun). 
-		The rightmost column lists the number of tokens (utterances) of each word type in the annotated dataset.
+		The rightmost column lists the number of tokens (utterances) of each word type in the dataset.
 		}
 %		\begin{tabular}{llll}
 %		Flagge & Ringen & Tschechen & halten \\
@@ -572,22 +574,26 @@ Minimum	&	23.21\%	&	-0.01	\\
 	
 	As mentioned in \cref{sec:bkgd}, the classification-based approach to identifying lexical stress errors has not been sufficiently explored in CAPT research, especially research on CAPT for German. 
 	By way of a preliminary investigation of the feasibility of this type of error diagnosis, a series of classification experiments were conducted in an effort to determine:
-	Therefore, we conducted a series of experiments to investigate:
-	%\TODO{
-	\begin{itemize}%[topsep=-.5em]
-	 \item{
+	Therefore, we conducted a series of experiments to investigate
+%%%	:
+%%%	\begin{itemize}%[topsep=-.5em]
+%%%	 \item{
 	 how accurately lexical stress errors can be automatically classified, 
 	 %in comparison to the accuracy of human listeners in identifying such errors,
-	 }
-	 \item{
-	 which of the features discussed in \cref{sec:method:featuresets} are most useful for this classification, and
-	 }
-	 \item{
-	 whether classification can enable accurate error diagnosis for words 
-	 %or speakers 
-	 not seen in the training data.
-	 }
-	 \end{itemize}
+%%%	 }
+%%%	 \item{
+	and
+	 which features 
+	 %(see \cref{sec:method:featuresets}) 
+	 are most useful for this classification.
+%%%	 , and
+%%%	 }
+%%%	 \item{
+%%%	 whether classification can enable accurate error diagnosis for words 
+%%%	 %or speakers 
+%%%	 not seen in the training data.
+%%%	 }
+%%%	 \end{itemize}
 	%}
 	% The remainder of this section describes these experiments, and \cref{sec:results} presents their findings. 
 	
@@ -600,7 +606,7 @@ Minimum	&	23.21\%	&	-0.01	\\
 		%\TODO{paraphrase the below}
 
 		Using the features and training datasets described below (\cref{sec:method:featuresets,sec:method:datasets}), CARTs were trained to classify utterances into one of the five categories described in \cref{sec:data:annotation}. 
-		In practice, however, the classifiers only assign the labels [correct] and [incorrect], apparently neglecting the others due to their comparatively low frequency in the data. 
+		%%%In practice, however, the classifiers only assign the labels [correct] and [incorrect], apparently neglecting the others due to their comparatively low frequency in the data. 
 		Overall classification accuracy %on the annotated sub-corpus
 		 was assessed by holding out portions of the annotated data for testing, and performing $n$-fold cross-validation (see \cref{sec:method:datasets}). 
 		%The features and divisions of data used in each experiment are described in the sections below.
@@ -737,7 +743,9 @@ Minimum	&	23.21\%	&	-0.01	\\
 		\label{tab:prosfeatures}
 		\end{table}
 	    
-	    To represent the lexical stress prosody of an utterance, the automatically-determined word, syllable, and phone segmentations were used to isolate relevant segments of the speech signal, and extract features related to the three acoustic properties mentioned in \cref{sec:bkgd} above: duration, fundamental frequency (F0), and energy. To account for inter-speaker variability, e.g. the fact that some speakers may have a faster speech rate or higher F0 than others, relative rather than absolute features were used. This section explains how these prosodic features, listed in \cref{tab:prosfeatures}, were selected and computed.
+	    To represent the lexical stress prosody of an utterance, the automatically-determined word, syllable, and phone segmentations were used to isolate relevant segments of the speech signal, and extract features related to the three acoustic properties mentioned in \cref{sec:bkgd} above: duration, fundamental frequency (F0), and energy. 
+%%%	    To account for inter-speaker variability, e.g. the fact that some speakers may have a faster speech rate or higher F0 than others, relative rather than absolute features were used. 
+%%%	    This section explains how these prosodic features, listed in \cref{tab:prosfeatures}, were selected and computed.
 	    %The automatically-determined word, syllable, and phone boundaries obtained as described in the previous section enable the CAPT tool to locate and analyze segments of the speech signal relevant to the realization of lexical stress. This section describes the features by which the system analyzes the lexical stress prosody of an utterance, be it the utterance of a learner or of a native speaker. These features relate to the three acoustic properties (and by extension their perceptual correlates) described in Section 2.3, namely duration (timing), fundamental frequency (pitch), and intensity (loudness). The relative utility of these features in automatically diagnosing lexical stress errors is discussed further in Section 4.4.
 	    
 	     
@@ -798,8 +806,8 @@ Minimum	&	23.21\%	&	-0.01	\\
 		%A 10-fold cross-validation was performed on the entire set of available training data, i.e. the utterances of 12 German word types produced by L1 French speakers which had been annotated for lexical stress errors as described in Chapter 3, along with the utterances of these word types by native German speakers, labeled as correct. As the goal of error diagnosis by classification in the CAPT context is to classify non-native speech, including native utterances in the test data was not appropriate; therefore, for each of the 10 folds of the cross-validation, one tenth of the non-native utterances were randomly selected to be held out as the test data set, and the other nine-tenths were combined with the native utterances to create the training data set.
 		%To evaluate feature performance, classifiers were trained using various subsets of the com- plete feature set, which are listed in Table 4.4. For each of these feature combinations, classifiers were trained on each of the 10 training sets created as just described, and tested on the corresponding test set. The averages of each of the aforementioned evaluation metrics (see Section 4.4.1) across all 10 folds are reported.
 		
-		\TODO{Compared to comparison-based diagnosis}, a classification-based approach to error diagnosis is attractive in that it can theoretically enable the creation of CAPT exercises for new word types without requiring additional recordings of L1 utterances of these words. 
-		To assess whether this extension to new words is really feasible, we also evaluated classification performance on words not seen in the training data. This was accomplished by dividing the annotated dataset into 12 subsets, one for word type (see \cref{tab:words}), and performing a 12-fold cross-validation. For each fold, the test dataset consisted of the L2 utterances of a single held-out word type, while the training dataset comprised the L1 and L2 utterances of the other 11 words. 
+%%%		\TODO{Compared to comparison-based diagnosis}, a classification-based approach to error diagnosis is attractive in that it can theoretically enable the creation of CAPT exercises for new word types without requiring additional recordings of L1 utterances of these words. 
+%%%		To assess whether this extension to new words is really feasible, we also evaluated classification performance on words not seen in the training data. This was accomplished by dividing the annotated dataset into 12 subsets, one for word type (see \cref{tab:words}), and performing a 12-fold cross-validation. For each fold, the test dataset consisted of the L2 utterances of a single held-out word type, while the training dataset comprised the L1 and L2 utterances of the other 11 words. 
 		%one motivation for a classification-based approach to error diagnosis is that the abstraction from concrete reference utterances afforded by such a method can theoretically enable the diagnosis of errors in new word types without requiring additional recordings of native speakers pronouncing these words; to assess the feasibility of diagnosing utterances of new words, the classifier’s performance on words not seen in the training data must be evaluated and compared with the performance observed on seen words, with the hypothesis that the former will be better than the latter. 	
 		%To evaluate classification performance on unseen word types, the non-native utterances annotated for lexical stress (see Section 4.4.1) were divided by their word type, resulting in twelve different data sets to be used for testing. To construct the training set for each test set, utterances of the target word type were removed from the complete set of native German utterances, and the resulting set of 11 word types uttered by L1 German speakers was combined with the utterances of those 11 word types by L2 speakers. Given the improvement in performance observed with the inclusion of speaker-related features (see Section 4.4.2), along with the apparent interplay between such features and the prosodic feature set (such that overall performance improved when all prosodic features were included, not just the best-performing prosodic features of duration and F0), classifiers were trained using a few different combinations of features, to ascertain how these features affect performance when the test data consists of unseen words. It might be the case that including information about the speaker, i.e. their age/gender and proficiency level, may be more helpful when there are no training instances available for the given word type.		
 		
@@ -838,10 +846,10 @@ Minimum	&	23.21\%	&	-0.01	\\
 	\section{Results}
 	\label{sec:results}
 	
-	This section describes the results of the classification experiments conducted by training CART classifiers using various configurations of the feature sets and train/test data splits described in \cref{sec:method}. 
+	%This section describes the results of the classification experiments conducted by training CART classifiers using various configurations of the feature sets and train/test data splits described in \cref{sec:method}. 
 	
 
-		\begin{table}[p]
+		\begin{table}
 			\centering
 			\caption[Results of experiments with prosodic features]{Results of experiments with prosodic features.%,
 			%quantified by percent accuracy (\% acc.) and Kappa agreement ($\kappa$) with respect to the gold-standard labels, as well as precision (P), recall (R) and F$_1$ and F$_2$ measures for the [correct] class. 
@@ -872,7 +880,7 @@ DR+F0+EN &	67.52	&	0.25	&	0.71	&	0.89	&	0.79	&	0.85	\\
 			\end{tabularx}
 		\end{table}	
 		
-		\begin{table}[p]
+		\begin{table}
 			\centering
 			\caption[Results of experiments with speaker and word features]{Results of experiments with speaker and word features. %,
 			%quantified by percent accuracy (\% acc.) and Kappa agreement ($\kappa$) with respect to the gold-standard labels, as well as precision (P), recall (R) and F$_1$ and F$_2$ measures for the [correct] class. 
@@ -931,35 +939,35 @@ WD+LV+AG	&	70.52	&	0.31	&	0.72	&	0.91	&	0.80	&	0.86	\\
 		\label{tab:results:spkrword}
 	\end{table}
 	
-	\begin{table}[p]
-			\centering
-			\caption[Results of experiments with unseen words]{Results of experiments with unseen words. %, averaged over all 12 held-out word types.
-			%Performance is quantified by percent accuracy (\% acc.) and Kappa agreement ($\kappa$) with respect to the gold-standard labels, as well as precision (P), recall (R) and F$_1$ and F$_2$ measures for the [correct] class. 
-			The best values achieved for each metric are displayed in \textbf{bold}.
-			}
-			\begin{tabularx}{\columnwidth}{lccXXXX}		
-			\toprule
-			\multirow{2}{*}{Feature set} & \multirow{2}{*}{\% acc.} & \multirow{2}{*}{$\kappa$} & \multicolumn{4}{c}{[correct] class} \\
-			\cmidrule(lr){4-7}
-			& & & P & R & F$_1$ & F$_2$ \\
-			\midrule
-DR+F0	&	\textbf{66.85}	&	0.17	&	0.69	&	0.88	&	\textbf{0.77}	&	0.84	\\
-+LV %{LV+DR+F0}	
-	&	65.51	&	0.16	&	0.69	&	0.89	&	\textbf{0.77}	&	0.84	\\
-+AG %{LVL+AG+DR+F0}	
-	&	65.05	&	0.16	&	0.69	&	0.88	&	0.76	&	0.84	\\
-			\midrule								
-DR+F0+EN	&	65.66	&	\textbf{0.19}	&	\textbf{0.70}	&	0.85	&	0.76	&	0.82	\\
-+LV %{LV+DR+F0+EN}	
-	&	64.16	&	0.11	&	0.67	&	0.88	&	0.75	&	0.83	\\
-+AG %{LVL+AG+DR+F0+EN}	
-	&	64.31	&	0.12	&	0.68	&	\textbf{0.90}	&	\textbf{0.77}	&	\textbf{0.85}	\\
-
-		\bottomrule
-			\label{tab:results:words}
-			\end{tabularx}
-		\end{table}	
-	
+%%%	\begin{table}[p]
+%%%			\centering
+%%%			\caption[Results of experiments with unseen words]{Results of experiments with unseen words. %, averaged over all 12 held-out word types.
+%%%			%Performance is quantified by percent accuracy (\% acc.) and Kappa agreement ($\kappa$) with respect to the gold-standard labels, as well as precision (P), recall (R) and F$_1$ and F$_2$ measures for the [correct] class. 
+%%%			The best values achieved for each metric are displayed in \textbf{bold}.
+%%%			}
+%%%			\begin{tabularx}{\columnwidth}{lccXXXX}		
+%%%			\toprule
+%%%			\multirow{2}{*}{Feature set} & \multirow{2}{*}{\% acc.} & \multirow{2}{*}{$\kappa$} & \multicolumn{4}{c}{[correct] class} \\
+%%%			\cmidrule(lr){4-7}
+%%%			& & & P & R & F$_1$ & F$_2$ \\
+%%%			\midrule
+%%%DR+F0	&	\textbf{66.85}	&	0.17	&	0.69	&	0.88	&	\textbf{0.77}	&	0.84	\\
+%%%+LV %{LV+DR+F0}	
+%%%	&	65.51	&	0.16	&	0.69	&	0.89	&	\textbf{0.77}	&	0.84	\\
+%%%+AG %{LVL+AG+DR+F0}	
+%%%	&	65.05	&	0.16	&	0.69	&	0.88	&	0.76	&	0.84	\\
+%%%			\midrule								
+%%%DR+F0+EN	&	65.66	&	\textbf{0.19}	&	\textbf{0.70}	&	0.85	&	0.76	&	0.82	\\
+%%%+LV %{LV+DR+F0+EN}	
+%%%	&	64.16	&	0.11	&	0.67	&	0.88	&	0.75	&	0.83	\\
+%%%+AG %{LVL+AG+DR+F0+EN}	
+%%%	&	64.31	&	0.12	&	0.68	&	\textbf{0.90}	&	\textbf{0.77}	&	\textbf{0.85}	\\
+%%%
+%%%		\bottomrule
+%%%			\label{tab:results:words}
+%%%			\end{tabularx}
+%%%		\end{table}	
+%%%	
 	
 		\subsection{Feature performance}
 		\label{sec:results:features}		
@@ -994,17 +1002,17 @@ DR+F0+EN	&	65.66	&	\textbf{0.19}	&	\textbf{0.70}	&	0.85	&	0.76	&	0.82	\\
 		%It seems possible, given the low inter-annotator agreement observed in the annotation described in Chapter 3, that there is an element of subjectivity in the decision of whether or not lexical stress was realized correctly in an utterance of a given word, such that an indisputable diagnosis of that utterance cannot be produced, and different listeners could and would make different assessments of that utterance. If this is the case, it would not be realistic to expect an automatic diagnosis system to reproduce humans’ assessments with perfect accuracy, and any agreement between the classifier’s output and the gold-standard labels which exceeds the average agreement between humans should be interpreted in a positive light.
 		
 		
-		\subsection{Performance on unseen words}
-		\label{sec:results:words}
-		
-		\Cref{tab:results:words} presents the results of experiments with unseen words (see \cref{sec:method:datasets}), averaged over each of the 12 held-out word types.
-		Interestingly, the highest accuracy (66.85\%) was achieved using classifiers trained only on the best-performing prosodic features (DR+F0), excluding the speaker-related features (LV and AG). However, classifiers trained on all three prosodic feature sets (DR+F0+EN) yielded the best agreement with the gold-standard labels ($\kappa$=0.19), while the best F-measures (F$_1$=0.77, F$_2$=0.85) were observed using classifiers trained using all available features (DR+F0+EN+LV+AG; WD was of course not included in these experiments).
-		%As that table shows, the best average performance on all twelve unseen word types was achieved using classifiers trained only on the best-performing prosodic features (DR+F0), and not taking either of the speaker-related features into consideration: this yielded an accuracy of 66.85%, κ of 0.17, and F1 and F2 measures of 0.77 and 0.84, respectively.
-		
-		The drop in performance compared with the best results obtained on seen words (see \cref{tab:results:spkrword:all}) seems to indicate that extending classification to words for which L1 utterances are not available for training is not a trivial matter. 
-		The difference in $\kappa$ is perhaps most striking, constituting a drop from ``fair'' to ``slight'' agreement with the gold standard \cite{Landis1977}, as well as a fall below the average inter-annotator $\kappa$ (0.23). However, the percentage accuracy still exceeds the average percentage agreement between human annotators (54.92\%), and the observed decreases in percentage accuracy and F-measures with respect to seen words do not seem drastic. This is encouraging for the prospect of classifying errors in novel word types, especially given that overall performance could be improved by e.g. using more powerful machine learning algorithms or additional features (see \cref{sec:conc}).
-		%), classifying errors in unseen words \TODO{may yet be feasible}.
-		%In comparison with the best results obtained on seen words as reported in the previous section (69.77% accuracy and κ =0.29 for the DR+F0 feature set, and 71.87%/κ =0.34 for WD+LV+DR+F0+EN), these statistics seem to support the hypothesis that performance would be lower on words not seen in the training data. Perhaps most striking is the difference in κ, which constitutes a drop from fair to slight agreement with the gold-standard labels (using the Landis and Koch (1977) thresholds), which also constitutes a fall below the average inter-annotator κ of 0.23 observed between human annotations (see Section 3.4.1). However, the drop in the overall accuracy percentage, as well as in the two F-measures, seems less drastic, which seems encouraging from the perspective of extending the diagnostic capabilities of de-stress to novel word types using a classification-based approach, especially considering the possibilities for improving classification performance by other means, e.g. using additional features or more powerful machine learning algorithms (see Section 6.2).
+%%%		\subsection{Performance on unseen words}
+%%%		\label{sec:results:words}
+%%%		
+%%%		\Cref{tab:results:words} presents the results of experiments with unseen words (see \cref{sec:method:datasets}), averaged over each of the 12 held-out word types.
+%%%		Interestingly, the highest accuracy (66.85\%) was achieved using classifiers trained only on the best-performing prosodic features (DR+F0), excluding the speaker-related features (LV and AG). However, classifiers trained on all three prosodic feature sets (DR+F0+EN) yielded the best agreement with the gold-standard labels ($\kappa$=0.19), while the best F-measures (F$_1$=0.77, F$_2$=0.85) were observed using classifiers trained using all available features (DR+F0+EN+LV+AG; WD was of course not included in these experiments).
+%%%		%As that table shows, the best average performance on all twelve unseen word types was achieved using classifiers trained only on the best-performing prosodic features (DR+F0), and not taking either of the speaker-related features into consideration: this yielded an accuracy of 66.85%, κ of 0.17, and F1 and F2 measures of 0.77 and 0.84, respectively.
+%%%		
+%%%		The drop in performance compared with the best results obtained on seen words (see \cref{tab:results:spkrword:all}) seems to indicate that extending classification to words for which L1 utterances are not available for training is not a trivial matter. 
+%%%		The difference in $\kappa$ is perhaps most striking, constituting a drop from ``fair'' to ``slight'' agreement with the gold standard \cite{Landis1977}, as well as a fall below the average inter-annotator $\kappa$ (0.23). However, the percentage accuracy still exceeds the average percentage agreement between human annotators (54.92\%), and the observed decreases in percentage accuracy and F-measures with respect to seen words do not seem drastic. This is encouraging for the prospect of classifying errors in novel word types, especially given that overall performance could be improved by e.g. using more powerful machine learning algorithms or additional features (see \cref{sec:conc}).
+%%%		%), classifying errors in unseen words \TODO{may yet be feasible}.
+%%%		%In comparison with the best results obtained on seen words as reported in the previous section (69.77% accuracy and κ =0.29 for the DR+F0 feature set, and 71.87%/κ =0.34 for WD+LV+DR+F0+EN), these statistics seem to support the hypothesis that performance would be lower on words not seen in the training data. Perhaps most striking is the difference in κ, which constitutes a drop from fair to slight agreement with the gold-standard labels (using the Landis and Koch (1977) thresholds), which also constitutes a fall below the average inter-annotator κ of 0.23 observed between human annotations (see Section 3.4.1). However, the drop in the overall accuracy percentage, as well as in the two F-measures, seems less drastic, which seems encouraging from the perspective of extending the diagnostic capabilities of de-stress to novel word types using a classification-based approach, especially considering the possibilities for improving classification performance by other means, e.g. using additional features or more powerful machine learning algorithms (see Section 6.2).
 		
 		%\subsection{Performance on unknown speakers}
 	
@@ -1028,7 +1036,7 @@ DR+F0+EN	&	65.66	&	\textbf{0.19}	&	\textbf{0.70}	&	0.85	&	0.76	&	0.82	\\
 		Features representing the word type uttered and the L2 proficiency level of the speaker also seemed valuable for error classification; combining these features with the three prosodic feature types yielded the overall highest accuracy (71.87\% accuracy, $\kappa$=0.34) attained on the L2 speech dataset (see \cref{sec:data}).
 		Though these results leave room for improvement, they are encouraging given that agreement between the classifier's output and the gold-standard labels slightly exceeded the average agreement observed between human annotators asked to perform the same error classification task (see \cref{sec:data:agreement}).
 		%Features capturing the word type of the utterance as well as the age, gender and proficiency level of the speaker were also found to be quite valuable for error classification; combining these features with all three prosodic feature types resulted in the highest overall accuracy observed on this dataset (71.87\% accuracy, $\kappa$=0.34). As the observed agreement between the classifier’s labels and the gold standard slightly exceeded the overall inter-annotator agreement observed when humans were asked to perform this error diagnosis task (see Section 3.4), these results seem encouraging. 
-		Somewhat lower classification accuracy was observed on word types not represented in the training data, although this accuracy still remained comparable to the average percentage agreement between humans.
+%%%		Somewhat lower classification accuracy was observed on word types not represented in the training data, although this accuracy still remained comparable to the average percentage agreement between humans.
 		The findings reported here thus seem to confirm the utility of classification for diagnosing lexical stress errors in German CAPT, though further work is needed to achieve the level of performance necessary for real-world CAPT systems.
 		%Unsurprisingly, slightly lower accuracy was observed when classifying utterances of word types or speakers not represented in the training data; however, the fact that accuracy on unseen words still remained comparable to the human inter-annotator agreement statistics seems to confirm the expectation that classification-based diagnosis may be a useful way to create CAPT systems which are are not limited to words/sentences for which recorded L1 utterances are available.
 	

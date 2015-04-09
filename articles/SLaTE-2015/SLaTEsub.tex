@@ -80,7 +80,13 @@
   %
   \begin{abstract}
     
-  	Lexical stress plays an important role in the prosody of German, and presents a considerable challenge to native speakers of languages such as French who are learning German as a foreign language. Such learners stand to benefit greatly from Computer-Assisted Pronunciation Training (CAPT) systems which can offer individualized corrective feedback on such errors, and reliable automatic detection of these errors is a prerequisite for developing such systems. With this motivation, this paper presents the first known exploration of the use of machine learning methods to classify non-native German lexical stress errors. Experiments using various prosodic \TODO{and other} features yielded a \TODO{maximum} classification accuracy of 71.87\% on a manually-annotated corpus of German word utterances by native French speakers, which exceeded the observed inter-annotator agreement between humans asked to classify lexical stress errors in the same data. These results 
+  	Lexical stress plays an important role in the prosody of German, and presents a considerable challenge to native speakers of languages such as French who are learning German as a foreign language. Such learners stand to benefit greatly from Computer-Assisted Pronunciation Training (CAPT) systems which can offer individualized corrective feedback on such errors, and reliable automatic detection of these errors is a prerequisite for developing such systems. With this motivation, this paper presents the first known exploration of the use of machine learning methods to classify non-native German lexical stress errors. 
+%%%  	Experiments using various prosodic \TODO{and other} features yielded a \TODO{maximum} classification accuracy of 71.87\% on a manually-annotated corpus of German word utterances by native French speakers, 
+  	In classification experiments using a manually-annotated corpus of German word utterances by native French speakers,
+  	the highest observed agreement between the classifier's output and the gold-standard labels 
+  	%%%which 
+  	exceeded the inter-annotator agreement between humans asked to classify lexical stress errors in the same data. 
+  	These results 
   	%leave room for improvement, but 
   	establish classification-based diagnosis of lexical stress errors as a viable approach for German CAPT.
   	%\TODO{Still got about 40 words - something about unseen word types?}
@@ -89,7 +95,7 @@
     
   \end{abstract}
   %
-  \noindent{\bf Index Terms}: CAPT, prosody, German \TODO{others?}
+  \noindent{\bf Index Terms}: CAPT, prosody, German %\TODO{others?}
 
 
   \section{Introduction}
@@ -111,7 +117,7 @@
   %coupled with the historic lack of instructor training in phonetics/phonology, 
   often make this unfeasible
   %make this not always feasible in a classroom setting
-   \cite{Neri2002,Derwing2005,Hirschfeld2007}. 
+   \cite{Neri2002,Hirschfeld2007}. %Derwing2005,
    Fortunately, advances in Computer-Assisted Pronunciation Training (CAPT) over recent decades have made it possible to automatically provide highly individualized analysis of learners' prosodic errors, as well as corrective feedback, 
    %on how to correct them, 
    and thus to help learners achieve more intelligible pronunciation in the target language. 
@@ -192,8 +198,9 @@ Studies of French learners of Dutch \cite{Michaux2013} and English \cite{Bonneau
 	% in the literature, as is the question of whether and how it differs from the notion of comprehensibility; here, let us follow
 	%%%but here we will follow Munro and Derwing \cite[p.~289]{Munro1999} in understanding it broadly as ``the extent to which a speaker’s message is actually understood by a listener.''
 	Prosodic errors have generally been found to have a larger impact on the perceived intelligibility of L2 speakers than segmental errors 
-	%Hahn2004
-	\cite{Derwing2005,Witt2012}, and 
+	%Hahn2004,Derwing2005,
+	%\cite{Witt2012}, 
+	and 
 	lexical stress errors may have a particularly strong impact on intelligibility in variable-stress languages like English and Dutch \cite{Cutler2005,Field2005} 
 	%and German \cite{Hirschfeld1994}, 
 	%Dutch, and German (Cutler, 2005; Field, 2005; Hirschfeld, 1994). Indeed, studies on perception of German L2 speech have found that among a variety of pronunciation error types, lexical stress errors have one of the most drastic impacts on intelligibility (Hirschfeld, 1994). 
@@ -215,9 +222,9 @@ Studies of French learners of Dutch \cite{Michaux2013} and English \cite{Bonneau
 	%yet related work on other target languages seems encouraging. 
 	but in recent years machine learning methods have been applied with apparent success to the classification of lexical stress patterns in English. 
 	Kim and Beutnagel \cite{Kim2011} experimented with various classifiers to identify stress patterns in high-quality recordings of 3- and 4-syllable English words, reporting accuracy in the 80-90\% range; in pilot experiments with low-quality recordings, however, the authors report lower accuracy: 70-80\% on L1 speech and 50-60\% on utterances by L2 speakers. 
-	Shahin et al. \cite{Shahin2012} trained Neural Networks to classify stress patterns in bisyllabic words uttered by L1 English children, 
+	Shahin et al. \cite{Shahin2012a} trained Neural Networks to classify stress patterns in bisyllabic words uttered by L1 English children, 
 	%with the intended application of treating childhood dysprosody, 
-	and reported classification accuracy over 90\% for some patterns.%; though this work was conducted with a view to treating childhood L1 dysprosody, its relevance to our intended application of L2 CAPT is nonetheless clear.
+	and reported classification accuracy over 90\% for some patterns. %; though this work was conducted with a view to treating childhood L1 dysprosody, its relevance to our intended application of L2 CAPT is nonetheless clear.
 	%
 	Building on these related investigations, this paper seeks to explore the viability of automatic classification-based diagnosis of German lexical stress errors, with a particular focus on those made by L1 French speakers.
 	%
@@ -562,7 +569,10 @@ Minimum	&	23.21\%	&	-0.01	\\
 		\begin{figure}
 			\centering
 			\includegraphics[width=\columnwidth]{overallJudgments-axisTop-noLabels}
-			\caption{Overall distribution of lexical stress errors in the annotated data}
+			\caption{
+			Distribution of gold-standard labels.
+			%Overall distribution of lexical stress errors in the annotated data
+			}
 			\label{fig:errors}
 		\end{figure}
 	
@@ -698,7 +708,6 @@ Minimum	&	23.21\%	&	-0.01	\\
 		\label{tab:f0features}
 		\end{subtable}
 		
-		
 		\vspace{1em}
 		
 		\begin{subtable}{\columnwidth}
@@ -799,7 +808,7 @@ Minimum	&	23.21\%	&	-0.01	\\
 	    \subsection{Datasets for training and testing}
 	    \label{sec:method:datasets}
 
-		As mentioned above, CART classifiers were trained and tested using the labeled dataset described in \cref{sec:data}. In addition to this L2 data, L1 utterances of the selected word types from the the IFCASL-GG corpus were also included in training data, each having been automatically labeled as [correct] based on the assumption that native speakers always realize lexical stress correctly.
+		As mentioned above, CART classifiers were trained and tested using the labeled dataset described in \cref{sec:data}. In addition to this L2 data, L1 utterances of the selected word types from the the IFCASL-GG corpus were also included in training data, each having been automatically labeled as [correct] with the assumption that L1 speakers always realize stress correctly.
 
 
 		To evaluate the performance of the features described in \cref{sec:method:featuresets}, 10-fold cross-validation was performed on the entire set of available training data. The current objective being the classification of L2 speech, including L1 utterances in the test data was not appropriate; instead, to create each of the 10 folds, one-tenth of the L2 utterances were randomly selected to be held out as the test data, and the corresponding training set consisted of the remaining nine-tenths of the L2 utterances combined with the entire set of L1 utterances. Overall classification accuracy was computed by averaging the results over each of these 10 folds (see \cref{sec:results:features}).
@@ -985,9 +994,9 @@ WD+LV+AG	&	70.52	&	0.31	&	0.72	&	0.91	&	0.80	&	0.86	\\
 		
 		
 		As seen in \cref{tab:results:spkrword}, even higher accuracy was obtained by combining prosodic features with the features representing speaker and word characteristics (see \cref{tab:spkrfeatures}). Information about the word type of the utterance (WD) and the L2 German proficiency of the speaker (LV)%
-		\footnote{Though including the LV feature would be nonsensical if the intended application of the classifier were assessment of a learner's proficiency level, the goal here is not assessment but training, 
-		%and learners of different levels may make different  have different training needs; therefore, 
-		so in this case it is reasonable to allow the system to take LV into account. }		
+%%%		\footnote{Though including the LV feature would be nonsensical if the intended application of the classifier were assessment of a learner's proficiency level, the goal here is not assessment but training, 
+%%%		%and learners of different levels may make different  have different training needs; therefore, 
+%%%		so in this case it is reasonable to allow the system to take LV into account. }		
 		 seemed to be most helpful, while including the speaker's age/gender category (AG) appeared to have a negative, if any, impact on performance. 
 		%Comparing the performance of the two speaker-related features, the speaker’s proficiency level (LV) seems to be a better predictor of stress accuracy than their age/gender category (GENDER, which refers to whether the speaker is a girl, boy, woman, or man, and not exclusively to whether they are a male or a female; see Table 4.4b). This is not surprising, considering the large discrepancy between skill level groups observed in the error distribution analysis (see Section 3.6.3). If the intended application of the classifier were the assessment of a learner’s proficiency level, including this feature would obviously be nonsensical; however, in this context the application is not assessment but training, and in that case it makes sense to allow the system to take the learner’s level into account.
 		%Interestingly, for many of the word/speaker feature combinations tried, slightly different results were obtained when these features were combined with the full set of prosodic features (DR+F0+EN) than with the best-performing subset of the prosodic features, DR+F0. 
@@ -1043,7 +1052,9 @@ WD+LV+AG	&	70.52	&	0.31	&	0.72	&	0.91	&	0.80	&	0.86	\\
 	%\section{Future work}
 	%\label{sec:future}
 
-	One logical direction for future work is the evaluation of other, more powerful machine learning algorithms than the simple CARTs used in this work; related work indicates that Maximum Entropy classifiers \cite{Kim2011} and Neural Networks \cite{Shahin2012} may be promising. Consideration could also be given to additional features which may be related to lexical stress in German (e.g. spectral features capturing aspects of vowel quality). It may also be of interest to explore ensemble approaches to error classification, in which labels assigned by different classifiers trained only on subsets of the available features are compared to arrive at a final decision.
+	One logical direction for future work is the evaluation of other, more powerful machine learning algorithms than the simple CARTs used in this work; related work indicates that Maximum Entropy classifiers \cite{Kim2011} and Neural Networks \cite{Shahin2012a} may be promising. Consideration could also be given to additional features which may be related to lexical stress in German (e.g. spectral features capturing aspects of vowel quality). 
+	It may also be of interest to explore ensemble approaches,
+	 in which labels assigned by different classifiers trained only on subsets of the available features are compared to arrive at a final decision.
 	%To obtain a more fine-grained analysis of the learner’s utterance in the classification approach, and thus enable the generation of additional types of feedback (e.g. skill bars) from classification-based diagnoses, different classifiers trained on only subsets of the avail- able features could be combined in an ensemble configuration; for example, an ensemble of three classifiers trained exclusively on duration, F0, and intensity features respectively could produce scores analogous to JSnoori’s three-dimensional pronunciation scores (Sec- tion 4.3.1). 
 	%It may also be of interest to explore techniques for online, semi-supervised learning, which could enable the classifier to improve its predictions by updating itself with new training instances resulting from the learner’s continued use of the system over time.
 

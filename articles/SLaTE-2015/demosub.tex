@@ -62,7 +62,7 @@
   %
   \begin{abstract}
     %This demonstration presents a prototype tool for Computer-Assisted Pronunciation Training (CAPT) in German.  
-    This demonstration presents \textbf{de-stress}: the German (\textbf{de}) \textbf{S}ystem for \textbf{T}raining and \textbf{R}esearch on \textbf{E}rrors in \textbf{S}econd-language \textbf{S}tress. 
+    This demonstration presents \textbf{de-stress}: the German (\textbf{de}) \textbf{S}ystem for \textbf{T}raining and \textbf{R}esearch on \textbf{E}rrors in \textbf{S}econd-language \textbf{S}tress \cite{destress}. 
     This prototype CAPT tool provides a variety of options for diagnosis of and feedback on lexical stress errors, and could potentially be a useful component of an intelligent CAPT system.
   \end{abstract}
   \noindent{\bf Index Terms}: CAPT, German, prosody
@@ -82,30 +82,23 @@
 
 \section{A training tool for German learners}
 
- Via a simple web interface, the system presents a learner with a German sentence,
+ Via a simple web interface, de-stress presents a learner with a German sentence,
  %(taken from the IFCASL corpus), 
- with one of the words highlighted as the target word for that exercise. The learner is prompted to submit an utterance of that sentence for assessment and feedback, with the instruction to focus on the accurate expression of the lexical stress pattern of the target word. The prosody of the learner's utterance is then analyzed using the speech processing software JSnoori \TODO{citation}. Based on this analysis, lexical stress errors are diagnosed via either classification-based error detection using machine learning, or comparison of the learner's utterance with one or more reference utterances by native speakers. In the comparative approach, references may be selected manually, or by automatically selecting the closest match(es) to the learner's voice (fundamental frequency). 
+ with one of the words highlighted as the target word for that exercise. The learner is prompted to submit an utterance of that sentence for assessment and feedback, with the instruction to focus on the accurate expression of the lexical stress pattern of the target word. The prosody (duration, fundamental frequency, and intensity) the learner's utterance is then analyzed using the speech processing software JSnoori \cite{jsnoori}. Based on this analysis, lexical stress errors are diagnosed via either classification-based error detection using machine learning, or comparison of the learner's utterance with one or more reference utterances by native speakers. In the comparative approach, references may be selected manually, or by automatically selecting the closest match(es) to the learner's voice (fundamental frequency). 
  
- Based on this error diagnosis, the learner is ultimately presented with one or more types of feedback on their realization of lexical stress in the analyzed utterance, with options including visual feedback via abstract graphical representations or text stylization (see \cref{fig:interface:student}), auditory feedback via prosodic modification of the learner's utterance, verbal error/success messages, and graphical ``skill bars'' corresponding to the prosodic parameters analyzed (duration, fundamental frequency, and intensity).  Learners may optionally be asked to self-assess their utterance before viewing the system's diagnosis and feedback.
+ Based on this error diagnosis, the learner is ultimately presented with one or more types of feedback on their realization of lexical stress in the analyzed utterance, with options including visual feedback via abstract graphical representations or text stylization (see \cref{fig:interface:student}), auditory feedback via prosodic modification of the learner's utterance, verbal error/success messages, and graphical ``skill bars'' corresponding to each of the prosodic parameters analyzed.  Learners may optionally be asked to self-assess their utterance before viewing the system's diagnosis and feedback.
  %\Cref{fig:interface:student} presents a screenshot of the interface presenting such feedback.
 % Unlike with some existing CAPT tools which rely on more direct signal visualizations (e.g. spectrograms, pitch contours) for feedback,
 % %for diagnosis and feedback on pronunciation errors, 
 % learners can interact with the tool and interpret its feedback independently, i.e. without the assistance of a human instructor at their side.
 
-	\begin{figure}[!h]
-		\centering
-		%\includegraphics[width=\columnwidth]{../../img/screenshots/StudentInterface-userIcon}
-		%\caption{The student-facing interface of de-stress}
-		\includegraphics[width=.9\columnwidth]{../../img/screenshots/graphicalFB-weka-plusTextStyle}
-		\caption{Example of feedback delivery in de-stress}
-		\label{fig:interface:student}
-	\end{figure}
+
 
 
 \section{A tool for teachers and researchers}
 In addition to the learner-facing interface, 
 %the tool also implements an interface through which 
-an administrative interface allows
+the administrative interface of de-stress allows
 language teachers or researchers of L2 language acquisition 
 %can 
 to
@@ -136,10 +129,24 @@ Once more is known about which diagnosis/feedback types should be delivered to w
 models of relevant aspects of the learning context (e.g. the learner's skill level, progress, or personal preferences; the current learning objective or position in a sequence of exercises; etc.)
 are used to automatically decide which modules of the tool to activate, as \cref{fig:hourglass-ITS} illustrates.
 
+
+	\begin{figure}[h!]
+		\centering
+		%\includegraphics[width=\columnwidth]{../../img/screenshots/StudentInterface-userIcon}
+		%\caption{The student-facing interface of de-stress}
+		\includegraphics[width=\columnwidth]{../../img/screenshots/graphicalFB-weka-plusTextStyle}
+		\caption{Example of feedback delivery in de-stress}
+		\label{fig:interface:student}
+	\end{figure}
+	
 	\begin{figure}[!h] 
 		\centering
 		\includegraphics[height=.25\textheight]{../../img/hourglass-ITS} 
-		\caption[Conceptual diagram of the prototype lexical stress CAPT tool]{Conceptual diagram of the prototype lexical stress CAPT tool (demarcated by dashed line) and its possible function in the context of a more comprehensive Intelligent Tutoring System (ITS).}
+		\caption[Conceptual diagram of the prototype lexical stress CAPT tool]{Conceptual diagram of the prototype 
+		%lexical stress CAPT 
+		tool 
+		(demarcated by dashed line) 
+		and its possible function in the context of an Intelligent CAPT System (ITS).}
 		\label{fig:hourglass-ITS}
 	\end{figure}
 	
@@ -164,7 +171,9 @@ are used to automatically decide which modules of the tool to activate, as \cref
   
   \begin{thebibliography}{1}
   \bibitem[1]{destress}
-  A.\ Vakil, de-stress. [Online] Available: github.com/vakila/de-stress
+  A.\ Vakil, de-stress [Online]. Available: github.com/vakila/de-stress
+  \bibitem[2]{jsnoori}
+  LORIA Speech Team, JSnoori [Online]. Available: jsnoori.loria.fr
   \end{thebibliography}
 
 %  \begin{thebibliography}{9}

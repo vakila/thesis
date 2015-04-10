@@ -206,7 +206,7 @@ Studies of French learners of Dutch \cite{Michaux2013} and English \cite{Bonneau
 	%Hahn2004,Derwing2005,
 	%\cite{Witt2012}, 
 	and 
-	lexical stress errors may have a particularly strong impact on intelligibility in variable-stress languages like English and Dutch \cite{Cutler2005,Field2005} 
+	lexical stress errors may have a particularly strong impact on intelligibility in variable-stress languages like English and Dutch \cite{Cutler2005,Field2005}.
 	%and German \cite{Hirschfeld1994}, 
 	%Dutch, and German (Cutler, 2005; Field, 2005; Hirschfeld, 1994). Indeed, studies on perception of German L2 speech have found that among a variety of pronunciation error types, lexical stress errors have one of the most drastic impacts on intelligibility (Hirschfeld, 1994). 
 	Relatively little research has been done on how various pronunciation errors affect intelligibility in L2 German specifically, but some studies suggest that 
@@ -304,7 +304,7 @@ Studies of French learners of Dutch \cite{Michaux2013} and English \cite{Bonneau
 \begin{table}
 		\centering
 		\caption{
-		Word types annotated for lexical stress errors
+		Word types annotated for lexical stress errors.
 		%]{%
 		%The twelve bisyllabic initial-stress 
 		%Word types selected from the IFCASL corpus for lexical stress error annotation. 
@@ -354,7 +354,7 @@ Studies of French learners of Dutch \cite{Michaux2013} and English \cite{Bonneau
 			&	to fly %&	SR		
 			& 56	\\
 			
-		Frühling	
+		Fr\"{u}hling	
 			&	\textipa{/"fry:.lIN/}	%\texttt{f r y:~.~l I N} 		
 			& noun	
 			&	spring \newline (season) %&	SR		
@@ -372,7 +372,7 @@ Studies of French learners of Dutch \cite{Michaux2013} and English \cite{Bonneau
 			&	some %& 	SR 	
 			&	56	\\
 			
-		Mörder		
+		M\"{o}rder		
 			&	\textipa{/"m\oe5.d5/}	%\texttt{m 96~.~d 6}		
 			&	noun 
 			&	murderer %&	SR 	
@@ -636,7 +636,38 @@ Minimum	&	23.21\%	&	-0.01	\\
 	    \subsection{Feature sets}
 	    \label{sec:method:featuresets}
 	    
-	    \begin{table}[t]
+	   
+	    
+	    To represent the lexical stress prosody of an utterance, the automatically-determined word, syllable, and phone segmentations were used to isolate relevant segments of the speech signal, and extract features related to the three acoustic properties mentioned in \cref{sec:bkgd} above: duration, fundamental frequency (F0), and intensity. 
+%%%	    To account for inter-speaker variability, e.g. the fact that some speakers may have a faster speech rate or higher F0 than others, relative rather than absolute features were used. 
+%%%	    This section explains how these prosodic features, listed in \cref{tab:prosfeatures}, were selected and computed.
+	    %The automatically-determined word, syllable, and phone boundaries obtained as described in the previous section enable the CAPT tool to locate and analyze segments of the speech signal relevant to the realization of lexical stress. This section describes the features by which the system analyzes the lexical stress prosody of an utterance, be it the utterance of a learner or of a native speaker. These features relate to the three acoustic properties (and by extension their perceptual correlates) described in Section 2.3, namely duration (timing), fundamental frequency (pitch), and intensity (loudness). The relative utility of these features in automatically diagnosing lexical stress errors is discussed further in Section 4.4.
+	    
+	     
+	    
+	    Research on the phonetic realization of lexical stress has often indicated that duration may be the most important, if not the only, acoustic correlate of this phenomenon in German, with the duration of stressed syllables being relatively long in comparison with unstressed syllables \cite{Dogil1999}. 
+	    Therefore, features representing duration were computed,
+	    % simply by noting the relative 
+	    from the durations of relevant segments in the phone- and syllable-level segmentations. Following Bonneau and Colotte~\cite{Bonneau2011}, we take into account the durations of entire syllables, as well as of their nuclei (vowels or syllabic consonants such as /\textipa{\s{n}}/), as described in \cref{tab:durfeatures}.
+	    %Analysis of duration (timing) is extremely important for detecting stress patterns; indeed, some research indicates that syllable duration may be the most important, if not the only acoustic correlate of lexical stress in German (e.g. \cite{Dogil1999}). Duration analysis therefore figures prominently in the analysis and assessment of learners' lexical stress in this work. 
+	    %
+	    %Given the word-, syllable- and phone-level segmentations of an utterance (see \cref{sec:diag:segmentation}), the extraction of duration features for that utterance is trivial, as it consists simply of noting the duration of each relevant segment. % in the appropriate segmentation. Following \textcite{Bonneau2011}, duration analysis in this work takes into account the  duration of each syllable in the word to be analyzed, and of the vowels at the nucleus of each syllable. 	To account for inter-speaker variability, e.g. the fact that some speakers may have an overall slower or faster speech rate than others, relative rather than absolute durations are used. The list of duration features computed for each word utterance is given in \cref{tab:durationfeatures}, along with the values computed for each feature from the sample utterances shown in \cref{fig:featuresexample}.
+	    %
+	    
+	   After duration, the next best acoustic correlate of lexical stress appears to be F0 \cite{Dogil1999}, so F0 features were also computed (see \cref{tab:f0features}).
+	    The F0 contour of a given utterance is estimated using the pitch detection functionality of the speech-processing program JSnoori\footnote{\texttt{jsnoori.loria.fr}} \cite{DiMartino1999}, which uses a spectral comb method to compute a pitch point from each FFT spectrum extracted from the relevant signal segment; here spectra were extracted using Hamming windows 32 milliseconds long, offset by 8 ms. Pitch is computed in Hertz, then converted to semitones before features are computed. Features only take into account non-zero points, i.e. those corresponding to voiced segments.
+	    Though work on assessing L2 English stress has often made the assumption that stressed syllables should have higher F0 than unstressed ones (e.g. \cite{Bonneau2011}), in German stressed syllables may also have a lower F0 than other syllable(s) in the word \cite[p.~267]{Cutler2005}. Therefore, as \cref{tab:f0features} shows, our features capture not only the maximum F0 in each syllable (nucleus), but also the F0 minimum and range (maximum minus minimum).
+	    %Much of the work on assessing non-native lexical stress has been conducted with English as the L2, and thus often makes the assumption that a stressed syllable should have a higher F0 than unstressed syllables (Bonneau and Colotte, 2011). In German, the F0 of a stressed syllable also tends to differ from the surrounding contour, but the difference may be positive (the stressed syllable has a higher pitch than surrounding syllables) or negative (lower pitch) (Cutler, 2005, p. 267). Therefore, the computed features capture not only the F0 maximum of each syllable, but also the minimum and range (difference between maximum and minimum).
+	    
+	    Past research indicates that a signal's intensity also reflects lexical stress patterns, though to a lesser extent than duration or F0 \cite{Dogil1999,Cutler2005}.
+	   % Research on lexical stress prosody has generally indicated that intensity is the least important of the three features, i.e. corresponds least closely to lexical stress patterns (Cutler, 2005). Indeed, existing lexical stress assessment tools may not take intensity into account, as was the case with the prosodic diagnosis functionality of JSnoori at the start of this thesis project. However, intensity can nonetheless have an impact on the perception of lexical stress, especially in combination with pitch or duration, or both (ibid.); Therefore, in addition to duration and fundamental frequency, JSnoori’s learner speech analysis module was modified to take intensity (energy)2 into account.
+	   Therefore, intensity contours of syllables and their nuclei were also computed, again using JSnoori,
+	   %, which calculates the total amount of energy at frequencies from 0 to 8000 Hz in FFT spectra extracted from the signal (using Hamming windows 20 ms. long offset by 4 ms). Energy values below 60 decibels are not counted toward the total, as these are assumed to correspond to ambient or non-speech noise. 
+	   %Using these contours, we 
+	   and used to compute features taking into account the mean and maximum intensity in the relevant segments, as shown in \cref{tab:enerfeatures}.
+	   
+	   
+	    \begin{table}%[ht]
 		\centering
 		%\caption[Features used for duration analysis]{Features used for duration analysis, and their values for the sample utterances of ``Flagge'' in \cref{fig:featuresexample}. 
 		\caption{%
@@ -758,42 +789,18 @@ Minimum	&	23.21\%	&	-0.01	\\
 		\end{tabularx}
 		\label{tab:enerfeatures}
 		\end{subtable}
-		
-		
+	
 		\label{tab:prosfeatures}
 		\end{table}
-	    
-	    To represent the lexical stress prosody of an utterance, the automatically-determined word, syllable, and phone segmentations were used to isolate relevant segments of the speech signal, and extract features related to the three acoustic properties mentioned in \cref{sec:bkgd} above: duration, fundamental frequency (F0), and intensity. 
-%%%	    To account for inter-speaker variability, e.g. the fact that some speakers may have a faster speech rate or higher F0 than others, relative rather than absolute features were used. 
-%%%	    This section explains how these prosodic features, listed in \cref{tab:prosfeatures}, were selected and computed.
-	    %The automatically-determined word, syllable, and phone boundaries obtained as described in the previous section enable the CAPT tool to locate and analyze segments of the speech signal relevant to the realization of lexical stress. This section describes the features by which the system analyzes the lexical stress prosody of an utterance, be it the utterance of a learner or of a native speaker. These features relate to the three acoustic properties (and by extension their perceptual correlates) described in Section 2.3, namely duration (timing), fundamental frequency (pitch), and intensity (loudness). The relative utility of these features in automatically diagnosing lexical stress errors is discussed further in Section 4.4.
-	    
-	     
-	    
-	    Research on the phonetic realization of lexical stress has often indicated that duration may be the most important, if not the only, acoustic correlate of this phenomenon in German, with the duration of stressed syllables being relatively long in comparison with unstressed syllables \cite{Dogil1999}. 
-	    Therefore, features representing duration were computed, simply by noting the relative durations of relevant segments in the phone- and syllable-level segmentations. Following Bonneau and Colotte~\cite{Bonneau2011}, we take into account the durations of entire syllables, as well as of their nuclei (vowels or syllabic consonants such as /\textipa{\s{n}}/), as described in \cref{tab:durfeatures}.
-	    %Analysis of duration (timing) is extremely important for detecting stress patterns; indeed, some research indicates that syllable duration may be the most important, if not the only acoustic correlate of lexical stress in German (e.g. \cite{Dogil1999}). Duration analysis therefore figures prominently in the analysis and assessment of learners' lexical stress in this work. 
-	    %
-	    %Given the word-, syllable- and phone-level segmentations of an utterance (see \cref{sec:diag:segmentation}), the extraction of duration features for that utterance is trivial, as it consists simply of noting the duration of each relevant segment. % in the appropriate segmentation. Following \textcite{Bonneau2011}, duration analysis in this work takes into account the  duration of each syllable in the word to be analyzed, and of the vowels at the nucleus of each syllable. 	To account for inter-speaker variability, e.g. the fact that some speakers may have an overall slower or faster speech rate than others, relative rather than absolute durations are used. The list of duration features computed for each word utterance is given in \cref{tab:durationfeatures}, along with the values computed for each feature from the sample utterances shown in \cref{fig:featuresexample}.
-	    %
-	    
-	   After duration, the next best acoustic correlate of lexical stress appears to be F0 \cite{Dogil1999}, so F0 features were also computed (see \cref{tab:f0features}).
-	    The F0 contour of a given utterance is estimated using the pitch detection functionality of the speech-processing program JSnoori\footnote{\texttt{jsnoori.loria.fr}} \cite{DiMartino1999}, which uses a spectral comb method to compute a pitch point from each FFT spectrum extracted from the relevant signal segment; here spectra were extracted using Hamming windows 32 milliseconds long, offset by 8 ms. Pitch is computed in Hertz, then converted to semitones before features are computed. Features only take into account non-zero points, i.e. those corresponding to voiced segments.
-	    Though work on assessing L2 English stress has often made the assumption that stressed syllables should have higher F0 than unstressed ones (e.g. \cite{Bonneau2011}), in German stressed syllables may also have a lower F0 than other syllable(s) in the word \cite[p.~267]{Cutler2005}. Therefore, as \cref{tab:f0features} shows, our features capture not only the maximum F0 in each syllable (nucleus), but also the F0 minimum and range (maximum minus minimum).
-	    %Much of the work on assessing non-native lexical stress has been conducted with English as the L2, and thus often makes the assumption that a stressed syllable should have a higher F0 than unstressed syllables (Bonneau and Colotte, 2011). In German, the F0 of a stressed syllable also tends to differ from the surrounding contour, but the difference may be positive (the stressed syllable has a higher pitch than surrounding syllables) or negative (lower pitch) (Cutler, 2005, p. 267). Therefore, the computed features capture not only the F0 maximum of each syllable, but also the minimum and range (difference between maximum and minimum).
-	    
-	    Past research indicates that a signal's intensity also reflects lexical stress patterns, though to a lesser extent than duration or F0 \cite{Dogil1999,Cutler2005}.
-	   % Research on lexical stress prosody has generally indicated that intensity is the least important of the three features, i.e. corresponds least closely to lexical stress patterns (Cutler, 2005). Indeed, existing lexical stress assessment tools may not take intensity into account, as was the case with the prosodic diagnosis functionality of JSnoori at the start of this thesis project. However, intensity can nonetheless have an impact on the perception of lexical stress, especially in combination with pitch or duration, or both (ibid.); Therefore, in addition to duration and fundamental frequency, JSnoori’s learner speech analysis module was modified to take intensity (energy)2 into account.
-	   Therefore, intensity contours of syllables and their nuclei were also computed, again using JSnoori,
-	   %, which calculates the total amount of energy at frequencies from 0 to 8000 Hz in FFT spectra extracted from the signal (using Hamming windows 20 ms. long offset by 4 ms). Energy values below 60 decibels are not counted toward the total, as these are assumed to correspond to ambient or non-speech noise. 
-	   %Using these contours, we 
-	   and used to compute features taking into account the mean and maximum intensity in the relevant segments, as shown in \cref{tab:enerfeatures}.
 	    
 	   
 		
 		 Using different combinations of these feature sets, a series of experiments was conducted to determine which features give the best accuracy in the error-classification task. Establishing which features perform best not only enables the creation of the most accurate classification-based error diagnosis system possible, but may also clarify whether and how strongly these acoustic properties correspond with perceived lexical stress errors in L2 German.
-		 In addition to the prosodic features (\cref{tab:prosfeatures}), features representing the word type uttered and characteristics of the speaker (see \cref{tab:spkrfeatures}) were also included in the experiments, to ascertain whether including such features could improve performance.
-		The results of these feature experiments are presented in \cref{sec:results:features}.
+		 In addition to the prosodic features (\cref{tab:prosfeatures}), features representing the 
+		 uttered word 
+		 %word type uttered 
+		 and characteristics of the speaker (see \cref{tab:spkrfeatures}) were also included in the experiments, to ascertain whether such features could improve performance.
+		The results of these experiments are presented in \cref{sec:results:features}.
 		
 		\begin{table}
 			\centering
@@ -804,7 +811,7 @@ Minimum	&	23.21\%	&	-0.01	\\
 			Feature name & Description \\
 			\midrule
 			WD %WORD 
-				& Word type uttered (e.g. \textit{Tatort}) \\
+				& Uttered word (e.g. \textit{Tatort}) \\
 			LV % LEVEL 
 				& Speaker's L2 German skill level \newline (A2$|$B1$|$B2$|$C1)\\
 			AG %GENDER 
@@ -855,13 +862,13 @@ Minimum	&	23.21\%	&	-0.01	\\
 			\item{Recall (R): no. correctly classified as [correct] $/$ total no. of [correct] utterances in the gold-standard dataset
 			%the number of instances the classifier correctly assigned to this class, divided by the number of instances which truly belong to this class
 			}
-			\item{F$_1$ measure:
+			\item{F-measure (F$_1$):
 			harmonic mean of P and R (where both are weighted equally), i.e. $F_1 = 2PR/(P+R)$
 			%, also known simply as F-measure or F-score: a metric which combines Precision and Recall by taking their harmonic mean, weighting both equally. It is computed with the formula:
 			%\[F_1 = 2PR/(P+R)\]
 			%\[\frac{2PR}{P+R}\]
 			}
-			\item{F$_2$ measure: 
+			\item{F$_2$-measure: 
 			similar to F$_1$, but with R given twice as much weight as P: $F_2 = (1+2^2) \cdot PR/(2^2 \cdot P+R)$ %
 			% F$_2$ is computed as:
 			%\[F_2 = (1+2^2) \cdot PR/(2^2 \cdot P+R) = 5PR/(4P+R)\]

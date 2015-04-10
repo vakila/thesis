@@ -85,9 +85,12 @@
   	the highest observed agreement between the classifier's output and the gold-standard labels 
   	%%%which 
   	exceeded the inter-annotator agreement between humans asked to classify lexical stress errors in the same data. 
-  	These results 
+  	These results establish
+  	the viability of 
   	%leave room for improvement, but 
-  	establish classification-based diagnosis of lexical stress errors as a viable approach for German CAPT.
+  	classification-based diagnosis of lexical stress errors 
+  	%as a viable approach 
+  	for German CAPT.
   \end{abstract}
   %
   \noindent{\bf Index Terms}: CAPT, prosody, German %\TODO{others?}
@@ -169,7 +172,7 @@ However, in other languages stress is fixed, i.e. completely predictable, always
 %%%Furthermore, 
 %although lexical stress is realized in these languages, 
 %%%in fixed-stress languages there may be a weaker distinction between stressed and unstressed syllables.
-While French has often been categorized as a fixed-stress language, given that word-final syllables are made prominent (lengthened) when a word is pronounced in isolation, some argue that it may be more properly considered a language without lexical stress, in that speakers do not seem to accentuate any syllable within the word, with word-final lengthening effects explained by interactions with the realization of phrasal accent (lengthening of the final syllable in each prosodic group or phrase) \cite{Michaux2013}. %Dupoux2008,
+While French has often been categorized as a fixed-stress language, given that word-final syllables are made prominent (lengthened) when a word is pronounced in isolation, some argue that it may be more properly considered a language without lexical stress, in that speakers do not seem to accentuate any syllable within the word, with word-final lengthening effects explained by interactions with the realization of phrasal accent (lengthening of the final syllable in each prosodic group or phrase) \cite{Michaux2013,Dupoux1997}. %Dupoux2008,
 Regardless, French has no contrastive word-level stress %\cite{Michaux2013}, %[p.~89]
 and in this respect differs considerably from German.
 %which constitutes a significant difference between this language and a language with variable, contrastive lexical stress such as German or English.
@@ -190,12 +193,12 @@ Studies of French learners of Dutch \cite{Michaux2013} and English \cite{Bonneau
 	%%%The high (anticipated) frequency of lexical stress errors in the speech of this L1-L2 group is thus one motivating factor for the creation of CAPT systems to help learners identify and correct such errors. 
 	
 	%%%Another motivation behind this work's focus on lexical stress errors is the high impact such errors may have on the intelligibility of L2 German speech.
-	Lexical stress errors may also have a high impact on L2 intelligibility, which is generally considered the most important goal of pronunciation training, as opposed to lack of a ``foreign accent'' (e.g. \cite{Munro1999,Field2005}).
+	Lexical stress errors may also have a high impact on L2 intelligibility, which is generally considered the most important goal of pronunciation training, as opposed to lack of a ``foreign accent'' \cite{Munro1999,Field2005}.
 	%%%Intelligibility, as opposed to lack of a “foreign accent,” is generally considered to be the most important goal of pronunciation training\cite{Munro1999,Neri2002,Derwing2005,Field2005,Witt2012}.
 	%%% The exact definition of \textit{intelligibility} is a topic of debate,
 	% in the literature, as is the question of whether and how it differs from the notion of comprehensibility; here, let us follow
 	%%%but here we will follow Munro and Derwing \cite[p.~289]{Munro1999} in understanding it broadly as ``the extent to which a speaker’s message is actually understood by a listener.''
-	Prosodic errors have generally been found to have a larger impact on the perceived intelligibility of L2 speakers than segmental errors 
+	Prosodic errors have often been found to have a larger impact on the perceived intelligibility of L2 speakers than segmental errors, 
 	%Hahn2004,Derwing2005,
 	%\cite{Witt2012}, 
 	and 
@@ -221,7 +224,7 @@ Studies of French learners of Dutch \cite{Michaux2013} and English \cite{Bonneau
 	such errors in L2 German speech, 
 	%yet related work on other target languages seems encouraging. 
 	but in recent years machine learning methods have been applied with apparent success to the classification of lexical stress patterns in English. 
-	Kim and Beutnagel \cite{Kim2011} experimented with various algorithms to classify stress patterns in high-quality recordings of 3- and 4-syllable English words uttered by L1 speakers, reporting accuracy in the 80-90\% range; in pilot experiments with low-quality recordings, however, they report lower accuracy: 70-80\% on L1 speech and only 50-60\% on L2 speech. 
+	Kim and Beutnagel~\cite{Kim2011} experimented with various algorithms to classify stress patterns in high-quality recordings of 3- and 4-syllable English words uttered by L1 speakers, reporting accuracy in the 80-90\% range; in pilot experiments with low-quality recordings, however, they report lower accuracy: 70-80\% on L1 speech and only 50-60\% on L2 speech. 
 	Shahin et al. \cite{Shahin2012a} trained Neural Networks to classify stress patterns in bisyllabic words uttered by L1 English children, 
 	%with the intended application of treating childhood dysprosody, 
 	and reported classification accuracy over 90\% for some patterns. %; though this work was conducted with a view to treating childhood L1 dysprosody, its relevance to our intended application of L2 CAPT is nonetheless clear.
@@ -457,7 +460,7 @@ Studies of French learners of Dutch \cite{Michaux2013} and English \cite{Bonneau
 	}
 	 \end{itemize}
 	 
-	 Annotation was performed using a graphical tool scripted in Praat.\footnote{\texttt{praat.org}} This tool displayed the given word's text, and allowed the annotator to listen to the given word utterance and the sentence utterance from which it was extracted as many times as they wished. Once they had reached a judgment about the lexical stress realization of the utterance, the annotator had to click one of five buttons, corresponding to the possible labels, to record their judgment.
+	 Annotation was performed using a graphical tool scripted in Praat.\footnote{\texttt{praat.org}} This tool displayed the given word's text, and allowed the annotator to listen to the given word utterance, as well as the sentence utterance from which it was extracted, as many times as they wished. Once they had reached a judgment about the lexical stress realization of the utterance, the annotator had to click one of five buttons, corresponding to the possible labels, to record their judgment.
 	 A single annotation session consisted of annotating all 55-56 tokens of each of three word types, and lasted approximately 15 minutes.
 	 %Annotation proceeded by means of a graphical tool scripted in Praat (Boersma and Weenink, 2014), the main interface of which is shown in Figure 3.1. At the top, a word’s text is displayed, along with the IFCASL corpus ID number of the speaker whose utterance of that word will be annotated (this number is only relevant for the annotator insofar as changes in its value inform the annotator that the speaker is changing from utterance to utterance). The recording of the word is played once automatically; the annotator may then choose to click one of the green buttons to play the word again, or play the recording of the entire sentence, as many times as they wish. Once the annotator has judged the accuracy of the lexical stress realization in this utterance, they log that judgment by clicking one of the gray buttons. The annotator is then automatically advanced to the next utterance, with the counts in the lower right corner tracking their progress towards the total number of tokens to be annotated.
 		
@@ -480,7 +483,7 @@ Studies of French learners of Dutch \cite{Michaux2013} and English \cite{Bonneau
 		
 		Each annotator was assigned three word types to annotate in a single session, with the exception of one who annotated six word types over two sessions. 
 		%Table 3.3 lists the word types assigned to each annotator, along with the number of tokens labeled for each type. Some judgments by annotators D and G had to be excluded from the analysis due to technical problems; the token counts for each annotator in Table 3.3 reflect only their usable judgments.
-		Assignments ensured that each word token was annotated by at least two native German speakers, and to maximize the amount of overlap between annotators in order to obtain as many pairwise measures of annotator agreement as possible 
+		Assignments ensured that each word token was annotated by at least two native German speakers, and maximized the amount of overlap between annotators in order to obtain as many pairwise measures of annotator agreement as possible 
 		(see \cref{sec:data:agreement}).
 		%(see Section 3.4 for a discussion of inter-annotator agreement); Table 3.4 lists the number of annotators for each word type.
 		
@@ -562,12 +565,15 @@ Minimum	&	23.21\%	&	-0.01	\\
 		%seen in \cref{tab:errors} and 
 		illustrated in \cref{fig:errors}, 
 		%Evidently, 
-		most of learners' lexical stress realizations were judged to be correct (426 utterances, i.e. 63.8\% of the 668 labeled utterances);
+		most 
+		utterances were labeled [correct] 
+		%of learners' lexical stress realizations were judged to be correct 
+		(426 utterances, i.e. 63.8\% of the 668 labeled utterances);
 		%most (63.77\%) of learners' lexical stress productions were judged to be correct; 
 		in other words, almost two-thirds of the time, learners clearly stressed the correct (initial) syllable. % in the uttered word.
-		However, learners also seemed to make mistakes regularly, with 29.6\% (198) of their word utterances labeled [incorrect] and another 5.2\% (35) labeled [none].
+		However, learners also seemed to make mistakes regularly, with 29.6\% (198) of their utterances labeled [incorrect] and another 5.2\% (35) labeled [none].
 		%However, incorrect productions (productions in which the learner clearly stressed the incorrect syllable) and productions in which the learner did not clearly stress either syllable (corresponding to the [none] label, as described in \cref{sec:lexstress:method}), also occurred regularly: 29.64\% of the productions were judged incorrect and 5.24\% were labeled [none]. 	
-		(Eight, or 1.2\%, of the word utterances were labeled [bad\_nsylls], and only one [bad\_audio].)
+		(Eight, or 1.2\%, of the utterances were labeled [bad\_nsylls], and only one [bad\_audio].)
 		If we consider both [incorrect] and [none] utterances as types of lexical stress errors, then errors were observed in just over one-third of utterances. %(34.88\%) of the  utterances annotated. 
 		%
 		This considerable proportion of errors seems to confirm the expectation (mentioned in \cref{sec:bkgd}) that French learners of German frequently make lexical stress errors.
@@ -632,7 +638,7 @@ Minimum	&	23.21\%	&	-0.01	\\
 	 The WEKA machine learning toolkit\footnote{\texttt{www.cs.waikato.ac.nz/ml/weka/}} was used to train and evaluate simple Classification And Regression Tree (CART) classifiers for these experiments. 
 %	 In this work, only simple Classification And Regression Tree (CART) classifiers %\TODO{Breiman1984?} 
 %	 were used.
-	 Many other classification algorithms are implemented in WEKA, some of which could  conceivably offer better performance, but CARTs were chosen for their simple training process and their ease of interpretation by humans. 
+	 Many other classification algorithms are implemented in WEKA, some of which could  conceivably offer better performance, but CARTs were chosen for their simple training process and their ease of interpretation. % by humans. 
 	 %In future work (see \cref{sec:conc}), it would be interesting to compare different classification algorithms to see if other classifiers are more effective for this type of data, along the lines of the experiments by Kim and Beutnagel \cite{Kim2011}.
 
 		%\TODO{paraphrase the below}
@@ -640,7 +646,10 @@ Minimum	&	23.21\%	&	-0.01	\\
 		Using the features and training datasets described below (\cref{sec:method:featuresets,sec:method:datasets}), CARTs were trained to classify utterances into one of the five categories described in \cref{sec:data:annotation}. 
 		%%%In practice, however, the classifiers only assign the labels [correct] and [incorrect], apparently neglecting the others due to their comparatively low frequency in the data. 
 		Overall classification accuracy %on the annotated sub-corpus
-		 was assessed by holding out portions of the annotated data for testing, and performing $n$-fold cross-validation (see \cref{sec:method:datasets}). 
+		 was then assessed 
+		 via 10-fold cross-validation 
+		 %by holding out portions of the annotated data for testing, and performing $n$-fold cross-validation 
+		 (see \cref{sec:method:datasets}). 
 		%The features and divisions of data used in each experiment are described in the sections below.
 	
 	
@@ -668,19 +677,18 @@ Minimum	&	23.21\%	&	-0.01	\\
 	   After duration, the next best acoustic correlate of lexical stress appears to be F0 \cite{Dogil1999}, so F0 features were also computed (see \cref{tab:f0features}).
 	    The F0 contour of a given utterance is estimated using the pitch detection functionality of the speech-processing program JSnoori\footnote{\texttt{jsnoori.loria.fr}} \cite{DiMartino1999}, which uses a spectral comb method to compute pitch points from spectra
 	    %each FFT spectrum 
-	    extracted from the relevant signal segment; here spectra were extracted via Fast Fourier Transform using Hamming windows 32 milliseconds long, offset by 8 ms. Pitch is computed in Hertz, then converted to semitones before features are computed. Features only take into account non-zero points, i.e. those corresponding to voiced segments.
+	    extracted from the relevant signal segment; here spectra were extracted via Fast Fourier Transform using Hamming windows 32 milliseconds long, offset by 8 ms. Pitch was computed in Hertz, then converted to semitones before features were computed. Features only take into account non-zero points, i.e. those corresponding to voiced segments.
 	    Though work on assessing L2 English stress has often made the assumption that stressed syllables should have higher F0 than unstressed ones (e.g. \cite{Bonneau2011}), in German stressed syllables may also have a lower F0 than other syllable(s) in the word \cite[p.~267]{Cutler2005}. Therefore, as \cref{tab:f0features} shows, our features capture not only the maximum F0 in each syllable (nucleus), but also the F0 minimum and range (maximum minus minimum).
 	    %Much of the work on assessing non-native lexical stress has been conducted with English as the L2, and thus often makes the assumption that a stressed syllable should have a higher F0 than unstressed syllables (Bonneau and Colotte, 2011). In German, the F0 of a stressed syllable also tends to differ from the surrounding contour, but the difference may be positive (the stressed syllable has a higher pitch than surrounding syllables) or negative (lower pitch) (Cutler, 2005, p. 267). Therefore, the computed features capture not only the F0 maximum of each syllable, but also the minimum and range (difference between maximum and minimum).
 	    
 	    Past research indicates that a signal's intensity also reflects lexical stress patterns, though to a lesser extent than duration or F0 \cite{Cutler2005,Dogil1999}.
 	   % Research on lexical stress prosody has generally indicated that intensity is the least important of the three features, i.e. corresponds least closely to lexical stress patterns (Cutler, 2005). Indeed, existing lexical stress assessment tools may not take intensity into account, as was the case with the prosodic diagnosis functionality of JSnoori at the start of this thesis project. However, intensity can nonetheless have an impact on the perception of lexical stress, especially in combination with pitch or duration, or both (ibid.); Therefore, in addition to duration and fundamental frequency, JSnoori’s learner speech analysis module was modified to take intensity (energy)2 into account.
-	   Therefore, intensity contours of syllables and their nuclei were also computed, again using JSnoori,
+	   Therefore, intensity contours of syllables and their nuclei were also calculated, again using JSnoori,
 	   %, which calculates the total amount of energy at frequencies from 0 to 8000 Hz in FFT spectra extracted from the signal (using Hamming windows 20 ms. long offset by 4 ms). Energy values below 60 decibels are not counted toward the total, as these are assumed to correspond to ambient or non-speech noise. 
 	   %Using these contours, we 
 	   and used to compute features taking into account the mean and maximum intensity in the relevant segments, as shown in \cref{tab:enerfeatures}.
 	   
 	    
-	   
 	   
 	    \begin{table}[!b]%[ht]
 		\centering
@@ -696,8 +704,8 @@ Minimum	&	23.21\%	&	-0.01	\\
 		\caption{Duration (DUR) feature set}
 		 \begin{tabularx}{\columnwidth}{lX}%{lXcc}
 		\toprule
-		Feature name & Description \\
-		%\multirow{2}{*}{Feature name} 
+		Feature & Description \\
+		%\multirow{2}{*}{Feature} 
 		%& \multirow{2}{*}{Description}
 		%& \multicolumn{2}{c}{Value} \\
 		%&		 &  (a) G		& (b) F \\
@@ -722,7 +730,7 @@ Minimum	&	23.21\%	&	-0.01	\\
 		{\renewcommand{\arraystretch}{1.25}%
 		\begin{tabularx}{\columnwidth}{lX}%{lXrr}
 		\toprule
-		Feature name & Description \\
+		Feature & Description \\
 		\midrule
 		REL-S-F0-MEAN 
 			& Mean F0 in S1$/$ mean F0 in S0 \\
@@ -771,7 +779,7 @@ Minimum	&	23.21\%	&	-0.01	\\
 		\caption{Intensity (INT) feature set}
 		\begin{tabularx}{\columnwidth}{Xl}%{lXrr}
 		\toprule
-		Feature name & Description \\
+		Feature & Description \\
 		\midrule
 		REL-S-INT-MEAN 
 			& Mean intensity in S1$/$S0 mean int.
@@ -809,20 +817,20 @@ Minimum	&	23.21\%	&	-0.01	\\
 		\end{table}
 	    
 
-		\begin{table}%[!b]
+		\begin{table}[!b]
 			\centering
 			\caption{Speaker/word features}
 			\begin{tabularx}{\columnwidth}{lX}
 			%\begin{tabular}{ll}
 			\toprule
-			Feature name & Description \\
+			Feature & Description \\
 			\midrule
 			WD %WORD 
 				& Uttered word (e.g. \textit{Tatort}) \\
 			LV % LEVEL 
-				& Speaker's L2 German skill level \newline (A2$|$B1$|$B2$|$C1)\\
+				& Speaker's L2 German skill level  (A2$|$B1$|$B2$|$C1)\\
 			AG %GENDER 
-				& Speaker's age/gender category \newline (Girl$|$Boy$|$Woman$|$Man)\\
+				& Speaker's age/gender  (Girl$|$Boy$|$Woman$|$Man)\\
 %			LV+AG & LEVEL, GENDER \\
 %			WD+LV & WORD, LEVEL \\
 %			WD+AG & WORD, GENDER \\
@@ -831,6 +839,7 @@ Minimum	&	23.21\%	&	-0.01	\\
 			\end{tabularx}
 			\label{tab:spkrfeatures}		
 		\end{table}
+
 		
 		Using different combinations of these feature sets, a series of experiments was conducted to determine which features give the best accuracy in the error-classification task. Establishing which features perform best not only enables the creation of the most accurate classification-based error diagnosis system possible, but may also clarify whether and how strongly these acoustic properties correspond with perceived lexical stress errors in L2 German.
 		 In addition to the prosodic features (\cref{tab:prosfeatures}), features representing the 
@@ -876,7 +885,7 @@ Minimum	&	23.21\%	&	-0.01	\\
 			%the number of instances the classifier correctly assigned to this class, divided by the number of instances which truly belong to this class
 			}
 			\item{F-measure (F$_1$):
-			harmonic mean of P and R (where both are weighted equally), i.e. $F_1 = 2PR/(P+R)$
+			harmonic mean of P and R (where both are weighted equally): $F_1 = 2PR/(P+R)$
 			%, also known simply as F-measure or F-score: a metric which combines Precision and Recall by taking their harmonic mean, weighting both equally. It is computed with the formula:
 			%\[F_1 = 2PR/(P+R)\]
 			%\[\frac{2PR}{P+R}\]
@@ -901,7 +910,7 @@ Minimum	&	23.21\%	&	-0.01	\\
 %		\subsection{Feature performance}
 %		\label{sec:results:features}		
 		
-		\Cref{tab:results:prosody} lists the results of experiments with the prosodic features described in \cref{tab:prosfeatures}. As seen in the top rows of \cref{tab:results:prosody}, the results obtained using features representing each of the three acoustic correlates of lexical stress, duration, F0, and intensity, confirm that duration features seem to be the best predictor of lexical stress errors. %, followed by F0 and then intensity. 
+		\Cref{tab:results:prosody} lists the results of experiments with the prosodic features described in \cref{tab:prosfeatures}. As seen in the top rows of \cref{tab:results:prosody}, the results obtained using features representing each of the three acoustic correlates of lexical stress (duration, F0, and intensity) confirm that duration features seem to be the best predictor of lexical stress errors. %, followed by F0 and then intensity. 
 		In fact, the perfect (1.00) R values and $\kappa$ at or near 0 for F0 and INT features seem to indicate that these feature sets do not enable the system to discriminate between error classes at all, resulting in classifiers that are useless for CAPT insofar as they simply classify all utterances as [correct].
 		%(indeed, for these feature sets P for the [incorrect] class was 0.0). 
 		%However, it should be noted that the F0 and intensity features do seem to be at an advantage over the duration features in one respect: the latter has an average recall of only 0.91 for [correct] utterances, while the other two features exhibit perfect recall (1.0). As mentioned earlier (Section 4.4.1), lower [correct] recall means that correct pronunciations are being misclassified as incorrect, which is a dangerous type of mistake for a CAPT system to make.
@@ -1014,14 +1023,15 @@ WD+LV+AG	&	70.52	&	0.31	&	0.72	&	0.91	&	0.80	&	0.86	\\
 %%%		\footnote{Though including the LV feature would be nonsensical if the intended application of the classifier were assessment of a learner's proficiency level, the goal here is not assessment but training, 
 %%%		%and learners of different levels may make different  have different training needs; therefore, 
 %%%		so in this case it is reasonable to allow the system to take LV into account. }		
-		 seemed to be most helpful, while including the speaker's age/gender category (AG) appeared to have a negative, if any, impact on performance. 
+		 seemed to be most helpful, while including the speaker's age/gender (AG) appeared to have a negative, if any, impact on performance. 
 		%Comparing the performance of the two speaker-related features, the speaker’s proficiency level (LV) seems to be a better predictor of stress accuracy than their age/gender category (GENDER, which refers to whether the speaker is a girl, boy, woman, or man, and not exclusively to whether they are a male or a female; see Table 4.4b). This is not surprising, considering the large discrepancy between skill level groups observed in the error distribution analysis (see Section 3.6.3). If the intended application of the classifier were the assessment of a learner’s proficiency level, including this feature would obviously be nonsensical; however, in this context the application is not assessment but training, and in that case it makes sense to allow the system to take the learner’s level into account.
 		%Interestingly, for many of the word/speaker feature combinations tried, slightly different results were obtained when these features were combined with the full set of prosodic features (DUR+F0+INT) than with the best-performing subset of the prosodic features, DUR+F0. 
-		Adding WD and LV to the best-performing prosodic features (DUR+F0) improved classification accuracy slightly across all metrics; interestingly, however, the overall best performance on this dataset was achieved by combining WD and LV with the entire set of prosodic features (DUR+F0+INT), yielding average accuracy of 71.87\%, $\kappa$ of 0.34, and [correct] F$_1$ and F$_2$ measures of 0.81 and 0.87, respectively.
+		Adding WD and LV to the best-performing prosodic features (DUR+F0) improved performance slightly; % across all metrics;
+		 interestingly, however, the overall best performance on this dataset was achieved by combining WD and LV with the entire set of prosodic features (DUR+F0+INT), yielding average accuracy of 71.87\%, $\kappa$ of 0.34, and [correct] F$_1$ and F$_2$ measures of 0.81 and 0.87, respectively.
 		%For example, when combined with the feature set DUR+F0+INT, the feature LV slightly outperformed the word of the utterance (WD) as a predictor of stress accuracy, yet when combined with only the duration and F0 features (DUR+F0), WD outperformed LV. In both situations, the combination of these two features, WD+LV, seemed to give better results than any combination involving GENDER, including the combination using all three word/speaker features. In fact, the best-performing classifiers resulted from using the word of the utterance, the speaker’s proficiency level, and the entire set of prosodic features (WD+LV+DUR+F0+INT), yielding an average accuracy of 71.87%, κ of 0.34, and F1 and F2 measures of 0.81 and 0.87, respectively.
 
 		
-		Though these statistics are the best of any of the experiments reported in this section, we would perhaps like to see better accuracy and F-measures, and higher than ``fair'' agreement \cite{Landis1977} with the gold-standard labels, before placing such an error-diagnosis system in front of actual students.
+		Though these results are the best of any of the experiments reported in this section, we would perhaps like to see better accuracy and F-measures, and higher than ``fair'' \cite{Landis1977}  agreement with the gold-standard labels, before placing such an error-diagnosis system in front of actual students.
 		% However, these results should be interpreted in the context of the particular task at hand, and as Neri et al. (2002, pp. 15-16) point out, for any automatic pronunciation scoring system to be useful, there must be a strong correlation between how the system evaluates a given utterance and how human raters would evaluate it. Here, classification performance was evaluated against the gold-standard annotation of the dataset; yet, as described in Section 3.5, the gold-standard labels represent a consolidation of multiple, often conflicting labels from different annotators (see Section 3.4). 		
 		However, considering the relatively low agreement between humans tasked with the same type of error classification (see \cref{sec:data:agreement}), this accuracy does not seem so unimpressive.
 		Indeed, the best average $\kappa$ between the classifier output and gold-standard labels (0.34) exceeds the observed average human-human $\kappa$ (0.23), and the best average percentage accuracy for that classifier (71.87\%) is substantially higher than the average human-human percentage agreement (54.92\%). 
@@ -1088,14 +1098,14 @@ WD+LV+AG	&	70.52	&	0.31	&	0.72	&	0.91	&	0.80	&	0.86	\\
 	\section{Conclusions}
 	\label{sec:conc}
 	
-		Classification of lexical stress errors using machine learning algorithms is a relatively novel approach to lexical stress error identification in German CAPT.
+		Classification of lexical stress errors using machine learning algorithms is a novel approach to lexical stress error identification in German CAPT.
 		%, in which a learner’s utterance is compared to the more abstract model of L1 speech represented by a classifier trained on a large number of L1 utterances. 
 		This paper has 
 		explored  
 		%presented original contributions to the understanding of 
 		how, and how effectively, classification-based diagnosis can be used to identify (in)correct realizations of lexical stress in the L2 German speech of L1 French speakers. 
-		The prosodic features found to be most useful for classification relate to duration and F0, unsurprising considering that past work has indicated these may be the closest acoustic correlates of lexical stress in German \cite{Dogil1999,Cutler2005}. 
-		Features representing the word type uttered and the L2 proficiency level of the speaker also seemed valuable for error classification; combining these features with the three prosodic feature types yielded the overall highest accuracy (71.87\% accuracy, $\kappa$ = 0.34) attained on the L2 speech dataset (see \cref{sec:data}).
+		The prosodic features found to be most useful for classification relate to duration and F0, unsurprising considering that past work has indicated these may be the closest acoustic correlates of lexical stress in German \cite{Cutler2005,Dogil1999}. 
+		Features representing the word type uttered and the L2 proficiency level of the speaker also seem valuable for error classification; combining these features with the three prosodic feature types yielded the overall highest accuracy (71.87\% accuracy, $\kappa$ = 0.34) attained on the L2 speech dataset (see \cref{sec:data}).
 		Though these results leave room for improvement, they are encouraging given that agreement between the classifier's output and the gold-standard labels slightly exceeded the average agreement observed between human annotators asked to perform the same error classification task (see \cref{sec:data:agreement}).
 		%Features capturing the word type of the utterance as well as the age, gender and proficiency level of the speaker were also found to be quite valuable for error classification; combining these features with all three prosodic feature types resulted in the highest overall accuracy observed on this dataset (71.87\% accuracy, $\kappa$ = 0.34). As the observed agreement between the classifier’s labels and the gold standard slightly exceeded the overall inter-annotator agreement observed when humans were asked to perform this error diagnosis task (see Section 3.4), these results seem encouraging. 
 %%%		Somewhat lower classification accuracy was observed on word types not represented in the training data, although this accuracy still remained comparable to the average percentage agreement between humans.

@@ -564,7 +564,7 @@ Minimum	&	23.21\%	&	-0.01	\\
 		%Evidently, 
 		most of learners' lexical stress realizations were judged to be correct (426 utterances, i.e. 63.8\% of the 668 labeled utterances);
 		%most (63.77\%) of learners' lexical stress productions were judged to be correct; 
-		in other words, almost two-thirds of the time, learners clearly stressed the correct (initial) syllable in the uttered word.
+		in other words, almost two-thirds of the time, learners clearly stressed the correct (initial) syllable. % in the uttered word.
 		However, learners also seemed to make mistakes regularly, with 29.6\% (198) of their word utterances labeled [incorrect] and another 5.2\% (35) labeled [none].
 		%However, incorrect productions (productions in which the learner clearly stressed the incorrect syllable) and productions in which the learner did not clearly stress either syllable (corresponding to the [none] label, as described in \cref{sec:lexstress:method}), also occurred regularly: 29.64\% of the productions were judged incorrect and 5.24\% were labeled [none]. 	
 		(Eight, or 1.2\%, of the word utterances were labeled [bad\_nsylls], and only one [bad\_audio].)
@@ -666,7 +666,9 @@ Minimum	&	23.21\%	&	-0.01	\\
 	    %
 	    
 	   After duration, the next best acoustic correlate of lexical stress appears to be F0 \cite{Dogil1999}, so F0 features were also computed (see \cref{tab:f0features}).
-	    The F0 contour of a given utterance is estimated using the pitch detection functionality of the speech-processing program JSnoori\footnote{\texttt{jsnoori.loria.fr}} \cite{DiMartino1999}, which uses a spectral comb method to compute a pitch point from each FFT spectrum extracted from the relevant signal segment; here spectra were extracted using Hamming windows 32 milliseconds long, offset by 8 ms. Pitch is computed in Hertz, then converted to semitones before features are computed. Features only take into account non-zero points, i.e. those corresponding to voiced segments.
+	    The F0 contour of a given utterance is estimated using the pitch detection functionality of the speech-processing program JSnoori\footnote{\texttt{jsnoori.loria.fr}} \cite{DiMartino1999}, which uses a spectral comb method to compute pitch points from spectra
+	    %each FFT spectrum 
+	    extracted from the relevant signal segment; here spectra were extracted via Fast Fourier Transform using Hamming windows 32 milliseconds long, offset by 8 ms. Pitch is computed in Hertz, then converted to semitones before features are computed. Features only take into account non-zero points, i.e. those corresponding to voiced segments.
 	    Though work on assessing L2 English stress has often made the assumption that stressed syllables should have higher F0 than unstressed ones (e.g. \cite{Bonneau2011}), in German stressed syllables may also have a lower F0 than other syllable(s) in the word \cite[p.~267]{Cutler2005}. Therefore, as \cref{tab:f0features} shows, our features capture not only the maximum F0 in each syllable (nucleus), but also the F0 minimum and range (maximum minus minimum).
 	    %Much of the work on assessing non-native lexical stress has been conducted with English as the L2, and thus often makes the assumption that a stressed syllable should have a higher F0 than unstressed syllables (Bonneau and Colotte, 2011). In German, the F0 of a stressed syllable also tends to differ from the surrounding contour, but the difference may be positive (the stressed syllable has a higher pitch than surrounding syllables) or negative (lower pitch) (Cutler, 2005, p. 267). Therefore, the computed features capture not only the F0 maximum of each syllable, but also the minimum and range (difference between maximum and minimum).
 	    

@@ -23,7 +23,8 @@
 \usepackage{caption}
 \usepackage{subcaption}
 
-
+%\widowpenalty500
+%\clubpenalty500
 
 \sloppy % better line breaks
 \ninept
@@ -47,7 +48,7 @@
 \makeatletter
 \def\name#1{\gdef\@name{#1\\}}
 \makeatother \name{{\em%
-  Anjana Sofia Vakil%, J\"{u}rgen Trouvain
+  Anjana Sofia Vakil, J\"{u}rgen Trouvain
   %Author Name$^1$, Co-author Name$^2$
   }}
 
@@ -57,10 +58,7 @@
   Department of Computational Linguistics \& Phonetics\\
   Saarland University, Saarbr\"{u}cken, Germany\\
   {\small \tt 
-  %[%
-  anjanav%
-  %,trouvain%
-  %]%
+  [anjanav,trouvain]%
   @coli.uni-saarland.de}
 }
 
@@ -79,7 +77,6 @@
   \maketitle
   %
   \begin{abstract}
-    
   	Lexical stress plays an important role in the prosody of German, and presents a considerable challenge to native speakers of languages such as French who are learning German as a foreign language. These learners stand to benefit greatly from Computer-Assisted Pronunciation Training (CAPT) systems which can offer individualized corrective feedback on such errors, and reliable automatic detection of these errors is a prerequisite for developing such systems. With this motivation, this paper presents 
   	%the first known 
   	an exploration of the use of machine learning methods to classify non-native German lexical stress errors. 
@@ -91,10 +88,6 @@
   	These results 
   	%leave room for improvement, but 
   	establish classification-based diagnosis of lexical stress errors as a viable approach for German CAPT.
-  	%\TODO{Still got about 40 words - something about unseen word types?}
-    
-    
-    
   \end{abstract}
   %
   \noindent{\bf Index Terms}: CAPT, prosody, German %\TODO{others?}
@@ -666,8 +659,15 @@ Minimum	&	23.21\%	&	-0.01	\\
 	   %Using these contours, we 
 	   and used to compute features taking into account the mean and maximum intensity in the relevant segments, as shown in \cref{tab:enerfeatures}.
 	   
+	    Using different combinations of these feature sets, a series of experiments was conducted to determine which features give the best accuracy in the error-classification task. Establishing which features perform best not only enables the creation of the most accurate classification-based error diagnosis system possible, but may also clarify whether and how strongly these acoustic properties correspond with perceived lexical stress errors in L2 German.
+		 In addition to the prosodic features (\cref{tab:prosfeatures}), features representing the 
+		 uttered word 
+		 %word type uttered 
+		 and characteristics of the speaker (see \cref{tab:spkrfeatures}) were also included in the experiments, to ascertain whether such features could improve performance.
+		The results of these experiments are presented in \cref{sec:results:features}.
 	   
-	    \begin{table}%[ht]
+	   
+	    \begin{table}[hb]%[ht]
 		\centering
 		%\caption[Features used for duration analysis]{Features used for duration analysis, and their values for the sample utterances of ``Flagge'' in \cref{fig:featuresexample}. 
 		\caption{%
@@ -794,14 +794,11 @@ Minimum	&	23.21\%	&	-0.01	\\
 		\end{table}
 	    
 	   
+	    
+	    
 		
-		 Using different combinations of these feature sets, a series of experiments was conducted to determine which features give the best accuracy in the error-classification task. Establishing which features perform best not only enables the creation of the most accurate classification-based error diagnosis system possible, but may also clarify whether and how strongly these acoustic properties correspond with perceived lexical stress errors in L2 German.
-		 In addition to the prosodic features (\cref{tab:prosfeatures}), features representing the 
-		 uttered word 
-		 %word type uttered 
-		 and characteristics of the speaker (see \cref{tab:spkrfeatures}) were also included in the experiments, to ascertain whether such features could improve performance.
-		The results of these experiments are presented in \cref{sec:results:features}.
 		
+			
 		\begin{table}
 			\centering
 			\caption{Speaker/word features}
@@ -824,7 +821,6 @@ Minimum	&	23.21\%	&	-0.01	\\
 			\end{tabularx}
 			\label{tab:spkrfeatures}		
 		\end{table}
-	    
 	    
 	    \subsection{Datasets for training and testing}
 	    \label{sec:method:datasets}
@@ -882,8 +878,28 @@ Minimum	&	23.21\%	&	-0.01	\\
 	
 	%This section describes the results of the classification experiments conducted by training CART classifiers using various configurations of the feature sets and train/test data splits described in \cref{sec:method}. 
 	
+		
 
-		\begin{table}
+	
+%		\subsection{Feature performance}
+%		\label{sec:results:features}		
+		
+		\Cref{tab:results:prosody} lists the results of experiments with the prosodic features described in \cref{tab:prosfeatures}. As seen in the top rows of \cref{tab:results:prosody}, the results obtained using features representing each of the three acoustic correlates of lexical stress, duration, F0, and intensity, confirm that duration features seem to be the best predictor of lexical stress errors. %, followed by F0 and then intensity. 
+		In fact, the perfect (1.00) R values and $\kappa$ at or near 0 for F0 and INT features seem to indicate that these feature sets do not enable the system to discriminate between error classes at all, resulting in classifiers that are useless for CAPT insofar as they simply classify all utterances as [correct].
+		%(indeed, for these feature sets P for the [incorrect] class was 0.0). 
+		%However, it should be noted that the F0 and intensity features do seem to be at an advantage over the duration features in one respect: the latter has an average recall of only 0.91 for [correct] utterances, while the other two features exhibit perfect recall (1.0). As mentioned earlier (Section 4.4.1), lower [correct] recall means that correct pronunciations are being misclassified as incorrect, which is a dangerous type of mistake for a CAPT system to make.
+	
+
+		
+		
+		However, as the lower rows of \cref{tab:results:prosody} show, better performance was obtained with classifiers trained on a combination of these features than using each set in isolation. The pairing of duration and F0 features, with intensity features omitted, resulted in the best overall performance using only prosodic features: 
+		69.77\% accuracy, $\kappa$ = 0.29, and [correct] F$_1$ = 0.8.
+		%Compared to using each of the three prosodic feature sets in isolation, it is clear from the figures in the lower rows of Table 4.5 that even better performance can be achieved by combining these features. Interestingly, however, better performance was observed with classifiers trained only on duration and F0 features (omitting intensity features) than with those trained on features of all three types. This duration-F0 pairing resulted in the best- overall averages for any of the prosodic feature combinations: 69.77% accuracy, κ = 0.29, and F1 = 0.8 for the [correct] class.
+		
+		
+		
+		
+		\begin{table}[!b]
 			\centering
 			\caption[Results of experiments with prosodic features]{Results of experiments with prosodic features.%,
 			%quantified by percent accuracy (\% acc.) and Kappa agreement ($\kappa$) with respect to the gold-standard labels, as well as precision (P), recall (R) and F$_1$ and F$_2$ measures for the [correct] class. 
@@ -902,11 +918,11 @@ Minimum	&	23.21\%	&	-0.01	\\
 DUR	&	66.78	&	0.19	&	0.69	&	0.91	&	0.79	&	0.86	\\
 F0		&	64.37	&	0.02	&	0.64	&	\textbf{1.00}	&	0.78	&	\textbf{0.90}	\\
 INT		&	63.77	&	0.00	&	0.64	&	\textbf{1.00}	&	0.78	&	\textbf{0.90}	\\
-\addlinespace											
+%\addlinespace											
 INT+F0		&	64.52	&	0.04	&	0.65	&	0.98	&	0.78	&	0.89	\\
 DUR+INT	&	67.68	&	0.25	&	0.71	&	0.89	&	0.79	&	0.85	\\
 DUR+F0		&	\textbf{69.77}	&	\textbf{0.29}	&	\textbf{0.72}	&	0.91	&	\textbf{0.80}	&	0.86	\\
-\addlinespace											
+%\addlinespace											
 %DUR+F0+INT	
 DUR+F0+INT &	67.52	&	0.25	&	0.71	&	0.89	&	0.79	&	0.85	\\		
 			\bottomrule
@@ -914,7 +930,7 @@ DUR+F0+INT &	67.52	&	0.25	&	0.71	&	0.89	&	0.79	&	0.85	\\
 			\end{tabularx}
 		\end{table}	
 		
-		\begin{table}
+		\begin{table}[!b]
 			\centering
 			\caption[Results of experiments with speaker and word features]{Results of experiments with speaker and word features. %,
 			%quantified by percent accuracy (\% acc.) and Kappa agreement ($\kappa$) with respect to the gold-standard labels, as well as precision (P), recall (R) and F$_1$ and F$_2$ measures for the [correct] class. 
@@ -935,11 +951,11 @@ DUR+F0+INT &	67.52	&	0.25	&	0.71	&	0.89	&	0.79	&	0.85	\\
 WD		&	70.52	&	0.30	&	\textbf{0.72}	&	0.92	&	\textbf{0.81}	&	\textbf{0.87}	\\
 LV		&	68.72	&	0.27	&	0.71	&	0.91	&	0.79	&	0.86	\\
 AG	&	68.26	&	0.22	&	0.69	&	\textbf{0.94}	&	0.80	&	0.88	\\
-\addlinespace											
+%\addlinespace											
 LV+AG	&	69.77	&	0.29	&	\textbf{0.72}	&	0.91	&	0.80	&	0.86	\\
 WD+AG	&	68.86	&	0.27	&	0.71	&	0.91	&	0.80	&	0.86	\\
 WD+LV	&	\textbf{70.65}	&	\textbf{0.31}	&	\textbf{0.72}	&	0.92	&	\textbf{0.81}	&	\textbf{0.87}	\\
-\addlinespace											
+%\addlinespace											
 WD+LV+AG	&	68.41	&	0.26	&	0.71	&	0.91	&	0.79	&	0.86	\\
 			\bottomrule
 			\label{tab:results:spkrword:durF0}
@@ -960,10 +976,11 @@ WD+LV+AG	&	68.41	&	0.26	&	0.71	&	0.91	&	0.79	&	0.86	\\
 WD	&	68.41	&	0.28	&	0.72	&	0.88	&	0.79	&	0.84	\\
 LV	&	70.07	&	0.29	&	0.71	&	\textbf{0.92}	&	0.80	&	\textbf{0.87}	\\
 AG	&	66.93	&	0.24	&	0.71	&	0.88	&	0.78	&	0.84	\\
-\addlinespace													
+%\addlinespace													
 LV+AG	&	68.57	&	0.27	&	0.72	&	0.89	&	0.79	&	0.85	\\
 WD+AG	&	68.87	&	0.30	&	\textbf{0.73}	&	0.87	&	0.79	&	0.83	\\
-WD+LV	&	\textbf{71.87}	&	\textbf{0.34}	&	\textbf{0.73}	&	\textbf{0.92}	&	\textbf{0.81}	&	\textbf{0.87}	\\		\addlinespace								
+WD+LV	&	\textbf{71.87}	&	\textbf{0.34}	&	\textbf{0.73}	&	\textbf{0.92}	&	\textbf{0.81}	&	\textbf{0.87}	\\		
+%\addlinespace								
 WD+LV+AG	&	70.52	&	0.31	&	0.72	&	0.91	&	0.80	&	0.86	\\
 			\bottomrule
 			\label{tab:results:spkrword:all}
@@ -972,6 +989,45 @@ WD+LV+AG	&	70.52	&	0.31	&	0.72	&	0.91	&	0.80	&	0.86	\\
 		
 		\label{tab:results:spkrword}
 	\end{table}
+	
+
+		
+	
+		As seen in \cref{tab:results:spkrword}, even higher accuracy was obtained by combining prosodic features with the features representing speaker and word characteristics (see \cref{tab:spkrfeatures}). Information about the word type of the utterance (WD) and the L2 German proficiency of the speaker (LV) %
+%%%		\footnote{Though including the LV feature would be nonsensical if the intended application of the classifier were assessment of a learner's proficiency level, the goal here is not assessment but training, 
+%%%		%and learners of different levels may make different  have different training needs; therefore, 
+%%%		so in this case it is reasonable to allow the system to take LV into account. }		
+		 seemed to be most helpful, while including the speaker's age/gender category (AG) appeared to have a negative, if any, impact on performance. 
+		%Comparing the performance of the two speaker-related features, the speaker’s proficiency level (LV) seems to be a better predictor of stress accuracy than their age/gender category (GENDER, which refers to whether the speaker is a girl, boy, woman, or man, and not exclusively to whether they are a male or a female; see Table 4.4b). This is not surprising, considering the large discrepancy between skill level groups observed in the error distribution analysis (see Section 3.6.3). If the intended application of the classifier were the assessment of a learner’s proficiency level, including this feature would obviously be nonsensical; however, in this context the application is not assessment but training, and in that case it makes sense to allow the system to take the learner’s level into account.
+		%Interestingly, for many of the word/speaker feature combinations tried, slightly different results were obtained when these features were combined with the full set of prosodic features (DUR+F0+INT) than with the best-performing subset of the prosodic features, DUR+F0. 
+		Adding WD and LV to the best-performing prosodic features (DUR+F0) improved classification accuracy slightly across all metrics; interestingly, however, the overall best performance on this dataset was achieved by combining WD and LV with the entire set of prosodic features (DUR+F0+INT), yielding average accuracy of 71.87\%, $\kappa$ of 0.34, and [correct] F$_1$ and F$_2$ measures of 0.81 and 0.87, respectively.
+		%For example, when combined with the feature set DUR+F0+INT, the feature LV slightly outperformed the word of the utterance (WD) as a predictor of stress accuracy, yet when combined with only the duration and F0 features (DUR+F0), WD outperformed LV. In both situations, the combination of these two features, WD+LV, seemed to give better results than any combination involving GENDER, including the combination using all three word/speaker features. In fact, the best-performing classifiers resulted from using the word of the utterance, the speaker’s proficiency level, and the entire set of prosodic features (WD+LV+DUR+F0+INT), yielding an average accuracy of 71.87%, κ of 0.34, and F1 and F2 measures of 0.81 and 0.87, respectively.
+
+		
+		Though these statistics are the best of any of the experiments reported in this section, we would perhaps like to see better accuracy and F-measures, and higher than ``fair'' agreement \cite{Landis1977} with the gold-standard labels, before placing such an error-diagnosis system in front of actual students.
+		% However, these results should be interpreted in the context of the particular task at hand, and as Neri et al. (2002, pp. 15-16) point out, for any automatic pronunciation scoring system to be useful, there must be a strong correlation between how the system evaluates a given utterance and how human raters would evaluate it. Here, classification performance was evaluated against the gold-standard annotation of the dataset; yet, as described in Section 3.5, the gold-standard labels represent a consolidation of multiple, often conflicting labels from different annotators (see Section 3.4). 		
+		However, considering the relatively low agreement between humans tasked with the same type of error classification (see \cref{sec:data:agreement}), this accuracy does not seem so unimpressive.
+		Indeed, the best average $\kappa$ between the classifier output and gold-standard labels (0.34) exceeds the observed average human-human $\kappa$ (0.23), and the best average percentage accuracy for that classifier (71.87\%) is substantially higher than the average human-human percentage agreement (54.92\%). 
+		%TODO put the below in conclusion?
+		%It seems possible, given the low inter-annotator agreement observed in the annotation described in Chapter 3, that there is an element of subjectivity in the decision of whether or not lexical stress was realized correctly in an utterance of a given word, such that an indisputable diagnosis of that utterance cannot be produced, and different listeners could and would make different assessments of that utterance. If this is the case, it would not be realistic to expect an automatic diagnosis system to reproduce humans’ assessments with perfect accuracy, and any agreement between the classifier’s output and the gold-standard labels which exceeds the average agreement between humans should be interpreted in a positive light.
+		
+
+		
+		
+		
+		
+%%%		\subsection{Performance on unseen words}
+%%%		\label{sec:results:words}
+%%%		
+%%%		\Cref{tab:results:words} presents the results of experiments with unseen words (see \cref{sec:method:datasets}), averaged over each of the 12 held-out word types.
+%%%		Interestingly, the highest accuracy (66.85\%) was achieved using classifiers trained only on the best-performing prosodic features (DUR+F0), excluding the speaker-related features (LV and AG). However, classifiers trained on all three prosodic feature sets (DUR+F0+INT) yielded the best agreement with the gold-standard labels ($\kappa$ = 0.19), while the best F-measures (F$_1$ = 0.77, F$_2$ = 0.85) were observed using classifiers trained using all available features (DUR+F0+INT+LV+AG; WD was of course not included in these experiments).
+%%%		%As that table shows, the best average performance on all twelve unseen word types was achieved using classifiers trained only on the best-performing prosodic features (DUR+F0), and not taking either of the speaker-related features into consideration: this yielded an accuracy of 66.85%, κ of 0.17, and F1 and F2 measures of 0.77 and 0.84, respectively.
+%%%		
+%%%		The drop in performance compared with the best results obtained on seen words (see \cref{tab:results:spkrword:all}) seems to indicate that extending classification to words for which L1 utterances are not available for training is not a trivial matter. 
+%%%		The difference in $\kappa$ is perhaps most striking, constituting a drop from ``fair'' to ``slight'' agreement with the gold standard \cite{Landis1977}, as well as a fall below the average inter-annotator $\kappa$ (0.23). However, the percentage accuracy still exceeds the average percentage agreement between human annotators (54.92\%), and the observed decreases in percentage accuracy and F-measures with respect to seen words do not seem drastic. This is encouraging for the prospect of classifying errors in novel word types, especially given that overall performance could be improved by e.g. using more powerful machine learning algorithms or additional features (see \cref{sec:conc}).
+%%%		%), classifying errors in unseen words \TODO{may yet be feasible}.
+%%%		%In comparison with the best results obtained on seen words as reported in the previous section (69.77% accuracy and κ  = 0.29 for the DUR+F0 feature set, and 71.87%/κ  = 0.34 for WD+LV+DUR+F0+INT), these statistics seem to support the hypothesis that performance would be lower on words not seen in the training data. Perhaps most striking is the difference in κ, which constitutes a drop from fair to slight agreement with the gold-standard labels (using the Landis and Koch (1977) thresholds), which also constitutes a fall below the average inter-annotator κ of 0.23 observed between human annotations (see Section 3.4.1). However, the drop in the overall accuracy percentage, as well as in the two F-measures, seems less drastic, which seems encouraging from the perspective of extending the diagnostic capabilities of de-stress to novel word types using a classification-based approach, especially considering the possibilities for improving classification performance by other means, e.g. using additional features or more powerful machine learning algorithms (see Section 6.2).
+
 	
 %%%	\begin{table}[p]
 %%%			\centering
@@ -1002,51 +1058,6 @@ WD+LV+AG	&	70.52	&	0.31	&	0.72	&	0.91	&	0.80	&	0.86	\\
 %%%			\end{tabularx}
 %%%		\end{table}	
 %%%	
-	
-		\subsection{Feature performance}
-		\label{sec:results:features}		
-		
-		\Cref{tab:results:prosody} lists the results of experiments with the prosodic features described in \cref{tab:prosfeatures}. As seen in the first three rows of \cref{tab:results:prosody}, the results obtained using features representing each of the three acoustic correlates of lexical stress, duration, F0, and intensity, confirm that duration features seem to be the best predictor of lexical stress errors. %, followed by F0 and then intensity. 
-		In fact, the perfect (1.00) R values and $\kappa$ at or near 0 for F0 and INT features seem to indicate that these feature sets do not enable the system to discriminate between error classes at all, resulting in classifiers that are useless for CAPT insofar as they simply classify all utterances as [correct].
-		%(indeed, for these feature sets P for the [incorrect] class was 0.0). 
-		%However, it should be noted that the F0 and intensity features do seem to be at an advantage over the duration features in one respect: the latter has an average recall of only 0.91 for [correct] utterances, while the other two features exhibit perfect recall (1.0). As mentioned earlier (Section 4.4.1), lower [correct] recall means that correct pronunciations are being misclassified as incorrect, which is a dangerous type of mistake for a CAPT system to make.
-		
-		However, as the lower rows of \cref{tab:results:prosody} show, better performance was obtained with classifiers trained on a combination of these features than using each set in isolation. The pairing of duration and F0 features, with intensity features omitted, resulted in the best overall performance using only prosodic features: 
-		69.77\% accuracy, $\kappa$ = 0.29, and [correct] F$_1$ = 0.8.
-		%Compared to using each of the three prosodic feature sets in isolation, it is clear from the figures in the lower rows of Table 4.5 that even better performance can be achieved by combining these features. Interestingly, however, better performance was observed with classifiers trained only on duration and F0 features (omitting intensity features) than with those trained on features of all three types. This duration-F0 pairing resulted in the best- overall averages for any of the prosodic feature combinations: 69.77% accuracy, κ = 0.29, and F1 = 0.8 for the [correct] class.
-		
-		
-		
-		
-		As seen in \cref{tab:results:spkrword}, even higher accuracy was obtained by combining prosodic features with the features representing speaker and word characteristics (see \cref{tab:spkrfeatures}). Information about the word type of the utterance (WD) and the L2 German proficiency of the speaker (LV) %
-%%%		\footnote{Though including the LV feature would be nonsensical if the intended application of the classifier were assessment of a learner's proficiency level, the goal here is not assessment but training, 
-%%%		%and learners of different levels may make different  have different training needs; therefore, 
-%%%		so in this case it is reasonable to allow the system to take LV into account. }		
-		 seemed to be most helpful, while including the speaker's age/gender category (AG) appeared to have a negative, if any, impact on performance. 
-		%Comparing the performance of the two speaker-related features, the speaker’s proficiency level (LV) seems to be a better predictor of stress accuracy than their age/gender category (GENDER, which refers to whether the speaker is a girl, boy, woman, or man, and not exclusively to whether they are a male or a female; see Table 4.4b). This is not surprising, considering the large discrepancy between skill level groups observed in the error distribution analysis (see Section 3.6.3). If the intended application of the classifier were the assessment of a learner’s proficiency level, including this feature would obviously be nonsensical; however, in this context the application is not assessment but training, and in that case it makes sense to allow the system to take the learner’s level into account.
-		%Interestingly, for many of the word/speaker feature combinations tried, slightly different results were obtained when these features were combined with the full set of prosodic features (DUR+F0+INT) than with the best-performing subset of the prosodic features, DUR+F0. 
-		Adding WD and LV to the best-performing prosodic features (DUR+F0) improved classification accuracy slightly across all metrics; interestingly, however, the overall best performance on this dataset was achieved by combining WD and LV with the entire set of prosodic features (DUR+F0+INT), yielding average accuracy of 71.87\%, $\kappa$ of 0.34, and [correct] F$_1$ and F$_2$ measures of 0.81 and 0.87, respectively.
-		%For example, when combined with the feature set DUR+F0+INT, the feature LV slightly outperformed the word of the utterance (WD) as a predictor of stress accuracy, yet when combined with only the duration and F0 features (DUR+F0), WD outperformed LV. In both situations, the combination of these two features, WD+LV, seemed to give better results than any combination involving GENDER, including the combination using all three word/speaker features. In fact, the best-performing classifiers resulted from using the word of the utterance, the speaker’s proficiency level, and the entire set of prosodic features (WD+LV+DUR+F0+INT), yielding an average accuracy of 71.87%, κ of 0.34, and F1 and F2 measures of 0.81 and 0.87, respectively.
-		
-		Though these statistics are the best of any of the experiments reported in this section, we would perhaps like to see better accuracy and F-measures, and higher than ``fair'' agreement \cite{Landis1977} with the gold-standard labels, before placing such an error-diagnosis system in front of actual students.
-		% However, these results should be interpreted in the context of the particular task at hand, and as Neri et al. (2002, pp. 15-16) point out, for any automatic pronunciation scoring system to be useful, there must be a strong correlation between how the system evaluates a given utterance and how human raters would evaluate it. Here, classification performance was evaluated against the gold-standard annotation of the dataset; yet, as described in Section 3.5, the gold-standard labels represent a consolidation of multiple, often conflicting labels from different annotators (see Section 3.4). 		
-		However, considering the relatively low agreement between humans tasked with the same type of error classification (see \cref{sec:data:agreement}), this accuracy does not seem so unimpressive.
-		Indeed, the best average $\kappa$ between the classifier output and gold-standard labels (0.34) exceeds the observed average human-human $\kappa$ (0.23), and the best average percentage accuracy for that classifier (71.87\%) is substantially higher than the average human-human percentage agreement (54.92\%). 
-		%TODO put the below in conclusion?
-		%It seems possible, given the low inter-annotator agreement observed in the annotation described in Chapter 3, that there is an element of subjectivity in the decision of whether or not lexical stress was realized correctly in an utterance of a given word, such that an indisputable diagnosis of that utterance cannot be produced, and different listeners could and would make different assessments of that utterance. If this is the case, it would not be realistic to expect an automatic diagnosis system to reproduce humans’ assessments with perfect accuracy, and any agreement between the classifier’s output and the gold-standard labels which exceeds the average agreement between humans should be interpreted in a positive light.
-		
-		
-%%%		\subsection{Performance on unseen words}
-%%%		\label{sec:results:words}
-%%%		
-%%%		\Cref{tab:results:words} presents the results of experiments with unseen words (see \cref{sec:method:datasets}), averaged over each of the 12 held-out word types.
-%%%		Interestingly, the highest accuracy (66.85\%) was achieved using classifiers trained only on the best-performing prosodic features (DUR+F0), excluding the speaker-related features (LV and AG). However, classifiers trained on all three prosodic feature sets (DUR+F0+INT) yielded the best agreement with the gold-standard labels ($\kappa$ = 0.19), while the best F-measures (F$_1$ = 0.77, F$_2$ = 0.85) were observed using classifiers trained using all available features (DUR+F0+INT+LV+AG; WD was of course not included in these experiments).
-%%%		%As that table shows, the best average performance on all twelve unseen word types was achieved using classifiers trained only on the best-performing prosodic features (DUR+F0), and not taking either of the speaker-related features into consideration: this yielded an accuracy of 66.85%, κ of 0.17, and F1 and F2 measures of 0.77 and 0.84, respectively.
-%%%		
-%%%		The drop in performance compared with the best results obtained on seen words (see \cref{tab:results:spkrword:all}) seems to indicate that extending classification to words for which L1 utterances are not available for training is not a trivial matter. 
-%%%		The difference in $\kappa$ is perhaps most striking, constituting a drop from ``fair'' to ``slight'' agreement with the gold standard \cite{Landis1977}, as well as a fall below the average inter-annotator $\kappa$ (0.23). However, the percentage accuracy still exceeds the average percentage agreement between human annotators (54.92\%), and the observed decreases in percentage accuracy and F-measures with respect to seen words do not seem drastic. This is encouraging for the prospect of classifying errors in novel word types, especially given that overall performance could be improved by e.g. using more powerful machine learning algorithms or additional features (see \cref{sec:conc}).
-%%%		%), classifying errors in unseen words \TODO{may yet be feasible}.
-%%%		%In comparison with the best results obtained on seen words as reported in the previous section (69.77% accuracy and κ  = 0.29 for the DUR+F0 feature set, and 71.87%/κ  = 0.34 for WD+LV+DUR+F0+INT), these statistics seem to support the hypothesis that performance would be lower on words not seen in the training data. Perhaps most striking is the difference in κ, which constitutes a drop from fair to slight agreement with the gold-standard labels (using the Landis and Koch (1977) thresholds), which also constitutes a fall below the average inter-annotator κ of 0.23 observed between human annotations (see Section 3.4.1). However, the drop in the overall accuracy percentage, as well as in the two F-measures, seems less drastic, which seems encouraging from the perspective of extending the diagnostic capabilities of de-stress to novel word types using a classification-based approach, especially considering the possibilities for improving classification performance by other means, e.g. using additional features or more powerful machine learning algorithms (see Section 6.2).
 		
 		%\subsection{Performance on unknown speakers}
 	
@@ -1089,7 +1100,7 @@ WD+LV+AG	&	70.52	&	0.31	&	0.72	&	0.91	&	0.80	&	0.86	\\
 
 
 
-  %\newpage
+  \newpage
   \eightpt
   \bibliographystyle{IEEEtran-nourl}
 

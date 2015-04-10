@@ -84,9 +84,9 @@
 
  Via a simple web interface, de-stress presents a learner with a German sentence,
  %(taken from the IFCASL corpus), 
- with one of the words highlighted as the target word for that exercise. The learner is prompted to submit an utterance of that sentence for assessment and feedback, with the instruction to focus on the accurate expression of the lexical stress pattern of the target word. The prosody (duration, fundamental frequency, and intensity) the learner's utterance is then analyzed using the speech processing software JSnoori \cite{jsnoori}. Based on this analysis, lexical stress errors are diagnosed via either classification-based error detection using machine learning, or comparison of the learner's utterance with one or more reference utterances by native speakers. In the comparative approach, references may be selected manually, or by automatically selecting the closest match(es) to the learner's voice (fundamental frequency). 
+ with one of the words highlighted as the target word for that exercise. The learner is prompted to submit an utterance of that sentence for assessment and feedback, with the instruction to focus on the accurate expression of the lexical stress pattern of the target word. The prosody (duration, fundamental frequency, and intensity) of the learner's utterance is then analyzed using the speech processing software JSnoori \cite{jsnoori}. Based on this analysis, lexical stress errors are diagnosed via either classification-based error detection using machine learning \cite{Vakil2015}, or comparison of the learner's utterance with one or more reference utterances by native speakers. In the comparative approach, references may be selected manually, or by automatically selecting the closest match(es) to the learner's voice (fundamental frequency). 
  
- Based on this error diagnosis, the learner is ultimately presented with one or more types of feedback on their realization of lexical stress in the analyzed utterance, with options including visual feedback via abstract graphical representations or text stylization (see \cref{fig:interface:student}), auditory feedback via prosodic modification of the learner's utterance, verbal error/success messages, and graphical ``skill bars'' corresponding to each of the prosodic parameters analyzed.  Learners may optionally be asked to self-assess their utterance before viewing the system's diagnosis and feedback.
+ Based on this error diagnosis, the learner is presented with one or more types of feedback on their realization of lexical stress, with options including visual feedback via abstract graphical visualizations and/or text stylization (see \cref{fig:interface:student}), auditory feedback via prosodic modification of the learner's utterance, verbal error/success messages, and graphical ``skill bars'' corresponding to each of the prosodic parameters analyzed.  Learners may also be asked to self-assess their utterance before viewing the system's diagnosis and feedback.
  %\Cref{fig:interface:student} presents a screenshot of the interface presenting such feedback.
 % Unlike with some existing CAPT tools which rely on more direct signal visualizations (e.g. spectrograms, pitch contours) for feedback,
 % %for diagnosis and feedback on pronunciation errors, 
@@ -102,7 +102,8 @@ the administrative interface of de-stress allows
 language teachers or researchers of L2 language acquisition 
 %can 
 to
-create new exercises for learners to complete, where each exercise features a specific combination of the various diagnostic methods and feedback types available in the system. By allowing fine-grained control over these features, de-stress allows teachers to create exercises matching the specific needs of their students, and enables researchers to study the 
+create new exercises for learners to complete, where each exercise features a specific combination of the various diagnostic methods and feedback types available in the system (see \cref{fig:interface:admin}).
+By allowing fine-grained control over these features, de-stress allows teachers to create exercises matching the specific needs of their students, and enables researchers to study the 
 %effectiveness of 
 impact of
 different diagnosis/feedback configurations
@@ -122,12 +123,15 @@ different diagnosis/feedback configurations
 %Both instructional and research applications have thus motivated the development of de-stress.
 %
 %At the same time, researchers can use this modular system to study the impact of various assessment and feedback types 
-%on learner outcomes, user engagement, and other factors impacting the success of a CAPT system. 
+on learner outcomes, user engagement, and other factors impacting the success of a CAPT system. 
 %
-Once more is known about which diagnosis/feedback types should be delivered to which learners in which situations, this tool could become a useful component of a fully-fledged intelligent CAPT system, in which 
+Once more is known about which diagnosis/feedback types
+are most effective 
+% should be delivered to which learners 
+in which situations, this tool could become a useful component of an intelligent CAPT system, in which 
 %learner models and other intelligent components
-models of relevant aspects of the learning context (e.g. the learner's skill level, progress, or personal preferences; the current learning objective or position in a sequence of exercises; etc.)
-are used to automatically decide which modules of the tool to activate, as \cref{fig:hourglass-ITS} illustrates.
+models of relevant aspects of the learning context (e.g. the learner's skill level, learning progress, or personal preferences)
+are used to automatically choose the most appropriate diagnostic and feedback methods. %, as \cref{fig:hourglass-ITS} illustrates.
 
 
 	\begin{figure}[h!]
@@ -139,16 +143,23 @@ are used to automatically decide which modules of the tool to activate, as \cref
 		\label{fig:interface:student}
 	\end{figure}
 	
-	\begin{figure}[!h] 
+		\begin{figure}[h!]
 		\centering
-		\includegraphics[height=.25\textheight]{../../img/hourglass-ITS} 
-		\caption[Conceptual diagram of the prototype lexical stress CAPT tool]{Conceptual diagram of the prototype 
-		%lexical stress CAPT 
-		tool 
-		(demarcated by dashed line) 
-		and its possible function in the context of an Intelligent CAPT System (ITS).}
-		\label{fig:hourglass-ITS}
+		\includegraphics[width=.78\columnwidth]{FeedbackMethod}
+		\caption{Administrative interface offering control over the feedback types delivered to the learner.}
+		\label{fig:interface:admin}
 	\end{figure}
+	
+%	\begin{figure}[!h] 
+%		\centering
+%		\includegraphics[height=.25\textheight]{../../img/hourglass-ITS} 
+%		\caption[Conceptual diagram of the prototype lexical stress CAPT tool]{Conceptual diagram of the prototype 
+%		%lexical stress CAPT 
+%		tool 
+%		(demarcated by dashed line) 
+%		and its possible function in the context of an Intelligent CAPT System (ITS).}
+%		\label{fig:hourglass-ITS}
+%	\end{figure}
 	
 %	\section{Error diagnosis options}
 %	\label{sec:diag}
@@ -165,16 +176,16 @@ are used to automatically decide which modules of the tool to activate, as \cref
 
   %\newpage
   \eightpt
-  %\bibliographystyle{IEEEtran}
+  \bibliographystyle{IEEEtran}
 
-  %\bibliography{mybib}
+  \bibliography{demo}
   
-  \begin{thebibliography}{1}
-  \bibitem[1]{destress}
-  A.\ Vakil, de-stress [Online]. Available: github.com/vakila/de-stress
-  \bibitem[2]{jsnoori}
-  LORIA Speech Team, JSnoori [Online]. Available: jsnoori.loria.fr
-  \end{thebibliography}
+%  \begin{thebibliography}{1}
+%  \bibitem[1]{destress}
+%  A.\ Vakil, de-stress [Online]. Available: github.com/vakila/de-stress
+%  \bibitem[2]{jsnoori}
+%  LORIA Speech Team, JSnoori [Online]. Available: jsnoori.loria.fr
+%  \end{thebibliography}
 
 %  \begin{thebibliography}{9}
 %    \bibitem[1]{Davis80-COP}

@@ -217,26 +217,67 @@ Lexical stress errors seem to be:
 		\begin{frame}{Error annotation}
 		Data: IFCASL corpus of French-German L1/L2 speech\footfullcite{Fauth2014}
 		\begin{itemize}
-			\item{German utterances by French and German speakers}
+			\item{German utterances by French and German speakers
+				\begin{itemize}
+				\item Adults ($>$18) and children (15-16)
+				\item Levels A2, B1, B2, C1 (children all A2/B1)
+				\end{itemize}
+			}
 			\item{Word- and phone-level segmentations\\(syllable level added automatically)}
 			\item{Selected 12 word types (bisyllabic, initial stress)}
-			\item{Dataset: 668 word utterances by 55-56 speakers}
+			%TODO word type list on handout?
 			%\item{No lexical stress error annotation}
 
 		\end{itemize}
-
-		\vfill		
 		
-		Annotators (15 in total):
-		\begin{itemize}
-			\item{L1: 12 German speakers, 2 English, 1 Hebrew}
-			\item{Expertise: 2 Experts, 10 Intermediates, 3 Novices}
-			\item{Annotated 3 word types in 1 $\sim$15 min. session}
-		\end{itemize}
-		
+		\vfill
+		Dataset for annotation:\\
+		\hspace*{20pt} 668 word utterances by 55-56 L1 French speakers
 		\end{frame}
 		
-		\begin{frame}{Error annotation}
+		\begin{frame}{Error annotation}		
+		15 Annotators, varying by:
+		\begin{itemize}
+			\item{Native language (L1): 
+				\begin{itemize}
+				\item 12 German 
+				\item 2 English (US)
+				\item 1 Hebrew
+				\end{itemize}
+				}
+			\item{Phonetics/phonology expertise: 
+				\begin{itemize}
+				\item 2 Experts
+				\item 10 Intermediates
+				\item 3 Novices
+				\end{itemize}
+			}
+%			\item{Annotated 3 word types in one $\sim$15 min. session \\(1 annotator did 6 word types in 2 sessions)
+%			}
+		\end{itemize}
+		
+		\vfill
+		
+		Each annotated 3 word types in one $\sim$15 min. session \\(1 annotator did 6 word types in 2 sessions)
+		
+%		\vfill 
+%		
+%		Task: label each word utterance as:
+%						
+%			\vspace{.5em}
+%			{\small
+%
+%			\begin{tabular}{rll}
+%				& $[$correct$]$ & stress on initial syllable \\
+%				& $[$incorrect$]$ & stress on final syllable \\
+%				& $[$none$]$ & no clear stress \\
+%				& $[$bad\_nsylls$]$ & incorrect number of syllables \\
+%				& $[$bad\_audio$]$ & technical problems \\
+%			\end{tabular}
+%			}
+		\end{frame}
+		
+		\begin{frame}{Error annotation: Method}
 		\begin{figure}
 			\centering
 			\caption{Praat annotation tool}
@@ -339,42 +380,94 @@ Minimum	&	23.21\%	&	-0.01	\\
 		\end{table}
 		
 		\begin{itemize}
-		\item{Generally low agreement (``fair''\footfullcite{Landis1977} mean $\kappa$)}
+		\item{Rather low agreement (``fair''\footfullcite{Landis1977} mean $\kappa$)}
 		\item{Large variability between annotators}
 		\item{Not explained by L1/expertise groups}
 		\end{itemize}
 		\end{frame}	
 		
-	\subsection{Errors}
-		\begin{frame}{\TODO{}}
-		\TODO{}
+		\begin{frame}{Choosing gold-standard labels}
+		Need a single label for each utterance to analyze error frequency \& evaluate automatic diagnosis		
+		\begin{itemize}
+		\item 268 utterances: no disagreement 
+		\item 265 utterances: majority vote
+		\item remaining 135 utterances decided by rules, e.g.: 
+			\begin{itemize}
+			\item favor Expert judgments
+			\item favor certainty ([correct],[incorrect]) over [none]
+			\item be generous to learners if [correct] vs. [incorrect]
+			\end{itemize}
+		\end{itemize}
 		\end{frame}
+		
+	\subsection{Frequency \& distribution of errors}
+		\begin{frame}{Error distribution}
+		
+		%TODO put on handout?
+%			\begin{table}
+%			\centering
+%			\caption{Overall frequency of lexical stress errors in the annotated data}
+%			\begin{tabular}{lrr}
+%			\toprule
+%			Label & Tokens & \% of corpus \\
+%			\midrule
+%			correct	& 426	& 63.77\% \\
+%			incorrect &	198	& 29.64\% \\
+%			none	 &35 &	5.24\% \\
+%			bad\_nsylls	& 8	& 1.20\% \\
+%			bad\_audio	& 1	& 0.15\%\\
+%			\midrule
+%			%\addlinespace
+%			Total & 668 & 100\%\\
+%			\bottomrule
+%			\end{tabular}
+%			\label{tab:results:overall}
+%		\end{table}
+		
+		\begin{figure}
+			\centering
+			%\caption{Overall distribution of lexical stress errors in annotated data}
+			\includegraphics[width=\textwidth]{../img/plots/overallJudgments-axisTop-noLabels}
+
+			\label{fig:results:overallbars}
+		\end{figure}
+		
+		\begin{itemize}
+		\item Large variability across word types %TODO put by-word table on handout? 
+		\item Beginners made more errors (vs. advanced)
+		\item Children made more errors (vs. adult beginners)
+		\end{itemize}
+		\end{frame}
+		
+%		\begin{frame}{Error distribution by level/age}
+%		\TODO{If including this, need to say more about the IFCASL speakers earlier on (or somewhere)}
+%		\end{frame}
 
 \section{Error diagnosis}
 	\subsection{Word prosody analysis}
-		\begin{frame}{\TODO{}}
+		\begin{frame}{Word prosody analysis}
 		\TODO{}
 		\end{frame}		
 	\subsection{Diagnosis by comparison}
-		\begin{frame}{\TODO{}}
+		\begin{frame}{Diagnosis by comparison}
 		\TODO{}
 		\end{frame}
 	\subsection{Diagnosis by classification}
-		\begin{frame}{\TODO{}}
+		\begin{frame}{Diagnosis by classification}
 		\TODO{}
 		\end{frame}
 
 \section{Feedback}
 	\subsection{Implicit}
-		\begin{frame}{\TODO{}}
+		\begin{frame}{Implicit feedback}
 		\TODO{}
 		\end{frame}
 	\subsection{Explicit}
-		\begin{frame}{\TODO{}}
+		\begin{frame}{Explicit feedback}
 		\TODO{}
 		\end{frame}
 	\subsection{Self-assessment}
-		\begin{frame}{\TODO{}}
+		\begin{frame}{Self-assessment}
 		\TODO{}
 		\end{frame}
 

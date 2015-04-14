@@ -14,6 +14,8 @@
 %\usepackage{caption}[2008/08/24]
 %\usepackage{subcaption}
 
+%\usepackage{enumitem}
+
 \usepackage{perpage}
 \MakePerPage{footnote}
 
@@ -171,12 +173,13 @@ Goal: Computer-Assisted Pronunciation Training (CAPT) for lexical stress errors 
 \end{frame}
 
 \begin{frame}{Motivation}
-Lexical stress errors are: 
+Lexical stress errors seem to be: 
 \begin{itemize}
 \item Frequently produced by French learners of variable-stress languages\footfullcite{Bonneau2011}$^{,}$\footfullcite{Michaux2012}
 \item More important for intelligibility in L2 German than other types of errors\footfullcite{Hirschfeld1994}
 \item Possible to identify automatically by comparison$^1$ or classification\footfullcite{Kim2011}
 \end{itemize}
+
 \end{frame}
 
 %\begin{frame}{Motivation}
@@ -200,10 +203,93 @@ Lexical stress errors are:
 %\end{frame}
 
 \section{Lexical stress errors by French learners of German}
-	\subsection{Annotation of a learner speech corpus}
-		\begin{frame}{\TODO{}}
-		\TODO{}
+		\begin{frame}{Lexical stress errors in learner speech}
+		\begin{itemize}
+		\item{How reliably can human annotators identify errors in learner utterances?}
+		\vspace{1em}
+		\item{How frequently are  errors actually produced by French learners of German?}
+		\end{itemize}
+		
+
 		\end{frame}
+		
+	\subsection{Annotation of a learner speech corpus}
+		\begin{frame}{Error annotation}
+		Data: IFCASL corpus of French-German L1/L2 speech\footfullcite{Fauth2014}
+		\begin{itemize}
+			\item{German utterances by French and German speakers}
+			\item{Word- and phone-level segmentations\\(syllable level added automatically)}
+			\item{Selected 12 word types (bisyllabic, initial stress)}
+			\item{Dataset: 668 word utterances by 55-56 speakers}
+			%\item{No lexical stress error annotation}
+
+		\end{itemize}
+
+		\vfill		
+		
+		Annotators (15 in total):
+		\begin{itemize}
+			\item{L1: 12 German speakers, 2 English, 1 Hebrew}
+			\item{Expertise: 2 Experts, 10 Intermediates, 3 Novices}
+			\item{Annotated 3 word types in 1 $\sim$15 min. session}
+		\end{itemize}
+		
+		\end{frame}
+		
+		\begin{frame}{Error annotation}
+		\begin{figure}
+			\centering
+			\includegraphics<1>[height=.75\textheight]{../img/screenshots/AnnotationTool}
+			\includegraphics<2>[height=.75\textheight]{AnnotationTool-withLabels}
+			\caption{Praat annotation tool}
+			%\caption[A screenshot of the graphical annotation tool scripted in Praat.]{A screenshot of the graphical annotation tool scripted in Praat. Green buttons allow the annotator to listen to  the word and sentence utterances. Gray buttons allow the annotator to record their judgment of stress accuracy; from top to bottom, the buttons correspond to the labels [correct], [incorrect], [none], [bad\_nsylls], and [bad\_audio].}
+			\label{fig:annotationtool}
+		\end{figure}
+		\end{frame}
+		
+%		\begin{frame}{Error annotation}
+%		\begin{itemize}
+%			\item{
+%			12 word types extracted from IFCASL sentences
+%			\begin{itemize}
+%				\item{bisyllabic (simple syllable comparison)}
+%				\item{initial stress (difficult for French speakers)}
+%			\end{itemize}
+%			}
+%			\item{668 word utterances in total (55-56 speakers)}
+%			\item{
+%			Multiple annotators label each word utterance as: 
+%						\vspace{.25em}
+%			{\small
+%
+%			\begin{tabular}{rll}
+%				& $[$correct$]$ & stress on initial syllable \\
+%				& $[$incorrect$]$ & stress on final syllable \\
+%				& $[$none$]$ & no clear stress \\
+%				& $[$bad\_nsylls$]$ & incorrect number of syllables \\
+%				& $[$bad\_audio$]$ & technical problems \\
+%			\end{tabular}
+%			}
+%%			\begin{tabular}{rll}
+%%				{\footnotesize\color{UniBlue} $\bullet$} & $[$correct$]$ & stress on initial syllable \\
+%%				$\bullet$ & $[$incorrect$]$ & stress on final syllable \\
+%%				$\bullet$ & $[$none$]$ & no clear stress \\
+%%				$\bullet$ & $[$bad\_nsylls$]$ & incorrect number of syllables \\
+%%				$\bullet$ & $[$bad\_audio$]$ & technical problems \\
+%%			\end{tabular}
+%%%			\begin{itemize}
+%%%				\item{[correct]: stress on initial syllable}
+%%%				\item{[incorrect]: stress on final syllable}
+%%%				\item{[none]: no clear stress}
+%%%				\item{[bad\_nsylls]: incorrect number of syllables}
+%%%				\item{[bad\_audio]: technical problems}
+%%%			\end{itemize}
+%			}
+%		\end{itemize}
+%		
+%		\end{frame}
+%		
+		
 	\subsection{Inter-annotator agreement}
 		\begin{frame}{\TODO{}}
 		\TODO{}

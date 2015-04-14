@@ -51,8 +51,8 @@
 \begin{textblock*}{100mm}(.875\textwidth,-.9cm)
 \includegraphics[height=.9cm]{uds-logo-text-white.png}
 \end{textblock*}}
-\setbeamertemplate{caption}{\insertcaption}
-\setbeamerfont{caption}{size=\scriptsize}
+%\setbeamertemplate{caption}{\insertcaption} %removes "Figure:" etc.
+%\setbeamerfont{caption}{size=\scriptsize}
 \setbeamertemplate{itemize subitem}[circle]
 %\setbeamertemplate{bibliography item}[text]
 \setbeamertemplate{bibliography item}[triangle]
@@ -166,8 +166,8 @@ Goal: Computer-Assisted Pronunciation Training (CAPT) for lexical stress errors 
 \begin{frame}{Motivation}
 		\begin{figure}
 			\centering
-			\includegraphics[width=.8\textwidth]{../img/error-venn}
 			\caption{Criteria for selecting errors to target in a CAPT system.}
+			\includegraphics[width=.8\textwidth]{../img/error-venn}
 			\label{fig:errors}
 		\end{figure}
 \end{frame}
@@ -239,9 +239,9 @@ Lexical stress errors seem to be:
 		\begin{frame}{Error annotation}
 		\begin{figure}
 			\centering
+			\caption{Praat annotation tool}
 			\includegraphics<1>[height=.75\textheight]{../img/screenshots/AnnotationTool}
 			\includegraphics<2>[height=.75\textheight]{AnnotationTool-withLabels}
-			\caption{Praat annotation tool}
 			%\caption[A screenshot of the graphical annotation tool scripted in Praat.]{A screenshot of the graphical annotation tool scripted in Praat. Green buttons allow the annotator to listen to  the word and sentence utterances. Gray buttons allow the annotator to record their judgment of stress accuracy; from top to bottom, the buttons correspond to the labels [correct], [incorrect], [none], [bad\_nsylls], and [bad\_audio].}
 			\label{fig:annotationtool}
 		\end{figure}
@@ -291,10 +291,61 @@ Lexical stress errors seem to be:
 %		
 		
 	\subsection{Inter-annotator agreement}
-		\begin{frame}{\TODO{}}
-		\TODO{}
+		\begin{frame}{Inter-annotator agreement}
+		\textit{How reliably can human annotators identify errors in learner utterances?}
+		\vspace{1em}
+		\begin{itemize}
+		\item Agreement calculated for each overlapping pair
+		\item Quantified by:
+			\begin{itemize}
+			\item Percentage agreement: N agreed/N both annotated
+			\item Cohen's Kappa\footfullcite{Cohen1960} ($\kappa$): accounts for chance agreement
+			\end{itemize}
+		\item Overall agreement represented by mean, minimum, median, and maximum of all pairwise values
+		\end{itemize}
+		
+%		\begin{table}%[b]
+%			\centering
+%			\caption{Overall pairwise agreement between annotators}
+%			\begin{tabular}{lrr}
+%			\toprule
+%				&	\% Agreement	&	Cohen's $\kappa$	\\
+%			\midrule
+%Mean		&	54.92\%	&	0.23	\\
+%Maximum	&	83.93\%	&	0.61	\\
+%Median		&	55.36\%	&	0.26	\\
+%Minimum	&	23.21\%	&	-0.01	\\
+%			\bottomrule
+%			\end{tabular}			
+%			\label{tab:agreement:overall}
+%		\end{table}
+		\end{frame}
+		
+		\begin{frame}{Inter-annotator agreement}
+		\begin{table}%[b]
+			\centering
+			\caption{Overall pairwise agreement between annotators}
+			\begin{tabular}{lrr}
+			\toprule
+				&	\% Agreement	&	Cohen's $\kappa$	\\
+			\midrule
+Mean		&	54.92\%	&	0.23	\\
+Maximum	&	83.93\%	&	0.61	\\
+Median		&	55.36\%	&	0.26	\\
+Minimum	&	23.21\%	&	-0.01	\\
+			\bottomrule
+			\end{tabular}			
+			\label{tab:agreement:overall}
+		\end{table}
+		
+		\begin{itemize}
+		\item{Generally low agreement (``fair''\footfullcite{Landis1977} mean $\kappa$)}
+		\item{Large variability between annotators}
+		\item{Not explained by L1/expertise groups}
+		\end{itemize}
 		\end{frame}	
-	\subsection{Frequency of errors}
+		
+	\subsection{Errors}
 		\begin{frame}{\TODO{}}
 		\TODO{}
 		\end{frame}

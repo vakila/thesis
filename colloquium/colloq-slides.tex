@@ -91,8 +91,9 @@
 	isbn=false, 
 	%sorting=none,
 	]{biblatex}
-%TODO \addbibresource{SLTUtalk.bib}
-% use \footfullcite{jones00}
+\addbibresource{../library.bib}
+% to cite on the same slide use \footfullcite{jones00}
+\renewcommand{\footnotesize}{\scriptsize}
 
 %% TITLE PAGE INFO %%
 \author[A. Vakil]{Anjana Sofia Vakil
@@ -114,15 +115,50 @@ Towards a CAPT system for\\French learners of German}
 }
 \addtocounter{framenumber}{-1}
 
+
+
+
+
+\begin{frame}{Lexical stress}
+Some syllable(s) in a word more accentuated/prominent\footfullcite{Cutler2005}
+
+\begin{center}
+\begin{tabular}{ccc}
+um$\cdot$FAHR$\cdot$en & vs. & UM$\cdot$fahr$\cdot$en \\
+\textit{to run over} & & \textit{to drive around}\\
+\end{tabular}
+\end{center}
+
+%\vspace{-1em}
+
+\addtocounter{footnote}{-1}
+\begin{itemize}
+\item{German: variable stress placement, contrastive stress\footnotemark
+%\footfullcite{Cutler2005}
+}
+\item{French: no word-level stress, final syllable lengthening\footfullcite{Michaux2013}}
+\end{itemize}
+
+\vfill
+
+Goal: Computer-Assisted Pronunciation Training (CAPT) for lexical stress errors for French learners of German
+
+
+\end{frame}
+
 \begin{frame}
 \frametitle{Outline}
 \tableofcontents%[pausesections]
 \end{frame}
 
 
-\section{Background \& motivation}
-\begin{frame}{\TODO{}}
-\TODO{}
+
+
+\section{Motivation}
+\begin{frame}{Motivation}
+\begin{itemize}
+\item 3 criteria
+\end{itemize}
 \end{frame}
 
 \section{Lexical stress errors by French learners of German}
@@ -139,22 +175,26 @@ Towards a CAPT system for\\French learners of German}
 		\TODO{}
 		\end{frame}
 
-\section{Diagnosis}
-	\subsection{By direct comparison}
+\section{Error diagnosis}
+	\subsection{Word prosody analysis}
+		\begin{frame}{\TODO{}}
+		\TODO{}
+		\end{frame}		
+	\subsection{Diagnosis by comparison}
 		\begin{frame}{\TODO{}}
 		\TODO{}
 		\end{frame}
-	\subsection{By classification}
+	\subsection{Diagnosis by classification}
 		\begin{frame}{\TODO{}}
 		\TODO{}
 		\end{frame}
 
 \section{Feedback}
-	\subsection{Implicit Visual and Auditory FB}
+	\subsection{Implicit}
 		\begin{frame}{\TODO{}}
 		\TODO{}
 		\end{frame}
-	\subsection{Explicit FB}
+	\subsection{Explicit}
 		\begin{frame}{\TODO{}}
 		\TODO{}
 		\end{frame}
@@ -165,11 +205,11 @@ Towards a CAPT system for\\French learners of German}
 
 	
 \section{The de-stress CAPT tool }
-	\subsection{For students}
-		\begin{frame}{\TODO{}}
-		\TODO{}
-		\end{frame}
-	\subsection{For teachers/researchers}
+%	\subsection{For students}
+%		\begin{frame}{\TODO{}}
+%		\TODO{}
+%		\end{frame}
+%	\subsection{For teachers/researchers}
 		\begin{frame}{\TODO{}}
 		\TODO{}
 		\end{frame}

@@ -11,6 +11,12 @@
 \usepackage{hyperref}
 %\usepackage{pifont}
 
+%\usepackage{caption}[2008/08/24]
+%\usepackage{subcaption}
+
+\usepackage{perpage}
+\MakePerPage{footnote}
+
 %%% TODOs %%%
 \usepackage[dvipsnames]{xcolor}
 \newcommand{\TODO}[1]{{\color{red}\textbf{[TODO #1]}}}
@@ -156,10 +162,42 @@ Goal: Computer-Assisted Pronunciation Training (CAPT) for lexical stress errors 
 
 \section{Motivation}
 \begin{frame}{Motivation}
+		\begin{figure}
+			\centering
+			\includegraphics[width=.8\textwidth]{../img/error-venn}
+			\caption{Criteria for selecting errors to target in a CAPT system.}
+			\label{fig:errors}
+		\end{figure}
+\end{frame}
+
+\begin{frame}{Motivation}
+Lexical stress errors are: 
 \begin{itemize}
-\item 3 criteria
+\item Frequently produced by French learners of variable-stress languages\footfullcite{Bonneau2011}$^{,}$\footfullcite{Michaux2012}
+\item More important for intelligibility in L2 German than other types of errors\footfullcite{Hirschfeld1994}
+\item Possible to identify automatically by comparison$^1$ or classification\footfullcite{Kim2011}
 \end{itemize}
 \end{frame}
+
+%\begin{frame}{Motivation}
+%Frequently produced:
+%\begin{itemize}
+%\item French speakers perceptually ``deaf'' to Spanish stress\footfullcite{Dupoux1997}
+%\item French learners make stress errors in Dutch\footfullcite{Michaux2012} and English\footfullcite{Bonneau2011}
+%%\item French learners of Dutch (incorrectly) stress final syllables\footfullcite{Michaux2012}
+%%\item French beginners frequently misplace English stress\footfullcite{Bonneau2011}
+%\end{itemize}
+%
+%Affecting intelligibility:
+%\begin{itemize}
+%\item Prosodic errors impede intelligibility more than segmental errors
+%\item Lexical stress errors have particularly strong impact on L2 German intelligibility\footfullcite{Hirschfeld1994}
+%\end{itemize}
+%
+%
+%Automatically detectable:
+%
+%\end{frame}
 
 \section{Lexical stress errors by French learners of German}
 	\subsection{Annotation of a learner speech corpus}

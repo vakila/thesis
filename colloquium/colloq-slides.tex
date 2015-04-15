@@ -468,6 +468,8 @@ Minimum	&	23.21\%	&	-0.01	\\
 			\item This work uses existing IFCASL segmentations
 			\item Syllable segmentations derived from words \& phones
 			\end{itemize}
+			
+			\TODO{segmentation screenshot}
 		\end{frame}
 		
 		\begin{frame}{Word prosody analysis: Duration}
@@ -569,15 +571,18 @@ Minimum	&	23.21\%	&	-0.01	\\
 		%\vspace{1em} 
 		
 		\begin{itemize}
-		\item Simplest approach, common in CAPT\footfullcite{Eskenazi2009}
+		\item Simplest approach, common in CAPT%\footfullcite{Eskenazi2009}
 		\item JSnoori (and predecessors) use this method\footfullcite{Bonneau2011}
 			\begin{itemize}
 			\item Assigns 3 scores (DUR, F0, INT)
-			\item Is the same syllable stressed as in Ref.?
-			\item Is the difference between stressed/unstressed syllables strong enough wrt. Ref.?
-			%\item Each score based on stress placement \& difference between stressed-unstressed syllables
+				\begin{itemize}
+				\item Same syllable stressed?
+				\item Difference between stressed/unstressed syllables similar enough?
+				%\item Each score based on stress placement \& difference between stressed-unstressed syllables
+				\end{itemize}
+			\item Overall score = weighted average of 3 scores
 			\end{itemize}
-		\item Overall score = weighted average of 3 scores
+		\item Problem: extremely utterance-dependent!
 		\end{itemize}
 		\end{frame}
 		
@@ -625,14 +630,97 @@ Minimum	&	23.21\%	&	-0.01	\\
 		
 		
 		
-		
-		
-		
-		
 	\subsection{Diagnosis by classification}
 		\begin{frame}{Diagnosis by classification}
-		\TODO{}
+		\begin{itemize}
+		\item More abstract representation of L1 pronunciation
+		\item Not yet explored for German CAPT
+		%\item One of main contributions of this thesis
+		\end{itemize}
+		\vfill
+		Research questions:
+		\begin{itemize}
+		\item \textit{How well can lexical stress errors be classified?}
+		\item \textit{How does that compare with human agreement?}
+		\item \textit{Which features are most useful for classification?}
+		\end{itemize}	
+		\end{frame}	
+		
+		\begin{frame}{Diagnosis by classification}
+		Experiments:
+		\begin{itemize}
+		\item Trained CART classifiers using WEKA toolkit\footnote{www.cs.waikato.ac.nz/ml/weka}
+		\item Used annotated L2 dataset for training/test data
+		\item Used L1 utterances of the same words as training data \\(all automatically labeled [correct])
+		\end{itemize}
+		
+		\vfill
+		
+		Evaluated in terms of:
+		\begin{itemize}
+		\item Agreement (\%, $\kappa$) with gold-standard labels
+		\item Precision, Recall, F$_1$ and F$_2$ for [correct] class \TODO{explain and/or put on handout}
+		\end{itemize}
 		\end{frame}
+
+		\begin{frame}{Diagnosis by classification}
+		\textit{Which features are most useful for classification?}
+		\vfill
+		\begin{tabularx}{\textwidth}{lX}
+			%\begin{tabular}{ll}
+			\toprule
+			Feature set & Description \\
+			\midrule
+			DUR & Duration features \\
+			F0 & Fundamental frequency features \\
+			INT & Intensity features \\
+			\midrule
+			WD %WORD 
+				& Uttered word (e.g. \textit{Tatort}) \\
+			LV % LEVEL 
+				& Speaker's L2 German skill level  (A2$|$B1$|$B2$|$C1)\\
+			AG %GENDER 
+				& Speaker's age/gender  (Girl$|$Boy$|$Woman$|$Man)\\
+%			LV+AG & LEVEL, GENDER \\
+%			WD+LV & WORD, LEVEL \\
+%			WD+AG & WORD, GENDER \\
+%			WD+SPKR & WORD, LEVEL, GENDER \\
+			\bottomrule
+			\end{tabularx}		
+		
+%		\begin{itemize}
+%		\item Prosodic features
+%			\begin{itemize}
+%			\item DUR -Duration
+%			\item F0 - Fundamental frequency
+%			\item INT - Intensity 
+%			\end{itemize}
+%		\item WD - Word type (e.g. \textit{Flagge})
+%		\item Speaker features
+%			\begin{itemize}
+%			\item LV - German proficiency level (A2$|$B1$|$B2$|$C1)
+%			\item AG - Age/gender (Girl$|$Boy$|$Woman$|$Man)
+%			\end{itemize}
+%		\end{itemize}
+		\end{frame}
+
+
+		\begin{frame}{Diagnosis by classification}
+		\begin{figure}
+		\includegraphics<1>[width=\textwidth]{results-prosodicfeatures}
+		\includegraphics<2>[width=\textwidth]{results-prosodicfeatures-highlight}
+		\end{figure}
+		
+		\vfill
+		\pause
+		Best performance using only prosodic features: DUR+F0
+		\begin{itemize}
+		\item \% Accuracy: 69.77\% 
+		\item $\kappa$: 0.29
+		\end{itemize}
+		\end{frame}
+
+
 
 \section{Feedback}
 	\subsection{Implicit}
@@ -656,7 +744,13 @@ Minimum	&	23.21\%	&	-0.01	\\
 %		\end{frame}
 %	\subsection{For teachers/researchers}
 		\begin{frame}{\TODO{}}
-		\TODO{}
+		\begin{itemize}
+		\item Create Exercise
+		\item Create DM
+			\item Create Scorer?
+		\item Create FM
+		\item Show FB output
+		\end{itemize}
 		\end{frame}
 
 

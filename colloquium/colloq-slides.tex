@@ -705,18 +705,36 @@ Minimum	&	23.21\%	&	-0.01	\\
 		\end{frame}
 
 
-		\begin{frame}{Diagnosis by classification}
+		\begin{frame}{Diagnosis by classification \TODO{redo chart}}
+		\textit{How well can lexical stress errors be classified?}
 		\begin{figure}
 		\includegraphics<1>[width=\textwidth]{results-prosodicfeatures}
 		\includegraphics<2>[width=\textwidth]{results-prosodicfeatures-highlight}
 		\end{figure}
 		
-		\vfill
+		%\vfill
 		\pause
 		Best performance using only prosodic features: DUR+F0
 		\begin{itemize}
 		\item \% Accuracy: 69.77\% 
 		\item $\kappa$: 0.29
+		\end{itemize}
+		\end{frame}
+		
+		\begin{frame}{Diagnosis by classification}
+		\textit{How well can lexical stress errors be classified?}
+		\begin{figure}
+		\includegraphics<1>[width=\textwidth]{results-speakerword-durf0-neweraxes}
+		\includegraphics<2>[width=\textwidth]{results-speakerword-all-neweraxes}
+		\includegraphics<3>[width=\textwidth]{results-speakerword-all-neweraxes-highlight}
+		\end{figure}
+		
+		\pause
+		\pause
+		Best performance overall: WD+LV+DUR+F0+INT
+		\begin{itemize}
+		\item \% Accuracy: 71.87\%
+		\item $\kappa$: 0.34
 		\end{itemize}
 		\end{frame}
 

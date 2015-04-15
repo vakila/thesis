@@ -650,7 +650,7 @@ Minimum	&	23.21\%	&	-0.01	\\
 		Experiments:
 		\begin{itemize}
 		\item Trained CART classifiers using WEKA toolkit\footnote{www.cs.waikato.ac.nz/ml/weka}
-		\item Used annotated L2 dataset for training/test data
+		\item Used annotated L2 dataset for training/test data\\(gold-standard labels)
 		\item Used L1 utterances of the same words as training data \\(all automatically labeled [correct])
 		\end{itemize}
 		
@@ -735,6 +735,24 @@ Minimum	&	23.21\%	&	-0.01	\\
 		\begin{itemize}
 		\item \% Accuracy: 71.87\%
 		\item $\kappa$: 0.34
+		\end{itemize}
+		\end{frame}
+		
+		\begin{frame}{Diagnosis by classification}
+		\textit{How does classification accuracy compare \\with human agreement?}
+		\vfill
+		\begin{tabularx}{\textwidth}{Xcc}
+		\toprule
+		& \% agreement & $\kappa$ \\
+		\midrule
+		Best classifier vs. gold standard & 71.87\% & 0.34\\
+		Mean human vs. human & 54.92\%	&	0.23\\
+		\bottomrule
+		\end{tabularx}
+		\vfill
+		\begin{itemize}
+		\item Results are encouraging in this context
+		\item Still want better performance for real-world use
 		\end{itemize}
 		\end{frame}
 

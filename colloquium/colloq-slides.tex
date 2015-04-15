@@ -402,6 +402,9 @@ Minimum	&	23.21\%	&	-0.01	\\
 		
 	\subsection{Frequency \& distribution of errors}
 		\begin{frame}{Error distribution}
+		\textit{How frequently are  errors actually produced by French learners of German?}
+		
+		
 		
 		%TODO put on handout?
 %			\begin{table}
@@ -424,10 +427,11 @@ Minimum	&	23.21\%	&	-0.01	\\
 %			\label{tab:results:overall}
 %		\end{table}
 		
+		
 		\begin{figure}
 			\centering
 			%\caption{Overall distribution of lexical stress errors in annotated data}
-			\includegraphics[width=\textwidth]{../img/plots/overallJudgments-axisTop-noLabels}
+			\includegraphics[width=.8\textwidth]{overallJudgments-axisTop-noLabels}
 
 			\label{fig:results:overallbars}
 		\end{figure}
@@ -446,8 +450,57 @@ Minimum	&	23.21\%	&	-0.01	\\
 \section{Error diagnosis}
 	\subsection{Word prosody analysis}
 		\begin{frame}{Word prosody analysis}
-		\TODO{}
+		Requires word, syllable, and phone segmentations
+			\begin{itemize}
+			\item Automatically produced via forced alignment\footfullcite{Mesbahi2011}
+			\item This work uses existing IFCASL segmentations
+			\item Syllable segmentations derived from words \& phones
+			\end{itemize}
+		\end{frame}
+		
+		\begin{frame}{Word prosody analysis: Duration}
+		Duration (DUR)
+			\begin{itemize}
+			\item Perceptual correlate: length/timing
+			\item Best indicator of German stress\footfullcite{Dogil1999}
+			\item Simple to extract from segmentations
+			\item Features: Relative syllable \& nucleus (vowel) lengths
+			\end{itemize}
+				
 		\end{frame}		
+		
+		\begin{frame}{Word prosody analysis: F0}
+		 Fundamental frequency (F0)
+			\begin{itemize}
+			\item Perceptual correlate: pitch
+			\item 2nd best indicator of stress after duration\footfullcite{Dogil1999}
+			\item Pitch contours computed using JSnoori\footnote{jsnoori.loria.fr}$^{,}$\footfullcite{DiMartino1999}
+			\item Features: relative syllable \& nucleus:
+				\begin{itemize}
+				\item Mean F0 (in voiced segments)
+				\item Maximum F0
+				\item Minimum F0 
+				\item F0 range (max$-$min)
+				\end{itemize}
+			\end{itemize}
+		\end {frame}
+			
+		\begin{frame}{Word prosody analysis: Intensity}
+		Intensity (INT)
+			\begin{itemize}
+			\item Perceptual correlate: loudness
+			\item Worse predictor than DUR or F0, but still may have effect on stress perception\footfullcite{Cutler2005}
+			%\addtocounter{footnote}[-2]
+			\item Energy contours computed using Jsnoori
+			\item Features: relative syllable \& nucleus:
+				\begin{itemize}
+				\item Mean energy (over 60dB ``silence threshold'')
+				\item Maximum energy
+				\end{itemize}
+			\end{itemize}
+		\end{frame}
+		
+		
 	\subsection{Diagnosis by comparison}
 		\begin{frame}{Diagnosis by comparison}
 		\TODO{}

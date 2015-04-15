@@ -459,7 +459,7 @@ Minimum	&	23.21\%	&	-0.01	\\
 %		\TODO{If including this, need to say more about the IFCASL speakers earlier on (or somewhere)}
 %		\end{frame}
 
-\section{Error diagnosis}
+\section{Diagnosis}
 	\subsection{Word prosody analysis}
 		\begin{frame}{Word prosody analysis}
 		Requires word, syllable, and phone segmentations
@@ -513,48 +513,122 @@ Minimum	&	23.21\%	&	-0.01	\\
 		\end{frame}
 		
 		
+	\begin{frame}{Diagnosis methods}
+	\TODO{Slide previewing comparison vs. classification?}
+	\end{frame} 
+	
 	\subsection{Diagnosis by comparison}
+%		\begin{frame}{Diagnosis by comparison}
+%%		\begin{itemize}
+%%		\item 
+%%		Common approach in CAPT\footfullcite{Eskenazi2009}
+%%		\item Requires L1 reference utterance(s) of same word
+%%		\end{itemize}
+%		
+%		
+%		
+%			\begin{tikzpicture}
+%				\node (stud) [learner] {Learner (L2) utterance};
+%				\node (single) [left of=stud, xshift=-2cm] {Single};
+%				\node (ref) [reference, right of=stud, xshift=4cm] {Reference (L1) utterance};
+%				\draw [arrow] (stud) -- (ref);
+%			\end{tikzpicture}
+%		
+%		\vfill	
+%		 
+%			\begin{tikzpicture}
+%				\node (stud) [learner] {Learner utterance};
+%				\node (multi) [left of=stud, xshift=-2cm] {Multiple};
+%
+%				\node (ref2) [reference, right of=stud, xshift=4cm] {Reference 2};
+%				\node (ref1) [reference, above of=ref2, yshift=.3cm] {Reference 1};
+%				\node (etc) [below of=ref2] {$\vdots$};
+%				\node (refn) [reference, below of=etc] {Reference $n$};
+%				\draw [arrow] (stud.north east) -- (ref1.west);
+%				\draw [arrow] (stud.east) -- (ref2.west);
+%				\draw [arrow] (stud.south east) -- (refn.west);
+%			\end{tikzpicture}
+%		
+%		
+%		\end{frame}
+		
 		\begin{frame}{Diagnosis by comparison}
-%		\begin{itemize}
-%		\item 
-%		Common approach in CAPT\footfullcite{Eskenazi2009}
-%		\item Requires L1 reference utterance(s) of same word
-%		\end{itemize}
+		Comparison to a single reference utterance
 		
+		%\vfill
 		
-		
+		\begin{center}
 			\begin{tikzpicture}
 				\node (stud) [learner] {Learner (L2) utterance};
-				\node (single) [left of=stud, xshift=-2cm] {Single};
+				%\node (single) [left of=stud, xshift=-2cm] {Single};
 				\node (ref) [reference, right of=stud, xshift=4cm] {Reference (L1) utterance};
 				\draw [arrow] (stud) -- (ref);
-			\end{tikzpicture}
+			\end{tikzpicture}		
+		\end{center}
 		
-		\vfill	
-		 
-			\begin{tikzpicture}
-				\node (stud) [learner] {Learner utterance};
-				\node (multi) [left of=stud, xshift=-2cm] {Multiple};
-
-				\node (ref2) [reference, right of=stud, xshift=4cm] {Reference 2};
-				\node (ref1) [reference, above of=ref2, yshift=.3cm] {Reference 1};
-				\node (etc) [below of=ref2] {$\vdots$};
-				\node (refn) [reference, below of=etc] {Reference $n$};
-				\draw [arrow] (stud.north east) -- (ref1.west);
-				\draw [arrow] (stud.east) -- (ref2.west);
-				\draw [arrow] (stud.south east) -- (refn.west);
-			\end{tikzpicture}
+		%\vspace{1em} 
 		
-		
-		\end{frame}
-		
-		\begin{frame}{Diagnosis by comparison: single}
-		Comparison to a single reference utterance
 		\begin{itemize}
-		\item Simplest approach, common in CAPT
+		\item Simplest approach, common in CAPT\footfullcite{Eskenazi2009}
 		\item JSnoori (and predecessors) use this method\footfullcite{Bonneau2011}
+			\begin{itemize}
+			\item Assigns 3 scores (DUR, F0, INT)
+			\item Is the same syllable stressed as in Ref.?
+			\item Is the difference between stressed/unstressed syllables strong enough wrt. Ref.?
+			%\item Each score based on stress placement \& difference between stressed-unstressed syllables
+			\end{itemize}
+		\item Overall score = weighted average of 3 scores
 		\end{itemize}
 		\end{frame}
+		
+		\begin{frame}{Diagnosis by comparison}
+		Comparison to multiple reference utterances
+		
+		\begin{center}		
+		\begin{tikzpicture}
+			\node (stud) [learner] {Learner utterance};
+			%\node (multi) [left of=stud, xshift=-2cm] {Multiple};
+
+				\node (ref2) [reference, right of=stud, xshift=4cm] {Reference 2};
+			\node (ref1) [reference, above of=ref2, yshift=.3cm] {Reference 1};
+			\node (etc) [below of=ref2] {$\vdots$};
+			\node (refn) [reference, below of=etc] {Reference $n$};
+			\draw [arrow] (stud.north east) -- (ref1.west);
+			\draw [arrow] (stud.east) -- (ref2.west);
+			\draw [arrow] (stud.south east) -- (refn.west);
+		\end{tikzpicture}
+		\end{center}
+			
+		\begin{itemize}
+		\item Less common in CAPT systems
+		\item Less utterance-dependent than single comparison
+		\item Overall score = average of one-on-one scores
+		\end{itemize}
+		\end{frame}		
+		
+		\begin{frame}{Diagnosis by comparison}
+		Options for selecting reference speaker(s)
+		\begin{itemize}
+		\item Manually 
+			\begin{itemize}
+			\item Learner's choice
+			\item Teacher/researcher's choice
+			\end{itemize}
+		\item Automatically 
+			\begin{itemize}
+			\item May be more effective to choose reference speaker most closely resembling the learner\footfullcite{Probst2002}
+			\item Selected by comparing speakers' F0 mean and range (using all available recordings)
+			\end{itemize}
+		\end{itemize}
+		
+		\end{frame}
+		
+		
+		
+		
+		
+		
+		
 	\subsection{Diagnosis by classification}
 		\begin{frame}{Diagnosis by classification}
 		\TODO{}

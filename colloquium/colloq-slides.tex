@@ -11,16 +11,25 @@
 \usepackage{hyperref}
 %\usepackage{pifont}
 
+%%% RANDOM PACKAGES %%%
+
 %\usepackage{caption}[2008/08/24]
 %\usepackage{subcaption}
 
 %\usepackage{enumitem}
 
+%%% FOOTNOTES %%%
 \usepackage{perpage}
-\MakePerPage{footnote}
+\MakePerPage{footnote} %restart numbering on each slide
+
+%%% TIKZ %%%
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, arrows}
+\tikzstyle{learner} = [rectangle, rounded corners, minimum width=3cm, minimum height=1cm,text centered, draw=black, fill=yellow!30]
+\tikzstyle{reference} = [rectangle, rounded corners, minimum width=3cm, minimum height=1cm,text centered, draw=black, fill=green!30]
+\tikzstyle{arrow} = [thick,<->,>=stealth]
 
 %%% TODOs %%%
-\usepackage[dvipsnames]{xcolor}
 \newcommand{\TODO}[1]{{\color{red}\textbf{[TODO #1]}}}
 
 %%% FONT %%%
@@ -506,7 +515,45 @@ Minimum	&	23.21\%	&	-0.01	\\
 		
 	\subsection{Diagnosis by comparison}
 		\begin{frame}{Diagnosis by comparison}
-		\TODO{}
+%		\begin{itemize}
+%		\item 
+%		Common approach in CAPT\footfullcite{Eskenazi2009}
+%		\item Requires L1 reference utterance(s) of same word
+%		\end{itemize}
+		
+		
+		
+			\begin{tikzpicture}
+				\node (stud) [learner] {Learner (L2) utterance};
+				\node (single) [left of=stud, xshift=-2cm] {Single};
+				\node (ref) [reference, right of=stud, xshift=4cm] {Reference (L1) utterance};
+				\draw [arrow] (stud) -- (ref);
+			\end{tikzpicture}
+		
+		\vfill	
+		 
+			\begin{tikzpicture}
+				\node (stud) [learner] {Learner utterance};
+				\node (multi) [left of=stud, xshift=-2cm] {Multiple};
+
+				\node (ref2) [reference, right of=stud, xshift=4cm] {Reference 2};
+				\node (ref1) [reference, above of=ref2, yshift=.3cm] {Reference 1};
+				\node (etc) [below of=ref2] {$\vdots$};
+				\node (refn) [reference, below of=etc] {Reference $n$};
+				\draw [arrow] (stud.north east) -- (ref1.west);
+				\draw [arrow] (stud.east) -- (ref2.west);
+				\draw [arrow] (stud.south east) -- (refn.west);
+			\end{tikzpicture}
+		
+		
+		\end{frame}
+		
+		\begin{frame}{Diagnosis by comparison: single}
+		Comparison to a single reference utterance
+		\begin{itemize}
+		\item Simplest approach, common in CAPT
+		\item JSnoori (and predecessors) use this method\footfullcite{Bonneau2011}
+		\end{itemize}
 		\end{frame}
 	\subsection{Diagnosis by classification}
 		\begin{frame}{Diagnosis by classification}

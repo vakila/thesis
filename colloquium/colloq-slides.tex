@@ -239,9 +239,8 @@ Goal: Computer-Assisted Pronunciation Training (CAPT) for lexical stress errors 
 		
 	\subsection{Annotation of a learner speech corpus}
 		\begin{frame}{Error annotation}
-		\TODO{Explain/remove abbreviations}
-		
-		Data: IFCASL corpus of French-German L1/L2 speech\footfullcite{Fauth2014}
+		%\TODO{Explain/remove abbreviations}
+		Data: IFCASL corpus of French-German speech\footfullcite{Fauth2014}
 		\begin{itemize}
 			\item{German utterances by French and German speakers
 				\begin{itemize}
@@ -258,7 +257,7 @@ Goal: Computer-Assisted Pronunciation Training (CAPT) for lexical stress errors 
 		
 		\vfill
 		Dataset for annotation:\\
-		\hspace*{20pt} 668 word utterances by 55-56 L1 French speakers
+		\hspace*{20pt} 668 German word utterances by $\sim$55 French speakers
 		\end{frame}
 		
 		
@@ -532,7 +531,9 @@ Minimum	&	23.21\%	&	-0.01	\\
 			\item Syllable segmentations derived from words \& phones
 			\end{itemize}
 			
-			\TODO{segmentation screenshot}
+			\begin{figure}
+			\includegraphics[width=\textwidth]{2SH05_FGMB1_527-flagge}
+			\end{figure}
 		\end{frame}
 		
 		\begin{frame}{Word prosody analysis: Duration}
@@ -624,7 +625,7 @@ Minimum	&	23.21\%	&	-0.01	\\
 		
 		\begin{center}
 			\begin{tikzpicture}
-				\node (stud) [learner] {Learner (L2) utterance};
+				\node (stud) [learner] {Learner  utterance};
 				%\node (single) [left of=stud, xshift=-2cm] {Single};
 				\node (ref) [reference, right of=stud, xshift=4cm] {Reference (L1) utterance};
 				\draw [arrow] (stud) -- (ref);
@@ -713,7 +714,7 @@ Minimum	&	23.21\%	&	-0.01	\\
 		Experiments:
 		\begin{itemize}
 		\item Trained CART classifiers using WEKA toolkit\footnote{www.cs.waikato.ac.nz/ml/weka}
-		\item Used annotated L2 dataset for training/test data\\(gold-standard labels)
+		\item Used error-annotated dataset for training/test data\\(gold-standard labels)
 		\item Used L1 utterances of the same words as training data \\(all automatically labeled [correct])
 		\end{itemize}
 		
@@ -741,7 +742,7 @@ Minimum	&	23.21\%	&	-0.01	\\
 			WD %WORD 
 				& Uttered word (e.g. \textit{Tatort}) \\
 			LV % LEVEL 
-				& Speaker's L2 German skill level  (A2$|$B1$|$B2$|$C1)\\
+				& Speaker's skill level  (A2$|$B1$|$B2$|$C1)\\
 			AG %GENDER 
 				& Speaker's age/gender  (Girl$|$Boy$|$Woman$|$Man)\\
 %			LV+AG & LEVEL, GENDER \\

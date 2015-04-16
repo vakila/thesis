@@ -126,11 +126,11 @@ Towards a CAPT system for\\French learners of German}
 \begin{document}
 {
 \setbeamertemplate{footline}{} 
-\begin{frame}
+\begin{frame}[noframenumbering]
   \titlepage
 \end{frame}
 }
-\addtocounter{framenumber}{-1}
+
 
 
 
@@ -178,11 +178,12 @@ Goal: Computer-Assisted Pronunciation Training (CAPT) for lexical stress errors 
 
 \end{frame}
 
-\begin{frame}
+{\setbeamertemplate{footline}{} 
+\begin{frame}[noframenumbering]
 \frametitle{Outline}
 \tableofcontents%[pausesections]
 \end{frame}
-
+}
 
 
 
@@ -227,6 +228,14 @@ Goal: Computer-Assisted Pronunciation Training (CAPT) for lexical stress errors 
 %\end{frame}
 
 \section{Lexical stress errors by French learners of German}
+
+{\setbeamertemplate{footline}{} 
+\begin{frame}[noframenumbering,label=outline]
+\frametitle{Outline}
+\tableofcontents[currentsection]
+\end{frame}
+}
+
 		\begin{frame}{Lexical stress errors in learner speech}
 		\begin{itemize}
 		\item{\textit{How reliably can human annotators identify errors in learner utterances?}}
@@ -522,6 +531,15 @@ Minimum	&	23.21\%	&	-0.01	\\
 %		\end{frame}
 
 \section{Diagnosis methods}
+
+%\newcounter{currentframecount}
+%\setcounter{currentframecount}{\value{framenumber}}
+%\setcounter{framenumber}{3}
+{\setbeamertemplate{footline}{} 
+\againframe[noframenumbering]{outline}
+}
+%\setcounter{framenumber}{\value{currentframecount}}
+
 	\subsection{Word prosody analysis}
 		\begin{frame}{Word prosody analysis}
 		Requires word, syllable, and phone segmentations
@@ -829,6 +847,11 @@ Minimum	&	23.21\%	&	-0.01	\\
 
 
 \section{Feedback methods}
+
+{\setbeamertemplate{footline}{} 
+\againframe[noframenumbering]{outline}
+}
+
 	%\subsection{Implicit}
 		
 		\begin{frame}{Implicit feedback}
@@ -897,6 +920,11 @@ Minimum	&	23.21\%	&	-0.01	\\
 
 	
 \section{de-stress: A prototype CAPT tool }
+
+{\setbeamertemplate{footline}{} 
+\againframe[noframenumbering]{outline}
+}
+
 %	\subsection{For students}
 %		\begin{frame}{\TODO{}}
 %		\TODO{}
@@ -945,6 +973,10 @@ Minimum	&	23.21\%	&	-0.01	\\
 		\end{frame}
 		
 \section{Conclusion}
+{\setbeamertemplate{footline}{} 
+\againframe[noframenumbering]{outline}
+}
+
 		\begin{frame}{Conclusion}
 		Main contributions of the thesis:
 		\begin{itemize}
@@ -978,8 +1010,43 @@ Minimum	&	23.21\%	&	-0.01	\\
 		\end{itemize}
 		\end{frame}
 
-%	\begin{frame}{References}
-%	
-%	\end{frame}
+%\section*{References}
+\begin{frame}{Selected references}
+%\renewcommand*{\bibfont}{\footnotesize}
+%    \printbibliography
+
+{\scriptsize
+	\begin{itemize}
+	\item \fullcite{Cutler2005}
+	\item \fullcite{Michaux2013}
+	\item \fullcite{Hirschfeld1994}
+	\item \fullcite{Bonneau2011}
+	\item \fullcite{Kim2011}
+	\item \fullcite{Fauth2014}
+	%\item \fullcite{Mesbahi2011}
+	\item \fullcite{Dogil1999}
+	\item \fullcite{DiMartino1999}
+	\item \fullcite{Probst2002}
+	\item \fullcite{Neri2002}
+	\end{itemize}
+}
+\end{frame}
+ 
+{\setbeamertemplate{footline}{} 
+\begin{frame}[noframenumbering]
+\frametitle{Thanks for listening!}
+ {\small   \structure{\textbf{Many thanks to:}}}
+ 
+ \begin{itemize}
+ \item DFG/ANR Project IFCASL
+ \item Bernd M\"{o}bius
+ \item J\"{u}rgen Trouvain
+ \item Yves Laprie
+ \item Julie Busset
+ \item Frank Zimmerer
+ \item Jeanin J\"{u}gler
+ \end{itemize}
+\end{frame}
+}
 
 \end{document}

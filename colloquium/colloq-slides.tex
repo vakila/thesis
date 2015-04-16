@@ -118,7 +118,7 @@
 } 
 \institute{\includegraphics[height=4.5em]{uds-logo-text.png}\\Department of Computational Linguistics and Phonetics\\University of Saarland, Saarbr{\"u}cken, Germany}
 \title{Automatic diagnosis and feedback for lexical~stress errors in non-native speech:\\
-Towards a CAPT system for\\French learners of German}
+{\normalsize Towards a CAPT system for French learners of German}}
 %\subtitle{Investigating the impact of source language choice} 
 \date[16.4.15]{Master's Thesis Colloquium\\16 April 2015}
 
@@ -139,12 +139,7 @@ Towards a CAPT system for\\French learners of German}
 \begin{frame}{Lexical stress}
 Some syllable(s) in a word more accentuated/prominent\footfullcite{Cutler2005}
 
-\begin{center}
-\begin{tabular}{ccc}
-um$\cdot$FAHR$\cdot$en & vs. & UM$\cdot$fahr$\cdot$en \\
-\textit{to run over} & & \textit{to drive around}\\
-\end{tabular}
-\end{center}
+
 
 %\vspace{-1em}
 
@@ -152,6 +147,12 @@ um$\cdot$FAHR$\cdot$en & vs. & UM$\cdot$fahr$\cdot$en \\
 \begin{itemize}
 \item{German: variable stress placement, contrastive stress\footnotemark
 %\footfullcite{Cutler2005}
+\begin{center}
+\begin{tabular}{ccc}
+um$\cdot$FAHR$\cdot$en & vs. & UM$\cdot$fahr$\cdot$en \\
+\textit{to run over} & & \textit{to drive around}\\
+\end{tabular}
+\end{center}
 }
 \item{French: no word-level stress, final syllable lengthening\footfullcite{Michaux2013}}
 \end{itemize}
@@ -254,7 +255,7 @@ Goal: Computer-Assisted Pronunciation Training (CAPT) for lexical stress errors 
 			\item{German utterances by French and German speakers
 				\begin{itemize}
 				\item Adults ($>$18) and children (15-16)
-				\item Levels A2, B1, B2, C1 (children all A2/B1)
+				\item Levels\footnote{Common European Framework of Reference, www.coe.int/lang-CEFR} A2, B1, B2, C1 (children all A2/B1)
 				\end{itemize}
 			}
 			\item{Word- and phone-level segmentations\\(syllable level added automatically)}
@@ -458,7 +459,7 @@ Minimum	&	23.21\%	&	-0.01	\\
 			\end{tabular}			
 			\label{tab:agreement:overall}
 		\end{table}
-		\pause
+		%\pause
 		\begin{itemize}
 		\item{Rather low agreement (``fair''\footfullcite{Landis1977} mean $\kappa$)}
 		\item{Large variability among annotators, \\not explained by L1/expertise}
@@ -587,10 +588,10 @@ Minimum	&	23.21\%	&	-0.01	\\
 			\item Perceptual correlate: loudness
 			\item Worse predictor than DUR or F0, but still may have effect on stress perception\footfullcite{Cutler2005}
 			%\addtocounter{footnote}[-2]
-			\item Energy contours computed using Jsnoori
+			\item Energy contours computed using JSnoori
 			\item Features: relative syllable \& nucleus:
 				\begin{itemize}
-				\item Mean energy (over 60dB ``silence threshold'')
+				\item Mean energy %(over 60dB ``silence threshold'')
 				\item Maximum energy
 				\end{itemize}
 			\end{itemize}
@@ -925,7 +926,7 @@ Minimum	&	23.21\%	&	-0.01	\\
 \againframe[noframenumbering]{outline}
 }
 
-%	\subsection{For students}
+%	\subsection{For \emph{student}s}
 %		\begin{frame}{\TODO{}}
 %		\TODO{}
 %		\end{frame}
@@ -966,7 +967,7 @@ Minimum	&	23.21\%	&	-0.01	\\
 		\end{tabular}
 		\end{frame}
 		
-		\begin{frame}{Student interface}
+		\begin{frame}{Learner interface}
 		\begin{figure}
 		\includegraphics[height=.85\textheight]{../img/screenshots/StudentInterface-userIcon}
 		\end{figure}
@@ -1010,8 +1011,27 @@ Minimum	&	23.21\%	&	-0.01	\\
 		\end{itemize}
 		\end{frame}
 
+
+{\setbeamertemplate{footline}{} 
+\begin{frame}[noframenumbering]
+\frametitle{Thanks for listening!}
+ {\small   \structure{\textbf{Many thanks to:}}}
+ 
+ \begin{itemize}
+ \item DFG/ANR Project IFCASL
+ \item Bernd M\"{o}bius
+ \item J\"{u}rgen Trouvain
+ \item Yves Laprie
+ \item Julie Busset
+ \item Frank Zimmerer
+ \item Jeanin J\"{u}gler
+ \end{itemize}
+\end{frame}
+}
+
 %\section*{References}
-\begin{frame}{Selected references}
+{\setbeamertemplate{footline}{} 
+\begin{frame}[noframenumbering]{Selected references}
 %\renewcommand*{\bibfont}{\footnotesize}
 %    \printbibliography
 
@@ -1031,22 +1051,8 @@ Minimum	&	23.21\%	&	-0.01	\\
 	\end{itemize}
 }
 \end{frame}
- 
-{\setbeamertemplate{footline}{} 
-\begin{frame}[noframenumbering]
-\frametitle{Thanks for listening!}
- {\small   \structure{\textbf{Many thanks to:}}}
- 
- \begin{itemize}
- \item DFG/ANR Project IFCASL
- \item Bernd M\"{o}bius
- \item J\"{u}rgen Trouvain
- \item Yves Laprie
- \item Julie Busset
- \item Frank Zimmerer
- \item Jeanin J\"{u}gler
- \end{itemize}
-\end{frame}
 }
+ 
+
 
 \end{document}

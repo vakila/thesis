@@ -722,9 +722,15 @@ Minimum	&	23.21\%	&	-0.01	\\
 		
 		Evaluated in terms of:
 		\begin{itemize}
-		\item Agreement (\%, $\kappa$) with gold-standard labels
-		\item Precision, Recall, F$_1$ and F$_2$ for [correct] class \TODO{explain and/or put on handout}
+		\item \% accuracy (\% agreement with gold-standard labels) 
+		\item $\kappa$ with respect to gold standard
 		\end{itemize}
+		
+%		Evaluated in terms of:
+%		\begin{itemize}
+%		\item Agreement (\%, $\kappa$) with gold-standard labels
+%		\item Precision, Recall, F$_1$ and F$_2$ for [correct] class \TODO{explain and/or put on handout}
+%		\end{itemize}
 		\end{frame}
 
 		\begin{frame}{Diagnosis by classification}
@@ -769,11 +775,11 @@ Minimum	&	23.21\%	&	-0.01	\\
 		\end{frame}
 
 
-		\begin{frame}{Diagnosis by classification \TODO{redo chart}}
+		\begin{frame}{Diagnosis by classification}
 		\textit{How well can lexical stress errors be classified?}
 		\begin{figure}
-		\includegraphics<1>[width=\textwidth]{results-prosodicfeatures}
-		\includegraphics<2>[width=\textwidth]{results-prosodicfeatures-highlight}
+		\includegraphics<1>[width=\textwidth]{results-prosodicfeatures-newaxes}
+		\includegraphics<2>[width=\textwidth]{results-prosodicfeatures-newaxes-highlight}
 		\end{figure}
 		
 		%\vfill
@@ -951,7 +957,7 @@ Minimum	&	23.21\%	&	-0.01	\\
 		\pause
 		\item Exploration of classification for error diagnosis
 			\begin{itemize}
-			\item Best performance: 71.87\% accuracy, $\kappa$ = 0.34 wrt. gold-standard labels
+			\item 71.87\% accuracy, $\kappa$ = 0.34 wrt. gold-standard labels
 			\item Slightly better than mean inter-annotator agreement
 			\end{itemize}
 		

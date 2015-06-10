@@ -1072,7 +1072,6 @@ DUR+F0+WD+LV	&	70.22	&	0.24	&	0.68	&	0.90	&	0.75	&	0.84	\\
 		 interestingly, however, the overall best performance on this dataset was achieved by combining WD and LV with the entire set of prosodic features (DUR+F0+INT), yielding average accuracy of 71.87\%, $\kappa$ of 0.34, and [correct] F$_1$ and F$_2$ measures of 0.81 and 0.87, respectively.
 		%For example, when combined with the feature set DUR+F0+INT, the feature LV slightly outperformed the word of the utterance (WD) as a predictor of stress accuracy, yet when combined with only the duration and F0 features (DUR+F0), WD outperformed LV. In both situations, the combination of these two features, WD+LV, seemed to give better results than any combination involving GENDER, including the combination using all three word/speaker features. In fact, the best-performing classifiers resulted from using the word of the utterance, the speaker’s proficiency level, and the entire set of prosodic features (WD+LV+DUR+F0+INT), yielding an average accuracy of 71.87%, κ of 0.34, and F1 and F2 measures of 0.81 and 0.87, respectively.
 
-		\TODO{unseen speakers results}
 		
 		Though these results are the best of any of the experiments reported in this section, we would perhaps like to see better accuracy and F-measures, and higher than ``fair'' \cite{Landis1977}  agreement with the gold-standard labels, before placing such an error-diagnosis system in front of actual students.
 		% However, these results should be interpreted in the context of the particular task at hand, and as Neri et al. (2002, pp. 15-16) point out, for any automatic pronunciation scoring system to be useful, there must be a strong correlation between how the system evaluates a given utterance and how human raters would evaluate it. Here, classification performance was evaluated against the gold-standard annotation of the dataset; yet, as described in Section 3.5, the gold-standard labels represent a consolidation of multiple, often conflicting labels from different annotators (see Section 3.4). 		
@@ -1081,7 +1080,13 @@ DUR+F0+WD+LV	&	70.22	&	0.24	&	0.68	&	0.90	&	0.75	&	0.84	\\
 		%TODO put the below in conclusion?
 		%It seems possible, given the low inter-annotator agreement observed in the annotation described in Chapter 3, that there is an element of subjectivity in the decision of whether or not lexical stress was realized correctly in an utterance of a given word, such that an indisputable diagnosis of that utterance cannot be produced, and different listeners could and would make different assessments of that utterance. If this is the case, it would not be realistic to expect an automatic diagnosis system to reproduce humans’ assessments with perfect accuracy, and any agreement between the classifier’s output and the gold-standard labels which exceeds the average agreement between humans should be interpreted in a positive light.
 		
-
+		{\color{blue}
+		As would be expected, when classifying utterances from a speaker not seen in the training data (see \cref{sec:method:datasets}), accuracy drops slightly. As  \cref{tab:results:speakers} shows, using only DUR and F0 features resulted in 69.16\% accuracy on unseen speakers, compared to 69.77\% when speaker independence was not accounted for; however, a bigger drop in the $\kappa$ value was observed, from 0.29 to 0.19. As with the randomly held-out data, better performance was obtained by adding WD and LV features, yielding 70.22\% accuracy and $\kappa =$ 0.24; again, this represents a slight drop from the 70.65\% accuracy  and $\kappa =$ 0.31 observed using randomly split data. No improvements were observed when including INT or AG as additional features. 
+		Thus, the performance degradation when dealing with unknown speakers does not seem drastic, which is encouraging given that a CAPT system will of course need to classify speech from new users accurately.
+		%However, %it does seem to indicate that, unsurprisingly, the system benefits from seeing labeled utterances from 
+		% the system has greater success evaluating the accuracy of a learner’s lexical stress production when it has seen labeled utterances from that speaker before; 
+		In future work it would be interesting to explore techniques for enabling improvements in accuracy as a learner continues to use the system (see Section 6.2).
+		}
 		
 		
 		
@@ -1159,10 +1164,17 @@ DUR+F0+WD+LV	&	70.22	&	0.24	&	0.68	&	0.90	&	0.75	&	0.84	\\
 	%\label{sec:future}
 
 	One logical direction for future work is the evaluation of other, more powerful machine learning algorithms than the simple CARTs used in this work; related work indicates that Maximum Entropy classifiers \cite{Kim2011} and Neural Networks \cite{Shahin2012a} may be promising. 
-	Consideration could also be given to additional features which may be related to lexical stress in German (e.g. spectral features capturing aspects of vowel quality, {\color{blue}phrase position}, etc.). 
+	Consideration could also be given to additional features which may be related to lexical stress in German (e.g. 
+	%spectral features capturing aspects of vowel quality, 
+	{\color{blue}those capturing vowel quality, phrase information, etc.). }
 	%It may also be of interest to explore ensemble approaches, in which labels assigned by different classifiers trained only on subsets of the available features are compared to arrive at a final decision.
 	%%%To obtain a more fine-grained analysis of the learner’s utterance in the classification approach, and thus enable the generation of additional types of feedback (e.g. skill bars) from classification-based diagnoses, different classifiers trained on only subsets of the avail- able features could be combined in an ensemble configuration; for example, an ensemble of three classifiers trained exclusively on duration, F0, and intensity features respectively could produce scores analogous to JSnoori’s three-dimensional pronunciation scores (Sec- tion 4.3.1). 
-	%%%It may also be of interest to explore techniques for online, semi-supervised learning, which could enable the classifier to improve its predictions by updating itself with new training instances resulting from the learner’s continued use of the system over time.
+	{\color{blue} 
+	It may also be of interest to explore techniques for online, semi-supervised learning 
+	to improve accuracy 
+	as a learner uses the system over time, perhaps via an active learning approach soliciting teacher/expert judgments for certain utterances.  
+	%by updating itself with new training instances resulting from the learner’s continued use of the system over time.
+	}
 
 
   \section{Acknowledgements}

@@ -93,7 +93,7 @@
   	for German CAPT.
   \end{abstract}
   %
-  \noindent{\bf Index Terms}: CAPT, prosody, German %\TODO{others?}
+  \noindent{\bf Index Terms}: CAPT, prosody, German, lexical stress
 
 
   \section{Introduction}
@@ -107,9 +107,12 @@
   
   
   For adult learners of a second language (L2), the phonological system of the L2 can pose a variety of difficulties. For certain L2s, such as German or English, one important difficulty involves the accurate prosodic realization of lexical stress, i.e. the accentuation of certain syllable(s) in a given word, with the placement of stress within a word varying freely and carrying a contrastive function in such languages \cite{Cutler2005}. Lexical stress is an important part of German word prosody, 
-  {\color{blue} one which 
+  %{\color{blue}
+   one which 
   %has been found to have an impact on 
-  impacts} the intelligibility of non-native German speech \cite{Hirschfeld1994}. Coping with this phenomenon in German is especially challenging for native (L1) French speakers, because lexical stress is realized very differently (or perhaps not at all) in the French language \cite{Michaux2013}. %Dupoux2008,
+  impacts
+  %} 
+  the intelligibility of non-native German speech \cite{Hirschfeld1994}. Coping with this phenomenon in German is especially challenging for native (L1) French speakers, because lexical stress is realized very differently (or perhaps not at all) in the French language \cite{Michaux2013}. %Dupoux2008,
   
   To overcome this difficulty and improve their L2 word prosody, learners generally need 
   individualized attention from 
@@ -310,6 +313,7 @@ studies of French learners of Dutch \cite{Michaux2013} and English \cite{Bonneau
 	producing in German
 	%with, given the phenomenon of final lengthening in French.
 	 (see \cref{sec:bkgd}).
+	 In addition, bisyllabic words with stress on the penultimate syllable corresponds to the most frequent type of content words in German.
 	%Though previous work on lexical stress errors in L2 speech has often dealt with words uttered in isolation (e.g. Bonneau and Colotte, 2011), this work deals with word utterances extracted from longer utterances of complete sentences; as Neri et al. (2002, p. 6) point out, for relevance to real communication it is important that CAPT systems address connected speech. The word’s position in the carrier phrase/sentence was not taken into account; although it could be hypothesized that phrase position would have an effect on lexical stress realization by native French speakers, given the phenomenon of phrasal accent in French (see Section 2.3.2), Michaux and Caspers (2013) found no effect of phrase position on French speakers’ realization of words in Dutch. Given the similarities in the lexical stress systems of Dutch and German with respect to French, no such phrase-level effect is therefore expected here, though investigation of the effect of phrase or sentence position on stress realization could be an interesting direction for future work.
 	
 
@@ -496,13 +500,13 @@ studies of French learners of Dutch \cite{Michaux2013} and English \cite{Bonneau
 %• intermediate annotators are university students enrolled in an experimental phonology course, and have some training in phonetics/phonology and/or experience annotating speech data
 %• novice annotators have negligible training in phonetics/phonology and little, if any, experience annotating speech data
 %As shown in Table 3.3, the majority of annotators (10 out of 15) fall into the intermediate group; two annotators can be considered expert, and there are three novice annotators.
-		{\color{blue}
+		%{\color{blue}
 		Non-experts were included in the annotator group because the ultimate goal is successful L2 German communication, %As the ultimate goal of this work is to help L2 learners communicate intelligibly in German, 
 		and it can be assumed that in the vast majority of cases learners will be communicating with non-experts; 
 		therefore, %even if differences in reliability do exist between expert and novice annotators, 
 		it is important that the perception of %non-native lexical stress 
 		errors by non-experts not be ignored in favor of experts' perception.
-		}
+		%}
 
 		
 		
@@ -523,7 +527,9 @@ studies of French learners of Dutch \cite{Michaux2013} and English \cite{Bonneau
 		
 		Any evaluation of an automatic error detection system, including that described in this work, should be performed with an understanding of the difficulty of the error-detection task for human listeners. To obtain a clearer picture of this task, we therefore conducted an analysis of the inter-annotator agreement observed in the annotations collected.
 		% as described in the previous section. 
-		{\color{blue} The level of (dis)agreement among human annotators may indicate the difficulty of the task, which may in turn influence the standards by which an automatic system should be judged.}
+		%{\color{blue} 
+		The level of (dis)agreement among human annotators may indicate the difficulty of the task, which may in turn influence the standards by which an automatic system should be judged.
+		%}
 		%If human annotators often disagree about whether a given L2 utterance contains a lexical stress error, this may indicate that the task is a difficult one, thus encouraging a more lenient evaluation of an automatic error-detection system. However, if humans are generally in strong agreement, this may reflect a lower level of difficulty, and give reason to judge the performance of an automatic system by a higher standard. 
 		%To create a useful CAPT system for lexical stress errors in L2 German, i.e. to automatically detect whether a student has made a lexical stress error in a given utterance, it is helpful to have an understanding of the difficulty of the error-detection task, not only for machines but for humans. It is therefore useful to analyze the collected stress accuracy judgments in terms of inter-annotator agreement, in order to gain insight into the nature of the challenge this task presents. If it is uncommon for human annotators to agree about whether a given lexical stress realization is correct or incorrect, this may indicate that identifying lexical stress errors is a challenging task, and one which an automatic system should also be expected to have difficulty with. If, on the other hand, human annotators are generally in strong agreement, this may reflect a lower level of difficulty, and give reason to judge the performance of an automatic system by a higher standard.
 		
@@ -543,7 +549,7 @@ studies of French learners of Dutch \cite{Michaux2013} and English \cite{Bonneau
 		\begin{table}
 			\centering
 			\caption{Overall pairwise agreement between annotators}
-			{\color{blue}
+			%{\color{blue}
 			\begin{tabularx}{\columnwidth}{lXXXX}
 			\toprule
 			 								& Mean & Maximum & Median & Minimum \\
@@ -552,7 +558,7 @@ studies of French learners of Dutch \cite{Michaux2013} and English \cite{Bonneau
 			 Cohen's $\kappa$	& 0.23 & 0.61 & 0.26 & -0.01 \\
 			 \bottomrule
 			\end{tabularx}
-			}
+			%}
 %			
 %			\begin{tabular}{lrr}
 %			\toprule
@@ -796,7 +802,7 @@ studies of French learners of Dutch \cite{Michaux2013} and English \cite{Bonneau
 			& Minimum F0 %($>$0) 
 				in S1$/$ min. F0 in S0 \\
 		REL-S-F0-RANGE
-			& F0 Range (max. F0$-$min. F0) in S1$/$ F0 range in S0 \\
+			& F0 range (max. F0$-$min. F0) in S1$/$ F0 range in S0 \\
 		
 		REL-V-F0-MEAN 
 			& Mean F0 in V1$/$mean F0 in V0 \\
@@ -805,7 +811,7 @@ studies of French learners of Dutch \cite{Michaux2013} and English \cite{Bonneau
 		REL-V-F0-MIN 
 			& Min. F0 in V1$/$min. F0 in V0 \\
 		REL-V-F0-RANGE 
-			& F0 Range in V1$/$F0 range in V0 \\
+			& F0 range in V1$/$F0 range in V0 \\
 		
 %		F0-MAX-INDEX	
 %			& $\begin{cases}
@@ -927,10 +933,10 @@ studies of French learners of Dutch \cite{Michaux2013} and English \cite{Bonneau
 		
 		%TODO unseen speakers?
 		%Furthermore, in order or a CAPT tool to be useful in practice, it must be able to diagnose the speech of a learner from their very first time using the system. In the experiments reported above, it is possible that the training data’s inclusion of other utterances by the speaker in question resulted in higher performance than would be observed if such utterances were not available as training instances, so the classifier’s performance on unseen speakers must be compared to the performance reported above, once again with the hypothesis that the classifier will perform more poorly on unseen test data. To test these hypotheses, another series of experiments was carried out using different configurations of testing and training data sets.
-		{\color{blue}
+		%{\color{blue}
 		%In this random selection of training/test data, the classification of a given speaker's utterance could be influenced by the inclusion of other utterances by that speaker in the training data. However, for a CAPT tool to be useful, it must be able to diagnose the speech of unseen speakers, i.e. those for whom no previously recorded utterances are available. 
 		To evaluate performance on unseen speakers, utterances from each of the 56 L2 speakers were held out in turn as testing data for a classifier trained on the L1 utterances as well as those of the other 55 L2 speakers, with overall accuracy computed by averaging the results over the 56 folds (see \cref{sec:results}).
-		}
+		%}
 		%To create training and testing data for experiments with utterances from unseen speakers, the entire set of labeled non-native utterances (see Section 4.4.1) was divided into 56 subsets, each containing all utterances from one of the 56 unique non-native speakers. Using a classifier trained on the native German utterances as well as those of the other 55 speakers, performance on each of these 56 test sets was evaluated. To investigate whether adding features related to speaker or word characteristics is more helpful than prosodic features alone when diagnosing unseen speakers’ errors, a comparison was made between classifiers trained using several combinations of the best features from the experiments described in Section 4.4.2 above. The results of the unseen-speaker experiments, and the different feature sets used for training, are given in Table 4.7.
 		
 		\subsection{Evaluation metrics}
@@ -1074,7 +1080,7 @@ WD+LV+AG	&	70.52	&	0.31	&	0.72	&	0.91	&	0.80	&	0.86	\\
 	
 	
 	\begin{table}[!b]
-			\color{blue}
+			%\color{blue}
 			\centering
 			\caption[Best results of experiments with unseen speakers]{Best results of experiments with unseen speakers.%,
 			%quantified by percent accuracy (\% acc.) and Kappa agreement ($\kappa$) with respect to the gold-standard labels, as well as precision (P), recall (R) and F$_1$ and F$_2$ measures for the [correct] class. 
@@ -1137,13 +1143,13 @@ DUR+F0+WD+LV	&	70.22	&	0.24	&	0.68	&	0.90	&	0.75	&	0.84	\\
 		%TODO put the below in conclusion?
 		%It seems possible, given the low inter-annotator agreement observed in the annotation described in Chapter 3, that there is an element of subjectivity in the decision of whether or not lexical stress was realized correctly in an utterance of a given word, such that an indisputable diagnosis of that utterance cannot be produced, and different listeners could and would make different assessments of that utterance. If this is the case, it would not be realistic to expect an automatic diagnosis system to reproduce humans’ assessments with perfect accuracy, and any agreement between the classifier’s output and the gold-standard labels which exceeds the average agreement between humans should be interpreted in a positive light.
 		
-		{\color{blue}
+		%{\color{blue}
 		As would be expected, when classifying utterances from a speaker not seen in the training data (see \cref{sec:method:datasets}), accuracy drops slightly. As  \cref{tab:results:speakers} shows, using only DUR and F0 features resulted in 69.16\% accuracy on unseen speakers, compared to 69.77\% when speaker independence was not accounted for; however, a bigger drop in the $\kappa$ value was observed, from 0.29 to 0.19. As with the randomly held-out data, better performance was obtained by adding WD and LV features, yielding 70.22\% accuracy and $\kappa =$ 0.24; again, this represents a slight drop from the 70.65\% accuracy  and $\kappa =$ 0.31 observed using randomly split data. No improvements were observed when including INT or AG as additional features. 
 		Thus, the performance degradation when dealing with unknown speakers does not seem drastic, which is encouraging given that a CAPT system will of course need to classify speech from new users accurately.
 		%However, %it does seem to indicate that, unsurprisingly, the system benefits from seeing labeled utterances from 
 		% the system has greater success evaluating the accuracy of a learner’s lexical stress production when it has seen labeled utterances from that speaker before; 
 		In future work it would be interesting to explore techniques for enabling improvements in accuracy as a learner continues to use the system (see Section 6.2).
-		}
+		%}
 		
 		
 		
@@ -1223,21 +1229,23 @@ DUR+F0+WD+LV	&	70.22	&	0.24	&	0.68	&	0.90	&	0.75	&	0.84	\\
 	One logical direction for future work is the evaluation of other, more powerful machine learning algorithms than the simple CARTs used in this work; related work indicates that Maximum Entropy classifiers \cite{Kim2011} and Neural Networks \cite{Shahin2012a} may be promising. 
 	Consideration could also be given to additional features which may be related to lexical stress in German (e.g. 
 	%spectral features capturing aspects of vowel quality, 
-	{\color{blue}those capturing vowel quality, phrase information, etc.). }
+	%{\color{blue}
+	those capturing vowel quality, phrase information, etc.). 
+	%}
 	%It may also be of interest to explore ensemble approaches, in which labels assigned by different classifiers trained only on subsets of the available features are compared to arrive at a final decision.
 	%%%To obtain a more fine-grained analysis of the learner’s utterance in the classification approach, and thus enable the generation of additional types of feedback (e.g. skill bars) from classification-based diagnoses, different classifiers trained on only subsets of the avail- able features could be combined in an ensemble configuration; for example, an ensemble of three classifiers trained exclusively on duration, F0, and intensity features respectively could produce scores analogous to JSnoori’s three-dimensional pronunciation scores (Sec- tion 4.3.1). 
-	{\color{blue} 
+	%{\color{blue} 
 	It may also be of interest to explore techniques for online, semi-supervised learning 
 	to improve accuracy 
 	as a learner uses the system over time, perhaps via an active learning approach soliciting teacher/expert judgments for certain utterances.  
 	%by updating itself with new training instances resulting from the learner’s continued use of the system over time.
-	}
+	%}
 
 
   \section{Acknowledgements}
-  {\color{blue}
+  %{\color{blue}
   This work was partially supported by the IFCASL project (\texttt{ifcasl.org}), funded by the Deutsche Forschungsgemeinschaft and the Agence Nationale de la Recherche. We thank Bernd M\"{o}bius and the three anonymous reviewers for their helpful feedback on this work.
-  }
+  %}
 
 
 

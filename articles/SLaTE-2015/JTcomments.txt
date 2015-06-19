@@ -1,0 +1,13 @@
+Dear Anjana,
+
+I'm happy with all your changes applied and in my view it doesn't need any further consideration of the reviwers' comments.
+
+Nevertheless I have a few tiny points which can be easily changed (if you agree):
+- Index terms below abstract: I would add "lexical stress"
+- section 3.1, penultimate para: The following information could be added: "In addition, bisyllabic words with stress on the penultimate syllable corresponds to the most frequent type of content words in German." (Rev. 3 was complaining having "only" bisyllabic words.)
+- Table 3b: two times "F0 Range" with capital R instead of small letter r
+- References: Content words in articles start inconsistently with capital or small letters. Usually small letters are used, e.g. "Automatic Feedback for L2 Prosody" => "Automatic feedback for L2 prosody"
+
+Wishing you all the best,
+
+Jürgen

@@ -1,0 +1,128 @@
+\documentclass[xcolor={dvipsnames}]{beamer}
+
+%%% PACKAGES %%%
+\usepackage{graphicx}
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{multirow}
+%\usepackage[usenames,dvipsnames]{color}
+\usepackage{textpos}
+\usepackage{tipa}
+\usepackage{hyperref}
+%\usepackage{pifont}
+
+
+
+%%% BEAMER THEME %%%
+\usetheme{default}
+\usecolortheme{whale}
+\usecolortheme{orchid}
+\setbeamertemplate{navigation symbols}{} 
+\setbeamertemplate{footline}[frame number]
+%\setbeamertemplate{footline}{%
+%  \leavevmode%
+%  \hbox{%
+%    \pgfsetfillopacity{0}\begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
+%      \usebeamerfont{author in head/foot}\pgfsetfillopacity{1}\insertshortauthor
+%    \end{beamercolorbox}%
+%    \pgfsetfillopacity{0}\begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+%      \usebeamerfont{title in head/foot}\pgfsetfillopacity{1}\insertshorttitle
+%    \end{beamercolorbox}%
+%    \pgfsetfillopacity{0}\begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,right]{date in head/foot}%
+%      \usebeamerfont{date in head/foot}\pgfsetfillopacity{1}\insertshortdate{}\hspace*{2em}
+%      \insertframenumber{} / \inserttotalframenumber\hspace*{2ex}
+%    \end{beamercolorbox}}%
+%  \vskip0pt%
+%}
+\addtobeamertemplate{frametitle}{}{%
+\begin{textblock*}{100mm}(.875\textwidth,-1cm)
+\includegraphics[height=1cm]{../../../img/uni_des_saarlandes-white.png}
+\end{textblock*}}
+\setbeamertemplate{caption}{\insertcaption}
+\setbeamerfont{caption}{size=\scriptsize}
+\setbeamertemplate{itemize subitem}[circle]
+%\setbeamertemplate{bibliography item}[text]
+\setbeamertemplate{bibliography item}[triangle]
+\setbeamertemplate{blocks}[rounded][shadow=true]
+
+
+%%% COLORS %%%
+\definecolor{MutedBlue}{RGB}{83,121,170}
+\definecolor{UniBlue}{RGB}{0,71,116}
+\definecolor{DarkPink}{RGB}{178,56,119}
+\definecolor{LightPink}{RGB}{255,224,246}
+\definecolor{LightBlue}{RGB}{214,255,255}
+
+%\setbeamercolor{title}{fg=UniBlue}
+%\setbeamercolor{frametitle}{fg=UniBlue}
+\setbeamercolor{author in head/foot}{fg=UniBlue}
+\setbeamercolor{title in head/foot}{fg=UniBlue}
+\setbeamercolor{date in head/foot}{fg=UniBlue}
+\setbeamercolor{page number in head/foot}{fg=UniBlue}
+\setbeamercolor{normal text}{fg=darkgray}
+\setbeamercolor{structure}{fg=UniBlue}
+\setbeamercolor{itemize item}{fg=UniBlue}
+\setbeamercolor{itemize subitem}{fg=UniBlue}
+%\setbeamercolor{section in toc}{fg=MutedBlue}
+%\setbeamercolor{subsection in toc}{fg=darkgray}
+%\setbeamercolor{bibliography entry author}{fg=darkgray}
+%\setbeamercolor{bibliography entry title}{fg=darkgray}
+%\setbeamercolor{bibliography entry location}{fg=gray!80!black}
+%\setbeamercolor{bibliography entry note}{fg=gray!90!black}
+%\setbeamercolor{bibliography entry note}{fg=darkgray}
+\setbeamercolor{block title}{bg=structure,fg=white}
+%\setbeamercolor{block body}{bg={palette secondary}}
+
+
+
+%%% BIBLIOGRAPHY %%%
+\usepackage[%
+	backend=bibtex,
+	citestyle=authoryear,
+	maxcitenames=2,
+	maxbibnames=99,
+	firstinits=true,
+	url=false,
+	doi=false,
+	isbn=false, 
+	%sorting=none,
+	]{biblatex}
+\addbibresource{../slaterefs.bib}
+% use \footfullcite{jones00}
+
+%% TITLE PAGE INFO %%
+\author[A. Vakil \& J. Trouvain]{Anjana Vakil and J\"{u}rgen Trouvain
+%\\\texttt{[anjanav,trouvain]@coli.uni-saarland.de}
+} 
+\institute{\includegraphics[height=4.5em]{../../../img/uni_des_saarlandes.png}\\Department of Computational Linguistics and Phonetics\\Saarland University, Saarbr{\"u}cken, Germany}
+\title{Automatic classification of lexical stress errors\\for German CAPT}
+%\subtitle{Investigating the impact of source language choice} 
+\date[4.9.15]{SLaTE 2015, Leipzig\\4 September 2015}
+
+%% CUSTOM COMMANDS %%
+\newcommand{\TODO}[1]{{\color{red}\textbf{[TODO #1]}}}
+
+%% DOCUMENT %%
+\begin{document}
+{
+\setbeamertemplate{footline}{} 
+\begin{frame}
+  \titlepage
+\end{frame}
+}
+\addtocounter{framenumber}{-1}
+
+\begin{frame}
+\frametitle{Outline}
+\tableofcontents%[pausesections]
+\end{frame}
+
+\begin{frame}{\TODO{Test frame}}
+\begin{itemize}
+\item Thing 1
+\item Thing 2\footfullcite{Bonneau2011}
+\item \fullcite{Cutler2005}
+\end{itemize}
+\end{frame}
+
+\end{document}

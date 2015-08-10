@@ -12,6 +12,9 @@
 %\usepackage{pifont}
 
 
+\usepackage{perpage}
+\MakePerPage{footnote} %restart numbering on each slide
+
 
 %%% BEAMER THEME %%%
 \usetheme{default}
@@ -117,12 +120,39 @@
 \tableofcontents%[pausesections]
 \end{frame}
 
-\begin{frame}{\TODO{Test frame}}
+
+\section{Lexical stress in German CAPT}
+\begin{frame}{Lexical stress \TODO{(LS)?}}
+\begin{definition}
+Prosodic accentuation/prominence of syllable(s) in a word\footnotemark
+\end{definition}
+\vfill
+\addtocounter{footnote}{-1}
+In German:
 \begin{itemize}
-\item Thing 1
-\item Thing 2\footfullcite{Bonneau2011}
-\item \fullcite{Cutler2005}
+\item{Variable placement, contrastive function\footfullcite{Cutler2005}%\footnotemark
+%\footfullcite{Cutler2005}
+\begin{center}
+\begin{tabular}{ccc}
+um$\cdot$FAHR$\cdot$en & vs. & UM$\cdot$fahr$\cdot$en \\
+\textit{to drive around} & & \textit{to run over}\\
+\end{tabular}
+\end{center}
+}
+\item{Reflected by duration, fundamental frequency (F0) and intensity\footfullcite{Dogil1999}}
 \end{itemize}
+\vfill
+\end{frame}
+
+\begin{frame}{Lexical stress in German}
+\begin{itemize}
+\item{Impacts intelligibility of non-native (L2) German speech\footfullcite{Hirschfeld1994}}
+\item{Challenge for learners with other native languages (L1s),\\e.g. French\footfullcite{Michaux2013}}
+\item{Huge potential for individualized instruction via Computer-Assisted Pronunciation Training (CAPT)}
+\end{itemize}
+\vfill
+%
+%Goal: Computer-Assisted Pronunciation Training (CAPT) for lexical stress errors for French learners of German
 \end{frame}
 
 \end{document}

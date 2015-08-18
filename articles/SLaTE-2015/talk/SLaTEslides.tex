@@ -12,8 +12,9 @@
 %\usepackage{pifont}
 
 
-\usepackage{perpage}
-\MakePerPage{footnote} %restart numbering on each slide
+
+%%% FONT %%%
+\usepackage{tgheros}
 
 
 %%% BEAMER THEME %%%
@@ -77,6 +78,10 @@
 %\setbeamercolor{block body}{bg={palette secondary}}
 
 
+%%% FOOTNOTES %%%
+\usepackage{perpage}
+\MakePerPage{footnote} %restart numbering on each slide
+\renewcommand{\footnotesize}{\scriptsize}
 
 %%% BIBLIOGRAPHY %%%
 \usepackage[%
@@ -121,7 +126,7 @@
 \end{frame}
 
 
-\section{Motivation: Lexical stress in German CAPT}
+\section{Background \& motivation}
 \begin{frame}{Lexical stress \TODO{(LS)} in German}
 %\begin{definition}
 %\structure{Lexical stress:} 
@@ -185,10 +190,44 @@ Our goal: classification-based detection of lexical stress errors by French lear
 
 \section{Data}
 \subsection{The IFCASL Franco-German corpus}
-\begin{frame}
+\begin{frame}{Data}
+IFCASL corpus of French-German speech\footfullcite{Fauth2014}
+		\begin{itemize}
+			\item{Phonetically diverse German sentences}
+			\item{Read aloud by L1 and L2 (L1 French) speakers %French and German speakers
+				\begin{itemize}
+				\item Adults ($>$18) and children (15-16)
+				\item Levels\footnote{Common European Framework of Reference, www.coe.int/lang-CEFR} A2, B1, B2, C1 (children all A2/B1)
+				\end{itemize}
+			}
+			\item{Automatic (forced-alignment) segmentation at phone, syllable, and word level}
+			\item{No lexical stress error annotation}
+		\end{itemize}
+		
 \end{frame}
+
 \subsection{Annotation of lexical stress errors}
-\begin{frame}
+\begin{frame}{Data \TODO{remove figure?}}
+%	\begin{figure}
+%	\includegraphics[width=\textwidth]{../../../colloquium/2SH05_FGMB1_527-flagge}
+%	\end{figure}
+%	\vfill
+	
+	Manual annotation of LSEs in subset of corpus:\\
+	\begin{itemize}
+	\item{12 bisyllabic, initial-stress words (word types)
+%		\begin{itemize}
+%		\item{Bisyllabic}
+%		\item{Stress on initial syllable}
+%		\end{itemize}
+	}
+	\item{Word utterances (tokens) extracted automatically}
+	\item{%\hspace*{20pt} 
+	668 tokens from $\sim$55 French speakers}
+	\item{\TODO{X} tokens from L1 German speakers assumed to be error-free; not manually annotated}
+	\end{itemize}
+	
+	
 \end{frame}
 
 \section{Method}

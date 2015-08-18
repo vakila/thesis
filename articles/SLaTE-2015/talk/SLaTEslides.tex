@@ -43,7 +43,7 @@
 \includegraphics[height=1cm]{../../../img/uni_des_saarlandes-white.png}
 \end{textblock*}}
 \setbeamertemplate{caption}{\insertcaption}
-\setbeamerfont{caption}{size=\scriptsize}
+%\setbeamerfont{caption}{size=\scriptsize}
 \setbeamertemplate{itemize subitem}[circle]
 %\setbeamertemplate{bibliography item}[text]
 \setbeamertemplate{bibliography item}[triangle]
@@ -207,7 +207,7 @@ IFCASL corpus of French-German speech\footfullcite{Fauth2014}
 \end{frame}
 
 \subsection{Annotation of lexical stress errors}
-\begin{frame}{Data \TODO{remove figure?}}
+\begin{frame}{Data annotation \TODO{figure?}}
 %	\begin{figure}
 %	\includegraphics[width=\textwidth]{../../../colloquium/2SH05_FGMB1_527-flagge}
 %	\end{figure}
@@ -224,10 +224,77 @@ IFCASL corpus of French-German speech\footfullcite{Fauth2014}
 	\item{Word utterances (tokens) extracted automatically}
 	\item{%\hspace*{20pt} 
 	668 tokens from $\sim$55 French speakers}
-	\item{\TODO{X} tokens from L1 German speakers assumed to be error-free; not manually annotated}
+	%TODO include this? \item{\TODO{X} tokens from L1 German speakers assumed to be error-free; not manually annotated}
 	\end{itemize}
+
+	\vfill
+	Each token assigned a class label:
+	\begin{center}
+	\begin{tabular}{ll}
+	3 stress classes: & 2 error classes: \\
+	$[$correct$]$ &  $[$bad\_nsylls$]$ \\
+	$[$incorrect$]$ &  $[$bad\_audio$]$ \\
+	$[$none$]$ & \\
+	\end{tabular}
+	\end{center}
 	
 	
+\end{frame}
+
+\begin{frame}{Data annotation}
+	%\begin{itemize}
+%	\item 15 annotators, varying by:
+%		\begin{itemize}
+%		\item L1 (12 German, 2 English, 1 Hebrew)
+%		\item Phonetics/phonology expertise \\(2 expert, 10 intermediate, 3 novice)
+%		\end{itemize}
+	%\item 
+	15 annotators (12 native), each token labeled by $\geq$2 
+	%\item 
+	
+	\vfill
+	
+	Pairwise agreement calculated using:
+		\begin{itemize}
+		\item Percentage agreement: $N$ agreed $/$ $N$ both annotated
+		\item Cohen's Kappa %\footfullcite{Cohen1960} 
+		($\kappa$): accounts for chance agreement
+		\end{itemize}
+	%\end{itemize}
+\vfill
+%Pairwise agreement varies considerably, rather low overall
+
+		\begin{table}
+			\centering
+			\small
+			%\caption{Overall pairwise agreement}
+			%{\color{blue}
+			\begin{tabularx}{\textwidth}{lXXXX}
+			\toprule
+			 								& Mean & Maximum & Median & Minimum \\
+			 \midrule
+			 \% Agreement 		& 54.92\% & 83.93\% & 55.36\% & 23.21\% \\
+			 Cohen's $\kappa$	& 0.23 & 0.61 & 0.26 & -0.01 \\
+			 \bottomrule
+			\end{tabularx}					
+			\label{tab:agreement:overall}
+		\end{table}
+	
+	\vfill
+	Single gold-standard label selected for each token
+	%Variability not explained by L1 or expertise	
+
+\end{frame}
+
+
+\begin{frame}{Data annotation results}
+
+	\begin{figure}
+		\centering
+		%\caption{Overall distribution of lexical stress errors in annotated data}
+		\includegraphics[width=\textwidth]{../overallJudgments-withLabels}
+		\label{fig:results:overallbars}
+	\end{figure}
 \end{frame}
 
 \section{Method}

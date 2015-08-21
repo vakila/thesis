@@ -80,6 +80,7 @@
 
 \setlist[itemize,1]{topsep=0pt, itemindent=1cm, labelsep=1cm, label={{\headingcolor $\bullet$}}}
 \setlist[itemize,2]{topsep=0pt, itemindent=2cm, labelsep=1cm, label={{\headingcolor $\triangleright$}}}
+\setlist[itemize,3]{topsep=0pt, itemindent=3cm, labelsep=1cm, label={{\headingcolor -}}}
 %\setitemize{topsep=0pt}
 
 % Set up the grid
@@ -231,17 +232,16 @@ This poster presents the prototype Computer-Assisted Pronunciation Training (CAP
 \banner
 } \end{textblock}
 \begin{textblock}{6.75}(1.25,16){
-  \LHead{\titlecolor A training tool for German learners}}
+  %\LHead{\titlecolor A training tool for German learners}}
+  \LHead{\titlecolor Error diagnosis}}
  \end{textblock}
  \begin{textblock}{7}(1, 16.75)
 \Textsize
 
-A simple web interface presents a learner with a German sentence to read aloud, with one word highlighted as the target for that exercise. The learner submits an utterance of the sentence for assessment and feedback on their realization of the lexical stress pattern of the target word. 
-
-\Highlight{Diagnosis options:}
+A simple web interface presents a learner with a German sentence to read aloud, with one word highlighted as the target for that exercise. The learner submits an utterance of the sentence for assessment. The learner's  realization of the target word's lexical stress pattern is diagnosed via one of the following options:
+%\Highlight{Diagnosis options:}
 \begin{itemize}
-\item{Classification-based [3]\\
-	Possible feature sets:
+\item{\Highlight{Classification} using machine learning [3]. Possible feature sets:
 	\begin{itemize}
 %	\item{Prosodic features of syllables/vowels:
 %		\begin{itemize}
@@ -250,22 +250,42 @@ A simple web interface presents a learner with a German sentence to read aloud, 
 %		\item{Intensity}
 %		\end{itemize}
 %	}
-	\item{Duration (relative, w.r.t. syllables/vowels)}
-	\item{Fundamental frequency (F0) ('')}
-	\item{Intensity ('')}
+	\item{Syllable-level prosodic features  (extracted with JSnoori [2]):
+		\begin{itemize}
+		\item{Duration}
+		\item{Fundamental frequency (F0)}
+		\item{Intensity}
+		\end{itemize}
+	}
 	\item{Word uttered}
 	\item{Speaker age/gender/proficiency}
 	\end{itemize}
 }
-\item{Comparison-based
+\item{\Highlight{Comparison} to reference (native-speaker) utterance(s). Options:
 	\begin{itemize}
-	\item{One or multiple native reference utterances}
-	\item{Manual or automatic (F0-based) reference selection}
+	\item{One-to-one student-to-reference comparison using JSnoori [2]}
+	\item{One-to-many comparison (averaging one-to-one results)}
+	\item{Manual reference selection by either instructor or student}
+	\item{Automatic reference selection based on F0 mean and range}
 	\end{itemize}
 }
 \end{itemize}
 
-\Highlight{Feedback options:}
+
+
+
+
+\begin{textblock}{7}(9, 2.75) {
+\banner
+} \end{textblock}
+\begin{textblock}{6.75}(9.25,3){
+  \LHead{\titlecolor Feedback delivery}}
+ \end{textblock}
+ \begin{textblock}{7}(9, 3.75)
+  \Textsize
+  
+  
+  \Highlight{Feedback options:}
 
 
 \vspace{1em}
@@ -277,19 +297,22 @@ A simple web interface presents a learner with a German sentence to read aloud, 
 	\end{figure}
 
 \end{textblock}
+  
+  \end{textblock}
+  
+  
+  
+  %\section{Teaching and research tool}
 
-
-%\section{Teaching and research tool}
-
-\begin{textblock}{7}(9, 2.75) {
+  
+  \begin{textblock}{7}(9, 10.75) {
 \banner
 } \end{textblock}
-\begin{textblock}{6.75}(9.25,3){
+\begin{textblock}{6.75}(9.25,11){
   \LHead{\titlecolor A tool for teachers and researchers}}
  \end{textblock}
- \begin{textblock}{7}(9, 3.75)
+ \begin{textblock}{7}(9, 11.75)
   \Textsize
-  
   %An administrative interface allows language teachers or CAPT researchers to combine the available diagnostic and feedback method(s) to create new exercises for learners. 
   
   An administrative interface allows a language teacher or CAPT researcher to create new exercises for students to complete, where each exercise features a specific combination of the various diagnostic methods and feedback types available in the system. 
@@ -338,28 +361,28 @@ A simple web interface presents a learner with a German sentence to read aloud, 
 
 %\section{Conclusion}
 
-% Another text block in the bottom right.
-\begin{textblock}{7}(9,18){
-\banner
-} \end{textblock}
-\begin{textblock}{6.75}(9.25,18.25){
-  \LHead{\titlecolor Conclusion and future directions}
-   } \end{textblock}
- \begin{textblock}{7}(9, 19)
-  \Textsize
-  
-%  Both instructional and research applications have thus motivated the development of \Highlight{de-stress}.
-%Unlike with some existing tools for diagnosis and feedback on pronunciation errors, learners can interact with the tool and interpret its feedback independently, i.e. without the assistance of a human instructor at their side.
-%At the same time, researchers can use this modular system to study the impact of various assessment and feedback types on learner outcomes, user engagement, and other factors impacting the success of a CAPT system. 
-%%
-%Once more is known about which diagnosis/feedback types should be delivered to which learners in which situations, this tool could become a useful component of a fully-fledged intelligent CAPT system, in which 
-%%learner models and other intelligent components
-%models of relevant aspects of the learning context (e.g. the student's skill level, progress, or personal preferences; the current learning objective or position in a sequence of exercises; etc.)
-%are used to automatically decide which modules of the tool to activate, as \cref{fig:hourglass-ITS} illustrates.
-  
-  
-  
-\end{textblock}
+%% Another text block in the bottom right.
+%\begin{textblock}{7}(9,18){
+%\banner
+%} \end{textblock}
+%\begin{textblock}{6.75}(9.25,18.25){
+%  \LHead{\titlecolor Conclusion and future directions}
+%   } \end{textblock}
+% \begin{textblock}{7}(9, 19)
+%  \Textsize
+%  
+%%  Both instructional and research applications have thus motivated the development of \Highlight{de-stress}.
+%%Unlike with some existing tools for diagnosis and feedback on pronunciation errors, learners can interact with the tool and interpret its feedback independently, i.e. without the assistance of a human instructor at their side.
+%%At the same time, researchers can use this modular system to study the impact of various assessment and feedback types on learner outcomes, user engagement, and other factors impacting the success of a CAPT system. 
+%%%
+%%Once more is known about which diagnosis/feedback types should be delivered to which learners in which situations, this tool could become a useful component of a fully-fledged intelligent CAPT system, in which 
+%%%learner models and other intelligent components
+%%models of relevant aspects of the learning context (e.g. the student's skill level, progress, or personal preferences; the current learning objective or position in a sequence of exercises; etc.)
+%%are used to automatically decide which modules of the tool to activate, as \cref{fig:hourglass-ITS} illustrates.
+%  
+%  
+%  
+%\end{textblock}
 
 
 

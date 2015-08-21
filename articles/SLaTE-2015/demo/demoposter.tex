@@ -200,15 +200,26 @@
   \Textsize
 This poster presents the prototype Computer-Assisted Pronunciation Training (CAPT) tool \Highlight{de-stress}: the German (\Highlight{de}) \Highlight{S}ystem for \Highlight{T}raining and \Highlight{R}esearch on \Highlight{E}rrors in \Highlight{S}econd-language \Highlight{S}tress [1].
 
-\Highlight{de-stress} targets lexical stress errors by non-native (L2) German speakers with French as their native language (L1). Its modular design incorporates various methods for diagnosing and presenting feedback on these errors. Both instructional and research applications have motivated its development:
+\Highlight{de-stress} targets lexical stress errors by non-native (L2) German speakers with French as their native language (L1). Its modular design incorporates various methods for diagnosing and presenting feedback on these errors, as described below. 
+
+Both instructional and research applications have motivated the development of \Highlight{de-stress}:
 
 \begin{itemize}
-\item{Learners can interact with the system independently (i.e. without assistance from human instructor)}
-\item{Teachers can create bespoke exercises for students}
-\item{Researchers can study effects of various diagnois/feedback types}
-\item{Tool could become useful component of intelligent CAPT system (see \cref{fig:hourglass-ITS})}
+\item{Learners can receive feedback without human instructor}
+\item{Teachers can create exercises matching individual student needs}
+%\item{Teachers can create bespoke exercises for students}
+\item{Researchers can study efficacy of various diagnosis/feedback types}
+%\item{Tool could become useful component of intelligent CAPT system (see \cref{fig:hourglass-ITS})}
 \end{itemize}
 
+%  \begin{itemize}
+%  \item{helps learners improve their pronunciation without assistance from a human instructor}
+%  \item{enables teachers to create exercises matching the individual needs of their students (e.g. proficiency, learning style)}
+%    \item{facilitates research into the effectiveness of different diagnosis/feedback methods}
+%  \end{itemize}
+  
+
+Once more is known about which diagnosis/feedback types are most effective in which situations, this tool could become a useful component of an intelligent CAPT system (see \cref{fig:hourglass-ITS}).
 
 
 %\Highlight{Context:} M.Sc. thesis, related to ongoing Franco-German project\\ \textit{Individualized Feedback for Computer-Assisted Spoken Language\\ Learning} (IFCASL) [3].
@@ -219,7 +230,7 @@ This poster presents the prototype Computer-Assisted Pronunciation Training (CAP
 	\begin{figure}
 	\centering
 	\includegraphics[width=\textwidth]{../../../colloquium/hourglass-colloq-full}
-	\caption{Conceptual diagram of \Highlight{de-stress} (demarcated by dashed line) and its possible function in the context of an Intelligent Tutoring System (ITS).}
+	\caption{Conceptual diagram of \Highlight{de-stress} (within dashed line) and its possible function in the context of an Intelligent Tutoring System (ITS).}
 	\label{fig:hourglass-ITS}
 	\end{figure}
  
@@ -228,14 +239,14 @@ This poster presents the prototype Computer-Assisted Pronunciation Training (CAP
 
 %\section{Training tool}
 
-\begin{textblock}{7}(1, 15.75) {
+\begin{textblock}{7}(1, 16.25) {
 \banner
 } \end{textblock}
-\begin{textblock}{6.75}(1.25,16){
+\begin{textblock}{6.75}(1.25,16.5){
   %\LHead{\titlecolor A training tool for German learners}}
   \LHead{\titlecolor Error diagnosis}}
  \end{textblock}
- \begin{textblock}{7}(1, 16.75)
+ \begin{textblock}{7}(1, 17.25)
 \Textsize
 
 A simple web interface presents a learner with a German sentence to read aloud, with one word highlighted as the target for that exercise. The learner submits an utterance of the sentence for assessment. The learner's  realization of the target word's lexical stress pattern is diagnosed via one of the following options:
@@ -291,26 +302,35 @@ A simple web interface presents a learner with a German sentence to read aloud, 
 	\begin{figure}
 	\centering
 	\includegraphics[width=.7\textwidth]{../../../img/screenshots/StudentInterface-userIcon}
-	\caption{\TODO{caption}}
+	\caption{Feedback via graphical visualization (blue/green rectangles), text stylization (syllable text below rectangles), learner utterance playback (audio controls), and verbal message (green text).}
 	\label{fig:feedback}
 	\end{figure}
   
 
   
   \begin{itemize}
-  \item{\Highlight{Explicit feedback}:
-  	\begin{itemize}
-  		\item{Verbal error/success messages (see \cref{fig:feedback})}
-  		\item{Graphical ``skill bars'' %depicting prosodic parameters (with comparison-based diagnosis only)
-  		}
-  	\end{itemize}
-  }
+	  \item{\Highlight{Explicit feedback}:
+	  	\begin{itemize}
+	  		\item{Verbal error/success messages (see \cref{fig:feedback})}
+	  		\item{Graphical ``skill bars'' %depicting prosodic parameters (with comparison-based diagnosis only)
+	  		}
+	  	\end{itemize}
+	  }
+  \end{itemize}
+  
+  \begin{figure}
+  	\centering
+	\includegraphics[width=.7\textwidth]{../../../img/screenshots/skillBars-balanced-pct}
+	\caption{Feedback via skill bars.}
+  \end{figure}
+  
+  \begin{itemize}
   \item{\Highlight{Implicit feedback}:
   	\begin{itemize}
-  	\item{\Highlight{Visual}:
+  	\item{\Highlight{Visual} (see \cref{fig:feedback}):
 	  	\begin{itemize}
-	  	\item{Graphical visualizations of prosody (see \cref{fig:feedback})}
-	  	\item{Text stylization (see \cref{fig:feedback})}
+	  	\item{Graphical visualization of syllable prosody}
+	  	\item{Text stylization reflecting syllable duration}
 	  	\end{itemize}
 	}
 	\item{\Highlight{Auditory}: 
@@ -321,7 +341,7 @@ A simple web interface presents a learner with a German sentence to read aloud, 
   	}
   	\end{itemize}
   }
-  \item{\Highlight{Self-assessment} - learner must complete questionnaire before receiving other feedback}
+  \item{\Highlight{Self-assessment} questionnaire for learner to complete before receiving other feedback}
   \end{itemize}
 
 
@@ -336,23 +356,23 @@ A simple web interface presents a learner with a German sentence to read aloud, 
   %\section{Teaching and research tool}
 
   
-  \begin{textblock}{7}(9, 16.75) {
+  \begin{textblock}{7}(9, 18.75) {
 \banner
 } \end{textblock}
-\begin{textblock}{6.75}(9.25,17){
+\begin{textblock}{6.75}(9.25,19){
   \LHead{\titlecolor Administrative interface for teachers/researchers}}
  \end{textblock}
- \begin{textblock}{7}(9, 17.75)
+ \begin{textblock}{7}(9, 19.75)
   \Textsize
   %An administrative interface allows language teachers or CAPT researchers to combine the available diagnostic and feedback method(s) to create new exercises for learners. 
   
   A simple graphical administrative interface allows a language teacher or CAPT researcher to create new exercises for students to complete, where each exercise features a specific combination of the various diagnostic methods and feedback types available in the system. 
   
-  By allowing straightforward (graphical) yet fine-grained control over these features, \Highlight{de-stress}: 
-  \begin{itemize}
-  \item{enables researchers to create different CAPT exercises for comparative in vivo studies}
-  \item{allows teachers to create exercises matching the individual needs of their students (e.g. proficiency, learning style)}
-  \end{itemize}
+%  By allowing straightforward (graphical) yet fine-grained control over these features, \Highlight{de-stress}: 
+%  \begin{itemize}
+%  \item{enables researchers to create different CAPT exercises for comparative in vivo studies}
+%  \item{allows teachers to create exercises matching the individual needs of their students (e.g. proficiency, learning style)}
+%  \end{itemize}
   
 %  \begin{itemize}
 %  \item{Teachers can create exercises targeted to students' needs (learning style, etc.)}

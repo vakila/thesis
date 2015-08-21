@@ -29,6 +29,7 @@
 \usepackage{tipa}
 \usepackage{tikz}
 \usetikzlibrary{backgrounds}
+\usepackage{cleveref}
 
 
 %%%%%%%%%%
@@ -135,7 +136,7 @@
 %\includegraphics[width=\paperwidth]{banners/darkblue.pdf}
 %\includegraphics[width=\paperwidth]{banners/purple.pdf}
 \VeryHuge
-\tikz{\path[draw=\bannercolor,fill=\bannercolor] (0,0) rectangle (\paperwidth,2.75em);}
+\tikz{\path[draw=\bannercolor,fill=\bannercolor] (0,0) rectangle (\paperwidth,3.5em);}
 } \end{textblock}
 
 
@@ -145,7 +146,7 @@
 % Title %
 %%%%%%%%%
 %TODO MAKE TITLE BANNER BIGGER/LESS CRAMPED
-\begin{textblock}{10}(1,0.25)
+\begin{textblock}{10}(1,0.5)
 {\color{TitleColor}
 \Title{A CAPT tool for training and research on lexical stress errors in German}\\
 
@@ -154,7 +155,7 @@
 }
 \end{textblock}
 
-\begin{textblock}{4}(12,0)    
+\begin{textblock}{4}(12,0.25)    
 \begin{flushright}
 %\resizebox{1.5\TPHorizModule}{!}{
 \includegraphics[width=1.3\TPHorizModule]{../../../img/new-owl-white.png}
@@ -163,7 +164,7 @@
 \end{flushright}
 \end{textblock}
 
-\begin{textblock}{4}(10.5,0.2){
+\begin{textblock}{4}(10.5,0.5){
 \color{TitleColor}
 \begin{flushright}
 \Authors{Anjana Vakil}\\
@@ -183,40 +184,54 @@
 %\end{textblock}
 
 
-
+%\section{Introduction}
 
 % An example text block, to get you started!
-\begin{textblock}{7}(1, 2.25) {
+\begin{textblock}{7}(1, 2.75) {
 \banner
 } \end{textblock}
-\begin{textblock}{6.75}(1.25,2.5){
-  \LHead{\titlecolor Introduction}}
+\begin{textblock}{6.75}(1.25,3){
+  \LHead{\titlecolor Overview}}
  \end{textblock}
- \begin{textblock}{7}(1, 3.25)
+ \begin{textblock}{7}(1, 3.75)
   \Textsize
 This poster presents the prototype Computer-Assisted Pronunciation Training (CAPT) tool \Highlight{de-stress}: the German (\Highlight{de}) \Highlight{S}ystem for \Highlight{T}raining and \Highlight{R}esearch on \Highlight{E}rrors in \Highlight{S}econd-language \Highlight{S}tress [1].
 
-\Highlight{de-stress} targets lexical stress errors by non-native (L2) German speakers with French as their native language (L1). Its modular design incorporates various methods for diagnosing and presenting feedback on these errors, as described below. 
+\Highlight{de-stress} targets lexical stress errors by non-native (L2) German speakers with French as their native language (L1). Its modular design incorporates various methods for diagnosing and presenting feedback on these errors. Both instructional and research applications have motivated its development:
+
+\begin{itemize}
+\item{Learners can interact with the system independently (i.e. without assistance from human instructor)}
+\item{Teachers can create bespoke exercises for students}
+\item{Researchers can study effects of various diagnois/feedback types}
+\item{Tool could become useful component of intelligent CAPT system (see \cref{fig:hourglass-ITS})}
+\end{itemize}
 
 
 
 %\Highlight{Context:} M.Sc. thesis, related to ongoing Franco-German project\\ \textit{Individualized Feedback for Computer-Assisted Spoken Language\\ Learning} (IFCASL) [3].
 %% at University of Saarland (Saarbr{\"u}cken, Germany) and LORIA (Nancy, France).
 
+\vspace{1em}
 
-	\begin{center}
-	\includegraphics[width=.7\textwidth]{../../../img/hourglass-ITS}
-	\end{center}
+	\begin{figure}
+	\centering
+	\includegraphics[width=\textwidth]{../../../colloquium/hourglass-colloq-full}
+	\caption{Conceptual diagram of \Highlight{de-stress} (demarcated by dashed line) and its possible function in the context of an Intelligent Tutoring System (ITS).}
+	\label{fig:hourglass-ITS}
+	\end{figure}
  
 \end{textblock}
 
-\begin{textblock}{7}(1, 14.25) {
+
+%\section{Training tool}
+
+\begin{textblock}{7}(1, 15.75) {
 \banner
 } \end{textblock}
-\begin{textblock}{6.75}(1.25,14.5){
+\begin{textblock}{6.75}(1.25,16){
   \LHead{\titlecolor A training tool for German learners}}
  \end{textblock}
- \begin{textblock}{7}(1, 15.25)
+ \begin{textblock}{7}(1, 16.75)
 \Textsize
 
 
@@ -227,26 +242,28 @@ This poster presents the prototype Computer-Assisted Pronunciation Training (CAP
 \end{textblock}
 
 
-\begin{textblock}{7}(9, 2.25) {
+%\section{Teaching and research tool}
+
+\begin{textblock}{7}(9, 2.75) {
 \banner
 } \end{textblock}
-\begin{textblock}{6.75}(9.25,2.5){
+\begin{textblock}{6.75}(9.25,3){
   \LHead{\titlecolor A tool for teachers and researchers}}
  \end{textblock}
- \begin{textblock}{7}(9, 3.25)
+ \begin{textblock}{7}(9, 3.75)
   \Textsize
   
   An administrative interface allows language teachers or CAPT researchers to combine the available diagnostic and feedback method(s) to create new exercises for learners. 
   
-  \begin{itemize}
-  \item{Teachers can create exercises targeted to students' needs (learning style, etc.)}
-  \item{Researchers can study impact of various diagnosis/feedback configurations on factors impacting CAPT system success, e.g.
-  \begin{itemize}
-  \item{learning outcomes}
-  \item{user engagement/satisfaction}
-  \end{itemize}
-  }
-  \end{itemize}
+%  \begin{itemize}
+%  \item{Teachers can create exercises targeted to students' needs (learning style, etc.)}
+%  \item{Researchers can study impact of various diagnosis/feedback configurations on factors impacting CAPT system success, e.g.
+%  \begin{itemize}
+%  \item{learning outcomes}
+%  \item{user engagement/satisfaction}
+%  \end{itemize}
+%  }
+%  \end{itemize}
  
 	\begin{center}
 	\fcolorbox{gray!50}{white}{\includegraphics[width=.7\textwidth]{../FeedbackMethod}}
@@ -269,6 +286,7 @@ This poster presents the prototype Computer-Assisted Pronunciation Training (CAP
 
 
 
+\%section{Conclusion}
 
 % Another text block in the bottom right.
 \begin{textblock}{7}(9,13){
@@ -280,10 +298,22 @@ This poster presents the prototype Computer-Assisted Pronunciation Training (CAP
  \begin{textblock}{7}(9, 14)
   \Textsize
   
+%  Both instructional and research applications have thus motivated the development of \Highlight{de-stress}.
+%Unlike with some existing tools for diagnosis and feedback on pronunciation errors, learners can interact with the tool and interpret its feedback independently, i.e. without the assistance of a human instructor at their side.
+%At the same time, researchers can use this modular system to study the impact of various assessment and feedback types on learner outcomes, user engagement, and other factors impacting the success of a CAPT system. 
+%%
+%Once more is known about which diagnosis/feedback types should be delivered to which learners in which situations, this tool could become a useful component of a fully-fledged intelligent CAPT system, in which 
+%%learner models and other intelligent components
+%models of relevant aspects of the learning context (e.g. the student's skill level, progress, or personal preferences; the current learning objective or position in a sequence of exercises; etc.)
+%are used to automatically decide which modules of the tool to activate, as \cref{fig:hourglass-ITS} illustrates.
+  
+  
   
 \end{textblock}
 
 
+
+%\section{References}
 
 \begin{textblock}{7}(9,22.5){
 \banner
@@ -291,7 +321,7 @@ This poster presents the prototype Computer-Assisted Pronunciation Training (CAP
 \begin{textblock}{6.75}(9.25,22.75){
   \LHead{\titlecolor References}
    } \end{textblock}
- \begin{textblock}{7}(9, 23.5)
+ \begin{textblock}{7}(9, 23.3)
 %  \Textsize
 %  
 %  

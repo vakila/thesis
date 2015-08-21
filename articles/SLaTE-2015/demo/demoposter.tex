@@ -75,8 +75,8 @@
 \def\Subhead#1{\noindent{\large \headingcolor #1}}
 \def\Title#1{\noindent{\sffamily \VeryHuge \titlecolor #1}}
 
-\setlist[itemize,1]{topsep=0pt, label={{\headingcolor $\bullet$}}}
-\setlist[itemize,2]{topsep=0pt, label={{\headingcolor $\triangleright$}}}
+\setlist[itemize,1]{topsep=0pt, itemindent=1cm, labelsep=1cm, label={{\headingcolor $\bullet$}}}
+\setlist[itemize,2]{topsep=0pt, itemindent=2cm, labelsep=1cm, label={{\headingcolor $\triangleright$}}}
 %\setitemize{topsep=0pt}
 
 % Set up the grid
@@ -194,88 +194,35 @@
  \end{textblock}
  \begin{textblock}{7}(1, 3.25)
   \Textsize
-Computer-Assisted Pronunciation Training (CAPT) can:
-\begin{itemize}
-\item{automatically analyze and diagnose pronunciation errors}
-\item{offer individualized feedback on errors and how to correct them}
-\item{complement traditional classroom-based language study\\(which typically neglects pronunciation teaching)}
-\item{encourage independent study}
-\end{itemize}
+This poster presents the prototype Computer-Assisted Pronunciation Training (CAPT) tool \Highlight{de-stress}: the German (\Highlight{de}) \Highlight{S}ystem for \Highlight{T}raining and \Highlight{R}esearch on \Highlight{E}rrors in \Highlight{S}econd-language \Highlight{S}tress [1].
 
-This poster describes upcoming work towards the development of a CAPT system targeting native (L1) French speakers learning German as a foreign language (L2).
+\Highlight{de-stress} targets lexical stress errors by non-native (L2) German speakers with French as their native language (L1). Its modular design incorporates various methods for diagnosing and presenting feedback on these errors, as described below. 
 
-\Highlight{Context:} M.Sc. thesis, related to ongoing Franco-German project\\ \textit{Individualized Feedback for Computer-Assisted Spoken Language\\ Learning} (IFCASL) [3].
-% at University of Saarland (Saarbr{\"u}cken, Germany) and LORIA (Nancy, France).
+
+
+%\Highlight{Context:} M.Sc. thesis, related to ongoing Franco-German project\\ \textit{Individualized Feedback for Computer-Assisted Spoken Language\\ Learning} (IFCASL) [3].
+%% at University of Saarland (Saarbr{\"u}cken, Germany) and LORIA (Nancy, France).
+
+
+	\begin{center}
+	\includegraphics[width=.7\textwidth]{../../../img/hourglass-ITS}
+	\end{center}
  
-\Highlight{Aim:} Engineer a {prototype German CAPT system} offering L1 French speakers feedback on one type of pronunciation error.
- 
-%\Highlight{Intended contributions:} 
-%\begin{itemize}
-%\item{Survey and build upon existing research on automatic diagnosis and correction of errors in L2 German speech}
-%\item{Engineer a {prototype German CAPT system} offering L1 French speakers feedback on one type of pronunciation error}
-%\end{itemize}
-
-%\end{textblock}
-%
-%
-%\begin{textblock}{7}(1, 7.25) {
-%\banner
-%} \end{textblock}
-%\begin{textblock}{6.75}(1.25,7.5){
-%  \LHead{\titlecolor Main research questions}}
-% \end{textblock}
-% \begin{textblock}{7}(1, 8)
-%  \large
-  
-The work has {3 main research questions}, outlined below.
-%\begin{enumerate}
-%\item{Which error(s) should a German CAPT system address?}
-%\item{How can this type of error best be automatically diagnosed?}
-%\item{How can helpful feedback on this error be automatically given to learners?}
-%\end{enumerate}
 \end{textblock}
 
-\begin{textblock}{7}(1, 10.25) {
+\begin{textblock}{7}(1, 14.25) {
 \banner
 } \end{textblock}
-\begin{textblock}{6.75}(1.25,10.5){
-  \LHead{\titlecolor 1. Which error should the system address?}}
+\begin{textblock}{6.75}(1.25,14.5){
+  \LHead{\titlecolor A training tool for German learners}}
  \end{textblock}
- \begin{textblock}{7}(1, 11.25)
+ \begin{textblock}{7}(1, 15.25)
 \Textsize
-\Highlight{Goal:} Determine which type of L2 German pronunciation errors 
-%(including segmental errors and prosodic deviations) 
-is best addressed by a CAPT system.
 
-\Highlight{Criteria for error selection:} An error is a good CAPT target if it...
-\begin{itemize}
-%\renewcommand{\labelitemi}{$\RHD$}
-\item{is frequently produced by L2 speakers (with French as L1)}
-\item{affects (perceived) intelligibility of learner's speech}
-\item{can be reliably detected/diagnosed automatically}
-\end{itemize}
 
-\begin{center}
-\includegraphics{../../../img/error-venn.pdf}
-\end{center}
-
-\Highlight{Proposed methods for selecting target error type(s):}
-\begin{itemize}
-\item{Analysis of subset of IFCASL corpus (spoken L1/L2 German) [3]}
-\item{Survey of past research on L2 intelligibility (e.g. [2])}
-\item{Survey of past research on CAPT/L2 speech processing (e.g. [1])}
-\end{itemize}
-
-\Highlight{Hypothesized errors fitting the criteria:}
-\begin{itemize}
-\item{Lexical accent errors [1,2], such as:
-		\begin{itemize}
-		\item{Stress on wrong syllable (e.g. [\textipa{"apKIl}] vs. [\textipa{a"pKIl}])}
-		\item{No distinction between stressed/unstressed syllables}
-		%\item{Lack of reduction of unstressed syllables}
-		\end{itemize}}
-\item{Vowel quality and/or quantity errors, e.g. [\textipa{i}] for /\textipa{I}/ or /\textipa{i:}/}
-\end{itemize}
+	\begin{center}
+	\includegraphics[width=.7\textwidth]{../../../img/screenshots/StudentInterface-userIcon}
+	\end{center}
 
 \end{textblock}
 
@@ -284,110 +231,91 @@ is best addressed by a CAPT system.
 \banner
 } \end{textblock}
 \begin{textblock}{6.75}(9.25,2.5){
-  \LHead{\titlecolor 2. How can the error be automatically diagnosed?}}
+  \LHead{\titlecolor A tool for teachers and researchers}}
  \end{textblock}
  \begin{textblock}{7}(9, 3.25)
   \Textsize
   
-\Highlight{Goal:} Given target error, determine best technique for automatically detecting this error in L2 speech.
-
-\Highlight{Criteria for technique selection:} Automatic diagnosis must be...
-\begin{itemize}
-%\renewcommand{\labelitemi}{$\RHD$}
-\item{reliable (i.e. of reasonably high accuracy)}
-\item{fast on modern consumer-grade hardware\\(to generate diagnosis and feedback within seconds)}
-\end{itemize} 
-
-\Highlight{Proposed methods for determining best technique:}
-\begin{itemize}
-\item{Survey of research into automatic processing of this phenomenon}
-\item{Comparison of existing techniques}
-\item{Experimentation with new techniques (if needed)}
-\end{itemize}
-
+  An administrative interface allows language teachers or CAPT researchers to combine the available diagnostic and feedback method(s) to create new exercises for learners. 
   
-\end{textblock}
-
-
-\begin{textblock}{7}(9, 8.5) {
-\banner
-} \end{textblock}
-\begin{textblock}{6.75}(9.25,8.75){
-  \LHead{\titlecolor 3. What feedback can/should learners receive?}}
- \end{textblock}
- \begin{textblock}{7}(9, 9.5)
-  \Textsize
-  
-\Highlight{Goal:} Given target error and processing technique(s), develop one or more methods to model mastery and deliver feedback. Ideally:
-\begin{itemize}
-\item{develop multiple feedback options}
-\item{determine best feedback type dynamically based on learner-specific factors (e.g. skill level)}
-\end{itemize}
-
-\vspace{1em}
-
-\begin{center}
-\includegraphics{../../../img/feedback.pdf}
-\end{center}
-%\Highlight{Proposed methods for developing feedback:}
-%\begin{itemize}
-%\item{Survey of past studies on CAPT feedback (e.g. [1])}
-%\item{Experimentation with new feedback strategies}
-%\end{itemize}
-
+  \begin{itemize}
+  \item{Teachers can create exercises targeted to students' needs (learning style, etc.)}
+  \item{Researchers can study impact of various diagnosis/feedback configurations on factors impacting CAPT system success, e.g.
+  \begin{itemize}
+  \item{learning outcomes}
+  \item{user engagement/satisfaction}
+  \end{itemize}
+  }
+  \end{itemize}
  
+	\begin{center}
+	\fcolorbox{gray!50}{white}{\includegraphics[width=.7\textwidth]{../FeedbackMethod}}
+	\end{center}	  
+  
+  
 \end{textblock}
 
-%\begin{textblock}{7}(9,2)
-%\newcounter{int}
-%\begin{enumerate}
-%\forloop{int}{1}{\value{int} < 21}{
-%\item \includegraphics[width=0.98\linewidth]{banners/banner\arabic{int}.pdf}
-%}
-%\end{enumerate}
+
+%\begin{textblock}{7}(9, 8.5) {
+%\banner
+%} \end{textblock}
+%\begin{textblock}{6.75}(9.25,8.75){
+%  \LHead{\titlecolor A teaching and research tool}}
+% \end{textblock}
+% \begin{textblock}{7}(9, 9.5)
+%  \Textsize
+% 
 %\end{textblock}
 
 
+
+
 % Another text block in the bottom right.
-\begin{textblock}{7}(9,17){
+\begin{textblock}{7}(9,13){
 \banner
 } \end{textblock}
-\begin{textblock}{6.75}(9.25,17.25){
-  \LHead{\titlecolor Conclusion}
+\begin{textblock}{6.75}(9.25,13.25){
+  \LHead{\titlecolor Conclusion and future directions}
    } \end{textblock}
- \begin{textblock}{7}(9, 18)
+ \begin{textblock}{7}(9, 14)
   \Textsize
   
-\Highlight{Outcome:} Prototype CAPT system for the selected error type, implementing the chosen analysis and feedback method(s).
-
-If successful, the prototype will be integrated into the more comprehensive CAPT system developed in the IFCASL project.
-
-\Highlight{Intended contribution:} Survey and build upon existing research on automatic diagnosis and correction of errors in L2 German speech.
   
-\Highlight{Possible extension:} Evaluate the effect of given feedback type(s) on:
-\begin{itemize}%[topsep=0pt,parsep=0pt,partopsep=0pt]
-\item{Production/mastery of the error}
-\item{Satisfaction with the prototype CAPT system}
-\item{Motivation to use the system}
-\end{itemize} 
-
 \end{textblock}
 
 
-\begin{textblock}{15}(1,23)
-{\Large
-\tikz{\path[draw=\bannercolor,fill=\bannercolor] (0,0) rectangle (\linewidth,2em);}}
-\end{textblock}
-\begin{textblock}{14.75}(1.15,23.15)
-\LHead{\Large \titlecolor References}
-\end{textblock}
-\begin{textblock}{15}(1,23.55)
+
+\begin{textblock}{7}(9,22.5){
+\banner
+} \end{textblock}
+\begin{textblock}{6.75}(9.25,22.75){
+  \LHead{\titlecolor References}
+   } \end{textblock}
+ \begin{textblock}{7}(9, 23.5)
+%  \Textsize
+%  
+%  
+%\end{textblock}
+%
+%
+%\begin{textblock}{15}(1,23)
+%{\Large
+%\tikz{\path[draw=\bannercolor,fill=\bannercolor] (0,0) rectangle (\linewidth,2em);}}
+%\end{textblock}
+%\begin{textblock}{14.75}(1.15,23.15)
+%\LHead{\Large \titlecolor References}
+%\end{textblock}
+%\begin{textblock}{15}(1,23.55)
+
 \begin{enumerate}[label={[\arabic*]}, leftmargin=34pt, topsep=0pt]
-\item{Bonneau, A. and Colotte, V. 2011. “Automatic Feedback for L2 Prosody Learning”. In \textit{Speech and Language Technologies}. Ivo Ipsic, ed. InTech.}
 
-\item{Hirschfeld, U. 1994. \textit{Untersuchungen zur phonetischen Verst{\"a}ndlichkeit Deutschlernender.} Forum Phoneticum, 57.}
+\item{A. S. Vakil, "de-stress," \texttt{http://github.com/vakila/de-stress}.}
 
-\item{Trouvain, J., et al. 2013. ``Designing a bilingual speech corpus for French and German language learners''. \textit{Proc. Corpus et Outils en Linguistique, Langues et Parole}, Strasbourg, pp. 32-34.}
+\item{LORIA Speech Team, "JSnoori," \texttt{http://jsnoori.loria.fr}.}
+
+\item{A. S. Vakil and J. Trouvain, "Automatic classification of lexical stress errors for German CAPT," in \textit{SLaTE}, 2015.}
+
+%\item{Trouvain, J., et al. 2013. ``Designing a bilingual speech corpus for French and German language learners''. \textit{Proc. Corpus et Outils en Linguistique, Langues et Parole}, Strasbourg, pp. 32-34.}
 \end{enumerate}
 
 \end{textblock}

@@ -286,13 +286,13 @@ A simple web interface presents a learner with a German sentence to read aloud, 
 
 
 
-\begin{textblock}{7}(9, 2.75) {
+\begin{textblock}{7}(9, 2.5) {
 \banner
 } \end{textblock}
-\begin{textblock}{6.75}(9.25,3){
+\begin{textblock}{6.75}(9.25,2.75){
   \LHead{\titlecolor Feedback delivery}}
  \end{textblock}
- \begin{textblock}{7}(9, 3.75)
+ \begin{textblock}{7}(9, 3.5)
   \Textsize
   
   Based on the error diagnosis, one or more of the following types of feedback are presented to the learner via the web interface (see \cref{fig:feedback}). 
@@ -325,23 +325,26 @@ A simple web interface presents a learner with a German sentence to read aloud, 
   \end{figure}
   
   \begin{itemize}
-  \item{\Highlight{Implicit feedback}:
-  	\begin{itemize}
-  	\item{\Highlight{Visual} (see \cref{fig:feedback}):
+%  \item{\Highlight{Implicit feedback}:
+%  	\begin{itemize}
+%  	\item{\Highlight{Visual} (see \cref{fig:feedback}):
+  \item{\Highlight{Implicit visual feedback} (see \cref{fig:feedback}): 
 	  	\begin{itemize}
 	  	\item{Graphical visualization of syllable prosody}
 	  	\item{Text stylization reflecting syllable duration}
 	  	\end{itemize}
 	}
-	\item{\Highlight{Auditory}: 
+	%\item{\Highlight{Auditory}: 
+  \item{\Highlight{Implicit auditory feedback}:
 		\begin{itemize}
-		\item{Original learner and reference utterances}
+		\item{Original learner and reference utterances (see \cref{fig:feedback})}
 		\item{Prosodically modified learner utterance (using JSnoori [2])}
 		\end{itemize}
   	}
-  	\end{itemize}
+  	%\end{itemize}
+  %}
+  \item{\Highlight{Self-assessment} questionnaire for learner to complete % before receiving other feedback
   }
-  \item{\Highlight{Self-assessment} questionnaire for learner to complete before receiving other feedback}
   \end{itemize}
 
 
@@ -356,17 +359,27 @@ A simple web interface presents a learner with a German sentence to read aloud, 
   %\section{Teaching and research tool}
 
   
-  \begin{textblock}{7}(9, 18.75) {
+  \begin{textblock}{7}(9, 17) {
 \banner
 } \end{textblock}
-\begin{textblock}{6.75}(9.25,19){
+\begin{textblock}{6.75}(9.25,17.25){
   \LHead{\titlecolor Administrative interface for teachers/researchers}}
  \end{textblock}
- \begin{textblock}{7}(9, 19.75)
-  \Textsize
-  %An administrative interface allows language teachers or CAPT researchers to combine the available diagnostic and feedback method(s) to create new exercises for learners. 
+ %\begin{textblock}{7}(9, 18)
+ \begin{textblock}{4}(12,17.9)
   
-  A simple graphical administrative interface allows a language teacher or CAPT researcher to create new exercises for students to complete, where each exercise features a specific combination of the various diagnostic methods and feedback types available in the system. 
+  	\begin{figure}
+	%\centering
+	%\fcolorbox{gray!50}{white}{\includegraphics[width=.7\textwidth]{../FeedbackMethod}}
+	\includegraphics[width=.9\textwidth]{../../../img/screenshots/TeacherInterface-smaller-er}
+	\caption{\TODO{caption}}
+	\end{figure}	  
+  
+ \end{textblock}  
+ \begin{textblock}{2.35}(9,18)
+   \Textsize
+  %An administrative interface allows language teachers or CAPT researchers to combine the available diagnostic and feedback method(s) to create new exercises for learners. 
+  This simple graphical interface allows a language teacher or CAPT researcher to create new exercises for students to complete. Each exercise features a specific combination of the various diagnosis and feedback options described above. %in the system. 
   
 %  By allowing straightforward (graphical) yet fine-grained control over these features, \Highlight{de-stress}: 
 %  \begin{itemize}
@@ -387,11 +400,7 @@ A simple web interface presents a learner with a German sentence to read aloud, 
  
 % \vspace{1em}
 % 
-%	\begin{figure}
-%	\centering
-%	\fcolorbox{gray!50}{white}{\includegraphics[width=.7\textwidth]{../FeedbackMethod}}
-%	\caption{\TODO{caption}}
-%	\end{figure}	  
+
 %  
   
 \end{textblock}
@@ -439,11 +448,20 @@ A simple web interface presents a learner with a German sentence to read aloud, 
 
 %\section{References}
 
-\begin{textblock}{7}(9,22.5){
-\banner
-} \end{textblock}
-\begin{textblock}{6.75}(9.25,22.75){
-  \LHead{\titlecolor References}
+%\begin{textblock}{7}(9,22.5){
+%\banner
+%} \end{textblock}
+%\begin{textblock}{6.75}(9.25,22.75){
+%  \LHead{\titlecolor References}
+%   } \end{textblock}
+% \begin{textblock}{7}(9, 23.3)
+
+\begin{textblock}{7}(9,22.75)
+{\Large
+\tikz{\path[draw=\bannercolor,fill=\bannercolor] (0,0) rectangle (\linewidth,2em);}}
+\end{textblock}
+\begin{textblock}{6.75}(9.15,22.95){
+  \LHead{\Large \titlecolor References}
    } \end{textblock}
  \begin{textblock}{7}(9, 23.3)
 %  \Textsize

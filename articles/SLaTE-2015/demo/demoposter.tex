@@ -250,9 +250,11 @@ Once more is known about which diagnosis/feedback types are most effective in wh
 \Textsize
 
 A simple web interface presents a learner with a German sentence to read aloud, with one word highlighted as the target for that exercise. The learner submits an utterance of the sentence for assessment. The learner's  realization of the target word's lexical stress pattern is diagnosed via one of the following options:
+
+
 %\Highlight{Diagnosis options:}
-\begin{itemize}
-\item{\Highlight{Classification} using machine learning [3]. Possible feature sets:
+\begin{itemize}[itemsep=.8em]
+\item{\Highlight{Classification} using machine learning [2]. Possible feature sets:
 	\begin{itemize}
 %	\item{Prosodic features of syllables/vowels:
 %		\begin{itemize}
@@ -261,7 +263,7 @@ A simple web interface presents a learner with a German sentence to read aloud, 
 %		\item{Intensity}
 %		\end{itemize}
 %	}
-	\item{Syllable-level prosodic features  (extracted with JSnoori [2]):
+	\item{Syllable-level prosodic features  (extracted with JSnoori [3]):
 		\begin{itemize}
 		\item{Duration}
 		\item{Fundamental frequency (F0)}
@@ -274,7 +276,7 @@ A simple web interface presents a learner with a German sentence to read aloud, 
 }
 \item{\Highlight{Comparison} to reference (native-speaker) utterance(s). Options:
 	\begin{itemize}
-	\item{One-to-one learner-to-reference comparison using JSnoori [2]}
+	\item{One-to-one learner-to-reference comparison using JSnoori [3]}
 	\item{One-to-many comparison (averaging one-to-one results)}
 	\item{Manual reference selection by either instructor or student}
 	\item{Automatic reference selection based on F0 mean and range}
@@ -340,7 +342,7 @@ A simple web interface presents a learner with a German sentence to read aloud, 
 %  \item{\Highlight{Implicit auditory feedback}:
 %		\begin{itemize}
 %		\item{Original learner and reference utterances (see \cref{fig:feedback})}
-%		\item{Prosodically modified learner utterance (using JSnoori [2])}
+%		\item{Prosodically modified learner utterance (using JSnoori [3])}
 %		\end{itemize}
 %  	}
   	%\end{itemize}
@@ -485,11 +487,21 @@ A simple web interface presents a learner with a German sentence to read aloud, 
 
 \begin{enumerate}[label={[\arabic*]}, leftmargin=34pt, topsep=0pt]
 
-\item{A. S. Vakil, "de-stress," \texttt{http://github.com/vakila/de-stress}.}
-
-\item{LORIA Speech Team, "JSnoori," \texttt{http://jsnoori.loria.fr}.}
+\item{
+	%A. S. Vakil, "de-stress," 
+	\texttt{http://github.com/vakila/de-stress}%
+	%.
+	}
 
 \item{A. S. Vakil and J. Trouvain, "Automatic classification of lexical stress errors for German CAPT," in \textit{SLaTE}, 2015.}
+
+\item{
+	%LORIA Speech Team, "JSnoori," 
+	\texttt{http://jsnoori.loria.fr}%
+	%.
+	}
+
+
 
 %\item{Trouvain, J., et al. 2013. ``Designing a bilingual speech corpus for French and German language learners''. \textit{Proc. Corpus et Outils en Linguistique, Langues et Parole}, Strasbourg, pp. 32-34.}
 \end{enumerate}

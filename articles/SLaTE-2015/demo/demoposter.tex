@@ -286,13 +286,13 @@ A simple web interface presents a learner with a German sentence to read aloud, 
 
 
 
-\begin{textblock}{7}(9, 2.5) {
+\begin{textblock}{7}(9, 2.75) {
 \banner
 } \end{textblock}
-\begin{textblock}{6.75}(9.25,2.75){
+\begin{textblock}{6.75}(9.25,3){
   \LHead{\titlecolor Feedback delivery}}
  \end{textblock}
- \begin{textblock}{7}(9, 3.5)
+ \begin{textblock}{7}(9, 3.75)
   \Textsize
   
   Based on the error diagnosis, one or more of the following types of feedback are presented to the learner via the web interface (see \cref{fig:feedback}). 
@@ -301,8 +301,10 @@ A simple web interface presents a learner with a German sentence to read aloud, 
 
 	\begin{figure}
 	\centering
-	\includegraphics[width=.7\textwidth]{../../../img/screenshots/StudentInterface-userIcon}
-	\caption{Feedback via graphical visualization (blue/green rectangles), text stylization (syllable text below rectangles), learner utterance playback (audio controls), and verbal message (green text).}
+	\includegraphics[width=.75\textwidth]{../../../img/screenshots/StudentInterface-userIcon}
+	\caption{Feedback via graphical visualization (blue/green rectangles), text stylization (syllable text below rectangles), 
+	%learner utterance playback (audio controls), 
+	and verbal message (green text).}
 	\label{fig:feedback}
 	\end{figure}
   
@@ -325,22 +327,22 @@ A simple web interface presents a learner with a German sentence to read aloud, 
   \end{figure}
   
   \begin{itemize}
-%  \item{\Highlight{Implicit feedback}:
+  \item{\Highlight{Implicit feedback} (see \cref{fig:feedback}):
 %  	\begin{itemize}
 %  	\item{\Highlight{Visual} (see \cref{fig:feedback}):
-  \item{\Highlight{Implicit visual feedback} (see \cref{fig:feedback}): 
+  %\item{\Highlight{Implicit visual feedback} (see \cref{fig:feedback}): 
 	  	\begin{itemize}
 	  	\item{Graphical visualization of syllable prosody}
 	  	\item{Text stylization reflecting syllable duration}
 	  	\end{itemize}
 	}
 	%\item{\Highlight{Auditory}: 
-  \item{\Highlight{Implicit auditory feedback}:
-		\begin{itemize}
-		\item{Original learner and reference utterances (see \cref{fig:feedback})}
-		\item{Prosodically modified learner utterance (using JSnoori [2])}
-		\end{itemize}
-  	}
+%  \item{\Highlight{Implicit auditory feedback}:
+%		\begin{itemize}
+%		\item{Original learner and reference utterances (see \cref{fig:feedback})}
+%		\item{Prosodically modified learner utterance (using JSnoori [2])}
+%		\end{itemize}
+%  	}
   	%\end{itemize}
   %}
   \item{\Highlight{Self-assessment} questionnaire for learner to complete % before receiving other feedback
@@ -359,24 +361,26 @@ A simple web interface presents a learner with a German sentence to read aloud, 
   %\section{Teaching and research tool}
 
   
-  \begin{textblock}{7}(9, 17) {
+  \begin{textblock}{7}(9, 16.25) {
 \banner
 } \end{textblock}
-\begin{textblock}{6.75}(9.25,17.25){
+\begin{textblock}{6.75}(9.25,16.5){
   \LHead{\titlecolor Administrative interface for teachers/researchers}}
  \end{textblock}
  %\begin{textblock}{7}(9, 18)
- \begin{textblock}{4}(12,17.9)
+ \begin{textblock}{3.85}(12,17.25)
   
   	\begin{figure}
 	%\centering
 	%\fcolorbox{gray!50}{white}{\includegraphics[width=.7\textwidth]{../FeedbackMethod}}
-	\includegraphics[width=.9\textwidth]{../../../img/screenshots/TeacherInterface-smaller-er}
-	\caption{\TODO{caption}}
+	\fcolorbox{gray!50}{white}{
+	\includegraphics[width=\textwidth]{../../../img/screenshots/TeacherInterface-smaller-er}
+	}
+	\caption{Admin. interface for creating a new exercise combining specific diagnosis and feedback options.}
 	\end{figure}	  
   
  \end{textblock}  
- \begin{textblock}{2.35}(9,18)
+ \begin{textblock}{2.35}(9,17.25)
    \Textsize
   %An administrative interface allows language teachers or CAPT researchers to combine the available diagnostic and feedback method(s) to create new exercises for learners. 
   This simple graphical interface allows a language teacher or CAPT researcher to create new exercises for students to complete. Each exercise features a specific combination of the various diagnosis and feedback options described above. %in the system. 

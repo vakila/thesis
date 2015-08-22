@@ -173,10 +173,13 @@ um$\cdot$FAHR$\cdot$en & vs. & UM$\cdot$fahr$\cdot$en \\
 \item{CAPT offers huge potential for individualized instruction}
 \vfill
 %\pause
-\item{Automatic detection of LS errors in L2 German unexplored}
+%\item{Most CAPT for prosody uses comparison-based approach}
 %\item{Typical approach: comparison with native (L1) reference speaker}
-%\item{Drawback: }
-\item{Recent work shows promising results using machine learning for classification of English stress patterns\footcite{Kim2011}
+%\item{Risk: too dependent on speaker or utterance}
+%\vfill
+%\pause
+\item{Classification of LS errors in L2 German unexplored}
+\item{Promising recent work using machine learning for classification of English stress patterns\footcite{Kim2011,Shahin2012a}
 %\begin{itemize}
 %\item{50-60\% accuracy on low-quality L2 English speech}
 %\end{itemize}
@@ -363,20 +366,127 @@ Subset of IFCASL corpus of French-German speech\footcite{Fauth2014}
 \end{frame}
 
 \section{Method}
-\subsection{Feature sets}
-\begin{frame}
-\end{frame}
-\subsection{Evaluation method}
-\begin{frame}
+
+\begin{frame}{Method}
+		Experiments:
+		\begin{itemize}
+		\item Trained CART classifiers using WEKA toolkit\footnote{www.cs.waikato.ac.nz/ml/weka}
+		\item Used error-annotated dataset for training/test data\\(gold-standard labels)
+		\item Used L1 utterances of the same words as training data \\(all automatically labeled [correct])
+		\end{itemize}
+		
+		\vfill
+		
+		Evaluated in terms of:
+		\begin{itemize}
+		\item \% accuracy (\% agreement with gold-standard labels) 
+		\item $\kappa$ with respect to gold standard
+		\end{itemize}
+		
+		\end{frame}
+		
+	\subsection{Feature sets}
+		\begin{frame}{Feature sets}
+		\textit{Which features are most useful for classification?}
+		\vfill
+		\begin{tabularx}{\textwidth}{lX}
+			%\begin{tabular}{ll}
+			\toprule
+			Feature set & Description \\
+			\midrule
+			DUR & Duration features \\
+			F0 & Fundamental frequency features \\
+			INT & Intensity features \\
+			\midrule
+			WD %WORD 
+				& Uttered word (e.g. \textit{Tatort}) \\
+			LV % LEVEL 
+				& Speaker's skill level  (A2$|$B1$|$B2$|$C1)\\
+			AG %GENDER 
+				& Speaker's age/gender  (Girl$|$Boy$|$Woman$|$Man)\\
+%			LV+AG & LEVEL, GENDER \\
+%			WD+LV & WORD, LEVEL \\
+%			WD+AG & WORD, GENDER \\
+%			WD+SPKR & WORD, LEVEL, GENDER \\
+			\bottomrule
+			\end{tabularx}		
+		\end{frame}
+		
+		\begin{frame}{Feature sets}
+		\textit{Which features are most useful for classification?}
+		\vfill
+		\begin{itemize}
+		\item Prosodic features
+			\begin{itemize}
+			\item DUR -Duration
+			\item F0 - Fundamental frequency
+			\item INT - Intensity 
+			\end{itemize}
+		\item WD - Word type (e.g. \textit{Flagge})
+		\item Speaker features
+			\begin{itemize}
+			\item LV - German proficiency level (A2$|$B1$|$B2$|$C1)
+			\item AG - Age/gender (Girl$|$Boy$|$Woman$|$Man)
+			\end{itemize}
+		\end{itemize}
+		\end{frame}
+
+
+\subsection{Training/testing datasets}
+\begin{frame}{Training/testing datasets}
 \end{frame}
 
 \section{Results}
-%\subsection{Feature set performance}
-\begin{frame}
-\end{frame}
-%\subsection{Performance on unseen speakers}
-\begin{frame}
-\end{frame}
+	\begin{frame}{Results}
+		\textit{How well can lexical stress errors be classified?}
+		\begin{figure}
+		\includegraphics<1>[width=\textwidth]{../../../colloquium/results-prosodicfeatures-newaxes}
+		\includegraphics<2>[width=\textwidth]{../../../colloquium/results-prosodicfeatures-newaxes-highlight}
+		\end{figure}
+		
+		%\vfill
+		\pause
+		Best performance using only prosodic features: DUR+F0
+		\begin{itemize}
+		\item \% Accuracy: 69.77\% 
+		\item $\kappa$: 0.29
+		\end{itemize}
+	\end{frame}
+		
+	\begin{frame}{Results}
+		\textit{How well can lexical stress errors be classified?}
+		\begin{figure}
+		\includegraphics<1>[width=\textwidth]{../../../colloquium/results-speakerword-durf0-neweraxes}
+		\includegraphics<2>[width=\textwidth]{../../../colloquium/results-speakerword-all-neweraxes}
+		\includegraphics<3>[width=\textwidth]{../../../colloquium/results-speakerword-all-neweraxes-highlight}
+		\end{figure}
+		
+		\pause
+		\pause
+		Best performance overall: WD+LV+DUR+F0+INT
+		\begin{itemize}
+		\item \% Accuracy: 71.87\%
+		\item $\kappa$: 0.34
+		\end{itemize}
+	\end{frame}
+	
+	\begin{frame}{Results}
+		\textit{How does classification accuracy compare \\with human agreement?}
+		\vfill
+		\begin{tabularx}{\textwidth}{Xcc}
+		\toprule
+		& \% agreement & $\kappa$ \\
+		\midrule
+		Best classifier vs. gold standard & 71.87\% & 0.34\\
+		Mean human vs. human & 54.92\%	&	0.23\\
+		\bottomrule
+		\end{tabularx}
+		\vfill
+		\begin{itemize}
+		\item Results are encouraging in this context
+		\item Still want better performance for real-world use
+		\end{itemize}
+	\end{frame}
 
 \section{Conclusions \& future work}
 \begin{frame}

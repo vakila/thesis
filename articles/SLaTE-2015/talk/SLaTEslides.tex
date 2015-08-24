@@ -208,11 +208,14 @@ Subset of IFCASL corpus of French-German speech\footcite{Fauth2014}
 %	\end{itemize}
 	
 %\vfill
+%\vspace{1em}
 
 %Manual annotation of lexical stress errors
+	Extracted utterances of 12 bisyllabic, initial-stress words
 	\begin{itemize}
-		\item{12 bisyllabic, initial-stress words (word types) extracted automatically}
-		\item{668 tokens from $\sim$55 French speakers}
+		%\item{Extracted utterances of 12 bisyllabic, initial-stress words}
+		\item{668 tokens from 56 French speakers - manually annotated}
+		\item{477 tokens from 40 German speakers - assumed correct}
 	\end{itemize}
 \end{frame}
 
@@ -368,73 +371,149 @@ Subset of IFCASL corpus of French-German speech\footcite{Fauth2014}
 \section{Method}
 
 \begin{frame}{Method}
-		Experiments:
+%		Experiments:
+%		\begin{itemize}
+%		\item Train CART classifiers using WEKA toolkit\footnote{\texttt{www.cs.waikato.ac.nz/ml/weka}}
+%		\item Use error-annotated L2 utterances for training/testing\\(gold-standard labels)
+%		\item Use L1 utterances of same words for training (all [correct])
+%		\end{itemize}
+		
+		Train \& evaluate CART classifiers using WEKA toolkit\footnote{\texttt{www.cs.waikato.ac.nz/ml/weka}}
+		
+		\vfill
+		
+		\structure{Training data}
 		\begin{itemize}
-		\item Trained CART classifiers using WEKA toolkit\footnote{www.cs.waikato.ac.nz/ml/weka}
-		\item Used error-annotated dataset for training/test data\\(gold-standard labels)
-		\item Used L1 utterances of the same words as training data \\(all automatically labeled [correct])
+			\item Manually annotated L2 utterances
+			\item Automatically annotated L1 utterances (all [correct])
+		\end{itemize}				
+		
+		\vfill
+		
+		\structure{Held-out testing data}
+		\begin{itemize}
+			\item{Feature comparison: 1/10 of L2 utterances (random)}
+			\item{Unseen speakers: all utterances from 1 of 56 L2 speakers}
 		\end{itemize}
 		
 		\vfill
 		
-		Evaluated in terms of:
+		\structure{Evaluation}
 		\begin{itemize}
-		\item \% accuracy (\% agreement with gold-standard labels) 
-		\item $\kappa$ with respect to gold standard
+			\item Compute agreement (\% and $\kappa$) with gold standard
+			\item Average across 10 or 56 folds
 		\end{itemize}
+		
+%		Evaluated in terms of:
+%		\begin{itemize}
+%		\item \% accuracy (\% agreement with gold-standard labels) 
+%		\item $\kappa$ with respect to gold standard
+%		\end{itemize}
 		
 		\end{frame}
 		
 	\subsection{Feature sets}
+%		\begin{frame}{Feature sets}
+%		\textit{Which features are most useful for classification?}
+%		\vfill
+%		\begin{tabularx}{\textwidth}{lX}
+%			%\begin{tabular}{ll}
+%			\toprule
+%			Feature set & Description \\
+%			\midrule
+%			DUR & Duration features \\
+%			F0 & Fundamental frequency features \\
+%			INT & Intensity features \\
+%			\midrule
+%			WD %WORD 
+%				& Uttered word (e.g. \textit{Tatort}) \\
+%			LV % LEVEL 
+%				& Speaker's skill level  (A2$|$B1$|$B2$|$C1)\\
+%			AG %GENDER 
+%				& Speaker's age/gender  (Girl$|$Boy$|$Woman$|$Man)\\
+%%			LV+AG & LEVEL, GENDER \\
+%%			WD+LV & WORD, LEVEL \\
+%%			WD+AG & WORD, GENDER \\
+%%			WD+SPKR & WORD, LEVEL, GENDER \\
+%			\bottomrule
+%			\end{tabularx}		
+%		\end{frame}
+
 		\begin{frame}{Feature sets}
-		\textit{Which features are most useful for classification?}
-		\vfill
-		\begin{tabularx}{\textwidth}{lX}
-			%\begin{tabular}{ll}
-			\toprule
-			Feature set & Description \\
-			\midrule
-			DUR & Duration features \\
-			F0 & Fundamental frequency features \\
-			INT & Intensity features \\
-			\midrule
-			WD %WORD 
-				& Uttered word (e.g. \textit{Tatort}) \\
-			LV % LEVEL 
-				& Speaker's skill level  (A2$|$B1$|$B2$|$C1)\\
-			AG %GENDER 
-				& Speaker's age/gender  (Girl$|$Boy$|$Woman$|$Man)\\
-%			LV+AG & LEVEL, GENDER \\
-%			WD+LV & WORD, LEVEL \\
-%			WD+AG & WORD, GENDER \\
-%			WD+SPKR & WORD, LEVEL, GENDER \\
-			\bottomrule
-			\end{tabularx}		
+		
+%		Best predictors of German stress: duration, fundamental frequency (F0), intensity\footcite{Dogil1999}
+%		
+%		\vspace{1em}
+
+		\structure{Prosodic feature sets}
+			\begin{itemize}
+			\item{DUR - Duration (relative syllable \& nucleus lengths)
+%				\begin{itemize}
+%					%\item{Best indicator of German stress\footcite{Dogil1999}}
+%					\item{Features: relative syllable \& nucleus length}
+%				\end{itemize}
+			}
+			\item{F0 - Fundamental frequency (mean, max., min., range)
+%				\begin{itemize}
+%					%\addtocounter{footnote}{-1}
+%					%\item Next best indicator after duration\footnotemark
+%					\item Pitch contours computed using JSnoori\footcite{DiMartino1999}
+%					\item{Features: relative F0 mean, max., min. and range in syllable \& nucleus}
+%				\end{itemize}
+			}
+			\item{INT - Intensity (mean, max.)
+%				\begin{itemize}
+%					%\item Worse indicator than duration/F0, but may still affect stress perception\footcite{Cutler2005}
+%					\item 
+%					\item Features: relative mean and maximum energy of syllable \& nucleus
+%				\end{itemize}
+			}
+			\end{itemize}		
+			
+%			\vspace{1em}
+%			
+%			Listed in order of importance for German stress\footcite{Dogil1999}
+			
+			\vspace{1em}
+			
+			Pitch and energy contours calculated using JSnoori software\footnote{\texttt{jsnoori.loria.fr}}%$^{,}$\footcite{DiMartino1999}
+			
+			\vfill
+			
+			For German stress, duration seemingly best indicator, then F0\footcite{Dogil1999}
+		
 		\end{frame}
 		
 		\begin{frame}{Feature sets}
-		\textit{Which features are most useful for classification?}
-		\vfill
-		\begin{itemize}
-		\item Prosodic features
+%		\textit{Which features are most useful for classification?}
+%		\vfill
+%		\begin{itemize}
+		\structure{Prosodic feature sets}
 			\begin{itemize}
-			\item DUR -Duration
+			\item DUR - Duration
 			\item F0 - Fundamental frequency
 			\item INT - Intensity 
 			\end{itemize}
-		\item WD - Word type (e.g. \textit{Flagge})
-		\item Speaker features
+			
+		\vspace{1em}	
+			
+		\structure{Other features}
 			\begin{itemize}
-			\item LV - German proficiency level (A2$|$B1$|$B2$|$C1)
-			\item AG - Age/gender (Girl$|$Boy$|$Woman$|$Man)
+			\item WD - Word uttered (e.g. \textit{Flagge})
+%			\item Speaker features
+%			\begin{itemize}
+			\item LV - Speaker's skill level (A2$|$B1$|$B2$|$C1)
+			\item AG - Speaker's age/gender (Girl$|$Boy$|$Woman$|$Man)
 			\end{itemize}
-		\end{itemize}
+%		\end{itemize}
+
+		%\vfill
 		\end{frame}
 
 
-\subsection{Training/testing datasets}
-\begin{frame}{Training/testing datasets}
-\end{frame}
+%\subsection{Training/testing datasets}
+%\begin{frame}{Training/testing datasets}
+%\end{frame}
 
 \section{Results}
 	\begin{frame}{Results}
@@ -470,6 +549,11 @@ Subset of IFCASL corpus of French-German speech\footcite{Fauth2014}
 		\end{itemize}
 	\end{frame}
 	
+	
+	\begin{frame}{Results}
+		\structure{Unseen speakers}
+	\end{frame}
+	
 	\begin{frame}{Results}
 		\textit{How does classification accuracy compare \\with human agreement?}
 		\vfill
@@ -487,9 +571,11 @@ Subset of IFCASL corpus of French-German speech\footcite{Fauth2014}
 		\item Still want better performance for real-world use
 		\end{itemize}
 	\end{frame}
+	
+
 
 \section{Conclusions \& future work}
-\begin{frame}
+\begin{frame}{Conclusions}
 \end{frame}
 
 \section{References}

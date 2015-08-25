@@ -569,16 +569,20 @@ Subset of IFCASL corpus of French-German speech\footcite{Fauth2014}
 	\end{frame}
 	
 	\begin{frame}{Results}
-		\textit{How does classification accuracy compare \\with human agreement?}
-		\vfill
-		\begin{tabularx}{\textwidth}{Xcc}
+%		\textit{How does classification accuracy compare \\with human agreement?}
+%		\vfill
+		%\begin{tabularx}{\textwidth}{Xcc}
+		\begin{center}
+		\begin{tabular}{lcc}
 		\toprule
 		& \% agreement & $\kappa$ \\
 		\midrule
 		Best classifier vs. gold standard & 71.87\% & 0.34\\
-		Mean human vs. human & 54.92\%	&	0.23\\
+		Majority baseline vs. gold standard & 63.77\% & 0.00 \\
+		Human vs. human & 54.92\%	&	0.23\\
 		\bottomrule
-		\end{tabularx}
+		\end{tabular}
+		\end{center}
 		\vfill
 		\begin{itemize}
 		\item Results are encouraging in this context

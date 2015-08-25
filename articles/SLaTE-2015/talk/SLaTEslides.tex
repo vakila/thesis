@@ -580,6 +580,13 @@ Subset of IFCASL corpus of French-German speech\footcite{Fauth2014}
 		Best classifier vs. gold standard & 71.87\% & 0.34\\
 		Majority baseline vs. gold standard & 63.77\% & 0.00 \\
 		Human vs. human & 54.92\%	&	0.23\\
+		
+%		Best classifier vs. gold standard &&\\
+%		\hspace{5mm} Random test set & 71.87\% & 0.34\\
+%		\hspace{5mm} Unseen speakers & 70.22\% & 0.24\\
+%		Majority baseline (random test set) & 63.77\% & 0.00 \\
+%		Human vs. human & 54.92\%	&	0.23\\		
+		
 		\bottomrule
 		\end{tabular}
 		\end{center}
@@ -592,11 +599,27 @@ Subset of IFCASL corpus of French-German speech\footcite{Fauth2014}
 	
 
 
-\section{Conclusions \& future work}
-\begin{frame}{Conclusions}
+\section{Conclusion \& future work}
+\begin{frame}{Conclusion}
+
+\begin{itemize}
+	\item{Classification-based diagnosis of lexical stress errors\\novel approach in German CAPT}
+	\item{Results of $>$70\% accuracy encouraging\\
+	(especially considering low human-human agreement)}
+	\item{Still much room for improvement}
+\end{itemize}
+\vfill
+\structure{Future directions}
+\begin{itemize}
+	\item{More powerful machine learning algorithms}
+	\item{Additional features (e.g. vowel quality, phrase information)}
+	\item{Online, semi-supervised learning/active learning}
+\end{itemize}
+
 \end{frame}
 
 \section{References}
+\setbeamertemplate{footline}{} 
 \begin{frame}[noframenumbering]{Selected references}
 \renewcommand*{\bibfont}{\footnotesize}
     \printbibliography
